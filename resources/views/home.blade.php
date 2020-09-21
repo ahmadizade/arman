@@ -4,11 +4,24 @@
     <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
 @endsection
 
-@section("content")
-   <h1>Helllo world</h1>
 
-   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login-register">
-       Launch demo modal
-   </button>
+
+@extends("partials.header")
+
+@section("content")
+
+
+    <div class="site-blocks-cover" style="background-image:url({{url('/images/samin/bgsamin.jpg')}})"
+         id="home-section">
+    </div>
+
+
+
+
+
+
 
 @endsection
+
+
+

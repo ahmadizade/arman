@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{url('/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url('/css/style.css')}}">
+    <link rel="stylesheet" href="{{url('/fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{url('/fonts/flaticon/font/flaticon.css')}}">
+
     @yield("title")
-    @yield("header")
 </head>
 <body>
+{{--//Down Script\\--}}
+<script src="{{url('/js/jquery.min.js')}}"></script>
+<script src="{{url('/js/bootstrap.min.js')}}"></script>
+<script src="https://use.fontawesome.com/f7ae936a05.js"></script>
+
+{{--//Down Script\\--}}
+
 
 @yield("content")
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+
 <div class="modal fade" id="login-register" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -34,7 +42,6 @@
         </div>
     </div>
 </div>
-
 <script>
     $("#mobile-submit").on("click",function(){
         $.ajax({
@@ -52,6 +59,8 @@
     });
 </script>
 
-@yield("footer")
+@extends("partials.footer")
+
+<script src="{{url('/js/main.js')}}"></script>
 </body>
 </html>
