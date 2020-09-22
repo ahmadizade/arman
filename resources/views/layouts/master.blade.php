@@ -11,21 +11,20 @@
     <link rel="stylesheet" href="{{url('/css/style.css')}}">
     <link rel="stylesheet" href="{{url('/fonts/icomoon/style.css')}}">
     <link rel="stylesheet" href="{{url('/fonts/flaticon/font/flaticon.css')}}">
-
+    @yield("extra_css")
     @yield("title")
 </head>
 <body>
-{{--//Down Script\\--}}
-<script src="{{url('/js/jquery.min.js')}}"></script>
-<script src="{{url('/js/bootstrap.min.js')}}"></script>
 
-<script src="https://use.fontawesome.com/f7ae936a05.js"></script>
-
-{{--//Down Script\\--}}
-
+@include("partials.header")
 
 @yield("content")
 
+@include("partials.footer")
+
+<script src="{{url('/js/jquery.min.js')}}"></script>
+<script src="{{url('/js/bootstrap.min.js')}}"></script>
+<script src="https://use.fontawesome.com/f7ae936a05.js"></script>
 
 <div class="modal fade" id="login-register" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
@@ -63,7 +62,7 @@
     });
 </script>
 
-@extends("partials.footer")
+
 <script src="{{url('/js/owl.carousel.min.js')}}"></script>
 <script src="{{url('/js/main.js')}}"></script>
 

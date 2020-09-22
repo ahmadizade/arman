@@ -1,4 +1,4 @@
-    {{--    MOBILE AND DESKTOP HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--}}
+
     <div class="site-mobile-menu text-right rtl site-navbar-target">
         <div class="site-mobile-menu-header">
             <div class="site-mobile-menu-close mt-3">
@@ -90,6 +90,5 @@
             </div>
         </div>
     </header>
-    {{--    MOBILE AND DESKTOP HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--HEADER--}}
 
 

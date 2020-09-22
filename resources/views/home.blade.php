@@ -4,10 +4,6 @@
     <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
 @endsection
 
-
-
-@extends("partials.header")
-
 @section("content")
 
 
@@ -681,8 +677,6 @@
 
 
 @endsection
-
-
 
 @section('extra_js')
     <script src="{{url('/js/app_jquery.js')}}"></script>
