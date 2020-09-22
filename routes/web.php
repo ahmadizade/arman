@@ -18,6 +18,8 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 Route::get('/tahator', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
 //admin/login
 Route::get('/tahator/login', 'App\Http\Controllers\AdminController@tahator_login')->name("tahator_login");
+
+Route::get('/tahator/register', 'App\Http\Controllers\AdminController@tahator_register')->name("tahator_register");
 // admin admin admin admin admin admin admin
 
 
