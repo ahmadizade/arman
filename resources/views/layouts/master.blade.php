@@ -12,16 +12,15 @@
     @yield("title")
 </head>
 <body>
-{{--//Down Script\\--}}
-<script src="{{url('/js/jquery.min.js')}}"></script>
-<script src="{{url('/js/bootstrap.min.js')}}"></script>
-<script src="https://use.fontawesome.com/f7ae936a05.js"></script>
-
-{{--//Down Script\\--}}
-
 
 @yield("content")
 
+
+
+
+<script src="{{url('/js/jquery.min.js')}}"></script>
+<script src="{{url('/js/bootstrap.min.js')}}"></script>
+<script src="https://use.fontawesome.com/f7ae936a05.js"></script>
 
 <div class="modal fade" id="login-register" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
