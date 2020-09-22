@@ -21,3 +21,9 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 // auth
 Route::post('/login-token', 'App\Http\Controllers\LoginController@loginToken')->name("login_token");
 Route::post('/login-token-action', 'App\Http\Controllers\LoginController@loginTokenAction')->name("login_token_action");
+Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name("logout");
+
+
+Route::middleware(['auth'])->namespace("profile")->group(function () {
+    Route::get('/', 'App\Http\Controllers\ProfileController@index')->name("index");
+});
