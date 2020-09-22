@@ -410,9 +410,9 @@ $(document).ready(function () {
 
 
 //date picker business form page
-    $("#shdr_referred_date, #created_at, #mortgage_date, #refund_credit_from ,#refund_credit_until").persianDatepicker({
-        formatDate: "YYYY/MM/DD",
-    });
+//     $("#shdr_referred_date, #created_at, #mortgage_date, #refund_credit_from ,#refund_credit_until").persianDatepicker({
+//         formatDate: "YYYY/MM/DD",
+//     });
 
 //MAJIDI
     // $("#s-btn").on("click",function(e){
