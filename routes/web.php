@@ -2,21 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-
-
-
-
-
-
-
 // home
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 
 // admin admin admin admin admin admin admin
-//admin/home
 Route::get('/tahator', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
-//admin/login
 Route::get('/tahator/login', 'App\Http\Controllers\AdminController@tahator_login')->name("tahator_login");
 // admin admin admin admin admin admin admin
 
@@ -27,6 +17,7 @@ Route::post('/login-token-action', 'App\Http\Controllers\LoginController@loginTo
 Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name("logout");
 
 
-Route::middleware(['auth'])->namespace("profile")->group(function () {
-    Route::get('/', 'App\Http\Controllers\ProfileController@index')->name("index");
+Route::middleware(['auth'])->prefix("profile")->group(function () {
+    Route::get('/', 'App\Http\Controllers\ProfileController@index')->name("profile_index");
+    Route::get('/profile-edit', 'App\Http\Controllers\ProfileController@profileEdit')->name("profile_edit");
 });

@@ -32,7 +32,8 @@
                                 <li class="has-children">
                                     <a href="#profile" class="nav-link">{{ Auth::user()->mobile }}</a>
                                     <ul class="dropdown text-right rtl">
-                                        <li><a class="nav-link">{{ Auth::user()->credit }} ریال </a></li>
+                                        <li><a class="nav-link"> اعتبار {{ number_format(Auth::user()->credit) }} ریال </a></li>
+                                        <li><a href="{{ route("profile_index") }}" class="nav-link">پروفایل</a></li>
                                         <li><a href="{{ route("logout") }}" class="nav-link">خروج</a></li>
                                     </ul>
                                 </li>
@@ -75,7 +76,7 @@
                                     <li><a href="#" class="nav-link bg-danger text-white">قرعه کشی</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#" class="nav-link">صفحه اصلی</a></li>
+                            <li><a href="/" class="nav-link">صفحه اصلی</a></li>
                             <li class="has-children">
                                 @if (\Illuminate\Support\Facades\Session::has('user') || isset($user))
                                     <span><a href="#" class="nav-link icon-verified_user"></a></span>
