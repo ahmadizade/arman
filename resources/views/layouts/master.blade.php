@@ -35,7 +35,7 @@
                     <span>&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div id="auth" class="modal-body">
                 <p class="mb-0 text-muted">شماره موبایل خود را وارد نمایید</p>
                 <div class="form-group">
                     <input type="tel" class="form-control shadow text-center" autocomplete="off" id="mobile" maxlength="11">
@@ -52,10 +52,11 @@
             type: 'POST',
             data: {"mobile":$("#mobile").val()},
             success: function(data) {
-                if(data == 0){
-                    alert("شماره موبایل اشتباه می باشد");
+                console.log(data);
+                if(data.status == "0"){
+                    alert(data.desc);
                 }else{
-                    alert("sik shod");
+                    $("#auth").html(data);
                 }
             },
         });

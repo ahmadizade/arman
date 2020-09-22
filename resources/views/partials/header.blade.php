@@ -24,7 +24,21 @@
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
 
-                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block myfont">
+                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+
+                            @if(!Auth::check())
+                                <li><a href="#" class="nav-link text-primary" data-toggle="modal" data-target="#login-register">ورود / ثبت نام</a></li>
+                            @else
+                                <li class="has-children">
+                                    <a href="#profile" class="nav-link">{{ Auth::user()->mobile }}</a>
+                                    <ul class="dropdown text-right rtl">
+                                        <li><a class="nav-link"> اعتبار {{ number_format(Auth::user()->credit) }} ریال </a></li>
+                                        <li><a href="{{ route("profile_index") }}" class="nav-link">پروفایل</a></li>
+                                        <li><a href="{{ route("logout") }}" class="nav-link">خروج</a></li>
+                                    </ul>
+                                </li>
+                            @endif
+
                             <li><a href="#" class="nav-link text-primary">فروشنده شوید</a></li>
 
                             <li><a href="#contact-section" class="nav-link">ثمین کارت</a></li>
@@ -62,7 +76,7 @@
                                     <li><a href="#" class="nav-link bg-danger text-white">قرعه کشی</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#" class="nav-link">صفحه اصلی</a></li>
+                            <li><a href="/" class="nav-link">صفحه اصلی</a></li>
                             <li class="has-children">
                                 @if (\Illuminate\Support\Facades\Session::has('user') || isset($user))
                                     <span><a href="#" class="nav-link icon-verified_user"></a></span>
@@ -74,12 +88,6 @@
                                     <li><a href="#" class="nav-link">خروج</a></li>
                                 </ul>
                             </li>
-                            <li class="social"><a href="#contact-section" class="nav-link"><span
-                                            class="icon-shopping-bag" title="ثبت فروشگاه"></span></a></li>
-                            <li class="social"><a href="#contact-section" class="nav-link"><span
-                                            class="icon-user-plus text-primary" title="ثبت نام" data-toggle="modal" data-target="#login-register"></span></a></li>
-                            <li class="social"><a href="#contact-section" class="nav-link"><span
-                                            class="icon-shopping-cart" title="سبد خرید"></span></a></li>
                         </ul>
                     </nav>
                 </div>
