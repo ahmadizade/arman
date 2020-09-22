@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{url('/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('/css/style.css')}}">
+    <link rel="stylesheet" href="{{url('/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{url('/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{url('/css/style.css')}}">
     <link rel="stylesheet" href="{{url('/fonts/icomoon/style.css')}}">
     <link rel="stylesheet" href="{{url('/fonts/flaticon/font/flaticon.css')}}">
 
@@ -15,6 +18,7 @@
 {{--//Down Script\\--}}
 <script src="{{url('/js/jquery.min.js')}}"></script>
 <script src="{{url('/js/bootstrap.min.js')}}"></script>
+
 <script src="https://use.fontawesome.com/f7ae936a05.js"></script>
 
 {{--//Down Script\\--}}
@@ -60,7 +64,11 @@
 </script>
 
 @extends("partials.footer")
-
+<script src="{{url('/js/owl.carousel.min.js')}}"></script>
 <script src="{{url('/js/main.js')}}"></script>
+
+
+@yield('extra_js')
+
 </body>
 </html>
