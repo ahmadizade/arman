@@ -434,14 +434,7 @@
                             </div>
                         </div>
                     </div>
-
-                    @if(Session::has('status'))
-                        <p class="alert bg-success text-center text-white">{{Session::get('status')}}</p>
-                    @elseif(Session::has('error'))
-                        <p class="alert bg-danger text-center text-white">{{Session::get('error')}}</p>
-                    @endif
-
-                <!-- Bootstrap Modal User Info-->
+                    <!-- Bootstrap Modal User Info-->
                     <div class="modal fade" id="login-register" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -452,6 +445,7 @@
                                     </button>
                                 </div>
                                 <form id="save-user-form" class="modal-body text-center">
+                                    <div id="error_box" class="my-1"></div>
                                     <p id="res_msg" class="mb-1"></p>
                                     {{--                                <//Mobile\\>--}}
                                     <div class="col-12">
@@ -459,8 +453,8 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">شماره تماس</span>
                                             </div>
-                                            <input id="res-mobile" name="res_mobile" type="text"
-                                                   class="form-control bg-muted">
+                                            <input id="res-mobile" name="res_mobile" type="number"
+                                                   class="form-control bg-muted" required autofocus>
                                         </div>
                                     </div>
 
@@ -470,7 +464,7 @@
                                                 <span class="input-group-text font-12">نام</span>
                                             </div>
                                             <input id="res-name" name="res_name" type="text"
-                                                   class="form-control bg-muted">
+                                                   class="form-control bg-muted" required autofocus>
                                         </div>
                                     </div>
 
@@ -480,7 +474,7 @@
                                                 <span class="input-group-text font-12">Role</span>
                                             </div>
                                             <input id="res-role" name="res_role" type="text"
-                                                   class="form-control bg-muted">
+                                                   class="form-control bg-muted" required autofocus>
                                         </div>
                                     </div>
 
@@ -490,7 +484,7 @@
                                                 <span class="input-group-text font-12">Verified</span>
                                             </div>
                                             <input id="res-verified" name="res_verified" type="text"
-                                                   class="form-control bg-muted">
+                                                   class="form-control bg-muted" required autofocus>
                                         </div>
                                     </div>
 
@@ -500,7 +494,7 @@
                                                 <span class="input-group-text font-12">User Mode</span>
                                             </div>
                                             <input id="res-user_mode" name="res_user_mode" type="text"
-                                                   class="form-control bg-muted">
+                                                   class="form-control bg-muted" required autofocus>
                                         </div>
                                     </div>
 
@@ -510,7 +504,8 @@
                                                 <span class="input-group-text font-12">Email</span>
                                             </div>
                                             <input id="res-email" name="res_email" type="text"
-                                                   class="form-control bg-muted">
+                                                   class="form-control bg-muted"
+                                                   required autofocus>
                                         </div>
                                     </div>
 
@@ -519,8 +514,8 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">Credit</span>
                                             </div>
-                                            <input id="res-credit" name="res_credit" type="text" disabled
-                                                   class="form-control bg-muted">
+                                            <input id="res-credit" name="res_credit" type="text"
+                                                   class="form-control bg-muted" required autofocus>
                                         </div>
                                     </div>
 
@@ -530,7 +525,7 @@
                                                 <span class="input-group-text font-12">تاریخ ساخت</span>
                                             </div>
                                             <input id="res-created_at" name="res_created_at" type="text" disabled
-                                                   class="form-control bg-muted">
+                                                   class="form-control bg-muted" required autofocus>
                                         </div>
                                     </div>
 
@@ -539,8 +534,8 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">آخرین تغییرات</span>
                                             </div>
-                                            <input id="res-updated_at" name="res_updated_at" type="text" disabled
-                                                   class="form-control bg-muted">
+                                            <input id="res-updated_at" name="res_updated_at" type="text"
+                                                   class="form-control  bg-muted" required autofocus>
                                         </div>
                                     </div>
                                     {{--                                <//Mobile\\>--}}
@@ -616,12 +611,13 @@
                                                     url: '{{route('save_user')}}',
                                                     data: $("#save-user-form").serialize(),
                                                     success: function (res) {
-                                                        if (res.status == 0) {
-                                                            $("#res_msg").html(res.desc);
-                                                            $("#res_msg").css("color", "red");
-                                                        } else {
+                                                        if (res.status == 1) {
                                                             $("#res_msg").html(res.desc);
                                                             $("#res_msg").css("color", "green");
+                                                        } else {
+                                                            $.each(res.errors, function(i, item) {
+                                                                $("#error_box").append('<p class="text-danger">' + res.errors[i] + '</p>');
+                                                            });
                                                         }
                                                     }
                                                 });

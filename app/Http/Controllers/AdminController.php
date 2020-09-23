@@ -54,29 +54,30 @@ class AdminController extends Controller
     public function save_user(request $request)
     {
         $validator = Validator::make($request->all(), [
-            'res_mobile' => ['string', 'max:455',],
-            'res_name' => ['string', 'max:455',],
-            'res_role' => ['string', 'max:1900',],
-            'res_verified' => ['string', 'max:255',],
-            'res_user_mode' => ['string', 'max:255'],
-            'res_email' => ['string', 'max:255'],
-            'res_credit' => ['string', 'max:255'],
-            'res_updated_at' => ['string', 'max:255'],
+            'res_mobile' => ['required','string', 'min:10', 'max:56',],
+            'res_name' => ['required','string', 'min:5', 'max:128',],
+            'res_role' => ['required','string', 'max:56',],
+            'res_verified' => ['required','string', 'max:56',],
+            'res_user_mode' => ['required','string', 'max:56'],
+            'res_email' => ['required','string', 'min:10', 'max:128'],
+            'res_credit' => ['required','string', 'max:56'],
+            'res_updated_at' => ['required','string', 'max:56'],
         ]);
         if ($validator->fails()) {
-//            Session:: flash('error', 'مقادیر وارد شده صحیح نیست');
+            return response()->json(['errors' => $validator->errors()->all()]);
 //            return back()->withErrors($validator)->withInput();
-            return Response::json(["status" => "0", "desc" => "اطلاعات غلطه"]);
         } else {
 //            $user = DB::table('users')->where('mobile', $request->res_mobile)->first();
-//            $user->name = $request->res_name;
-//            $user->role = $request->res_role;
-//            $user->verified = $request->res_verified;
-//            $user->user_mode = $request->res_user_mode;
-//            $user->email = $request->res_email;
-//            $user->credit = $request->res_credit;
-//            $user->updated_at = Jalalian::now();
-//            $user->save();
+            $user = User::where('mobile', $request->res_mobile)->first();
+            $user->name = $request->res_name;
+            $user->mobile = $request->res_mobile;
+            $user->role = $request->res_role;
+            $user->verified = $request->res_verified;
+            $user->user_mode = $request->res_user_mode;
+            $user->email = $request->res_email;
+            $user->credit = $request->res_credit;
+            $user->updated_at = Jalalian::now();
+            $user->save();
             return Response::json(["status" => "1", "desc" => "ذخیره با موفقیت انجام شد"]);
         }
     }
