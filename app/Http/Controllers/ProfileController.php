@@ -18,12 +18,13 @@ class ProfileController extends Controller
         return view('profile.add_product', ["user" => Auth::user()]);
     }
 
-    public function ProfileEdit(){
-        return view("profile.profile",["user" => Auth::user()]);
+    public function ProfileEdit()
+    {
+        return view("profile.profile", ["user" => Auth::user()]);
     }
 
-    public function ProfileEditAction(Request $request){
-
+    public function ProfileEditAction(Request $request)
+    {
         $request->validate([
             'email' => 'nullable|email|max:255',
             'sex' => 'nullable|max:1',
@@ -37,12 +38,12 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
-        User::where("mobile",$user->mobile)->update([
+        User::where("mobile", $user->mobile)->update([
             "email" => $request->email,
             "name" => $request->name,
         ]);
 
-        Profile::where("user_id",$user->id)->update([
+        Profile::where("user_id", $user->id)->update([
             "bank_cart_number" => $request->bank_cart_number,
             "sheba" => $request->sheba,
             "phone" => $request->phone,
@@ -50,21 +51,17 @@ class ProfileController extends Controller
             "city_code" => $request->state,
         ]);
 
-        session()->flash("status","پروفایل با موفقیت بروزرسانی شد");
+        session()->flash("status", "پروفایل با موفقیت بروزرسانی شد");
 
-        if(isset($request->password) && strlen($request->password)){
-            User::where("mobile",$user->mobile)->update([
+        if (isset($request->password) && strlen($request->password)) {
+            User::where("mobile", $user->mobile)->update([
                 "password" => Hash::make($request->password),
             ]);
-            session()->flash("status","پروفایل و رمز عبور شما با موفقیت بروزرسانی شد");
+            session()->flash("status", "پروفایل و رمز عبور شما با موفقیت بروزرسانی شد");
         }
 
         return back();
 
     }
 
-    public function AddProduct()
-    {
-        return view('profile.add_product', ["user" => Auth::user()]);
-    }
 }

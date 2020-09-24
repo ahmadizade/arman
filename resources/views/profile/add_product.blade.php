@@ -16,8 +16,6 @@
                     <textarea name="desc" id="desc" cols="30" rows="7"
                               class="form-control"
                               placeholder="توضیحات..."></textarea>
-
-
                 </div>
             </div>
             @endsection
