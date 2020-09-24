@@ -8,8 +8,9 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 // admin admin admin admin admin admin admin
 Route::get('/tahator', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
 Route::get('/tahator/login', 'App\Http\Controllers\AdminController@tahator_login')->name("tahator_login");
-
 Route::get('/tahator/register', 'App\Http\Controllers\AdminController@tahator_register')->name("tahator_register");
+Route::post('/tahator/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user");
+Route::post('/tahator/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user");
 // admin admin admin admin admin admin admin
 
 
