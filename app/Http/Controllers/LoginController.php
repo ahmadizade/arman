@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
-    public function loginToken(Request $request){
+    public function LoginToken(Request $request){
 
         $mobile = self::faToEn($request->mobile);
 
@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     }
 
-    public function loginTokenAction(Request $request){
+    public function LoginTokenAction(Request $request){
 
         $mobile = self::faToEn($request->mobile);
         $code = self::faToEn($request->code);
@@ -104,7 +104,7 @@ class LoginController extends Controller
 
     }
 
-    public function logout(){
+    public function Logout(){
 
         if(Auth::check()){
 

@@ -8,12 +8,7 @@
 
     <div class="container" style="margin-top: 80px">
         <div class="row">
-            <div class="col-12 col-lg-3">
-                <div class="list-group mt-3">
-                    <a href="#" class="list-group-item list-group-item-action active">تنظیمات کاربری</a>
-                    <a href="{{ route("logout") }}" class="list-group-item list-group-item-action">خروج</a>
-                </div>
-            </div>
+           @include("profile.sidebar")
             <div class="col-12 col-lg-9">
                 <div class="card mt-3">
                     <div class="card-header bg-secondary text-white p-2">
@@ -38,9 +33,9 @@
                                             <span class="input-group-text font-12">نوع کاربری</span>
                                         </div>
                                         @if($user->user_mode == "normal")
-                                            <input type="text" class="form-control disabled bg-muted" disabled value="کاربر عادی">
+                                            <input type="text" class="form-control disabled bg-muted" disabled value="کاربر عادی -@if($user->status == "active") فعال @else غیر فعال @endif">
                                         @elseif($user->user_mode == "gold")
-                                            <input type="text" class="form-control disabled bg-warning" disabled value="کاربر طلایی">
+                                            <input type="text" class="form-control disabled bg-warning" disabled value="کاربر طلایی -@if($user->status == "active") فعال @else غیر فعال @endif">
                                         @endif
                                     </div>
                                 </div>
@@ -75,7 +70,7 @@
                                     <input type="text" name="phone" class="form-control my-2" placeholder="شماره تماس" value="{{ $user->profile->phone }}">
                                 </div>
                                 <div class="col-12 col-lg-4">
-                                    <select style="height: 34px;" class="form-control font-12" name="state" onchange="cities(this.value);">
+                                    <select style="height: 34px;" class="form-control font-12 my-2" name="state" onchange="cities(this.value);">
                                     <option value="0">لطفا استان را انتخاب نمایید</option>
                                     <option selected="" value="1">تهران</option>
                                     <option value="2">گیلان</option>
@@ -109,6 +104,22 @@
                                     <option value="30">خراسان جنوبی</option>
                                     <option value="31">البرز</option>
                                 </select>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group my-2">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text font-12">شماره کارت</span>
+                                        </div>
+                                        <input type="text" name="email" class="form-control" value="{{ $user->email }}">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group my-2">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text font-12">شبا</span>
+                                        </div>
+                                        <input type="text" name="email" class="form-control" value="{{ $user->email }}">
+                                    </div>
                                 </div>
                             </div>
                         </form>

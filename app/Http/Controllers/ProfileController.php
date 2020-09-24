@@ -8,7 +8,13 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
 
-    public function index(){
+    public function AddProduct(){
+
+        return 111;
+
+    }
+
+    public function Index(){
         return view("profile.index",["user" => Auth::user()]);
     }
 
