@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Morilog\Jalali\Jalalian;
 
 class ProfileController extends Controller
 {
@@ -16,7 +20,59 @@ class ProfileController extends Controller
     public function AddProduct()
     {
         return view('profile.add_product', ["user" => Auth::user()]);
+
     }
+
+    public function AddProductAction(Request $request)
+    {
+        $request->validate([
+            'name' => 'nullable|max:255',
+            'price' => 'nullable|max:128',
+            'mobile' => 'nullable|max:32',
+            'desc' => 'nullable|max:512',
+            'discount' => 'nullable|max:128',
+            'quantity' => 'nullable|numeric|max:128',
+            'stock' => 'nullable|max:32',
+            'file' => 'image|mimes:jpg,jpeg,bmp,png|nullable',
+        ]);
+
+        if (isset($request->file)) {
+            $exists = Storage::disk('vms')->exists($request->file('file')->getClientOriginalName());
+            if ($exists == true) {
+                $name = pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_FILENAME);
+                $name = $name . "-" . time();
+                $name = $name . "." . $request->file('file')->getClientOriginalExtension();
+                Storage::disk('vms')->put($name, file_get_contents($request['file']));
+            } else {
+                $name = $request->file('file')->getClientOriginalName();
+                Storage::disk('vms')->put($request->file('file')->getClientOriginalName(), file_get_contents($request['file']));
+            }
+
+
+            Product::create([
+                "user_id" => Auth::id(),
+                "category_id" => "2",
+                "product_name" => $request->name,
+                "product_slug" => Str::slug($request->name),
+                "price" => $request->price,
+                "mobile" => $request->mobile,
+                "product_desc" => $request->desc,
+                "discount" => $request->discount,
+                "status" => "0",
+                "quantity" => $request->quantity,
+                "stock" => $request->stock,
+                "image" => $name,
+                "created_at" => Jalalian::now(),
+                "updated_at" => Jalalian::now(),
+            ]);
+
+            session()->flash("status", "ثبت کالا با موفقیت انجام شد");
+            return back();
+        }
+        session()->flash("error", "اطلاعات وارد شده صحیح نیست");
+        return back();
+    }
+
 
     public function ProfileEdit()
     {

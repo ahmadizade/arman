@@ -30,6 +30,7 @@ Route::get('/logout', 'App\Http\Controllers\LoginController@Logout')->name("logo
 Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::get('/', 'App\Http\Controllers\ProfileController@Index')->name("profile_index");
     Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product");
+    Route::post('/add-product-action', 'App\Http\Controllers\ProfileController@AddProductAction')->name("add_product_action");
     Route::get('/edit', 'App\Http\Controllers\ProfileController@ProfileEdit')->name("profile_edit");
     Route::post('/edit-action', 'App\Http\Controllers\ProfileController@ProfileEditAction')->name("profile_edit_action");
 });
