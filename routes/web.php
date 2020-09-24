@@ -26,7 +26,6 @@ Route::get('/logout', 'App\Http\Controllers\LoginController@Logout')->name("logo
 
 
 
-
 // profile
 Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product");

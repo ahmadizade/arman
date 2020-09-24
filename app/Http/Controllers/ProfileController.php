@@ -7,15 +7,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-
-    public function AddProduct(){
-
-        return 111;
-
+    public function Index()
+    {
+        return view("profile.index", ["user" => Auth::user()]);
     }
 
-    public function Index(){
-        return view("profile.index",["user" => Auth::user()]);
+    public function AddProduct()
+    {
+        return view('profile.add_product', ["user" => Auth::user()]);
     }
-
 }
