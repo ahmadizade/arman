@@ -28,7 +28,8 @@ Route::get('/logout', 'App\Http\Controllers\LoginController@Logout')->name("logo
 
 // profile
 Route::middleware(['auth'])->prefix("profile")->group(function () {
-    Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product");
     Route::get('/', 'App\Http\Controllers\ProfileController@Index')->name("profile_index");
-    Route::get('/profile-edit', 'App\Http\Controllers\ProfileController@ProfileEdit')->name("profile_edit");
+    Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product");
+    Route::get('/edit', 'App\Http\Controllers\ProfileController@ProfileEdit')->name("profile_edit");
+    Route::post('/edit-action', 'App\Http\Controllers\ProfileController@ProfileEditAction')->name("profile_edit_action");
 });

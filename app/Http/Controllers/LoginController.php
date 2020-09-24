@@ -85,7 +85,8 @@ class LoginController extends Controller
                     ]);
 
                     Profile::create([
-                        "user_id" => $user
+                        "user_id" => $user,
+                        "city_code" => 0
                     ]);
 
                     Auth::loginUsingId($user, true);
