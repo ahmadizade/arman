@@ -19,8 +19,8 @@ class ProfileController extends Controller
 
     public function AddProduct()
     {
-        return view('profile.add_product', ["user" => Auth::user()]);
-
+        $product = Product::orderBy('id' , 'desc')->where('user_id' , Auth::id())->get();
+        return view('profile.add_product', ["user" => Auth::user() , "product" => $product]);
     }
 
     public function AddProductAction(Request $request)
@@ -72,7 +72,10 @@ class ProfileController extends Controller
         session()->flash("error", "اطلاعات وارد شده صحیح نیست");
         return back();
     }
-
+    public function DeleteProductAction (Request $request)
+    {
+        return $request;
+    }
 
     public function ProfileEdit()
     {

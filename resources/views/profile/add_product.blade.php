@@ -12,7 +12,8 @@
             <div class="col-12 col-lg-9">
                 <div class="card mt-3">
                     <div class="card-header bg-secondary text-white p-2">
-                        <h3 class="mt-1 mb-0 font-14 float-right"> ثبت کالا</h3>
+                        <h3 class="mt-1 mb-0 font-14 float-right"><span class="fa-product-hunt text-success"></span> ثبت
+                            محصولات</h3>
                         {{--                        <div class="float-left">تاریخ ثبت نام: {{ \Morilog\Jalali\Jalalian::forge($user->created_at)->format("Y/m/d ساعت H:i:s") }}</div>--}}
                     </div>
                     <div class="card-body p-2">
@@ -109,41 +110,83 @@
                                 </div>
 
 
-                                <div class="form-group row">
-                                    <label for="file"
-                                           class="col-md-2 col-form-label text-md-right">فایل</label>
-                                    <div class="col-md-4">
-                                        <input type="file" name="file" id="file">
-                                    </div>
-                                </div>
-
-                                {{--                                <div class="col-12 col-lg-4">--}}
-                                {{--                                    <div class="input-group">--}}
-                                {{--                                        <div class="custom-file">--}}
-                                {{--                                            <input type="file" class="custom-file-input" name="picture" id="picture"--}}
-                                {{--                                                   aria-describedby="inputGroupFileAddon01">--}}
-                                {{--                                            <label class="custom-file-label text-left" for="inputGroupFile01">عکس--}}
-                                {{--                                                کالا</label>--}}
-                                {{--                                        </div>--}}
+                                {{--                                <div class="form-group row">--}}
+                                {{--                                    <label for="file"--}}
+                                {{--                                           class="col-md-2 col-form-label text-md-right">فایل</label>--}}
+                                {{--                                    <div class="col-md-4">--}}
+                                {{--                                        <input type="file" name="file" id="file">--}}
                                 {{--                                    </div>--}}
                                 {{--                                </div>--}}
+
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="file" id="file"
+                                                   aria-describedby="inputGroupFileAddon01">
+                                            <label class="custom-file-label text-left" for="inputGroupFile01">+ افزودن
+                                                عکس</label>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
 
 
                             <div class="row">
                                 <div class="col-12 text-left">
-                                    <button class="btn btn-primary my-2">تایید</button>
+                                    <button class="btn btn-primary my-2">ثبت محصول</button>
                                 </div>
                             </div>
-
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @if(isset($product))
+        <div class="container" style="margin-top: 80px">
+            <div class="row">
+                @foreach($product as $item)
+                    <div class="col-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header bg-secondary text-white p-2">
+                                <h3 class="mt-1 mb-0 font-14 float-right">{{$item->product_name}}</h3>
+                                <div class="float-left">{{ $item->created_at}}</div>
+                            </div>
+                            <div class="card-body p-2">
+                                <div class="">
+                                    @if(is_null($item->image))
+                                        <img class="card-img-top img-fluid product-img-box"
+                                             src="{{url('/images/about.jpg')}}" alt="محصولات من">
+                                    @else
+                                        <img class="card-img-top img-fluid product-img-box"
+                                             src="{{Storage::disk('vms')->url($item['image'])}}" alt="محصولات من">
+                                    @endif
+                                </div>
+                                <h5 class="card-title pt-2 text-success">قیمت {{ number_format($item->price) }}
+                                    ریال</h5>
+                                <p class="card-text">{{$item->product_desc}}</p>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">تخفیف : {{$item->discount}}</li>
+                                    <li class="list-group-item">وضعیت کالا : {{$item->stock}}</li>
+                                    <li class="list-group-item">تعداد : {{$item->quantity}}</li>
+                                </ul>
+                                <div class="card-body text-center">
+                                    <a href="{{route('delete_product_action' ,$item->product_id)}}" class="card-link text-danger px-2">حذف محصول</a>
+                                    <a href="#" class="card-link px-2 ">ویرایش محصول</a>
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">مشاهده</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
 
 @endsection
 

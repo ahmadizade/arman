@@ -58,7 +58,7 @@ return [
         'vms' => [
             'driver' => 'local',
             'root' => public_path('/uploads/products'),
-            'url' => env('APP_URL') . '/uploads/products/images',
+            'url' => env('APP_URL') . '/uploads/products',
             'visibility' => 'public',
         ],
 
