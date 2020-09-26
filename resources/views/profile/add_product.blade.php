@@ -53,7 +53,6 @@
                                     </div>
                                 </div>
 
-
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
@@ -182,7 +181,7 @@
 
                             </div>
                             <div class="card-footer">
-                                <a href="{{route('view_product_single' ,$item->id)}}" class="btn btn-primary">مشاهده</a>
+                                <a href="{{route('view_product_single')}}" class="btn btn-primary">مشاهده</a>
                             </div>
                         </div>
                     </div>
