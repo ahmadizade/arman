@@ -5,7 +5,6 @@
 @endsection
 
 @section("content")
-
     <div class="container" style="margin-top: 80px">
         <div class="row">
             @include("profile.sidebar")
@@ -145,6 +144,10 @@
     </div>
     @if(isset($product))
         <div class="container" style="margin-top: 80px">
+            @if(Session::has("delete"))
+                <div class="alert alert-success">{{ Session::get("status") }}</div>
+            @endif
+
             <div class="row">
                 @foreach($product as $item)
                     <div class="col-12 col-lg-4">
@@ -172,13 +175,14 @@
                                     <li class="list-group-item">تعداد : {{$item->quantity}}</li>
                                 </ul>
                                 <div class="card-body text-center">
-                                    <a href="{{route('delete_product_action' ,$item->product_id)}}" class="card-link text-danger px-2">حذف محصول</a>
+                                    <a href="{{route('delete_product_action' ,$item->id)}}"
+                                       class="card-link text-danger px-2">حذف محصول</a>
                                     <a href="#" class="card-link px-2 ">ویرایش محصول</a>
                                 </div>
 
                             </div>
                             <div class="card-footer">
-                                <a href="#" class="btn btn-primary">مشاهده</a>
+                                <a href="{{route('view_product_single' ,$item->id)}}" class="btn btn-primary">مشاهده</a>
                             </div>
                         </div>
                     </div>
@@ -195,8 +199,8 @@
     <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('product_desc');
+        CKEDITOR.config.autoParagraph = false;
     </script>
-
 @stop
 
 

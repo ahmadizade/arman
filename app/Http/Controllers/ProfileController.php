@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use MongoDB\Driver\Session;
 use Morilog\Jalali\Jalalian;
+use phpDocumentor\Reflection\DocBlock\Tags\See;
 
 class ProfileController extends Controller
 {
@@ -19,8 +22,8 @@ class ProfileController extends Controller
 
     public function AddProduct()
     {
-        $product = Product::orderBy('id' , 'desc')->where('user_id' , Auth::id())->get();
-        return view('profile.add_product', ["user" => Auth::user() , "product" => $product]);
+        $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('hidden', '1')->get();
+        return view('profile.add_product', ["user" => Auth::user(), "product" => $product]);
     }
 
     public function AddProductAction(Request $request)
@@ -47,8 +50,6 @@ class ProfileController extends Controller
                 $name = $request->file('file')->getClientOriginalName();
                 Storage::disk('vms')->put($request->file('file')->getClientOriginalName(), file_get_contents($request['file']));
             }
-
-
             Product::create([
                 "user_id" => Auth::id(),
                 "category_id" => "2",
@@ -65,16 +66,24 @@ class ProfileController extends Controller
                 "created_at" => Jalalian::now(),
                 "updated_at" => Jalalian::now(),
             ]);
-
             session()->flash("status", "ثبت کالا با موفقیت انجام شد");
             return back();
         }
         session()->flash("error", "اطلاعات وارد شده صحیح نیست");
         return back();
     }
-    public function DeleteProductAction (Request $request)
+
+    public function DeleteProductAction($id)
     {
-        return $request;
+        Product::where('id', $id)->update(array('hidden' => 0));
+        session()->flash("delete", "حذف کالا با موفقیت انجام شد");
+        return back();
+    }
+
+    public function ViewProductSingle($id)
+    {
+        $product = Product::where('id', $id)->first();
+        return view('profile.single_product', ["product" => $product]);
     }
 
     public function ProfileEdit()
@@ -111,7 +120,6 @@ class ProfileController extends Controller
         ]);
 
         session()->flash("status", "پروفایل با موفقیت بروزرسانی شد");
-
         if (isset($request->password) && strlen($request->password)) {
             User::where("mobile", $user->mobile)->update([
                 "password" => Hash::make($request->password),
