@@ -5,6 +5,7 @@
 @endsection
 
 @section("content")
+
     <div class="container" style="margin-top: 80px">
         <div class="row">
             @include("profile.sidebar")
@@ -39,7 +40,7 @@
                                             <span class="input-group-text font-12">نام کالا</span>
                                         </div>
                                         <input id="product_name" name="name" type="text" class="form-control"
-                                               value="">
+                                               value="{{$product->product_name}}">
                                     </div>
                                 </div>
 
@@ -49,7 +50,7 @@
                                             <span class="input-group-text font-12">قیمت</span>
                                         </div>
                                         <input type="number" id="product_price" name="price"
-                                               class="form-control" value="">
+                                               class="form-control" value="{{$product->price}}">
                                     </div>
                                 </div>
 
@@ -61,7 +62,7 @@
                                         </div>
                                         <input type="number" id="product_mobile" name="mobile"
                                                class="form-control"
-                                               value="">
+                                               value="{{$product->mobile}}">
                                     </div>
                                 </div>
 
@@ -69,7 +70,7 @@
                                 <div class="col-12">
                                             <textarea name="desc" id="product_desc" cols="30" rows="7"
                                                       class="form-control"
-                                                      placeholder="پیام خود را اینجا وارد کنید..."
+                                                      placeholder="{{$product->product_desc}}"
                                             ></textarea>
                                 </div>
 
@@ -80,7 +81,7 @@
                                             <span class="input-group-text font-12">تخفیف</span>
                                         </div>
                                         <input type="text" name="discount" id="product_discount"
-                                               class="form-control" value="">
+                                               class="form-control" value="{{$product->discount}}">
                                     </div>
                                 </div>
 
@@ -92,7 +93,7 @@
                                         </div>
                                         <input type="text" name="quantity" id="product_quantity"
                                                class="form-control"
-                                               value="">
+                                               value="{{$product->quantity}}">
                                     </div>
                                 </div>
 
@@ -102,30 +103,20 @@
                                             <span class="input-group-text font-12">نوع کالا</span>
                                         </div>
                                         <select class="form-control" name="stock" id="product_stock">
-                                            <option value="1">نو</option>
-                                            <option value="0">کارکرده</option>
+                                            <option @if($product->stock == 1) selected @endif>نو</option>
+                                            <option @if($product->stock == 0) selected @endif>کارکرده</option>
                                         </select>
                                     </div>
                                 </div>
 
-
-                                {{--                                <div class="form-group row">--}}
-                                {{--                                    <label for="file"--}}
-                                {{--                                           class="col-md-2 col-form-label text-md-right">فایل</label>--}}
-                                {{--                                    <div class="col-md-4">--}}
-                                {{--                                        <input type="file" name="file" id="file">--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
-
                                 <div class="col-12 col-lg-4">
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file" id="file"
-                                                   aria-describedby="inputGroupFileAddon01">
-                                            <label class="custom-file-label text-left" for="inputGroupFile01">+ افزودن
-                                                عکس</label>
-                                        </div>
-                                    </div>
+                                    @if(is_null($product->image))
+                                        <img class="card-img-top img-fluid product-img-box"
+                                             src="{{url('/images/about.jpg')}}" alt="محصولات من">
+                                    @else
+                                        <img class="card-img-top img-fluid product-img-box"
+                                             src="{{Storage::disk('vms')->url($product['image'])}}" alt="محصولات من">
+                                    @endif
                                 </div>
 
                             </div>
@@ -142,55 +133,6 @@
             </div>
         </div>
     </div>
-    @if(isset($product))
-        <div class="container" style="margin-top: 80px">
-            @if(Session::has("delete"))
-                <div class="alert alert-success">{{ Session::get("status") }}</div>
-            @endif
-
-            <div class="row">
-                @foreach($product as $item)
-                    <div class="col-12 col-lg-4">
-                        <div class="card">
-                            <div class="card-header bg-secondary text-white p-2">
-                                <h3 class="mt-1 mb-0 font-14 float-right">{{$item->product_name}}</h3>
-                                <div class="float-left">{{ $item->created_at}}</div>
-                            </div>
-                            <div class="card-body p-2">
-                                <div class="">
-                                    @if(is_null($item->image))
-                                        <img class="card-img-top img-fluid product-img-box"
-                                             src="{{url('/images/about.jpg')}}" alt="محصولات من">
-                                    @else
-                                        <img class="card-img-top img-fluid product-img-box"
-                                             src="{{Storage::disk('vms')->url($item['image'])}}" alt="محصولات من">
-                                    @endif
-                                </div>
-                                <h5 class="card-title pt-2 text-success">قیمت {{ number_format($item->price) }}
-                                    ریال</h5>
-                                <p class="card-text">{{$item->product_desc}}</p>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">تخفیف : {{$item->discount}}</li>
-                                    <li class="list-group-item">وضعیت کالا : {{$item->stock}}</li>
-                                    <li class="list-group-item">تعداد : {{$item->quantity}}</li>
-                                </ul>
-                                <div class="card-body text-center">
-                                    <a href="{{route('delete_product_action' ,$item->id)}}"
-                                       class="card-link text-danger px-2">حذف محصول</a>
-                                    <a href="{{route('edit_product' ,$item->id)}}" class="card-link px-2 ">ویرایش محصول</a>
-                                </div>
-
-                            </div>
-                            <div class="card-footer">
-                                <a href="{{route('view_product_single' ,$item->id)}}" class="btn btn-primary">مشاهده</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    @endif
-
 
 @endsection
 

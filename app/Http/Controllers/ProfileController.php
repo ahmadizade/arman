@@ -80,11 +80,34 @@ class ProfileController extends Controller
         return back();
     }
 
-    public function ViewProductSingle($slug)
+
+
+
+
+
+
+    public function ViewProductSingle($id)
     {
-        $product = Product::where('product_slug', $slug)->first();
+        $product = Product::where('id', $id)->first();
         return view('profile.single_product', ["product" => $product]);
     }
+
+    public function EditProductSingle($id)
+    {
+        $product = Product::where('id', $id)->first();
+        return view('profile.edit_product', ["product" => $product]);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     public function ProfileEdit()
     {

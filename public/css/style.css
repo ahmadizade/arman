@@ -1,18 +1,23 @@
 @import url(fonts.css);
+
 ::-moz-selection {
     background: #000;
     color: #fff;
 }
+
 ::selection {
     background: #000;
     color: #fff;
 }
+
 .myfont {
     font-family: iranyekan, icomoon, sans-serif !important;
 }
+
 html {
     overflow-x: hidden;
 }
+
 body {
     line-height: 1.7;
     color: gray;
@@ -24,50 +29,65 @@ body {
     word-break: keep-all;
     word-wrap: break-word;
 }
-.modal-header .close{
+
+.modal-header .close {
     margin: -1rem auto -1rem -1rem;
 }
-.btn{
+
+.btn {
     font-size: 13px !important;
 }
-.font-10{
+
+.font-10 {
     font-size: 10px;
 }
-.font-11{
+
+.font-11 {
     font-size: 11px;
 }
-.font-12{
+
+.font-12 {
     font-size: 12px;
 }
-.font-13{
+
+.font-13 {
     font-size: 13px;
 }
-.font-14{
+
+.font-14 {
     font-size: 14px;
 }
-.font-15{
+
+.font-15 {
     font-size: 15px;
 }
-.font-16{
+
+.font-16 {
     font-size: 16px;
 }
-.font-17{
+
+.font-17 {
     font-size: 17px;
 }
-.font-18{
+
+.font-18 {
     font-size: 18px;
 }
-.font-19{
+
+.font-19 {
     font-size: 19px;
 }
-.font-20{
+
+.font-20 {
     font-size: 20px;
 }
+
 a {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
 }
+
 a:hover {
     text-decoration: none;
 }
@@ -76,19 +96,24 @@ h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
     font-size: 15px;
 }
-input,select{
+
+input, select {
     font-size: 13px !important;
     font-family: iranyekan, icomoon, sans-serif !important;
 }
+
 .text-black {
     color: #000 !important;
 }
+
 .bg-black {
     background: #000 !important;
 }
+
 .bg-muted {
     background-color: #ddd !important;
 }
+
 .color-black-opacity-5 {
     color: rgba(0, 0, 0, 0.5);
 }
@@ -97,19 +122,21 @@ input,select{
     color: rgba(255, 255, 255, 0.5);
 }
 
-.input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .input-group-text, .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .input-group-text, .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child){
-    border-top-left-radius:0;
-    border-bottom-left-radius:0;
-    border-top-right-radius:3px;
-    border-bottom-right-radius:3px;
+.input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .input-group-text, .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .input-group-text, .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
     border-left: 0;
 }
-.input-group > .form-control:not(:first-child), .input-group > .custom-select:not(:first-child){
+
+.input-group > .form-control:not(:first-child), .input-group > .custom-select:not(:first-child) {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-    border-top-right-radius:0px;
-    border-bottom-right-radius:0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
+
 body:after {
     -webkit-transition: .3s all ease-in-out;
     -o-transition: .3s all ease-in-out;
@@ -901,7 +928,6 @@ body:after {
     top: 0;
     background: rgb(0 0 0 / 78%);
 }
-
 
 
 .site-blocks-cover .player {
@@ -3334,6 +3360,7 @@ button.close_box {
     height: 200px;
     z-index: 999990;
 }
+
 .eating {
     background-position: center;
     background-origin: border-box;
@@ -3449,6 +3476,27 @@ button.close_box {
 .product-img-box {
     max-height: 200px;
 }
+
 /*SAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIF */
 
+/*/////////////////////CSS FOR ELIPSIS JS ////////////////////*/
+.ellip {
+    display: block;
+    height: 100%;
+}
 
+.ellip-line {
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 100%;
+}
+
+.ellip,
+.ellip-line {
+    position: relative;
+    overflow: hidden;
+}
+
+/*/////////////////////CSS FOR ELIPSIS JS ////////////////////*/
