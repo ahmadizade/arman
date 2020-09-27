@@ -155,67 +155,30 @@
     </div>
     {{--بازار مبل ایران--}}
 
-
-    {{--        مبلمان slider--}}
-    <div class="container mt-5 overflow-hidden">
-        <div class="row">
-            <div class="owl-container">
-                <div id="owl-food" class="owl-carousel owl-theme">
-                    <div class="slider-desc text-center overflow-hidden">
-                        <div class="item"><img src="{{url('../images/product/2 (1).jpg')}}" alt="Owl Image">
-                        </div>
-                        <div class="price-box">
-                            <p>فروشگاه کوهیار ایرانیان</p>
-                            <del class="text-muted">432090</del>
-                            <span class="badge badge-danger">20%</span>
-                            <p class="text-danger">298,231</p>
-                        </div>
-                    </div>
-                    <div class="slider-desc text-center overflow-hidden">
-                        <div class="item"><img src="{{url('../images/product/8 (1).jpg')}}" alt="Owl Image">
-                        </div>
-                        <div class="price-box">
-                            <p>فروشگاه الیوتی</p>
-                            <del class="text-muted">432090</del>
-                            <span class="badge badge-danger">18%</span>
-                            <p class="text-danger">484,000</p>
-                        </div>
-                    </div>
-                    <div class="slider-desc text-center overflow-hidden">
-                        <div class="item"><img src="{{url('../images/product/5 (2).jpg')}}" alt="Owl Image">
-                        </div>
-                        <div class="price-box">
-                            <p>فروشگاه کیان</p>
-                            <del class="text-muted">600,000</del>
-                            <span class="badge badge-danger">21%</span>
-                            <p class="text-danger">540,000</p>
-                        </div>
-                    </div>
-                    <div class="slider-desc text-center overflow-hidden">
-                        <div class="item"><img src="{{url('../images/product/1.jpg')}}" alt="Owl Image">
-                        </div>
-                        <div class="price-box">
-                            <p>فروشگاه نگین</p>
-                            <del class="text-muted">590,000</del>
-                            <span class="badge badge-danger">23%</span>
-                            <p class="text-danger">440,000</p>
-                        </div>
-                    </div>
-                    <div class="slider-desc text-center overflow-hidden">
-                        <div class="item"><img src="{{url('../images/product/9.jpg')}}" alt="Owl Image">
-                        </div>
-                        <div class="price-box">
-                            <p>پاساژ برلیان</p>
-                            <del class="text-muted">440,000</del>
-                            <span class="badge badge-danger">23%</span>
-                            <p class="text-danger">389,000</p>
-                        </div>
+    {{--        آخرین محصولات slider--}}
+    @if(isset($last_products))
+        <div class="container mt-5 overflow-hidden">
+            <div class="row">
+                <div class="owl-container">
+                    <div id="owl-food" class="owl-carousel owl-theme">
+                        @foreach($last_products as $product)
+                            <div class="slider-desc text-center overflow-hidden">
+                                <div class="item"><img src="{{Storage::disk('vms')->url($product['image'])}}" alt="Owl Image">
+                                </div>
+                                <div class="price-box">
+                                    <p>{{$product->name}}</p>
+                                    <del class="text-muted">{{$product->price}}</del>
+                                    <span class="badge badge-danger">{{$product->discount}}<span>%</span></span>
+                                    <p class="text-danger">{{$product->price}}</p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    {{--        مبلمان slider--}}
+    @endif
+    {{--        آخرین محصولات slider--}}
 
 
 
