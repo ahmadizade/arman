@@ -9,7 +9,7 @@
         <div class="row">
             @include("profile.sidebar")
             <div class="col-12 col-lg-9">
-                <div class="card mt-3">
+                <div class="card shadow mt-3">
                     <div class="card-header bg-secondary text-white p-2">
                         <h3 class="mt-1 mb-0 font-14 float-right"><span class="fa-product-hunt text-success"></span> ثبت
                             محصولات</h3>
@@ -31,15 +31,14 @@
                         @elseif(Session::has("error"))
                             <div class="alert alert-danger mb-2">{{ Session::get("error") }}</div>
                         @endif
-                        <form action="{{route('add_product_action')}}" method="post" enctype="multipart/form-data">>
+                        <form action="{{route('add_product_action')}}" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">نام کالا</span>
                                         </div>
-                                        <input id="product_name" name="name" type="text" class="form-control"
-                                               value="">
+                                        <input id="product_name" name="name" type="text" class="form-control" value="{{ old("name") }}">
                                     </div>
                                 </div>
 
@@ -48,29 +47,22 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">قیمت</span>
                                         </div>
-                                        <input type="number" id="product_price" name="price"
-                                               class="form-control" value="">
+                                        <input type="number" id="product_price" name="price" class="form-control" value="{{ old("price") }}">
                                     </div>
                                 </div>
-
 
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">موبایل</span>
                                         </div>
-                                        <input type="number" id="product_mobile" name="mobile"
-                                               class="form-control"
-                                               value="">
+                                        <input type="number" id="product_mobile" name="mobile" class="form-control" value="{{ old("mobile") }}">
                                     </div>
                                 </div>
 
 
                                 <div class="col-12">
-                                            <textarea name="desc" id="product_desc" cols="30" rows="7"
-                                                      class="form-control"
-                                                      placeholder="پیام خود را اینجا وارد کنید..."
-                                            ></textarea>
+                                    <textarea name="desc" id="product_desc" cols="30" rows="7" class="form-control" placeholder="پیام خود را اینجا وارد کنید...">{{ old("product_desc") }}</textarea>
                                 </div>
 
 
@@ -79,8 +71,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">تخفیف</span>
                                         </div>
-                                        <input type="text" name="discount" id="product_discount"
-                                               class="form-control" value="">
+                                        <input type="text" name="discount" id="product_discount" class="form-control" value="{{ old("discount") }}">
                                     </div>
                                 </div>
 
@@ -90,9 +81,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">تعداد</span>
                                         </div>
-                                        <input type="text" name="quantity" id="product_quantity"
-                                               class="form-control"
-                                               value="">
+                                        <input type="text" name="quantity" id="product_quantity" class="form-control" value="{{ old("quantity") }}">
                                     </div>
                                 </div>
 
@@ -107,15 +96,6 @@
                                         </select>
                                     </div>
                                 </div>
-
-
-                                {{--                                <div class="form-group row">--}}
-                                {{--                                    <label for="file"--}}
-                                {{--                                           class="col-md-2 col-form-label text-md-right">فایل</label>--}}
-                                {{--                                    <div class="col-md-4">--}}
-                                {{--                                        <input type="file" name="file" id="file">--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
 
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group">
@@ -136,60 +116,49 @@
                                     <button class="btn btn-primary my-2">ثبت محصول</button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>
+                @if(isset($product))
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="mt-5">محصولات اخیر</h2>
+                            <hr class="my-2">
+                        </div>
+                            @foreach($product as $item)
+                                <div class="col-12 col-lg-6">
+                                    <div class="card shadow mt-3">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4 d-flex align-self-center">
+                                                @if(is_null($item->image))
+                                                    <img src="{{ url('/images/about.jpg') }}" class="card-img" alt="No Image">
+                                                @else
+                                                    <img src="{{ Storage::disk('vms')->url($item['image']) }}" class="card-img" alt="...">
+                                                @endif
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h5 class="card-title mb-1 font-15 nowrap">@if($item->stock == 1) <span class="badge badge-secondary font-weight-normal">نو</span>  @else <span class="badge badge-secondary font-weight-normal">کارکرده</span>  @endif | {{ $item->product_name }}</h5>
+                                                    <p class="card-text mb-1 nowrap">{{ mb_strimwidth($item->product_desc, 0, 30, "...") }}</p>
+                                                    <p class="card-text mb-1"><span class="text-muted font-12">قیمت:</span> <span class="font-18">{{ number_format($item->price) }}</span> | <span class="badge badge-danger font-14 font-weight-normal">%{{$item->discount}} تخفیف </span></p>
+                                                    <p class="card-text"><span class="text-muted font-12">موجودی:</span> {{$item->quantity}} عدد | <span class="text-muted font-12">تاریخ:</span><span>{{ \Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</span></p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <a href="{{route('delete_product_action' ,$item->id)}}" class="text-danger pl-3">حذف</a>
+                                                    <a href="{{route('edit_product' ,$item->id)}}" class="text-warning pl-3">ویرایش</a>
+                                                    <a href="{{route('view_product_single' ,$item->id)}}" class="text-success pl-3">مشاهده</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                @endif
             </div>
         </div>
     </div>
-    @if(isset($product))
-        <div class="container" style="margin-top: 80px">
-            @if(Session::has("delete"))
-                <div class="alert alert-success">{{ Session::get("status") }}</div>
-            @endif
-
-            <div class="row">
-                @foreach($product as $item)
-                    <div class="col-12 col-lg-4">
-                        <div class="card">
-                            <div class="card-header bg-secondary text-white p-2">
-                                <h3 class="mt-1 mb-0 font-14 float-right">{{$item->product_name}}</h3>
-                                <div class="float-left">{{ $item->created_at}}</div>
-                            </div>
-                            <div class="card-body p-2">
-                                <div class="">
-                                    @if(is_null($item->image))
-                                        <img class="card-img-top img-fluid product-img-box"
-                                             src="{{url('/images/about.jpg')}}" alt="محصولات من">
-                                    @else
-                                        <img class="card-img-top img-fluid product-img-box"
-                                             src="{{Storage::disk('vms')->url($item['image'])}}" alt="محصولات من">
-                                    @endif
-                                </div>
-                                <h5 class="card-title pt-2 text-success">قیمت {{ number_format($item->price) }}
-                                    ریال</h5>
-                                <p class="card-text">{{$item->product_desc}}</p>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">تخفیف : {{$item->discount}}</li>
-                                    <li class="list-group-item">وضعیت کالا : {{$item->stock}}</li>
-                                    <li class="list-group-item">تعداد : {{$item->quantity}}</li>
-                                </ul>
-                                <div class="card-body text-center">
-                                    <a href="{{route('delete_product_action' ,$item->id)}}"
-                                       class="card-link text-danger px-2">حذف محصول</a>
-                                    <a href="{{route('edit_product' ,$item->id)}}" class="card-link px-2 ">ویرایش محصول</a>
-                                </div>
-
-                            </div>
-                            <div class="card-footer">
-                                <a href="{{route('view_product_single' ,$item->id)}}" class="btn btn-primary">مشاهده</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    @endif
 
 
 @endsection
@@ -202,16 +171,3 @@
         CKEDITOR.config.autoParagraph = false;
     </script>
 @endsection
-
-
-{{--<img src="{{Storage::disk('vms')->url($ticket['file'])}}">--}}
-
-{{--                                        @if ($errors->has('file'))--}}
-{{--                                            <span class="text-danger">{{ $errors->first('file') }}</span>--}}
-{{--                                        @endif--}}
-
-{{--                                        @error('file')--}}
-{{--                                        <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                        @enderror--}}

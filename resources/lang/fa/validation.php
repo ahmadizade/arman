@@ -180,7 +180,10 @@ return [
         'bank_cart_number'      => 'شماره کارت',
         'sheba'                 => 'شماره شبا',
         'state'                 => 'استان',
-
+        'price'                 => 'قیمت',
+        'desc'                  => 'توضیحات',
+        'discount'              => 'تخفیف',
+        'quantity'              => 'تعداد',
 
     ],
 ];

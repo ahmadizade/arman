@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Profile;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -22,21 +24,24 @@ class ProfileController extends Controller
 
     public function AddProduct()
     {
+
         $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('hidden', '1')->get();
+
         return view('profile.add_product', ["user" => Auth::user(), "product" => $product, "menu" => "add_product"]);
+
     }
 
     public function AddProductAction(Request $request)
     {
         $request->validate([
-            'name' => 'nullable|alpha|min:3|max:56',
-            'price' => 'nullable|min:3|max:56',
-            'mobile' => 'nullable|min:3|max:14',
-            'desc' => 'nullable|alpha_num|min:10|max:128',
-            'discount' => 'nullable|min:1|max:16',
-            'quantity' => 'nullable|min:1|max:128',
-            'stock' => 'nullable|max:10',
-            'file' => 'image|mimes:jpg,jpg,bmp,png|nullable|dimensions:min_width=100,min_height=100|max:2048',
+            'name' => 'required|min:3|max:56',
+            'price' => 'required|min:3|max:56',
+            'mobile' => 'required|min:3|max:14',
+            'desc' => 'required|min:10|max:128',
+            'discount' => 'required|min:1|max:16',
+            'quantity' => 'required|min:1|max:128',
+            'stock' => 'required|max:10',
+            //'file' => 'image|mimes:jpg,jpg,bmp,png|nullable|dimensions:min_width=100,min_height=100|max:2048',
         ]);
 
 
@@ -79,8 +84,8 @@ class ProfileController extends Controller
             "quantity" => $request->quantity,
             "stock" => $request->stock,
             "image" => $name ,
-            "created_at" => Jalalian::now(),
-            "updated_at" => Jalalian::now(),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
         ]);
 
         session()->flash("status", "ثبت کالا با موفقیت انجام شد");
@@ -90,21 +95,35 @@ class ProfileController extends Controller
 
     public function DeleteProductAction($id)
     {
-        Product::where('id', $id)->update(array('hidden' => 0));
-        session()->flash("delete", "حذف کالا با موفقیت انجام شد");
-        return back();
+
+        if(isset($id) && is_numeric($id) && $id > 0){
+
+            Product::where('id', $id)->where("user_id",Auth::id())->update(array('hidden' => 0));
+
+            session()->flash("delete", "حذف کالا با موفقیت انجام شد");
+
+            return back();
+
+        }
+
+        return null;
+
+
     }
 
     public function ViewProductSingle($id)
     {
+
         $product = Product::where('id', $id)->first();
-        return view('profile.single_product', ["product" => $product]);
+
+        return view('profile.single_product', ["product" => $product, "menu" => "add_product"]);
+
     }
 
     public function EditProductSingle($id)
     {
         $product = Product::where('id', $id)->first();
-        return view('profile.edit_product', ["product" => $product]);
+        return view('profile.edit_product', ["product" => $product, "menu" => "add_product"]);
     }
 
 

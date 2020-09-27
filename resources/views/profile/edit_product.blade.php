@@ -32,7 +32,7 @@
                         @elseif(Session::has("error"))
                             <div class="alert alert-danger mb-2">{{ Session::get("error") }}</div>
                         @endif
-                        <form action="{{route('add_product_action')}}" method="post" enctype="multipart/form-data">>
+                        <form action="{{ route('add_product_action') }}" method="post" enctype="multipart/form-data">>
                             <div class="row">
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group my-2">
