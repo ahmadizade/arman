@@ -11,14 +11,11 @@
             <div class="col-12 col-lg-9">
                 <div class="card shadow mt-3">
                     <div class="card-header bg-secondary text-white p-2">
-                        <h3 class="mt-1 mb-0 font-14 float-right"><span class="fa-product-hunt text-success"></span> ثبت
-                            محصولات</h3>
-                        {{--                        <div class="float-left">تاریخ ثبت نام: {{ \Morilog\Jalali\Jalalian::forge($user->created_at)->format("Y/m/d ساعت H:i:s") }}</div>--}}
+                        <h3 class="mt-1 mb-0 font-14 float-right"> ثبت محصولات</h3>
                     </div>
                     <div class="card-body p-2">
-                        {{--                        <h5 class="my-3 text-success">اعتبار فعلی {{ number_format($user->credit) }} ریال</h5>--}}
                         @if ($errors->any())
-                            <div class="alert alert-danger mb-2">
+                            <div class="alert alert-danger mt-2 mb-2">
                                 <ul class="mb-0">
                                     @foreach ($errors->all() as $error)
                                         <li>{{ $error }}</li>
@@ -27,14 +24,15 @@
                             </div>
                         @endif
                         @if(Session::has("status"))
-                            <div class="alert alert-success mb-2">{{ Session::get("status") }}</div>
+                            <div class="alert alert-success mt-2 mb-2">{{ Session::get("status") }}</div>
                         @elseif(Session::has("error"))
-                            <div class="alert alert-danger mb-2">{{ Session::get("error") }}</div>
+                            <div class="alert alert-danger mt-2 mb-2">{{ Session::get("error") }}</div>
                         @endif
                         <form action="{{route('add_product_action')}}" method="post" enctype="multipart/form-data">
+
                             <div class="row">
-                                <div class="col-12 col-lg-4">
-                                    <div class="input-group my-2">
+                                <div class="col-12 col-lg-12">
+                                    <div class="input-group mt-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">نام کالا</span>
                                         </div>
@@ -42,68 +40,73 @@
                                     </div>
                                 </div>
 
+                                <div class="col-12">
+                                    <textarea name="desc" id="product_desc" cols="30" rows="7" class="form-control font-13 mt-2" placeholder="توضیحات">{{ old("desc") }}</textarea>
+                                </div>
+
+
                                 <div class="col-12 col-lg-4">
-                                    <div class="input-group my-2">
+                                    <div class="input-group mt-2">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">قیمت</span>
+                                            <span class="input-group-text font-12">قیمت (ریال)</span>
                                         </div>
                                         <input type="number" id="product_price" name="price" class="form-control" value="{{ old("price") }}">
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4">
-                                    <div class="input-group my-2">
+                                    <div class="input-group mt-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">موبایل</span>
                                         </div>
-                                        <input type="number" id="product_mobile" name="mobile" class="form-control" value="{{ old("mobile") }}">
+                                        <input type="number" id="product_mobile" name="mobile" class="form-control" value="{{ old("mobile") ?? Auth::user()->mobile }}">
                                     </div>
                                 </div>
 
-
-                                <div class="col-12">
-                                    <textarea name="desc" id="product_desc" cols="30" rows="7" class="form-control" placeholder="پیام خود را اینجا وارد کنید...">{{ old("product_desc") }}</textarea>
-                                </div>
-
-
                                 <div class="col-12 col-lg-4">
-                                    <div class="input-group my-2">
+                                    <div class="input-group mt-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">تخفیف</span>
                                         </div>
-                                        <input type="text" name="discount" id="product_discount" class="form-control" value="{{ old("discount") }}">
+                                        <select name="discount" id="product_discount" class="form-control">
+                                            @for($i=20;$i<=100;$i++)
+                                                <option @if(old("discount") == $i) selected @endif value="{{ $i }}">{{ $i }} درصد </option>
+                                            @endfor
+                                        </select>
                                     </div>
                                 </div>
 
 
                                 <div class="col-12 col-lg-4">
-                                    <div class="input-group my-2">
+                                    <div class="input-group mt-2">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">تعداد</span>
+                                            <span class="input-group-text font-12">تعداد موجودی</span>
                                         </div>
-                                        <input type="text" name="quantity" id="product_quantity" class="form-control" value="{{ old("quantity") }}">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-lg-4">
-                                    <div class="input-group my-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">نوع کالا</span>
-                                        </div>
-                                        <select class="form-control" name="stock" id="product_stock">
-                                            <option value="1">نو</option>
-                                            <option value="0">کارکرده</option>
+                                        <select name="quantity" id="product_discount" class="form-control">
+                                            @for($i=1;$i<=500;$i++)
+                                                <option @if(old("quantity") == $i) selected @endif value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-lg-4">
-                                    <div class="input-group">
+                                    <div class="input-group mt-2">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text font-12">نوع کالا</span>
+                                        </div>
+                                        <select class="form-control" name="stock" id="product_stock">
+                                            <option @if(old("stock") != null && old("stock") == 1) selected @endif value="1">نو</option>
+                                            <option @if(old("stock") != null && old("stock") == 0) selected @endif value="0">کارکرده</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-4">
+                                    <div class="input-group mt-2">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file" id="file"
-                                                   aria-describedby="inputGroupFileAddon01">
-                                            <label class="custom-file-label text-left" for="inputGroupFile01">+ افزودن
-                                                عکس</label>
+                                            <input type="file" class="custom-file-input" name="file" id="file">
+                                            <label class="custom-file-label text-left" for="inputGroupFile01">+ افزودن عکس</label>
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +126,7 @@
                 @if(isset($product))
                     <div class="row">
                         <div class="col-12">
-                            <h2 class="mt-5">محصولات اخیر</h2>
+                            <h2 class="mt-5">محصولات اخیر شما</h2>
                             <hr class="my-2">
                         </div>
                             @foreach($product as $item)
@@ -165,9 +168,4 @@
 
 @section('extra_js')
     <script src="{{url('/js/app_jquery.js')}}"></script>
-    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace('product_desc');
-        CKEDITOR.config.autoParagraph = false;
-    </script>
 @endsection

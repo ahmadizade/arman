@@ -25,7 +25,7 @@ class ProfileController extends Controller
     public function AddProduct()
     {
 
-        $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('hidden', '1')->get();
+        $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->get();
 
         return view('profile.add_product', ["user" => Auth::user(), "product" => $product, "menu" => "add_product"]);
 
@@ -33,6 +33,7 @@ class ProfileController extends Controller
 
     public function AddProductAction(Request $request)
     {
+
         $request->validate([
             'name' => 'required|min:3|max:56',
             'price' => 'required|min:3|max:56',
@@ -41,7 +42,7 @@ class ProfileController extends Controller
             'discount' => 'required|min:1|max:16',
             'quantity' => 'required|min:1|max:128',
             'stock' => 'required|max:10',
-            //'file' => 'image|mimes:jpg,jpg,bmp,png|nullable|dimensions:min_width=100,min_height=100|max:2048',
+            'file' => 'image|nullable|dimensions:min_width=100,min_height=100|max:2048',
         ]);
 
 
@@ -78,9 +79,9 @@ class ProfileController extends Controller
             "product_slug" => Str::slug($request->name),
             "price" => $request->price,
             "mobile" => $request->mobile,
-            "product_desc" => $request->desc,
+            "product_desc" => htmlentities($request->desc),
             "discount" => $request->discount,
-            "status" => "0",
+            "status" => 1,
             "quantity" => $request->quantity,
             "stock" => $request->stock,
             "image" => $name ,
@@ -98,7 +99,7 @@ class ProfileController extends Controller
 
         if(isset($id) && is_numeric($id) && $id > 0){
 
-            Product::where('id', $id)->where("user_id",Auth::id())->update(array('hidden' => 0));
+            Product::where('id', $id)->where("user_id",Auth::id())->update(array('status' => 1));
 
             session()->flash("delete", "حذف کالا با موفقیت انجام شد");
 
