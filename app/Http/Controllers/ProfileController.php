@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use MongoDB\Driver\Session;
+use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 
@@ -29,36 +29,35 @@ class ProfileController extends Controller
     public function AddProductAction(Request $request)
     {
         $request->validate([
-            'name' => 'required|alpha|min:3|max:56',
-            'price' => 'required|min:3|max:56',
-            'mobile' => 'required|min:3|max:14',
-            'desc' => 'required|alpha_num|min:10|max:128',
-            'discount' => 'required|min:1|max:16',
-            'quantity' => 'required|min:1|max:128',
-            'stock' => 'required|max:10',
+            'name' => 'nullable|alpha|min:3|max:56',
+            'price' => 'nullable|min:3|max:56',
+            'mobile' => 'nullable|min:3|max:14',
+            'desc' => 'nullable|alpha_num|min:10|max:128',
+            'discount' => 'nullable|min:1|max:16',
+            'quantity' => 'nullable|min:1|max:128',
+            'stock' => 'nullable|max:10',
             'file' => 'image|mimes:jpg,jpg,bmp,png|nullable|dimensions:min_width=100,min_height=100|max:2048',
         ]);
 
 
         $name = null;
-        if (isset($request->image)) {
+        if (isset($request->file)) {
 
-            $exists = Storage::disk('vms')->exists($request->file('picture')->getClientOriginalName());
+            $exists = Storage::disk('vms')->exists($request->file('file')->getClientOriginalName());
 
             if ($exists == true) {
-                return
-                    $name = pathinfo($request->file('picture')->getClientOriginalName(), PATHINFO_FILENAME);
-                $name = $name . "-" . time();
-                $name = $name . "." . $request->file('picture')->getClientOriginalExtension();
 
-                $img = Image::make('uploads/products/' . pathinfo($request->file('picture')->getClientOriginalName(), PATHINFO_BASENAME));
+                $name = $name . "-" . time();
+                $name = $name . "." . $request->file('file')->getClientOriginalExtension();
+
+                $img = Image::make('uploads/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
                 $img->crop(400, 400);
                 $img->save('uploads/products/' . $name);
 
             } else {
 
-                $name = $request->file('picture')->getClientOriginalName();
-                $img = Image::make($request->file('picture'));
+                $name = $request->file('file')->getClientOriginalName();
+                $img = Image::make($request->file('file'));
                 $img->crop(400, 400);
                 $img->save('uploads/products/' . $name);
 
