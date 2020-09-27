@@ -29,22 +29,11 @@ class ProfileController extends Controller
 
         return view('profile.add_product', ["user" => Auth::user(), "product" => $product, "menu" => "add_product"]);
 
->>>>>>>>> Temporary merge branch 2
     }
 
     public function AddProductAction(Request $request)
     {
         $request->validate([
-<<<<<<<<< Temporary merge branch 1
-            'name' => 'required|alpha|min:3|max:56',
-            'price' => 'required|min:3|max:56',
-            'mobile' => 'required|min:3|max:14',
-            'desc' => 'required|alpha_num|min:10|max:128',
-            'discount' => 'required|min:1|max:16',
-            'quantity' => 'required|min:1|max:128',
-            'stock' => 'required|max:10',
-            'file' => 'image|mimes:jpg,jpg,bmp,png|nullable|dimensions:min_width=100,min_height=100|max:2048',
-=========
             'name' => 'required|min:3|max:56',
             'price' => 'required|min:3|max:56',
             'mobile' => 'required|min:3|max:14',
@@ -52,7 +41,7 @@ class ProfileController extends Controller
             'discount' => 'required|min:1|max:16',
             'quantity' => 'required|min:1|max:128',
             'stock' => 'required|max:10',
-            'file' => 'image|nullable|dimensions:min_width=100,min_height=100|max:2048',
+            'file' => 'image|nullable|dimensions:min_width=400,min_height=400|max:2048',
         ]);
 
 
