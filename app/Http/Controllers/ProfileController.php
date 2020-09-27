@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Profile;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
+use phpDocumentor\Reflection\DocBlock\Tags\See;
 
 class ProfileController extends Controller
 {
@@ -23,43 +24,45 @@ class ProfileController extends Controller
 
     public function AddProduct()
     {
+
         $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('hidden', '1')->get();
+
         return view('profile.add_product', ["user" => Auth::user(), "product" => $product, "menu" => "add_product"]);
+
     }
 
     public function AddProductAction(Request $request)
     {
         $request->validate([
-            'name' => 'required|alpha|min:3|max:56',
+            'name' => 'required|min:3|max:56',
             'price' => 'required|min:3|max:56',
             'mobile' => 'required|min:3|max:14',
-            'desc' => 'required|alpha_num|min:10|max:128',
+            'desc' => 'required|min:10|max:128',
             'discount' => 'required|min:1|max:16',
             'quantity' => 'required|min:1|max:128',
             'stock' => 'required|max:10',
-            'file' => 'image|mimes:jpg,jpg,bmp,png|nullable|dimensions:min_width=100,min_height=100|max:2048',
+            //'file' => 'image|mimes:jpg,jpg,bmp,png|nullable|dimensions:min_width=100,min_height=100|max:2048',
         ]);
 
 
         $name = null;
-        if (isset($request->image)) {
+        if (isset($request->file)) {
 
-            $exists = Storage::disk('vms')->exists($request->file('picture')->getClientOriginalName());
+            $exists = Storage::disk('vms')->exists($request->file('file')->getClientOriginalName());
 
             if ($exists == true) {
-                return
-                    $name = pathinfo($request->file('picture')->getClientOriginalName(), PATHINFO_FILENAME);
-                $name = $name . "-" . time();
-                $name = $name . "." . $request->file('picture')->getClientOriginalExtension();
 
-                $img = Image::make('uploads/products/' . pathinfo($request->file('picture')->getClientOriginalName(), PATHINFO_BASENAME));
+                $name = $name . "-" . time();
+                $name = $name . "." . $request->file('file')->getClientOriginalExtension();
+
+                $img = Image::make('uploads/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
                 $img->crop(400, 400);
                 $img->save('uploads/products/' . $name);
 
             } else {
 
-                $name = $request->file('picture')->getClientOriginalName();
-                $img = Image::make($request->file('picture'));
+                $name = $request->file('file')->getClientOriginalName();
+                $img = Image::make($request->file('file'));
                 $img->crop(400, 400);
                 $img->save('uploads/products/' . $name);
 
@@ -81,8 +84,8 @@ class ProfileController extends Controller
             "quantity" => $request->quantity,
             "stock" => $request->stock,
             "image" => $name ,
-            "created_at" => Jalalian::now(),
-            "updated_at" => Jalalian::now(),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
         ]);
 
         session()->flash("status", "ثبت کالا با موفقیت انجام شد");
@@ -92,27 +95,41 @@ class ProfileController extends Controller
 
     public function DeleteProductAction($id)
     {
-        Product::where('id', $id)->update(array('hidden' => 0));
-        session()->flash("delete", "حذف کالا با موفقیت انجام شد");
-        return back();
+
+        if(isset($id) && is_numeric($id) && $id > 0){
+
+            Product::where('id', $id)->where("user_id",Auth::id())->update(array('hidden' => 0));
+
+            session()->flash("delete", "حذف کالا با موفقیت انجام شد");
+
+            return back();
+
+        }
+
+        return null;
+
+
     }
 
     public function ViewProductSingle($id)
     {
+
         $product = Product::where('id', $id)->first();
-        return view('profile.single_product', ["product" => $product]);
+
+        return view('profile.single_product', ["product" => $product, "menu" => "add_product"]);
+
     }
 
     public function EditProductSingle($id)
     {
         $product = Product::where('id', $id)->first();
-        return view('profile.edit_product', ["product" => $product]);
+        return view('profile.edit_product', ["product" => $product, "menu" => "add_product"]);
     }
 
 
     public function ProfileEdit()
     {
-        return view("profile.profile", ["user" => Auth::user(), "menu" => "profile"]);
+        return view("profile.profile", ["user" => Auth::user(),"menu" => "profile"]);
     }
 
     public function ProfileEditAction(Request $request)
@@ -152,6 +169,18 @@ class ProfileController extends Controller
         }
 
         return back();
+
+    }
+
+    public function ProfileGold(){
+
+        return view("profile.gold", ["menu" => "gold"]);
+
+    }
+
+    public function ProfileGoldAction(Request $request){
+
+        return response()->json(['errors' => 1]);
 
     }
 

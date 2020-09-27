@@ -1,33 +1,29 @@
 <footer class="ltr site-footer mt-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="rtl col-md-5 myfont">
-                        <h2 class="footer-heading mb-4 text-center">درباره ما</h2>
-                        <p class="text-right">بازار بزرگ تهاتر در سال 1394 کار خود را شروع کرد و در طول این چند سال
-                            پیشرفت های بزرگی در صنعت تهاتر و معاوضه داشته است.</p>
-                    </div>
-                    <div class="col-md-3 mr-auto text-center myfont">
-                        <h2 class="footer-heading mb-4">لینک های مرتبط</h2>
-                        <ul class="list-unstyled">
-                            <li><a href="#about-section" class="smoothscroll text-decoration-none">قوانین</a></li>
-                            <li><a href="#about-section" class="smoothscroll text-decoration-none">پاساژ برلیان</a></li>
-                            <li><a href="#about-section" class="smoothscroll text-decoration-none">کاربر طلایی</a></li>
-                            <li><a href="#services-section" class="smoothscroll text-decoration-none text-primary">ثمین تعویض</a></li>
-                            <li><a href="#testimonials-section" class="smoothscroll text-decoration-none text-primary">ثمین سررسید</a></li>
-                            <li><a href="#contact-section" class="smoothscroll text-decoration-none">تماس با ما</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 footer-social text-center">
-                        <h2 class="footer-heading mb-4">Follow Us</h2>
-                        <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                        <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                        <a href="#" class="pl-3 pr-3"><span class="fab fa-instagram"></span></a>
-                        <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-                    </div>
-                </div>
+            <div class="rtl col-md-3 myfont">
+                <h2 class="footer-heading mb-4 text-center">درباره ما</h2>
+                <p class="text-right">بازار بزرگ تهاتر در سال 1394 کار خود را شروع کرد و در طول این چند سال
+                    پیشرفت های بزرگی در صنعت تهاتر و معاوضه داشته است.</p>
+            </div>
+            <div class="col-md-3 mr-auto text-center myfont">
+                <h2 class="footer-heading mb-4">لینک های مرتبط</h2>
+                <ul class="list-unstyled">
+                    <li><a href="#about-section" class="smoothscroll text-decoration-none">قوانین</a></li>
+                    <li><a href="#about-section" class="smoothscroll text-decoration-none">پاساژ برلیان</a></li>
+                    <li><a href="#about-section" class="smoothscroll text-decoration-none">کاربر طلایی</a></li>
+                    <li><a href="#services-section" class="smoothscroll text-decoration-none text-primary">ثمین تعویض</a></li>
+                    <li><a href="#testimonials-section" class="smoothscroll text-decoration-none text-primary">ثمین سررسید</a></li>
+                    <li><a href="#contact-section" class="smoothscroll text-decoration-none">تماس با ما</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-social text-center">
+                <h2 class="footer-heading mb-4">Follow Us</h2>
+                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="fab fa-instagram"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
             </div>
             <div class="col-md-3 text-center">
                 <h2 class="footer-heading mb-4">عضو خبرنامه شوید</h2>
@@ -43,7 +39,7 @@
                 </form>
             </div>
         </div>
-        <div class="row pt-5 mt-5 text-center">
+        <div class="row mt-3 text-center">
             <div class="col-md-12">
                 <div class="border-top pt-5">
                     <p class="copyright">
