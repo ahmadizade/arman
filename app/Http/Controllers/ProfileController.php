@@ -19,13 +19,13 @@ class ProfileController extends Controller
 
     public function Index()
     {
-        return view("profile.index", ["user" => Auth::user()]);
+        return view("profile.index", ["user" => Auth::user(),"menu" => "index"]);
     }
 
     public function AddProduct()
     {
         $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('hidden', '1')->get();
-        return view('profile.add_product', ["user" => Auth::user(), "product" => $product]);
+        return view('profile.add_product', ["user" => Auth::user(), "product" => $product,"menu" => "add_product"]);
     }
 
     public function AddProductAction(Request $request)
@@ -96,12 +96,6 @@ class ProfileController extends Controller
         return back();
     }
 
-
-
-
-
-
-
     public function ViewProductSingle($id)
     {
         $product = Product::where('id', $id)->first();
@@ -115,19 +109,9 @@ class ProfileController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
-
-
     public function ProfileEdit()
     {
-        return view("profile.profile", ["user" => Auth::user()]);
+        return view("profile.profile", ["user" => Auth::user(),"menu" => "profile"]);
     }
 
     public function ProfileEditAction(Request $request)
