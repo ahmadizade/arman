@@ -48,29 +48,29 @@
 
     {{--کیف پول--}}
     <div class="site-section" id="next">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="">
-                    <figure class="circle-bg">
-                        <img src="images/product/h1.jpg" alt="Bazar Tahator Iranian"
-                             class="img-fluid samin-pages mb-4"></figure>
-                    <h3 class="card-title">ثمین تخفیف</h3>
-                    <p>با هر پرداخت %10 شارژ اضافه میگیری</p>
-                </div>
-                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/product/h2.jpg" alt="Bazar Tahator Iranian"
-                         class="img-fluid samin-pages mb-4">
-                    <h3 class="card-title">ثمین سررسید</h3>
-                    <p>الان بخر 6 ماه دیگه پول بده</p>
-                </div>
-                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/product/h3.jpg"
-                         alt="Bazar Tahator Iranian" class="img-fluid samin-pages mb-4">
-                    <h3 class="card-title">ثمین تعویض</h3>
-                    <p>بازار تهاتر ایرانیان</p>
-                </div>
-            </div>
-        </div>
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="">--}}
+{{--                    <figure class="circle-bg">--}}
+{{--                        <img src="images/product/h1.jpg" alt="Bazar Tahator Iranian"--}}
+{{--                             class="img-fluid samin-pages mb-4"></figure>--}}
+{{--                    <h3 class="card-title">ثمین تخفیف</h3>--}}
+{{--                    <p>با هر پرداخت %10 شارژ اضافه میگیری</p>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="100">--}}
+{{--                    <img src="images/product/h2.jpg" alt="Bazar Tahator Iranian"--}}
+{{--                         class="img-fluid samin-pages mb-4">--}}
+{{--                    <h3 class="card-title">ثمین سررسید</h3>--}}
+{{--                    <p>الان بخر 6 ماه دیگه پول بده</p>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="200">--}}
+{{--                    <img src="images/product/h3.jpg"--}}
+{{--                         alt="Bazar Tahator Iranian" class="img-fluid samin-pages mb-4">--}}
+{{--                    <h3 class="card-title">ثمین تعویض</h3>--}}
+{{--                    <p>بازار تهاتر ایرانیان</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="">
@@ -104,7 +104,6 @@
         </div>
     </div>
     {{--    موبایل Home page--}}
-
 
     {{--تبلیق فروشگاه ها--}}
     <div class="third-section">
@@ -168,9 +167,14 @@
             <div class="row">
                 <div class="owl-container">
                     <div id="owl-food" class="owl-carousel owl-theme">
-                        @foreach($lastProducts as $key => $product)
+                        @foreach($lastProducts as $product)
                             <div class="slider-desc text-center overflow-hidden">
-                                <div class="item"><img src="{{Storage::disk('vms')->url($product['image'])}}" alt="Owl Image">
+                                <div class="item">
+                                    @if(is_null($product->image))
+                                        <img src="{{ url('/images/about.jpg') }}" alt="BTI">
+                                    @else
+                                        <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
+                                    @endif
                                 </div>
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
@@ -188,14 +192,21 @@
     {{--        آخرین محصولات slider--}}
 
 
+    <div class="row">
+        <div class="w-100 h-25 my-3">
+            <img src="./images/samin/title-center.jpg" title="center_samin">
+        </div>
+    </div>
 
-    {{--کفش--}}
+
+
+    {{--پربازدیدترین ها--}}
     @if(isset($popular))
         <div class="container mt-5 overflow-hidden">
             <div class="row align-items-center justify-content-center">
                 <div class="col-xs-12 my-3">
                     <div class="section__title--2 text-center">
-                        <h2 class="title__line">آخرین محصولات</h2>
+                        <h2 class="title__line">پربازدیدترین ها</h2>
                     </div>
                 </div>
             </div>
@@ -204,7 +215,12 @@
                     <div id="owl-food" class="owl-carousel owl-theme">
                         @foreach($popular as $product)
                             <div class="slider-desc text-center overflow-hidden">
-                                <div class="item"><img src="{{Storage::disk('vms')->url($product['image'])}}" alt="Owl Image">
+                                <div class="item">
+                                    @if(is_null($product->image))
+                                        <img src="{{ url('/images/about.jpg') }}" alt="BTI">
+                                    @else
+                                        <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
+                                    @endif
                                 </div>
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
@@ -219,26 +235,30 @@
             </div>
         </div>
     @endif
+    {{--پربازدیدترین ها--}}
 
-    {{--کفش--}}
 
-
-    {{--ساعت--}}
-    @if(isset($lastProducts))
+    {{--محصولات تصادفی--}}
+    @if(isset($randomProduct))
         <div class="container mt-5 overflow-hidden">
             <div class="row align-items-center justify-content-center">
                 <div class="col-xs-12 my-3">
                     <div class="section__title--2 text-center">
-                        <h2 class="title__line"></h2>
+                        <h2 class="title__line">محصولات تصادفی</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="owl-container">
                     <div id="owl-food" class="owl-carousel owl-theme">
-                        @foreach($lastProducts as $key => $product)
+                        @foreach($randomProduct as $product)
                             <div class="slider-desc text-center overflow-hidden">
-                                <div class="item"><img src="{{Storage::disk('vms')->url($product['image'])}}" alt="Owl Image">
+                                <div class="item">
+                                    @if(is_null($product->image))
+                                        <img src="{{ url('/images/about.jpg') }}" alt="BTI">
+                                    @else
+                                        <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
+                                    @endif
                                 </div>
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
@@ -253,7 +273,7 @@
             </div>
         </div>
     @endif
-    {{--ساعت--}}
+    {{--محصولات تصادفی--}}
 
 
     {{--            لباس زنانه--}}
