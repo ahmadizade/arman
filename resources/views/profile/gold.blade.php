@@ -10,11 +10,11 @@
         <div class="row">
            @include("profile.sidebar")
             <div class="col-12 col-lg-9">
-                <div class="card mt-3">
-                    <div class="card-header bg-secondary text-white p-2">
-                        <h3 class="mt-1 mb-0 font-14 float-right">کاربر طلایی</h3>
+                <div class="card shadow mt-3">
+                    <div class="card-header p-3">
+                        <h3 class="mb-0 font-14 float-right">کاربر طلایی</h3>
                     </div>
-                    <div class="card-body p-2">
+                    <div class="card-body p-3">
                         @if ($errors->any())
                             <div class="alert alert-danger mb-2">
                                 <ul class="mb-0">
@@ -29,7 +29,13 @@
                         @endif
                         <div class="row">
                             <div class="col-12 col-lg-12">
-                                <h2 class="text-warning">کلیک کن طلایی شو                                 44 بریز  15درصد شارژ طلایی بردار </h2>
+                                <h2 class="text-center text-primary py-3">کلیک کن طلایی شو</h2>
+                                <p>با پرداخت 44 هزار تومان از مزایای کاربر طلایی بهره مند شوید. </p>
+                                <ul>
+                                    <li>دریافت شارژ طلایی</li>
+                                    <li>شرکت در قرعه کشی</li>
+                                    <li>حمایت از تیم مورد علاقه</li>
+                                </ul>
                                 <p class="text-center"><button id="online-payment-gold" class="btn btn-primary">پرداخت</button></p>
                             </div>
                         </div>

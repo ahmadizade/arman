@@ -67,7 +67,6 @@
 
                             </li>
                             <li class="has-children"><a href="#contact-section" class="nav-link">باشگاه مشتریان</a>
-
                                 <ul class="dropdown text-right">
                                     <li><a href="#" class="nav-link">خبرنامه</a></li>
                                     <li><a href="#" class="nav-link">دریافت ثمین کارت</a></li>
@@ -77,17 +76,6 @@
                                 </ul>
                             </li>
                             <li><a href="/" class="nav-link">صفحه اصلی</a></li>
-                            <li class="has-children">
-                                @if (\Illuminate\Support\Facades\Session::has('user') || isset($user))
-                                    <span><a href="#" class="nav-link icon-verified_user"></a></span>
-                                @endif
-                                <ul class="dropdown text-right">
-                                    <li><a href="#" class="nav-link">پروفایل</a></li>
-                                    <li><a href="#" class="nav-link text-muted disabled">حسابهای من</a></li>
-                                    <li><a href="#" class="nav-link text-muted disabled">فاکتورها</a></li>
-                                    <li><a href="#" class="nav-link">خروج</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </nav>
                 </div>
