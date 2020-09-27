@@ -4,73 +4,90 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use MongoDB\Driver\Session;
+use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
-use phpDocumentor\Reflection\DocBlock\Tags\See;
 
 class ProfileController extends Controller
 {
 
     public function Index()
     {
-        return view("profile.index", ["user" => Auth::user()]);
+        return view("profile.index", ["user" => Auth::user(), "menu" => "index"]);
     }
 
     public function AddProduct()
     {
         $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('hidden', '1')->get();
-        return view('profile.add_product', ["user" => Auth::user(), "product" => $product]);
+        return view('profile.add_product', ["user" => Auth::user(), "product" => $product, "menu" => "add_product"]);
     }
 
     public function AddProductAction(Request $request)
     {
         $request->validate([
-            'name' => 'nullable|max:255',
-            'price' => 'nullable|max:128',
-            'mobile' => 'nullable|max:32',
-            'desc' => 'nullable|max:512',
-            'discount' => 'nullable|max:128',
-            'quantity' => 'nullable|numeric|max:128',
-            'stock' => 'nullable|max:32',
-            'file' => 'image|mimes:jpg,jpeg,bmp,png|nullable',
+            'name' => 'required|alpha|min:3|max:56',
+            'price' => 'required|min:3|max:56',
+            'mobile' => 'required|min:3|max:14',
+            'desc' => 'required|alpha_num|min:10|max:128',
+            'discount' => 'required|min:1|max:16',
+            'quantity' => 'required|min:1|max:128',
+            'stock' => 'required|max:10',
+            'file' => 'image|mimes:jpg,jpg,bmp,png|nullable|dimensions:min_width=100,min_height=100|max:2048',
         ]);
 
-        if (isset($request->file)) {
-            $exists = Storage::disk('vms')->exists($request->file('file')->getClientOriginalName());
+
+        $name = null;
+        if (isset($request->image)) {
+
+            $exists = Storage::disk('vms')->exists($request->file('picture')->getClientOriginalName());
+
             if ($exists == true) {
-                $name = pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_FILENAME);
+                return
+                    $name = pathinfo($request->file('picture')->getClientOriginalName(), PATHINFO_FILENAME);
                 $name = $name . "-" . time();
-                $name = $name . "." . $request->file('file')->getClientOriginalExtension();
-                Storage::disk('vms')->put($name, file_get_contents($request['file']));
+                $name = $name . "." . $request->file('picture')->getClientOriginalExtension();
+
+                $img = Image::make('uploads/products/' . pathinfo($request->file('picture')->getClientOriginalName(), PATHINFO_BASENAME));
+                $img->crop(400, 400);
+                $img->save('uploads/products/' . $name);
+
             } else {
-                $name = $request->file('file')->getClientOriginalName();
-                Storage::disk('vms')->put($request->file('file')->getClientOriginalName(), file_get_contents($request['file']));
+
+                $name = $request->file('picture')->getClientOriginalName();
+                $img = Image::make($request->file('picture'));
+                $img->crop(400, 400);
+                $img->save('uploads/products/' . $name);
+
             }
-            Product::create([
-                "user_id" => Auth::id(),
-                "category_id" => "2",
-                "product_name" => $request->name,
-                "product_slug" => Str::slug($request->name),
-                "price" => $request->price,
-                "mobile" => $request->mobile,
-                "product_desc" => $request->desc,
-                "discount" => $request->discount,
-                "status" => "0",
-                "quantity" => $request->quantity,
-                "stock" => $request->stock,
-                "image" => $name,
-                "created_at" => Jalalian::now(),
-                "updated_at" => Jalalian::now(),
-            ]);
-            session()->flash("status", "ثبت کالا با موفقیت انجام شد");
-            return back();
+
         }
-        session()->flash("error", "اطلاعات وارد شده صحیح نیست");
+
+
+        Product::create([
+            "user_id" => Auth::id(),
+            "category_id" => "2",
+            "product_name" => $request->name,
+            "product_slug" => Str::slug($request->name),
+            "price" => $request->price,
+            "mobile" => $request->mobile,
+            "product_desc" => $request->desc,
+            "discount" => $request->discount,
+            "status" => "0",
+            "quantity" => $request->quantity,
+            "stock" => $request->stock,
+            "image" => $name ,
+            "created_at" => Jalalian::now(),
+            "updated_at" => Jalalian::now(),
+        ]);
+
+        session()->flash("status", "ثبت کالا با موفقیت انجام شد");
         return back();
+
     }
 
     public function DeleteProductAction($id)
@@ -79,12 +96,6 @@ class ProfileController extends Controller
         session()->flash("delete", "حذف کالا با موفقیت انجام شد");
         return back();
     }
-
-
-
-
-
-
 
     public function ViewProductSingle($id)
     {
@@ -99,19 +110,9 @@ class ProfileController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
-
-
     public function ProfileEdit()
     {
-        return view("profile.profile", ["user" => Auth::user()]);
+        return view("profile.profile", ["user" => Auth::user(), "menu" => "profile"]);
     }
 
     public function ProfileEditAction(Request $request)
