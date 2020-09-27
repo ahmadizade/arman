@@ -190,191 +190,69 @@
 
 
     {{--کفش--}}
-    <div class="container mt-5 overflow-hidden">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-xs-12 my-5">
-                <div class="section__title--2 text-center">
-                    <h2 class="title__line">کیف و کفش</h2>
-                    <p>با بیش از 114 فروشگاه فعال</p>
+    @if(isset($popular))
+        <div class="container mt-5 overflow-hidden">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xs-12 my-3">
+                    <div class="section__title--2 text-center">
+                        <h2 class="title__line">آخرین محصولات</h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        {{--ساعت--}}
-        <div class="owl-container">
-            <div id="owl-watch" class="owl-carousel owl-theme">
-
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/shoes/p1.jpg')}}" alt="Owl Image">
-                    </div>
-                    <div class="price-box">
-                        <p>فروشگاه سالار</p>
-                        <del class="text-muted">390,000</del>
-                        <span class="badge badge-danger">19%</span>
-                        <p class="text-danger">340,000</p>
-                    </div>
-                </div>
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/shoes/p4.jpg')}}" alt="Owl Image">
-                    </div>
-                    <div class="price-box">
-                        <p>فروشگاه سالار</p>
-                        <del class="text-muted">490,000</del>
-                        <span class="badge badge-danger">25%</span>
-                        <p class="text-danger">380,000</p>
-                    </div>
-                </div>
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/shoes/p2.jpg')}}" alt="Owl Image">
-                    </div>
-                    <div class="price-box">
-                        <p>کفش ملی (هفت تیر)</p>
-                        <del class="text-muted">190,000</del>
-                        <span class="badge badge-danger">15%</span>
-                        <p class="text-danger">120,000</p>
-                    </div>
-                </div>
-
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/shoes/p3.jpg')}}" alt="Owl Image">
-                    </div>
-                    <div class="price-box">
-                        <p>کفش ملی (ولیعصر)</p>
-                        <del class="text-muted">170,000</del>
-                        <span class="badge badge-danger">18%</span>
-                        <p class="text-danger">145,000</p>
-                    </div>
-                </div>
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/shoes/p4.jpg')}}" alt="Owl Image">
-                    </div>
-                    <div class="price-box">
-                        <p>کفش ملی (ولیعصر)</p>
-                        <del class="text-muted">170,000</del>
-                        <span class="badge badge-danger">18%</span>
-                        <p class="text-danger">145,000</p>
-                    </div>
-                </div>
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/shoes/p5.jpg')}}" alt="Owl Image">
-                    </div>
-                    <div class="price-box">
-                        <p>کفش ملی (ولیعصر)</p>
-                        <del class="text-muted">170,000</del>
-                        <span class="badge badge-danger">18%</span>
-                        <p class="text-danger">145,000</p>
-                    </div>
-                </div>
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/shoes/p6.jpg')}}" alt="Owl Image">
-                    </div>
-                    <div class="price-box">
-                        <p>چرم مشهد (ونک)</p>
-                        <del class="text-muted">184,000</del>
-                        <span class="badge badge-danger">18%</span>
-                        <p class="text-danger">120,000</p>
+            <div class="row">
+                <div class="owl-container">
+                    <div id="owl-food" class="owl-carousel owl-theme">
+                        @foreach($popular as $product)
+                            <div class="slider-desc text-center overflow-hidden">
+                                <div class="item"><img src="{{Storage::disk('vms')->url($product['image'])}}" alt="Owl Image">
+                                </div>
+                                <div class="price-box rtl">
+                                    <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
+                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                    <span class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
+                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
+
     {{--کفش--}}
 
 
     {{--ساعت--}}
-    <div class="container mt-5 overflow-hidden">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-xs-12 my-5">
-                <div class="section__title--2 text-center">
-                    <h2 class="title__line">ساعت و دستبند</h2>
-                    <p>با ثمین تخفیف می توانید از تمام کالا ها، با تخفیف های باور نکردنی بهرهمند شوید</p>
+    @if(isset($lastProducts))
+        <div class="container mt-5 overflow-hidden">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xs-12 my-3">
+                    <div class="section__title--2 text-center">
+                        <h2 class="title__line"></h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        {{--ساعت--}}
-        <div class="owl-container">
-            <div id="owl-watch" class="owl-carousel owl-theme">
-
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/watch/product-2-copyright-660x660.webp')}}">
-                    </div>
-                    <div class="price-box">
-                        <p>لابراسکی</p>
-                        <del class="text-muted">1,490,000</del>
-                        <span class="badge badge-danger">25%</span>
-                        <p class="text-danger">1,380,000</p>
-                    </div>
-                </div>
-
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/watch/product-4-copyright-660x660.webp')}}">
-                    </div>
-                    <div class="price-box">
-                        <p>الکیواسی شعبه ولنجک</p>
-                        <del class="text-muted">2,990,000</del>
-                        <span class="badge badge-danger">30%</span>
-                        <p class="text-danger">2,460,000</p>
-                    </div>
-                </div>
-
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/watch/product-5-copyright-660x660.webp')}}">
-                    </div>
-                    <div class="price-box">
-                        <p>کولیدور</p>
-                        <del class="text-muted">760,000</del>
-                        <span class="badge badge-danger">17%</span>
-                        <p class="text-danger">630,000</p>
-                    </div>
-                </div>
-
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/watch/product-6-copyright-660x660.webp')}}">
-                    </div>
-                    <div class="price-box">
-                        <p>زمان</p>
-                        <del class="text-muted">3,760,000</del>
-                        <span class="badge badge-danger">28%</span>
-                        <p class="text-danger">2,930,000</p>
-                    </div>
-                </div>
-
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/watch/product-7-copyright-660x660.webp')}}">
-                    </div>
-                    <div class="price-box">
-                        <p>برندلی</p>
-                        <del class="text-muted">1,960,000</del>
-                        <span class="badge badge-danger">38%</span>
-                        <p class="text-danger">1,130,000</p>
-                    </div>
-                </div>
-
-
-                <div class="slider-desc text-center overflow-hidden">
-                    <div class="item"><img src="{{url('../images/product/watch/product-8-copyright-150x150.png')}}">
-                    </div>
-                    <div class="price-box">
-                        <p>ویولت الاهیه</p>
-                        <del class="text-muted">4,160,000</del>
-                        <span class="badge badge-danger">29%</span>
-                        <p class="text-danger">3,570,000</p>
+            <div class="row">
+                <div class="owl-container">
+                    <div id="owl-food" class="owl-carousel owl-theme">
+                        @foreach($lastProducts as $key => $product)
+                            <div class="slider-desc text-center overflow-hidden">
+                                <div class="item"><img src="{{Storage::disk('vms')->url($product['image'])}}" alt="Owl Image">
+                                </div>
+                                <div class="price-box rtl">
+                                    <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
+                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                    <span class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
+                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
     {{--ساعت--}}
 
 
