@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use MongoDB\Driver\Session;
 use Morilog\Jalali\Jalalian;
-use phpDocumentor\Reflection\DocBlock\Tags\See;
 
 class ProfileController extends Controller
 {
@@ -36,20 +38,34 @@ class ProfileController extends Controller
             'discount' => 'nullable|max:128',
             'quantity' => 'nullable|numeric|max:128',
             'stock' => 'nullable|max:32',
-            'file' => 'image|mimes:jpg,jpeg,bmp,png|nullable',
+            'filee' => 'image|mimes:jpg,jpg,bmp,png|nullable',
         ]);
 
+
         if (isset($request->file)) {
+
             $exists = Storage::disk('vms')->exists($request->file('file')->getClientOriginalName());
+
             if ($exists == true) {
+
                 $name = pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_FILENAME);
                 $name = $name . "-" . time();
                 $name = $name . "." . $request->file('file')->getClientOriginalExtension();
-                Storage::disk('vms')->put($name, file_get_contents($request['file']));
+
+                $img = Image::make('uploads/products/'.pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                $img->crop(400, 400);
+                $img->save('uploads/products/'.$name);
+
             } else {
+
                 $name = $request->file('file')->getClientOriginalName();
-                Storage::disk('vms')->put($request->file('file')->getClientOriginalName(), file_get_contents($request['file']));
+                $img = Image::make($request->file('file'));
+                $img->crop(400, 400);
+                $img->save('uploads/products/'.$name);
+
             }
+
+
             Product::create([
                 "user_id" => Auth::id(),
                 "category_id" => "2",
