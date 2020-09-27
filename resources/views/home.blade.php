@@ -156,20 +156,27 @@
     {{--بازار مبل ایران--}}
 
     {{--        آخرین محصولات slider--}}
-    @if(isset($last_products))
+    @if(isset($lastProducts))
         <div class="container mt-5 overflow-hidden">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xs-12 my-3">
+                    <div class="section__title--2 text-center">
+                        <h2 class="title__line">آخرین محصولات</h2>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="owl-container">
                     <div id="owl-food" class="owl-carousel owl-theme">
-                        @foreach($last_products as $product)
+                        @foreach($lastProducts as $key => $product)
                             <div class="slider-desc text-center overflow-hidden">
                                 <div class="item"><img src="{{Storage::disk('vms')->url($product['image'])}}" alt="Owl Image">
                                 </div>
-                                <div class="price-box">
-                                    <p>{{$product->name}}</p>
-                                    <del class="text-muted">{{$product->price}}</del>
-                                    <span class="badge badge-danger">{{$product->discount}}<span>%</span></span>
-                                    <p class="text-danger">{{$product->price}}</p>
+                                <div class="price-box rtl">
+                                    <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
+                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                    <span class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
+                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }} <span class="text-muted font-12">ریال</span></p>
                                 </div>
                             </div>
                         @endforeach
