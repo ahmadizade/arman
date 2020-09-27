@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
+    <title>پروفایل کاربری | ثمین تخفیف</title>
 @endsection
 
 @section("content")
@@ -34,7 +34,7 @@
                                 <div class="col-12 col-lg-4">
                                    <div class="input-group my-2">
                                        <div class="input-group-prepend">
-                                           <span class="input-group-text font-12">شماره تماس</span>
+                                           <span class="input-group-text font-12">موبایل</span>
                                        </div>
                                        <input type="text" class="form-control disabled bg-muted" disabled value="{{ $user->mobile }}">
                                    </div>
@@ -81,7 +81,7 @@
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">شماره تماس</span>
+                                            <span class="input-group-text font-12">تلفن ثابت</span>
                                         </div>
                                         <input type="text" name="phone" class="form-control" value="{{ $user->profile->phone }}">
                                     </div>
@@ -170,4 +170,4 @@
             e.preventDefault();
         })
     </script>
-@stop
+@endsection

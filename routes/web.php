@@ -36,4 +36,6 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::get('/edit-product/{id}', 'App\Http\Controllers\ProfileController@EditProductSingle')->name("edit_product");
     Route::get('/edit', 'App\Http\Controllers\ProfileController@ProfileEdit')->name("profile_edit");
     Route::post('/edit-action', 'App\Http\Controllers\ProfileController@ProfileEditAction')->name("profile_edit_action");
+    Route::get('/gold', 'App\Http\Controllers\ProfileController@ProfileGold')->name("profile_gold");
+    Route::post('/gold-action', 'App\Http\Controllers\ProfileController@ProfileGoldAction')->name("profile_gold_action");
 });

@@ -154,4 +154,16 @@ class ProfileController extends Controller
 
     }
 
+    public function ProfileGold(){
+
+        return view("profile.gold", ["menu" => "gold"]);
+
+    }
+
+    public function ProfileGoldAction(Request $request){
+
+        return response()->json(['errors' => 1]);
+
+    }
+
 }

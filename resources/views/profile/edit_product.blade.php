@@ -143,7 +143,7 @@
         CKEDITOR.replace('product_desc');
         CKEDITOR.config.autoParagraph = false;
     </script>
-@stop
+@endsection
 
 
 {{--<img src="{{Storage::disk('vms')->url($ticket['file'])}}">--}}
