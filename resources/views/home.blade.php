@@ -8,7 +8,8 @@
 
 
     {{--    Top Picture--}}
-    <div class="site-blocks-cover" style="background-image:url({{url('/images/samin/samintakhfif-last-01.jpg')}})" data-aos="fade"
+    <div class="site-blocks-cover" style="background-image:url({{url('/images/samin/samintakhfif-last-01.jpg')}})"
+         data-aos="fade"
          id="home-section">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -16,19 +17,23 @@
                     <div class="single-text owl-carousel">
                         <div class="slide">
                             <h1 class="text-uppercase text-secondary" data-aos="fade-up">بازار تهاتر ایرانیان</h1>
-                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">www.Bazarti.com </p>
+                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">
+                                www.Bazarti.com </p>
                             <div data-aos="fade-up" data-aos-delay="100">
                             </div>
                         </div>
 
                         <div class="slide">
                             <h1 class="text-uppercase text-secondary" data-aos="fade-up">شارژ بیشتر ، خرید آسانتر</h1>
-                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">Www.SaminTakhfif.Com </p>
+                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">
+                                Www.SaminTakhfif.Com </p>
                         </div>
 
                         <div class="slide">
-                            <h1 class="text-uppercase text-secondary" data-aos="fade-up">پرداخت از طریق اپ کارت به کارت</h1>
-                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">Download Application</p>
+                            <h1 class="text-uppercase text-secondary" data-aos="fade-up">پرداخت از طریق اپ کارت به
+                                کارت</h1>
+                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">Download
+                                Application</p>
                         </div>
 
                     </div>
@@ -47,29 +52,29 @@
 
     {{--کیف پول--}}
     <div class="site-section" id="next">
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="">--}}
-{{--                    <figure class="circle-bg">--}}
-{{--                        <img src="images/product/h1.jpg" alt="Bazar Tahator Iranian"--}}
-{{--                             class="img-fluid samin-pages mb-4"></figure>--}}
-{{--                    <h3 class="card-title">ثمین تخفیف</h3>--}}
-{{--                    <p>با هر پرداخت %10 شارژ اضافه میگیری</p>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="100">--}}
-{{--                    <img src="images/product/h2.jpg" alt="Bazar Tahator Iranian"--}}
-{{--                         class="img-fluid samin-pages mb-4">--}}
-{{--                    <h3 class="card-title">ثمین سررسید</h3>--}}
-{{--                    <p>الان بخر 6 ماه دیگه پول بده</p>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="200">--}}
-{{--                    <img src="images/product/h3.jpg"--}}
-{{--                         alt="Bazar Tahator Iranian" class="img-fluid samin-pages mb-4">--}}
-{{--                    <h3 class="card-title">ثمین تعویض</h3>--}}
-{{--                    <p>بازار تهاتر ایرانیان</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        {{--        <div class="container">--}}
+        {{--            <div class="row">--}}
+        {{--                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="">--}}
+        {{--                    <figure class="circle-bg">--}}
+        {{--                        <img src="images/product/h1.jpg" alt="Bazar Tahator Iranian"--}}
+        {{--                             class="img-fluid samin-pages mb-4"></figure>--}}
+        {{--                    <h3 class="card-title">ثمین تخفیف</h3>--}}
+        {{--                    <p>با هر پرداخت %10 شارژ اضافه میگیری</p>--}}
+        {{--                </div>--}}
+        {{--                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="100">--}}
+        {{--                    <img src="images/product/h2.jpg" alt="Bazar Tahator Iranian"--}}
+        {{--                         class="img-fluid samin-pages mb-4">--}}
+        {{--                    <h3 class="card-title">ثمین سررسید</h3>--}}
+        {{--                    <p>الان بخر 6 ماه دیگه پول بده</p>--}}
+        {{--                </div>--}}
+        {{--                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="200">--}}
+        {{--                    <img src="images/product/h3.jpg"--}}
+        {{--                         alt="Bazar Tahator Iranian" class="img-fluid samin-pages mb-4">--}}
+        {{--                    <h3 class="card-title">ثمین تعویض</h3>--}}
+        {{--                    <p>بازار تهاتر ایرانیان</p>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="">
@@ -95,13 +100,23 @@
     </div>
 
     {{--    موبایل Home page--}}
-    <div class="container overflow-hidden">
-        <div class="row text-center">
-            <div class="col-md-12 text-center myfont aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                <img src="images/samin/mobile-trans.png" alt="Bazar Tahator Iranian" class="img-fluid mb-4">
+{{--    <div class="container overflow-hidden">--}}
+{{--        <div class="row text-center">--}}
+{{--            <div class="col-md-12 text-center myfont aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">--}}
+{{--                <img src="images/samin/mobile-trans.png" alt="Bazar Tahator Iranian" class="img-fluid mb-4">--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <img class=" w-100" src="{{url('/images/gif/download.gif')}}">
             </div>
         </div>
     </div>
+
+
     {{--    موبایل Home page--}}
 
     {{--تبلیق فروشگاه ها--}}
@@ -109,28 +124,23 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-4 text-center myfont aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/product/mba4.jpg" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">
-                    <h3 class="card-title">فروشگاه ساسان</h3>
-                    <p>ولنجک، آصف، انتهای خیابان ساسان</p>
-                    <p class="text-primary">021-2427635</p>
+{{--                    <img src="images/product/mba4.jpg" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">--}}
+                    <h3 class="card-title text-primary">BAZARTI APPLICATION</h3>
+                    <p>شما میتوانید اپ بازارتی را از سایت بازار یا بازارتی دانلود کنید</p>
+                    <p>اگر موقع نصب مشکلی داشتی با پشتیبانی دوازده هفت بیست و چهار ما تماس بگیر</p>
+                    <a class="fr__btn text-white">پشتیبانی آنلاین</a>
                 </div>
-
-
-                {{--                 <div class="col-md-4 text-center myfont aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">--}}
-                {{--                    <img src="images/samin/mobile-trans.png" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">--}}
-                {{--                </div>--}}
-
-
                 <div class="col-md-4 text-center myfont aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/product/mmba44.jpg" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">
-                    <h3 class="card-title">فروشگاه کاوان</h3>
-                    <p>شهرک غرب، ایرانزمین، گلستان پنجم</p>
-                    <p class="text-primary">021-8357495</p>
+                    <img src="images/samin/mobile-trans.png" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">
                 </div>
-
-
+                <div class="col-md-4 text-center myfont aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+{{--                    <img src="images/product/mmba44.jpg" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">--}}
+                    <h3 class="card-title text-primary">CMS APPLICATION</h3>
+                    <p>اپلیکیشن کارت به کارت بازارتی امکان پرداخت اعتبار و خرید از سایت را به شما می دهد</p>
+                    <p>تازه می تونی تو قرعه کشی ما هم از این طریق ثبت نام کنید</p>
+                    <a class="fr__btn text-white">کاربر طلایی</a>
+                </div>
             </div>
-
         </div>
     </div>
     {{--تبلیق فروشگاه ها--}}
@@ -152,6 +162,35 @@
         </div>
     </div>
     {{--بازار مبل ایران--}}
+
+
+    <div class="text-center text-black w-100 my-4">
+        <p class="font-20">بیش از یک دهه سابقه کار در فروش لایسنس</p>
+        <p class="text-secondary font-14">بیش از یک دهه خدمتگذار شما همراهان همیشگی بوده ایم و به امید خداوند و همراهی شما عزیزان به جهانی شدن
+            می اندیشیم</p>
+    </div>
+
+    <div class="container mt-0">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <img class=" w-100" src="{{url('/images/samin/middle/mid-mobl.jpg')}}">
+            </div>
+        </div>
+        <!--< mid shape>-->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="mid-shape">
+                        <div class="mid-shapemask"></div>
+                        <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--< mid shape>-->
+    </div>
+
+
 
     {{--        آخرین محصولات slider--}}
     @if(isset($lastProducts))
@@ -177,26 +216,42 @@
                                 </div>
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
-                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span
+                                                class="font-12">ریال</span></del>
                                     <span class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
-                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }}
+                                        <span class="text-muted font-12">ریال</span></p>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                 </div>
             </div>
+{{--            <!--< mid shape>-->--}}
+{{--            <div class="container">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col">--}}
+{{--                        <div class="mid-shape">--}}
+{{--                            <div class="mid-shapemask"></div>--}}
+{{--                            <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!--< mid shape>-->--}}
+
         </div>
     @endif
     {{--        آخرین محصولات slider--}}
 
 
-    <div class="row">
-        <div class="w-100 h-25 my-3">
-            <img src="./images/samin/title-center.jpg" title="center_samin">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-12 middle-pic w-100"
+                 style="background-image:url({{url('/images/samin/middle/1.jpg')}})">
+            </div>
         </div>
     </div>
-
 
 
     {{--پربازدیدترین ها--}}
@@ -223,9 +278,11 @@
                                 </div>
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
-                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span
+                                                class="font-12">ریال</span></del>
                                     <span class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
-                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }}
+                                        <span class="text-muted font-12">ریال</span></p>
                                 </div>
                             </div>
                         @endforeach
@@ -235,6 +292,15 @@
         </div>
     @endif
     {{--پربازدیدترین ها--}}
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-12 middle-pic w-100"
+                 style="background-image:url({{url('/images/samin/middle/mid-2.jpg')}})">
+            </div>
+        </div>
+    </div>
 
 
     {{--محصولات تصادفی--}}
@@ -261,9 +327,11 @@
                                 </div>
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
-                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span
+                                                class="font-12">ریال</span></del>
                                     <span class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
-                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }}
+                                        <span class="text-muted font-12">ریال</span></p>
                                 </div>
                             </div>
                         @endforeach
@@ -275,8 +343,19 @@
     {{--محصولات تصادفی--}}
 
 
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-12 middle-pic w-100"
+                 style="background-image:url({{url('/images/samin/middle/mid-3.webp')}})">
+            </div>
+        </div>
+    </div>
+
+
+
     {{--            لباس زنانه--}}
-    <div class="container mt-5 overflow-hidden">
+    <div class="container overflow-hidden">
         <div class="row align-items-center justify-content-center">
             <div class="col-xs-12 my-5">
                 <div class="section__title--2 text-center">
@@ -369,6 +448,15 @@
         </div>
     </div>
     {{--            لباس زنانه--}}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-12 middle-pic w-100"
+                 style="background-image:url({{url('/images/samin/middle/mid-4.jpg')}})">
+            </div>
+        </div>
+    </div>
+
 
     {{--خدمات والپیپر--}}
     <div class="col-xs-12 my-5">
@@ -514,8 +602,8 @@
 
                 <div class="slider-desc text-center overflow-hidden">
                     <div class="item"><img
-                            src="{{url('../images/services/hood-1.jpg')}}"
-                            alt="Owl Image">
+                                src="{{url('../images/services/hood-1.jpg')}}"
+                                alt="Owl Image">
                         <span class="product-sale-top">30%</span>
                     </div>
                     <p class="mt-1 text-danger">ایزوگام</p>

@@ -3402,13 +3402,13 @@ button.close_box {
 }
 
 .fr__btn {
-    background: #e26a07 none repeat scroll 0 0;
+    background: #71bc42 none repeat scroll 0 0;
     color: #fff;
     display: inline-block;
     font-size: 15px;
-    height: 50px;
-    line-height: 50px;
-    padding: 0 36px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 14px;
     transition: 0.3s;
 }
 
@@ -3478,4 +3478,70 @@ button.close_box {
 }
 
 /*SAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIFSAMIN TAKHFIF */
+
+.middle-pic {
+    height: 300px;
+    margin: 20px auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.middle-pic-big {
+    height: 500px;
+    margin: 20px auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.mid-shape {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+.mid-shapemask {
+    overflow: hidden;
+    height: 20px;
+}
+
+.mid-shapemask:after {
+    content: '';
+    display: block;
+    margin: -25px auto 0;
+    width: 100%;
+    height: 25px;
+    border-radius: 425px / 12px;
+    box-shadow: 1px 5px 14px 0px #ff7600;
+}
+
+.mid-shape span {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: -25px;
+    left: 50%;
+    margin-left: -25px;
+    border-radius: 100%;
+    box-shadow: 0px 6px 9px 1px #ff7600;
+    background: #fff;
+}
+
+.mid-shape i {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    border-radius: 100%;
+    border: 1px dashed #001fff;
+    text-align: center;
+    line-height: 50px;
+    font-style: normal;
+    color: #001fff;
+}
+
 
