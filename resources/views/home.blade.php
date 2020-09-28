@@ -8,28 +8,27 @@
 
 
     {{--    Top Picture--}}
-    <div class="site-blocks-cover" style="background-image:url({{url('/images/samin/e-commerce.jpg')}})" data-aos="fade"
+    <div class="site-blocks-cover" style="background-image:url({{url('/images/samin/samintakhfif-last-01.jpg')}})" data-aos="fade"
          id="home-section">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-10 mt-lg-5 text-center">
                     <div class="single-text owl-carousel">
                         <div class="slide">
-                            <h1 class="text-uppercase" data-aos="fade-up">Iranian Barter</h1>
-                            <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">www.Bazarti.com </p>
+                            <h1 class="text-uppercase text-secondary" data-aos="fade-up">بازار تهاتر ایرانیان</h1>
+                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">www.Bazarti.com </p>
                             <div data-aos="fade-up" data-aos-delay="100">
                             </div>
                         </div>
 
                         <div class="slide">
-                            <h1 class="text-uppercase" data-aos="fade-up">Swapping AND TradeUp</h1>
-                            <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">No Money! So We Have a Healthy
-                                Earth </p>
+                            <h1 class="text-uppercase text-secondary" data-aos="fade-up">شارژ بیشتر ، خرید آسانتر</h1>
+                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">Www.SaminTakhfif.Com </p>
                         </div>
 
                         <div class="slide">
-                            <h1 class="text-uppercase" data-aos="fade-up">Together!</h1>
-                            <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">We Think Of Globalization</p>
+                            <h1 class="text-uppercase text-secondary" data-aos="fade-up">پرداخت از طریق اپ کارت به کارت</h1>
+                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">Download Application</p>
                         </div>
 
                     </div>
@@ -74,19 +73,19 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="">
-                    <img src="images/flaticon-svg/svg/001-wallet.svg" alt="Bazar Tahator Iranian"
+                    <img src="images/icon/1.png" alt="Bazar Tahator Iranian"
                          class="img-fluid w-25 mb-4">
                     <h3 class="card-title">شارژ کیف پول</h3>
                     <p>10% افزایش اعتبار با شارژ کیف پول</p>
                 </div>
                 <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="100">
-                    <img id="add-store-btn" src="images/flaticon-svg/svg/004-cart.svg" alt="Bazar Tahator Iranian"
+                    <img id="add-store-btn" src="images/icon/2.png" alt="Bazar Tahator Iranian"
                          class="img-fluid pointer-event w-25 mb-4">
                     <h3 class="card-title">ثبت آنلاین فروشگاه</h3>
                     <p>ارتباط بین فروشنده و خریدار بدون واسته</p>
                 </div>
                 <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/flaticon-svg/svg/006-credit-card.svg"
+                    <img src="images/icon/3.png"
                          alt="Bazar Tahator Iranian" class="img-fluid w-25 mb-4">
                     <h3 class="card-title">ثمین کارت ها</h3>
                     <p>آشنایی بیشتر با انواع ثمین کارت</p>

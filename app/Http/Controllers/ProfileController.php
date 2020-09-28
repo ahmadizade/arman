@@ -55,6 +55,7 @@ class ProfileController extends Controller
                 $name = $name . "-" . time();
                 $name = $name . "." . $request->file('file')->getClientOriginalExtension();
 
+
                 $img = Image::make('uploads/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
                 $img->crop(400, 400);
                 $img->save('uploads/products/' . $name);
@@ -83,7 +84,7 @@ class ProfileController extends Controller
             "status" => 1,
             "quantity" => $request->quantity,
             "stock" => $request->stock,
-            "image" => $name ,
+            "image" => $name,
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now(),
         ]);
@@ -96,9 +97,9 @@ class ProfileController extends Controller
     public function DeleteProductAction($id)
     {
 
-        if(isset($id) && is_numeric($id) && $id > 0){
+        if (isset($id) && is_numeric($id) && $id > 0) {
 
-            Product::where('id', $id)->where("user_id",Auth::id())->update(array('status' => 1));
+            Product::where('id', $id)->where("user_id", Auth::id())->update(array('status' => 1));
 
             session()->flash("delete", "حذف کالا با موفقیت انجام شد");
 
@@ -129,7 +130,7 @@ class ProfileController extends Controller
 
     public function ProfileEdit()
     {
-        return view("profile.profile", ["user" => Auth::user(),"menu" => "profile"]);
+        return view("profile.profile", ["user" => Auth::user(), "menu" => "profile"]);
     }
 
     public function ProfileEditAction(Request $request)
@@ -172,16 +173,44 @@ class ProfileController extends Controller
 
     }
 
-    public function ProfileGold(){
+    public function ProfileGold()
+    {
 
         return view("profile.gold", ["menu" => "gold"]);
 
     }
 
-    public function ProfileGoldAction(Request $request){
+    public function ProfileGoldAction(Request $request)
+    {
 
         return response()->json(['errors' => 1]);
 
     }
+
+
+    //Jquery Cropper
+    public function uploadCropImage(Request $request)
+    {
+        $folderPath = public_path('upload/');
+
+        $image_parts = explode(";base64,", $request->image);
+        $image_type_aux = explode("image/", $image_parts[0]);
+        $image_type = $image_type_aux[1];
+        $image_base64 = base64_decode($image_parts[1]);
+
+        $imageName = uniqid() . '.png';
+
+        $imageFullPath = $folderPath . $imageName;
+
+        file_put_contents($imageFullPath, $image_base64);
+
+        $saveFile = new Picture;
+        $saveFile->name = $imageName;
+        $saveFile->save();
+
+        return response()->json(['success' => 'Crop Image Uploaded Successfully']);
+    }
+    //Jquery Cropper
+
 
 }
