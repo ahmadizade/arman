@@ -15,25 +15,25 @@
     <div class="container-fluid bg-primary d-none d-lg-block">
         <div class="container">
             <div class="row d-flex justify-content-center">
-                <div class="d-flex flex-column flex-md-row justify-content-around align-items-center text-center" >
+                <div class="d-flex flex-column flex-md-row justify-content-around align-items-center text-center">
                     <div class="counter-group">
                         <div class="counter text-white" data-count="150">0</div>
                         <h5 class="text-white">همراهان</h5>
                     </div>
                     <div class="counter-group">
-                        <div class="counter text-white" data-count="85">0</div>
+                        <div class="counter text-white" data-count="57">0</div>
                         <h5 class="text-white">نمایندگی ها</h5>
                     </div>
                     <div class="counter-group">
-                        <div class="counter text-white" data-count="85">0</div>
-                        <h5 class="text-white">نمایندگی ها</h5>
+                        <div class="counter text-white" data-count="8420">0</div>
+                        <h5 class="text-white">اعضاء</h5>
                     </div>
                     <div class="counter-group">
-                        <div class="counter text-white" data-count="2200">0</div>
+                        <div class="counter text-white" data-count="3720">0</div>
                         <h5 class="text-white">محصولات</h5>
                     </div>
                     <div class="counter-group">
-                        <div class="counter text-white" data-count="12">0</div>
+                        <div class="counter text-white" data-count="26">0</div>
                         <h5 class="text-white">فروش امروز</h5>
                     </div>
                 </div>
@@ -90,47 +90,47 @@
         </div>
     </div>
 
-    <div class="container-fluid border-top border-bottom bg-light mt-3 py-2">
+    <div class="container-fluid mt-3 py-2">
         <div class="row">
-            <div class="col-12 col-lg-6 text-center mt-3">
-                <img src="images/product/1 (1).png" alt="Bazar Tahator Iranian" class="img-fluid mb-2">
-            </div>
-            <div class="col-12 col-lg-6 text-center mt-3">
-                <div class="fr__prize__inner text-center">
-                    <h4 class="text-primary mb-2">بزرگترین مرکز فروش مبل در ایران و خاورمیانه</h4>
-                    <h5 class="mb-2">بیش از 400 فروشگاه فعال</h5>
-                    <h4 class="mb-2">بازار بزرگ مبل ایران</h4>
-                    <a class="fr__btn mb-2" href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-{{--    <div class="text-center text-black w-100 my-4">
-        <p class="font-20">بیش از یک دهه سابقه کار در فروش لایسنس</p>
-        <p class="text-secondary font-14">بیش از یک دهه خدمتگذار شما همراهان همیشگی بوده ایم و به امید خداوند و همراهی شما عزیزان به جهانی شدن
-            می اندیشیم</p>
-    </div>
-
-    <div class="container mt-0">
-        <div class="row">
-            <div class="col-12 col-md-12">
-                <img class=" w-100" src="{{url('/images/samin/middle/mid-mobl.jpg')}}">
-            </div>
-        </div>
-        <!--< mid shape>-->
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="mid-shape">
-                        <div class="mid-shapemask"></div>
-                        <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>
+            <div class="col-12 col-lg-12 position-relative text-center mt-3">
+                <img src="images/gif/pannel-gif.gif" alt="Bazar Tahator Iranian" class="img-fluid mb-2">
+                <div class="col-4 text-center mt-3">
+                    <div class="fr__prize__inner over-gif text-center">
+                        <h4 class="text-primary mb-2">بزرگترین مرکز فروش مبل در ایران و خاورمیانه</h4>
+                        <h5 class="mb-2">بیش از 400 فروشگاه فعال</h5>
+                        <h4 class="mb-2">بازار بزرگ مبل ایران</h4>
+                        <a class="fr__btn mb-2" href="#">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
-        <!--< mid shape>-->
-    </div>--}}
+    </div>
+
+    {{--    <div class="text-center text-black w-100 my-4">
+            <p class="font-20">بیش از یک دهه سابقه کار در فروش لایسنس</p>
+            <p class="text-secondary font-14">بیش از یک دهه خدمتگذار شما همراهان همیشگی بوده ایم و به امید خداوند و همراهی شما عزیزان به جهانی شدن
+                می اندیشیم</p>
+        </div>
+
+        <div class="container mt-0">
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <img class=" w-100" src="{{url('/images/samin/middle/mid-mobl.jpg')}}">
+                </div>
+            </div>
+            <!--< mid shape>-->
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="mid-shape">
+                            <div class="mid-shapemask"></div>
+                            <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--< mid shape>-->
+        </div>--}}
 
     @if(isset($lastProducts))
         <div class="container mt-3">
@@ -148,7 +148,7 @@
                             <div class="slider-desc text-center overflow-hidden">
                                 <div class="item">
                                     @if(is_null($product->image))
-                                        <img src="{{ url('/images/about.jpg') }}" alt="BTI">
+                                        <img src="{{ url('/images/no-image2.png') }}" alt="BTI">
                                     @else
                                         <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
                                     @endif
@@ -175,6 +175,7 @@
         </div>
     </div>
 
+
     @if(isset($popular))
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
@@ -191,7 +192,7 @@
                             <div class="slider-desc text-center overflow-hidden">
                                 <div class="item">
                                     @if(is_null($product->image))
-                                        <img src="{{ url('/images/about.jpg') }}" alt="BTI">
+                                        <img src="{{ url('/images/no-image2.png') }}" alt="BTI">
                                     @else
                                         <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
                                     @endif
@@ -234,7 +235,7 @@
                             <div class="slider-desc text-center overflow-hidden">
                                 <div class="item">
                                     @if(is_null($product->image))
-                                        <img src="{{ url('/images/about.jpg') }}" alt="BTI">
+                                        <img src="{{ url('/images/no-image2.png') }}" alt="BTI">
                                     @else
                                         <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
                                     @endif
@@ -257,55 +258,158 @@
 
     <div class="container-fluid mt-3">
         <div class="row">
-            <div class="w-100" style="background-image:url({{url('/images/product/100.jpg')}});background-attachment: fixed;background-position: center center;height: 250px"></div>
+            <div class="w-100"
+                 style="background-image:url({{url('/images/product/100.jpg')}});background-attachment: fixed;background-position: center center;height: 250px"></div>
         </div>
     </div>
 
+    {{--    <div class="container">--}}
+    {{--        <div class="row">--}}
+    {{--            @if(isset($randomProduct))--}}
+    {{--                @foreach($randomProduct as $item)--}}
+    {{--                    <div class="col-12 col-lg-4">--}}
+    {{--                        <div class="card shadow-sm mt-3">--}}
+    {{--                            <div class="row no-gutters">--}}
+    {{--                                <div class="col-md-4 d-flex align-self-center">--}}
+    {{--                                    @if(is_null($item['image']))--}}
+    {{--                                        <img src="{{ url('/images/no-image2.png') }}" class="card-img"--}}
+    {{--                                             alt="No Image">--}}
+    {{--                                    @else--}}
+    {{--                                        <img src="{{ Storage::disk('vms')->url($item['image']) }}"--}}
+    {{--                                             class="card-img"--}}
+    {{--                                             alt="...">--}}
+    {{--                                    @endif--}}
+    {{--                                </div>--}}
+    {{--                                <div class="col-md-8">--}}
+    {{--                                    <div class="card-body">--}}
+    {{--                                        <h5 class="card-title mb-1 font-15 nowrap">@if($item['stock'] == 1) <span--}}
+    {{--                                                class="badge badge-secondary font-weight-normal">نو</span>  @else--}}
+    {{--                                                <span--}}
+    {{--                                                    class="badge badge-secondary font-weight-normal">کارکرده</span>  @endif--}}
+    {{--                                            | {{ $item['product_name'] }}</h5>--}}
+    {{--                                        0 <p class="card-text mb-1"><span--}}
+    {{--                                                class="text-muted font-12">قیمت:</span>--}}
+    {{--                                            <span class="font-18">{{ number_format($item['price']) }}</span> |--}}
+    {{--                                            <span--}}
+    {{--                                                class="badge badge-danger font-14 font-weight-normal">%{{$item['discount']}} تخفیف </span>--}}
+    {{--                                        </p>--}}
+    {{--                                        <p class="card-text"><span--}}
+    {{--                                                class="text-muted font-12">موجودی:</span> {{$item['quantity']}}--}}
+    {{--                                            عدد |--}}
+    {{--                                            <span--}}
+    {{--                                                class="text-muted font-12">تاریخ:</span><span> {{ \Morilog\Jalali\Jalalian::forge($item['created_at'])->format("Y/m/d") }} </span>--}}
+    {{--                                        </p>--}}
+    {{--                                    </div>--}}
+    {{--                                </div>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                @endforeach--}}
+    {{--            @endif--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
+    <!--<Product CARD>-->
     <div class="container">
         <div class="row">
-            @if(isset($randomProduct))
-                @foreach($randomProduct as $item)
-                    <div class="col-12 col-lg-4">
-                        <div class="card shadow-sm mt-3">
-                            <div class="row no-gutters">
-                                <div class="col-md-4 d-flex align-self-center">
-                                    @if(is_null($item['image']))
-                                        <img src="{{ url('/images/about.jpg') }}" class="card-img"
-                                             alt="No Image">
-                                    @else
-                                        <img src="{{ Storage::disk('vms')->url($item['image']) }}"
-                                             class="card-img"
-                                             alt="...">
-                                    @endif
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title mb-1 font-15 nowrap">@if($item['stock'] == 1) <span
-                                                class="badge badge-secondary font-weight-normal">نو</span>  @else
-                                                <span
-                                                    class="badge badge-secondary font-weight-normal">کارکرده</span>  @endif
-                                            | {{ $item['product_name'] }}</h5>
-                                        0 <p class="card-text mb-1"><span
-                                                class="text-muted font-12">قیمت:</span>
-                                            <span class="font-18">{{ number_format($item['price']) }}</span> |
-                                            <span
-                                                class="badge badge-danger font-14 font-weight-normal">%{{$item['discount']}} تخفیف </span>
-                                        </p>
-                                        <p class="card-text"><span
-                                                class="text-muted font-12">موجودی:</span> {{$item['quantity']}}
-                                            عدد |
-                                            <span
-                                                class="text-muted font-12">تاریخ:</span><span> {{ \Morilog\Jalali\Jalalian::forge($item['created_at'])->format("Y/m/d") }} </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-tameshk">
+                    <div class="inner">
+                        <h3> Virtualizor </h3>
+                        <p> فروش انواع لایسنس ها </p>
                     </div>
-                @endforeach
-            @endif
+                    <div class="icon">
+                        <i class="fa fa-sitemap" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-orange">
+                    <div class="inner">
+                        <h3> Direct Admin </h3>
+                        <p> ارزانتر از هر جی دیگر </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-podcast" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-green">
+                    <div class="inner">
+                        <h3>Cpanel</h3>
+                        <p> مدیریت سرور </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-window-restore" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-blue">
+                    <div class="inner">
+                        <h3> Cloud Flare </h3>
+                        <p> افزایش بهره وری </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-blue">
+                    <div class="inner">
+                        <h3> آموزش </h3>
+                        <p> نصب و راه اندازی </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-green">
+                    <div class="inner">
+                        <h3>لایسنس</h3>
+                        <p> پرفروش های امروز </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-orange">
+                    <div class="inner">
+                        <h3> خبرنامه </h3>
+                        <p> همین حالا عضو شو </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-tameshk">
+                    <div class="inner">
+                        <h3> همکاری با ما </h3>
+                        <p> نمایندگی ها </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
         </div>
     </div>
+    <!--<Product CARD>-->
 
 @endsection
 
@@ -317,22 +421,22 @@
             lazyLoad: true,
             responsiveClass: true,
             loop: true,
-            dots:false,
+            dots: false,
             responsive: {
                 0: {
                     items: 2,
                     nav: false,
-                    margin:10
+                    margin: 10
                 },
                 600: {
                     items: 3,
                     nav: false,
-                    margin:10
+                    margin: 10
                 },
                 1000: {
                     items: 5,
                     nav: false,
-                    margin:10
+                    margin: 10
                 }
             }
         });

@@ -26,7 +26,7 @@
                                 <li class="has-children">
                                     <a href="#profile" class="nav-link">{{ Auth::user()->mobile }}</a>
                                     <ul class="dropdown text-right rtl">
-                                        <li><a class="nav-link"> اعتبار {{ number_format(Auth::user()->credit) }} ریال </a></li>
+                                        <li><a class="nav-link text-success"> اعتبار {{ number_format(Auth::user()->credit) }} ریال </a></li>
                                         <li><a href="{{ route("profile_index") }}" class="nav-link">پروفایل</a></li>
                                         <li><a href="{{ route("logout") }}" class="nav-link">خروج</a></li>
                                     </ul>
@@ -68,7 +68,7 @@
                                     <li><a href="#" class="nav-link">قرعه کشی</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/" class="nav-link">صفحه اصلی<i class="fa fa-home font-20 pl-2"></i></a></li>
+                            <li><a href="/" class="nav-link">صفحه اصلی<i class="fa fa-home font-20 pl-2 text-primary"></i></a></li>
                         </ul>
                     </nav>
                 </div>

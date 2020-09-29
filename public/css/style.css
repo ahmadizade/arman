@@ -3560,3 +3560,122 @@ button.close_box {
 /*+++++++++++++++++++++++++++++++++ Count Number +++++++++++++++++++++++++++++++++++++++++*/
 
 
+/*<card card card card card card card card card card card card card card card card card card card card card card >*/
+
+.card-box {
+    position: relative;
+    color: #fff;
+    padding: 20px 10px 40px;
+    margin: 20px 0px;
+}
+
+.card-box:hover {
+    text-decoration: none;
+    color: #f1f1f1;
+}
+
+.card-box:hover .icon i {
+    font-size: 100px;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+.card-box .inner {
+    padding: 5px 10px 0 10px;
+}
+
+.card-box h3 {
+    font-size: 27px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    padding: 0;
+    text-align: left;
+}
+
+.card-box p {
+    font-size: 15px;
+}
+
+.card-box .icon {
+    position: absolute;
+    top: auto;
+    bottom: 5px;
+    right: 5px;
+    z-index: 0;
+    font-size: 72px;
+    color: rgba(0, 0, 0, 0.15);
+}
+
+.card-box .card-box-footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    text-align: center;
+    padding: 3px 0;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-decoration: none;
+}
+
+.card-box:hover .card-box-footer {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.bg-blue {
+    background-color: #00b8ff !important;
+}
+
+.bg-green {
+    background-color: #11d456 !important;
+}
+
+.bg-orange {
+    background-color: #ff9c00 !important;
+}
+.bg-tameshk {
+    background-color: #e30b5d;
+}
+
+.bg-tameshk2 {
+    background-color: #1cf4a2;
+}
+
+.bg-tameshk3 {
+    background-color: #b6094a;
+}
+
+.bg-tameshk4 {
+    background-color: #98817b;
+}
+
+.bg-tameshk5 {
+    background-color: #00eeeb;
+}
+
+.bg-tameshk6 {
+    background-color: #ee002e;
+}
+
+.bg-tameshk7 {
+    background-color: #ee5300;
+}
+
+.bg-tameshk8 {
+    background-color: #6769ec;
+}
+
+.bg-tameshk9 {
+    background-color: #30b1eb;
+}
+
+.bg-tameshk10 {
+    background-color: #777777;
+}
+
+/*<card card card card card card card card card card card card card card card card card card card card card card >*/
+
+.over-gif {
+    
+}

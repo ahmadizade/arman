@@ -158,7 +158,7 @@
                         <div class="">
                             @if(is_null($product->image))
                                 <img class="card-img-top img-fluid product-img-box"
-                                     src="{{url('/images/about.jpg')}}" alt="محصولات من">
+                                     src="{{url('/images/no-image2.png')}}" alt="محصولات من">
                             @else
                                 <img class="card-img-top img-fluid product-img-box"
                                      src="{{Storage::disk('vms')->url($product['image'])}}" alt="محصولات من">
