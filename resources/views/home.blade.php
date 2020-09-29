@@ -6,9 +6,8 @@
 
 @section("content")
 
-
     {{--    Top Picture--}}
-    <div class="site-blocks-cover" style="background-image:url({{url('/images/samin/samintakhfif-last-01.jpg')}})"
+    <div class="site-blocks-cover overlay" style="background-image:url({{url('/images/bg/Purchase.jpg')}})"
          data-aos="fade"
          id="home-section">
         <div class="container">
@@ -16,40 +15,69 @@
                 <div class="col-md-10 mt-lg-5 text-center">
                     <div class="single-text owl-carousel">
                         <div class="slide">
-                            <h1 class="text-uppercase text-secondary" data-aos="fade-up">بازار تهاتر ایرانیان</h1>
-                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">
+                            <h1 class="text-uppercase" data-aos="fade-up">بازار تهاتر ایرانیان</h1>
+                            <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">
                                 www.Bazarti.com </p>
                             <div data-aos="fade-up" data-aos-delay="100">
                             </div>
                         </div>
-
                         <div class="slide">
-                            <h1 class="text-uppercase text-secondary" data-aos="fade-up">شارژ بیشتر ، خرید آسانتر</h1>
-                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">
+                            <h1 class="text-uppercase" data-aos="fade-up">شارژ بیشتر ، خرید آسانتر</h1>
+                            <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">
                                 Www.SaminTakhfif.Com </p>
                         </div>
-
                         <div class="slide">
-                            <h1 class="text-uppercase text-secondary" data-aos="fade-up">پرداخت از طریق اپ کارت به
+                            <h1 class="text-uppercase" data-aos="fade-up">پرداخت از طریق اپ کارت به
                                 کارت</h1>
-                            <p class="mb-5 desc text-secondary" data-aos="fade-up" data-aos-delay="100">Download
+                            <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">Download
                                 Application</p>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-        <a href="#next" class="mouse smoothscroll">
-        <span class="mouse-icon">
-          <span class="mouse-wheel"></span>
-        </span>
-        </a>
+{{--        <a href="#next" class="mouse smoothscroll">--}}
+{{--        <span class="mouse-icon">--}}
+{{--          <span class="mouse-wheel"></span>--}}
+{{--        </span>--}}
+{{--        </a>--}}
+            <div class="counter-container d-none d-md-inline-block w-100" style="position: relative;top: -110px">
+                <div class="counter-row d-flex flex-column flex-md-row justify-content-around align-items-center">
+                    <div class="counter-group">
+                        <div class="counter text-white" data-count="150">0</div>
+                        <h5 class="text-white">همراهان</h5>
+                    </div>
+                    <div class="counter-group">
+                        <div class="counter text-white" data-count="85">0</div>
+                        <h5 class="text-white">نمایندگی ها</h5>
+                    </div>
+                    <div class="counter-group">
+                        <div class="counter text-white" data-count="85">0</div>
+                        <h5 class="text-white">نمایندگی ها</h5>
+                    </div>
+                    <div class="counter-group">
+                        <div class="counter text-white" data-count="2200">0</div>
+                        <h5 class="text-white">محصولات</h5>
+                    </div>
+                    <div class="counter-group">
+                        <div class="counter text-white" data-count="12">0</div>
+                        <h5 class="text-white">فروش امروز</h5>
+                    </div>
+                </div>
+            <!--< mid shape>-->
+{{--            <div class="container">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col">--}}
+{{--                        <div class="mid-shape">--}}
+{{--                            <div class="mid-shapemask"></div>--}}
+{{--                            <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+            <!--< mid shape>-->
+        </div>
     </div>
-
-
-
-
     {{--کیف پول--}}
     <div class="site-section" id="next">
         {{--        <div class="container">--}}
@@ -75,29 +103,35 @@
         {{--                </div>--}}
         {{--            </div>--}}
         {{--        </div>--}}
-        <div class="container mt-5">
+        <div class="container">
             <div class="row">
-                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="">
+                <div class="col-md-3 text-center myfont">
                     <img src="images/icon/1.png" alt="Bazar Tahator Iranian"
                          class="img-fluid w-25 mb-4">
-                    <h3 class="card-title">شارژ کیف پول</h3>
-                    <p>10% افزایش اعتبار با شارژ کیف پول</p>
+                    <h3 class="card-title">ثبت فروشگاه</h3>
+                    <p>فروشگاهت و ثبت کن، درآمد کسب کن</p>
                 </div>
-                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-3 text-center myfont">
                     <img id="add-store-btn" src="images/icon/2.png" alt="Bazar Tahator Iranian"
                          class="img-fluid pointer-event w-25 mb-4">
-                    <h3 class="card-title">ثبت آنلاین فروشگاه</h3>
-                    <p>ارتباط بین فروشنده و خریدار بدون واسته</p>
+                    <h3 class="card-title">طلایی شو</h3>
+                    <p>طلایی شو، شارژ بیشتر بگیر</p>
                 </div>
-                <div class="col-md-4 text-center myfont" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/icon/3.png"
-                         alt="Bazar Tahator Iranian" class="img-fluid w-25 mb-4">
-                    <h3 class="card-title">ثمین کارت ها</h3>
-                    <p>آشنایی بیشتر با انواع ثمین کارت</p>
+                <div class="col-md-3 text-center myfont">
+                    <img id="add-store-btn" src="images/icon/2.png" alt="Bazar Tahator Iranian"
+                         class="img-fluid pointer-event w-25 mb-4">
+                    <h3 class="card-title">کارت هواداری</h3>
+                    <p>از تیم محبوبت حمایت کن</p>
+                </div>
+                <div class="col-md-3 text-center myfont">
+                    <img id="add-store-btn" src="images/icon/2.png" alt="Bazar Tahator Iranian"
+                         class="img-fluid pointer-event w-25 mb-4">
+                    <h3 class="card-title">پشتیبانی 24 ساعته</h3>
+                    <p>فروشگاهت و ثبت کن، درآمد کسب کن</p>
                 </div>
             </div>
-        </div>
-    </div>
+{{--        </div>--}}
+{{--    </div>--}}
 
     {{--    موبایل Home page--}}
 {{--    <div class="container overflow-hidden">--}}
@@ -108,19 +142,16 @@
 {{--        </div>--}}
 {{--    </div>--}}
 
-    <div class="container mb-5">
-        <div class="row">
-            <div class="col-12 col-md-12">
-                <img class=" w-100" src="{{url('/images/gif/download.gif')}}">
-            </div>
-        </div>
-    </div>
-
-
+{{--    <div class="container mb-5">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-12 col-md-12">--}}
+{{--                <img class=" w-100" src="{{url('/images/gif/download.gif')}}">--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     {{--    موبایل Home page--}}
-
     {{--تبلیق فروشگاه ها--}}
-    <div class="third-section">
+    <div class="third-section mt-5">
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-4 text-center myfont aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
@@ -146,7 +177,7 @@
     {{--تبلیق فروشگاه ها--}}
 
     {{--بازار مبل ایران--}}
-    <div id="fourth" class="my-5">
+    <div id="fourth" class="mt-5">
         <div class="row">
             <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 text-center my-5">
                 <img src="images/product/1 (1).png" alt="Bazar Tahator Iranian" class="special-commerc img-fluid w-75">
@@ -250,6 +281,18 @@
             <div class="col-12 col-md-12 middle-pic w-100"
                  style="background-image:url({{url('/images/samin/middle/1.jpg')}})">
             </div>
+            <!--< mid shape>-->
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="mid-shape">
+                            <div class="mid-shapemask"></div>
+                            <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--< mid shape>-->
         </div>
     </div>
 
@@ -299,6 +342,18 @@
             <div class="col-12 col-md-12 middle-pic w-100"
                  style="background-image:url({{url('/images/samin/middle/mid-2.jpg')}})">
             </div>
+            <!--< mid shape>-->
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="mid-shape">
+                            <div class="mid-shapemask"></div>
+                            <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--< mid shape>-->
         </div>
     </div>
 
@@ -349,6 +404,18 @@
             <div class="col-12 col-md-12 middle-pic w-100"
                  style="background-image:url({{url('/images/samin/middle/mid-3.webp')}})">
             </div>
+            <!--< mid shape>-->
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="mid-shape">
+                            <div class="mid-shapemask"></div>
+                            <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--< mid shape>-->
         </div>
     </div>
 
@@ -454,6 +521,18 @@
             <div class="col-12 col-md-12 middle-pic w-100"
                  style="background-image:url({{url('/images/samin/middle/mid-4.jpg')}})">
             </div>
+            <!--< mid shape>-->
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="mid-shape">
+                            <div class="mid-shapemask"></div>
+                            <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--< mid shape>-->
         </div>
     </div>
 
