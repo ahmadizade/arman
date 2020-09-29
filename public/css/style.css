@@ -3481,7 +3481,6 @@ button.close_box {
 
 .middle-pic {
     height: 300px;
-    margin: 20px auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -3543,5 +3542,32 @@ button.close_box {
     font-style: normal;
     color: #001fff;
 }
+
+
+/*+++++++++++++++++++++++++++++++++ Count Number +++++++++++++++++++++++++++++++++++++++++*/
+
+.counter-row {
+    /*background-color: #e30b5d;*/
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    /*box-shadow: 0px 2px 11px -1px black;*/
+    /*-webkit-box-shadow: 0px 2px 11px -1px black;*/
+    /*-moz-box-shadow: 0px 2px 11px -1px black;*/
+    background: rgba(180, 180, 180, 0.3);
+    /*filter: blur(2px);*/
+    display: inline;
+    text-align: center;
+}
+
+.counter {
+    display: table-cell;
+    color: #c4d3d4;
+    font-size: 50px;
+    width: 200px;
+    text-align: center;
+}
+
+/*+++++++++++++++++++++++++++++++++ Count Number +++++++++++++++++++++++++++++++++++++++++*/
 
 
