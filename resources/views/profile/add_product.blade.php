@@ -118,7 +118,7 @@
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group mt-2">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file" id="file">
+                                            <input type="file" class="custom-file-input image" name="file" id="file">
                                             <label class="custom-file-label text-left" for="inputGroupFile01">+ افزودن
                                                 عکس</label>
                                         </div>
@@ -195,10 +195,6 @@
     </div>
 
     {{--    CROPPER.JS--}}
-    <div class="container">
-        {{--        <h1>Laravel Cropper Js - Crop Image Before Upload - Tutsmake.com</h1>--}}
-        <input type="file" name="image" class="image">
-    </div>
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -233,7 +229,6 @@
 
 @section('extra_js')
 
-    <script src="{{url('/js/app_jquery.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
     <script>
         $(".delete").on("click",function(e){
