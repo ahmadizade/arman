@@ -460,17 +460,6 @@ body:after {
     width: 100%;
 }
 
-/* Navbar */
-.site-navbar {
-    margin-bottom: 0px;
-    z-index: 1999;
-    position: absolute;
-    direction: ltr;
-    top: 0;
-    width: 100%;
-    border-bottom: rgba(255, 255, 255, 0.7);
-}
-
 .site-navbar .site-logo {
     position: relative;
     left: 0;

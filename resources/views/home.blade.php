@@ -6,35 +6,16 @@
 
 @section("content")
 
-    <div class="site-blocks-cover" style="background-image:url({{url('/images/bg/bg.png')}})" id="home-section">
-        {{--<div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-md-10 mt-lg-5 text-center">
-                    <div class="single-text owl-carousel">
-                        <div class="slide">
-                            <h1 class="text-uppercase" data-aos="fade-up">بازار تهاتر ایرانیان</h1>
-                            <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">
-                                www.Bazarti.com </p>
-                            <div data-aos="fade-up" data-aos-delay="100">
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <h1 class="text-uppercase" data-aos="fade-up">شارژ بیشتر ، خرید آسانتر</h1>
-                            <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">
-                                Www.SaminTakhfif.Com </p>
-                        </div>
-                        <div class="slide">
-                            <h1 class="text-uppercase" data-aos="fade-up">پرداخت از طریق اپ کارت به
-                                کارت</h1>
-                            <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">Download
-                                Application</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>--}}
-        <div class="counter-container d-none d-md-inline-block w-100" style="position: relative;top: -110px">
-                <div class="counter-row d-flex flex-column flex-md-row justify-content-around align-items-center">
+    <div class="container-fluid" style="border-top:2px solid #8b8788">
+        <div class="row">
+            <img src="/images/bg/slider.jpg" class="img-fluid" alt="">
+        </div>
+    </div>
+
+    <div class="container-fluid bg-primary">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="d-flex flex-column flex-md-row justify-content-around align-items-center text-center" >
                     <div class="counter-group">
                         <div class="counter text-white" data-count="150">0</div>
                         <h5 class="text-white">همراهان</h5>
@@ -56,18 +37,7 @@
                         <h5 class="text-white">فروش امروز</h5>
                     </div>
                 </div>
-            <!--< mid shape>-->
-{{--            <div class="container">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col">--}}
-{{--                        <div class="mid-shape">--}}
-{{--                            <div class="mid-shapemask"></div>--}}
-{{--                            <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-            <!--< mid shape>-->
+            </div>
         </div>
     </div>
 
