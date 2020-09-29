@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <div class="container-fluid bg-primary">
+    <div class="container-fluid bg-primary d-none d-lg-block">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="d-flex flex-column flex-md-row justify-content-around align-items-center text-center" >
