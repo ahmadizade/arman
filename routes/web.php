@@ -29,11 +29,12 @@ Route::get('/logout', 'App\Http\Controllers\LoginController@Logout')->name("logo
 // profile
 Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::get('/', 'App\Http\Controllers\ProfileController@Index')->name("profile_index");
+    Route::get('/products', 'App\Http\Controllers\ProfileController@products')->name("profile_products");
     Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product");
     Route::post('/add-product-action', 'App\Http\Controllers\ProfileController@AddProductAction')->name("add_product_action");
-    Route::get('/delete-product-action/{id}', 'App\Http\Controllers\ProfileController@DeleteProductAction')->name("delete_product_action");
-    Route::get('/view-product-single/{id}', 'App\Http\Controllers\ProfileController@ViewProductSingle')->name("view_product_single");
-    Route::get('/edit-product/{id}', 'App\Http\Controllers\ProfileController@EditProductSingle')->name("edit_product");
+    Route::get('/edit-product/{id}', 'App\Http\Controllers\ProfileController@EditProductSingle')->name("profile_edit_product");
+    Route::post('/edit-product-action', 'App\Http\Controllers\ProfileController@EditProductSingleAction')->name("edit_product_action");
+    Route::post('/delete-product-action', 'App\Http\Controllers\ProfileController@DeleteProductAction')->name("delete_product_action");
     Route::get('/edit', 'App\Http\Controllers\ProfileController@ProfileEdit')->name("profile_edit");
     Route::post('/edit-action', 'App\Http\Controllers\ProfileController@ProfileEditAction')->name("profile_edit_action");
     Route::get('/gold', 'App\Http\Controllers\ProfileController@ProfileGold')->name("profile_gold");

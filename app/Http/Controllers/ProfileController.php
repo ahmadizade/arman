@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
+use function PHPUnit\Framework\returnArgument;
 
 class ProfileController extends Controller
 {
@@ -22,12 +23,20 @@ class ProfileController extends Controller
         return view("profile.index", ["user" => Auth::user(), "menu" => "index"]);
     }
 
+    public function products(){
+
+        $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->paginate(20);
+
+        return view('profile.products', ["product" => $product, "menu" => "products"]);
+
+    }
+
     public function AddProduct()
     {
 
-        $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->get();
+        $products = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->limit(6)->get();
 
-        return view('profile.add_product', ["user" => Auth::user(), "product" => $product, "menu" => "add_product"]);
+        return view('profile.add_product', ["user" => Auth::user(),"products" => $products, "menu" => "add_product"]);
 
     }
 
@@ -90,24 +99,31 @@ class ProfileController extends Controller
         ]);
 
         session()->flash("status", "ثبت کالا با موفقیت انجام شد");
+
         return back();
 
     }
 
-    public function DeleteProductAction($id)
+    public function DeleteProductAction(Request $request)
     {
 
-        if (isset($id) && is_numeric($id) && $id > 0) {
+        if (isset($request->id) && is_numeric($request->id) && $request->id > 0) {
 
-            Product::where('id', $id)->where("user_id", Auth::id())->update(array('status' => 1));
+            $product = Product::where('id', $request->id)->where("user_id", Auth::id())->first();
 
-            session()->flash("delete", "حذف کالا با موفقیت انجام شد");
+            if(isset($product->id)){
 
-            return back();
+                Product::where('id', $request->id)->where("user_id", Auth::id())->update(array('status' => 0));
+
+                return response()->json(['errors' => 0]);
+
+            }
+
+            return response()->json(['errors' => 1 , "desc" => "این پست وجود ندارد یا مطعلق به شما نمیباشد"]);
 
         }
 
-        return null;
+        return response()->json(['errors' => 1 , "desc" => "حذف پست انجام نشد"]);
 
 
     }
@@ -115,16 +131,116 @@ class ProfileController extends Controller
     public function ViewProductSingle($id)
     {
 
-        $product = Product::where('id', $id)->first();
+        if (isset($request->id) && is_numeric($request->id) && $request->id > 0) {
 
-        return view('profile.single_product', ["product" => $product, "menu" => "add_product"]);
+            $product = Product::where('id', $id)->where("user_id", Auth::id())->first();
+
+            if(isset($product->id)){
+
+                return view('profile.single_product', ["product" => $product, "menu" => "add_product"]);
+
+            }
+
+            return null;
+
+        }
+
+        return null;
 
     }
 
     public function EditProductSingle($id)
     {
-        $product = Product::where('id', $id)->first();
-        return view('profile.edit_product', ["product" => $product, "menu" => "add_product"]);
+
+        if (isset($id) && is_numeric($id) && $id > 0) {
+
+            $product = Product::where('id', $id)->where("user_id", Auth::id())->first();
+
+            if(isset($product->id)) {
+
+                return view('profile.edit_product', ["product" => $product, "menu" => "add_product"]);
+
+            }
+
+            return null;
+
+        }
+
+        return null;
+
+    }
+
+
+    public function EditProductSingleAction(Request $request)
+    {
+
+        $request->validate([
+            'id' =>  'required',
+            'name' => 'required|min:3|max:56',
+            'price' => 'required|min:3|max:56',
+            'mobile' => 'required|min:3|max:14',
+            'desc' => 'required|min:10|max:128',
+            'discount' => 'required|min:1|max:16',
+            'quantity' => 'required|min:1|max:128',
+            'stock' => 'required|max:10',
+            'file' => 'image|nullable|dimensions:min_width=400,min_height=400|max:2048',
+        ]);
+
+        $checkProduct = Product::where("id",$request->id)->where("user_id",Auth::id())->first();
+
+        if(isset($checkProduct->id)) {
+
+            $name = null;
+
+            if (isset($request->file)) {
+
+                $exists = Storage::disk('vms')->exists($request->file('file')->getClientOriginalName());
+
+                if ($exists == true) {
+
+                    $name = $name . "-" . time();
+                    $name = $name . "." . $request->file('file')->getClientOriginalExtension();
+
+
+                    $img = Image::make('uploads/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                    $img->crop(400, 400);
+                    $img->save('uploads/products/' . $name);
+
+                } else {
+
+                    $name = $request->file('file')->getClientOriginalName();
+                    $img = Image::make($request->file('file'));
+                    $img->crop(400, 400);
+                    $img->save('uploads/products/' . $name);
+
+                }
+
+            }
+
+            Product::where("id", $request->id)->where("user_id", Auth::id())->update([
+                "user_id" => Auth::id(),
+                "category_id" => "2",
+                "product_name" => $request->name,
+                "product_slug" => Str::slug($request->name),
+                "price" => $request->price,
+                "mobile" => $request->mobile,
+                "product_desc" => htmlentities($request->desc),
+                "discount" => $request->discount,
+                "status" => 1,
+                "quantity" => $request->quantity,
+                "stock" => $request->stock,
+                "image" => $name,
+                "updated_at" => Carbon::now(),
+            ]);
+
+            session()->flash("status", "ویرایش کالا با موفقیت انجام شد");
+
+            return back();
+
+        }
+
+        return back();
+
     }
 
 

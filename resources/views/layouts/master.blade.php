@@ -25,7 +25,6 @@
 <script src="{{url('/js/jquery.min.js')}}"></script>
 <script src="{{url('/js/bootstrap.min.js')}}"></script>
 <script src="https://use.fontawesome.com/f7ae936a05.js"></script>
-
 <div class="modal fade" id="login-register" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -62,13 +61,9 @@
         });
     });
 </script>
-
-
 <script src="{{url('/js/owl.carousel.min.js')}}"></script>
 <script src="{{url('/js/main.js')}}"></script>
-
-
+<script src="{{url('/js/alert.js')}}"></script>
 @yield('extra_js')
-
 </body>
 </html>
