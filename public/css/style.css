@@ -223,7 +223,7 @@ body:after {
 
 @media (min-width: 768px) {
     .site-section {
-        padding: 8em 0;
+        padding: 2em 0;
     }
 }
 
@@ -2936,8 +2936,8 @@ figure figcaption {
 }
 
 .card-title {
-    font-size: 1.4rem;
-    color: #000;
+    font-size: 1.2rem;
+    color: #333;
 }
 
 /*PRELOADING------------ */
