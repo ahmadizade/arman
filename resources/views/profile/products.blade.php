@@ -76,3 +76,37 @@
     </div>
 
 @endsection
+
+
+@section("extra_js")
+    <script>
+        $(".delete").on("click",function(e){
+            Swal.fire({
+                text: "آیا اطمینان دارید؟",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'بله حذف میکنم',
+                cancelButtonText: 'خیر',
+            }).then((result) => {
+                if(result.value) {
+                    $.ajax({
+                        url: '{{ route("delete_product_action") }}',
+                        type: 'POST',
+                        data: {"id":$(this).attr("data-id")},
+                        success: function(data) {
+                            console.log(data);
+                            if(data.errors == "1"){
+                                alert(data.desc);
+                            }else if(data.errors == "0"){
+                                window.location.reload();
+                            }
+                        },
+                    });
+                }
+            });
+            e.preventDefault();
+        });
+    </script>
+@endsection

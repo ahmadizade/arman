@@ -118,7 +118,7 @@
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group mt-2">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input image" name="file" id="file">
+                                            <input type="file" class="custom-file-input image" name="file" id="image">
                                             <label class="custom-file-label text-left" for="inputGroupFile01">+ افزودن
                                                 عکس</label>
                                         </div>
