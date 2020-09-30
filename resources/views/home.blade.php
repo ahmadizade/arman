@@ -298,8 +298,8 @@
             <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 <div class="card-box bg-tameshk">
                     <div class="inner">
-                        <h3>Services</h3>
-                        <p> انواع خدمات </p>
+                        <p class="text-left font-20">پذیرندگان ثمین تخفیف</p>
+                        <p> از کجا خرید کنم؟ </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-sitemap" aria-hidden="true"></i>
@@ -310,8 +310,8 @@
             <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 <div class="card-box bg-orange">
                     <div class="inner">
-                        <h3> Direct Admin </h3>
-                        <p> ارزانتر از هر جی دیگر </p>
+                        <p class="text-left font-20"> اعطای نمایندگی </p>
+                        <p> چگونه نماینده شوم؟ </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-podcast" aria-hidden="true"></i>
@@ -322,8 +322,8 @@
             <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 <div class="card-box bg-green">
                     <div class="inner">
-                        <h3>Cpanel</h3>
-                        <p> مدیریت سرور </p>
+                        <p class="text-left font-20">سوالات متداول</p>
+                        <p> پاسخ به سوالات شما </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-window-restore" aria-hidden="true"></i>
@@ -334,8 +334,8 @@
             <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 <div class="card-box bg-blue">
                     <div class="inner">
-                        <h3> Cloud Flare </h3>
-                        <p> افزایش بهره وری </p>
+                        <p class="text-left font-20"> گواهی نامه ها </p>
+                        <p> مجوزها و گواهی نامه </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-cloud-download" aria-hidden="true"></i>
@@ -346,8 +346,8 @@
             <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 <div class="card-box bg-blue">
                     <div class="inner">
-                        <h3> آموزش </h3>
-                        <p> نصب و راه اندازی </p>
+                        <p class="text-left font-20"> فرم های مشارکت </p>
+                        <p> مشارکت در ثمین تخفیف و سررسید </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
@@ -358,8 +358,8 @@
             <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 <div class="card-box bg-green">
                     <div class="inner">
-                        <h3>لایسنس</h3>
-                        <p> پرفروش های امروز </p>
+                        <p class="text-left font-20"> قوانین و مقررات </p>
+                        <p> بدانید و آگاه باشید </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-money" aria-hidden="true"></i>
@@ -370,8 +370,8 @@
             <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 <div class="card-box bg-orange">
                     <div class="inner">
-                        <h3> خبرنامه </h3>
-                        <p> همین حالا عضو شو </p>
+                        <p class="text-left font-20"> کاربری سایت </p>
+                        <p> راهنمای استفاده از سایت </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-user-plus" aria-hidden="true"></i>
@@ -382,8 +382,8 @@
             <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 <div class="card-box bg-tameshk">
                     <div class="inner">
-                        <h3> همکاری با ما </h3>
-                        <p> نمایندگی ها </p>
+                        <p class="text-left font-20"> تماس با ما </p>
+                        <p> با ما در ارتباط باشید </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-users"></i>
