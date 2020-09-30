@@ -40,36 +40,34 @@
             </div>
         </div>
     </div>
-
     <div class="container mt-3">
         <div class="row">
             <div class="col-6 col-lg-3 text-center mt-3">
-                <img src="images/icon/1.png" alt="Bazar Tahator Iranian"
-                     class="img-fluid w-25 mb-4">
+                <img src="images/gif/tienda.gif" alt="Bazar Tahator Iranian"
+                     class="img-fluid mb-4" style="width: 100px">
                 <h3 class="card-title">ثبت فروشگاه</h3>
                 <p>فروشگاهت و ثبت کن، درآمد کسب کن</p>
             </div>
             <div class="col-6 col-lg-3 text-center mt-3">
-                <img id="add-store-btn" src="images/icon/2.png" alt="Bazar Tahator Iranian"
-                     class="img-fluid pointer-event w-25 mb-4">
+                <img id="add-store-btn" src="images/gif/gold.gif" alt="Bazar Tahator Iranian"
+                     class="img-fluid pointer-event mb-4" style="width: 100px">
                 <h3 class="card-title">طلایی شو</h3>
                 <p>طلایی شو، شارژ بیشتر بگیر</p>
             </div>
             <div class="col-6 col-lg-3 text-center mt-3">
-                <img id="add-store-btn" src="images/icon/2.png" alt="Bazar Tahator Iranian"
-                     class="img-fluid pointer-event w-25 mb-4">
-                <h3 class="card-title">کارت هواداری</h3>
+                <img id="add-store-btn" src="images/gif/football3.gif" alt="Bazar Tahator Iranian"
+                     class="img-fluid pointer-event mb-4" style="width: 100px">
+                <h3 class="card-title">هواداران</h3>
                 <p>از تیم محبوبت حمایت کن</p>
             </div>
             <div class="col-6 col-lg-3 text-center mt-3">
-                <img id="add-store-btn" src="images/icon/2.png" alt="Bazar Tahator Iranian"
-                     class="img-fluid pointer-event w-25 mb-4">
+                <img id="add-store-btn" src="images/gif/support-icon.gif" alt="Bazar Tahator Iranian"
+                     class="img-fluid pointer-event mb-4" style="width: 90px">
                 <h3 class="card-title">پشتیبانی 24 ساعته</h3>
                 <p>فروشگاهت و ثبت کن، درآمد کسب کن</p>
             </div>
         </div>
     </div>
-
     <div class="container mt-3">
         <div class="row align-items-center">
             <div class="col-md-4 text-center mt-3">
@@ -90,47 +88,34 @@
         </div>
     </div>
 
-    <div class="container-fluid mt-3 py-2">
-        <div class="row">
-            <div class="col-12 col-lg-12 position-relative text-center mt-3">
-                <img src="images/gif/pannel-gif.gif" alt="Bazar Tahator Iranian" class="img-fluid mb-2">
-                <div class="col-4 text-center mt-3">
-                    <div class="fr__prize__inner over-gif text-center">
-                        <h4 class="text-primary mb-2">بزرگترین مرکز فروش مبل در ایران و خاورمیانه</h4>
-                        <h5 class="mb-2">بیش از 400 فروشگاه فعال</h5>
-                        <h4 class="mb-2">بازار بزرگ مبل ایران</h4>
-                        <a class="fr__btn mb-2" href="#">Read More</a>
-                    </div>
-                </div>
+    <div class="container mt-3">
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-12 text-center mt-3">
+                <img src="images/samin/new_samsung.png" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">
             </div>
+
         </div>
     </div>
+    </div>
 
-    {{--    <div class="text-center text-black w-100 my-4">
-            <p class="font-20">بیش از یک دهه سابقه کار در فروش لایسنس</p>
-            <p class="text-secondary font-14">بیش از یک دهه خدمتگذار شما همراهان همیشگی بوده ایم و به امید خداوند و همراهی شما عزیزان به جهانی شدن
-                می اندیشیم</p>
-        </div>
 
-        <div class="container mt-0">
-            <div class="row">
-                <div class="col-12 col-md-12">
-                    <img class=" w-100" src="{{url('/images/samin/middle/mid-mobl.jpg')}}">
-                </div>
-            </div>
-            <!--< mid shape>-->
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="mid-shape">
-                            <div class="mid-shapemask"></div>
-                            <span><i><a href=""><img class="logo-shape" src="{{url('/images/logo/logo_50_22.png')}}" alt=""></a></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--< mid shape>-->
-        </div>--}}
+    {{--بازار مبل ایران--}}
+    {{--    <div id="fourth" class="my-5">--}}
+    {{--        <div class="row">--}}
+    {{--            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 text-center my-5">--}}
+    {{--                <img src="images/product/1 (1).png" alt="Bazar Tahator Iranian" class="special-commerc img-fluid w-75">--}}
+    {{--            </div>--}}
+    {{--            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 text-center">--}}
+    {{--                <div class="fr__prize__inner text-center mt-5">--}}
+    {{--                    <h4 class="text-primary">بزرگترین مرکز فروش مبل در ایران و خاورمیانه</h4>--}}
+    {{--                    <h5>بیش از 400 فروشگاه فعال</h5>--}}
+    {{--                    <h4>بازار بزرگ مبل ایران</h4>--}}
+    {{--                    <a class="fr__btn" href="#">Read More</a>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
+    {{--بازار مبل ایران--}}
 
     @if(isset($lastProducts))
         <div class="container mt-3">
@@ -156,8 +141,9 @@
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
                                     <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span
-                                                class="font-12">ریال</span></del>
-                                    <span class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
+                                            class="font-12">ریال</span></del>
+                                    <span
+                                        class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
                                     <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }}
                                         <span class="text-muted font-12">ریال</span></p>
                                 </div>
@@ -200,8 +186,9 @@
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
                                     <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span
-                                                class="font-12">ریال</span></del>
-                                    <span class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
+                                            class="font-12">ریال</span></del>
+                                    <span
+                                        class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
                                     <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }}
                                         <span class="text-muted font-12">ریال</span></p>
                                 </div>
@@ -243,8 +230,9 @@
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
                                     <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span
-                                                class="font-12">ریال</span></del>
-                                    <span class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
+                                            class="font-12">ریال</span></del>
+                                    <span
+                                        class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
                                     <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }}
                                         <span class="text-muted font-12">ریال</span></p>
                                 </div>
@@ -414,6 +402,7 @@
 @endsection
 
 @section('extra_js')
+    <script src="{{url('/js/app_jquery.js')}}"></script>
     <script>
         $(".owl").owlCarousel({
             center: true,

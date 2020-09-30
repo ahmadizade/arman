@@ -3367,8 +3367,8 @@ button.close_box {
 }
 
 .special-commerc {
-    max-height: 250px;
-    max-width: 500px;
+    max-height: 170px;
+    max-width: 290px;
     background-position: center;
     background-origin: border-box;
     background-repeat: no-repeat;
@@ -3677,5 +3677,7 @@ button.close_box {
 /*<card card card card card card card card card card card card card card card card card card card card card card >*/
 
 .over-gif {
-    
+    position: absolute;
+    z-index: 900000;
+    top: 0;
 }
