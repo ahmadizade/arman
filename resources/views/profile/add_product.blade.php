@@ -29,9 +29,9 @@
                             </div>
                         @endif
                         @if(Session::has("status"))
-                            <div class="alert alert-success mt-2 mb-2">{{ Session::get("status") }}</div>
+                            <div class="alert text-white bg-success mt-2 mb-2">{{ Session::get("status") }}</div>
                         @elseif(Session::has("error"))
-                            <div class="alert alert-danger mt-2 mb-2">{{ Session::get("error") }}</div>
+                            <div class="alert text-white bg-danger mt-2 mb-2">{{ Session::get("error") }}</div>
                         @endif
                         <form action="{{route('add_product_action')}}" method="post" enctype="multipart/form-data">
 
@@ -150,7 +150,7 @@
                                                 <img src="{{ url('/images/no-image2.png') }}" class="card-img"
                                                      alt="No Image">
                                             @else
-                                                <img src="{{ Storage::disk('vms')->url($item['image']) }}"
+                                                <img src="{{ Storage::disk('vms')->url($product['image']) }}"
                                                      class="card-img"
                                                      alt="...">
                                             @endif
