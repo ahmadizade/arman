@@ -14,7 +14,9 @@
         <div class="container">
             <div class="row align-items-center">
 
-                <h1 class="mb-0 mt-3 site-logo"><a href="#" style="font-size: 25px" class="mb-0">Bazarti<span class="text-primary">.</span></a><img style="margin-top: -9px; width: 40px;" src="{{url('/images/logo/logo_100_50.png')}}"></h1>
+                <div class="col-12 col-md-2 text-left">
+                    <h1 class="mb-0 mt-3 site-logo"><a href="#" style="font-size: 25px" class="mb-0">Bazarti<span class="text-primary">.</span></a><img style="margin-top: -9px; width: 40px;" src="{{url('/images/logo/logo_100_50.png')}}"></h1>
+                </div>
 
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">

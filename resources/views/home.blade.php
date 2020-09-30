@@ -295,7 +295,7 @@
     </div>
     <div class="container mt-3">
         <div class="row">
-            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+            <div class="col-12 col-lg-3">
                 <div class="card-box bg-tameshk">
                     <div class="inner">
                         <p class="text-left font-20">پذیرندگان ثمین تخفیف</p>
@@ -307,7 +307,7 @@
                     <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+            <div class="col-12 col-lg-3">
                 <div class="card-box bg-orange">
                     <div class="inner">
                         <p class="text-left font-20"> اعطای نمایندگی </p>
@@ -319,7 +319,7 @@
                     <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+            <div class="col-12 col-lg-3">
                 <div class="card-box bg-green">
                     <div class="inner">
                         <p class="text-left font-20">سوالات متداول</p>
@@ -331,7 +331,7 @@
                     <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+            <div class="col-12 col-lg-3">
                 <div class="card-box bg-blue">
                     <div class="inner">
                         <p class="text-left font-20"> گواهی نامه ها </p>
