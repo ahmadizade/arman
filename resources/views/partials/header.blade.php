@@ -68,12 +68,13 @@
                                     <li><a href="#" class="nav-link">قرعه کشی</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/" class="nav-link">صفحه اصلی<i class="fa fa-home font-20 pl-2 text-primary"></i></a></li>
+                            <li><a href="{{route('profile_add_product')}}" class="nav-link">ثبت محصول</a></li>
+                            <li><a href="/" class="nav-link">صفحه اصلی<i class="fa fa-home d-none d-sm-inline font-20 pl-2 text-primary"></i></a></li>
                         </ul>
                     </nav>
                 </div>
 
-                <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+                <div class="col-8 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
 
             </div>
         </div>
