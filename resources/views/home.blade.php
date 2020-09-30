@@ -71,7 +71,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="mid-shape">
+                    <div class="mid-shape mt-3">
                         <div class="mid-shapemask"></div>
                         <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
                     </div>
@@ -81,7 +81,7 @@
         <!--< mid shape>-->
 
     </div>
-    <div class="container mt-3">
+    <div class="container mt-5">
         <div class="row align-items-center">
             <div class="col-md-4 text-center mt-3">
                 <h3 class="card-title">BAZARTI APPLICATION</h3>
@@ -103,7 +103,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="mid-shape">
+                    <div class="mid-shape mt-5">
                         <div class="mid-shapemask"></div>
                         <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
                     </div>
@@ -116,7 +116,7 @@
 
     <div class="container mt-3">
         <div class="row align-items-center justify-content-center text-center">
-            <div class="col-md-12 text-center mt-3">
+            <div class="col-md-12 text-center mt-4">
                 <img src="images/samin/new_samsung.png" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">
             </div>
 
@@ -125,7 +125,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="mid-shape">
+                    <div class="mid-shape mt-4">
                         <div class="mid-shapemask"></div>
                         <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
                     </div>
