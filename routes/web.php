@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 
 
-
 // admin admin admin admin admin admin admin
 Route::middleware(['auth'])->prefix("tahator")->group(function () {
     Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
@@ -14,8 +13,8 @@ Route::middleware(['auth'])->prefix("tahator")->group(function () {
     Route::get('/register', 'App\Http\Controllers\AdminController@tahator_register')->name("tahator_register");
     Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user");
     Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user");
-    // admin admin admin admin admin admin admin
 });
+// admin admin admin admin admin admin admin
 
 
 
@@ -39,4 +38,11 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::post('/edit-action', 'App\Http\Controllers\ProfileController@ProfileEditAction')->name("profile_edit_action");
     Route::get('/gold', 'App\Http\Controllers\ProfileController@ProfileGold')->name("profile_gold");
     Route::post('/gold-action', 'App\Http\Controllers\ProfileController@ProfileGoldAction')->name("profile_gold_action");
+});
+
+
+
+// shop
+Route::prefix("shop")->group(function () {
+    Route::get('/product/{id}', 'App\Http\Controllers\ShopController@ProductSingle')->name("shop_product_single");
 });
