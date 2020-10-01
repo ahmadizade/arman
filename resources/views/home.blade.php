@@ -42,6 +42,7 @@
             </div>
         </div>
     </div>
+
     <div class="container mt-3">
         <div class="row">
             <div class="col-6 col-lg-3 text-center mt-3">
@@ -66,21 +67,20 @@
                 <img id="add-store-btn" src="images/gif/support-icon.gif" alt="Bazar Tahator Iranian"
                      class="img-fluid pointer-event mb-4" style="width: 90px">
                 <h3 class="card-title">پشتیبانی 24 ساعته</h3>
-                <p>فروشگاهت و ثبت کن، درآمد کسب کن</p>
+                <p>7 روز هفته 24 ساعته</p>
             </div>
-        </div>
-        <!--< mid shape>-->
-        <div class="col-12">
-            <div class="mid-shape">
-                <div class="mid-shapemask"></div>
-                <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+            <!--< mid shape>-->
+            <div class="col-12">
+                <div class="mid-shape mt-4">
+                    <div class="mid-shapemask"></div>
+                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+                </div>
             </div>
+            <!--< mid shape>-->
         </div>
-        <!--< mid shape>-->
     </div>
 
-
-    <div class="container mt-5">
+    <div class="container mt-4">
         <div class="row align-items-center">
             <div class="col-md-4 text-center mt-3">
                 <h3 class="card-title">BAZARTI APPLICATION</h3>
@@ -97,15 +97,15 @@
                 <p>تازه می تونی تو قرعه کشی ما هم از این طریق ثبت نام کنید</p>
                 <a class="fr__btn text-white">کاربر طلایی</a>
             </div>
-        </div>
-        <!--< mid shape>-->
-        <div class="col-12">
-            <div class="mid-shape">
-                <div class="mid-shapemask"></div>
-                <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+            <!--< mid shape>-->
+            <div class="col-12 mt-4">
+                <div class="mid-shape mt-4">
+                    <div class="mid-shapemask"></div>
+                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+                </div>
             </div>
+            <!--< mid shape>-->
         </div>
-        <!--< mid shape>-->
     </div>
 
     <div class="container mt-3">
@@ -113,15 +113,15 @@
             <div class="col-md-12 text-center mt-4">
                 <img src="images/samin/new_samsung.png" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">
             </div>
-        </div>
-        <!--< mid shape>-->
-        <div class="col-12">
-            <div class="mid-shape">
-                <div class="mid-shapemask"></div>
-                <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+            <!--< mid shape>-->
+            <div class="col-12">
+                <div class="mid-shape mt-4">
+                    <div class="mid-shapemask"></div>
+                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+                </div>
             </div>
+            <!--< mid shape>-->
         </div>
-        <!--< mid shape>-->
     </div>
 
     @if(isset($lastProducts))
@@ -175,17 +175,8 @@
             <div class="col-12">
                 <img src="{{url('/images/samin/middle/1.jpg')}}" class="img-fluid" alt="">
             </div>
-            <!--< mid shape>-->
-            <div class="col-12">
-                <div class="mid-shape">
-                    <div class="mid-shapemask"></div>
-                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                </div>
-            </div>
-            <!--< mid shape>-->
         </div>
     </div>
-
 
     @if(isset($popular))
         <div class="container mt-3">
@@ -238,14 +229,6 @@
             <div class="col-12">
                 <img src="{{url('/images/samin/middle/mid-2.jpg')}}" class="img-fluid" alt="">
             </div>
-            <!--< mid shape>-->
-            <div class="col-12">
-                <div class="mid-shape">
-                    <div class="mid-shapemask"></div>
-                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                </div>
-            </div>
-            <!--< mid shape>-->
         </div>
     </div>
 
