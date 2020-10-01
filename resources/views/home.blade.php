@@ -42,6 +42,7 @@
             </div>
         </div>
     </div>
+
     <div class="container mt-3">
         <div class="row">
             <div class="col-6 col-lg-3 text-center mt-3">
@@ -66,21 +67,20 @@
                 <img id="add-store-btn" src="images/gif/support-icon.gif" alt="Bazar Tahator Iranian"
                      class="img-fluid pointer-event mb-4" style="width: 90px">
                 <h3 class="card-title">پشتیبانی 24 ساعته</h3>
-                <p>فروشگاهت و ثبت کن، درآمد کسب کن</p>
+                <p>7 روز هفته 24 ساعته</p>
             </div>
-        </div>
-        <!--< mid shape>-->
-        <div class="col-12">
-            <div class="mid-shape">
-                <div class="mid-shapemask"></div>
-                <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+            <!--< mid shape>-->
+            <div class="col-12">
+                <div class="mid-shape mt-4">
+                    <div class="mid-shapemask"></div>
+                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+                </div>
             </div>
+            <!--< mid shape>-->
         </div>
-        <!--< mid shape>-->
     </div>
 
-
-    <div class="container mt-5">
+    <div class="container mt-4">
         <div class="row align-items-center">
             <div class="col-md-4 text-center mt-3">
                 <h3 class="card-title">BAZARTI APPLICATION</h3>
@@ -97,15 +97,15 @@
                 <p>تازه می تونی تو قرعه کشی ما هم از این طریق ثبت نام کنید</p>
                 <a class="fr__btn text-white">کاربر طلایی</a>
             </div>
-        </div>
-        <!--< mid shape>-->
-        <div class="col-12">
-            <div class="mid-shape">
-                <div class="mid-shapemask"></div>
-                <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+            <!--< mid shape>-->
+            <div class="col-12 mt-4">
+                <div class="mid-shape mt-4">
+                    <div class="mid-shapemask"></div>
+                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+                </div>
             </div>
+            <!--< mid shape>-->
         </div>
-        <!--< mid shape>-->
     </div>
 
     <div class="container mt-3">
@@ -113,15 +113,15 @@
             <div class="col-md-12 text-center mt-4">
                 <img src="images/samin/new_samsung.png" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">
             </div>
-        </div>
-        <!--< mid shape>-->
-        <div class="col-12">
-            <div class="mid-shape">
-                <div class="mid-shapemask"></div>
-                <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+            <!--< mid shape>-->
+            <div class="col-12">
+                <div class="mid-shape mt-4">
+                    <div class="mid-shapemask"></div>
+                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+                </div>
             </div>
+            <!--< mid shape>-->
         </div>
-        <!--< mid shape>-->
     </div>
 
     @if(isset($lastProducts))
@@ -138,30 +138,32 @@
                     <div class="owl-container">
                     <div class="owl-carousel owl-theme owl">
                         @foreach($lastProducts as $product)
-                            <div class="slider-desc text-center overflow-hidden">
-                                <div class="item">
-                                    @if(is_null($product->image))
-                                        <img src="{{ url('/images/no-image2.png') }}" alt="BTI">
-                                    @else
-                                        <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
-                                    @endif
+                            <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                                <div class="slider-desc text-center overflow-hidden">
+                                    <div class="item">
+                                        @if(is_null($product->image))
+                                            <img src="{{ url('/images/no-image2.png') }}" alt="BTI">
+                                        @else
+                                            <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
+                                        @endif
+                                    </div>
+                                    <div class="price-box rtl">
+                                        <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
+                                        @if($product->discount > 20)
+                                            <div>
+                                                <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                                <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                            </div>
+                                        @else
+                                            <div class="mt-1">
+                                                <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                <p class="text-danger font-14 mt-2 nowrap">بدون تخفیف</p>
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="price-box rtl">
-                                    <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
-                                    @if($product->discount > 20)
-                                        <div>
-                                            <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                            <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                            <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
-                                        </div>
-                                    @else
-                                        <div class="mt-1">
-                                            <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                            <p class="text-danger font-14 mt-2 nowrap">بدون تخفیف</p>
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
+                            </a>
                         @endforeach
                     </div>
                 </div>
@@ -175,17 +177,8 @@
             <div class="col-12">
                 <img src="{{url('/images/samin/middle/1.jpg')}}" class="img-fluid" alt="">
             </div>
-            <!--< mid shape>-->
-            <div class="col-12">
-                <div class="mid-shape">
-                    <div class="mid-shapemask"></div>
-                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                </div>
-            </div>
-            <!--< mid shape>-->
         </div>
     </div>
-
 
     @if(isset($popular))
         <div class="container mt-3">
@@ -201,7 +194,8 @@
                     <div class="owl-container">
                     <div class="owl-carousel owl-theme owl">
                         @foreach($popular as $product)
-                            <div class="slider-desc text-center overflow-hidden">
+                            <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                                <div class="slider-desc text-center overflow-hidden">
                                 <div class="item">
                                     @if(is_null($product->image))
                                         <img src="{{ url('/images/no-image2.png') }}" alt="BTI">
@@ -225,6 +219,7 @@
                                     @endif
                                 </div>
                             </div>
+                            </a>
                         @endforeach
                     </div>
                 </div>
@@ -238,14 +233,6 @@
             <div class="col-12">
                 <img src="{{url('/images/samin/middle/mid-2.jpg')}}" class="img-fluid" alt="">
             </div>
-            <!--< mid shape>-->
-            <div class="col-12">
-                <div class="mid-shape">
-                    <div class="mid-shapemask"></div>
-                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                </div>
-            </div>
-            <!--< mid shape>-->
         </div>
     </div>
 
@@ -263,7 +250,8 @@
                     <div class="owl-container">
                     <div class="owl-carousel owl-theme owl">
                         @foreach($randomProduct as $product)
-                            <div class="slider-desc text-center overflow-hidden">
+                            <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                                <div class="slider-desc text-center overflow-hidden">
                                 <div class="item">
                                     @if(is_null($product->image))
                                         <img src="{{ url('/images/no-image2.png') }}" alt="BTI">
@@ -287,6 +275,7 @@
                                     @endif
                                 </div>
                             </div>
+                            </a>
                         @endforeach
                     </div>
                 </div>
