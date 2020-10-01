@@ -9,6 +9,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +19,9 @@ class LoginController extends Controller
 {
     public function LoginToken(Request $request){
 
-        $mobile = self::faToEn($request->mobile);
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $mobile = $request->mobile;
 
         $validate = Validator::make($request->all(), [
             'mobile' => 'required|digits:11',
@@ -28,12 +31,12 @@ class LoginController extends Controller
             return Response::json(["status" => "0","desc" => "شماره موبایل اشتباه می باشد"]);
         }
 
-        $code = 00000; //rand(10000,99999);
+        $code = 00000;//rand(10000,99999);
 
-       /* self::sms($mobile,"کد ورود شما به سایت ثمین تخفیف ".
-            "\n".
-            "code: ".$code
-        );*/
+//        self::sms($mobile,"کد ورود شما به سایت ثمین تخفیف ".
+//            "\n".
+//            "code: ".$code
+//        );
 
         Cache::put("mobile_code_".$mobile,$code,60);
 
@@ -42,6 +45,8 @@ class LoginController extends Controller
     }
 
     public function LoginTokenAction(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
 
         $mobile = self::faToEn($request->mobile);
         $code = self::faToEn($request->code);

@@ -8,7 +8,9 @@
 
     <div class="container-fluid" style="border-top:2px solid #8b8788">
         <div class="row">
-            <img src="/images/bg/slider.jpg" class="img-fluid" alt="">
+            <div class="col-12">
+                <img src="/images/bg/slider.jpg" class="img-fluid" alt="">
+            </div>
         </div>
     </div>
 
@@ -68,19 +70,16 @@
             </div>
         </div>
         <!--< mid shape>-->
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="mid-shape mt-3">
-                        <div class="mid-shapemask"></div>
-                        <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                    </div>
-                </div>
+        <div class="col-12">
+            <div class="mid-shape">
+                <div class="mid-shapemask"></div>
+                <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
             </div>
         </div>
         <!--< mid shape>-->
-
     </div>
+
+
     <div class="container mt-5">
         <div class="row align-items-center">
             <div class="col-md-4 text-center mt-3">
@@ -100,18 +99,13 @@
             </div>
         </div>
         <!--< mid shape>-->
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="mid-shape mt-5">
-                        <div class="mid-shapemask"></div>
-                        <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                    </div>
-                </div>
+        <div class="col-12">
+            <div class="mid-shape">
+                <div class="mid-shapemask"></div>
+                <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
             </div>
         </div>
         <!--< mid shape>-->
-
     </div>
 
     <div class="container mt-3">
@@ -119,17 +113,12 @@
             <div class="col-md-12 text-center mt-4">
                 <img src="images/samin/new_samsung.png" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">
             </div>
-
         </div>
         <!--< mid shape>-->
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="mid-shape mt-4">
-                        <div class="mid-shapemask"></div>
-                        <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                    </div>
-                </div>
+        <div class="col-12">
+            <div class="mid-shape">
+                <div class="mid-shapemask"></div>
+                <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
             </div>
         </div>
         <!--< mid shape>-->
@@ -145,7 +134,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="owl-container">
+                <div class="col-12">
+                    <div class="owl-container">
                     <div class="owl-carousel owl-theme owl">
                         @foreach($lastProducts as $product)
                             <div class="slider-desc text-center overflow-hidden">
@@ -158,16 +148,23 @@
                                 </div>
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
-                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span
-                                            class="font-12">ریال</span></del>
-                                    <span
-                                        class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
-                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }}
-                                        <span class="text-muted font-12">ریال</span></p>
+                                    @if($product->discount > 20)
+                                        <div>
+                                            <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                            <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                            <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                        </div>
+                                    @else
+                                        <div class="mt-1">
+                                            <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                            <p class="text-danger font-14 mt-2 nowrap">بدون تخفیف</p>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -175,16 +172,14 @@
 
     <div class="container mt-3">
         <div class="row">
-            <img src="{{url('/images/samin/middle/1.jpg')}}" class="img-fluid" alt="">
+            <div class="col-12">
+                <img src="{{url('/images/samin/middle/1.jpg')}}" class="img-fluid" alt="">
+            </div>
             <!--< mid shape>-->
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="mid-shape">
-                            <div class="mid-shapemask"></div>
-                            <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                        </div>
-                    </div>
+            <div class="col-12">
+                <div class="mid-shape">
+                    <div class="mid-shapemask"></div>
+                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
                 </div>
             </div>
             <!--< mid shape>-->
@@ -202,7 +197,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="owl-container">
+                <div class="col-12">
+                    <div class="owl-container">
                     <div class="owl-carousel owl-theme owl">
                         @foreach($popular as $product)
                             <div class="slider-desc text-center overflow-hidden">
@@ -215,16 +211,23 @@
                                 </div>
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
-                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span
-                                            class="font-12">ریال</span></del>
-                                    <span
-                                        class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
-                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }}
-                                        <span class="text-muted font-12">ریال</span></p>
+                                    @if($product->discount > 20)
+                                        <div>
+                                            <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                            <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                            <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                        </div>
+                                    @else
+                                        <div class="mt-1">
+                                            <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                            <p class="text-danger font-14 mt-2 nowrap">بدون تخفیف</p>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -232,20 +235,17 @@
 
     <div class="container mt-3">
         <div class="row">
-            <img src="{{url('/images/samin/middle/mid-2.jpg')}}" class="img-fluid" alt="">
+            <div class="col-12">
+                <img src="{{url('/images/samin/middle/mid-2.jpg')}}" class="img-fluid" alt="">
+            </div>
             <!--< mid shape>-->
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="mid-shape">
-                            <div class="mid-shapemask"></div>
-                            <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                        </div>
-                    </div>
+            <div class="col-12">
+                <div class="mid-shape">
+                    <div class="mid-shapemask"></div>
+                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
                 </div>
             </div>
             <!--< mid shape>-->
-
         </div>
     </div>
 
@@ -259,7 +259,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="owl-container">
+                <div class="col-12">
+                    <div class="owl-container">
                     <div class="owl-carousel owl-theme owl">
                         @foreach($randomProduct as $product)
                             <div class="slider-desc text-center overflow-hidden">
@@ -272,16 +273,23 @@
                                 </div>
                                 <div class="price-box rtl">
                                     <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
-                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span
-                                            class="font-12">ریال</span></del>
-                                    <span
-                                        class="badge badge-danger nowrap font-14 mt-1">{{ $product->discount }}<span>%</span></span>
-                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * $product->discount) / 100)) }}
-                                        <span class="text-muted font-12">ریال</span></p>
+                                    @if($product->discount > 20)
+                                        <div>
+                                            <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                            <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                            <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                        </div>
+                                    @else
+                                        <div class="mt-1">
+                                            <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                            <p class="text-danger font-14 mt-2 nowrap">بدون تخفیف</p>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -293,6 +301,7 @@
                  style="background-image:url({{url('/images/bg/wholesale22.jpg')}});background-position: center center;height: 250px"></div>
         </div>
     </div>
+
     <div class="container mt-3">
         <div class="row">
             <div class="col-12 col-lg-3">
@@ -393,7 +402,6 @@
             </div>
         </div>
     </div>
-    <!--<Product CARD>-->
 
 @endsection
 

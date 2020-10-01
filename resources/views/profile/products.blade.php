@@ -40,9 +40,10 @@
                                                         | {{ $item->product_name }}</h5>
                                                     <p class="card-text mb-1"><span
                                                             class="text-muted font-12">قیمت:</span>
-                                                        <span class="font-18">{{ number_format($item->price) }}</span> |
-                                                        <span
-                                                            class="badge badge-danger font-14 font-weight-normal">%{{$item->discount}} تخفیف </span>
+                                                        <span class="font-18">{{ number_format($item->price) }}</span>
+                                                        @if($item->discount > 20) |
+                                                            <span class="badge badge-danger font-14 font-weight-normal">%{{$item->discount - 20}} تخفیف </span>
+                                                        @endif
                                                     </p>
                                                     <p class="card-text"><span
                                                             class="text-muted font-12">موجودی:</span> {{$item->quantity}}
