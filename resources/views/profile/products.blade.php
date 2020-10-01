@@ -6,7 +6,7 @@
 
 @section("content")
 
-    <div class="container" style="margin-top: 80px">
+    <div class="container mt-3">
         <div class="row">
             @include("profile.sidebar")
             <div class="col-12 col-lg-9">
@@ -38,7 +38,7 @@
                                                             <span
                                                                 class="badge badge-secondary font-weight-normal">کارکرده</span>  @endif
                                                         | {{ $item->product_name }}</h5>
-                                                    0 <p class="card-text mb-1"><span
+                                                    <p class="card-text mb-1"><span
                                                             class="text-muted font-12">قیمت:</span>
                                                         <span class="font-18">{{ number_format($item->price) }}</span> |
                                                         <span
@@ -75,4 +75,38 @@
         </div>
     </div>
 
+@endsection
+
+
+@section("extra_js")
+    <script>
+        $(".delete").on("click",function(e){
+            Swal.fire({
+                text: "آیا اطمینان دارید؟",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'بله حذف میکنم',
+                cancelButtonText: 'خیر',
+            }).then((result) => {
+                if(result.value) {
+                    $.ajax({
+                        url: '{{ route("delete_product_action") }}',
+                        type: 'POST',
+                        data: {"id":$(this).attr("data-id")},
+                        success: function(data) {
+                            console.log(data);
+                            if(data.errors == "1"){
+                                alert(data.desc);
+                            }else if(data.errors == "0"){
+                                window.location.reload();
+                            }
+                        },
+                    });
+                }
+            });
+            e.preventDefault();
+        });
+    </script>
 @endsection

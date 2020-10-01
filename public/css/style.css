@@ -503,6 +503,7 @@ body:after {
 
 .site-navbar .site-navigation .site-menu .has-children {
     position: relative;
+    z-index: 1000;
 }
 
 .site-navbar .site-navigation .site-menu .has-children > a {
@@ -3564,7 +3565,7 @@ button.close_box {
     position: relative;
     color: #fff;
     padding: 20px 10px 40px;
-    margin: 20px 0px;
+    margin: 10px 0px;
 }
 
 .card-box:hover {

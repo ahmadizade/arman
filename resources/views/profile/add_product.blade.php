@@ -10,7 +10,7 @@
 
 @section("content")
 
-    <div class="container" style="margin-top: 80px">
+    <div class="container mt-3">
         <div class="row">
             @include("profile.sidebar")
             <div class="col-12 col-lg-9">
@@ -118,7 +118,7 @@
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group mt-2">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input image" name="file" id="file">
+                                            <input type="file" class="custom-file-input image" name="file" id="image">
                                             <label class="custom-file-label text-left" for="inputGroupFile01">+ افزودن
                                                 عکس</label>
                                         </div>
@@ -162,7 +162,7 @@
                                                         <span
                                                             class="badge badge-secondary font-weight-normal">کارکرده</span>  @endif
                                                     | {{ $product->product_name }}</h5>
-                                                0 <p class="card-text mb-1"><span
+                                                <p class="card-text mb-1"><span
                                                         class="text-muted font-12">قیمت:</span>
                                                     <span class="font-18">{{ number_format($product->price) }}</span> |
                                                     <span

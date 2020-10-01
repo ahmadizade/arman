@@ -146,7 +146,7 @@
     {{--    </div>--}}
     {{--    {{dd($product)}}--}}
     {{--    @if(isset($product))--}}
-    <div class="container" style="margin-top: 80px">
+    <div class="container mt-3">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-3">
                 <div class="card">
