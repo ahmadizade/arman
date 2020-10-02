@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Morilog\Jalali\Jalalian;
+use Yajra\DataTables\Facades\DataTables;
 
 class AdminController extends Controller
 {
@@ -113,5 +114,27 @@ class AdminController extends Controller
         }
     }
     //save user change from admin first page
+
+
+
+
+    public function GetUser()
+    {
+//        return datatables()->of(DB::table('users'))->toJson();
+        return datatables()->of(User::query())->toJson();
+
+    }
+
+//    public function GetUser(request $request){
+//        if ($request->ajax()){
+//            $data_users = DB::table('users')->get();
+//            return response()->json($data_users);
+//        }else{
+//            return "You Dont Have Permission";
+//        }
+
+//    }
+
+
 
 }

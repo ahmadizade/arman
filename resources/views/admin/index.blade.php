@@ -1,5 +1,4 @@
 @extends("admin.layouts.master")
-
 @section("title")
     <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
 @endsection
@@ -309,7 +308,8 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">نمودار عضویت کاربران در وب سایت به تفکیک ماههای سال</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">نمودار عضویت کاربران در وب سایت به
+                                        تفکیک ماههای سال</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -392,15 +392,19 @@
                                                 class="float-right">{{$product_count}}</span>
                                     </h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{$product_count}}%"
-                                             aria-valuenow="{{$product_count}}" aria-valuemin="0" aria-valuemax="1000"></div>
+                                        <div class="progress-bar bg-danger" role="progressbar"
+                                             style="width: {{$product_count}}%"
+                                             aria-valuenow="{{$product_count}}" aria-valuemin="0"
+                                             aria-valuemax="1000"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">تعداد کالاهای ثبت شده در یک ماه گذشته <span
                                                 class="float-right">{{$product_month}}</span>
                                     </h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{$product_month}}%"
-                                             aria-valuenow="{{$product_month}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-warning" role="progressbar"
+                                             style="width: {{$product_month}}%"
+                                             aria-valuenow="{{$product_month}}" aria-valuemin="0"
+                                             aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">تعداد کالاهای ثبت شده در یک هفته گذشته <span
                                                 class="float-right">{{$product_week}}</span></h4>
@@ -414,8 +418,10 @@
                                                 float-right">{{$product_today}}</span>
                                     </h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: {{$product_today}}%"
-                                             aria-valuenow="{{$product_today}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-info" role="progressbar"
+                                             style="width: {{$product_today}}%"
+                                             aria-valuenow="{{$product_today}}" aria-valuemin="0"
+                                             aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Account Setup <span
                                                 class="float-right">Complete!</span></h4>
@@ -586,3 +592,10 @@
     </div>
 
 @endsection();
+
+@section('extra_js')
+    <script src="{{url('/admin/vendor/chart.js/Chart.min.js')}}"></script>
+    <!-- Page level custom scripts -->
+    <script src="{{url('/admin/js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{url('/admin/js/demo/chart-area-demo.js')}}"></script>
+@endsection
