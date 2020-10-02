@@ -7,22 +7,23 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 
 
 // admin admin admin admin admin admin admin
-Route::middleware(['auth'])->prefix("tahator")->group(function () {
-    Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
-    Route::get('/login', 'App\Http\Controllers\AdminController@tahator_login')->name("tahator_login");
-    Route::get('/register', 'App\Http\Controllers\AdminController@tahator_register')->name("tahator_register");
-    Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user");
-    Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user");
-});
-// admin admin admin admin admin admin admin
+//Route::middleware(['auth'])->prefix("tahator")->group(function () {
+Route::get('/tahator', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
+Route::get('/login', 'App\Http\Controllers\AdminController@tahator_login')->name("tahator_login");
+Route::post('/login-action', 'App\Http\Controllers\AdminController@AdminLoginAction')->name("admin_login_action");
+Route::get('/register', 'App\Http\Controllers\AdminController@tahator_register')->name("tahator_register");
+Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user");
+Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user");
+Route::get('/admin-users', 'App\Http\Controllers\AdminController@AdminUsers')->name("Admin_Users");
 
+//});
+// admin admin admin admin admin admin admin
 
 
 // auth
 Route::post('/login-token', 'App\Http\Controllers\LoginController@LoginToken')->name("login_token");
 Route::post('/login-token-action', 'App\Http\Controllers\LoginController@LoginTokenAction')->name("login_token_action");
 Route::get('/logout', 'App\Http\Controllers\LoginController@Logout')->name("logout");
-
 
 
 // profile
@@ -39,7 +40,6 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::get('/gold', 'App\Http\Controllers\ProfileController@ProfileGold')->name("profile_gold");
     Route::post('/gold-action', 'App\Http\Controllers\ProfileController@ProfileGoldAction')->name("profile_gold_action");
 });
-
 
 
 // shop
