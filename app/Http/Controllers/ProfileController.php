@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -42,14 +43,17 @@ class ProfileController extends Controller
 
     public function AddProductAction(Request $request)
     {
+
+        $request = $request->replace(self::faToEn($request->all()));
+
         $request->validate([
             'name' => 'required|min:3|max:56',
-            'price' => 'required|min:3|max:56',
-            'mobile' => 'required|min:3|max:14',
-            'desc' => 'required|min:10|max:128',
-            'discount' => 'required|min:1|max:16',
-            'quantity' => 'required|min:1|max:128',
-            'stock' => 'required|max:10',
+            'price' => 'required|min:3|max:20',
+            'mobile' => 'required|min:11|max:11',
+            'desc' => 'required|min:10|max:10000',
+            'discount' => 'required|min:1|max:3',
+            'quantity' => 'required|min:1|max:4',
+            'stock' => 'required|max:1',
             'file' => 'image|nullable|dimensions:min_width=400,min_height=400|max:2048',
         ]);
 
@@ -107,6 +111,8 @@ class ProfileController extends Controller
     public function DeleteProductAction(Request $request)
     {
 
+        $request = $request->replace(self::faToEn($request->all()));
+
         if (isset($request->id) && is_numeric($request->id) && $request->id > 0) {
 
             $product = Product::where('id', $request->id)->where("user_id", Auth::id())->first();
@@ -152,6 +158,8 @@ class ProfileController extends Controller
     public function EditProductSingle($id)
     {
 
+        $id = self::faToEn($id);
+
         if (isset($id) && is_numeric($id) && $id > 0) {
 
             $product = Product::where('id', $id)->where("user_id", Auth::id())->first();
@@ -173,6 +181,8 @@ class ProfileController extends Controller
 
     public function EditProductSingleAction(Request $request)
     {
+
+        $request = $request->replace(self::faToEn($request->all()));
 
         $request->validate([
             'id' =>  'required',
@@ -251,14 +261,17 @@ class ProfileController extends Controller
 
     public function ProfileEditAction(Request $request)
     {
+
+        $request = $request->replace(self::faToEn($request->all()));
+
         $request->validate([
             'email' => 'nullable|email|max:255',
             'sex' => 'nullable|max:1',
             'name' => 'nullable|max:255',
-            'phone' => 'nullable|max:32',
+            'phone' => 'nullable',
             'state' => 'nullable|max:3',
-            'bank_cart_number' => 'nullable|numeric|max:16',
-            'sheba' => 'nullable|max:20',
+            'bank_cart_number' => 'nullable|numeric|digits:16',
+            'sheba' => 'nullable|max:30',
             "password" => 'nullable|min:6'
         ]);
 
@@ -299,6 +312,8 @@ class ProfileController extends Controller
     public function ProfileGoldAction(Request $request)
     {
 
+        $request = $request->replace(self::faToEn($request->all()));
+
         return response()->json(['errors' => 1]);
 
     }
@@ -307,6 +322,7 @@ class ProfileController extends Controller
     //Jquery Cropper
     public function uploadCropImage(Request $request)
     {
+
         $folderPath = public_path('upload/');
 
         $image_parts = explode(";base64,", $request->image);

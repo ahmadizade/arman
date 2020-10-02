@@ -118,7 +118,7 @@
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group mt-2">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input image" name="file" id="image">
+                                            <input type="file" class="custom-file-input" name="file" id="image">
                                             <label class="custom-file-label text-left" for="inputGroupFile01">+ افزودن
                                                 عکس</label>
                                         </div>
@@ -164,9 +164,10 @@
                                                     | {{ $product->product_name }}</h5>
                                                 <p class="card-text mb-1"><span
                                                         class="text-muted font-12">قیمت:</span>
-                                                    <span class="font-18">{{ number_format($product->price) }}</span> |
-                                                    <span
-                                                        class="badge badge-danger font-14 font-weight-normal">%{{$product->discount}} تخفیف </span>
+                                                    <span class="font-18">{{ number_format($product->price) }}</span>
+                                                    @if($product->discount > 20) |
+                                                        <span class="badge badge-danger font-14 font-weight-normal">%{{$product->discount - 20}} تخفیف </span>
+                                                    @endif
                                                 </p>
                                                 <p class="card-text"><span
                                                         class="text-muted font-12">موجودی:</span> {{$product->quantity}}

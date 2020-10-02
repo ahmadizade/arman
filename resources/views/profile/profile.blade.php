@@ -44,10 +44,10 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">نوع کاربری</span>
                                         </div>
-                                        @if($user->user_mode == "normal")
-                                            <input type="text" class="form-control disabled bg-muted" disabled value="کاربر عادی -@if($user->status == "active") فعال @else غیر فعال @endif">
-                                        @elseif($user->user_mode == "gold")
+                                        @if($user->user_mode == "gold")
                                             <input type="text" class="form-control disabled bg-warning" disabled value="کاربر طلایی -@if($user->status == "active") فعال @else غیر فعال @endif">
+                                        @else
+                                            <input type="text" class="form-control disabled bg-muted" disabled value="کاربر عادی -@if($user->status == "active") فعال @else غیر فعال @endif">
                                         @endif
                                     </div>
                                 </div>
