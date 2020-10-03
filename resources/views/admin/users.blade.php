@@ -3,7 +3,8 @@
     <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
 @endsection
 @section("extra_css")
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+{{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">--}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
 @endsection
 @section("content")
     <!-- Page Wrapper -->
@@ -25,7 +26,7 @@
                 </div>
 
 
-                <div class="col-xl-8 col-lg-7">
+                <div class="col-xl-12 col-lg-12">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -49,14 +50,25 @@
 
                         <!-- Card Body -->
                         <div class="card-body">
-                            <table id="user_table">
+                            <table id="user_table" class="table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">verified</th>
+                                    <th scope="col">permission</th>
+                                    <th scope="col">user_mode</th>
+                                    <th scope="col">mobile</th>
+                                    <th scope="col">email</th>
+                                    <th scope="col">status</th>
+{{--                                    <th scope="col">password</th>--}}
+                                    <th scope="col">credit</th>
+                                    <th scope="col">created_at</th>
                                 </tr>
                                 </thead>
+                                <tbody>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -67,20 +79,35 @@
 
 @endsection
 @section("extra_js")
-    <script type="text/javascript" charset="utf8"
-            src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <script>
-        $(function () {
+        $(document).ready(function () {
+
             $('#user_table').DataTable({
+                colReorder: true,
+                responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: '{{route('get_user')}}',
+                // fixedHeader : true,
+                ajax: {
+                    dataType: 'json',
+                    type: "POST",
+                    url:'{{route('get_user')}}'
+                },
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
                     {data: 'role', name: 'role'},
+                    {data: 'verified', name: 'verified'},
+                    {data: 'permission', name: 'permission'},
+                    {data: 'user_mode', name: 'user_mode'},
+                    {data: 'mobile', name: 'mobile'},
                     {data: 'email', name: 'email'},
-                    {data: 'permission', name: 'permission'}
+                    {data: 'status', name: 'status'},
+                    // {data: 'password', name: 'password'},
+                    {data: 'credit', name: 'credit'},
+                    {data: 'created_at', name: 'created_at'},
                 ]
             });
         });

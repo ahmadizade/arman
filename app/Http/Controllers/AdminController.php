@@ -120,20 +120,8 @@ class AdminController extends Controller
 
     public function GetUser()
     {
-//        return datatables()->of(DB::table('users'))->toJson();
-        return datatables()->of(User::query())->toJson();
-
+        return datatables()->of(DB::table('users'))->toJson();
     }
-
-//    public function GetUser(request $request){
-//        if ($request->ajax()){
-//            $data_users = DB::table('users')->get();
-//            return response()->json($data_users);
-//        }else{
-//            return "You Dont Have Permission";
-//        }
-
-//    }
 
 
 

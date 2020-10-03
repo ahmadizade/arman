@@ -38,7 +38,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">User Management:</h6>
                 <a class="collapse-item" href="{{route('Admin_Users')}}">مشتریان</a>
-                <a class="collapse-item" href="cards.html">نمایندگی ها</a>
+                <a class="collapse-item" href="">نمایندگی ها</a>
             </div>
         </div>
     </li>
@@ -82,25 +82,25 @@
                 <h6 class="collapse-header">Login Screens:</h6>
                 <a class="collapse-item" href="{{route('tahator_login')}}">Login</a>
                 <a class="collapse-item" href="{{route('tahator_register')}}">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                <a class="collapse-item" href="">Forgot Password</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
+                <a class="collapse-item" href="">404 Page</a>
+                <a class="collapse-item" href="">Blank Page</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
     </li>
