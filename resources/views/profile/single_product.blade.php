@@ -158,7 +158,7 @@
                         <div class="">
                             @if(is_null($product->image))
                                 <img class="card-img-top img-fluid product-img-box"
-                                     src="{{url('/images/no-image2.png')}}" alt="محصولات من">
+                                     src="/images/no-image2.png" alt="محصولات من">
                             @else
                                 <img class="card-img-top img-fluid product-img-box"
                                      src="{{Storage::disk('vms')->url($product['image'])}}" alt="محصولات من">
@@ -203,7 +203,7 @@
 @endsection
 
 @section('extra_js')
-    <script src="{{url('/js/jquery.ellipsis.min.js')}}"></script>
+    <script src="/js/jquery.ellipsis.min.js"></script>
 {{--    <script>--}}
 {{--        $('.ellipsis-text').ellipsis({--}}
 {{--            lines: 1,             // force ellipsis after a certain number of lines. Default is 'auto'--}}
