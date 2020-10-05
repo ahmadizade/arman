@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="site-mobile-menu-body">
-            <img class="mobile_menu_logo mt-2 ml-2" src="{{url('/images/logo/logo_text_200_180.png')}}">
+            <img class="mobile_menu_logo mt-2 ml-2" src="/images/logo/logo_text_200_180.png">
         </div>
     </div>
 

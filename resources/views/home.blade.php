@@ -9,7 +9,7 @@
     <div class="container-fluid" style="border-top:2px solid #8b8788">
         <div class="row">
             <div class="col-12">
-                <img src="/images/bg/slider.jpg" class="img-fluid" alt="">
+                <img src="/images/home/slider.jpg" class="img-fluid" alt="">
             </div>
         </div>
     </div>
@@ -89,7 +89,7 @@
                 <a class="fr__btn text-white">پشتیبانی آنلاین</a>
             </div>
             <div class="col-md-4 text-center mt-3">
-                <img src="images/samin/mobile-trans.png" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">
+                <img src="images/home/mobile.png" alt="Bazar Tahator Iranian" class="img-fluid mb-4">
             </div>
             <div class="col-md-4 text-center mt-3">
                 <h3 class="card-title">CMS APPLICATION</h3>
@@ -111,7 +111,7 @@
     <div class="container mt-3">
         <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-12 text-center mt-4">
-                <img src="images/samin/new_samsung.png" alt="Bazar Tahator Iranian" class="img-fluid w-100 mb-4">
+                <img src="/images/home/new.jpg" alt="Bazar Tahator Iranian" class="img-fluid mb-4">
             </div>
             <!--< mid shape>-->
             <div class="col-12">
@@ -142,7 +142,7 @@
                                 <div class="slider-desc text-center overflow-hidden">
                                     <div class="item">
                                         @if(is_null($product->image))
-                                            <img src="{{ url('/images/no-image2.png') }}" alt="BTI">
+                                            <img src="/images/no-image2.png" alt="BTI">
                                         @else
                                             <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
                                         @endif
@@ -175,7 +175,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
-                <img src="{{url('/images/samin/middle/1.jpg')}}" class="img-fluid" alt="">
+                <img src="/images/home/mid-1.jpg" class="img-fluid" alt="">
             </div>
         </div>
     </div>
@@ -198,7 +198,7 @@
                                 <div class="slider-desc text-center overflow-hidden">
                                 <div class="item">
                                     @if(is_null($product->image))
-                                        <img src="{{ url('/images/no-image2.png') }}" alt="BTI">
+                                        <img src="/images/no-image2.png" alt="BTI">
                                     @else
                                         <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
                                     @endif
@@ -231,7 +231,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
-                <img src="{{url('/images/samin/middle/mid-2.jpg')}}" class="img-fluid" alt="">
+                <img src="/images/home/mid-2.jpg" class="img-fluid" alt="">
             </div>
         </div>
     </div>
@@ -254,7 +254,7 @@
                                 <div class="slider-desc text-center overflow-hidden">
                                 <div class="item">
                                     @if(is_null($product->image))
-                                        <img src="{{ url('/images/no-image2.png') }}" alt="BTI">
+                                        <img src="/images/no-image2.png" alt="BTI">
                                     @else
                                         <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
                                     @endif
@@ -287,7 +287,7 @@
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="w-100"
-                 style="background-image:url({{url('/images/bg/wholesale22.jpg')}});background-position: center center;height: 250px"></div>
+                 style="background-image:url(/images/home/sale.jpg);background-position: center center;height: 250px"></div>
         </div>
     </div>
 

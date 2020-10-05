@@ -113,16 +113,17 @@ class AdminController extends Controller
             return Response::json(["status" => "1", "desc" => "ذخیره با موفقیت انجام شد"]);
         }
     }
+
     //save user change from admin first page
-
-
-
-
     public function GetUser()
     {
         return datatables()->of(DB::table('users'))->toJson();
     }
 
+    public function DeleteUserAction(request $request)
+    {
+        return 'SALAM';
+    }
 
 
 }

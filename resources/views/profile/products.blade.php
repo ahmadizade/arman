@@ -23,7 +23,7 @@
                                         <div class="row no-gutters">
                                             <div class="col-md-4 d-flex align-self-center">
                                                 @if(is_null($item->image))
-                                                    <img src="{{ url('/images/no-image2.png') }}" class="card-img"
+                                                    <img src="/images/no-image2.png" class="card-img"
                                                          alt="No Image">
                                                 @else
                                                     <img src="{{ Storage::disk('vms')->url($item['image']) }}"

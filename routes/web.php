@@ -15,7 +15,8 @@ Route::get('/register', 'App\Http\Controllers\AdminController@tahator_register')
 Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user");
 Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user");
 Route::get('/admin-users', 'App\Http\Controllers\AdminController@AdminUsers')->name("Admin_Users");
-Route::post('/get-user', 'App\Http\Controllers\AdminController@GetUser')->name("get_user");
+Route::get('/admin-users/get-user', 'App\Http\Controllers\AdminController@GetUser')->name("get_user");
+Route::post('/admin-users/delete-user', 'App\Http\Controllers\AdminController@DeleteUserAction')->name("delete_user_action");
 });
 // admin admin admin admin admin admin admin
 
