@@ -93,9 +93,9 @@ class AdminController extends Controller
             'res_role' => ['required', 'string', 'max:56',],
             'res_verified' => ['required', 'string', 'max:56',],
             'res_user_mode' => ['required', 'string', 'max:56'],
-            'res_email' => ['required', 'string', 'min:10', 'max:128'],
-            'res_credit' => ['required', 'string', 'max:56'],
-            'res_updated_at' => ['required', 'string', 'max:56'],
+            'res_email' => ['string', 'min:10', 'max:128'],
+            'res_credit' => ['string', 'max:56','nullable'],
+            'res_updated_at' => ['string', 'max:56'],
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);

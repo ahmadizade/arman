@@ -19,7 +19,7 @@
         }
 
         myfont {
-            font-family: iranyekan, icomoon, sans-serif !important;
+            font-family: imodal faderanyekan, icomoon, sans-serif !important;
         }
     </style>
 @endsection
@@ -46,10 +46,10 @@
 {{--                                                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>--}}
                     {{--                    </div>--}}
                     <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-4">
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        <a href="bazarti.com" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-arrow-right fa-sm text-white-50"></i> Www.bazarti.com</a>
 
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        <a href="samintakhfif.com" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Www.samintakhfif.com</a>
 
                     </div>
@@ -157,110 +157,112 @@
                         <!-- Bootstrap Modal User Info-->
                         <div class="modal fade" id="login-register" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title text-info">Www.Bazarti.com</h5>
+                                <div class="modal-content bg-gradient-light">
+                                    <div class="modal-header bg-gradient-info border-bottom-info">
+                                        <h5 class="text-white" style="font-size: 15px">Www.Bazarti.com</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span>&times;</span>
                                         </button>
                                     </div>
                                     <form id="save-user-form" class="modal-body text-center">
-                                        <div id="error_box" class="my-1"></div>
-                                        <p id="res_msg" class="mb-1"></p>
+                                        <div class="admin-rtl my-1 text-white font-weight-bolder">
+                                            <p id="error_box" class="myfont bg-gradient-danger" style="font-size: 17px;"></p>
+                                            <p id="res_msg" class="myfont bg-gradient-success" style="font-size: 17px;"></p>
+                                        </div>
                                         {{--                                <//Mobile\\>--}}
                                         <div class="col-12">
                                             <div class="input-group my-2">
+                                                <input id="res-mobile" name="res_mobile" type="number"
+                                                       class="form-control bg-muted" required autofocus>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">شماره تماس</span>
                                                 </div>
-                                                <input id="res-mobile" name="res_mobile" type="number"
-                                                       class="form-control bg-muted" required autofocus>
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="input-group my-2">
+                                                <input id="res-name" name="res_name" type="text"
+                                                       class="form-control bg-muted" required autofocus>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">نام</span>
                                                 </div>
-                                                <input id="res-name" name="res_name" type="text"
-                                                       class="form-control bg-muted" required autofocus>
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="input-group my-2">
+                                                <input id="res-role" name="res_role" type="text"
+                                                       class="form-control bg-muted" required autofocus>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">Role</span>
                                                 </div>
-                                                <input id="res-role" name="res_role" type="text"
-                                                       class="form-control bg-muted" required autofocus>
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="input-group my-2">
+                                                <input id="res-verified" name="res_verified" type="text"
+                                                       class="form-control bg-muted" required autofocus>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">Verified</span>
                                                 </div>
-                                                <input id="res-verified" name="res_verified" type="text"
-                                                       class="form-control bg-muted" required autofocus>
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="input-group my-2">
+                                                <input id="res-user_mode" name="res_user_mode" type="text"
+                                                       class="form-control bg-muted" required autofocus>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">User Mode</span>
                                                 </div>
-                                                <input id="res-user_mode" name="res_user_mode" type="text"
-                                                       class="form-control bg-muted" required autofocus>
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="input-group my-2">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">Email</span>
-                                                </div>
                                                 <input id="res-email" name="res_email" type="text"
                                                        class="form-control bg-muted"
                                                        required autofocus>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">Email</span>
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="input-group my-2">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">Credit</span>
-                                                </div>
                                                 <input id="res-credit" name="res_credit" type="text"
                                                        class="form-control bg-muted" required autofocus>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">اعتبار</span>
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="input-group my-2">
+                                                <input id="res-created_at" name="res_created_at" type="text" disabled
+                                                       class="form-control bg-muted" required autofocus>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">تاریخ ساخت</span>
                                                 </div>
-                                                <input id="res-created_at" name="res_created_at" type="text" disabled
-                                                       class="form-control bg-muted" required autofocus>
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <div class="input-group my-2">
+                                                <input id="res-updated_at" name="res_updated_at" type="text" disabled
+                                                       class="form-control  bg-muted" required autofocus>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">آخرین تغییرات</span>
                                                 </div>
-                                                <input id="res-updated_at" name="res_updated_at" type="text"
-                                                       class="form-control  bg-muted" required autofocus>
                                             </div>
                                         </div>
                                         {{--                                <//Mobile\\>--}}
-                                        <button type="button" class="btn btn-success my-2" id="save-user-data">
-                                            ذخیره
+                                        <button type="button" class="btn font-weight-bolder text-white myfont bg-gradient-info my-2" id="save-user-data">
+                                            ذخیره اطلاعات
                                         </button>
                                     </form>
                                 </div>
@@ -307,10 +309,7 @@
                                                         success: function (response) {
                                                             if (response.status == 0) {
                                                                 $("#res_msg").html(response.desc);
-                                                                $("#res_msg").css("color", "red");
                                                             } else {
-                                                                $("#res_msg").html("فرم تغییر اطلاعات کاربر");
-                                                                $("#res_msg").css("color", "green");
                                                                 $("#res-mobile").val(response.mobile);
                                                                 $("#res-name").val(response.name);
                                                                 $("#res-role").val(response.role);
@@ -334,10 +333,9 @@
                                                         success: function (res) {
                                                             if (res.status == 1) {
                                                                 $("#res_msg").html(res.desc);
-                                                                $("#res_msg").css("color", "green");
                                                             } else {
                                                                 $.each(res.errors, function (i, item) {
-                                                                    $("#error_box").append('<p class="text-danger">' + res.errors[i] + '</p>');
+                                                                    $("#error_box").append('<p class="text-white">' + res.errors[i] + '</p>');
                                                                 });
                                                             }
                                                         }
