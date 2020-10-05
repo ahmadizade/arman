@@ -17,6 +17,7 @@ Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->nam
 Route::get('/admin-users', 'App\Http\Controllers\AdminController@AdminUsers')->name("Admin_Users");
 Route::get('/admin-users/get-user', 'App\Http\Controllers\AdminController@GetUser')->name("get_user");
 Route::post('/admin-users/delete-user', 'App\Http\Controllers\AdminController@DeleteUserAction')->name("delete_user_action");
+Route::post('/admin-users/edit-user', 'App\Http\Controllers\AdminController@EditUserAction')->name("edit_user_action");
 });
 // admin admin admin admin admin admin admin
 

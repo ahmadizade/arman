@@ -3,6 +3,27 @@
     <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
 @endsection
 
+@section("style")
+    <style>
+        body {
+            line-height: 1.5;
+            color: #858796;
+            background-color: #fff;
+            margin: 0;
+            font-weight: normal;
+            /*font-size: 13px;*/
+            /*font-family: iranyekan, icomoon, sans-serif !important;*/
+            text-align: left;
+            word-break: keep-all;
+            word-wrap: break-word;
+        }
+
+        myfont {
+            font-family: iranyekan, icomoon, sans-serif !important;
+        }
+    </style>
+@endsection
+
 @section("content")
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -19,65 +40,100 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    {{--                    <div class="d-sm-flex align-items-center myfont justify-content-between mb-4">--}}
+                    {{--                        <p class="mb-0 mt-2 font-weight-bold text-success">سامانه مدیریت سایت ثمین</p>--}}
+{{--                                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i--}}
+{{--                                                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>--}}
+                    {{--                    </div>--}}
+                    <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-4">
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                                class="fas fa-arrow-right fa-sm text-white-50"></i> Www.bazarti.com</a>
+
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Www.samintakhfif.com</a>
+
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Earnings (Daily) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                تعداد کاربرانی که امروز ثبت نام کردند
+                                            <div class="text-xs font-weight-bold myfont text-info text-uppercase mb-1">
+                                                تعداد کاربرانی که امروز ثبت نام کرده اند
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$today}}</div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$today}}
+                                                        %
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                             style="width: {{$today}}%"
+                                                             aria-valuenow="{{$today}}" aria-valuemin="0"
+                                                             aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Earnings (Weekly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold myfont text-info text-uppercase mb-1">
+                                                تعداد کاربرانی که در یک هفته گذشته ثبت نام کرده اند
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div
+                                                        class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$lastweek}}
+                                                        %
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                             style="width: {{$lastweek}}%"
+                                                             aria-valuenow="{{$lastweek}}" aria-valuemin="0"
+                                                             aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                تعداد کاربرانی که در هفته گذشته ثبت نام کرده اند
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$lastweek}}</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold myfont text-info text-uppercase mb-1">
                                                 تعداد کاربرانی که در یک ماه گذشته ثبت نام کرده اند
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$lastmonth}}
+                                                    <div
+                                                        class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$lastmonth}}
                                                         %
                                                     </div>
                                                 </div>
@@ -222,7 +278,8 @@
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">USERS
                                             </div>
                                             @if (isset($user_count))
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$user_count ?? "Loading..."}}</div>
+                                                <div
+                                                    class="h5 mb-0 font-weight-bold text-gray-800">{{$user_count ?? "Loading..."}}</div>
                                             @endif
                                         </div>
                                         <div class="col-auto">
@@ -307,8 +364,10 @@
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">نمودار عضویت کاربران در وب سایت به
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold myfont text-primary">نمودار عضویت کاربران در وب سایت
+                                        به
                                         تفکیک ماههای سال</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -338,8 +397,9 @@
                         <div class="col-xl-4 col-lg-5">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold myfont text-primary">نمودار ثبت کالا</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -358,7 +418,16 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
+                                        <div class="chartjs-size-monitor">
+                                            <div class="chartjs-size-monitor-expand">
+                                                <div class=""></div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink">
+                                                <div class=""></div>
+                                            </div>
+                                        </div>
+                                        <canvas id="myPieChart" width="486" height="245" class="chartjs-render-monitor"
+                                                style="display: block; width: 486px; height: 245px;"></canvas>
                                     </div>
                                     <div class="mt-4 text-center small">
                     <span class="mr-2">
@@ -389,7 +458,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h4 class="small font-weight-bold">تعداد تمام کالاهای ثبت شده تا به امروز <span
-                                                class="float-right">{{$product_count}}</span>
+                                            class="float-right">{{$product_count}}</span>
                                     </h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar bg-danger" role="progressbar"
@@ -398,7 +467,7 @@
                                              aria-valuemax="1000"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">تعداد کالاهای ثبت شده در یک ماه گذشته <span
-                                                class="float-right">{{$product_month}}</span>
+                                            class="float-right">{{$product_month}}</span>
                                     </h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar bg-warning" role="progressbar"
@@ -407,14 +476,14 @@
                                              aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">تعداد کالاهای ثبت شده در یک هفته گذشته <span
-                                                class="float-right">{{$product_week}}</span></h4>
+                                            class="float-right">{{$product_week}}</span></h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar" role="progressbar" style="width: {{$product_week}}%"
                                              aria-valuenow="{{$product_week}}"
                                              aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">تعداد کل کالاهای ثبت شده امروز<span
-                                                class="
+                                            class="
                                                 float-right">{{$product_today}}</span>
                                     </h4>
                                     <div class="progress mb-4">
@@ -424,7 +493,7 @@
                                              aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Account Setup <span
-                                                class="float-right">Complete!</span></h4>
+                                            class="float-right">Complete!</span></h4>
                                     <div class="progress">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
                                              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -515,13 +584,13 @@
                                              src="/admin/img/undraw_posting_photo.svg" alt="">
                                     </div>
                                     <p>Add some quality, svg illustrations to your project courtesy of <a
-                                                target="_blank"
-                                                rel="nofollow"
-                                                href="https://undraw.co/">unDraw</a>,
+                                            target="_blank"
+                                            rel="nofollow"
+                                            href="#">unDraw</a>,
                                         a constantly updated collection of beautiful svg images that you can use
                                         completely
                                         free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
+                                    <a target="_blank" rel="nofollow" href="#">Browse Illustrations on
                                         unDraw &rarr;</a>
                                 </div>
                             </div>
@@ -597,5 +666,7 @@
     <script src="/admin/vendor/chart.js/Chart.min.js"></script>
     <!-- Page level custom scripts -->
     <script src="/admin/js/demo/chart-area-demo.js"></script>
-    <script src="/admin/js/demo/chart-area-demo.js"></script>
+    <script src="/admin/js/demo/chart-bar-demo.js"></script>
+    <script src="/admin/js/demo/chart-pie-demo.js"></script>
+    <script src="/admin/js/demo/datatables-demo.js"></script>
 @endsection

@@ -21,6 +21,8 @@
     @include("admin.partials.header")
 
 </head>
+@yield("style")
+
 <body id="page-top">
 
 

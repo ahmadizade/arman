@@ -24,8 +24,10 @@ class AdminController extends Controller
         $today = DB::table('users')->where('created_at', ">=", Carbon::today())->count();
         $user_count = DB::table('users')->count();
         $product_count = DB::table('products')->count();
-        $product_month = DB::table('products')->where('created_at', ">=", Carbon::today()->subMonth())->count();
-        $product_week = DB::table('products')->where('created_at', ">=", Carbon::today()->subWeek())->count();
+//        $product_month = DB::table('products')->where('created_at', ">=", Carbon::today()->subMonth())->count();
+        $product_month = DB::table('products')->whereMonth('created_at',Carbon::now()->format('m'))->whereYear('created_at',Carbon::now()->format('Y'))->count();
+//        $product_week = DB::table('products')->where('created_at', ">=", Carbon::today()->subWeek())->count();
+        $product_week = DB::table('products')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
         $product_today = DB::table('products')->where('created_at', ">=", Carbon::today())->count();
         return view('admin.index', ['user_count' => $user_count, 'lastmonth' => $lastmonth, 'lastweek' => $lastweek, 'today' => $today, 'product_count' => $product_count, 'product_month' => $product_month, 'product_week' => $product_week, 'product_today' => $product_today]);
     }
@@ -122,7 +124,18 @@ class AdminController extends Controller
 
     public function DeleteUserAction(request $request)
     {
-        return 'SALAM';
+        $id = self::faToEn($request['id']);
+
+        if (isset($id) && is_numeric($id) && $id > 0) {
+
+            $user_delete = DB::table('users')->where('id', $request['id'])->delete();
+            return "DONE";
+        }
+    }
+
+    public function EditUserAction(request $request)
+    {
+        return view('admin.edit_user', ["id" => $request['id']]);
     }
 
 
