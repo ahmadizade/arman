@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/fonts/icomoon/style.css">
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/css/style.css">
     @yield("extra_css")
     @yield("title")
 </head>
@@ -64,6 +63,20 @@
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/alert.js"></script>
+<script>
+    $('body').on("keypress","#mobile",function(event) {
+        if (event.keyCode == 13 || event.which == 13) {
+            $("#mobile-submit").click();
+            event.preventDefault();
+        }
+    });
+    $('body').on("keypress","#code",function(event) {
+        if (event.keyCode == 13 || event.which == 13) {
+            $("#code-submit").click();
+            event.preventDefault();
+        }
+    });
+</script>
 @yield('extra_js')
 </body>
 </html>
