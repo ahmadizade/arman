@@ -20,10 +20,10 @@
             word-break: keep-all;
             word-wrap: break-word;
         }
-        myfont {
+        .myfont {
             font-family: iranyekan, icomoon, sans-serif !important;
         }
-        admin-rtl {
+        .admin-rtl {
             direction: rtl !important;
         }
     </style>
@@ -35,7 +35,6 @@
     @include("admin.partials.sidebar")
 
     <!-- Content Wrapper -->
-
 
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -110,7 +109,7 @@
                                 <div class="col-12">
                                     <div class="input-group my-2">
                                         <input id="res-mobile" name="res_mobile" type="number"
-                                               class="form-control bg-muted" required autofocus>
+                                               class="form-control bg-muted" readonly required autofocus>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">شماره تماس</span>
                                         </div>
@@ -129,8 +128,11 @@
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <input id="res-role" name="res_role" type="text"
-                                               class="form-control bg-muted" required autofocus>
+                                        <select id="res-role" name="res_role" class="input-group-text form-control font-12" required autofocus>
+                                            <option value="user">User</option>
+                                            <option value="admin">Admin</option>
+                                            <option value="supplier">Supplier</option>
+                                        </select>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">Role</span>
                                         </div>
@@ -139,8 +141,10 @@
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <input id="res-verified" name="res_verified" type="text"
-                                               class="form-control bg-muted" required autofocus>
+                                        <select id="res-verified" name="res_verified" class="input-group-text form-control font-12" required autofocus>
+                                            <option value="0">Not Approved</option>
+                                            <option value="1">Accepted</option>
+                                        </select>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">Verified</span>
                                         </div>
@@ -149,8 +153,10 @@
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <input id="res-user_mode" name="res_user_mode" type="text"
-                                               class="form-control bg-muted" required autofocus>
+                                        <select id="res-user_mode" name="res_user_mode" class="input-group-text form-control font-12" required autofocus>
+                                            <option value="normal">Normal</option>
+                                            <option value="golden">Golden</option>
+                                        </select>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">User Mode</span>
                                         </div>
@@ -171,16 +177,16 @@
                                 <div class="col-12">
                                     <div class="input-group my-2">
                                         <input id="res-credit" name="res_credit" type="text"
-                                               class="form-control bg-muted" required autofocus>
+                                               class="form-control bg-muted" readonly autofocus>
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">اعتبار</span>
+                                            <button id="" type="button" class="input-group-text text-white bg-gradient-success font-12">Credit</button>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <input id="res-created_at" name="res_created_at" type="text" disabled
+                                        <input id="res-created_at" name="res_created_at" type="text" readonly
                                                class="form-control bg-muted" required autofocus>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">تاریخ ساخت</span>
@@ -190,7 +196,7 @@
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <input id="res-updated_at" name="res_updated_at" type="text" disabled
+                                        <input id="res-updated_at" name="res_updated_at" type="text" readonly
                                                class="form-control  bg-muted" required autofocus>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">آخرین تغییرات</span>
@@ -206,6 +212,7 @@
                     </div>
                 </div>
                 <!-- Bootstrap Modal User Info-->
+
             </div>
         </div>
     </div>
@@ -250,13 +257,11 @@
                 let mobile = $(this).attr("data-id");
                 $.ajax({
                     type: 'post',
-                    {{--url: "{{ route("edit_user_action") }}",--}}
                     url: '{{ route("search_user") }}',
                     data: {"mobile": mobile},
                     success: function (response) {
                         if (response.status == 0) {
                             $("#res_msg").html(response.desc);
-                            // $("#res_msg").css("color", "white");
                         } else {
                             $("#res-mobile").val(response.mobile);
                             $("#res-name").val(response.name);
@@ -290,7 +295,7 @@
                         }
                     }
                 });
-                e.preventDefault();
+                e.preventDefault(e);
             });
 //Save User Data)
             $('#user_table').DataTable({
