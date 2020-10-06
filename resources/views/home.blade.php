@@ -287,7 +287,7 @@
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="w-100"
-                 style="background-image:url(/images/home/sale.jpg);background-position: center center;height: 250px"></div>
+                 style="background-image:url('/images/home/sale.jpg');background-position: center center;height: 250px"></div>
         </div>
     </div>
 

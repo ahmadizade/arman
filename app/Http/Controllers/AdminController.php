@@ -93,15 +93,13 @@ class AdminController extends Controller
             'res_role' => ['required', 'string', 'max:56',],
             'res_verified' => ['required', 'string', 'max:56',],
             'res_user_mode' => ['required', 'string', 'max:56'],
-            'res_email' => ['required', 'string', 'min:10', 'max:128'],
-            'res_credit' => ['required', 'string', 'max:56'],
-            'res_updated_at' => ['required', 'string', 'max:56'],
+            'res_email' => ['string', 'min:10', 'max:128'],
+            'res_credit' => ['string', 'max:56','nullable'],
+            'res_updated_at' => ['string', 'max:56'],
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
-//            return back()->withErrors($validator)->withInput();
         } else {
-//            $user = DB::table('users')->where('mobile', $request->res_mobile)->first();
             $user = User::where('mobile', $request->res_mobile)->first();
             $user->name = $request->res_name;
             $user->mobile = $request->res_mobile;
@@ -110,7 +108,7 @@ class AdminController extends Controller
             $user->user_mode = $request->res_user_mode;
             $user->email = $request->res_email;
             $user->credit = $request->res_credit;
-            $user->updated_at = Jalalian::now();
+            $user->updated_at = Carbon::now();
             $user->save();
             return Response::json(["status" => "1", "desc" => "ذخیره با موفقیت انجام شد"]);
         }

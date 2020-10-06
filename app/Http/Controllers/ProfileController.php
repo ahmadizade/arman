@@ -24,6 +24,12 @@ class ProfileController extends Controller
         return view("profile.index", ["user" => Auth::user(), "menu" => "index"]);
     }
 
+    public function Store(){
+
+        return 111;
+
+    }
+
     public function products(){
 
         $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->paginate(20);
@@ -271,7 +277,7 @@ class ProfileController extends Controller
             'phone' => 'nullable',
             'state' => 'nullable|max:3',
             'bank_cart_number' => 'nullable|numeric|digits:16',
-            'sheba' => 'nullable|max:30',
+            'sheba' => 'nullable|digits:24',
             "password" => 'nullable|min:6'
         ]);
 
@@ -294,6 +300,7 @@ class ProfileController extends Controller
         if (isset($request->password) && strlen($request->password)) {
             User::where("mobile", $user->mobile)->update([
                 "password" => Hash::make($request->password),
+                "password_changed" => 1,
             ]);
             session()->flash("status", "پروفایل و رمز عبور شما با موفقیت بروزرسانی شد");
         }

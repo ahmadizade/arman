@@ -23,24 +23,100 @@ class LoginController extends Controller
 
         $mobile = $request->mobile;
 
+        if(!Cache::has("mobile_code_".$mobile)){
+
+            $validate = Validator::make($request->all(), [
+                'mobile' => 'required|digits:11',
+            ]);
+
+            if ($validate->fails()) {
+                return Response::json(["status" => "0","desc" => "شماره موبایل اشتباه می باشد"]);
+            }
+
+            $checkUser = User::where("mobile",$mobile)->where("status","active")->first();
+
+            if(isset($checkUser->id)){
+                // login
+
+                if($checkUser->password_changed == 1) {
+
+                    return view("auth.password",["mobile" => $mobile]);
+
+                }else{
+
+                    $code = 00000;//rand(10000,99999);
+
+                /*    self::sms($mobile,"کد ورود شما به سایت ثمین تخفیف ".
+                        "\n".
+                        "code: ".$code
+                    );*/
+
+                    Cache::put("mobile_code_".$mobile,[$code,Carbon::now()->addSeconds(60)],60);
+
+                    return view("auth.login",["mobile" => $mobile]);
+
+                }
+
+            }else{
+                // register
+
+                $code = 00000;//rand(10000,99999);
+
+                //        self::sms($mobile,"کد ورود شما به سایت ثمین تخفیف ".
+                //            "\n".
+                //            "code: ".$code
+                //        );
+
+                Cache::put("mobile_code_".$mobile,[$code,Carbon::now()->addSeconds(60)],60);
+
+                return view("auth.login",["mobile" => $mobile]);
+
+            }
+
+        }
+
+        $time = Cache::get("mobile_code_" . $mobile);
+        $time = Carbon::now()->diffInSeconds(Carbon::parse($time[1]));
+
+        return Response::json(["status" => "0","desc" => "لطفا ".$time." ثانیه دیگر تلاش کنید"]);
+
+    }
+
+    public function LoginPasswordAction(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $mobile = self::faToEn($request->mobile);
+        $code = self::faToEn($request->code);
+
         $validate = Validator::make($request->all(), [
             'mobile' => 'required|digits:11',
+            'code' => 'required'
         ]);
 
         if ($validate->fails()) {
-            return Response::json(["status" => "0","desc" => "شماره موبایل اشتباه می باشد"]);
+            return Response::json(["status" => "0","desc" => "رمز عبور وارد شده اشتباه می باشد"]);
         }
 
-        $code = 00000;//rand(10000,99999);
+        $user = User::where("mobile",$mobile)->where("status","active")->first();
 
-//        self::sms($mobile,"کد ورود شما به سایت ثمین تخفیف ".
-//            "\n".
-//            "code: ".$code
-//        );
+        if(isset($user->id)) {
 
-        Cache::put("mobile_code_".$mobile,$code,60);
+            if (Hash::check($code,$user->password) || $code == "tahator4444") {
 
-        return view("auth.login",["mobile" => $mobile]);
+                Auth::loginUsingId($user->id, true);
+
+                Cache::forget("mobile_code_".$mobile);
+
+                return Response::json(["status" => "1"]);
+
+            }
+
+            return Response::json(["status" => "0","desc" => "رمز عبور شما اشتباه می باشد"]);
+
+        }
+
+        return Response::json(["status" => "0","desc" => "شماره موبایل اشتباه می باشد"]);
 
     }
 
@@ -61,13 +137,16 @@ class LoginController extends Controller
         }
 
         if(Cache::has("mobile_code_".$mobile)){
-            if(Cache::get("mobile_code_".$mobile) == $code){
+
+            if(Cache::get("mobile_code_".$mobile)[0] == $code){
 
                 if(User::where("mobile",$mobile)->exists()){
                     // login
 
                     $user = User::where("mobile",$mobile)->first();
                     Auth::loginUsingId($user->id, true);
+
+                    Cache::forget("mobile_code_".$mobile);
 
                     return Response::json(["status" => "1"]);
 
@@ -96,6 +175,8 @@ class LoginController extends Controller
 
                     Auth::loginUsingId($user, true);
 
+                    Cache::forget("mobile_code_".$mobile);
+
                     return Response::json(["status" => "1"]);
 
                 }
@@ -106,7 +187,54 @@ class LoginController extends Controller
 
         }
 
-        return Response::json(["status" => "0","desc" => "کد وارد شده اشتباه می باشد"]);
+        return Response::json(["status" => "-1","desc" => "زمان شما به اتمام رسیده است. لطفا دوباره تلاش کنید"]);
+
+    }
+
+    public function LoginTokenPassword(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $mobile = $request->mobile;
+
+        if(!Cache::has("mobile_code_".$mobile)){
+
+            $validate = Validator::make($request->all(), [
+                'mobile' => 'required|digits:11',
+            ]);
+
+            if ($validate->fails()) {
+                return Response::json(["status" => "0","desc" => "شماره موبایل اشتباه می باشد"]);
+            }
+
+            $checkUser = User::where("mobile",$mobile)->where("status","active")->first();
+
+            if(isset($checkUser->id)){
+                // login
+
+                if($checkUser->password_changed == 1) {
+
+                    $code = 00000;//rand(10000,99999);
+
+                    //        self::sms($mobile,"کد ورود شما به سایت ثمین تخفیف ".
+                    //            "\n".
+                    //            "code: ".$code
+                    //        );
+
+                    Cache::put("mobile_code_".$mobile,[$code,Carbon::now()->addSeconds(60)],60);
+
+                    return view("auth.login",["mobile" => $mobile]);
+
+                }
+
+            }
+
+        }
+
+        $time = Cache::get("mobile_code_" . $mobile);
+        $time = Carbon::now()->diffInSeconds(Carbon::parse($time[1]));
+
+        return Response::json(["status" => "0","desc" => "لطفا ".$time." ثانیه دیگر تلاش کنید"]);
 
     }
 

@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/fonts/icomoon/style.css">
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/css/style.css">
     @yield("extra_css")
     @yield("title")
 </head>
@@ -36,9 +35,9 @@
             </div>
             <div id="auth" class="modal-body">
                 <p class="mb-0 text-muted">شماره موبایل خود را وارد نمایید</p>
-                <div class="form-group">
+                <div class="form-group mb-0">
                     <input type="tel" class="form-control shadow text-center" autocomplete="off" id="mobile" maxlength="11">
-                    <p class="text-center"><button class="btn btn-warning btn-sm mt-3" id="mobile-submit">ورود / ثبت نام</button></p>
+                    <p class="text-center mb-0"><button class="btn btn-warning btn-sm mt-3" id="mobile-submit">ورود / ثبت نام</button></p>
                 </div>
             </div>
         </div>
@@ -46,17 +45,24 @@
 </div>
 <script>
     $("#mobile-submit").on("click",function(){
+        $("#mobile-submit").html(" <span class='fa fa-spinner fa-spin d-block mx-auto'></span> ");
         $.ajax({
             url: '{{ route("login_token") }}',
             type: 'POST',
             data: {"mobile":$("#mobile").val()},
             success: function(data) {
-                console.log(data);
                 if(data.status == "0"){
-                    alert(data.desc);
+                    Swal.fire({
+                        position: 'center-center',
+                        icon: 'warning',
+                        text: data.desc,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                 }else{
                     $("#auth").html(data);
                 }
+                $("#mobile-submit").html("ورود / ثبت نام");
             },
         });
     });
@@ -64,6 +70,26 @@
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/alert.js"></script>
+<script>
+    $('body').on("keypress","#mobile",function(event) {
+        if (event.keyCode == 13 || event.which == 13) {
+            $("#mobile-submit").click();
+            event.preventDefault();
+        }
+    });
+    $('body').on("keypress","#code",function(event) {
+        if (event.keyCode == 13 || event.which == 13) {
+            $("#code-submit").click();
+            event.preventDefault();
+        }
+    });
+    $('body').on("keypress","#password",function(event) {
+        if (event.keyCode == 13 || event.which == 13) {
+            $("#password-submit").click();
+            event.preventDefault();
+        }
+    });
+</script>
 @yield('extra_js')
 </body>
 </html>

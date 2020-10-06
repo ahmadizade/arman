@@ -31,7 +31,7 @@
                         @endif
                         <form action="{{ route("profile_edit_action") }}" method="post">
                             <div class="row">
-                                <div class="col-12 col-lg-4">
+                                <div class="col-12 col-lg-3">
                                    <div class="input-group my-2">
                                        <div class="input-group-prepend">
                                            <span class="input-group-text font-12">موبایل</span>
@@ -39,19 +39,27 @@
                                        <input type="text" class="form-control disabled bg-muted" disabled value="{{ $user->mobile }}">
                                    </div>
                                 </div>
-                                <div class="col-12 col-lg-4">
+                                <div class="col-12 col-lg-3">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">نوع کاربری</span>
                                         </div>
                                         @if($user->user_mode == "gold")
-                                            <input type="text" class="form-control disabled bg-warning" disabled value="کاربر طلایی -@if($user->status == "active") فعال @else غیر فعال @endif">
+                                            <input type="text" class="form-control disabled bg-warning" disabled value="کاربر طلایی">
                                         @else
-                                            <input type="text" class="form-control disabled bg-muted" disabled value="کاربر عادی -@if($user->status == "active") فعال @else غیر فعال @endif">
+                                            <input type="text" class="form-control disabled bg-muted" disabled value="کاربر عادی">
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-4">
+                                <div class="col-12 col-lg-3">
+                                    <div class="input-group my-2">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text font-12">کد ملی</span>
+                                        </div>
+                                        <input type="text" name="melli_code" class="form-control" value="{{ $user->melli_code }}">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">ایمیل</span>
@@ -86,41 +94,46 @@
                                         <input type="text" name="phone" class="form-control" value="{{ $user->profile->phone }}">
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-4">
-                                    <select style="height: 34px;" class="form-control font-12 my-2" name="state" onchange="cities(this.value);">
-                                    <option @if($user->profile->city_code == 0) selected @endif value="0">لطفا استان را انتخاب نمایید</option>
-                                    <option @if($user->profile->city_code == 1) selected @endif value="1">تهران</option>
-                                    <option @if($user->profile->city_code == 2) selected @endif value="2">گیلان</option>
-                                    <option @if($user->profile->city_code == 3) selected @endif value="3">آذربایجان شرقی</option>
-                                    <option @if($user->profile->city_code == 4) selected @endif value="4">خوزستان</option>
-                                    <option @if($user->profile->city_code == 5) selected @endif value="5">فارس</option>
-                                    <option @if($user->profile->city_code == 6) selected @endif value="6">اصفهان</option>
-                                    <option @if($user->profile->city_code == 7) selected @endif value="7">خراسان رضوی</option>
-                                    <option @if($user->profile->city_code == 8) selected @endif value="8">قزوین</option>
-                                    <option @if($user->profile->city_code == 9) selected @endif value="9">سمنان</option>
-                                    <option @if($user->profile->city_code == 10) selected @endif value="10">قم</option>
-                                    <option @if($user->profile->city_code == 11) selected @endif value="11">مرکزی</option>
-                                    <option @if($user->profile->city_code == 12) selected @endif value="12">زنجان</option>
-                                    <option @if($user->profile->city_code == 13) selected @endif value="13">مازندران</option>
-                                    <option @if($user->profile->city_code == 14) selected @endif value="14">گلستان</option>
-                                    <option @if($user->profile->city_code == 15) selected @endif value="15">اردبیل</option>
-                                    <option @if($user->profile->city_code == 16) selected @endif value="16">آذربایجان غربی</option>
-                                    <option @if($user->profile->city_code == 17) selected @endif value="17">همدان</option>
-                                    <option @if($user->profile->city_code == 18) selected @endif value="18">کردستان</option>
-                                    <option @if($user->profile->city_code == 19) selected @endif value="19">کرمانشاه</option>
-                                    <option @if($user->profile->city_code == 20) selected @endif value="20">لرستان</option>
-                                    <option @if($user->profile->city_code == 21) selected @endif value="21">بوشهر</option>
-                                    <option @if($user->profile->city_code == 22) selected @endif value="22">کرمان</option>
-                                    <option @if($user->profile->city_code == 23) selected @endif value="23">هرمزگان</option>
-                                    <option @if($user->profile->city_code == 24) selected @endif value="24">چهارمحال و بختیاری</option>
-                                    <option @if($user->profile->city_code == 25) selected @endif value="25">یزد</option>
-                                    <option @if($user->profile->city_code == 26) selected @endif value="26">سیستان و بلوچستان</option>
-                                    <option @if($user->profile->city_code == 27) selected @endif value="27">ایلام</option>
-                                    <option @if($user->profile->city_code == 28) selected @endif value="28">کهگلویه و بویراحمد</option>
-                                    <option @if($user->profile->city_code == 29) selected @endif value="29">خراسان شمالی</option>
-                                    <option @if($user->profile->city_code == 30) selected @endif value="30">خراسان جنوبی</option>
-                                    <option @if($user->profile->city_code == 31) selected @endif value="31">البرز</option>
-                                </select>
+                                <div class="col-12 col-lg-3">
+                                    <div class="input-group my-2">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text font-12">استان</span>
+                                        </div>
+                                        <select style="height: 34px;" class="form-control font-12" name="state" onchange="cities(this.value);">
+                                            <option @if($user->profile->city_code == 0) selected @endif value="0">لطفا استان را انتخاب نمایید</option>
+                                            <option @if($user->profile->city_code == 1) selected @endif value="1">تهران</option>
+                                            <option @if($user->profile->city_code == 2) selected @endif value="2">گیلان</option>
+                                            <option @if($user->profile->city_code == 3) selected @endif value="3">آذربایجان شرقی</option>
+                                            <option @if($user->profile->city_code == 4) selected @endif value="4">خوزستان</option>
+                                            <option @if($user->profile->city_code == 5) selected @endif value="5">فارس</option>
+                                            <option @if($user->profile->city_code == 6) selected @endif value="6">اصفهان</option>
+                                            <option @if($user->profile->city_code == 7) selected @endif value="7">خراسان رضوی</option>
+                                            <option @if($user->profile->city_code == 8) selected @endif value="8">قزوین</option>
+                                            <option @if($user->profile->city_code == 9) selected @endif value="9">سمنان</option>
+                                            <option @if($user->profile->city_code == 10) selected @endif value="10">قم</option>
+                                            <option @if($user->profile->city_code == 11) selected @endif value="11">مرکزی</option>
+                                            <option @if($user->profile->city_code == 12) selected @endif value="12">زنجان</option>
+                                            <option @if($user->profile->city_code == 13) selected @endif value="13">مازندران</option>
+                                            <option @if($user->profile->city_code == 14) selected @endif value="14">گلستان</option>
+                                            <option @if($user->profile->city_code == 15) selected @endif value="15">اردبیل</option>
+                                            <option @if($user->profile->city_code == 16) selected @endif value="16">آذربایجان غربی</option>
+                                            <option @if($user->profile->city_code == 17) selected @endif value="17">همدان</option>
+                                            <option @if($user->profile->city_code == 18) selected @endif value="18">کردستان</option>
+                                            <option @if($user->profile->city_code == 19) selected @endif value="19">کرمانشاه</option>
+                                            <option @if($user->profile->city_code == 20) selected @endif value="20">لرستان</option>
+                                            <option @if($user->profile->city_code == 21) selected @endif value="21">بوشهر</option>
+                                            <option @if($user->profile->city_code == 22) selected @endif value="22">کرمان</option>
+                                            <option @if($user->profile->city_code == 23) selected @endif value="23">هرمزگان</option>
+                                            <option @if($user->profile->city_code == 24) selected @endif value="24">چهارمحال و بختیاری</option>
+                                            <option @if($user->profile->city_code == 25) selected @endif value="25">یزد</option>
+                                            <option @if($user->profile->city_code == 26) selected @endif value="26">سیستان و بلوچستان</option>
+                                            <option @if($user->profile->city_code == 27) selected @endif value="27">ایلام</option>
+                                            <option @if($user->profile->city_code == 28) selected @endif value="28">کهگلویه و بویراحمد</option>
+                                            <option @if($user->profile->city_code == 29) selected @endif value="29">خراسان شمالی</option>
+                                            <option @if($user->profile->city_code == 30) selected @endif value="30">خراسان جنوبی</option>
+                                            <option @if($user->profile->city_code == 31) selected @endif value="31">البرز</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group my-2">
@@ -130,10 +143,10 @@
                                         <input type="text" name="bank_cart_number" class="form-control" value="{{ $user->profile->bank_cart_number }}">
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-4">
+                                <div class="col-12 col-lg-5">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">شبا</span>
+                                            <span class="input-group-text font-12">شبا بدون IR</span>
                                         </div>
                                         <input type="text" name="sheba" class="form-control" value="{{ $user->profile->sheba }}">
                                     </div>
