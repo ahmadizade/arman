@@ -294,6 +294,7 @@ class ProfileController extends Controller
         if (isset($request->password) && strlen($request->password)) {
             User::where("mobile", $user->mobile)->update([
                 "password" => Hash::make($request->password),
+                "password_changed" => 1,
             ]);
             session()->flash("status", "پروفایل و رمز عبور شما با موفقیت بروزرسانی شد");
         }

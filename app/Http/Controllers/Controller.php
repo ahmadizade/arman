@@ -26,12 +26,14 @@ class Controller extends BaseController
             CURLOPT_ENCODING => "UTF-8",
             CURLOPT_RETURNTRANSFER => false,
             CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
             CURLOPT_CONNECTTIMEOUT => 120,
             CURLOPT_TIMEOUT => 120,
         );
         curl_setopt_array($ch, $curlConfig);
         curl_exec($ch);
         curl_close($ch);
+
     }
 
     function faToEn($string) {

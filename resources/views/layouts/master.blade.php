@@ -35,9 +35,9 @@
             </div>
             <div id="auth" class="modal-body">
                 <p class="mb-0 text-muted">شماره موبایل خود را وارد نمایید</p>
-                <div class="form-group">
+                <div class="form-group mb-0">
                     <input type="tel" class="form-control shadow text-center" autocomplete="off" id="mobile" maxlength="11">
-                    <p class="text-center"><button class="btn btn-warning btn-sm mt-3" id="mobile-submit">ورود / ثبت نام</button></p>
+                    <p class="text-center mb-0"><button class="btn btn-warning btn-sm mt-3" id="mobile-submit">ورود / ثبت نام</button></p>
                 </div>
             </div>
         </div>
@@ -45,17 +45,24 @@
 </div>
 <script>
     $("#mobile-submit").on("click",function(){
+        $("#mobile-submit").html(" <span class='fa fa-spinner fa-spin d-block mx-auto'></span> ");
         $.ajax({
             url: '{{ route("login_token") }}',
             type: 'POST',
             data: {"mobile":$("#mobile").val()},
             success: function(data) {
-                console.log(data);
                 if(data.status == "0"){
-                    alert(data.desc);
+                    Swal.fire({
+                        position: 'center-center',
+                        icon: 'warning',
+                        text: data.desc,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                 }else{
                     $("#auth").html(data);
                 }
+                $("#mobile-submit").html("ورود / ثبت نام");
             },
         });
     });
@@ -73,6 +80,12 @@
     $('body').on("keypress","#code",function(event) {
         if (event.keyCode == 13 || event.which == 13) {
             $("#code-submit").click();
+            event.preventDefault();
+        }
+    });
+    $('body').on("keypress","#password",function(event) {
+        if (event.keyCode == 13 || event.which == 13) {
+            $("#password-submit").click();
             event.preventDefault();
         }
     });

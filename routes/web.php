@@ -7,24 +7,26 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 
 
 // admin admin admin admin admin admin admin
-Route::middleware(['auth'])->prefix("tahator")->group(function () {
-Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
-Route::get('/login', 'App\Http\Controllers\AdminController@tahator_login')->name("tahator_login");
-Route::post('/login-action', 'App\Http\Controllers\AdminController@AdminLoginAction')->name("admin_login_action");
-Route::get('/register', 'App\Http\Controllers\AdminController@tahator_register')->name("tahator_register");
-Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user");
-Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user");
-Route::get('/admin-users', 'App\Http\Controllers\AdminController@AdminUsers')->name("Admin_Users");
-Route::get('/admin-users/get-user', 'App\Http\Controllers\AdminController@GetUser')->name("get_user");
-Route::post('/admin-users/delete-user', 'App\Http\Controllers\AdminController@DeleteUserAction')->name("delete_user_action");
-Route::post('/admin-users/edit-user', 'App\Http\Controllers\AdminController@EditUserAction')->name("edit_user_action");
+Route::middleware(['admin'])->prefix("tahator")->group(function () {
+    Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
+    Route::get('/login', 'App\Http\Controllers\AdminController@tahator_login')->name("tahator_login");
+    Route::post('/login-action', 'App\Http\Controllers\AdminController@AdminLoginAction')->name("admin_login_action");
+    Route::get('/register', 'App\Http\Controllers\AdminController@tahator_register')->name("tahator_register");
+    Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user");
+    Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user");
+    Route::get('/admin-users', 'App\Http\Controllers\AdminController@AdminUsers')->name("Admin_Users");
+    Route::get('/admin-users/get-user', 'App\Http\Controllers\AdminController@GetUser')->name("get_user");
+    Route::post('/admin-users/delete-user', 'App\Http\Controllers\AdminController@DeleteUserAction')->name("delete_user_action");
+    Route::post('/admin-users/edit-user', 'App\Http\Controllers\AdminController@EditUserAction')->name("edit_user_action");
 });
 // admin admin admin admin admin admin admin
 
 
 // auth
-Route::post('/login-token', 'App\Http\Controllers\LoginController@LoginToken')->name("login_token");
-Route::post('/login-token-action', 'App\Http\Controllers\LoginController@LoginTokenAction')->name("login_token_action");
+Route::post('/login-token', 'App\Http\Controllers\LoginController@LoginToken')->name("login_token")->middleware("ajax","verify.domain");
+Route::post('/login-token-action', 'App\Http\Controllers\LoginController@LoginTokenAction')->name("login_token_action")->middleware("ajax","verify.domain");
+Route::post('/login-password-action', 'App\Http\Controllers\LoginController@LoginPasswordAction')->name("login_password_action")->middleware("ajax","verify.domain");
+Route::post('/login-token-password', 'App\Http\Controllers\LoginController@LoginTokenPassword')->name("login_token_password")->middleware("ajax","verify.domain");
 Route::get('/logout', 'App\Http\Controllers\LoginController@Logout')->name("logout");
 
 
