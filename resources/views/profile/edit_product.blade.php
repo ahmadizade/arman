@@ -14,7 +14,7 @@
                     <div class="card-header bg-secondary text-white p-2">
                         <h3 class="mt-1 mb-0 font-14 float-right"> ویرایش محصولات</h3>
                     </div>
-                    <div class="card-body p-2">
+                    <div class="card-body p-3">
                         @if ($errors->any())
                             <div class="alert alert-danger mt-2 mb-2">
                                 <ul class="mb-0">
