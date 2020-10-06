@@ -29,13 +29,18 @@
                                     <a href="#profile" class="nav-link">{{ Auth::user()->mobile }}</a>
                                     <ul class="dropdown text-right rtl">
                                         <li><a class="nav-link text-success"> اعتبار {{ number_format(Auth::user()->credit) }} ریال </a></li>
+                                        @if(Auth::check() && Auth::user()->role == "admin")
+                                            <li><a href="{{ route("tahator") }}" class="nav-link">پنل مدیریت</a></li>
+                                        @endif
                                         <li><a href="{{ route("profile_index") }}" class="nav-link">پروفایل</a></li>
                                         <li><a href="{{ route("logout") }}" class="nav-link">خروج</a></li>
                                     </ul>
                                 </li>
                             @endif
 
-                            <li><a href="#" class="nav-link text-primary">فروشنده شوید</a></li>
+                            @if(Auth::check())
+                                <li><a href="{{ route("store") }}" class="nav-link text-primary">فروشنده شوید</a></li>
+                            @endif
 
                             {{--<li class="has-children">
                                 <a href="#about-section" class="nav-link">خدمات</a>
@@ -70,7 +75,9 @@
                                     <li><a href="#" class="nav-link">قرعه کشی</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{route('profile_add_product')}}" class="nav-link">ثبت محصول</a></li>
+                            @if(Auth::check() && Auth::user()->role == "supplier")
+                                <li><a href="{{route('profile_add_product')}}" class="nav-link">ثبت محصول</a></li>
+                            @endif
                             <li><a href="/" class="nav-link">صفحه اصلی<i class="fa fa-home d-none d-sm-inline font-20 pl-2 text-primary"></i></a></li>
                         </ul>
                     </nav>
