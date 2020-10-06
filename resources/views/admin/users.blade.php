@@ -131,6 +131,7 @@
                                         <select id="res-role" name="res_role" class="input-group-text form-control font-12" required autofocus>
                                             <option value="user">User</option>
                                             <option value="admin">Admin</option>
+                                            <option value="supplier">Supplier</option>
                                         </select>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">Role</span>
@@ -176,16 +177,16 @@
                                 <div class="col-12">
                                     <div class="input-group my-2">
                                         <input id="res-credit" name="res_credit" type="text"
-                                               class="form-control bg-muted" required autofocus>
+                                               class="form-control bg-muted" readonly autofocus>
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">اعتبار</span>
+                                            <button id="" type="button" class="input-group-text text-white bg-gradient-success font-12">Credit</button>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <input id="res-created_at" name="res_created_at" type="text" disabled
+                                        <input id="res-created_at" name="res_created_at" type="text" readonly
                                                class="form-control bg-muted" required autofocus>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">تاریخ ساخت</span>
@@ -195,7 +196,7 @@
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <input id="res-updated_at" name="res_updated_at" type="text" disabled
+                                        <input id="res-updated_at" name="res_updated_at" type="text" readonly
                                                class="form-control  bg-muted" required autofocus>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">آخرین تغییرات</span>
@@ -211,6 +212,7 @@
                     </div>
                 </div>
                 <!-- Bootstrap Modal User Info-->
+
             </div>
         </div>
     </div>
