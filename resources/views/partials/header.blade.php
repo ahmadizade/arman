@@ -38,7 +38,9 @@
                                 </li>
                             @endif
 
-                            <li><a href="#" class="nav-link text-primary">فروشنده شوید</a></li>
+                            @if(Auth::check())
+                                <li><a href="{{ route("store") }}" class="nav-link text-primary">فروشنده شوید</a></li>
+                            @endif
 
                             {{--<li class="has-children">
                                 <a href="#about-section" class="nav-link">خدمات</a>
