@@ -81,12 +81,12 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
            aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+            <span>مدیریت حساب</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="{{route('tahator_login')}}">Login</a>
+                <h6 class="collapse-header">Credit Management</h6>
+                <a class="collapse-item" href="{{route('credit')}}">اعتبارات</a>
                 <a class="collapse-item" href="{{route('tahator_register')}}">Register</a>
                 <a class="collapse-item" href="#">Forgot Password</a>
                 <div class="collapse-divider"></div>

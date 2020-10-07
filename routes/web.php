@@ -10,14 +10,18 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
     Route::get('/login', 'App\Http\Controllers\AdminController@tahator_login')->name("tahator_login");
-    Route::post('/login-action', 'App\Http\Controllers\AdminController@AdminLoginAction')->name("admin_login_action");
+    Route::post('/login-action', 'App\Http\Controllers\AdminController@AdminLoginAction')->name("admin_login_action")->middleware("ajax","verify.domain");;
     Route::get('/register', 'App\Http\Controllers\AdminController@tahator_register')->name("tahator_register");
     Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user");
     Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user");
     Route::get('/admin-users', 'App\Http\Controllers\AdminController@AdminUsers')->name("Admin_Users");
     Route::get('/admin-users/get-user', 'App\Http\Controllers\AdminController@GetUser')->name("get_user");
-    Route::post('/admin-users/delete-user', 'App\Http\Controllers\AdminController@DeleteUserAction')->name("delete_user_action");
-    Route::post('/admin-users/edit-user', 'App\Http\Controllers\AdminController@EditUserAction')->name("edit_user_action");
+    Route::post('/admin-users/delete-user', 'App\Http\Controllers\AdminController@DeleteUserAction')->name("delete_user_action")->middleware("ajax","verify.domain");;
+    Route::post('/admin-users/edit-user', 'App\Http\Controllers\AdminController@EditUserAction')->name("edit_user_action")->middleware("ajax","verify.domain");;
+
+    Route::get('/credit', 'App\Http\Controllers\AdminController@Credit')->name("credit");
+    Route::get('/credit-suggestion-action', 'App\Http\Controllers\AdminController@SuggestionAction')->name("suggestion_action");
+
 });
 // admin
 
