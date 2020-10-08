@@ -158,7 +158,7 @@
                                         @else
                                             <div class="mt-1">
                                                 <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                <p class="text-danger font-14 mt-2 nowrap">بدون تخفیف</p>
+                                                <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
                                             </div>
                                         @endif
                                     </div>
@@ -214,7 +214,7 @@
                                     @else
                                         <div class="mt-1">
                                             <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                            <p class="text-danger font-14 mt-2 nowrap">بدون تخفیف</p>
+                                            <p class="text-danger font-14 mt-2 nowrap"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
                                         </div>
                                     @endif
                                 </div>
@@ -270,7 +270,7 @@
                                     @else
                                         <div class="mt-1">
                                             <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                            <p class="text-danger font-14 mt-2 nowrap">بدون تخفیف</p>
+                                            <p class="text-danger font-14 mt-2 nowrap"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
                                         </div>
                                     @endif
                                 </div>
