@@ -45,12 +45,49 @@
                 <div class="container-fluid">
 
                 </div>
+                <div class="row justify-content-around">
+                    <div class="col-xl-4 col-lg-4 my-2">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div
+                                    class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                         aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-header">Dropdown Header:</div>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                                <h6 class="m-0 myfont text-white">مدیریت حساب ها و اعتبارات</h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="col-12">
+                                    <p id="error_box" class="myfont admin-rtl" style="font-size: 15px"></p>
+                                    <p id="current-credit-left" class="" style="font-size: 15px"></p>
+                                <select name="itemName" id="itemName"
+                                        class="itemName form-control bg-muted"></select>
+                                <button id="credit-charge-btn" type="submit"
+                                        class="btn btn-sm text-white bg-gradient-success my-2">
+                                    Show User
+                                </button>
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
                 <div class="col-xl-4 col-lg-4 my-2">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div
-                            class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
+                                class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
                             <div class="dropdown no-arrow">
                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,62 +102,88 @@
                                     <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
                             </div>
-                            <h6 class="m-0 myfont text-white">مدیریت حساب ها و اعتبارات</h6>
+                            <h6 class="m-0 myfont text-white">کنترل سرویس کیو آر کد</h6>
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
                             <div class="col-12">
-                                <p id="current-credit" class="myfont text-white bg-gradient-success"
-                                   style="font-size: 17px;"></p>
+                                <form method="get" action="{{route('code_generator')}}">
+                                    <div class="col-12">
+                                        <div class="input-group my-2">
+                                            <input type="hidden" name="user_id" value="{{Auth()->id()}}">
+                                            <input id="qr-data" name="qr_data" type="text"
+                                                   class="form-control bg-muted" required autofocus>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text text-white bg-gradient-info">Message</span>
+                                            </div>
+                                        </div>
+                                        <button id="qr-data-btn" type="submit"
+                                                class="btn btn-sm text-white bg-gradient-success my-2">
+                                            Check Service
+                                        </button>
+                                    </div>
+
+                                </form>
                             </div>
-                            <form id="save-user-form" class="modal-body text-center">
-                                <div class="admin-rtl my-1 text-white font-weight-bolder">
-                                    <p id="error_box" class="myfont bg-gradient-danger" style="font-size: 17px;"></p>
-                                    <p id="res_msg" class="myfont bg-gradient-success" style="font-size: 17px;"></p>
-                                </div>
-                                <div class="col-12">
-                                    <select class="itemName form-control bg-muted" name="itemName"></select>
-                                </div>
-                            </form>
-                            <h5 id="test"></h5>
+
+
                         </div>
                     </div>
                 </div>
             </div>
+            <div>
+                <p id="test"></p>
+            </div>
         </div>
     </div>
-
+    </div>
 @endsection
 @section("extra_js")
     <script type="text/javascript">
-        $('.itemName').select2({
-            placeholder: 'Select an item',
-            language: "fa",
-            dir: "rtl",
-            ajax: {
-                url: '{{route('suggestion_action')}}',
-                dataType: 'json',
-                delay: 250,
-                processResults: function (data) {
-                    // $('#test').html(data[0].name);
-                    // console.log(data[0].name);
-                    return {
-                        results: $.map(data, function (item) {
-                            return {
-                                text: item.name + "  /  " + "شماره همراه : " + "  " + item.mobile + "  /  " + "اعتبار = " + item.credit,
-                                id: item.id,
-                            }
-                        })
-                    };
+        $(document).ready(function () {
 
-                },
-                cache: true
-            }
+            $('.itemName').select2({
+                placeholder: 'Select an item',
+                language: "fa",
+                dir: "rtl",
+                ajax: {
+                    url: '{{route('suggestion_action')}}',
+                    dataType: 'json',
+                    delay: 250,
+                    success(response) {
+                        $('#test').html(response);
+                    },
+                    processResults: function (data) {
+                        return {
+                            results: $.map(data, function (item) {
+                                return {
+                                    text: item.name + "  /  " + "شماره همراه : " + "  " + item.mobile + "  /  " + "اعتبار = " + item.credit,
+                                    id: item.id,
+                                }
+                            })
+                        };
+                    },
+                    cache: true,
+                }
+            });
+
+            $('#itemName').change(function () {
+                $.ajax({
+                    type: 'post',
+                    url: '{{route('credit_show_action')}}',
+                    data: {'id': $('#itemName').select2().val()},
+                    success(response) {
+                        if (response['credit'] !== 0) {
+                            console.log(response);
+                            $('#current-credit-left').html('Credit : ' + response['credit'] + "</br>" + 'Name : ' + response['name'] + "</br>" + 'Mobile : ' + response['mobile'] + "</br>" + 'Status : ' + response['status']);
+                        } else {
+                            console.log(0);
+                            $('#error_box').html("اعتباری ثبت نشده است")
+                        }
+                    }
+                });
+            });
         });
-        // $('#test').select2('data');
-        // $('.itemName').find(':selected');
-        // console.log($('.itemName').find(':selected'));
     </script>
-
 
 @endsection

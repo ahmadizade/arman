@@ -141,18 +141,21 @@ class AdminController extends Controller
         return view('admin.credit.credit');
     }
 
-public function SuggestionAction(Request $request)
+    public function SuggestionAction(Request $request)
     {
         $data = [];
 
-        if($request->has('q')){
+        if ($request->has('q')) {
             $search = $request->q;
             $data = DB::table("users")
-                ->select("id","name","credit","mobile")
-                ->where('name','LIKE',"%$search%")
+                ->select("id", "name", "credit", "mobile")
+                ->where('name', 'LIKE', "%$search%")
                 ->get();
         }
         return response()->json($data);
     }
-
+    public function CreditShowAction(Request $request){
+        $user = User::where('id' , $request->id)->first();
+        return Response::json($user);
+    }
 }
