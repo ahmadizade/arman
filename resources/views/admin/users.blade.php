@@ -185,24 +185,6 @@
                                     </div>
                                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                }}
-
-
-
-
-
                                 <!-- Bootstrap Modal User Info-->
                                 <div class="modal fade" id="charge" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered">
