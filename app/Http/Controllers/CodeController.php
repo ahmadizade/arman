@@ -25,7 +25,7 @@ class CodeController extends Controller
 // create curl resource
         $url = "https://api.qrserver.com/v1/create-qr-code/?data=salam";
         $ch = curl_init ();
-
+        header('Content-type: image/jpeg');
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTP_CONTENT_DECODING, false);
