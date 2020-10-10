@@ -25,7 +25,7 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
 // admin
 
 //QR.Code Generator
-Route::post('/code-generator', 'App\Http\Controllers\CodeController@Code_Generator')->name("code_generator")->middleware("auth");
+Route::get('/code-generator', 'App\Http\Controllers\CodeController@Code_Generator')->name("code_generator")->middleware("auth");
 
 
 // auth

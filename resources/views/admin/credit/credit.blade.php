@@ -126,8 +126,6 @@
 
                                     </form>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -135,6 +133,8 @@
                 <div>
                     <p id="test"></p>
                 </div>
+                <img src="" id="qr-code-png" style="width:200px;height: 200px;">
+                <div id="curl"></div>
             </div>
         </div>
     </div>
@@ -187,11 +187,12 @@
 
             $('#qr-data-btn').click(function (e) {
                 $.ajax({
-                    type: 'post',
+                    type: 'get',
                     url: '{{route('code_generator')}}',
                     data: $('#code-generate-form').serialize(),
                     success(response) {
-                        console.log(response);
+                        $('#curl').html('<img' + " " + 'src=' + response + '>');
+                        $('#qr-code-png').attr('src',response);
                     }
                 });
                 e.preventDefault();
