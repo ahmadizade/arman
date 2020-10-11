@@ -39,6 +39,7 @@
                             @endif
 
 {{--                            @if(Auth::check())--}}
+                                <li><a href="{{ route("contact") }}" class="nav-link">تماس با ما</a></li>
                                 <li><a href="{{ route("store") }}" class="nav-link text-primary">ثبت فروشگاه</a></li>
 {{--                            @endif--}}
 
