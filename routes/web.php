@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // home
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
+Route::get('/store/{title}/{branch}', 'App\Http\Controllers\HomeController@singleShop')->name("single_shop");
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
 
 // admin
@@ -39,7 +40,7 @@ Route::get('/logout', 'App\Http\Controllers\LoginController@Logout')->name("logo
 // profile
 Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::get('/', 'App\Http\Controllers\ProfileController@Index')->name("profile_index");
-    Route::get('/products', 'App\Http\Controllers\ProfileController@products')->name("profile_products")->middleware("supplier");
+    Route::get('/products', 'App\Http\Controllers\ProfileController@Products')->name("profile_products")->middleware("supplier");
     Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product")->middleware("supplier");
     Route::post('/add-product-action', 'App\Http\Controllers\ProfileController@AddProductAction')->name("add_product_action")->middleware("supplier");
     Route::get('/edit-product/{id}', 'App\Http\Controllers\ProfileController@EditProductSingle')->name("profile_edit_product")->middleware("supplier");
@@ -50,6 +51,9 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::get('/gold', 'App\Http\Controllers\ProfileController@ProfileGold')->name("profile_gold");
     Route::post('/gold-action', 'App\Http\Controllers\ProfileController@ProfileGoldAction')->name("profile_gold_action");
     Route::get('/store', 'App\Http\Controllers\ProfileController@Store')->name("store");
+    Route::post('/store-action', 'App\Http\Controllers\ProfileController@StoreAction')->name("store_action");
+    Route::post('/store-edit-action', 'App\Http\Controllers\ProfileController@StoreEditAction')->name("store_edit_action");
+    Route::post('/store-desc-action', 'App\Http\Controllers\ProfileController@StoreDescAction')->name("store_desc_action");
 });
 
 

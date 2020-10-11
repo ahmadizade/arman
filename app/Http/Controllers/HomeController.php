@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -21,6 +23,26 @@ class HomeController extends Controller
     public function contact(){
 
         return view('contact');
+
+    }
+
+    public function singleShop($title,$branch){
+
+        if(isset($title) && isset($branch)){
+
+            $store = Store::where("title_slug",$title)->where("branch_slug",$branch)->first();
+
+            if(isset($store->id)){
+
+                return $store;
+
+            }
+
+            return abort(400);
+
+        }
+
+        return abort(400);
 
     }
 

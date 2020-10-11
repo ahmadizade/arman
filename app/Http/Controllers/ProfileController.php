@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Profile;
 use App\Models\Store;
@@ -29,11 +30,155 @@ class ProfileController extends Controller
 
         $result = Store::where("user_id",Auth::id())->first();
 
-        return view("profile.store", ["result" => $result ,"menu" => "store"]);
+        $category = Category::all();
+
+        return view("profile.store", ["result" => $result, "category" => $category ,"menu" => "store"]);
 
     }
 
-    public function products(){
+    public function StoreEditAction(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $request->validate([
+            'title' => 'required|min:3|max:100',
+            'branch' => 'nullable|min:3|max:100',
+            'nature' => 'required|min:1',
+            'category' => 'required|min:1',
+            'shenase_melli' => 'nullable|min:3|max:32',
+            'name' => 'required|min:2|max:60',
+            'melli_code' => 'required|digits:10',
+            'address' => 'required',
+            'file' => 'image|nullable|dimensions:min_width=400,min_height=400|max:2048',
+        ]);
+
+        $imageName = null;
+        if (isset($request->file)) {
+
+            $exists = Storage::disk('logo')->exists($request->file('file')->getClientOriginalName());
+
+            if ($exists == true) {
+
+                $imageName = $imageName . "-" . time();
+                $imageName = $imageName . "." . $request->file('file')->getClientOriginalExtension();
+
+                $img = Image::make('uploads/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                $img->crop(400, 400);
+                $img->save('uploads/logo/' . $imageName);
+
+            } else {
+
+                $imageName = $request->file('file')->getClientOriginalName();
+                $img = Image::make($request->file('file'));
+                $img->crop(400, 400);
+                $img->save('uploads/logo/' . $imageName);
+
+            }
+
+        }
+
+        Store::where("user_id",Auth::id())->update([
+            'title' => $request->title,
+            'branch' => $request->branch,
+            'nature' => $request->nature,
+            'category' => $request->category,
+            'shenase_melli' => $request->shenase_melli,
+            'name' => $request->name,
+            'melli_code' => $request->melli_code,
+            'address' => $request->address,
+            'logo' => $request->logo,
+            'title_slug' => self::slug($request->title),
+            'branch_slug' => self::slug($request->branch),
+        ]);
+
+        session()->flash("status","اطلاعات با موفقیت ویرایش شد");
+
+        return back();
+
+    }
+
+    public function StoreAction(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $request->validate([
+            'title' => 'required|min:3|max:100',
+            'branch' => 'nullable|min:3|max:100',
+            'nature' => 'required|min:1',
+            'category' => 'required|min:1',
+            'shenase_melli' => 'nullable|min:3|max:32',
+            'name' => 'required|min:2|max:60',
+            'melli_code' => 'required|digits:10',
+            'address' => 'required',
+            'file' => 'image|nullable|dimensions:min_width=400,min_height=400|max:2048',
+        ]);
+
+        $imageName = null;
+        if (isset($request->file)) {
+
+            $exists = Storage::disk('logo')->exists($request->file('file')->getClientOriginalName());
+
+            if ($exists == true) {
+
+                $imageName = $imageName . "-" . time();
+                $imageName = $imageName . "." . $request->file('file')->getClientOriginalExtension();
+
+                $img = Image::make('uploads/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                $img->crop(400, 400);
+                $img->save('uploads/logo/' . $imageName);
+
+            } else {
+
+                $imageName = $request->file('file')->getClientOriginalName();
+                $img = Image::make($request->file('file'));
+                $img->crop(400, 400);
+                $img->save('uploads/logo/' . $imageName);
+
+            }
+
+        }
+
+        Store::create([
+            'user_id' => Auth::id(),
+            'title' => $request->title,
+            'branch' => $request->branch,
+            'nature' => $request->nature,
+            'category' => $request->category,
+            'shenase_melli' => $request->shenase_melli,
+            'name' => $request->name,
+            'melli_code' => $request->melli_code,
+            'address' => $request->address,
+            'date' => Carbon::now(),
+            'logo' => $request->logo,
+            'title_slug' => self::slug($request->title),
+            'branch_slug' => self::slug($request->branch),
+        ]);
+
+        session()->flash("status","اطلاعات با موفقیت ثبت شد");
+
+        return back();
+
+    }
+
+    public function StoreDescAction(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $request->validate([
+            'desc' => 'required|min:10|max:100000',
+        ]);
+
+        Store::where("user_id",Auth::id())->update([
+            "desc" => $request->desc
+        ]);
+
+        session()->flash("status","توضیحات با موفقیت ثبت شد");
+
+        return back();
+
+    }
+
+    public function Products(){
 
         $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->paginate(20);
 
