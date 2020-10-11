@@ -4,6 +4,7 @@
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     {{--    <link rel="stylesheet" type="text/css" href="/admin/css/buttons.dataTables.min.css">--}}
 @endsection
 @section("style")
@@ -179,10 +180,70 @@
                                         <input id="res-credit" name="res_credit" type="text"
                                                class="form-control bg-muted" readonly autofocus>
                                         <div class="input-group-prepend">
-                                            <button id="" type="button" class="input-group-text text-white bg-gradient-success font-12">Credit</button>
+                                            <button id="credit-btn" type="button" class="input-group-text text-white bg-gradient-success font-12" data-toggle="modal" data-target="#charge">Credit</button>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Bootstrap Modal User Info-->
+                                <div class="modal fade" id="charge" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content bg-gradient-light">
+                                            <div class="modal-header bg-gradient-info border-bottom-info">
+                                                <h5 class="text-white" style="font-size: 15px">Credit Charge</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span>&times;</span>
+                                                </button>
+                                            </div>
+                                            <form id="save-user-form" class="modal-body text-center">
+                                                <div class="admin-rtl my-1 text-white font-weight-bolder">
+                                                    <p id="error_box" class="myfont bg-gradient-danger" style="font-size: 17px;"></p>
+                                                    <p id="res_msg" class="myfont bg-gradient-success" style="font-size: 17px;"></p>
+                                                </div>
+                                                {{--                                <//Mobile\\>--}}
+                                                <div class="col-12">
+                                                    <div class="input-group my-2">
+                                                        <input id="credit-charge" name="credit_charge" type="text"
+                                                               class="form-control bg-muted" required autofocus>
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text font-12">مبلغ اعتبار</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="input-group my-2">
+                                                        <textarea id="charge-desc" name="charge_desc" type="text"
+                                                                  class="form-control bg-muted" required autofocus></textarea>
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text font-12">مبلغ اعتبار</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button id="credit-approve" type="button" class="btn font-weight-bolder text-white myfont bg-gradient-info my-2">
+                                                    تایید افزایش
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+{{--<script>--}}
+{{--    $('#credit-btn').click(function (){--}}
+{{--        $.ajax({--}}
+{{--            type:'POST',--}}
+{{--            data:  $('#credit-charge').val(),--}}
+{{--            url:{{route('credit_charge_action')}},--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
+
+
+
+
+
+
+
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
@@ -221,7 +282,8 @@
 @section("extra_js")
     {{--    <script src="/admin/js/dataTables.buttons.min.js"></script>--}}
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-{{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>--}}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    {{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>--}}
 {{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>--}}
 {{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>--}}
 {{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>--}}

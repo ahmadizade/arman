@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Profile;
+use App\Models\Store;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -26,7 +27,9 @@ class ProfileController extends Controller
 
     public function Store(){
 
-        return 111;
+        $result = Store::where("user_id",Auth::id())->first();
+
+        return view("profile.store", ["result" => $result ,"menu" => "store"]);
 
     }
 

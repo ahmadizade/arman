@@ -38,47 +38,25 @@
                                 </li>
                             @endif
 
-                            @if(Auth::check())
-                                <li><a href="{{ route("store") }}" class="nav-link text-primary">فروشنده شوید</a></li>
-                            @endif
+{{--                            @if(Auth::check())--}}
+                                <li><a href="{{ route("store") }}" class="nav-link text-primary">ثبت فروشگاه</a></li>
+{{--                            @endif--}}
 
-                            {{--<li class="has-children">
-                                <a href="#about-section" class="nav-link">خدمات</a>
+                                <li class="has-children"><a href="#contact-section" class="nav-link">مرکز خدمات</a>
                                 <ul class="dropdown text-right">
-                                    <li><a href="#team-section" class="nav-link">منزل و ساختمان</a></li>
-                                    <li><a href="#pricing-section" class="nav-link">پزشکی</a></li>
-                                    <li><a href="#faq-section" class="nav-link">زیبایی و سلامت</a></li>
-                                    <li><a href="#gallery-section" class="nav-link">حقوقی و اداری</a></li>
-                                    <li><a href="#services-section" class="nav-link">آموزشی</a></li>
-                                    <li><a href="#testimonials-section" class="nav-link text-muted disabled">استخدام و میزکار</a></li>
-                                </ul>
-                            </li>--}}
-
-               {{--             <li class="has-children">
-                                <a href="#">کالا</a>
-                                <ul class="dropdown text-right">
-                                    <li><a href="#" class="nav-link">کالای دیجیتال</a></li>
-                                    <li><a href="#" class="nav-link">پوشاک</a></li>
-                                    <li><a href="#" class="nav-link">زیبایی و سلامت</a></li>
-                                    <li><a href="#" class="nav-link">خانه و آشپزخانه</a></li>
-                                    <li><a href="#" class="nav-link">ورزش و سفر</a></li>
-                                </ul>
-
-                            </li>--}}
-                            <li class="has-children"><a href="#contact-section" class="nav-link">باشگاه مشتریان</a>
-                                <ul class="dropdown text-right">
-                                    <li><a href="#" class="nav-link">خبرنامه</a></li>
-                                    <li><a href="#" class="nav-link">انواع ثمین کارت</a></li>
                                     <li><a href="#" class="nav-link">دریافت ثمین کارت</a></li>
                                     <li><a href="#" class="nav-link">هواداران استقلال</a></li>
                                     <li><a href="#" class="nav-link">جشنواره</a></li>
+                                    <li><a href="#" class="nav-link">مطب</a></li>
                                     <li><a href="#" class="nav-link">قرعه کشی</a></li>
+                                    <li><a href="#" class="nav-link">خبرنامه</a></li>
+                                    <li><a href="#" class="nav-link">باشگاه مشتریان</a></li>
                                 </ul>
                             </li>
                             @if(Auth::check() && Auth::user()->role == "supplier")
                                 <li><a href="{{route('profile_add_product')}}" class="nav-link">ثبت محصول</a></li>
                             @endif
-                            <li><a href="/" class="nav-link">صفحه اصلی<i class="fa fa-home d-none d-sm-inline font-20 pl-2 text-primary"></i></a></li>
+                            <li><a href="/" class="nav-link">صفحه اصلی<i class="fa fa-home fa-lg d-none d-sm-inline pl-2 text-primary"></i></a></li>
                         </ul>
                     </nav>
                 </div>

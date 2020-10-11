@@ -25,7 +25,7 @@ class AdminController extends Controller
         $user_count = DB::table('users')->count();
         $product_count = DB::table('products')->count();
 //        $product_month = DB::table('products')->where('created_at', ">=", Carbon::today()->subMonth())->count();
-        $product_month = DB::table('products')->whereMonth('created_at',Carbon::now()->format('m'))->whereYear('created_at',Carbon::now()->format('Y'))->count();
+        $product_month = DB::table('products')->whereMonth('created_at', Carbon::now()->format('m'))->whereYear('created_at', Carbon::now()->format('Y'))->count();
 //        $product_week = DB::table('products')->where('created_at', ">=", Carbon::today()->subWeek())->count();
         $product_week = DB::table('products')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
         $product_today = DB::table('products')->where('created_at', ">=", Carbon::today())->count();
@@ -94,7 +94,7 @@ class AdminController extends Controller
             'res_verified' => ['required', 'string', 'max:56',],
             'res_user_mode' => ['required', 'string', 'max:56'],
             'res_email' => ['string', 'min:10', 'max:128'],
-            'res_credit' => ['string', 'max:56','nullable'],
+            'res_credit' => ['string', 'max:56', 'nullable'],
             'res_updated_at' => ['string', 'max:56'],
         ]);
         if ($validator->fails()) {
@@ -136,5 +136,26 @@ class AdminController extends Controller
         return view('admin.edit_user', ["id" => $request['id']]);
     }
 
+    public function credit()
+    {
+        return view('admin.credit.credit');
+    }
 
+    public function SuggestionAction(Request $request)
+    {
+        $data = [];
+
+        if ($request->has('q')) {
+            $search = $request->q;
+            $data = DB::table("users")
+                ->select("id", "name", "credit", "mobile")
+                ->where('name', 'LIKE', "%$search%")
+                ->get();
+        }
+        return response()->json($data);
+    }
+    public function CreditShowAction(Request $request){
+        $user = User::where('id' , $request->id)->first();
+        return Response::json($user);
+    }
 }
