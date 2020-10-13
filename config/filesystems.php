@@ -57,15 +57,15 @@ return [
 
         'vms' => [
             'driver' => 'local',
-            'root' => public_path('/uploads/products'),
-            'url' => env('APP_URL') . '/uploads/products',
+            'root' => public_path('/images/shop/products'),
+            'url' => env('APP_URL') . '/images/shop/products',
             'visibility' => 'public',
         ],
 
         'logo' => [
             'driver' => 'local',
-            'root' => public_path('/uploads/logo'),
-            'url' => env('APP_URL') . '/uploads/logo',
+            'root' => public_path('/images/shop/logo'),
+            'url' => env('APP_URL') . '/images/shop/logo/',
             'visibility' => 'public',
         ],
 

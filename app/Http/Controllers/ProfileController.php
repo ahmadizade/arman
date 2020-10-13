@@ -52,28 +52,39 @@ class ProfileController extends Controller
             'file' => 'image|nullable|dimensions:min_width=400,min_height=400|max:2048',
         ]);
 
-        $imageName = null;
+
         if (isset($request->file)) {
+
+            $imageName = null;
 
             $exists = Storage::disk('logo')->exists($request->file('file')->getClientOriginalName());
 
             if ($exists == true) {
 
-                $imageName = $imageName . "-" . time();
-                $imageName = $imageName . "." . $request->file('file')->getClientOriginalExtension();
+                $imageName = $imageName  . time();
+                $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
-                $img = Image::make('uploads/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->crop(400, 400);
-                $img->save('uploads/logo/' . $imageName);
+                $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                $img->resize(400,400, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $img->save('images/shop/logo/' . $imageName);
 
             } else {
 
                 $imageName = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'));
-                $img->crop(400, 400);
-                $img->save('uploads/logo/' . $imageName);
+                $img = Image::make($request->file('file'))->resize(400,400, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $img->save('images/shop/logo/' . $imageName);
 
             }
+
+            Store::where("user_id",Auth::id())->update([
+                'logo' => $imageName,
+            ]);
 
         }
 
@@ -86,7 +97,6 @@ class ProfileController extends Controller
             'name' => $request->name,
             'melli_code' => $request->melli_code,
             'address' => $request->address,
-            'logo' => $request->logo,
             'title_slug' => self::slug($request->title),
             'branch_slug' => self::slug($request->branch),
         ]);
@@ -123,16 +133,21 @@ class ProfileController extends Controller
                 $imageName = $imageName . "-" . time();
                 $imageName = $imageName . "." . $request->file('file')->getClientOriginalExtension();
 
-                $img = Image::make('uploads/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->crop(400, 400);
-                $img->save('uploads/logo/' . $imageName);
+                $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                $img->resize(400,400, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $img->save('images/shop/logo/' . $imageName);
 
             } else {
 
                 $imageName = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'));
-                $img->crop(400, 400);
-                $img->save('uploads/logo/' . $imageName);
+                $img = Image::make($request->file('file'))->resize(400,400, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $img->save('images/shop/logo/' . $imageName);
 
             }
 
@@ -149,7 +164,7 @@ class ProfileController extends Controller
             'melli_code' => $request->melli_code,
             'address' => $request->address,
             'date' => Carbon::now(),
-            'logo' => $request->logo,
+            'logo' => $imageName,
             'title_slug' => self::slug($request->title),
             'branch_slug' => self::slug($request->branch),
         ]);

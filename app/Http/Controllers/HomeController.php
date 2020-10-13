@@ -26,24 +26,5 @@ class HomeController extends Controller
 
     }
 
-    public function singleShop($title,$branch){
-
-        if(isset($title) && isset($branch)){
-
-            $store = Store::where("title_slug",$title)->where("branch_slug",$branch)->first();
-
-            if(isset($store->id)){
-
-                return $store;
-
-            }
-
-            return abort(400);
-
-        }
-
-        return abort(400);
-
-    }
 
 }

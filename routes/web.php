@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 // home
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
-Route::get('/store/{title}/{branch}', 'App\Http\Controllers\HomeController@singleShop')->name("single_shop");
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
 
 // admin
@@ -59,5 +58,6 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
 
 // shop
 Route::prefix("shop")->group(function () {
+    Route::get('/{title}/{branch?}', 'App\Http\Controllers\ShopController@singleShop')->name("single_shop");
     Route::get('/product/{id}', 'App\Http\Controllers\ShopController@ProductSingle')->name("shop_product_single");
 });

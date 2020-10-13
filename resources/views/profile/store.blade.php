@@ -245,7 +245,7 @@
                                     </div>
                                 </form>
                         @elseif(isset($result['id']) && $result['verify'] == 1)
-                            <div class="alert alert-success mb-0 text-center">فروشگاه شما ({{$result['title']}}) احراز هویت شده</div>
+                            <div class="alert alert-success mb-0 text-center">فروشگاه شما ( <a target="_blank" href="{{ route("single_shop",["title" => $result['title_slug'] ,"branch" => $result['branch_slug']]) }}">{{$result['title']}}</a> ) احراز هویت شده</div>
                             <div class="row">
                                     <div class="col-12 col-lg-12">
                                         <div class="input-group mt-2">
