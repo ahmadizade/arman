@@ -41,14 +41,7 @@ class CodeController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 //SSL
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-// $output contains the output string
 
-//        if (curl_exec($ch) === FALSE) {
-//            die("Curl Failed: " . curl_error($ch));
-//        } else {
-//            return curl_exec($ch);
-//        }
-// close curl resource to free up system resources
         $response = curl_exec($ch);
         header('Content-type: image/jpeg/png');
 
