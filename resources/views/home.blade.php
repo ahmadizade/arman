@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="container-fluid result_header d-none d-lg-block">
+    <div class="container-fluid bg-primary d-none d-lg-block">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="d-flex flex-column flex-md-row justify-content-around align-items-center text-center">
@@ -294,7 +294,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-12 col-lg-3">
-                <div class="card-box bg-tameshk">
+                <div class="card-box bg-green">
                     <div class="inner">
                         <p class="text-left font-20">پذیرندگان ثمین تخفیف</p>
                         <p> از کجا خرید کنم؟ </p>
@@ -378,7 +378,7 @@
                 </div>
             </div>
             <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
-                <div class="card-box bg-tameshk">
+                <div class="card-box bg-green">
                     <div class="inner">
                         <p class="text-left font-20"> تماس با ما </p>
                         <p> با ما در ارتباط باشید </p>
