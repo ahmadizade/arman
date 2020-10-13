@@ -154,8 +154,35 @@ class AdminController extends Controller
         }
         return response()->json($data);
     }
-    public function CreditShowAction(Request $request){
-        $user = User::where('id' , $request->id)->first();
+
+    public function CreditShowAction(Request $request)
+    {
+        $user = User::where('id', $request->id)->first();
         return Response::json($user);
     }
+
+    public function CreditChargeAction(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'itemName' => ['required', 'numeric', 'digits_between:1,5'],
+            'new_credit' => ['required', 'numeric', 'digits_between:1,10'],
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        } else {
+            $user = User::where('id', $request->itemName)->first();
+            if ($request->new_credit > 0 && is_numeric($request->new_credit)) {
+                $credit = $user->credit + $request->new_credit;
+                $user->credit = $credit;
+                $user->save();
+                return response()->json(['sum' => 'done' , 'sum_credit' => $request->new_credit, 'credit_now' => $user->credit]);
+            } else {
+                return response()->json(['errors' => "مقدار وارد شده صحیح نمی باشد"]);
+            }
+        }
+    }
+
+
+
+
 }

@@ -21,6 +21,7 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/credit', 'App\Http\Controllers\AdminController@Credit')->name("credit");
     Route::get('/credit-suggestion-action', 'App\Http\Controllers\AdminController@SuggestionAction')->name("suggestion_action");
     Route::post('/credit-show-action', 'App\Http\Controllers\AdminController@CreditShowAction')->name("credit_show_action");
+    Route::post('/credit-charge-action', 'App\Http\Controllers\AdminController@CreditChargeAction')->name("credit_charge_action");
 });
 // admin
 

@@ -19,9 +19,9 @@
             word-wrap: break-word;
         }
 
-        .myfont {
-            font-family: iranyekan, icomoon, sans-serif !important;
-        }
+        /*.myfont {*/
+        /*    font-family: iranyekan, sans-serif !important;*/
+        /*}*/
 
         .admin-rtl {
             direction: rtl !important;
@@ -42,109 +42,133 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <div class="row justify-content-around">
-                    <div class="col-xl-4 col-lg-4 my-2">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="col-xl-4 col-lg-4 my-2">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                             aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
                                     </div>
+                                    <h6 class="m-0 myfont text-white">مدیریت حساب ها و اعتبارات</h6>
                                 </div>
-                                <h6 class="m-0 myfont text-white">مدیریت حساب ها و اعتبارات</h6>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="col-12">
-                                    <p id="error_box" class="myfont admin-rtl" style="font-size: 15px"></p>
-                                    <p id="current-credit-left" class="" style="font-size: 15px"></p>
-                                    <div class="col-12">
-                                        <select name="itemName" id="itemName"
-                                                class="itemName form-control bg-muted"></select>
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <div class="col-3">
-                                            <button type="button"
-                                                    class="quantity-left-minus text-white btn btn-sm bg-gradient-danger mt-2"
-                                                    data-type="minus" data-field="">
-                                                Decrease
-                                            </button>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="text" id="quantity" name="quantity"
-                                                   class="form-control-sm mt-2" value="0" min="1"
-                                                   max="100">
-                                        </div>
-                                        <div class="col-3">
-                                            <button type="button"
-                                                    class="quantity-right-plus text-white btn btn-sm bg-gradient-success mt-2"
-                                                    data-type="plus" data-field="">
-                                                Increase
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 my-2">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                <!-- Card Body -->
+                                <div class="card-body myfont">
 
-                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger mb-2">
+                                            <ul class="mb-0">
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                    @if(Session::has("status"))
+                                        <div class="alert text-white bg-success mb-2">{{ Session::get("status") }}</div>
+                                    @elseif(Session::has("error"))
+                                        <div class="alert text-white bg-danger mb-2">{{ Session::get("error") }}</div>
+                                    @endif
+
+
+                                    <div class="row">
+                                        <div class="col-12 col-lg-7 text-left">
+                                            <p id="current-credit-left" style="font-size: 15px"></p>
+                                        </div>
+                                        <div class="col-12 col-lg-5 admin-rtl my-1 text-right font-weight-bolder">
+                                            <p id="error_box" class="myfont"></p>
+                                            <p id="res_msg" class="text-success"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <h6 class="m-0 myfont text-white">کنترل سرویس کیو آر کد</h6>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="col-12">
-                                    <form id="code-generate-form">
+
+                                    <form id="credit-charge-form" method="" action="">
                                         <div class="col-12">
-                                            <div class="input-group my-2">
-                                                <input type="hidden" name="user_id" value="{{Auth()->id()}}">
-                                                <input id="qr-data" name="qr_data" type="text"
-                                                       class="itemName form-control-sm w-100 bg-muted" required
-                                                       autofocus>
+                                            <select name="itemName" id="itemName"
+                                                    class="itemName text-right form-control bg-muted"></select>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 col-lg-3 text-right">
+                                                <button type="button" value="minus" id="minus" name="minus"
+                                                        class="text-white w-100 btn btn-sm bg-gradient-danger mt-2">
+                                                    کاهش
+                                                </button>
                                             </div>
-                                            <button id="qr-data-btn" type="submit"
-                                                    class="btn btn-sm text-white bg-gradient-success my-2">
-                                                Check Service
-                                            </button>
+                                            <div class="col-12 col-lg-6 text-center">
+                                                <input type="text" id="new-credit" name="new_credit"
+                                                       class="form-control-sm w-100 mt-2 text-right"
+                                                       placeholder="مقدار اعتبار">
+                                            </div>
+                                            <div class="col-12 col-lg-3 text-left">
+                                                <button type="button" id="sum" name="sum" value="sum"
+                                                        class="text-white w-100 btn btn-sm bg-gradient-success mt-2">
+                                                    افزایش
+                                                </button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-xl-4 col-lg-4 my-2">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                        class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+
+                                             aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                    <h6 class="m-0 myfont text-white">کنترل سرویس کیو آر کد</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="col-12">
+                                        <form id="code-generate-form">
+                                            <div class="col-12">
+                                                <div class="input-group my-2">
+                                                    <input type="hidden" name="user_id" value="{{Auth()->id()}}">
+                                                    <input id="qr-data" name="qr_data" type="text"
+                                                           class="itemName form-control-sm w-100 bg-muted" required
+                                                           autofocus>
+                                                </div>
+                                                <button id="qr-data-btn" type="submit"
+                                                        class="btn btn-sm text-white bg-gradient-success my-2">
+                                                    Check Service
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div>
+                        <p id="test"></p>
+                    </div>
+                    <img src="" id="qr-code-png" style="width:200px;height: 200px;">
+                    <div id="curl"></div>
                 </div>
-                <div>
-                    <p id="test"></p>
-                </div>
-                <img src="" id="qr-code-png" style="width:200px;height: 200px;">
-                <div id="curl"></div>
             </div>
         </div>
     </div>
@@ -154,7 +178,7 @@
         $(document).ready(function () {
 
             $('.itemName').select2({
-                placeholder: 'Select an item',
+                placeholder: 'انتخاب کاربر',
                 language: "fa",
                 dir: "rtl",
                 ajax: {
@@ -213,28 +237,29 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            console.log('ON');
-            var quantitiy = 0;
-            $('.quantity-right-plus').click(function (e) {
-                // Stop acting like a button
-                e.preventDefault();
-                // Get the field name
-                var quantity = parseInt($('#quantity').val());
-                // If is not undefined
-                $('#quantity').val(quantity + 1);
-                // Increment
-            });
-            $('.quantity-left-minus').click(function (e) {
-                // Stop acting like a button
-                e.preventDefault();
-                // Get the field name
-                var quantity = parseInt($('#quantity').val());
-                // If is not undefined
-                // Increment
-                if (quantity > 0) {
-                    $('#quantity').val(quantity - 1);
-                }
+            //sum
+            $('#sum').click(function (e) {
+                $.ajax({
+                    type: 'post',
+                    url: '{{route('credit_charge_action')}}',
+                    data: $('#credit-charge-form').serialize(),
+                    success: function (response) {
+                        if (response['sum'] == 'done') {
+                            $("#res_msg").html('اعتبار کاربر' + ' ' + response['sum_credit'] + ' ' + ' ریال ' + ' ' + ' شارژ شد. ');
+                            $("#error_box").hide();
+                            // $("#current-credit-left").hide();
+                            // $("#current-credit").html('اعتبار فعلی کاربر' + ' ' + response['credit_now'] + ' ' + ' ریال ' + ' ' + ' می باشد. ');
+
+                        } else {
+                            $.each(response.errors, function (i, item) {
+                                $("#error_box").html('<p class="text-danger">' + response.errors[i] + '</p>');
+                            });
+                        }
+                    }
+                });
+                e.preventDefault(e);
             });
         });
     </script>
+
 @endsection
