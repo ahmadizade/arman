@@ -37,20 +37,15 @@
     <!-- Content Wrapper -->
 
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                </div>
-                <div class="row justify-content-around">
+                    <div class="row justify-content-around">
                     <div class="col-xl-4 col-lg-4 my-2">
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
-                            <div
-                                class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
+                            <div class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,7 +68,8 @@
                                     <p id="error_box" class="myfont admin-rtl" style="font-size: 15px"></p>
                                     <p id="current-credit-left" class="" style="font-size: 15px"></p>
                                     <div class="col-12">
-                                        <select name="itemName" id="itemName" class="itemName form-control bg-muted"></select>
+                                        <select name="itemName" id="itemName"
+                                                class="itemName form-control bg-muted"></select>
                                     </div>
                                     <div class="row justify-content-center">
                                         <div class="col-3">
@@ -111,6 +107,7 @@
                                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+
                                          aria-labelledby="dropdownMenuLink">
                                         <div class="dropdown-header">Dropdown Header:</div>
                                         <a class="dropdown-item" href="#">Action</a>
@@ -129,7 +126,8 @@
                                             <div class="input-group my-2">
                                                 <input type="hidden" name="user_id" value="{{Auth()->id()}}">
                                                 <input id="qr-data" name="qr_data" type="text"
-                                                       class="itemName form-control-sm w-100 bg-muted" required autofocus>
+                                                       class="itemName form-control-sm w-100 bg-muted" required
+                                                       autofocus>
                                             </div>
                                             <button id="qr-data-btn" type="submit"
                                                     class="btn btn-sm text-white bg-gradient-success my-2">
