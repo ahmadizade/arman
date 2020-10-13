@@ -5,7 +5,14 @@
 @endsection
 
 @section('extra_css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"/>
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 200px;
+        }
+        .ck-file-dialog-button{
+            display: none !important;
+        }
+    </style>
 @endsection
 
 @section("content")
@@ -20,7 +27,7 @@
                     </div>
                     <div class="card-body p-3">
                         @if ($errors->any())
-                            <div class="alert alert-danger mt-2 mb-2">
+                            <div class="alert alert-danger mb-2">
                                 <ul class="mb-0">
                                     @foreach ($errors->all() as $error)
                                         <li>{{ $error }}</li>
@@ -29,248 +36,339 @@
                             </div>
                         @endif
                         @if(Session::has("status"))
-                            <div class="alert text-white bg-success mt-2 mb-2">{{ Session::get("status") }}</div>
+                            <div class="alert text-white bg-success mb-2">{{ Session::get("status") }}</div>
                         @elseif(Session::has("error"))
-                            <div class="alert text-white bg-danger mt-2 mb-2">{{ Session::get("error") }}</div>
+                            <div class="alert text-white bg-danger mb-2">{{ Session::get("error") }}</div>
                         @endif
                         @if(!$result['id'])
+                            <hr>
+                            <h2 class="text-center text-warning">فروشگاه خود را ثبت کنید</h2>
+                            <hr>
+                            <form action="{{route('store_action')}}" method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">نام فروشگاه</span>
+                                            </div>
+                                            <input name="title" type="text" class="form-control"
+                                                   value="{{ old("title") }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">شعبه</span>
+                                            </div>
+                                            <input name="branch" type="text" placeholder="در صورت نداشتن شعبه خالی بزارید" class="form-control"
+                                                   value="{{ old("branch") }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">ماهیت</span>
+                                            </div>
+                                            <select name="nature" class="form-control">
+                                                <option value="0" selected disabled>انتخاب ماهیت</option>
+                                                <option @if(old("nature") == 1) selected @endif value="1">شخصی (حقیقی)</option>
+                                                <option @if(old("nature") == 2) selected @endif value="2">دولتی یا عمومی</option>
+                                                <option @if(old("nature") == 3) selected @endif value="3">خصوصی</option>
+                                                <option @if(old("nature") == 4) selected @endif value="4">تعاونی</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">شناسه ملی</span>
+                                            </div>
+                                            <input type="text" name="shenase_melli" placeholder="در صورت نداشتن شناسه ملی خالی بزارید" class="form-control"
+                                                   value="{{ old("shenase_melli") }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">نام و نام خانوادگی صاحب فروشگاه</span>
+                                            </div>
+                                            <input type="text" name="name" class="form-control"
+                                                   value="{{ old("name") }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">کد ملی صاحب فروشگاه</span>
+                                            </div>
+                                            <input type="text" name="melli_code" maxlength="11" class="form-control"
+                                                   value="{{ old("melli_code") }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">نوع خدمات</span>
+                                            </div>
+                                            <select name="category" class="form-control">
+                                                <option value="0" selected disabled>انتخاب دسته بندی</option>
+                                                @foreach($category as $item)
+                                                    <option @if(old("category") == $item['id']) selected @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file">
+                                                <label class="custom-file-label text-left">+ افزودن
+                                                    لوگو</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-12">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">آدرس</span>
+                                            </div>
+                                            <input type="text" name="address" class="form-control"
+                                                   value="{{ old("address") }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-left">
+                                        <button class="btn btn-primary my-2">ثبت فروشگاه</button>
+                                    </div>
+                                </div>
+                            </form>
+                        @elseif(isset($result['id']) && $result['verify'] == 0)
                             <div class="alert alert-danger mb-0 text-center">شما قبلا فروشگاه خود را ثبت کرده اید . لطفا تا زمان احراز هویت صبر کنید</div>
-                        @else
-                           <form action="{{route('add_product_action')}}" method="post" enctype="multipart/form-data">
-
+                            <form action="{{route('store_edit_action')}}" method="post" enctype="multipart/form-data">
                                     <div class="row">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">نام فروشگاه</span>
+                                                </div>
+                                                <input name="title" type="text" class="form-control"
+                                                       value="{{ $result['title'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">شعبه</span>
+                                                </div>
+                                                <input name="branch" type="text" placeholder="در صورت نداشتن شعبه خالی بزارید" class="form-control"
+                                                       value="{{ $result['branch'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">ماهیت</span>
+                                                </div>
+                                                <select name="nature" class="form-control">
+                                                    <option value="0" selected disabled>انتخاب ماهیت</option>
+                                                    <option @if($result['nature'] == 1) selected @endif value="1">شخصی (حقیقی)</option>
+                                                    <option @if($result['nature'] == 2) selected @endif value="2">دولتی یا عمومی</option>
+                                                    <option @if($result['nature'] == 3) selected @endif value="3">خصوصی</option>
+                                                    <option @if($result['nature'] == 4) selected @endif value="4">تعاونی</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">شناسه ملی</span>
+                                                </div>
+                                                <input type="text" name="shenase_melli" placeholder="در صورت نداشتن شناسه ملی خالی بزارید" class="form-control"
+                                                       value="{{ $result['shenase_melli'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">نام و نام خانوادگی صاحب فروشگاه</span>
+                                                </div>
+                                                <input type="text" name="name" class="form-control"
+                                                       value="{{ $result['name'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">کد ملی صاحب فروشگاه</span>
+                                                </div>
+                                                <input type="text" name="melli_code" maxlength="11" class="form-control"
+                                                       value="{{ $result['melli_code'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">نوع خدمات</span>
+                                                </div>
+                                                <select name="category" class="form-control">
+                                                    <option value="0" selected disabled>انتخاب دسته بندی</option>
+                                                    @foreach($category as $item)
+                                                        <option @if($result['category'] == $item['id']) selected @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="file">
+                                                    <label class="custom-file-label text-left">+ افزودن
+                                                        لوگو</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-12 col-lg-12">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">نام کالا</span>
+                                                    <span class="input-group-text font-12">آدرس</span>
                                                 </div>
-                                                <input id="product_name" name="name" type="text" class="form-control"
-                                                       value="{{ old("name") }}">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                <textarea name="desc" id="product_desc" cols="30" rows="7"
-                                          class="form-control font-13 mt-2"
-                                          placeholder="توضیحات">{{ old("desc") }}</textarea>
-                                        </div>
-
-                                        <div class="col-12 col-lg-4">
-                                            <div class="input-group mt-2">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">قیمت (ریال)</span>
-                                                </div>
-                                                <input type="number" id="product_price" name="price" class="form-control"
-                                                       value="{{ old("price") }}">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-lg-4">
-                                            <div class="input-group mt-2">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">موبایل</span>
-                                                </div>
-                                                <input type="number" id="product_mobile" name="mobile" class="form-control"
-                                                       value="{{ old("mobile") ?? Auth::user()->mobile }}">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-lg-4">
-                                            <div class="input-group mt-2">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">تخفیف</span>
-                                                </div>
-                                                <select name="discount" id="product_discount" class="form-control">
-                                                    @for($i=20;$i<=100;$i++)
-                                                        <option @if(old("discount") == $i) selected @endif value="{{ $i }}">{{ $i }} درصد </option>
-                                                    @endfor
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-lg-4">
-                                            <div class="input-group mt-2">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">تعداد موجودی</span>
-                                                </div>
-                                                <select name="quantity" id="product_discount" class="form-control">
-                                                    @for($i=1;$i<=500;$i++)
-                                                        <option @if(old("quantity") == $i) selected
-                                                                @endif value="{{ $i }}">{{ $i }}</option>
-                                                    @endfor
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-lg-4">
-                                            <div class="input-group mt-2">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">نوع کالا</span>
-                                                </div>
-                                                <select class="form-control" name="stock" id="product_stock">
-                                                    <option @if(old("stock") != null && old("stock") == 1) selected
-                                                            @endif value="1">نو
-                                                    </option>
-                                                    <option @if(old("stock") != null && old("stock") == 0) selected
-                                                            @endif value="0">کارکرده
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-lg-4">
-                                            <div class="input-group mt-2">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="file" id="image">
-                                                    <label class="custom-file-label text-left" for="inputGroupFile01">+ افزودن
-                                                        عکس</label>
-                                                </div>
+                                                <input type="text" name="address" class="form-control"
+                                                       value="{{ $result['address'] }}">
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
                                         <div class="col-12 text-left">
-                                            <button class="btn btn-primary my-2">ثبت محصول</button>
+                                            <button class="btn btn-primary my-2">ویرایش اطلاعات</button>
                                         </div>
                                     </div>
-
                                 </form>
+                        @elseif(isset($result['id']) && $result['verify'] == 1)
+                            <div class="alert alert-success mb-0 text-center">فروشگاه شما ( <a target="_blank" href="{{ route("single_shop",["title" => $result['title_slug'] ,"branch" => $result['branch_slug']]) }}">{{$result['title']}}</a> ) احراز هویت شده</div>
+                            <div class="row">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">نام فروشگاه</span>
+                                            </div>
+                                            <input disabled class="form-control"
+                                                   value="{{ $result["title"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">شعبه</span>
+                                            </div>
+                                            <input disabled class="form-control"
+                                                   value="{{ $result["branch"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">ماهیت</span>
+                                            </div>
+                                            <select disabled class="form-control">
+                                                <option @if($result["branch"] == 1) selected @endif>شخصی (حقیقی)</option>
+                                                <option @if($result["branch"] == 2) selected @endif>دولتی یا عمومی</option>
+                                                <option @if($result["branch"] == 3) selected @endif>خصوصی</option>
+                                                <option @if($result["branch"] == 4) selected @endif>تعاونی</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">شناسه ملی</span>
+                                            </div>
+                                            <input disabled class="form-control"
+                                                   value="{{ $result["shenase_melli"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">نام و نام خانوادگی صاحب فروشگاه</span>
+                                            </div>
+                                            <input disabled class="form-control"
+                                                   value="{{ $result["name"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">کد ملی صاحب فروشگاه</span>
+                                            </div>
+                                            <input disabled maxlength="11" class="form-control"
+                                                   value="{{ $result["melli_code"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">نوع خدمات</span>
+                                            </div>
+                                            <select disabled class="form-control">
+                                                @foreach($category as $item)
+                                                    <option @if($result["category"] == $item['id']) disabled selected @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                    </div>
+                                    <div class="col-12 col-lg-12">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">آدرس</span>
+                                            </div>
+                                            <input disabled name="address" class="form-control"
+                                                   value="{{ $result["address"] }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            <form action="{{ route("store_desc_action") }}" method="post">
+                                <div class="row">
+                                    <div class="col-12 mt-2">
+                                        <textarea name="desc" id="desc" rows="10"
+                                                  class="form-control font-13"
+                                                  placeholder="توضیحات">{!! $result["desc"] !!}</textarea>
+                                    </div>
+                                    <div class="col-12 text-left">
+                                        <button class="btn btn-primary mt-2">ویرایش</button>
+                                    </div>
+                                </div>
+                            </form>
                         @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    {{--    CROPPER.JS--}}
-    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    {{--                    <h5 class="modal-title" id="modalLabel">Laravel Cropper Js - Crop Image Before Upload - Tutsmake.com</h5>--}}
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="img-container">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <img id="image" src="https://avatars0.githubusercontent.com/u/3456749">
-                            </div>
-                            <div class="col-md-4">
-                                <div class="preview"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="crop">Crop</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{--    CROPPER.JS--}}
 
 @endsection
 
 @section('extra_js')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/translations/fa.js"></script>
     <script>
-        $(".delete").on("click",function(e){
-            Swal.fire({
-                text: "آیا اطمینان دارید؟",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'بله حذف میکنم',
-                cancelButtonText: 'خیر',
-            }).then((result) => {
-                if(result.value) {
-                    $.ajax({
-                        url: '{{ route("delete_product_action") }}',
-                        type: 'POST',
-                        data: {"id":$(this).attr("data-id")},
-                        success: function(data) {
-                            console.log(data);
-                            if(data.errors == "1"){
-                                alert(data.desc);
-                            }else if(data.errors == "0"){
-                                window.location.reload();
-                            }
-                        },
-                    });
-                }
-            });
-            e.preventDefault();
-        });
-    </script>
-    <script>
-        var $modal = $('#modal');
-        var image = document.getElementById('image');
-        var cropper;
-        $("body").on("change", ".image", function (e) {
-            var files = e.target.files;
-            var done = function (url) {
-                image.src = url;
-                $modal.modal('show');
-            };
-            var reader;
-            var file;
-            var url;
-            if (files.length > 0) {
-                file = files[0];
-                if (URL) {
-                    done(URL.createObjectURL(file));
-                } else if (FileReader) {
-                    reader = new FileReader();
-                    reader.onload = function (e) {
-                        done(reader.result);
-                    };
-                    reader.readAsDataURL(file);
-                }
-            }
-        });
-        $modal.on('shown.bs.modal', function () {
-            cropper = new Cropper(image, {
-                aspectRatio: 1,
-                viewMode: 3,
-                preview: '.preview'
-            });
-        }).on('hidden.bs.modal', function () {
-            cropper.destroy();
-            cropper = null;
-        });
-        $("#crop").click(function () {
-            canvas = cropper.getCroppedCanvas({
-                width: 160,
-                height: 160,
-            });
-            canvas.toBlob(function (blob) {
-                url = URL.createObjectURL(blob);
-                var reader = new FileReader();
-                reader.readAsDataURL(blob);
-                reader.onloadend = function () {
-                    var base64data = reader.result;
-                    $.ajax({
-                        type: "POST",
-                        dataType: "json",
-                        url: "crop-image-upload",
-                        data: {'_token': $('meta[name="_token"]').attr('content'), 'image': base64data},
-                        success: function (data) {
-                            console.log(data);
-                            $modal.modal('hide');
-                            alert("Crop image successfully uploaded");
-                        }
-                    });
-                }
-            });
-        })
+        ClassicEditor
+            .create( document.querySelector( '#desc' ), {
+                language: {
+                    ui: 'fa',
+                    content: 'fa',
+                },
+            } )
+            .then( editor => {
+                window.editor = editor;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+        ClassicEditor.config.removeButtons = 'Image';
     </script>
 
-    {{--    CROPPER>JS--}}
 @endsection

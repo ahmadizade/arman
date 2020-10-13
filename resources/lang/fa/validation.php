@@ -183,7 +183,10 @@ return [
         'price'                 => 'قیمت',
         'desc'                  => 'توضیحات',
         'discount'              => 'تخفیف',
-        'quantity'              => 'تعداد',
+        'nature'              => 'ماهیت',
+        'melli_code'              => 'کد ملی',
+        'category'              => 'دسته بندی',
+
 
     ],
 ];
