@@ -72,14 +72,31 @@
                                 <div class="col-12">
                                     <p id="error_box" class="myfont admin-rtl" style="font-size: 15px"></p>
                                     <p id="current-credit-left" class="" style="font-size: 15px"></p>
-                                    <select name="itemName" id="itemName"
-                                            class="itemName form-control bg-muted"></select>
-                                    <button id="credit-charge-btn" type="submit"
-                                            class="btn btn-sm text-white bg-gradient-success my-2">
-                                        Show User
-                                    </button>
+                                    <div class="col-12">
+                                        <select name="itemName" id="itemName" class="itemName form-control bg-muted"></select>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3">
+                                            <button type="button"
+                                                    class="quantity-left-minus text-white btn btn-sm bg-gradient-danger mt-2"
+                                                    data-type="minus" data-field="">
+                                                Decrease
+                                            </button>
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="text" id="quantity" name="quantity"
+                                                   class="form-control-sm mt-2" value="0" min="1"
+                                                   max="100">
+                                        </div>
+                                        <div class="col-3">
+                                            <button type="button"
+                                                    class="quantity-right-plus text-white btn btn-sm bg-gradient-success mt-2"
+                                                    data-type="plus" data-field="">
+                                                Increase
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -112,18 +129,13 @@
                                             <div class="input-group my-2">
                                                 <input type="hidden" name="user_id" value="{{Auth()->id()}}">
                                                 <input id="qr-data" name="qr_data" type="text"
-                                                       class="form-control bg-muted" required autofocus>
-                                                <div class="input-group-prepend">
-                                                    <span
-                                                        class="input-group-text text-white bg-gradient-info">Message</span>
-                                                </div>
+                                                       class="itemName form-control-sm w-100 bg-muted" required autofocus>
                                             </div>
                                             <button id="qr-data-btn" type="submit"
                                                     class="btn btn-sm text-white bg-gradient-success my-2">
                                                 Check Service
                                             </button>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
@@ -192,12 +204,39 @@
                     data: $('#code-generate-form').serialize(),
                     success(response) {
                         $('#curl').html('<img' + " " + 'src=' + response + '>');
-                        $('#qr-code-png').attr('src',response);
+                        $('#qr-code-png').attr('src', response);
                     }
                 });
                 e.preventDefault();
             });
+        });
+    </script>
 
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log('ON');
+            var quantitiy = 0;
+            $('.quantity-right-plus').click(function (e) {
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+                // If is not undefined
+                $('#quantity').val(quantity + 1);
+                // Increment
+            });
+            $('.quantity-left-minus').click(function (e) {
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+                // If is not undefined
+                // Increment
+                if (quantity > 0) {
+                    $('#quantity').val(quantity - 1);
+                }
+            });
         });
     </script>
 @endsection
