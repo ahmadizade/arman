@@ -19,9 +19,9 @@
             word-wrap: break-word;
         }
 
-        /*.myfont {*/
-        /*    font-family: iranyekan, sans-serif !important;*/
-        /*}*/
+        .myfont {
+            font-family: iranyekan, sans-serif !important;
+        }
 
         .admin-rtl {
             direction: rtl !important;
@@ -45,7 +45,8 @@
                         <div class="col-xl-4 col-lg-4 my-2">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
+                                <div
+                                    class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,7 +65,6 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body myfont">
-
                                     @if ($errors->any())
                                         <div class="alert alert-danger mb-2">
                                             <ul class="mb-0">
@@ -80,14 +80,24 @@
                                         <div class="alert text-white bg-danger mb-2">{{ Session::get("error") }}</div>
                                     @endif
 
-
                                     <div class="row">
                                         <div class="col-12 col-lg-7 text-left">
-                                            <p id="current-credit-left" style="font-size: 15px"></p>
+                                            <p>Credit :
+                                                <spam id="current-credit-credit"></spam>
+                                            </p>
+                                            <p>Name :
+                                                <spam id="current-credit-Name"></spam>
+                                            </p>
+                                            <p>Mobile :
+                                                <spam id="current-credit-Mobile"></spam>
+                                            </p>
+                                            <p>Status :
+                                                <spam id="current-credit-Status"></spam>
+                                            </p>
                                         </div>
                                         <div class="col-12 col-lg-5 admin-rtl my-1 text-right font-weight-bolder">
-                                            <p id="error_box" class="myfont"></p>
-                                            <p id="res_msg" class="text-success"></p>
+                                            <p id="result-error" class="myfont"></p>
+                                            <p id="result-msg" class="text-success"></p>
                                         </div>
                                     </div>
 
@@ -123,7 +133,7 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
-                                        class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
+                                    class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -174,92 +184,19 @@
     </div>
 @endsection
 @section("extra_js")
+    <script src="/admin/js/admin_jquery.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-
-            $('.itemName').select2({
-                placeholder: 'انتخاب کاربر',
-                language: "fa",
-                dir: "rtl",
-                ajax: {
-                    url: '{{route('suggestion_action')}}',
-                    dataType: 'json',
-                    delay: 250,
-                    success(response) {
-                        $('#test').html(response);
-                    },
-                    processResults: function (data) {
-                        return {
-                            results: $.map(data, function (item) {
-                                return {
-                                    text: item.name + "  /  " + "شماره همراه : " + "  " + item.mobile + "  /  " + "اعتبار = " + item.credit,
-                                    id: item.id,
-                                }
-                            })
-                        };
-                    },
-                    cache: true,
+        $('#qr-data-btn').click(function (e) {
+            $.ajax({
+                type: 'get',
+                url: '{{route('code_generator')}}',
+                data: $('#code-generate-form').serialize(),
+                success(response) {
+                    $('#curl').html('<img' + " " + 'src=' + response + '>');
+                    $('#qr-code-png').attr('src', response);
                 }
             });
-
-            $('#itemName').change(function () {
-                $.ajax({
-                    type: 'post',
-                    url: '{{route('credit_show_action')}}',
-                    data: {'id': $('#itemName').select2().val()},
-                    success(response) {
-                        if (response['credit'] !== 0) {
-                            console.log(response);
-                            $('#current-credit-left').html('Credit : ' + response['credit'] + "</br>" + 'Name : ' + response['name'] + "</br>" + 'Mobile : ' + response['mobile'] + "</br>" + 'Status : ' + response['status']);
-                        } else {
-                            console.log(0);
-                            $('#error_box').html("اعتباری ثبت نشده است")
-                        }
-                    }
-                });
-            });
-
-            $('#qr-data-btn').click(function (e) {
-                $.ajax({
-                    type: 'get',
-                    url: '{{route('code_generator')}}',
-                    data: $('#code-generate-form').serialize(),
-                    success(response) {
-                        $('#curl').html('<img' + " " + 'src=' + response + '>');
-                        $('#qr-code-png').attr('src', response);
-                    }
-                });
-                e.preventDefault();
-            });
+            e.preventDefault();
         });
     </script>
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            //sum
-            $('#sum').click(function (e) {
-                $.ajax({
-                    type: 'post',
-                    url: '{{route('credit_charge_action')}}',
-                    data: $('#credit-charge-form').serialize(),
-                    success: function (response) {
-                        if (response['sum'] == 'done') {
-                            $("#res_msg").html('اعتبار کاربر' + ' ' + response['sum_credit'] + ' ' + ' ریال ' + ' ' + ' شارژ شد. ');
-                            $("#error_box").hide();
-                            // $("#current-credit-left").hide();
-                            // $("#current-credit").html('اعتبار فعلی کاربر' + ' ' + response['credit_now'] + ' ' + ' ریال ' + ' ' + ' می باشد. ');
-
-                        } else {
-                            $.each(response.errors, function (i, item) {
-                                $("#error_box").html('<p class="text-danger">' + response.errors[i] + '</p>');
-                            });
-                        }
-                    }
-                });
-                e.preventDefault(e);
-            });
-        });
-    </script>
-
 @endsection

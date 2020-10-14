@@ -11,16 +11,20 @@
             background-color: #fff;
             margin: 0;
             font-weight: normal;
-            /*font-size: 13px;*/
-            /*font-family: iranyekan, icomoon, sans-serif !important;*/
+            font-size: 13px;
+            font-family: iranyekan, icomoon, sans-serif !important;
             text-align: left;
             word-break: keep-all;
             word-wrap: break-word;
         }
 
-        myfont {
-            font-family: imodal faderanyekan, icomoon, sans-serif !important;
+        .myfont {
+            font-family: iranyekan, icomoon, sans-serif !important;
         }
+        .admin-rtl {
+            direction: rtl !important;
+        }
+
     </style>
 @endsection
 
@@ -42,8 +46,8 @@
                     <!-- Page Heading -->
                     {{--                    <div class="d-sm-flex align-items-center myfont justify-content-between mb-4">--}}
                     {{--                        <p class="mb-0 mt-2 font-weight-bold text-success">سامانه مدیریت سایت ثمین</p>--}}
-{{--                                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i--}}
-{{--                                                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>--}}
+                    {{--                                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i--}}
+                    {{--                                                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>--}}
                     {{--                    </div>--}}
                     <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-4">
                         <a href="bazarti.com" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
@@ -166,8 +170,10 @@
                                     </div>
                                     <form id="save-user-form" class="modal-body text-center">
                                         <div class="admin-rtl my-1 text-white font-weight-bolder">
-                                            <p id="error_box" class="myfont bg-gradient-danger" style="font-size: 17px;"></p>
-                                            <p id="res_msg" class="myfont bg-gradient-success" style="font-size: 17px;"></p>
+                                            <p id="error_box" class="myfont bg-gradient-danger"
+                                               style="font-size: 17px;"></p>
+                                            <p id="res_msg" class="myfont bg-gradient-success"
+                                               style="font-size: 17px;"></p>
                                         </div>
                                         {{--                                <//Mobile\\>--}}
                                         <div class="col-12">
@@ -261,7 +267,9 @@
                                             </div>
                                         </div>
                                         {{--                                <//Mobile\\>--}}
-                                        <button type="button" class="btn font-weight-bolder text-white myfont bg-gradient-info my-2" id="save-user-data">
+                                        <button type="button"
+                                                class="btn font-weight-bolder text-white myfont bg-gradient-info my-2"
+                                                id="save-user-data">
                                             ذخیره اطلاعات
                                         </button>
                                     </form>
@@ -364,7 +372,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold myfont text-primary">نمودار عضویت کاربران در وب سایت
+                                    <h6 class="m-0 font-weight-bold text-primary">نمودار عضویت کاربران در وب سایت
                                         به
                                         تفکیک ماههای سال</h6>
                                     <div class="dropdown no-arrow">
@@ -447,12 +455,12 @@
                     <div class="row">
 
                         <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-4 mb-4">
 
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                                <div class="card-header text-right py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">کنترل کالای ثبتی</h6>
                                 </div>
                                 <div class="card-body">
                                     <h4 class="small font-weight-bold">تعداد تمام کالاهای ثبت شده تا به امروز <span
@@ -569,66 +577,110 @@
 
                         </div>
 
-                        <div class="col-lg-6 mb-4">
 
-                            <!-- Illustrations -->
+
+                        <!-- Illustrations -->
+                        <div class="col-lg-4 mb-4">
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                                <div class="card-header text-right py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">افزایش اعتبار</h6>
                                 </div>
                                 <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                             src="/admin/img/undraw_posting_photo.svg" alt="">
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger mb-2">
+                                            <ul class="mb-0">
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                        <div class="row">
+                                        <div class="col-12 col-lg-7 text-left">
+                                            <p>Credit :
+                                                <spam id="current-credit-credit"></spam>
+                                            </p>
+                                            <p>Name :
+                                                <spam id="current-credit-Name"></spam>
+                                            </p>
+                                            <p>Mobile :
+                                                <spam id="current-credit-Mobile"></spam>
+                                            </p>
+                                            <p>Status :
+                                                <spam id="current-credit-Status"></spam>
+                                            </p>
+                                        </div>
+                                        <div class="col-12 col-lg-5 admin-rtl my-1 text-right font-weight-bolder">
+                                            <p id="result-error" class="myfont"></p>
+                                            <p id="result-msg" class="text-success"></p>
+                                        </div>
                                     </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank"
-                                            rel="nofollow"
-                                            href="#">unDraw</a>,
-                                        a constantly updated collection of beautiful svg images that you can use
-                                        completely
-                                        free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="#">Browse Illustrations on
-                                        unDraw &rarr;</a>
+                                    <form id="credit-charge-form" method="" action="">
+                                        <div class="col-12">
+                                            <select name="itemName" id="itemName"
+                                                    class="itemName text-right form-control bg-muted"></select>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 col-lg-3 text-right">
+                                                <button type="button" value="minus" id="minus" name="minus"
+                                                        class="text-white w-100 btn btn-sm bg-gradient-danger mt-2">
+                                                    کاهش
+                                                </button>
+                                            </div>
+                                            <div class="col-12 col-lg-6 text-center">
+                                                <input type="text" id="new-credit" name="new_credit"
+                                                       class="form-control-sm w-100 mt-2 text-right"
+                                                       placeholder="مقدار اعتبار">
+                                            </div>
+                                            <div class="col-12 col-lg-3 text-left">
+                                                <button type="button" id="sum" name="sum" value="sum"
+                                                        class="text-white w-100 btn btn-sm bg-gradient-success mt-2">
+                                                    افزایش
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            <!-- Approach -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                        CSS
-                                        bloat and poor page performance. Custom CSS classes are used to create custom
-                                        components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classes.</p>
-                                </div>
-                            </div>
-
+                    <!-- Approach -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                        </div>
+                        <div class="card-body">
+                            <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
+                                CSS
+                                bloat and poor page performance. Custom CSS classes are used to create custom
+                                components and custom utility classes.</p>
+                            <p class="mb-0">Before working with this theme, you should become familiar with the
+                                Bootstrap framework, especially the utility classes.</p>
                         </div>
                     </div>
 
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2020</span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
@@ -661,6 +713,7 @@
 @endsection();
 
 @section('extra_js')
+    <script src="/admin/js/admin_jquery.js"></script>
     <script src="/admin/vendor/chart.js/Chart.min.js"></script>
     <!-- Page level custom scripts -->
     <script src="/admin/js/demo/chart-area-demo.js"></script>
