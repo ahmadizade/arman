@@ -25,9 +25,9 @@
                             </div>
                         @endif
                         @if(Session::has("status"))
-                            <div class="alert alert-success mt-2 mb-2">{{ Session::get("status") }}</div>
+                            <div class="alert text-center alert-success mt-2 mb-2">{{ Session::get("status") }}</div>
                         @elseif(Session::has("error"))
-                            <div class="alert alert-danger mt-2 mb-2">{{ Session::get("error") }}</div>
+                            <div class="alert text-center alert-danger mt-2 mb-2">{{ Session::get("error") }}</div>
                         @endif
                         <form action="{{route('edit_product_action',["id"=> $product->id ])}}" method="post" enctype="multipart/form-data">
 

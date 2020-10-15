@@ -49,11 +49,11 @@ class ProfileController extends Controller
             'name' => 'required|min:2|max:60',
             'melli_code' => 'required|digits:10',
             'address' => 'required',
-            'file' => 'image|nullable|dimensions:min_width=400,min_height=400|max:2048',
+            'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
         ]);
 
 
-        if (isset($request->file)) {
+        if (isset($request->file) && strlen($request->file) > 0) {
 
             $imageName = null;
 
@@ -65,7 +65,7 @@ class ProfileController extends Controller
                 $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->resize(400,400, function ($constraint) {
+                $img->resize(300,300, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -74,7 +74,7 @@ class ProfileController extends Controller
             } else {
 
                 $imageName = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'))->resize(400,400, function ($constraint) {
+                $img = Image::make($request->file('file'))->resize(300,300, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -101,6 +101,12 @@ class ProfileController extends Controller
             'branch_slug' => self::slug($request->branch),
         ]);
 
+        if(isset($request->color)){
+            Store::where("user_id",Auth::id())->update([
+                "color" => $request->color
+            ]);
+        }
+
         session()->flash("status","اطلاعات با موفقیت ویرایش شد");
 
         return back();
@@ -120,21 +126,21 @@ class ProfileController extends Controller
             'name' => 'required|min:2|max:60',
             'melli_code' => 'required|digits:10',
             'address' => 'required',
-            'file' => 'image|nullable|dimensions:min_width=400,min_height=400|max:2048',
+            'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
         ]);
 
         $imageName = null;
-        if (isset($request->file)) {
+        if (isset($request->file) && strlen($request->file) > 0) {
 
             $exists = Storage::disk('logo')->exists($request->file('file')->getClientOriginalName());
 
             if ($exists == true) {
 
-                $imageName = $imageName . "-" . time();
-                $imageName = $imageName . "." . $request->file('file')->getClientOriginalExtension();
+                $imageName = $imageName  . time();
+                $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->resize(400,400, function ($constraint) {
+                $img->resize(300,300, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -143,7 +149,7 @@ class ProfileController extends Controller
             } else {
 
                 $imageName = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'))->resize(400,400, function ($constraint) {
+                $img = Image::make($request->file('file'))->resize(300,300, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -169,6 +175,12 @@ class ProfileController extends Controller
             'branch_slug' => self::slug($request->branch),
         ]);
 
+        if(isset($request->color)){
+            Store::where("user_id",Auth::id())->update([
+                "color" => $request->color
+            ]);
+        }
+
         session()->flash("status","اطلاعات با موفقیت ثبت شد");
 
         return back();
@@ -181,11 +193,54 @@ class ProfileController extends Controller
 
         $request->validate([
             'desc' => 'required|min:10|max:100000',
+            'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
         ]);
 
+        if (isset($request->file) && strlen($request->file) > 0) {
+
+            $imageName = null;
+
+            $exists = Storage::disk('logo')->exists($request->file('file')->getClientOriginalName());
+
+            if ($exists == true) {
+
+                $imageName = $imageName . "-" . time();
+                $imageName = $imageName . "." . $request->file('file')->getClientOriginalExtension();
+
+                $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                $img->resize(300,300, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $img->save('images/shop/logo/' . $imageName);
+
+            } else {
+
+                $imageName = $request->file('file')->getClientOriginalName();
+                $img = Image::make($request->file('file'))->resize(300,300, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+
+                $img->save('images/shop/logo/' . $imageName);
+
+            }
+
+            Store::where("user_id",Auth::id())->update([
+                "logo" => $imageName
+            ]);
+
+        }
+
         Store::where("user_id",Auth::id())->update([
-            "desc" => $request->desc
+            "desc" => $request->desc,
         ]);
+
+        if(isset($request->color)){
+            Store::where("user_id",Auth::id())->update([
+                "color" => $request->color
+            ]);
+        }
 
         session()->flash("status","توضیحات با موفقیت ثبت شد");
 
@@ -227,27 +282,31 @@ class ProfileController extends Controller
         ]);
 
 
-        $name = null;
-        if (isset($request->file)) {
+        $imageName = null;
+        if (isset($request->file) && strlen($request->file) > 0) {
 
             $exists = Storage::disk('vms')->exists($request->file('file')->getClientOriginalName());
 
             if ($exists == true) {
 
-                $name = $name . "-" . time();
-                $name = $name . "." . $request->file('file')->getClientOriginalExtension();
-
+                $imageName = $imageName  . time();
+                $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('uploads/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->crop(400, 400);
-                $img->save('uploads/products/' . $name);
+                $img->resize(400,400, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $img->save('uploads/products/' . $imageName);
 
             } else {
 
-                $name = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'));
-                $img->crop(400, 400);
-                $img->save('uploads/products/' . $name);
+                $imageName = $request->file('file')->getClientOriginalName();
+                $img = Image::make($request->file('file'))->resize(400,400, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $img->save('uploads/products/' . $imageName);
 
             }
 
@@ -266,7 +325,7 @@ class ProfileController extends Controller
             "status" => 1,
             "quantity" => $request->quantity,
             "stock" => $request->stock,
-            "image" => $name,
+            "image" => $imageName,
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now(),
         ]);
@@ -348,8 +407,7 @@ class ProfileController extends Controller
     }
 
 
-    public function EditProductSingleAction(Request $request)
-    {
+    public function EditProductSingleAction(Request $request){
 
         $request = $request->replace(self::faToEn($request->all()));
 
@@ -369,30 +427,39 @@ class ProfileController extends Controller
 
         if(isset($checkProduct->id)) {
 
-            $name = null;
+            if (isset($request->file) && strlen($request->file) > 0) {
 
-            if (isset($request->file)) {
+                $imageName = null;
 
                 $exists = Storage::disk('vms')->exists($request->file('file')->getClientOriginalName());
 
                 if ($exists == true) {
 
-                    $name = $name . "-" . time();
-                    $name = $name . "." . $request->file('file')->getClientOriginalExtension();
-
+                    $imageName = $imageName  . time();
+                    $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                     $img = Image::make('uploads/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                    $img->crop(400, 400);
-                    $img->save('uploads/products/' . $name);
+                    $img->resize(400,400, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $img->save('uploads/products/' . $imageName);
 
                 } else {
 
-                    $name = $request->file('file')->getClientOriginalName();
-                    $img = Image::make($request->file('file'));
-                    $img->crop(400, 400);
-                    $img->save('uploads/products/' . $name);
+                    $imageName = $request->file('file')->getClientOriginalName();
+                    $img = Image::make($request->file('file'))->resize(400,400, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $img->save('uploads/products/' . $imageName);
 
                 }
+
+
+                Product::where("id", $request->id)->where("user_id", Auth::id())->update([
+                    "image" => $imageName
+                ]);
 
             }
 
@@ -408,7 +475,6 @@ class ProfileController extends Controller
                 "status" => 1,
                 "quantity" => $request->quantity,
                 "stock" => $request->stock,
-                "image" => $name,
                 "updated_at" => Carbon::now(),
             ]);
 
