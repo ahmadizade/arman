@@ -27,11 +27,11 @@
                             </div>
                         @endif
                         @if(Session::has("status"))
-                            <div class="alert alert-success mb-2">{{ Session::get("status") }}</div>
+                            <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
                         @endif
                         <form action="{{ route("profile_edit_action") }}" method="post">
                             <div class="row">
-                                <div class="col-12 col-lg-3">
+                                <div class="col-12 col-lg-4">
                                    <div class="input-group my-2">
                                        <div class="input-group-prepend">
                                            <span class="input-group-text font-12">موبایل</span>
@@ -39,7 +39,7 @@
                                        <input type="text" class="form-control disabled bg-muted" disabled value="{{ $user->mobile }}">
                                    </div>
                                 </div>
-                                <div class="col-12 col-lg-3">
+                                <div class="col-12 col-lg-4">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">نوع کاربری</span>
@@ -51,15 +51,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-3">
-                                    <div class="input-group my-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">کد ملی</span>
-                                        </div>
-                                        <input type="text" name="melli_code" class="form-control" value="{{ $user->melli_code }}">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-3">
+                                <div class="col-12 col-lg-4">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">ایمیل</span>
@@ -94,7 +86,7 @@
                                         <input type="text" name="phone" class="form-control" value="{{ $user->profile->phone }}">
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-3">
+                                <div class="col-12 col-lg-4">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">استان</span>
@@ -143,7 +135,7 @@
                                         <input type="text" name="bank_cart_number" class="form-control" value="{{ $user->profile->bank_cart_number }}">
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-5">
+                                <div class="col-12 col-lg-4">
                                     <div class="input-group my-2">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">شبا بدون IR</span>

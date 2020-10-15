@@ -25,9 +25,9 @@
                             </div>
                         @endif
                         @if(Session::has("status"))
-                            <div class="alert text-white bg-success mb-2">{{ Session::get("status") }}</div>
+                            <div class="alert text-center alert-success mb-2">{{ Session::get("status") }}</div>
                         @elseif(Session::has("error"))
-                            <div class="alert text-white bg-danger mb-2">{{ Session::get("error") }}</div>
+                            <div class="alert text-center alert-danger mb-2">{{ Session::get("error") }}</div>
                         @endif
                         <form action="{{route('add_product_action')}}" method="post" enctype="multipart/form-data">
 

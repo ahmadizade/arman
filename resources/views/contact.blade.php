@@ -33,7 +33,7 @@
                             </div>
                         @endif
                         @if(Session::has("status"))
-                            <div class="alert alert-success mb-2">{{ Session::get("status") }}</div>
+                            <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
                         @endif
                         <div class="row">
                             <div class="col-12 col-lg-12">

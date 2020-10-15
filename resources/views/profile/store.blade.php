@@ -9,9 +9,6 @@
         .ck-editor__editable_inline {
             min-height: 200px;
         }
-        .ck-file-dialog-button{
-            display: none !important;
-        }
     </style>
 @endsection
 
@@ -36,9 +33,9 @@
                             </div>
                         @endif
                         @if(Session::has("status"))
-                            <div class="alert text-white bg-success mb-2">{{ Session::get("status") }}</div>
+                            <div class="alert text-center alert-success mb-2">{{ Session::get("status") }}</div>
                         @elseif(Session::has("error"))
-                            <div class="alert text-white bg-danger mb-2">{{ Session::get("error") }}</div>
+                            <div class="alert text-white alert-danger mb-2">{{ Session::get("error") }}</div>
                         @endif
                         @if(!$result['id'])
                             <hr>
@@ -127,7 +124,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-12">
+                                    <div class="col-12 col-lg-3">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">رنگ فروشگاه</span>
+                                            </div>
+                                            <input type="color" name="color" class="form-control"
+                                                   value="{{ old("color") }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">آدرس</span>
@@ -228,7 +234,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-12">
+                                        <div class="col-12 col-lg-3">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">رنگ فروشگاه</span>
+                                                </div>
+                                                <input type="color" name="color" class="form-control"
+                                                       value="{{ $result["color"] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-9">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">آدرس</span>
@@ -328,10 +343,32 @@
                                                    value="{{ $result["address"] }}">
                                         </div>
                                     </div>
+                                    <div class="col-12 text-center">
+                                        <hr>
+                                        <img src="/images/shop/logo/{{ $result['logo'] }}" alt="">
+                                    </div>
                                 </div>
-                            <form action="{{ route("store_desc_action") }}" method="post">
+                            <form action="{{ route("store_desc_action") }}" method="post" enctype="multipart/form-data">
                                 <div class="row">
-                                    <div class="col-12 mt-2">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">رنگ فروشگاه</span>
+                                            </div>
+                                            <input type="color" name="color" class="form-control"
+                                                   value="{{ $result["color"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file">
+                                                <label class="custom-file-label text-left">+ افزودن
+                                                    لوگو</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-3">
                                         <textarea name="desc" id="desc" rows="10"
                                                   class="form-control font-13"
                                                   placeholder="توضیحات">{!! $result["desc"] !!}</textarea>
@@ -360,7 +397,7 @@
                 language: {
                     ui: 'fa',
                     content: 'fa',
-                },
+                }
             } )
             .then( editor => {
                 window.editor = editor;
