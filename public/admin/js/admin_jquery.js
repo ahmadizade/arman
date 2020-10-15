@@ -55,6 +55,7 @@ $(document).ready(function () {
                     if (response['sum'] == 'done') {
                         $("#result-msg").html('اعتبار کاربر' + ' ' + response['sum_credit'] + ' ' + ' ریال ' + ' ' + ' شارژ شد. ');
                         $('#current-credit-credit').html(response['credit_now']).css({'background-color' : 'green' , 'color' : 'white' , 'padding' : '0 2px'});
+                        $('#current-credit-credit').html(response['credit']).css({'background-color' : 'green' , 'color' : 'white' , 'padding' : '0 2px'});
                     } else {
                         $.each(response.errors, function (i, item) {
                             $("#result-error").html('<p class="text-danger">' + response.errors[i] + '</p>');
