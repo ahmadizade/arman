@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Email;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public static function sms($mobile,$content)
+    public static function sms($mobile, $content)
     {
 
         $content = urlencode($content);
@@ -36,9 +38,16 @@ class Controller extends BaseController
 
     }
 
-    function faToEn($string) {
+    public static function build_mail($mailbox)
+    {
+        Email::dispatch($mailbox);
+        return back();
+    }
+
+    function faToEn($string)
+    {
         $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-        $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١','٠'];
+        $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١', '٠'];
 
         $num = range(0, 9);
         $convertedPersianNums = str_replace($persian, $num, $string);
@@ -47,7 +56,8 @@ class Controller extends BaseController
         return $englishNumbersOnly;
     }
 
-    public static function slug($string, $separator = '-') {
+    public static function slug($string, $separator = '-')
+    {
 
         if (is_null($string)) {
             return "";

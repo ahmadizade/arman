@@ -41,12 +41,12 @@
             <div id="content">
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <div class="row justify-content-around">
+                    <div class="row">
                         <div class="col-xl-4 col-lg-4 my-2">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
-                                    class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
+                                        class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -79,7 +79,6 @@
                                     @elseif(Session::has("error"))
                                         <div class="alert text-white bg-danger mb-2">{{ Session::get("error") }}</div>
                                     @endif
-
                                     <div class="row">
                                         <div class="col-12 col-lg-7 text-left">
                                             <p>Credit :
@@ -100,15 +99,14 @@
                                             <p id="result-msg" class="text-success"></p>
                                         </div>
                                     </div>
-
                                     <form id="credit-charge-form" method="" action="">
                                         <div class="col-12">
-                                            <select name="itemName" id="itemName"
-                                                    class="itemName text-right form-control bg-muted"></select>
+                                            <select name="user_id" id="user_id"
+                                                    class="user_id text-right form-control bg-muted"></select>
                                         </div>
                                         <div class="row justify-content-center">
                                             <div class="col-12 col-lg-3 text-right">
-                                                <button type="button" value="minus" id="minus" name="minus"
+                                                <button type="button" data-toggle="modal" data-target="#confirm-minus"
                                                         class="text-white w-100 btn btn-sm bg-gradient-danger mt-2">
                                                     کاهش
                                                 </button>
@@ -119,7 +117,7 @@
                                                        placeholder="مقدار اعتبار">
                                             </div>
                                             <div class="col-12 col-lg-3 text-left">
-                                                <button type="button" id="sum" name="sum" value="sum"
+                                                <button type="button" data-toggle="modal" data-target="#confirm-sum"
                                                         class="text-white w-100 btn btn-sm bg-gradient-success mt-2">
                                                     افزایش
                                                 </button>
@@ -129,11 +127,68 @@
                                 </div>
                             </div>
                         </div>
+                        {{--SUM MODAL--}}
+                        <div class="modal fade" id="confirm-sum" tabindex="-1" role="dialog" aria-labelledby="Finance"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="text-danger modal-title myfont" id="Finance">افزایش اعتبار</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body text-right">
+                                        آیا از انجام این عملیات اطمینان دارید؟
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="button" id="sum" class="btn btn-success" data-dismiss="modal">
+                                            Approve
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--SUM MODAL--}}
+
+                        {{--MINUS MODAL--}}
+                        <div class="modal fade" id="confirm-minus" tabindex="-1" role="dialog"
+                             aria-labelledby="Finance-sum" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="text-danger modal-title myfont" id="Finance-minus">کسر از اعتبار</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body text-right">
+                                        آیا از انجام این عملیات اطمینان دارید؟
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="button" id="minus" class="btn btn-success" data-dismiss="modal">
+                                            Approve
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--MINUS MODAL--}}
+                    </div>
+                    <div>
+                    </div>
+{{--                    <img src="" id="qr-code-png" style="width:200px;height: 200px;">--}}
+{{--                    <div id="curl"></div>--}}
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
                         <div class="col-xl-4 col-lg-4 my-2">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
-                                    class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
+                                        class="card-header bg-gradient-info py-3 d-flex flex-row align-items-center justify-content-between">
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -165,6 +220,7 @@
                                                 <button id="qr-data-btn" type="submit"
                                                         class="btn btn-sm text-white bg-gradient-success my-2">
                                                     Check Service
+                                                    test
                                                 </button>
                                             </div>
                                         </form>
@@ -172,14 +228,9 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                    <div>
-                        <p id="test"></p>
-                    </div>
-                    <img src="" id="qr-code-png" style="width:200px;height: 200px;">
-                    <div id="curl"></div>
                 </div>
-            </div>
         </div>
     </div>
 @endsection

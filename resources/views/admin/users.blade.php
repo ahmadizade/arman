@@ -4,7 +4,7 @@
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
     {{--    <link rel="stylesheet" type="text/css" href="/admin/css/buttons.dataTables.min.css">--}}
 @endsection
 @section("style")
@@ -21,9 +21,11 @@
             word-break: keep-all;
             word-wrap: break-word;
         }
+
         .myfont {
             font-family: iranyekan, icomoon, sans-serif !important;
         }
+
         .admin-rtl {
             direction: rtl !important;
         }
@@ -53,7 +55,8 @@
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 myfont font-weight-bold text-primary">نمودار عضویت کاربران در وب سایت به تفکیک
+                            <h6 class="m-0 myfont font-weight-bold text-primary">نمودار عضویت کاربران در وب سایت به
+                                تفکیک
                                 ماههای سال</h6>
                             <div class="dropdown no-arrow">
                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -72,7 +75,8 @@
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
-                            <table id="user_table" class="table table-responsive-xl table-responsive-sm text-center border-bottom-primary bg-gradient-info text-white table-sm table-borderless table-striped"
+                            <table id="user_table"
+                                   class="table table-responsive-xl table-responsive-sm text-center border-bottom-primary bg-gradient-info text-white table-sm table-borderless table-striped"
                                    width="100%">
                                 <thead class="bg-gradient-primary text-white shadow">
                                 <tr>
@@ -85,6 +89,7 @@
                                     <th scope="col">Status</th>
                                     <th scope="col">created_at</th>
                                     <th scope="col">EDIT</th>
+                                    <th scope="col">Message</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -92,7 +97,7 @@
                     </div>
                 </div>
                 <!-- Bootstrap Modal User Info-->
-                <div class="modal fade" id="login-register" tabindex="-1">
+                <div class="modal fade" id="edit" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content bg-gradient-light">
                             <div class="modal-header bg-gradient-info border-bottom-info">
@@ -103,10 +108,10 @@
                             </div>
                             <form id="save-user-form" class="modal-body text-center">
                                 <div class="admin-rtl my-1 text-white font-weight-bolder">
-                                <p id="error_box" class="myfont bg-gradient-danger" style="font-size: 17px;"></p>
-                                <p id="res_msg" class="myfont bg-gradient-success" style="font-size: 17px;"></p>
+                                    <p id="error_box" class="myfont text-danger" style="font-size: 14px;"></p>
+                                    <p id="res_msg" class="myfont text-success" style="font-size: 14px;"></p>
                                 </div>
-                                {{--                                <//Mobile\\>--}}
+                                {{--<//Mobile\\>--}}
                                 <div class="col-12">
                                     <div class="input-group my-2">
                                         <input id="res-mobile" name="res_mobile" type="number"
@@ -129,7 +134,8 @@
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <select id="res-role" name="res_role" class="input-group-text form-control font-12" required autofocus>
+                                        <select id="res-role" name="res_role"
+                                                class="input-group-text form-control font-12" required autofocus>
                                             <option value="user">User</option>
                                             <option value="admin">Admin</option>
                                             <option value="supplier">Supplier</option>
@@ -142,7 +148,8 @@
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <select id="res-verified" name="res_verified" class="input-group-text form-control font-12" required autofocus>
+                                        <select id="res-verified" name="res_verified"
+                                                class="input-group-text form-control font-12" required autofocus>
                                             <option value="0">Not Approved</option>
                                             <option value="1">Accepted</option>
                                         </select>
@@ -154,7 +161,8 @@
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <select id="res-user_mode" name="res_user_mode" class="input-group-text form-control font-12" required autofocus>
+                                        <select id="res-user_mode" name="res_user_mode"
+                                                class="input-group-text form-control font-12" required autofocus>
                                             <option value="normal">Normal</option>
                                             <option value="golden">Golden</option>
                                         </select>
@@ -180,93 +188,26 @@
                                         <input id="res-credit" name="res_credit" type="text"
                                                class="form-control bg-muted" readonly autofocus>
                                         <div class="input-group-prepend">
-                                            <button id="credit-btn" type="button" class="input-group-text text-white bg-gradient-success font-12" data-toggle="modal" data-target="#charge">Credit</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Bootstrap Modal User Info-->
-                                <div class="modal fade" id="charge" tabindex="-1">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content bg-gradient-light">
-                                            <div class="modal-header bg-gradient-info border-bottom-info">
-                                                <h5 class="text-white" style="font-size: 15px">Credit Charge</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span>&times;</span>
-                                                </button>
-                                            </div>
-                                            <form id="save-user-form" class="modal-body text-center">
-                                                <div class="admin-rtl my-1 text-white font-weight-bolder">
-                                                    <p id="error_box" class="myfont bg-gradient-danger" style="font-size: 17px;"></p>
-                                                    <p id="res_msg" class="myfont bg-gradient-success" style="font-size: 17px;"></p>
-                                                </div>
-                                                {{--                                <//Mobile\\>--}}
-                                                <div class="col-12">
-                                                    <div class="input-group my-2">
-                                                        <input id="credit-charge" name="credit_charge" type="text"
-                                                               class="form-control bg-muted" required autofocus>
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text font-12">مبلغ اعتبار</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="input-group my-2">
-                                                        <textarea id="charge-desc" name="charge_desc" type="text"
-                                                                  class="form-control bg-muted" required autofocus></textarea>
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text font-12">مبلغ اعتبار</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button id="credit-approve" type="button" class="btn font-weight-bolder text-white myfont bg-gradient-info my-2">
-                                                    تایید افزایش
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-{{--<script>--}}
-{{--    $('#credit-btn').click(function (){--}}
-{{--        $.ajax({--}}
-{{--            type:'POST',--}}
-{{--            data:  $('#credit-charge').val(),--}}
-{{--            url:{{route('credit_charge_action')}},--}}
-{{--        });--}}
-{{--    });--}}
-{{--</script>--}}
-
-
-
-
-
-
-
-
-                                <div class="col-12">
-                                    <div class="input-group my-2">
-                                        <input id="res-created_at" name="res_created_at" type="text" readonly
-                                               class="form-control bg-muted" required autofocus>
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">تاریخ ساخت</span>
+                                            <a href="{{route('credit')}}" id="credit-btn" type="button"
+                                               class="input-group-text text-white bg-gradient-success font-12">Credit</a>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="input-group my-2">
-                                        <input id="res-updated_at" name="res_updated_at" type="text" readonly
-                                               class="form-control  bg-muted" required autofocus>
+                                        <input id="res-password" name="res_password" type="text"
+                                               class="form-control bg-muted" autofocus>
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">آخرین تغییرات</span>
+                                            <span class="input-group-text text-white bg-gradient-danger font-12">Password</span>
                                         </div>
                                     </div>
                                 </div>
                                 {{--                                <//Mobile\\>--}}
-                                <button type="button" class="btn font-weight-bolder text-white myfont bg-gradient-info my-2" id="save-user-data">
-                                   ذخیره اطلاعات
+                                <button type="button"
+                                        class="btn font-weight-bolder text-white myfont bg-gradient-info my-2"
+                                        id="save-user-data">
+                                    ذخیره اطلاعات
                                 </button>
                             </form>
                         </div>
@@ -277,6 +218,134 @@
             </div>
         </div>
     </div>
+    {{--DELETE MODAL--}}
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="del"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="text-danger modal-title myfont" id="del">افزایش اعتبار</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-right">
+                    آیا از انجام این عملیات اطمینان دارید؟
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" data-id="' + row.id + '" id="sum" class="btn btn-success delete"
+                            data-dismiss="modal">
+                        Approve
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--DELETE MODAL--}}
+
+    {{--SMS MODAL--}}
+    <div class="modal fade" id="sms" tabindex="-1" role="dialog" aria-labelledby="sms-area"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-info">
+                    <p class="text-white modal-title myfont" id="sms-area">SEND SMS TO USERS</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-right">
+                    <form>
+                        <p>همکار گرامی، پیام ارسالی شما در پنل مدیریت نمایش داده میشود</p>
+                        <div class="form-group text-right">
+                            <input id="sms-mobile" name="sms_mobile" type="hidden">
+                            <label class="" for="myTextarea" id="counter"></label>
+                            <i class="fas fa-pencil-alt prefix"></i>
+                            <textarea id="sms_content" name="sms_content" class="text-right form-control" rows="3"
+                                      placeholder="...SMS"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <!--Textarea Counter-->
+                <script type="text/javascript">
+                    $('#sms_content').keyup(function () {
+                        var left = 41 - $(this).val().length;
+                        if (left < 0) {
+                            left = "صفحه دوم";
+                        }
+                        $('#counter').text('حروف باقیمانده: ' + left);
+                    });
+                </script>
+                <!--Textarea Counter-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
+                    <button type="button" id="send-sms" class="btn btn-success"
+                            data-dismiss="modal">
+                        ارسال
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--SMS MODAL--}}
+
+
+    {{--EMAIL MODAL--}}
+    <div class="modal fade" id="send-email" tabindex="-1" role="dialog" aria-labelledby="email-area"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-info">
+                    <p class="text-white modal-title myfont" id="email-area">SEND Email TO USERS</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-right">
+                    <form>
+                        <p>همکار گرامی، پیام ارسالی شما در پنل مدیریت نمایش داده میشود</p>
+                        <div class="form-group text-right">
+                            <input id="send_mail" name="send_mail" type="hidden">
+                            <i class="fas fa-pencil-alt prefix"></i>
+                            <textarea id="email_content" name="email_content" class="text-right form-control" rows="3"
+                                      placeholder="...Email"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
+                    <button type="button" id="send-email-btn" class="btn btn-success"
+                            data-dismiss="modal">
+                        ارسال
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--EMAIL MODAL--}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @endsection
 @section("extra_js")
@@ -284,12 +353,12 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     {{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>--}}
-{{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>--}}
-{{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>--}}
-{{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>--}}
-{{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>--}}
-{{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>--}}
-{{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script>--}}
+    {{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>--}}
+    {{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>--}}
+    {{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>--}}
+    {{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>--}}
+    {{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>--}}
+    {{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script>--}}
 
     <script type="text/javascript" charset="utf8"
             src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
@@ -297,7 +366,6 @@
         $(function () {
 //Delete User
             $("body").on("click", ".delete", function () {
-                alert('آیا از حذف این کاربر اطمینان دارید؟')
                 id = $(this).attr("data-id");
                 $.ajax({
                     type: 'post',
@@ -305,9 +373,9 @@
                     data: {"id": id},
                     success: function (result) {
                         if (result == "DONE") {
-                            alert('حذف با موفقیت انجام شد');
+                            alert('حذف کاربر با موفقیت انجام شد');
                         } else {
-                            alert('حذف کاربر انجام نشد');
+                            alert('متاسفانه مشکلی پیش آمده، با واحد آی تی تماس بگیرید');
                         }
                     }
                 });
@@ -341,6 +409,46 @@
             });
 //Edit User
 
+//SMS TO User
+            $("body").on("click", ".sms", function () {
+                let mobile = $(this).attr("data-id");
+                $('#sms-mobile').val(mobile);
+            });
+            $('#send-sms').click(function (e) {
+                $.ajax({
+                    type: "post",
+                    url: "{{route('Sms_User')}}",
+                    data: {'mobile': $('#sms-mobile').val(), 'sms_content': $('#sms_content').val()},
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
+                e.preventDefault(e);
+            });
+//SMS TO User
+
+//Email TO User
+            $("body").on("click", ".email", function () {
+                let email = $(this).attr("data-id");
+                if (email == '') {
+                    alert('برای این کاربر ایمیل ثبت نشده است');
+                } else {
+                    $('#send_mail').val(email);
+                }
+            });
+            $('#send-email-btn').click(function (e) {
+                $.ajax({
+                    type: "post",
+                    url: "{{route('Email_User')}}",
+                    data: {'email': $('#send_mail').val(), 'email_content': $('#email_content').val()},
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
+                e.preventDefault(e);
+            });
+//Email TO User
+
 //Save User Data)
             $("#save-user-data").click(function (e) {
                 $.ajax({
@@ -349,10 +457,12 @@
                     data: $("#save-user-form").serialize(),
                     success: function (res) {
                         if (res.status == 1) {
-                            $("#res_msg").html(res.desc);
+                            $("#error_box").fadeOut();
+                            $("#res_msg").html(res.desc).fadeIn();
                         } else {
                             $.each(res.errors, function (i, item) {
-                                $("#error_box").append('<p class="text-white">' + res.errors[i] + '</p>');
+                                $("#res_msg").fadeOut();
+                                $("#error_box").html('<p class="text-danger">' + res.errors[i] + '</p>').fadeIn();
                             });
                         }
                     }
@@ -383,9 +493,9 @@
                 },
                 buttons: [
                     // 'copy', 'csv', 'excel', 'pdf', 'print'
-                //     {extend: 'create', editor: myEditor},
-                //     {extend: 'edit', editor: myEditor},
-                //     {extend: 'remove', editor: myEditor}
+                    //     {extend: 'create', editor: myEditor},
+                    //     {extend: 'edit', editor: myEditor},
+                    //     {extend: 'remove', editor: myEditor}
                 ],
                 columns: [
                     {data: 'id', name: 'id'},
@@ -398,7 +508,12 @@
                     {data: 'created_at', name: 'created_at'},
                     {
                         className: "ltr text-center", data: "id", render: function (data, type, row) {
-                            return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm btn-danger delete">Delete</button><button type="button" data-id="' + row.mobile + '"  class="btn btn-sm btn-success edit" data-toggle="modal" data-target="#login-register" >EDIT</button></div></div>';
+                            return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger" data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.mobile + '"  class="btn btn-sm text-white bg-gradient-success edit" data-toggle="modal" data-target="#edit">EDIT</button></div></div>';
+                        }
+                    },
+                    {
+                        className: "ltr text-center", data: "id", render: function (data, type, row) {
+                            return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.mobile + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.email + '"  class="btn btn-sm text-white bg-gradient-primary email" data-toggle="modal" data-target="#send-email" >Email</button></div></div>';
                         }
                     },
                 ]

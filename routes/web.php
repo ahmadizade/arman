@@ -10,14 +10,16 @@ Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("con
 Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
     Route::get('/login', 'App\Http\Controllers\AdminController@tahator_login')->name("tahator_login");
-    Route::post('/login-action', 'App\Http\Controllers\AdminController@AdminLoginAction')->name("admin_login_action")->middleware("ajax","verify.domain");;
+    Route::post('/login-action', 'App\Http\Controllers\AdminController@AdminLoginAction')->name("admin_login_action")->middleware("ajax","verify.domain");
     Route::get('/register', 'App\Http\Controllers\AdminController@tahator_register')->name("tahator_register");
     Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user");
     Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user");
+    Route::post('/sms-user', 'App\Http\Controllers\AdminController@SmsUser')->name("Sms_User")->middleware("ajax","verify.domain");
+    Route::post('/email-user', 'App\Http\Controllers\AdminController@EmailUser')->name("Email_User")->middleware("ajax","verify.domain");
     Route::get('/admin-users', 'App\Http\Controllers\AdminController@AdminUsers')->name("Admin_Users");
     Route::get('/admin-users/get-user', 'App\Http\Controllers\AdminController@GetUser')->name("get_user");
-    Route::post('/admin-users/delete-user', 'App\Http\Controllers\AdminController@DeleteUserAction')->name("delete_user_action")->middleware("ajax","verify.domain");;
-    Route::post('/admin-users/edit-user', 'App\Http\Controllers\AdminController@EditUserAction')->name("edit_user_action")->middleware("ajax","verify.domain");;
+    Route::post('/admin-users/delete-user', 'App\Http\Controllers\AdminController@DeleteUserAction')->name("delete_user_action")->middleware("ajax","verify.domain");
+    Route::post('/admin-users/edit-user', 'App\Http\Controllers\AdminController@EditUserAction')->name("edit_user_action")->middleware("ajax","verify.domain");
     Route::get('/credit', 'App\Http\Controllers\AdminController@Credit')->name("credit");
     Route::get('/credit-suggestion-action', 'App\Http\Controllers\AdminController@SuggestionAction')->name("suggestion_action");
     Route::post('/credit-show-action', 'App\Http\Controllers\AdminController@CreditShowAction')->name("credit_show_action");
@@ -28,6 +30,9 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
 //QR.Code Generator
 Route::get('/code-generator', 'App\Http\Controllers\CodeController@Code_Generator')->name("code_generator")->middleware("auth");
 
+
+//MAIL
+Route::get('/build-mail', 'App\Http\Controllers\Controller@build_mail')->name('build_mail');
 
 // auth
 Route::post('/login-token', 'App\Http\Controllers\LoginController@LoginToken')->name("login_token")->middleware("ajax","verify.domain");

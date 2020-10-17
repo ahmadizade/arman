@@ -585,7 +585,8 @@
                                 <div class="card-header text-right py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">افزایش اعتبار</h6>
                                 </div>
-                                <div class="card-body">
+                                <!-- Card Body -->
+                                <div class="card-body myfont">
                                     @if ($errors->any())
                                         <div class="alert alert-danger mb-2">
                                             <ul class="mb-0">
@@ -595,7 +596,12 @@
                                             </ul>
                                         </div>
                                     @endif
-                                        <div class="row">
+                                    @if(Session::has("status"))
+                                        <div class="alert text-white bg-success mb-2">{{ Session::get("status") }}</div>
+                                    @elseif(Session::has("error"))
+                                        <div class="alert text-white bg-danger mb-2">{{ Session::get("error") }}</div>
+                                    @endif
+                                    <div class="row">
                                         <div class="col-12 col-lg-7 text-left">
                                             <p>Credit :
                                                 <spam id="current-credit-credit"></spam>
@@ -617,12 +623,12 @@
                                     </div>
                                     <form id="credit-charge-form" method="" action="">
                                         <div class="col-12">
-                                            <select name="itemName" id="itemName"
-                                                    class="itemName text-right form-control bg-muted"></select>
+                                            <select name="user_id" id="user_id"
+                                                    class="user_id text-right form-control bg-muted"></select>
                                         </div>
                                         <div class="row justify-content-center">
                                             <div class="col-12 col-lg-3 text-right">
-                                                <button type="button" value="minus" id="minus" name="minus"
+                                                <button type="button" data-toggle="modal" data-target="#confirm-minus"
                                                         class="text-white w-100 btn btn-sm bg-gradient-danger mt-2">
                                                     کاهش
                                                 </button>
@@ -633,7 +639,7 @@
                                                        placeholder="مقدار اعتبار">
                                             </div>
                                             <div class="col-12 col-lg-3 text-left">
-                                                <button type="button" id="sum" name="sum" value="sum"
+                                                <button type="button" data-toggle="modal" data-target="#confirm-sum"
                                                         class="text-white w-100 btn btn-sm bg-gradient-success mt-2">
                                                     افزایش
                                                 </button>
@@ -643,7 +649,55 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        {{--SUM MODAL--}}
+                        <div class="modal fade" id="confirm-sum" tabindex="-1" role="dialog" aria-labelledby="Finance"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="text-danger modal-title myfont" id="Finance">افزایش اعتبار</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body text-right">
+                                        آیا از انجام این عملیات اطمینان دارید؟
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="button" id="sum" class="btn btn-success" data-dismiss="modal">
+                                            Approve
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--SUM MODAL--}}
+
+                        {{--MINUS MODAL--}}
+                        <div class="modal fade" id="confirm-minus" tabindex="-1" role="dialog"
+                             aria-labelledby="Finance-sum" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="text-danger modal-title myfont" id="Finance-minus">کسر از اعتبار</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body text-right">
+                                        آیا از انجام این عملیات اطمینان دارید؟
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="button" id="minus" class="btn btn-success" data-dismiss="modal">
+                                            Approve
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--MINUS MODAL--}}
 
                     <!-- Approach -->
                     <div class="card shadow mb-4">

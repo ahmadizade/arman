@@ -7,11 +7,14 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Morilog\Jalali\Jalalian;
+use phpDocumentor\Reflection\Types\Self_;
+use function Sodium\increment;
 use Yajra\DataTables\Facades\DataTables;
 
 class AdminController extends Controller
@@ -95,7 +98,8 @@ class AdminController extends Controller
             'res_user_mode' => ['required', 'string', 'max:56'],
             'res_email' => ['string', 'min:10', 'max:128'],
             'res_credit' => ['string', 'max:56', 'nullable'],
-            'res_updated_at' => ['string', 'max:56'],
+            'res_password' => ['string', 'min:6', 'max:56', 'nullable'],
+            'res_updated_at' => ['date', 'max:56', 'nullable'],
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
@@ -108,10 +112,26 @@ class AdminController extends Controller
             $user->user_mode = $request->res_user_mode;
             $user->email = $request->res_email;
             $user->credit = $request->res_credit;
+            $password = Hash::make('$request->res_password');
+            $user->password = $password;
             $user->updated_at = Carbon::now();
             $user->save();
-            return Response::json(["status" => "1", "desc" => "ذخیره با موفقیت انجام شد"]);
+            return Response::json(["status" => "1", "desc" => " ذخیره اطلاعات $request->res_name با موفقیت انجام شد "]);
         }
+    }
+
+//admin send sms to users
+    public function SmsUser(Request $request){
+        $mobile = $request->mobile;
+        $content = $request->sms_content;
+        self::sms($mobile,$content);
+        return "send-ok";
+    }
+
+    public function EmailUser(Request $request){
+            $mailbox = $request->email;
+            $content = $request->email_content;
+            Controller::build_mail($mailbox);
     }
 
     //save user change from admin first page
@@ -164,25 +184,28 @@ class AdminController extends Controller
     public function CreditChargeAction(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'itemName' => ['required', 'numeric', 'digits_between:1,5'],
+            'user_id' => ['required', 'numeric', 'digits_between:1,5'],
             'new_credit' => ['required', 'numeric', 'digits_between:1,10'],
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
         } else {
-            $user = User::where('id', $request->itemName)->first();
+            $user = User::where('id', $request->user_id)->first();
             if ($request->new_credit > 0 && is_numeric($request->new_credit)) {
-                $credit = $user->credit + $request->new_credit;
-                $user->credit = $credit;
-                $user->save();
-                return response()->json(['sum' => 'done' , 'sum_credit' => $request->new_credit, 'credit_now' => $user->credit]);
+                if ($request->operation == 'sum') {
+                    $credit = $user->credit + $request->new_credit;
+                    $user->credit = $credit;
+                    $user->save();
+                    return response()->json(['sum' => 'done', 'credit' => $request->new_credit, 'credit_now' => $user->credit]);
+                } elseif ($request->operation == 'minus') {
+                    $credit = $user->credit - $request->new_credit;
+                    $user->credit = $credit;
+                    $user->save();
+                    return response()->json(['minus' => 'done', 'credit' => $request->new_credit, 'credit_now' => $user->credit]);
+                }
             } else {
                 return response()->json(['errors' => "مقدار وارد شده صحیح نمی باشد"]);
             }
         }
     }
-
-
-
-
 }
