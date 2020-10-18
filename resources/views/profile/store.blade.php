@@ -130,7 +130,7 @@
                                                 <span class="input-group-text font-12">رنگ فروشگاه</span>
                                             </div>
                                             <input type="color" name="color" class="form-control"
-                                                   value="{{ old("color") }}">
+                                                   value="{{ old("color") ?? "#3498db" }}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-9">
@@ -150,7 +150,7 @@
                                 </div>
                             </form>
                         @elseif(isset($result['id']) && $result['verify'] == 0)
-                            <div class="alert alert-danger mb-0 text-center">شما قبلا فروشگاه خود را ثبت کرده اید . لطفا تا زمان احراز هویت صبر کنید</div>
+                            <div class="alert alert-danger mb-0 text-center">لطفا تا زمان احراز هویت صبر کنید</div>
                             <form action="{{route('store_edit_action')}}" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-12 col-lg-6">

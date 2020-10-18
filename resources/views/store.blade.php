@@ -58,6 +58,39 @@
                             <div class="col-12 col-lg-12 store_desc">
                                 {!! $result['desc'] !!}
                             </div>
+                            <div class="col-12">
+                                <hr>
+                                <div class="owl-container">
+                                    <div class="owl-carousel owl-theme owl">
+                                        @foreach($products as $product)
+                                            <div class="slider-desc text-center overflow-hidden">
+                                                <div class="item">
+                                                    @if(is_null($product->image))
+                                                        <img src="/images/no-image2.png" alt="BTI">
+                                                    @else
+                                                        <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
+                                                    @endif
+                                                </div>
+                                                <div class="price-box rtl">
+                                                    <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
+                                                    @if($product->discount > 20)
+                                                        <div>
+                                                            <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                            <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                                            <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                                        </div>
+                                                    @else
+                                                        <div class="mt-1">
+                                                            <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                            <p class="text-danger font-14 mt-2 nowrap"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -65,4 +98,34 @@
         </div>
     </div>
 
+@endsection
+
+@section('extra_js')
+    <script>
+        $(".owl").owlCarousel({
+            center: true,
+            itemsMobile: false,
+            lazyLoad: true,
+            responsiveClass: true,
+            loop: false,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 2,
+                    nav: false,
+                    margin: 10
+                },
+                600: {
+                    items: 3,
+                    nav: false,
+                    margin: 10
+                },
+                1000: {
+                    items: 5,
+                    nav: false,
+                    margin: 10
+                }
+            }
+        });
+    </script>
 @endsection
