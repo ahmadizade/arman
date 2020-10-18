@@ -414,7 +414,7 @@
                 let mobile = $(this).attr("data-id");
                 $('#sms-mobile').val(mobile);
             });
-            $('#send-sms').click(function (e) {
+            $('#send-sms').click(function (e) {0
                 $.ajax({
                     type: "post",
                     url: "{{route('Sms_User')}}",
@@ -440,7 +440,7 @@
                 $.ajax({
                     type: "post",
                     url: "{{route('Email_User')}}",
-                    data: {'email': $('#send_mail').val(), 'email_content': $('#email_content').val()},
+                    data: {'id': $('#send_mail').val(), 'email_content': $('#email_content').val()},
                     success: function (response) {
                         console.log(response);
                     }
@@ -474,7 +474,6 @@
                 processing: true,
                 serverSide: true,
                 dom: 'Bfrtip',
-
                 // pagingType: "numbers",
                 bLengthChange: false,
                 pageLength: 5,
@@ -485,8 +484,6 @@
                 "scrollCollapse": true,
                 // "jQueryUI":         true,
                 ajax: {
-                    // dataSrc: 'data'
-                    // dataSrc: 'staff'
                     dataType: 'json',
                     type: 'GET',
                     url: '/tahator/admin-users/get-user',
@@ -513,7 +510,11 @@
                     },
                     {
                         className: "ltr text-center", data: "id", render: function (data, type, row) {
-                            return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.mobile + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.email + '"  class="btn btn-sm text-white bg-gradient-primary email" data-toggle="modal" data-target="#send-email" >Email</button></div></div>';
+                            if(row.email == ""){
+                                return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.mobile + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '"  disabled class="btn btn-sm text-white bg-gradient-primary disabled email">Email</button></div></div>';
+                            }else{
+                                return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.mobile + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '"  class="btn btn-sm text-white bg-gradient-primary email" data-toggle="modal" data-target="#send-email" >Email</button></div></div>';
+                            }
                         }
                     },
                 ]

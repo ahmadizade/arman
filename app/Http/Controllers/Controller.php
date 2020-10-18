@@ -38,10 +38,19 @@ class Controller extends BaseController
 
     }
 
-    public static function build_mail($mailbox)
+    public static function email($subject,$title,$email,$content,$view)
     {
-        Email::dispatch($mailbox);
-        return back();
+        $result = [
+            "email" => $email,
+            "content" => $content,
+            'title' => $title,
+            'subject' => $subject
+        ];
+
+        Mail::send('emails.'.$view, ["result" => $result], function ($message) use ($result,$subject,$title) {
+            $message->from('hr.ahmadi@setarehvanak.com', $title);
+            $message->to($result['email'])->subject($subject);
+        });
     }
 
     function faToEn($string)

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -121,17 +122,20 @@ class AdminController extends Controller
     }
 
 //admin send sms to users
-    public function SmsUser(Request $request){
+    public function SmsUser(Request $request)
+    {
         $mobile = $request->mobile;
         $content = $request->sms_content;
-        self::sms($mobile,$content);
+        self::sms($mobile, $content);
         return "send-ok";
     }
 
-    public function EmailUser(Request $request){
-            $mailbox = $request->email;
-            $content = $request->email_content;
-            Controller::build_mail($mailbox);
+    public function EmailUser(Request $request)
+    {
+        $view = 'from_admin';
+        $subject = 'Www.SaminTakhfif.Com';
+        $title = '';
+        self::email($subject,2,$request->email,$request->email_content,$view);
     }
 
     //save user change from admin first page

@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BAZARTI.COM</title>
-</head>
-<body>
-<h1>به وب سایت بازار تهاتر ایرانیان خوش آمدید</h1>
-<p>شما می توانید کالاهای خود را به فروش برسانید</p>
+<div style="border:1px solid #ccc;padding: 25px;width: 100%">
+    <h1>پیام از طرف {{ $result['title'] }}</h1>
+    <hr>
+    <p>{{ $result['content'] }}</p>
+</div>
 
-<p>با تشکر : تیم فنی Bazarti</p>
-</body>
-</html>
+
 
 
