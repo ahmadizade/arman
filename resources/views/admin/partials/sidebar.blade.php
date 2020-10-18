@@ -32,13 +32,13 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
            aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
-            <span class="font-weight-bolder">مدیریت کاربران</span>
+            <span class="font-weight-bolder">سامانه مدیریت کاربر</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">User Management:</h6>
                 <a class="collapse-item font-weight-bolder" href="{{route('Admin_Users')}}">مدیریت کاربران</a>
-                <a class="collapse-item font-weight-bolder" href="">مدیریت همکاران</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('Contact_Us')}}">تماس با ما</a>
                 <a class="collapse-item font-weight-bolder" href="">مدیریت فروشگاه ها</a>
             </div>
         </div>

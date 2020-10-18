@@ -576,9 +576,6 @@
                             </div>
 
                         </div>
-
-
-
                         <!-- Illustrations -->
                         <div class="col-lg-4 mb-4">
                             <div class="card shadow mb-4">

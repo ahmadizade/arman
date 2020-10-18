@@ -132,10 +132,14 @@ class AdminController extends Controller
 
     public function EmailUser(Request $request)
     {
+        $user = User::where('id', $request->id)->first();
+        $email = $user->email;
+        $content = $request->email_content;
+        $name = $user->name;
         $view = 'from_admin';
         $subject = 'Www.SaminTakhfif.Com';
-        $title = '';
-        self::email($subject,2,$request->email,$request->email_content,$view);
+        $title = 'پشتیبانی سایت ثمین تخفیف';
+        self::email($email, $view, $content, $title, $subject);
     }
 
     //save user change from admin first page
@@ -212,4 +216,17 @@ class AdminController extends Controller
             }
         }
     }
+
+    public function ContactUs()
+    {
+        return view('admin.views.contactus');
+    }
+
+    public function ContactUs_GetUser()
+    {
+        return datatables()->of(DB::table('contact')->orderBy('created_at', 'desc'))->toJson();
+
+    }
+
+
 }

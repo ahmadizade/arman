@@ -38,7 +38,7 @@ class Controller extends BaseController
 
     }
 
-    public static function email($subject,$title,$email,$content,$view)
+    public static function email($email,$view,$content,$title,$subject)
     {
         $result = [
             "email" => $email,

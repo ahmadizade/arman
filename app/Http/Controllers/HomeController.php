@@ -39,7 +39,7 @@ class HomeController extends Controller
             "name" => $request->name,
             "phone" => $request->phone,
             "body" => $request->desc,
-            "date" => Carbon::now(),
+            "created_at" => Carbon::now(),
         ]);
 
         session()->flash("status","فرم شما با موفقیت ثبت شد. در صورت لزوم کارشناسان ما با شما تماس خواهند گرفت");
