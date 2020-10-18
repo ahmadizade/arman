@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Product;
 use App\Models\Store;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -26,5 +28,27 @@ class HomeController extends Controller
 
     }
 
+    public function contactAction(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $request->validate([
+            'name' => 'required|min:3|max:100',
+            'phone' => 'required|min:3|max:100',
+            'desc' => 'required|min:3|max:10000',
+        ]);
+
+        Contact::create([
+            "name" => $request->name,
+            "phone" => $request->phone,
+            "body" => $request->desc,
+            "date" => Carbon::now(),
+        ]);
+
+        session()->flash("status","فرم شما با موفقیت ثبت شد. در صورت لزوم کارشناسان ما با شما تماس خواهند گرفت");
+
+        return back();
+
+    }
 
 }

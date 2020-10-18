@@ -37,7 +37,7 @@
                         @elseif(Session::has("error"))
                             <div class="alert text-white alert-danger mb-2">{{ Session::get("error") }}</div>
                         @endif
-                        @if(!$result['id'])
+                        @if(!isset($result['id']))
                             <hr>
                             <h2 class="text-center text-warning">فروشگاه خود را ثبت کنید</h2>
                             <hr>

@@ -52,7 +52,6 @@ class ProfileController extends Controller
             'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
         ]);
 
-
         if (isset($request->file) && strlen($request->file) > 0) {
 
             $imageName = null;
@@ -61,7 +60,7 @@ class ProfileController extends Controller
 
             if ($exists == true) {
 
-                $imageName = $imageName  . time();
+                $imageName = time();
                 $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
@@ -136,7 +135,7 @@ class ProfileController extends Controller
 
             if ($exists == true) {
 
-                $imageName = $imageName  . time();
+                $imageName = time();
                 $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
@@ -193,7 +192,7 @@ class ProfileController extends Controller
         $request = $request->replace(self::faToEn($request->all()));
 
         $request->validate([
-            'desc' => 'required|min:10|max:100000',
+            'desc' => 'nullable|min:10|max:100000',
             'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
         ]);
 
@@ -205,7 +204,7 @@ class ProfileController extends Controller
 
             if ($exists == true) {
 
-                $imageName = $imageName . "-" . time();
+                $imageName = time();
                 $imageName = $imageName . "." . $request->file('file')->getClientOriginalExtension();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
@@ -290,7 +289,7 @@ class ProfileController extends Controller
 
             if ($exists == true) {
 
-                $imageName = $imageName  . time();
+                $imageName = time();
                 $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('images/shop/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
@@ -435,7 +434,7 @@ class ProfileController extends Controller
 
                 if ($exists == true) {
 
-                    $imageName = $imageName  . time();
+                    $imageName = time();
                     $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                     $img = Image::make('images/shop/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
