@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // home
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
+Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
 
 // admin
 Route::middleware(['admin'])->prefix("tahator")->group(function () {

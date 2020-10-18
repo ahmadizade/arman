@@ -26,7 +26,7 @@ class ProfileController extends Controller
         return view("profile.index", ["user" => Auth::user(), "menu" => "index"]);
     }
 
-    public function Store(){
+    public function Store(Request $request){
 
         $result = Store::where("user_id",Auth::id())->first();
 
@@ -52,7 +52,6 @@ class ProfileController extends Controller
             'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
         ]);
 
-
         if (isset($request->file) && strlen($request->file) > 0) {
 
             $imageName = null;
@@ -61,7 +60,7 @@ class ProfileController extends Controller
 
             if ($exists == true) {
 
-                $imageName = $imageName  . time();
+                $imageName = time();
                 $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
@@ -136,7 +135,7 @@ class ProfileController extends Controller
 
             if ($exists == true) {
 
-                $imageName = $imageName  . time();
+                $imageName = time();
                 $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
@@ -171,6 +170,7 @@ class ProfileController extends Controller
             'address' => $request->address,
             'date' => Carbon::now(),
             'logo' => $imageName,
+            'color' => $request->color,
             'title_slug' => self::slug($request->title),
             'branch_slug' => self::slug($request->branch),
         ]);
@@ -192,7 +192,7 @@ class ProfileController extends Controller
         $request = $request->replace(self::faToEn($request->all()));
 
         $request->validate([
-            'desc' => 'required|min:10|max:100000',
+            'desc' => 'nullable|min:10|max:100000',
             'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
         ]);
 
@@ -204,7 +204,7 @@ class ProfileController extends Controller
 
             if ($exists == true) {
 
-                $imageName = $imageName . "-" . time();
+                $imageName = time();
                 $imageName = $imageName . "." . $request->file('file')->getClientOriginalExtension();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
@@ -289,15 +289,15 @@ class ProfileController extends Controller
 
             if ($exists == true) {
 
-                $imageName = $imageName  . time();
+                $imageName = time();
                 $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
-                $img = Image::make('uploads/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                $img = Image::make('images/shop/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
                 $img->resize(400,400, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
-                $img->save('uploads/products/' . $imageName);
+                $img->save('images/shop/products/' . $imageName);
 
             } else {
 
@@ -306,7 +306,7 @@ class ProfileController extends Controller
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
-                $img->save('uploads/products/' . $imageName);
+                $img->save('images/shop/products/' . $imageName);
 
             }
 
@@ -317,7 +317,7 @@ class ProfileController extends Controller
             "user_id" => Auth::id(),
             "category_id" => "2",
             "product_name" => $request->name,
-            "product_slug" => Str::slug($request->name),
+            "product_slug" => self::slug($request->name),
             "price" => $request->price,
             "mobile" => $request->mobile,
             "product_desc" => htmlentities($request->desc),
@@ -406,7 +406,6 @@ class ProfileController extends Controller
 
     }
 
-
     public function EditProductSingleAction(Request $request){
 
         $request = $request->replace(self::faToEn($request->all()));
@@ -435,15 +434,15 @@ class ProfileController extends Controller
 
                 if ($exists == true) {
 
-                    $imageName = $imageName  . time();
+                    $imageName = time();
                     $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
-                    $img = Image::make('uploads/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                    $img = Image::make('images/shop/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
                     $img->resize(400,400, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });
-                    $img->save('uploads/products/' . $imageName);
+                    $img->save('images/shop/products/' . $imageName);
 
                 } else {
 
@@ -452,7 +451,7 @@ class ProfileController extends Controller
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });
-                    $img->save('uploads/products/' . $imageName);
+                    $img->save('images/shop/products/' . $imageName);
 
                 }
 
@@ -467,7 +466,7 @@ class ProfileController extends Controller
                 "user_id" => Auth::id(),
                 "category_id" => "2",
                 "product_name" => $request->name,
-                "product_slug" => Str::slug($request->name),
+                "product_slug" => self::slug($request->name),
                 "price" => $request->price,
                 "mobile" => $request->mobile,
                 "product_desc" => htmlentities($request->desc),
@@ -487,7 +486,6 @@ class ProfileController extends Controller
         return back();
 
     }
-
 
     public function ProfileEdit()
     {

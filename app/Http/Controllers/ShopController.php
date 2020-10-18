@@ -21,7 +21,9 @@ class ShopController extends Controller
 
             if(isset($store->id)){
 
-                return view("store",["result" => $store]);
+                $products = Product::where("user_id",$store->user_id)->where('status', 1)->get();
+
+                return view("store",["result" => $store , "products" => $products]);
 
             }
 
