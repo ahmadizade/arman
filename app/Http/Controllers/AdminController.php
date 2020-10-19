@@ -29,12 +29,12 @@ class AdminController extends Controller
         $today = DB::table('users')->where('created_at', ">=", Carbon::today())->count();
         $user_count = DB::table('users')->count();
         $product_count = DB::table('products')->count();
-//        $product_month = DB::table('products')->where('created_at', ">=", Carbon::today()->subMonth())->count();
-        $product_month = DB::table('products')->whereMonth('created_at', Carbon::now()->format('m'))->whereYear('created_at', Carbon::now()->format('Y'))->count();
-//        $product_week = DB::table('products')->where('created_at', ">=", Carbon::today()->subWeek())->count();
-        $product_week = DB::table('products')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
+        $product_month = DB::table('products')->where('created_at', ">=", Carbon::today()->subMonth())->count();
+        $product_week = DB::table('products')->where('created_at', ">=", Carbon::today()->subWeek())->count();
+//        $product_week = DB::table('products')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
         $product_today = DB::table('products')->where('created_at', ">=", Carbon::today())->count();
-        return view('admin.index', ['user_count' => $user_count, 'lastmonth' => $lastmonth, 'lastweek' => $lastweek, 'today' => $today, 'product_count' => $product_count, 'product_month' => $product_month, 'product_week' => $product_week, 'product_today' => $product_today]);
+        $contact_us = DB::table('contact')->orderBy('created_at', 'desc')->where('created_at', ">=", Carbon::today())->get();
+        return view('admin.views.index', ['user_count' => $user_count, 'lastmonth' => $lastmonth, 'lastweek' => $lastweek, 'today' => $today, 'product_count' => $product_count, 'product_month' => $product_month, 'product_week' => $product_week, 'product_today' => $product_today, 'contact_us' => $contact_us]);
     }
 
     //admin-page-login
@@ -167,7 +167,7 @@ class AdminController extends Controller
 
     public function credit()
     {
-        return view('admin.credit.credit');
+        return view('admin.views.credit.credit');
     }
 
     public function SuggestionAction(Request $request)

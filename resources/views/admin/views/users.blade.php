@@ -1,6 +1,6 @@
-@extends("layouts.master")
+@extends("admin.views.layouts.master")
 @section("title")
-    <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
+    <title>بازار تهاتر ایرانیان | مدیریت کاربران</title>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -35,7 +35,7 @@
 @section("content")
     <!-- Page Wrapper -->
     <div id="wrapper">
-    @include("/admin/partials.sidebar")
+    @include("admin.views.partials.sidebar")
 
     <!-- Content Wrapper -->
 

@@ -88,7 +88,7 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html">بازیابی رمزعبور</a>
+                                    <a class="small" href="../forgot-password.html">بازیابی رمزعبور</a>
                                 </div>
                                 {{--                  <div class="text-center">--}}
                                 {{--                    <a class="small" href="register.blade.php">Create an Account!</a>--}}

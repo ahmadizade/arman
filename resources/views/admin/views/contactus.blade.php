@@ -1,4 +1,4 @@
-@extends("admin.layouts.master")
+@extends("admin.views.layouts.master")
 @section("title")
     <title>سامانه مدیریت کاربر | ثمین تخفیف</title>
 @endsection
@@ -35,7 +35,7 @@
 @section("content")
     <!-- Page Wrapper -->
     <div id="wrapper">
-    @include("admin.partials.sidebar")
+    @include("admin.views.partials.sidebar")
 
     <!-- Content Wrapper -->
 

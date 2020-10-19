@@ -19,7 +19,7 @@
     @yield("title")
     <script src="/admin/vendor/jquery/jquery.min.js"></script>
     <!-- Jquery.min.js-->
-    @include("admin.partials.header")
+    @include("/admin.views.partials.header")
 
 </head>
 @yield("style")

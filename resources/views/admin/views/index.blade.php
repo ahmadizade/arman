@@ -1,4 +1,4 @@
-@extends("admin.layouts.master")
+@extends("/admin/views/layouts.master")
 @section("title")
     <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
 @endsection
@@ -21,6 +21,7 @@
         .myfont {
             font-family: iranyekan, icomoon, sans-serif !important;
         }
+
         .admin-rtl {
             direction: rtl !important;
         }
@@ -31,7 +32,7 @@
 @section("content")
     <!-- Page Wrapper -->
     <div id="wrapper">
-    @include("admin.partials.sidebar")
+    @include("/admin/views/partials.sidebar")
 
     <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -73,7 +74,7 @@
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
                                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$today}}
-                                                        %
+
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -105,7 +106,7 @@
                                                 <div class="col-auto">
                                                     <div
                                                         class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$lastweek}}
-                                                        %
+
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -138,7 +139,7 @@
                                                 <div class="col-auto">
                                                     <div
                                                         class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$lastmonth}}
-                                                        %
+
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -452,6 +453,71 @@
                     </div>
 
                     <!-- Content Row -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 col-lg-3 mb-4">
+                                <div class="card bg-gradient-primary text-white shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                            <div class="col-8 text-right">
+                                                تایید فروشگاه
+                                                <div class="text-white-50 small">Verify Store</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-4">
+                                <div class="card bg-gradient-success text-white shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                            <div class="col-8 text-right">
+                                                تایید رایانامه
+                                                <div class="text-white-50 small">Verify Email</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-4">
+                                <div class="card bg-gradient-info text-white shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                            <div class="col-8 text-right">
+                                                تماس با ما
+                                                <div class="text-white-50 small">Contact Us</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 mb-4">
+                                <div class="card bg-warning text-white shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                            <div class="col-8 text-right">
+                                                تایید فروشگاه
+                                                <div class="text-white-50 small">Verify Store</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
 
                         <!-- Content Column -->
@@ -498,18 +564,12 @@
                                              aria-valuenow="{{$product_today}}" aria-valuemin="0"
                                              aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Account Setup <span
-                                            class="float-right">Complete!</span></h4>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
                                 </div>
                             </div>
 
                             <!-- Color System -->
                             <div class="row">
-                                <div class="col-lg-6 mb-4">
+                                <div class="col-lg-12 mb-4">
                                     <div class="card bg-primary text-white shadow">
                                         <div class="card-body">
                                             Primary
@@ -694,25 +754,25 @@
                                 </div>
                             </div>
                         </div>
-                        {{--MINUS MODAL--}}
+                    {{--MINUS MODAL--}}
 
                     <!-- Approach -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                            </div>
+                            <div class="card-body">
+                                <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
+                                    CSS
+                                    bloat and poor page performance. Custom CSS classes are used to create custom
+                                    components and custom utility classes.</p>
+                                <p class="mb-0">Before working with this theme, you should become familiar with the
+                                    Bootstrap framework, especially the utility classes.</p>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                CSS
-                                bloat and poor page performance. Custom CSS classes are used to create custom
-                                components and custom utility classes.</p>
-                            <p class="mb-0">Before working with this theme, you should become familiar with the
-                                Bootstrap framework, especially the utility classes.</p>
-                        </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
         <!-- /.container-fluid -->
