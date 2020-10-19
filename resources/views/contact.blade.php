@@ -87,7 +87,7 @@
                                                    placeholder="نام و نام خانوادگی">
                                         </div>
                                         <div class="col-12 col-lg-6 mt-2">
-                                            <input id="phone" name="phone" value="{{ old("phone") }}" class="form-control"
+                                            <input id="mobile" name="mobile" value="{{ old("mobile") }}" class="form-control"
                                                    placeholder="شماره تماس">
                                         </div>
                                     </div>

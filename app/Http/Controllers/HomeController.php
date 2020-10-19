@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Store;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
@@ -31,13 +32,18 @@ class HomeController extends Controller
 
         $request->validate([
             'name' => 'required|min:3|max:100',
-            'phone' => 'required|min:3|max:100',
+            'mobile' => 'required|min:3|max:100',
             'desc' => 'required|min:3|max:10000',
         ]);
-
+        if (Auth::check()){
+            $user_id = Auth::id();
+        }else{
+            $user_id = "";
+        }
         Contact::create([
+            "user_id" => $user_id,
             "name" => $request->name,
-            "phone" => $request->phone,
+            "mobile" => $request->mobile,
             "body" => $request->desc,
             "created_at" => Carbon::now(),
         ]);

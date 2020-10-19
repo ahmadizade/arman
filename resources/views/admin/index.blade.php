@@ -713,7 +713,7 @@
 
                 </div>
             </div>
-
+            </div>
         </div>
         <!-- /.container-fluid -->
 
@@ -761,7 +761,7 @@
         </div>
     </div>
 
-@endsection();
+@endsection()
 
 @section('extra_js')
     <script src="/admin/js/admin_jquery.js"></script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -61,7 +62,7 @@ class AdminController extends Controller
 
     public function AdminUsers()
     {
-        return view('admin.users');
+        return view('admin.views.users');
     }
 
 
@@ -228,5 +229,36 @@ class AdminController extends Controller
 
     }
 
+    //admin send sms to users
+    public function ContactUs_SmsUser(Request $request)
+    {
+        {
+            $data = Contact::where('id', $request->id)->first();
+            $mobile = $data->mobile;
+            $content = $request->sms_content;
+            self::sms($mobile, $content);
+            $data->answer_at = Carbon::now();
+            $data->save();
+        }
+    }
 
+    public function ContactUs_EmailUser(Request $request)
+    {
+        $user = User::where('mobile', $request->mobile)->first();
+
+        if ($user == "" || $user->email == "") {
+            return response()->json(['status' => 'متاسفانه این کاربر دارای ایمیل نیست']);
+        } else {
+            $email = $user->email;
+            $content = $request->email_content;
+            $view = 'from_admin';
+            $subject = 'Www.SaminTakhfif.Com';
+            $title = 'پاسخ ایمیل شما';
+            self::email($email, $view, $content, $title, $subject);
+            $data = Contact::where('id', $request->id)->first();
+            $data->answer_at = Carbon::now();
+            $data->save();
+            return response()->json(['status' => 'ایمیل با موفقیت ارسال شد']);
+        }
+    }
 }

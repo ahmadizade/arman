@@ -81,12 +81,12 @@
                                 <thead class="bg-gradient-primary text-white shadow">
                                 <tr>
                                     <th scope="col">Id</th>
+                                    <th scope="col">User_Id</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Mobile</th>
                                     <th scope="col">Content</th>
                                     <th scope="col">Created_at</th>
                                     <th scope="col">Answer_at</th>
-                                    <th scope="col">EDIT</th>
                                     <th scope="col">Message</th>
                                 </tr>
                                 </thead>
@@ -304,6 +304,7 @@
                     <form>
                         <p>همکار گرامی، پیام ارسالی شما در پنل مدیریت نمایش داده میشود</p>
                         <div class="form-group text-right">
+                            <input id="send_id" name="send_id" type="hidden">
                             <input id="send_mail" name="send_mail" type="hidden">
                             <i class="fas fa-pencil-alt prefix"></i>
                             <textarea id="email_content" name="email_content" class="text-right form-control" rows="3"
@@ -342,151 +343,82 @@
     <script type="text/javascript" charset="utf8"
             src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <script>
-        $(function () {
-//Delete User
-            {{--            $("body").on("click", ".delete", function () {--}}
-            {{--                id = $(this).attr("data-id");--}}
-            {{--                $.ajax({--}}
-            {{--                    type: 'post',--}}
-            {{--                    url: "{{ route("delete_user_action") }}",--}}
-            {{--                    data: {"id": id},--}}
-            {{--                    success: function (result) {--}}
-            {{--                        if (result == "DONE") {--}}
-            {{--                            alert('حذف کاربر با موفقیت انجام شد');--}}
-            {{--                        } else {--}}
-            {{--                            alert('متاسفانه مشکلی پیش آمده، با واحد آی تی تماس بگیرید');--}}
-            {{--                        }--}}
-            {{--                    }--}}
-            {{--                });--}}
-            {{--            });--}}
-            //Delete User
-
-//Edit User
-            {{--            $("body").on("click", ".edit", function (e) {--}}
-            {{--                let mobile = $(this).attr("data-id");--}}
-            {{--                $.ajax({--}}
-            {{--                    type: 'post',--}}
-            {{--                    url: '{{ route("search_user") }}',--}}
-            {{--                    data: {"mobile": mobile},--}}
-            {{--                    success: function (response) {--}}
-            {{--                        if (response.status == 0) {--}}
-            {{--                            $("#res_msg").html(response.desc);--}}
-            {{--                        } else {--}}
-            {{--                            $("#res-mobile").val(response.mobile);--}}
-            {{--                            $("#res-name").val(response.name);--}}
-            {{--                            $("#res-role").val(response.role);--}}
-            {{--                            $("#res-verified").val(response.verified);--}}
-            {{--                            $("#res-user_mode").val(response.user_mode);--}}
-            {{--                            $("#res-email").val(response.email);--}}
-            {{--                            $("#res-credit").val(response.credit);--}}
-            {{--                            $("#res-created_at").val(response.created_at);--}}
-            {{--                            $("#res-updated_at").val(response.updated_at);--}}
-            {{--                        }--}}
-            {{--                        e.preventDefault();--}}
-            {{--                    }--}}
-            {{--                });--}}
-            {{--            });--}}
-            //Edit User
-
-//SMS TO User
-            {{--            $("body").on("click", ".sms", function () {--}}
-            {{--                let mobile = $(this).attr("data-id");--}}
-            {{--                $('#sms-mobile').val(mobile);--}}
-            {{--            });--}}
-            {{--            $('#send-sms').click(function (e) {0--}}
-            {{--                $.ajax({--}}
-            {{--                    type: "post",--}}
-            {{--                    url: "{{route('Sms_User')}}",--}}
-            {{--                    data: {'mobile': $('#sms-mobile').val(), 'sms_content': $('#sms_content').val()},--}}
-            {{--                    success: function (response) {--}}
-            {{--                        console.log(response);--}}
-            {{--                    }--}}
-            {{--                });--}}
-            {{--                e.preventDefault(e);--}}
-            {{--            });--}}
-            //SMS TO User
-
-//Email TO User
-                        $("body").on("click", ".reply", function () {
-                            let id = $(this).attr("data-id");
-                            $('#send_mail').val(id);
-                        });
-                        $('#reply-email-btn').click(function (e) {
-                            $.ajax({
-                                type: "post",
-                                url: "{{route('Email_User')}}",
-                                data: {'id': $('#send_mail').val(), 'email_content': $('#email_content').val()},
-                                success: function (response) {
-                                    console.log(response);
-                                }
-                            });
-                            e.preventDefault(e);
-                        });
-            //Email TO User
-
-//Save User Data)
-            {{--            $("#save-user-data").click(function (e) {--}}
-            {{--                $.ajax({--}}
-            {{--                    type: "POST",--}}
-            {{--                    url: '{{route('save_user')}}',--}}
-            {{--                    data: $("#save-user-form").serialize(),--}}
-            {{--                    success: function (res) {--}}
-            {{--                        if (res.status == 1) {--}}
-            {{--                            $("#error_box").fadeOut();--}}
-            {{--                            $("#res_msg").html(res.desc).fadeIn();--}}
-            {{--                        } else {--}}
-            {{--                            $.each(res.errors, function (i, item) {--}}
-            {{--                                $("#res_msg").fadeOut();--}}
-            {{--                                $("#error_box").html('<p class="text-danger">' + res.errors[i] + '</p>').fadeIn();--}}
-            {{--                            });--}}
-            {{--                        }--}}
-            {{--                    }--}}
-            {{--                });--}}
-            {{--                e.preventDefault(e);--}}
-            {{--            });--}}
-            //Save User Data)
-            $('#user_table').DataTable({
-                processing: true,
-                serverSide: true,
-                dom: 'Bfrtip',
-                bLengthChange: false,
-                pageLength: 5,
-                "searching": true,
-                "scrollCollapse": true,
-                ajax: {
-                    dataType: 'json',
-                    type: 'GET',
-                    url: '/tahator/contact-us/get-user',
-                },
-                buttons: [
-                    // 'copy', 'csv', 'excel', 'pdf', 'print'
-                    //     {extend: 'create', editor: myEditor},
-                    //     {extend: 'edit', editor: myEditor},
-                    //     {extend: 'remove', editor: myEditor}
-                ],
-                columns: [
-                    {data: 'id', name: 'id'},
-                    {data: 'name', name: 'name'},
-                    {data: 'phone', name: 'phone'},
-                    {data: 'body', name: 'body'},
-                    {data: 'created_at', name: 'created_at'},
-                    {data: 'answer_at', name: 'answer_at'},
-                    {
-                        className: "ltr text-center", data: "id", render: function (data, type, row) {
-                            return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger disabled" disabled data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.mobile + '"  class="btn btn-sm text-white bg-gradient-success edit" data-toggle="modal" data-target="#edit">EDIT</button></div></div>';
-                        }
-                    },
-                    {
-                        className: "ltr text-center", data: "id", render: function (data, type, row) {
-                            if (row.email == "") {
-                                return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.mobile + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '"  disabled class="btn btn-sm text-white bg-gradient-primary disabled email">Email</button></div></div>';
-                            } else {
-                                return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.mobile + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '"  class="btn btn-sm text-white bg-gradient-primary reply" data-toggle="modal" data-target="#reply-email" >Reply</button></div></div>';
-                            }
-                        }
-                    },
-                ]
+        //SMS TO User
+        $("body").on("click", ".sms", function () {
+            let id = $(this).attr("data-id");
+            $('#sms-mobile').val(id);
+        });
+        $('#send-sms').click(function (e) {
+            $.ajax({
+                type: "post",
+                url: "{{route('Contact_Us_Sms_User')}}",
+                data: {'id': $('#sms-mobile').val(), 'sms_content': $('#sms_content').val()},
+                success: function (response) {
+                    console.log(response);
+                }
             });
+            e.preventDefault(e);
+        });
+        //SMS TO User
+
+        //Email TO User
+        $("body").on("click", ".reply", function () {
+            let id = $(this).attr("data-id");
+            let mobile = $(this).attr("data-mobile");
+            $('#send_id').val(id);
+            $('#send_mail').val(mobile);
+        });
+        $('#reply-email-btn').click(function (e) {
+            $.ajax({
+                type: "post",
+                url: "{{route('Contact_Us_Email_User')}}",
+                data: {
+                    'id': $('#send_id').val(),
+                    'mobile': $('#send_mail').val(),
+                    'email_content': $('#email_content').val()
+                },
+                success: function (response) {
+                    alert(response['status']);
+                }
+            });
+            e.preventDefault(e);
+        });
+        //Email TO User
+
+        //DataTable
+        $('#user_table').DataTable({
+            processing: true,
+            serverSide: true,
+            dom: 'Bfrtip',
+            bLengthChange: false,
+            pageLength: 5,
+            "searching": true,
+            "scrollCollapse": true,
+            ajax: {
+                dataType: 'json',
+                type: 'GET',
+                url: '/tahator/contact-us/get-user',
+            },
+            buttons: [
+                // 'copy', 'csv', 'excel', 'pdf', 'print'
+                //     {extend: 'create', editor: myEditor},
+                //     {extend: 'edit', editor: myEditor},
+                //     {extend: 'remove', editor: myEditor}
+            ],
+            columns: [
+                {data: 'id', name: 'id'},
+                {data: 'user_id', name: 'user_id'},
+                {data: 'name', name: 'name'},
+                {data: 'mobile', name: 'mobile'},
+                {data: 'body', name: 'body'},
+                {data: 'created_at', name: 'created_at'},
+                {data: 'answer_at', name: 'answer_at'},
+                {
+                    className: "ltr text-center", data: "id", render: function (data, type, row) {
+                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '"  data-mobile="' + row.mobile + '"  class="btn btn-sm text-white bg-gradient-primary reply" data-toggle="modal" data-target="#reply-email" >Reply</button></div></div>';
+                    },
+                },
+            ]
         });
     </script>
 @endsection

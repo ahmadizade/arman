@@ -1,4 +1,4 @@
-@extends("admin.layouts.master")
+@extends("layouts.master")
 @section("title")
     <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
 @endsection
@@ -35,7 +35,7 @@
 @section("content")
     <!-- Page Wrapper -->
     <div id="wrapper">
-    @include("admin.partials.sidebar")
+    @include("/admin/partials.sidebar")
 
     <!-- Content Wrapper -->
 
@@ -324,27 +324,6 @@
         </div>
     </div>
     {{--EMAIL MODAL--}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @endsection
