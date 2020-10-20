@@ -47,7 +47,7 @@
         </li>
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
-            @if($contact_us->count() > 0)
+            @if(isset($contact_us) && count($contact_us) > 0)
                 <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bell fa-fw"></i>
@@ -67,7 +67,6 @@
                                     <i class="fas fa-file-alt text-white"></i>
                                 </div>
                             </div>
-
                             <div>
                                 <div class="small text-gray-500">{{$item->created_at}}</div>
                                 <span class="font-weight-bold">{{$item->body}}</span>

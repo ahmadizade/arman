@@ -25,10 +25,14 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/credit-suggestion-action', 'App\Http\Controllers\AdminController@SuggestionAction')->name("suggestion_action");
     Route::post('/credit-show-action', 'App\Http\Controllers\AdminController@CreditShowAction')->name("credit_show_action");
     Route::post('/credit-charge-action', 'App\Http\Controllers\AdminController@CreditChargeAction')->name("credit_charge_action");
+    //Contact_Us
     Route::get('/contact-us', 'App\Http\Controllers\AdminController@ContactUs')->name("Contact_Us");
     Route::get('/contact-us/get-user', 'App\Http\Controllers\AdminController@ContactUs_GetUser')->name("Contact_Us_GetUser");
     Route::post('/contact-us/sms-user', 'App\Http\Controllers\AdminController@ContactUs_SmsUser')->name("Contact_Us_Sms_User")->middleware("ajax","verify.domain");
     Route::post('/contact-us/email-user', 'App\Http\Controllers\AdminController@ContactUs_EmailUser')->name("Contact_Us_Email_User")->middleware("ajax","verify.domain");
+    //Store
+    Route::get('/store', 'App\Http\Controllers\AdminController@Store')->name("Store");
+    Route::get('/store/get-user', 'App\Http\Controllers\AdminController@Store_GetUser')->name("Store_GetUser");
 
 });
 // admin

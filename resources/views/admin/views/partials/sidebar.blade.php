@@ -54,13 +54,13 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
            aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
-            <span class="font-weight-bolder">مدیریت محصول</span>
+            <span class="font-weight-bolder">مدیریت فروشگاه</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Product Management:</h6>
-                <a class="collapse-item font-weight-bolder" href="#">مدیریت محصولات</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('Store_GetUser')}}">فروشگاه ها</a>
                 <a class="collapse-item font-weight-bolder" href="#">محصولات ثبت شده</a>
                 <a class="collapse-item font-weight-bolder" href="#">مدیریت فروشگاه ها</a>
                 <a class="collapse-item font-weight-bolder" href="#">صفحه ثبت فروشگاه</a>

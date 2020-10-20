@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,14 +28,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         Paginator::useBootstrap();
-
         Schema::defaultStringLength(191);
-
         Carbon::getWeekStartsAt(Carbon::FRIDAY);
         Carbon::getWeekEndsAt(Carbon::THURSDAY);
 
 
+        View::composer('*', function ($view) {
+            $contact_us = DB::table('contact')->orderBy('created_at', 'desc')->where('created_at', ">=", Carbon::today())->get();
+            $view->with('contact_us',$contact_us);
+        });
     }
 }

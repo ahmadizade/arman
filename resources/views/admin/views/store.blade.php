@@ -31,7 +31,6 @@
         }
     </style>
 @endsection
-
 @section("content")
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -80,12 +79,22 @@
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">User_Id</th>
+                                    <th scope="col">Title</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Mobile</th>
-                                    <th scope="col">Content</th>
+                                    <th scope="col">Melli_Code</th>
+                                    <th scope="col">Category</th>
+{{--                                    <th scope="col">Description</th>--}}
+                                    <th scope="col">Shenase_Melli</th>
+                                    <th scope="col">Nature</th>
+                                    <th scope="col">branch</th>
                                     <th scope="col">Created_at</th>
-                                    <th scope="col">Answer_at</th>
-                                    <th scope="col">Message</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">verify</th>
+                                    <th scope="col">title_slug</th>
+                                    <th scope="col">branch_slug</th>
+                                    <th scope="col">Action</th>
+                                    <th scope="col">EDIT</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -395,7 +404,7 @@
             ajax: {
                 dataType: 'json',
                 type: 'GET',
-                url: '/tahator/contact-us/get-user',
+                url: '{{route('Store_GetUser')}}',
             },
             buttons: [
                 // 'copy', 'csv', 'excel', 'pdf', 'print'
@@ -406,11 +415,25 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'user_id', name: 'user_id'},
+                {data: 'title', name: 'title'},
                 {data: 'name', name: 'name'},
-                {data: 'mobile', name: 'mobile'},
-                {data: 'body', name: 'body'},
+                {data: 'melli_code', name: 'melli_code'},
+                {data: 'category', name: 'category'},
+                // {data: 'desc', name: 'desc'},
+                {data: 'shenase_melli', name: 'shenase_melli'},
+                {data: 'nature', name: 'nature'},
+                {data: 'branch', name: 'branch'},
                 {data: 'created_at', name: 'created_at'},
-                {data: 'answer_at', name: 'answer_at'},
+                {data: 'address', name: 'address'},
+                {data: 'status', name: 'status'},
+                {data: 'verify', name: 'verify'},
+                {data: 'title_slug', name: 'title_slug'},
+                {data: 'branch_slug', name: 'branch_slug'},
+                {
+                    className: "ltr text-center", data: "id", render: function (data, type, row) {
+                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger" data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.mobile + '"  class="btn btn-sm text-white bg-gradient-success edit" data-toggle="modal" data-target="#edit">EDIT</button></div></div>';
+                    }
+                },
                 {
                     className: "ltr text-center", data: "id", render: function (data, type, row) {
                         return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '"  data-mobile="' + row.mobile + '"  class="btn btn-sm text-white bg-gradient-primary reply" data-toggle="modal" data-target="#reply-email" >Reply</button></div></div>';

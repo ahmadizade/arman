@@ -501,7 +501,7 @@
                                 </div>
                             </div>
                             <div class="col-12 col-lg-3 mb-4">
-                                <div class="card bg-warning text-white shadow">
+                                <div class="card bg-gradient-warning text-white shadow">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-4">

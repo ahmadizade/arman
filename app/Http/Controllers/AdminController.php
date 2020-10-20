@@ -33,15 +33,13 @@ class AdminController extends Controller
         $product_week = DB::table('products')->where('created_at', ">=", Carbon::today()->subWeek())->count();
 //        $product_week = DB::table('products')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->count();
         $product_today = DB::table('products')->where('created_at', ">=", Carbon::today())->count();
-        $contact_us = DB::table('contact')->orderBy('created_at', 'desc')->where('created_at', ">=", Carbon::today())->get();
-        return view('admin.views.index', ['user_count' => $user_count, 'lastmonth' => $lastmonth, 'lastweek' => $lastweek, 'today' => $today, 'product_count' => $product_count, 'product_month' => $product_month, 'product_week' => $product_week, 'product_today' => $product_today, 'contact_us' => $contact_us]);
+        return view('admin.views.index', ['user_count' => $user_count, 'lastmonth' => $lastmonth, 'lastweek' => $lastweek, 'today' => $today, 'product_count' => $product_count, 'product_month' => $product_month, 'product_week' => $product_week, 'product_today' => $product_today]);
     }
 
     //admin-page-login
     public function tahator_login()
     {
         return view('admin.login');
-
     }
 
     public function AdminLoginAction(request $request)
@@ -217,7 +215,7 @@ class AdminController extends Controller
             }
         }
     }
-
+//CONTACT US  CONTACT US  CONTACT US  CONTACT US  CONTACT US  CONTACT US  CONTACT US  CONTACT US  CONTACT US
     public function ContactUs()
     {
         return view('admin.views.contactus');
@@ -261,4 +259,18 @@ class AdminController extends Controller
             return response()->json(['status' => 'ایمیل با موفقیت ارسال شد']);
         }
     }
+
+
+//STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE
+    public function Store()
+    {
+        return view('admin.views.store');
+    }
+
+    public function Store_GetUser()
+    {
+        return datatables()->of(DB::table('store')->orderBy('created_at', 'desc'))->toJson();
+    }
+
+
 }
