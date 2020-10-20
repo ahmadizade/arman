@@ -7,6 +7,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
 Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
 
+
 // admin
 Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
@@ -76,4 +77,7 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
 Route::prefix("shop")->group(function () {
     Route::get('/{title}/{branch?}', 'App\Http\Controllers\ShopController@singleShop')->name("single_shop");
     Route::get('/product/{id}', 'App\Http\Controllers\ShopController@ProductSingle')->name("shop_product_single");
+    Route::post('/comment-action', 'App\Http\Controllers\ShopController@CommentAction')->name("comment_action")->middleware("ajax","verify.domain");
+    Route::post('/shop-like', 'App\Http\Controllers\ShopController@Like')->name("like")->middleware("ajax","verify.domain");
+
 });

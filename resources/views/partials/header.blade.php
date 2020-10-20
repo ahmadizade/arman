@@ -38,10 +38,14 @@
                                 </li>
                             @endif
 
-{{--                            @if(Auth::check())--}}
                                 <li><a href="{{ route("contact") }}" class="nav-link">تماس با ما</a></li>
-                                <li><a href="{{ route("store") }}" class="nav-link text-primary">ثبت فروشگاه</a></li>
-{{--                            @endif--}}
+                                <li>
+                                    @if(Auth::user()->role == "user")
+                                        <a href="{{ route("store") }}" class="nav-link text-primary">ثبت فروشگاه</a>
+                                    @elseif(Auth::user()->role == "supplier")
+                                        <a href="{{ route("store") }}" class="nav-link text-primary">فروشگاه من</a>
+                                    @endif
+                                </li>
 
                                 <li class="has-children"><a href="#contact-section" class="nav-link">مرکز خدمات</a>
                                 <ul class="dropdown text-right">
