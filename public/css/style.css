@@ -20,6 +20,10 @@ body {
     margin: -1rem auto -1rem -1rem;
 }
 
+.swal2-html-container{
+    font-size: 13px;
+}
+
 .btn {
     font-size: 13px !important;
 }
