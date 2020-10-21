@@ -244,8 +244,11 @@ class AdminController extends Controller
 
     public function ContactUs_EmailUser(Request $request)
     {
-        $user = User::where('mobile', $request->mobile)->first();
-
+        if (isset($request->mobile) && $request->mobile !== ""){
+            $user = User::where('mobile', $request->mobile)->first();
+        }else{
+            $user = User::where('id', $request->user_id)->first();
+        }
         if ($user == "" || $user->email == "") {
             return response()->json(['status' => 'متاسفانه این کاربر دارای ایمیل نیست']);
         } else {
@@ -291,8 +294,9 @@ class AdminController extends Controller
             'res-nature' => ['string', 'min:1', 'max:32', 'nullable'],
             'res-branch' => ['string', 'min:1', 'max:128', 'nullable'],
             'res-address' => ['string', 'min:1', 'max:256', 'nullable'],
-            'res-status' => ['string', 'max:16', 'nullable'],
-            'res-verify' => ['string', 'max:16', 'nullable'],
+            'res-status' => ['string', 'max:8', 'nullable'],
+            'res-verify' => ['string', 'max:8', 'nullable'],
+            'res-delete' => ['string', 'max:8', 'nullable'],
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
@@ -309,6 +313,7 @@ class AdminController extends Controller
             $store->address = $request->res_address;
             $store->status = $request->res_status;
             $store->verify = $request->res_verify;
+            $store->delete = $request->res_delete;
             $store->updated_at = Carbon::now();
             $store->save();
             return Response::json(["status" => "1", "description" => " ذخیره اطلاعات $request->res_name با موفقیت انجام شد "]);

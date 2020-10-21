@@ -53,7 +53,7 @@
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 myfont font-weight-bold text-primary">
-                                پاسخ به پیام کاربران
+                                سامانه مدیریت فروشگاه
                             </h6>
                             <div class="dropdown no-arrow">
                                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -93,6 +93,7 @@
                                     <th scope="col">verify</th>
                                     <th scope="col">title_slug</th>
                                     <th scope="col">branch_slug</th>
+                                    <th scope="col">Delete</th>
                                     <th scope="col">Action</th>
                                     <th scope="col">EDIT</th>
                                 </tr>
@@ -334,6 +335,19 @@
                         </div>
                     </div>
 
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <select id="res-delete" name="res_delete"
+                                    class="input-group-text form-control font-12" required autofocus>
+                                <option value="0">نمایش</option>
+                                <option value="1">حذف</option>
+                            </select>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">نمایش</span>
+                            </div>
+                        </div>
+                    </div>
+
 
                     {{--                                <//Mobile\\>--}}
                     <button type="button"
@@ -372,6 +386,40 @@
     </div>
     {{--DELETE MODAL--}}
 
+    {{--EMAIL MODAL--}}
+    <div class="modal fade" id="reply-email" tabindex="-1" role="dialog" aria-labelledby="email-area"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-info">
+                    <p class="text-white modal-title myfont" id="email-area">SEND Email TO USERS</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-right">
+                    <form>
+                        <p>همکار گرامی، پیام ارسالی شما در پنل مدیریت نمایش داده میشود</p>
+                        <div class="form-group text-right">
+                            <input id="send_id" name="send_id" type="hidden">
+                            <input id="send_user_id" name="send_user_id" type="hidden">
+                            <i class="fas fa-pencil-alt prefix"></i>
+                            <textarea id="email_content" name="email_content" class="text-right form-control" rows="3"
+                                      placeholder="...Email"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
+                    <button type="button" id="reply-email-btn" class="btn btn-success"
+                            data-dismiss="modal">
+                        ارسال
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--EMAIL MODAL--}}
 
 
 
@@ -413,6 +461,7 @@
                         $("#res-address").val(response.address);
                         $("#res-status").val(response.status);
                         $("#res-verify").val(response.verify);
+                        $("#res-delete").val(response.delete);
                     }
                     e.preventDefault();
                 }
@@ -484,6 +533,30 @@
         });
         //SMS TO User
 
+        //Email TO User
+        $("body").on("click", ".reply", function () {
+            let id = $(this).attr("data-id");
+            let user_id = $(this).attr("data-user_id");
+            $('#send_id').val(id);
+            $('#send_user_id').val(user_id);
+        });
+        $('#reply-email-btn').click(function (e) {
+            $.ajax({
+                type: "post",
+                url: "{{route('Contact_Us_Email_User')}}",
+                data: {
+                    'id': $('#send_id').val(),
+                    'user_id': $('#send_user_id').val(),
+                    'email_content': $('#email_content').val()
+                },
+                success: function (response) {
+                    alert(response['status']);
+                }
+            });
+            e.preventDefault(e);
+        });
+        //Email TO User
+
 
         //DataTable
         $('#user_table').DataTable({
@@ -522,6 +595,7 @@
                 {data: 'verify', name: 'verify'},
                 {data: 'title_slug', name: 'title_slug'},
                 {data: 'branch_slug', name: 'branch_slug'},
+                {data: 'delete', name: 'delete'},
                 {
                     className: "ltr text-center", data: "id", render: function (data, type, row) {
                         return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger delete" data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.id + '"  class="btn btn-sm text-white bg-gradient-success view" data-toggle="modal" data-target="#view">VIEW</button></div></div>';
@@ -529,7 +603,7 @@
                 },
                 {
                     className: "ltr text-center", data: "id", render: function (data, type, row) {
-                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" data-user_id="' + row.user_id + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-primary reply" data-toggle="modal" data-target="#reply-email" >Reply</button></div></div>';
+                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" data-user_id="' + row.user_id + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '" data-user_id="' + row.user_id + '" class="btn btn-sm text-white bg-gradient-primary reply" data-toggle="modal" data-target="#reply-email" >Email</button></div></div>';
                     },
                 },
             ]

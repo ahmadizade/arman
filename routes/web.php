@@ -12,21 +12,20 @@ Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("Ab
 // admin
 Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
-    Route::get('/login', 'App\Http\Controllers\AdminController@tahator_login')->name("tahator_login");
-    Route::post('/login-action', 'App\Http\Controllers\AdminController@AdminLoginAction')->name("admin_login_action")->middleware("ajax","verify.domain");
-    Route::get('/register', 'App\Http\Controllers\AdminController@tahator_register')->name("tahator_register");
-    Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user");
-    Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user");
+    //User Manager
+    Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user")->middleware("ajax","verify.domain");
+    Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user")->middleware("ajax","verify.domain");
     Route::post('/sms-user', 'App\Http\Controllers\AdminController@SmsUser')->name("Sms_User")->middleware("ajax","verify.domain");
     Route::post('/email-user', 'App\Http\Controllers\AdminController@EmailUser')->name("Email_User")->middleware("ajax","verify.domain");
     Route::get('/admin-users', 'App\Http\Controllers\AdminController@AdminUsers')->name("Admin_Users");
     Route::get('/admin-users/get-user', 'App\Http\Controllers\AdminController@GetUser')->name("get_user");
     Route::post('/admin-users/delete-user', 'App\Http\Controllers\AdminController@DeleteUserAction')->name("delete_user_action")->middleware("ajax","verify.domain");
     Route::post('/admin-users/edit-user', 'App\Http\Controllers\AdminController@EditUserAction')->name("edit_user_action")->middleware("ajax","verify.domain");
+    //Credit
     Route::get('/credit', 'App\Http\Controllers\AdminController@Credit')->name("credit");
     Route::get('/credit-suggestion-action', 'App\Http\Controllers\AdminController@SuggestionAction')->name("suggestion_action");
-    Route::post('/credit-show-action', 'App\Http\Controllers\AdminController@CreditShowAction')->name("credit_show_action");
-    Route::post('/credit-charge-action', 'App\Http\Controllers\AdminController@CreditChargeAction')->name("credit_charge_action");
+    Route::post('/credit-show-action', 'App\Http\Controllers\AdminController@CreditShowAction')->name("credit_show_action")->middleware("ajax","verify.domain");
+    Route::post('/credit-charge-action', 'App\Http\Controllers\AdminController@CreditChargeAction')->name("credit_charge_action")->middleware("ajax","verify.domain");
     //Contact_Us
     Route::get('/contact-us', 'App\Http\Controllers\AdminController@ContactUs')->name("Contact_Us");
     Route::get('/contact-us/get-user', 'App\Http\Controllers\AdminController@ContactUs_GetUser')->name("Contact_Us_GetUser");

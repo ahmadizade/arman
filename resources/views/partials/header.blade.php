@@ -37,7 +37,7 @@
                                     </ul>
                                 </li>
                             @endif
-                                <li><a href="{{ route("contact") }}" class="nav-link">درباره ما</a></li>
+                                <li><a href="{{ route("About_Us") }}" class="nav-link">درباره ما</a></li>
                                 <li><a href="{{ route("contact") }}" class="nav-link">تماس با ما</a></li>
                                 <li>
                                     @if(Auth::check() && Auth::user()->role == "user")
