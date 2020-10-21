@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Store;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -215,6 +216,7 @@ class AdminController extends Controller
             }
         }
     }
+
 //CONTACT US  CONTACT US  CONTACT US  CONTACT US  CONTACT US  CONTACT US  CONTACT US  CONTACT US  CONTACT US
     public function ContactUs()
     {
@@ -269,8 +271,58 @@ class AdminController extends Controller
 
     public function Store_GetUser()
     {
-        return datatables()->of(DB::table('store')->orderBy('created_at', 'desc'))->toJson();
+        return datatables()->of(DB::table('store')->orderBy('date', 'desc'))->toJson();
     }
 
+    public function Store_ViewStore(Request $request)
+    {
+        return Store::where('id', $request->id)->first();
+    }
 
+    public function SaveStoreData(request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'res-title' => ['string', 'min:5', 'max:128',],
+            'res-name' => ['string', 'min:3', 'max:128',],
+            'res-melli_code' => ['string', 'min:5', 'max:32', 'nullable'],
+            'res-category' => ['string', 'min:1', 'max:16',],
+            'res-desc' => ['string', 'max:1024', 'nullable'],
+            'res-shenase_melli' => ['string', 'min:5', 'max:128', 'nullable'],
+            'res-nature' => ['string', 'min:1', 'max:32', 'nullable'],
+            'res-branch' => ['string', 'min:1', 'max:128', 'nullable'],
+            'res-address' => ['string', 'min:1', 'max:256', 'nullable'],
+            'res-status' => ['string', 'max:16', 'nullable'],
+            'res-verify' => ['string', 'max:16', 'nullable'],
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        } else {
+            $store = Store::where('id', $request->res_id)->first();
+            $store->title = $request->res_title;
+            $store->name = $request->res_name;
+            $store->melli_code = $request->res_melli_code;
+            $store->category = $request->res_category;
+            $store->desc = $request->res_desc;
+            $store->shenase_melli = $request->res_shenase_melli;
+            $store->nature = $request->res_nature;
+            $store->branch = $request->res_branch;
+            $store->address = $request->res_address;
+            $store->status = $request->res_status;
+            $store->verify = $request->res_verify;
+            $store->updated_at = Carbon::now();
+            $store->save();
+            return Response::json(["status" => "1", "description" => " ذخیره اطلاعات $request->res_name با موفقیت انجام شد "]);
+        }
+    }
+
+    public function DeleteStoreAction(request $request)
+    {
+        $id = self::faToEn($request['id']);
+        if (isset($id) && is_numeric($id) && $id > 0) {
+            $store = Store::where('id', $id)->first();
+            $store->delete = "1";
+            $store->save();
+            return "DONE";
+        }
+    }
 }

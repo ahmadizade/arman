@@ -60,7 +60,7 @@
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Product Management:</h6>
-                <a class="collapse-item font-weight-bolder" href="{{route('Store_GetUser')}}">فروشگاه ها</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('Store')}}">فروشگاه ها</a>
                 <a class="collapse-item font-weight-bolder" href="#">محصولات ثبت شده</a>
                 <a class="collapse-item font-weight-bolder" href="#">مدیریت فروشگاه ها</a>
                 <a class="collapse-item font-weight-bolder" href="#">صفحه ثبت فروشگاه</a>
