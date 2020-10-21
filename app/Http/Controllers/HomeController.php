@@ -51,11 +51,7 @@ class HomeController extends Controller
             "body" => $request->desc,
             "created_at" => Carbon::now(),
         ]);
-
         session()->flash("status","فرم شما با موفقیت ثبت شد. در صورت لزوم کارشناسان ما با شما تماس خواهند گرفت");
-
         return back();
-
     }
-
 }

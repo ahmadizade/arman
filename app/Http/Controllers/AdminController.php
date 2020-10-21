@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Store;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -269,8 +270,12 @@ class AdminController extends Controller
 
     public function Store_GetUser()
     {
-        return datatables()->of(DB::table('store')->orderBy('created_at', 'desc'))->toJson();
+        return datatables()->of(DB::table('store')->orderBy('date', 'desc'))->toJson();
     }
 
+    public function Store_ViewStore(Request $request)
+    {
+        return Store::where('id', $request->user_id)->get();
+    }
 
 }

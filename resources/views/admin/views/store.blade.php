@@ -83,11 +83,11 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Melli_Code</th>
                                     <th scope="col">Category</th>
-{{--                                    <th scope="col">Description</th>--}}
+                                    {{--                                    <th scope="col">Description</th>--}}
                                     <th scope="col">Shenase_Melli</th>
                                     <th scope="col">Nature</th>
                                     <th scope="col">branch</th>
-                                    <th scope="col">Created_at</th>
+                                    <th scope="col">date</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">verify</th>
@@ -296,40 +296,186 @@
     {{--SMS MODAL--}}
 
 
-    {{--EMAIL MODAL--}}
-    <div class="modal fade" id="reply-email" tabindex="-1" role="dialog" aria-labelledby="email-area"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-gradient-info">
-                    <p class="text-white modal-title myfont" id="email-area">SEND Email TO USERS</p>
+    <!-- Bootstrap Modal User Info-->
+    <div class="modal fade" id="view" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-gradient-light">
+                <div class="modal-header bg-gradient-info border-bottom-info">
+                    <h5 class="text-white" style="font-size: 15px">Www.SaminTakhfif.com</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span>&times;</span>
                     </button>
                 </div>
-                <div class="modal-body text-right">
-                    <form>
-                        <p>همکار گرامی، پیام ارسالی شما در پنل مدیریت نمایش داده میشود</p>
-                        <div class="form-group text-right">
-                            <input id="send_id" name="send_id" type="hidden">
-                            <input id="send_mail" name="send_mail" type="hidden">
-                            <i class="fas fa-pencil-alt prefix"></i>
-                            <textarea id="email_content" name="email_content" class="text-right form-control" rows="3"
-                                      placeholder="...Email"></textarea>
+                <form id="save-user-form" class="modal-body text-center">
+                    <div class="admin-rtl my-1 text-white font-weight-bolder">
+                        <p id="error_box" class="myfont text-danger" style="font-size: 14px;"></p>
+                        <p id="res_msg" class="myfont text-success" style="font-size: 14px;"></p>
+                    </div>
+                    {{--<//Mobile\\>--}}
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res-title" name="res_title" type="text"
+                                   class="form-control bg-muted" required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">عنوان</span>
+                            </div>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
-                    <button type="button" id="reply-email-btn" class="btn btn-success"
-                            data-dismiss="modal">
-                        ارسال
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res-name" name="res_name" type="text"
+                                   class="form-control bg-muted" required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">نام</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res-melli_code" name="res_melli_code" type="text"
+                                   class="form-control bg-muted" required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">کد ملی</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <select id="res-category" name="res_category"
+                                    class="input-group-text form-control font-12" required autofocus>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">دسته بندی</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{--                    <div class="col-12">--}}
+                    {{--                        <div class="input-group my-2">--}}
+                    {{--                            <select id="res-verified" name="res_verified"--}}
+                    {{--                                    class="input-group-text form-control font-12" required autofocus>--}}
+                    {{--                                <option value="0">Not Approved</option>--}}
+                    {{--                                <option value="1">Accepted</option>--}}
+                    {{--                            </select>--}}
+                    {{--                            <div class="input-group-prepend">--}}
+                    {{--                                <span class="input-group-text font-12">Verified</span>--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res-desc" name="res_desc" type="text"
+                                   class="form-control bg-muted"
+                                   required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">توضیحات</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res-shenase_melli" name="res_shenase_melli" type="text"
+                                   class="form-control bg-muted"
+                                   required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">شناسه ملی</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <select id="res-nature" name="res_nature"
+                                    class="input-group-text form-control font-12" required autofocus>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">ماهیت</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res-nature" name="res_nature" type="text"
+                                   class="form-control bg-muted"
+                                   required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">زیر شاخه</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res-date" name="res_date" type="text"
+                                   class="form-control bg-muted"
+                                   required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">تاریخ ثبت</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res-address" name="res_address" type="text"
+                                   class="form-control bg-muted"
+                                   required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">آدرس</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <select id="res-status" name="res_status"
+                                    class="input-group-text form-control font-12" required autofocus>
+                                <option value="0">غیرفعال</option>
+                                <option value="1">فعال</option>
+                            </select>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">وضعیت</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <select id="res-verify" name="res_verify"
+                                    class="input-group-text form-control font-12" required autofocus>
+                                <option value="0">عدم تایید</option>
+                                <option value="1">تایید</option>
+                            </select>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">وضعیت</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{--                                <//Mobile\\>--}}
+                    <button type="button"
+                            class="btn font-weight-bolder text-white myfont bg-gradient-info my-2"
+                            id="save-user-data">
+                        ذخیره اطلاعات
                     </button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-    {{--EMAIL MODAL--}}
+    <!-- Bootstrap Modal User Info-->
 
 
 
@@ -368,29 +514,37 @@
         });
         //SMS TO User
 
-        //Email TO User
-        $("body").on("click", ".reply", function () {
-            let id = $(this).attr("data-id");
-            let mobile = $(this).attr("data-mobile");
-            $('#send_id').val(id);
-            $('#send_mail').val(mobile);
-        });
-        $('#reply-email-btn').click(function (e) {
+        //Email Store
+        //Edit User
+        $("body").on("click", ".view", function (e) {
+            let user_id = $(this).attr("data-id");
             $.ajax({
-                type: "post",
-                url: "{{route('Contact_Us_Email_User')}}",
-                data: {
-                    'id': $('#send_id').val(),
-                    'mobile': $('#send_mail').val(),
-                    'email_content': $('#email_content').val()
-                },
+                type: 'post',
+                url: '{{ route("store_view_store") }}',
+                data: {"user_id": user_id},
                 success: function (response) {
-                    alert(response['status']);
+                    if (response.status == 0) {
+                        $("#res_msg").html(response.desc);
+                    } else {
+                        $("#res-title").val(response.title);
+                        $("#res-name").val(response.name);
+                        $("#res-melli_code").val(response.melli_code);
+                        $("#res-category").val(response.category);
+                        $("#res-desc").val(response.desc);
+                        $("#res-shenase_melli").val(response.shenase_melli);
+                        $("#res-nature").val(response.nature);
+                        $("#res-branch").val(response.branch);
+                        $("#res-date").val(response.date);
+                        $("#res-address").val(response.address);
+                        $("#res-status").val(response.status);
+                        $("#res-verify").val(response.verify);
+                    }
+                    e.preventDefault();
                 }
             });
-            e.preventDefault(e);
         });
-        //Email TO User
+        //Edit User
+        //Email Store
 
         //DataTable
         $('#user_table').DataTable({
@@ -423,7 +577,7 @@
                 {data: 'shenase_melli', name: 'shenase_melli'},
                 {data: 'nature', name: 'nature'},
                 {data: 'branch', name: 'branch'},
-                {data: 'created_at', name: 'created_at'},
+                {data: 'date', name: 'date'},
                 {data: 'address', name: 'address'},
                 {data: 'status', name: 'status'},
                 {data: 'verify', name: 'verify'},
@@ -431,12 +585,12 @@
                 {data: 'branch_slug', name: 'branch_slug'},
                 {
                     className: "ltr text-center", data: "id", render: function (data, type, row) {
-                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger" data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.mobile + '"  class="btn btn-sm text-white bg-gradient-success edit" data-toggle="modal" data-target="#edit">EDIT</button></div></div>';
+                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger" data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.user_id + '"  class="btn btn-sm text-white bg-gradient-success view" data-toggle="modal" data-target="#view">VIEW</button></div></div>';
                     }
                 },
                 {
                     className: "ltr text-center", data: "id", render: function (data, type, row) {
-                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '"  data-mobile="' + row.mobile + '"  class="btn btn-sm text-white bg-gradient-primary reply" data-toggle="modal" data-target="#reply-email" >Reply</button></div></div>';
+                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-primary reply" data-toggle="modal" data-target="#reply-email" >Reply</button></div></div>';
                     },
                 },
             ]

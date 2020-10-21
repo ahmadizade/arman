@@ -33,7 +33,8 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::post('/contact-us/email-user', 'App\Http\Controllers\AdminController@ContactUs_EmailUser')->name("Contact_Us_Email_User")->middleware("ajax","verify.domain");
     //Store
     Route::get('/store', 'App\Http\Controllers\AdminController@Store')->name("Store");
-    Route::get('/store/get-user', 'App\Http\Controllers\AdminController@Store_GetUser')->name("Store_GetUser");
+    Route::get('/store/get-store', 'App\Http\Controllers\AdminController@Store_GetUser')->name("Store_GetUser");
+    Route::post('/store/view-store', 'App\Http\Controllers\AdminController@Store_ViewStore')->name("store_view_store")->middleware("ajax","verify.domain");
 
 });
 // admin
