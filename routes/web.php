@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
 Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
+Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("About_Us");
 
 
 // admin
