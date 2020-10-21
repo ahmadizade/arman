@@ -40,9 +40,9 @@
 
                                 <li><a href="{{ route("contact") }}" class="nav-link">تماس با ما</a></li>
                                 <li>
-                                    @if(Auth::user()->role == "user")
+                                    @if(Auth::check() && Auth::user()->role == "user")
                                         <a href="{{ route("store") }}" class="nav-link text-primary">ثبت فروشگاه</a>
-                                    @elseif(Auth::user()->role == "supplier")
+                                    @elseif(Auth::check() && Auth::user()->role == "supplier")
                                         <a href="{{ route("store") }}" class="nav-link text-primary">فروشگاه من</a>
                                     @endif
                                 </li>

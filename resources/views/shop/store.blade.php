@@ -36,6 +36,9 @@
         .submit-comment{
             background-color: {{ $result['color'] }};
         }
+        .like:hover,.bookmark:hover{
+            cursor: pointer;
+        }
     </style>
 @endsection
 
@@ -53,12 +56,12 @@
                             <div class="row">
                                 <div class="col-12 col-lg-8">
                                     <h1 class="text-white mb-0">
-                                        <span class="font-19 nowrap"><i class="fa fa-shopping-basket pl-2"></i>فروشگاه {{ $result['title'] }}</span>
+                                        <span class="font-18 nowrap"><i class="fa fa-shopping-basket pl-2"></i>فروشگاه {{ $result['title'] }}</span>
                                     </h1>
                                 </div>
                                 <div class="col-12 col-lg-4 text-left">
                                     @if(Str::length($result['branch_slug']) > 0)
-                                        <h2 class="text-white mb-0">
+                                        <h2 class="text-white mb-0 mt-2">
                                             <span class="nowrap font-14"><i class="fa fa-map-marker text-white pl-1"></i> شعبه {{ $result['branch'] }} </span>
                                         </h2>
                                     @endif
@@ -67,15 +70,15 @@
                         </div>
                         <div class="logo_shop_bg w-100 px-3 pt-0 pb-3">
                             <div class="row">
-                                <div class="col-8 col-lg-8">
+                                <div class="col-12 col-lg-6">
                                     <h2 class="text-white mb-0">
                                         آدرس:<span class="font-13"> {{ $result['address'] }} </span>
                                     </h2>
                                 </div>
-                                <div class="col-4 col-lg-4 text-left">
-                                    <h2 class="text-white mb-0">
+                                <div class="col-12 col-lg-6 text-left">
+                                    <h2 class="text-white mb-0 mt-2">
                                         <span class="bookmark"><i class="fa fa fa-heart font-20 pl-2" title="نشان کردن"></i></span>
-                                        <span class="like"><i class="fa fa-thumbs-o-up font-20" title="پسندیدم"></i></span>
+                                        <span class="like"><i class="fa fa-thumbs-o-up font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif</span>
                                     </h2>
                                 </div>
                             </div>
@@ -249,16 +252,69 @@
         $(".bookmark").on("click",function(e){
             $(".bookmark").html("<span class='fa fa-spinner fa-spin font-20 px-2'></span>");
             $.ajax({
-                url: '{{ route("comment_action",["store" => $result['id']]) }}',
+                url: '{{ route("bookmark") }}',
                 type: 'POST',
-                data: {"name":$(".name").val(),"email":$(".email").val(),"desc":$(".desc").val()},
+                data: {"store":"{{ $result['id'] }}"},
                 success: function(data) {
                     if(data.status == "0"){
-                        alert(data.desc);
-                    }else if(data.status == "1"){
-                        window.location.reload();
+                        Swal.fire({
+                            position: 'center-center',
+                            icon: 'warning',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                    }else if(data.status == "1") {
+                        Swal.fire({
+                            position: 'center-center',
+                            icon: 'success',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
                     }
-                    $(".submit-comment").html("ارسال");
+                    $(".bookmark").html('<i class="fa fa fa-heart font-20 pl-2" title="نشان کردن"></i>');
+                },
+            });
+            e.preventDefault();
+        });
+
+        $(".like").on("click",function(e){
+            $(".like").html("<span class='fa fa-spinner fa-spin font-20'></span>");
+            $.ajax({
+                url: '{{ route("like") }}',
+                type: 'POST',
+                data: {"store":"{{ $result['id'] }}"},
+                success: function(data) {
+                    if(data.status == "0"){
+                        Swal.fire({
+                            position: 'center-center',
+                            icon: 'warning',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                    }else if(data.status == "2"){
+                        Swal.fire({
+                            position: 'center-center',
+                            icon: 'success',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                    }else if(data.status == "1"){
+                        Swal.fire({
+                            position: 'center-center',
+                            icon: 'success',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                        setTimeout(function(){
+                            window.location.reload();
+                        },2500);
+                    }
+                    $(".like").html('<i class="fa fa-thumbs-o-up font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif');
                 },
             });
             e.preventDefault();
