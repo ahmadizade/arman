@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bookmark;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Profile;
@@ -533,6 +534,28 @@ class ProfileController extends Controller
         }
 
         return back();
+
+    }
+
+    public function Bookmark(){
+
+        $bookmark = Bookmark::where("user_id",Auth::id())->get();
+
+        return view("profile.bookmark", ["bookmark" => $bookmark , "menu" => "bookmark"]);
+
+    }
+
+    public function BookmarkDelete(Request $request){
+
+        if(isset($request->store)){
+
+            Bookmark::where("user_id",Auth::id())->where("store_id",$request->store)->delete();
+
+            return response()->json(['status' => "1","desc" => "فروشگاه مورد نظر با موفقیت از لیست شما حذف شد"]);
+
+        }
+
+        return response()->json(['status' => "0","desc" => "مشکلی پیش آمده است لطفا دوباره تلاش کنید"]);
 
     }
 

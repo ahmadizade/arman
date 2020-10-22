@@ -41,6 +41,7 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
 });
 // admin
 
+
 //QR.Code Generator
 Route::get('/code-generator', 'App\Http\Controllers\CodeController@Code_Generator')->name("code_generator")->middleware("auth");
 
@@ -73,6 +74,8 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::post('/store-action', 'App\Http\Controllers\ProfileController@StoreAction')->name("store_action");
     Route::post('/store-edit-action', 'App\Http\Controllers\ProfileController@StoreEditAction')->name("store_edit_action");
     Route::post('/store-desc-action', 'App\Http\Controllers\ProfileController@StoreDescAction')->name("store_desc_action");
+    Route::get('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("profile_bookmark");
+    Route::post('/bookmark-delete', 'App\Http\Controllers\ProfileController@BookmarkDelete')->name("profile_bookmark_delete")->middleware("ajax","verify.domain");
 });
 
 
