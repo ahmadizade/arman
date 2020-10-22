@@ -48,8 +48,8 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">نام فروشگاه</span>
                                             </div>
-                                            <input name="title" type="text" class="form-control"
-                                                   value="{{ old("title") }}">
+                                            <input name="shop" type="text" class="form-control"
+                                                   value="{{ old("shop") }}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">
@@ -158,8 +158,8 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">نام فروشگاه</span>
                                                 </div>
-                                                <input name="title" type="text" class="form-control"
-                                                       value="{{ $result['title'] }}">
+                                                <input name="shop" type="text" class="form-control"
+                                                       value="{{ $result['shop'] }}">
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6">
@@ -260,7 +260,7 @@
                                     </div>
                                 </form>
                         @elseif(isset($result['id']) && $result['verify'] == 1)
-                            <div class="alert alert-success mb-0 text-center">فروشگاه شما ( <a target="_blank" href="{{ route("single_shop",["title" => $result['title_slug'] ,"branch" => $result['branch_slug']]) }}">{{$result['title']}}</a> ) احراز هویت شده</div>
+                            <div class="alert alert-success mb-0 text-center">فروشگاه شما ( <a target="_blank" href="{{ route("single_shop",["shop" => $result['shop_slug'] ,"branch" => $result['branch_slug']]) }}">{{$result['shop']}}</a> ) احراز هویت شده</div>
                             <div class="row">
                                     <div class="col-12 col-lg-12">
                                         <div class="input-group mt-2">
@@ -268,7 +268,7 @@
                                                 <span class="input-group-text font-12">نام فروشگاه</span>
                                             </div>
                                             <input disabled class="form-control"
-                                                   value="{{ $result["title"] }}">
+                                                   value="{{ $result["shop"] }}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">

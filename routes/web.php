@@ -81,7 +81,7 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
 
 // shop
 Route::prefix("shop")->group(function () {
-    Route::get('/{title}/{branch?}', 'App\Http\Controllers\ShopController@singleShop')->name("single_shop");
+    Route::get('/{shop}/{branch?}', 'App\Http\Controllers\ShopController@singleShop')->name("single_shop");
     Route::get('/product/{id}', 'App\Http\Controllers\ShopController@ProductSingle')->name("shop_product_single");
     Route::post('/comment-action', 'App\Http\Controllers\ShopController@CommentAction')->name("comment_action")->middleware("ajax","verify.domain");
     Route::post('/shop-like', 'App\Http\Controllers\ShopController@Like')->name("like")->middleware("ajax","verify.domain");

@@ -87,7 +87,8 @@
                 </div>
             </div>
             <div class="col-12 col-lg-12">
-                <div class="card shadow border-0 mt-3">
+                @if(strlen($result['desc']) > 0)
+                    <div class="card shadow border-0 mt-3">
                     <div class="card-body p-3">
                         @if ($errors->any())
                             <div class="alert alert-danger mb-2">
@@ -141,6 +142,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 <div class="card shadow border-0 mt-3" id="comments">
                     <div class="card-body p-3">
                         <div class="row">

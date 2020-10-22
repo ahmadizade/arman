@@ -42,7 +42,7 @@ class ProfileController extends Controller
         $request = $request->replace(self::faToEn($request->all()));
 
         $request->validate([
-            'title' => 'required|min:3|max:100',
+            'shop' => 'required|min:3|max:128|unique:store',
             'branch' => 'nullable|min:3|max:100',
             'nature' => 'required|min:1',
             'category' => 'required|min:1',
@@ -89,7 +89,7 @@ class ProfileController extends Controller
         }
 
         Store::where("user_id",Auth::id())->update([
-            'title' => $request->title,
+            'shop' => $request->shop,
             'branch' => $request->branch,
             'nature' => $request->nature,
             'category' => $request->category,
@@ -97,7 +97,7 @@ class ProfileController extends Controller
             'name' => $request->name,
             'melli_code' => $request->melli_code,
             'address' => $request->address,
-            'title_slug' => self::slug($request->title),
+            'shop_slug' => self::slug($request->shop),
             'branch_slug' => self::slug($request->branch),
         ]);
 
@@ -118,7 +118,7 @@ class ProfileController extends Controller
         $request = $request->replace(self::faToEn($request->all()));
 
         $request->validate([
-            'title' => 'required|min:3|max:100',
+            'shop' => 'required|min:3|max:128|unique:store',
             'branch' => 'nullable|min:3|max:100',
             'nature' => 'required|min:1',
             'category' => 'required|min:1',
@@ -161,7 +161,7 @@ class ProfileController extends Controller
 
         Store::create([
             'user_id' => Auth::id(),
-            'title' => $request->title,
+            'shop' => $request->shop,
             'branch' => $request->branch,
             'nature' => $request->nature,
             'category' => $request->category,
@@ -172,7 +172,7 @@ class ProfileController extends Controller
             'date' => Carbon::now(),
             'logo' => $imageName,
             'color' => $request->color,
-            'title_slug' => self::slug($request->title),
+            'shop_slug' => self::slug($request->shop),
             'branch_slug' => self::slug($request->branch),
         ]);
 

@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\Validator;
 class ShopController extends Controller
 {
 
-    public function singleShop($title,$branch = null){
+    public function singleShop($shop,$branch = null){
 
-        if(isset($title)){
+        if(isset($shop)){
 
             if($branch == null){
-                $store = Store::where("title_slug",$title)->first();
+                $store = Store::where("shop_slug",$shop)->first();
             }else{
-                $store = Store::where("title_slug",$title)->where("branch_slug",$branch)->first();
+                $store = Store::where("shop_slug",$shop)->where("branch_slug",$branch)->first();
             }
 
             if(isset($store->id)){
