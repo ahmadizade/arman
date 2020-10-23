@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
-@section("title")
-    <title>سامانه مدیریت کاربر | ثمین تخفیف</title>
+@section("shop")
+    <shop>سامانه مدیریت کاربر | ثمین تخفیف</shop>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -79,7 +79,7 @@
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">User_Id</th>
-                                    <th scope="col">Title</th>
+                                    <th scope="col">shop</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Melli_Code</th>
                                     <th scope="col">Category</th>
@@ -91,11 +91,10 @@
                                     <th scope="col">Address</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">verify</th>
-                                    <th scope="col">title_slug</th>
+                                    <th scope="col">shop_slug</th>
                                     <th scope="col">branch_slug</th>
-                                    <th scope="col">Delete</th>
-                                    <th scope="col">Action</th>
-                                    <th scope="col">EDIT</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Message</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -111,7 +110,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="text-danger modal-title myfont" id="del">افزایش اعتبار</h5>
+                    <h5 class="text-danger modal-shop myfont" id="del">افزایش اعتبار</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -137,7 +136,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-info">
-                    <p class="text-white modal-title myfont" id="sms-area">SEND SMS TO USERS</p>
+                    <p class="text-white modal-shop myfont" id="sms-area">SEND SMS TO USERS</p>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -198,7 +197,7 @@
                     <input id="res-id" name="res_id" type="hidden">
                     <div class="col-12">
                         <div class="input-group my-2">
-                            <input id="res-title" name="res_title" type="text"
+                            <input id="res-shop" name="res_shop" type="text"
                                    class="form-control bg-muted" required autofocus>
                             <div class="input-group-prepend">
                                 <span class="input-group-text font-12">عنوان</span>
@@ -335,21 +334,6 @@
                         </div>
                     </div>
 
-                    <div class="col-12">
-                        <div class="input-group my-2">
-                            <select id="res-delete" name="res_delete"
-                                    class="input-group-text form-control font-12" required autofocus>
-                                <option value="0">نمایش</option>
-                                <option value="1">حذف</option>
-                            </select>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text font-12">نمایش</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    {{--                                <//Mobile\\>--}}
                     <button type="button"
                             class="btn font-weight-bolder text-white myfont bg-gradient-info my-2"
                             id="save-store-data">
@@ -367,7 +351,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="text-danger modal-title myfont" id="del">افزایش اعتبار</h5>
+                    <h5 class="text-danger modal-shop myfont" id="del">افزایش اعتبار</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -392,7 +376,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-info">
-                    <p class="text-white modal-title myfont" id="email-area">SEND Email TO USERS</p>
+                    <p class="text-white modal-shop myfont" id="email-area">SEND Email TO USERS</p>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -449,7 +433,7 @@
                 success: function (response) {
                     {
                         $("#res-id").val(response.id);
-                        $("#res-title").val(response.title);
+                        $("#res-shop").val(response.shop);
                         $("#res-name").val(response.name);
                         $("#res-melli_code").val(response.melli_code);
                         $("#res-category").val(response.category);
@@ -461,7 +445,6 @@
                         $("#res-address").val(response.address);
                         $("#res-status").val(response.status);
                         $("#res-verify").val(response.verify);
-                        $("#res-delete").val(response.delete);
                     }
                     e.preventDefault();
                 }
@@ -581,7 +564,7 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'user_id', name: 'user_id'},
-                {data: 'title', name: 'title'},
+                {data: 'shop', name: 'shop'},
                 {data: 'name', name: 'name'},
                 {data: 'melli_code', name: 'melli_code'},
                 {data: 'category', name: 'category'},
@@ -593,9 +576,8 @@
                 {data: 'address', name: 'address'},
                 {data: 'status', name: 'status'},
                 {data: 'verify', name: 'verify'},
-                {data: 'title_slug', name: 'title_slug'},
+                {data: 'shop_slug', name: 'shop_slug'},
                 {data: 'branch_slug', name: 'branch_slug'},
-                {data: 'delete', name: 'delete'},
                 {
                     className: "ltr text-center", data: "id", render: function (data, type, row) {
                         return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger delete" data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.id + '"  class="btn btn-sm text-white bg-gradient-success view" data-toggle="modal" data-target="#view">VIEW</button></div></div>';
