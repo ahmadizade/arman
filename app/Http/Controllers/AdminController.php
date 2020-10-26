@@ -302,7 +302,7 @@ class AdminController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         } else {
             $store = Store::where('id', $request->res_id)->first();
-            $store->title = $request->res_title;
+            $store->shop = $request->res_shop;
             $store->name = $request->res_name;
             $store->melli_code = $request->res_melli_code;
             $store->category = $request->res_category;
@@ -313,10 +313,9 @@ class AdminController extends Controller
             $store->address = $request->res_address;
             $store->status = $request->res_status;
             $store->verify = $request->res_verify;
-            $store->delete = $request->res_delete;
             $store->updated_at = Carbon::now();
             $store->save();
-            return Response::json(["status" => "1", "description" => " ذخیره اطلاعات $request->res_name با موفقیت انجام شد "]);
+            return Response::json(["status" => "1", "description" => " ذخیره اطلاعات فروشگاه $request->res_name با موفقیت انجام شد "]);
         }
     }
 
@@ -325,7 +324,7 @@ class AdminController extends Controller
         $id = self::faToEn($request['id']);
         if (isset($id) && is_numeric($id) && $id > 0) {
             $store = Store::where('id', $id)->first();
-            $store->delete = "1";
+            $store->status = "0";
             $store->save();
             return "DONE";
         }
