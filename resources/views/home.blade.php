@@ -291,102 +291,71 @@
         </div>
     </div>
 
+    <!-- Sections -->
     <div class="container mt-3">
         <div class="row">
             <div class="col-12 col-lg-3">
-                <div class="card-box bg-green">
-                    <div class="inner">
-                        <p class="text-left font-20">پذیرندگان ثمین تخفیف</p>
-                        <p> از کجا خرید کنم؟ </p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-sitemap" aria-hidden="true"></i>
-                    </div>
-                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                <div class="section bg-green">
+                    <div class="subject">پذیرندگان ثمین تخفیف</div>
+                    <i class="fa fa-sitemap icon"></i>
+                    <div class="desc">از کجا خرید کنم؟</div>
+                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
             <div class="col-12 col-lg-3">
-                <div class="card-box bg-orange">
-                    <div class="inner">
-                        <p class="text-left font-20"> اعطای نمایندگی </p>
-                        <p> چگونه نماینده شوم؟ </p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-podcast" aria-hidden="true"></i>
-                    </div>
-                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                <div class="section bg-orange">
+                    <div class="subject">اعطای نمایندگی</div>
+                    <i class="fa fa-podcast icon"></i>
+                    <div class="desc">چگونه نماینده شوم؟</div>
+                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
             <div class="col-12 col-lg-3">
-                <div class="card-box bg-green">
-                    <div class="inner">
-                        <p class="text-left font-20">سوالات متداول</p>
-                        <p> پاسخ به سوالات شما </p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-window-restore" aria-hidden="true"></i>
-                    </div>
-                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                <div class="section bg-green">
+                    <div class="subject">سوالات متداول</div>
+                    <i class="fa fa-window-restore icon"></i>
+                    <div class="desc">پاسخ به سوالات شما</div>
+                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
             <div class="col-12 col-lg-3">
-                <div class="card-box bg-blue">
-                    <div class="inner">
-                        <p class="text-left font-20"> گواهی نامه ها </p>
-                        <p> مجوزها و گواهی نامه </p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                    </div>
-                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+                <div class="section bg-blue">
+                    <div class="subject">گواهی نامه ها</div>
+                    <i class="fa fa-cloud-download icon"></i>
+                    <div class="desc">مجوزها و گواهی نامه</div>
+                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
-                <div class="card-box bg-blue">
-                    <div class="inner">
-                        <p class="text-left font-20"> فرم های مشارکت </p>
-                        <p> مشارکت در ثمین تخفیف و سررسید </p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                    </div>
-                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="col-12 col-lg-3">
+                <div class="section bg-blue">
+                    <div class="subject">فرم های مشارکت</div>
+                    <i class="fa fa-graduation-cap icon"></i>
+                    <div class="desc">مشارکت در ثمین تخفیف و سررسید</div>
+                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
-                <div class="card-box bg-green">
-                    <div class="inner">
-                        <p class="text-left font-20"> قوانین و مقررات </p>
-                        <p> بدانید و آگاه باشید </p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-money" aria-hidden="true"></i>
-                    </div>
-                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="col-12 col-lg-3">
+                <div class="section bg-green">
+                    <div class="subject">قوانین و مقررات</div>
+                    <i class="fa fa-money icon"></i>
+                    <div class="desc">بدانید و آگاه باشید</div>
+                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
-                <div class="card-box bg-orange">
-                    <div class="inner">
-                        <p class="text-left font-20"> کاربری سایت </p>
-                        <p> راهنمای استفاده از سایت </p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                    </div>
-                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="col-12 col-lg-3">
+                <div class="section bg-orange">
+                    <div class="subject">کاربری سایت</div>
+                    <i class="fa fa-user-plus icon"></i>
+                    <div class="desc">راهنمای استفاده از سایت</div>
+                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
-                <div class="card-box bg-green">
-                    <div class="inner">
-                        <p class="text-left font-20"> تماس با ما </p>
-                        <p> با ما در ارتباط باشید </p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-users"></i>
-                    </div>
-                    <a href="#" class="card-box-footer">ادامه مطلب <i class="fa fa-arrow-circle-right"></i></a>
+            <div class="col-12 col-lg-3">
+                <div class="section bg-green">
+                    <div class="subject">تماس با ما</div>
+                    <i class="fa fa-users icon"></i>
+                    <div class="desc">با ما در ارتباط باشید</div>
+                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
         </div>

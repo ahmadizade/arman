@@ -879,7 +879,88 @@ input, select {
 .bg-green {
     background-color: #11d456 !important;
 }
-
 .bg-orange {
     background-color: #ff9c00 !important;
 }
+
+/* Rajolani - Bootstrap Developed */
+.text-blue {
+    color: #00b8ff !important;
+}
+.text-green {
+    color: #11d456 !important;
+}
+.text-orange {
+    color: #ff9c00 !important;
+}
+
+/* Rajolani - Sections */
+
+.section{
+    position: relative;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-radius: 2px;
+    cursor: default;
+    text-align: center;
+}
+.section *{
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    -o-transition: all .6s;
+    transition: all .6s;
+}
+.section .subject{
+    font-size: 18px;
+    color: #ffffff;
+    margin: 5px 0;
+}
+.section:hover .subject{
+    -webkit-transform: translateY(20px);
+    -moz-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    -o-transform: translateY(20px);
+    transform: translateY(20px);
+}
+.section .icon{
+    font-size: 50px;
+    color: #ffffff;
+    margin: 5px 0;
+    text-shadow: 0 4px 3px rgba(0, 0, 0, 0.1), 0 8px 13px rgba(0, 0, 0, 0.1), 0 18px 23px rgba(0, 0, 0, 0.1);
+}
+.section:hover .icon{
+    opacity: 0;
+}
+.section .desc{
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #4b4b4b;
+    box-shadow: 0 12px 12px -12px #4b4b4b;
+    opacity: 0;
+    margin-top: -15px;
+}
+.section:hover .desc{
+    opacity: 1;
+    -webkit-transform: translateY(-25px);
+    -moz-transform: translateY(-25px);
+    -ms-transform: translateY(-25px);
+    -o-transform: translateY(-25px);
+    transform: translateY(-25px);
+}
+.section .button{
+    padding: 5px;
+    background: rgba(0,0,0,.2);
+    border-radius: 0 0 2px 2px;
+    color: #ffffff;
+    width: 100%;
+}
+.section:hover .button{
+    background: rgba(0,0,0,.4);
+}
+

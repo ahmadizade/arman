@@ -26,15 +26,13 @@
 <script src="https://use.fontawesome.com/f7ae936a05.js"></script>
 <div class="modal fade" id="login-register" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content text-center">
             <div class="modal-header">
                 <h5 class="modal-title">ورود و ثبت نام</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span>&times;</span>
-                </button>
             </div>
             <div id="auth" class="modal-body">
-                <p class="mb-0 text-muted">شماره موبایل خود را وارد نمایید</p>
+                <img src="{{ asset('images/icon/login.png') }}" alt="login" class="mx-auto my-2 d-block">
+                <p class="text-muted text-center">شماره موبایل خود را وارد نمایید</p>
                 <div class="form-group mb-0">
                     <input type="tel" class="form-control shadow text-center" autocomplete="off" id="mobile" maxlength="11">
                     <p class="text-center mb-0"><button class="btn btn-warning btn-sm mt-3" id="mobile-submit">ورود / ثبت نام</button></p>
