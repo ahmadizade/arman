@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/fonts/icomoon/style.css">
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+
     @yield("extra_css")
     @yield("title")
 </head>

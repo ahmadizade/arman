@@ -295,9 +295,9 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-12 col-lg-3">
-                <div class="section bg-green">
+                <div class="section bg-red">
                     <div class="subject">پذیرندگان ثمین تخفیف</div>
-                    <i class="fa fa-sitemap icon"></i>
+                    <i class="fas fa-people-carry icon"></i>
                     <div class="desc">از کجا خرید کنم؟</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
@@ -305,15 +305,15 @@
             <div class="col-12 col-lg-3">
                 <div class="section bg-orange">
                     <div class="subject">اعطای نمایندگی</div>
-                    <i class="fa fa-podcast icon"></i>
+                    <i class="fas fa-file-powerpoint icon"></i>
                     <div class="desc">چگونه نماینده شوم؟</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
             <div class="col-12 col-lg-3">
-                <div class="section bg-green">
+                <div class="section bg-purple">
                     <div class="subject">سوالات متداول</div>
-                    <i class="fa fa-window-restore icon"></i>
+                    <i class="far fa-question-circle icon"></i>
                     <div class="desc">پاسخ به سوالات شما</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
@@ -321,21 +321,21 @@
             <div class="col-12 col-lg-3">
                 <div class="section bg-blue">
                     <div class="subject">گواهی نامه ها</div>
-                    <i class="fa fa-cloud-download icon"></i>
+                    <i class="fas fa-mail-bulk icon"></i>
                     <div class="desc">مجوزها و گواهی نامه</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
             <div class="col-12 col-lg-3">
                 <div class="section bg-blue">
-                    <div class="subject">فرم های مشارکت</div>
+                    <div class="subject">ثمین آموزش</div>
                     <i class="fa fa-graduation-cap icon"></i>
                     <div class="desc">مشارکت در ثمین تخفیف و سررسید</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
             <div class="col-12 col-lg-3">
-                <div class="section bg-green">
+                <div class="section bg-purple">
                     <div class="subject">قوانین و مقررات</div>
                     <i class="fa fa-money icon"></i>
                     <div class="desc">بدانید و آگاه باشید</div>
@@ -345,15 +345,15 @@
             <div class="col-12 col-lg-3">
                 <div class="section bg-orange">
                     <div class="subject">کاربری سایت</div>
-                    <i class="fa fa-user-plus icon"></i>
+                    <i class="fas fa-sitemap icon"></i>
                     <div class="desc">راهنمای استفاده از سایت</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>
             <div class="col-12 col-lg-3">
-                <div class="section bg-green">
+                <div class="section bg-red">
                     <div class="subject">تماس با ما</div>
-                    <i class="fa fa-users icon"></i>
+                    <i class="fas fa-tty icon"></i>
                     <div class="desc">با ما در ارتباط باشید</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
