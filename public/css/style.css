@@ -883,6 +883,19 @@ input, select {
     background-color: #ff9c00 !important;
 }
 
+.bg-red {
+    background-color: #ee002e;
+}
+
+.bg-orange {
+    background-color: #ee5300;
+}
+
+.bg-purple {
+    background-color: #6769ec;
+}
+
+
 /* Rajolani - Bootstrap Developed */
 .text-blue {
     color: #00b8ff !important;
