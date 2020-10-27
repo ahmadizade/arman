@@ -6,6 +6,7 @@ use App\Models\Bookmark;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Product;
+use App\Models\Report;
 use App\Models\Store;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -120,6 +121,38 @@ class ShopController extends Controller
 
         return Response::json(["status" => "0","desc" => "برای پسندیدن این فروشگاه , ابتدا باید در سایت عضو شوید"]);
 
+
+    }
+
+    public function Report(Request $request){
+
+        if(Auth::check()) {
+
+            if(isset($request->store) && isset($request->report)){
+
+                $checkReport = Report::where("store_id",$request->store)->where("user_id",Auth::id())->first();
+
+                if(!isset($checkReport->id)){
+                    Report::create([
+                        "user_id" => Auth::id(),
+                        "store_id" => $request->store,
+                        "report_id" => $request->report,
+                        "desc" => $request->desc,
+                        "created_at" => Carbon::now(),
+                    ]);
+                }else{
+                    return Response::json(["status" => "2","desc" => "شما قبلا این فروشگاه را گزارش کرده اید"]);
+                }
+
+                return Response::json(["status" => "1","desc" => "با تشکر. گزارش شما ثبت شد"]);
+
+            }
+
+            return Response::json(["status" => "0","desc" => "لطفا یکی از موارد را انتخاب کنید"]);
+
+        }
+
+        return Response::json(["status" => "0","desc" => "برای ارسال گزارش تخلف , ابتدا باید در سایت عضو شوید"]);
 
     }
 

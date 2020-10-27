@@ -34,7 +34,7 @@
                 <h5 class="modal-title">ورود و ثبت نام</h5>
             </div>
             <div id="auth" class="modal-body">
-                <img src="{{ asset('images/icon/login.png') }}" alt="login" class="mx-auto my-2 d-block">
+                <img src="{{ asset('images/icon/login.png') }}" alt="login" class="mx-auto img-fluid my-2 d-block">
                 <p class="text-muted text-center">شماره موبایل خود را وارد نمایید</p>
                 <div class="form-group mb-0">
                     <input type="tel" class="form-control shadow text-center" autocomplete="off" id="mobile" maxlength="11">

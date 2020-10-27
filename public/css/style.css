@@ -214,6 +214,7 @@ input, select {
 
 .form-control {
     font-family: iranyekan, sans-serif !important;
+    font-size: 13px;
 }
 
 .form-control:active, .form-control:focus {
@@ -894,6 +895,8 @@ input, select {
 .bg-purple {
     background-color: #6769ec;
 }
+
+
 
 
 /* Rajolani - Bootstrap Developed */
