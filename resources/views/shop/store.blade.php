@@ -36,13 +36,79 @@
         .submit-comment{
             background-color: {{ $result['color'] }};
         }
-        .like:hover,.bookmark:hover{
+        .like:hover,.bookmark:hover,.report:hover,.map:hover{
             cursor: pointer;
         }
     </style>
 @endsection
 
 @section("content")
+
+    <div class="modal fade" id="report" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <h5 class="modal-title">گزارش مشکل آگهی</h5>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted text-center">نزدیک ترین گزینه را انتخاب کنید. ارائه جزییات بیشتر، به ما امکان بررسی سریع‌تر و دقیق‌تر مشکل را می‌دهد.</p>
+                    <form id="report-form" action="{{ route("report") }}" method="post">
+                        <input type="hidden" name="store" value="{{ $result['id'] }}">
+                        <div class="form-group mb-0 text-right">
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" name="report" value="1">
+                            <label class="form-check-label mr-4">
+                                محتوای آگهی فروشگاه
+                            </label>
+                        </div>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" name="report" value="2">
+                            <label class="form-check-label mr-4">
+                                تصاویر فروشگاه
+                            </label>
+                        </div>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" name="report" value="3">
+                            <label class="form-check-label mr-4">
+                                 اطلاعات تماس
+                            </label>
+                        </div>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" name="report" value="4">
+                            <label class="form-check-label mr-4">
+                                کلاهبرداری، نقض قانون یا وقوع جرم
+                            </label>
+                        </div>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" name="report" value="5">
+                            <label class="form-check-label mr-4">
+                                آدرس و نقشه
+                            </label>
+                        </div>
+                        <div class="form-check mt-3 pl-0">
+                            <textarea class="form-control" name="desc" rows="7" placeholder="توضیحات"></textarea>
+                        </div>
+                    </div>
+                        <p class="text-center mb-0"><button class="btn btn-warning btn-sm mt-3 report-submit">ثبت گزارش</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="map" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <h5 class="modal-title">نقشه فروشگاه</h5>
+                </div>
+                <div class="modal-body">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12949.29648675451!2d51.4552484881714!3d35.76741376606546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1603803763903!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="container mt-3">
         <div class="row">
@@ -62,7 +128,7 @@
                                 <div class="col-12 col-lg-4 text-left">
                                     @if(Str::length($result['branch_slug']) > 0)
                                         <h2 class="text-white mb-0 mt-2">
-                                            <span class="nowrap font-14"><i class="fa fa-map-marker text-white pl-1"></i> شعبه {{ $result['branch'] }} </span>
+                                            <span class="nowrap map font-14" data-toggle="modal" data-target="#map"><i class="fa fa-map-marker text-white pl-1 font-20"></i> شعبه {{ $result['branch'] }} </span>
                                         </h2>
                                     @endif
                                 </div>
@@ -76,10 +142,11 @@
                                     </h2>
                                 </div>
                                 <div class="col-12 col-lg-6 text-left">
-                                    <h2 class="text-white mb-0 mt-2">
-                                        <span class="bookmark"><i class="fa fa fa-heart font-20 pl-2" title="نشان کردن"></i></span>
+                                    <div class="text-white mb-0 mt-2">
+                                        <span class="report" data-toggle="modal" data-target="#report"><i class="fa fa-exclamation-circle font-20 pl-2" title="گزارش تخلف"></i></span>
+                                        <span class="bookmark"><i class="fa fa-bookmark-o font-20 pl-2" title="نشان کردن"></i></span>
                                         <span class="like"><i class="fa fa-thumbs-o-up font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif</span>
-                                    </h2>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -89,59 +156,59 @@
             <div class="col-12 col-lg-12">
                 @if(strlen($result['desc']) > 0)
                     <div class="card shadow border-0 mt-3">
-                    <div class="card-body p-3">
-                        @if ($errors->any())
-                            <div class="alert alert-danger mb-2">
-                                <ul class="mb-0">
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        @if(Session::has("status"))
-                            <div class="alert text-center alert-success mb-2">{{ Session::get("status") }}</div>
-                        @endif
-                        <div class="row">
-                            <div class="col-12 col-lg-12 store_desc">
-                                {!! $result['desc'] !!}
-                            </div>
-                            {{--<div class="col-12">
-                                <hr>
-                                <div class="owl-container">
-                                    <div class="owl-carousel owl-theme owl">
-                                        @foreach($products as $product)
-                                            <div class="slider-desc text-center overflow-hidden">
-                                                <div class="item">
-                                                    @if(is_null($product->image))
-                                                        <img src="/images/no-image2.png" alt="BTI">
-                                                    @else
-                                                        <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
-                                                    @endif
-                                                </div>
-                                                <div class="price-box rtl">
-                                                    <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
-                                                    @if($product->discount > 20)
-                                                        <div>
-                                                            <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                                            <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                            <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
-                                                        </div>
-                                                    @else
-                                                        <div class="mt-1">
-                                                            <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                            <p class="text-danger font-14 mt-2 nowrap"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
+                        <div class="card-body p-3">
+                            @if ($errors->any())
+                                <div class="alert alert-danger mb-2">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
                                         @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            @if(Session::has("status"))
+                                <div class="alert text-center alert-success mb-2">{{ Session::get("status") }}</div>
+                            @endif
+                            <div class="row">
+                                <div class="col-12 col-lg-12 store_desc">
+                                    {!! $result['desc'] !!}
+                                </div>
+                                <div class="col-12">
+                                    <hr>
+                                    <div class="owl-container">
+                                        <div class="owl-carousel owl-theme owl">
+                                            @foreach($products as $product)
+                                                <div class="slider-desc text-center overflow-hidden">
+                                                    <div class="item">
+                                                        @if(is_null($product->image))
+                                                            <img src="/images/no-image2.png" alt="BTI">
+                                                        @else
+                                                            <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
+                                                        @endif
+                                                    </div>
+                                                    <div class="price-box rtl">
+                                                        <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
+                                                        @if($product->discount > 20)
+                                                            <div>
+                                                                <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                                <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                                                <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                                            </div>
+                                                        @else
+                                                            <div class="mt-1">
+                                                                <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                                <p class="text-danger font-14 mt-2 nowrap"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
-                            </div>--}}
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endif
                 <div class="card shadow border-0 mt-3" id="comments">
                     <div class="card-body p-3">
@@ -275,7 +342,7 @@
                             timer: 2500
                         });
                     }
-                    $(".bookmark").html('<i class="fa fa fa-heart font-20 pl-2" title="نشان کردن"></i>');
+                    $(".bookmark").html('<i class="fa fa-bookmark-o font-20 pl-2" title="نشان کردن"></i>');
                 },
             });
             e.preventDefault();
@@ -317,6 +384,47 @@
                         },2500);
                     }
                     $(".like").html('<i class="fa fa-thumbs-o-up font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif');
+                },
+            });
+            e.preventDefault();
+        });
+
+        $(".report-submit").on("click",function(e){
+            $(".report-submit").html("<span class='fa fa-spinner fa-spin font-20 px-2'></span>");
+            $.ajax({
+                url: '{{ route("report") }}',
+                type: 'POST',
+                data: $("#report-form").serialize(),
+                success: function(data) {
+                    if(data.status == "0"){
+                        Swal.fire({
+                            position: 'center-center',
+                            icon: 'warning',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                    }else if(data.status == "2"){
+                        Swal.fire({
+                            position: 'center-center',
+                            icon: 'success',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                    }else if(data.status == "1"){
+                        Swal.fire({
+                            position: 'center-center',
+                            icon: 'success',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                        setTimeout(function(){
+                            window.location.reload();
+                        },2500);
+                    }
+                    $(".report-submit").html('ثبت گزارش');
                 },
             });
             e.preventDefault();

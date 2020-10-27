@@ -86,4 +86,5 @@ Route::prefix("shop")->group(function () {
     Route::post('/comment-action', 'App\Http\Controllers\ShopController@CommentAction')->name("comment_action")->middleware("ajax","verify.domain");
     Route::post('/shop-like', 'App\Http\Controllers\ShopController@Like')->name("like")->middleware("ajax","verify.domain");
     Route::post('/shop-bookmark', 'App\Http\Controllers\ShopController@Bookmark')->name("bookmark")->middleware("ajax","verify.domain");
+    Route::post('/shop-report', 'App\Http\Controllers\ShopController@Report')->name("report")->middleware("ajax","verify.domain");
 });

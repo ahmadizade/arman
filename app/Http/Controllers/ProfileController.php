@@ -169,7 +169,7 @@ class ProfileController extends Controller
             'name' => $request->name,
             'melli_code' => $request->melli_code,
             'address' => $request->address,
-            'date' => Carbon::now(),
+            'created_at' => Carbon::now(),
             'logo' => $imageName,
             'color' => $request->color,
             'shop_slug' => self::slug($request->shop),
