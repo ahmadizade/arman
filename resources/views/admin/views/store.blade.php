@@ -227,11 +227,11 @@
 
                     <div class="col-12">
                         <div class="input-group my-2">
-                            <select id="res-category" name="res_category"
-                                    class="input-group-text form-control font-12" required autofocus>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                            <select name="res_category" id="res-category" class="form-control">
+                                <option value="0" selected disabled>انتخاب دسته بندی</option>
+                                @foreach($category as $item)
+                                    <option @if(old("category") == $item['id']) selected @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                @endforeach
                             </select>
                             <div class="input-group-prepend">
                                 <span class="input-group-text font-12">دسته بندی</span>
@@ -265,9 +265,13 @@
                         <div class="input-group my-2">
                             <select id="res-nature" name="res_nature"
                                     class="input-group-text form-control font-12" required autofocus>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0" selected disabled>انتخاب ماهیت</option>
+                                <option @if(old("nature") == 1) selected @endif value="1">شخصی (حقیقی)</option>
+                                <option @if(old("nature") == 2) selected @endif value="2">دولتی یا عمومی</option>
+                                <option @if(old("nature") == 3) selected @endif value="3">خصوصی</option>
+                                <option @if(old("nature") == 4) selected @endif value="4">تعاونی</option>
                             </select>
+
                             <div class="input-group-prepend">
                                 <span class="input-group-text font-12">ماهیت</span>
                             </div>
@@ -441,7 +445,7 @@
                         $("#res-shenase_melli").val(response.shenase_melli);
                         $("#res-nature").val(response.nature);
                         $("#res-branch").val(response.branch);
-                        $("#res-date").val(response.date);
+                        $("#res-date").val(response.created_at);
                         $("#res-address").val(response.address);
                         $("#res-status").val(response.status);
                         $("#res-verify").val(response.verify);
@@ -507,7 +511,11 @@
             $.ajax({
                 type: "post",
                 url: "{{route('Contact_Us_Sms_User')}}",
-                data: {'id': $('#sms-mobile').val(), 'user_id': $('#sms-user_id').val(), 'sms_content': $('#sms_content').val()},
+                data: {
+                    'id': $('#sms-mobile').val(),
+                    'user_id': $('#sms-user_id').val(),
+                    'sms_content': $('#sms_content').val()
+                },
                 success: function (response) {
                     console.log(response);
                 }
@@ -572,7 +580,7 @@
                 {data: 'shenase_melli', name: 'shenase_melli'},
                 {data: 'nature', name: 'nature'},
                 {data: 'branch', name: 'branch'},
-                {data: 'date', name: 'date'},
+                {data: 'created_at', name: 'created_at'},
                 {data: 'address', name: 'address'},
                 {data: 'status', name: 'status'},
                 {data: 'verify', name: 'verify'},

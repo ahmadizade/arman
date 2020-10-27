@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Store;
 use App\Models\User;
@@ -269,12 +270,13 @@ class AdminController extends Controller
 //STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE  STORE
     public function Store()
     {
-        return view('admin.views.store');
+        $category = Category::all();
+        return view('admin.views.store', ['category' => $category]);
     }
 
     public function Store_GetUser()
     {
-        return datatables()->of(DB::table('store')->orderBy('date', 'desc'))->toJson();
+        return datatables()->of(DB::table('store')->orderBy('created_at', 'desc'))->toJson();
     }
 
     public function Store_ViewStore(Request $request)
