@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\Report;
 use App\Models\Store;
 use App\Models\User;
 use Carbon\Carbon;
@@ -250,9 +251,9 @@ class AdminController extends Controller
 
     public function ContactUs_EmailUser(Request $request)
     {
-        if (isset($request->mobile) && $request->mobile !== ""){
+        if (isset($request->mobile) && $request->mobile !== "") {
             $user = User::where('mobile', $request->mobile)->first();
-        }else{
+        } else {
             $user = User::where('id', $request->user_id)->first();
         }
         if ($user == "" || $user->email == "") {
@@ -289,6 +290,11 @@ class AdminController extends Controller
         return Store::where('id', $request->id)->first();
     }
 
+    public function Store_ViewReport(Request $request)
+    {
+        return Report::where('id', $request->id)->first();
+    }
+
     public function SaveStoreData(request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -323,6 +329,38 @@ class AdminController extends Controller
             $store->updated_at = Carbon::now();
             $store->save();
             return Response::json(["status" => "1", "description" => " ذخیره اطلاعات فروشگاه $request->res_name با موفقیت انجام شد "]);
+        }
+    }
+
+    public function SaveReportData(request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'res-title' => ['string', 'min:5', 'max:128',],
+            'res-name' => ['string', 'min:3', 'max:128',],
+            'res-melli_code' => ['string', 'min:5', 'max:32', 'nullable'],
+            'res-category' => ['string', 'min:1', 'max:16',],
+            'res-desc' => ['string', 'max:1024', 'nullable'],
+            'res-shenase_melli' => ['string', 'min:5', 'max:128', 'nullable'],
+            'res-nature' => ['string', 'min:1', 'max:32', 'nullable'],
+            'res-branch' => ['string', 'min:1', 'max:128', 'nullable'],
+            'res-address' => ['string', 'min:1', 'max:256', 'nullable'],
+            'res-status' => ['string', 'max:8', 'nullable'],
+            'res-verify' => ['string', 'max:8', 'nullable'],
+            'res-delete' => ['string', 'max:8', 'nullable'],
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        } else {
+            $report = Report::where('id', $request->res_report_id)->first();
+            $report->user_id = $request->res_user_id;
+            $report->store_id = $request->res_store_id;
+            $report->report_id = $request->res_report_id;
+            $report->desc = $request->res_desc;
+            $report->created_at = $request->res_created_at;
+            $report->answer = $request->res_answer;
+            $report->answer_at = Carbon::now();
+            $report->save();
+            return Response::json(["status" => "1", "description" => " ذخیره اطلاعات فروشگاه $request->res_user_id با موفقیت انجام شد "]);
         }
     }
 

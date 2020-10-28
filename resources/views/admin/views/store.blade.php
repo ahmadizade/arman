@@ -134,7 +134,6 @@
                                     <th scope="col">User_Id</th>
                                     <th scope="col">Store_Id</th>
                                     <th scope="col">Report_Id</th>
-                                    <th scope="col">DESC</th>
                                     <th scope="col">Created_at</th>
                                     <th scope="col">Answer</th>
                                     <th scope="col">Answer_at</th>
@@ -221,7 +220,6 @@
         </div>
     </div>
     {{--SMS MODAL--}}
-
 
     <!-- Bootstrap Modal User Info-->
     <div class="modal fade" id="view" tabindex="-1">
@@ -455,6 +453,107 @@
     </div>
     {{--EMAIL MODAL--}}
 
+    {{--    <--- Bootstrap Modal Report View -->--}}
+    <div class="modal fade" id="view-report" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-gradient-light">
+                <div class="modal-header bg-gradient-info border-bottom-info">
+                    <h5 class="text-white" style="font-size: 15px">REPORT VIEW</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <form id="save-report-form" class="modal-body text-center">
+                    <div class="admin-rtl my-1 text-white font-weight-bolder">
+                        <p id="error_box" class="myfont text-danger" style="font-size: 14px;"></p>
+                        <p id="res_msg" class="myfont text-success" style="font-size: 14px;"></p>
+                    </div>
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res_report_id" name="res_report_id" type="text"
+                                   class="form-control bg-muted" required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">ID</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res_user_id" name="res_user_id" type="text"
+                                   class="form-control bg-muted" required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">کاربر</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res_store_id" name="res_store_id" type="text"
+                                   class="form-control bg-muted" required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">فروشگاه</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res_created_at" name="res_created_at" type="text"
+                                   class="form-control bg-muted"
+                                   required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">زمان ثبت</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res_desc" name="res_desc" type="text"
+                                   class="form-control bg-muted"
+                                   required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">متن شکایت</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res_answer" name="res_answer" type="text"
+                                   class="form-control bg-muted"
+                                   required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">متن پاسخ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-group my-2">
+                            <input id="res_answer_at" name="res_answer_at" type="text"
+                                   class="form-control bg-muted"
+                                   required autofocus>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text font-12">زمان پاسخ</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button type="button"
+                            class="btn font-weight-bolder text-white myfont bg-gradient-info my-2"
+                            id="save-report-data">
+                        ذخیره اطلاعات
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap Modal User Info-->
+
 
 
 @endsection
@@ -594,7 +693,6 @@
         });
         //Email TO User
 
-
         //DataTable
         $('#user_table').DataTable({
             processing: true,
@@ -643,6 +741,7 @@
                 },
             ]
         });
+        //DataTable
 
         //DataTable REPORT
         $('#report_table').DataTable({
@@ -669,13 +768,12 @@
                 {data: 'user_id', name: 'user_id'},
                 {data: 'store_id', name: 'store_id'},
                 {data: 'report_id', name: 'report_id'},
-                {data: 'desc', name: 'desc'},
                 {data: 'created_at', name: 'created_at'},
                 {data: 'answer', name: 'answer'},
                 {data: 'answer_at', name: 'answer_at'},
                 {
                     className: "ltr text-center", data: "id", render: function (data, type, row) {
-                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger delete disabled" disabled data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.id + '"  class="btn btn-sm text-white bg-gradient-success view disabled" disabled data-toggle="modal" data-target="#view">VIEW</button></div></div>';
+                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger delete" data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.id + '"  class="btn btn-sm text-white bg-gradient-success view-report" data-toggle="modal" data-target="#view-report">VIEW</button></div></div>';
                     }
                 },
                 {
@@ -685,5 +783,54 @@
                 },
             ]
         });
+        //DataTable REPORT
+
+        //Edit Report View
+        $("body").on("click", ".view-report", function (e) {
+            let id = $(this).attr("data-id");
+            $.ajax({
+                type: 'post',
+                url: '{{ route("Store_view_report") }}',
+                data: {"id": id},
+                success: function (response) {
+                    {
+                        $("#res_report_id").val(response.id);
+                        $("#res_user_id").val(response.user_id);
+                        $("#res_store_id").val(response.store_id);
+                        $("#res_report_id").val(response.report_id);
+                        $("#res_desc").val(response.desc);
+                        $("#res_created_at").val(response.created_at);
+                        $("#res_answer").val(response.answer);
+                        $("#res_answer_at").val(response.answer_at);
+                    }
+                    e.preventDefault();
+                }
+            });
+        });
+        //Edit Report View
+
+        //Edit Report Save Data
+        $("#save-report-data").click(function (e) {
+            $.ajax({
+                type: "POST",
+                url: '{{route('Save_report_Data_Action')}}',
+                data: $("#save-store-form").serialize(),
+                success: function (res) {
+                    if (res.status == 1) {
+                        $("#error_box").fadeOut();
+                        $("#res_msg").html(res.description).fadeIn();
+                    } else {
+                        $.each(res.errors, function (i, item) {
+                            $("#res_msg").fadeOut();
+                            $("#error_box").html('<p class="text-danger">' + res.errors[i] + '</p>').fadeIn();
+                        });
+                    }
+                }
+            });
+            e.preventDefault(e);
+        });
+        //Edit Report Save Data
+
+
     </script>
 @endsection
