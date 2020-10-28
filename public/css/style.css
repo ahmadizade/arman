@@ -908,20 +908,6 @@ input, select {
 .text-orange {
     color: #ff9c00 !important;
 }
-.shadow-box{
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
-    padding: 20px 5px;
-    border-radius: 25px 4px 25px 4px;
-}
-.shadow-box.red{
-    box-shadow: 0 10px 15px -3px rgba(230, 0, 35, 0.3),0 4px 6px -2px rgba(230, 0, 35, 0.05) !important;
-}
-.shadow-box.green{
-    box-shadow: 0 10px 15px -3px rgba(17, 212, 86, 0.3),0 4px 6px -2px rgba(230, 0, 35, 0.05) !important;
-}
-.shadow-box.blue{
-    box-shadow: 0 10px 15px -3px rgba(0, 184, 255, 0.3),0 4px 6px -2px rgba(17, 212, 86, 0.05) !important;
-}
 .owl-carousel
 {
     touch-action: manipulation;
@@ -1004,11 +990,6 @@ input, select {
     align-items: center;
     justify-content: center;
     cursor: default;
-    -webkit-transform: translateY(20px);
-    -moz-transform: translateY(20px);
-    -ms-transform: translateY(20px);
-    -o-transform: translateY(20px);
-    transform: translateY(20px);
 }
 .title-default:before {
     content: " ";
@@ -1020,8 +1001,8 @@ input, select {
     left: 0;
     z-index: 1;
     border-radius: 25px 4px 25px 4px;
-    background: #000000;
-    box-shadow: 1px 5px 14px 0 #ddd;
+    background: #E60023;
+    box-shadow: 1px 5px 14px 0 #999999;
     color: #ffffff;
 }
 .title-default span {
@@ -1032,19 +1013,12 @@ input, select {
     position: relative;
     text-align: center;
     border-radius: 25px 4px 25px 4px;
-    background: #000000;
+    background: #E60023;
     z-index: 2;
     line-height: 2.4;
     padding: 0 10px;
     box-shadow: 1px 5px 14px 0 #999999;
 }
 
-.title-default.red span,.title-default.red::before{
-    background: #E60023;
-}
-.title-default.green span,.title-default.green::before{
-    background: #11D456;
-}
-.title-default.blue span,.title-default.blue::before{
-    background: #00B8FF;
-}
+
+

@@ -6,49 +6,16 @@
 
 @section("content")
 
+    <!-- Split -->
+
+
+
 
     <!-- Carousel -->
-    <div class="container">
+    <div class="container-fluid" style="border-top:2px solid #8b8788">
         <div class="row">
             <div class="col-12">
-                <div id="carouselExampleIndicators" class="carousel slide" style="border-top:2px solid #8b8788" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="/images/home/slider.jpg" alt="..." class="img-fluid">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>بازاتر تهاتر ایرانیان</h5>
-                                <p>اولین و تنها بازار تهاتری در ایران</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/images/home/slider.jpg" alt="..." class="img-fluid">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>...</h5>
-                                <p>...</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/images/home/slider.jpg" alt="..." class="img-fluid">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>...</h5>
-                                <p>...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                <img src="/images/home/slider.jpg" class="img-fluid" alt="">
             </div>
         </div>
     </div>
@@ -172,43 +139,44 @@
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 my-3">
-                    <h2 class="title-default green"><span>آخرین محصولات</span></h2>
+                    <h2 class="title-default"><span>محصولات تصادفی</span></h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-container">
-                    <div class="owl-carousel owl-theme owl shadow-box green">
-                        @foreach($lastProducts as $product)
-                            <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
-                                <div class="slider-desc text-center overflow-hidden">
-                                    <div class="item">
-                                        @if(is_null($product->image))
-                                            <img src="/images/no-image2.png" alt="BTI">
-                                        @else
-                                            <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
-                                        @endif
+               <div class="row">
+                    <div class="col-12">
+                        <div class="owl-container">
+                            <div class="owl-carousel owl-theme owl">
+                            @foreach($lastProducts as $product)
+                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                                    <div class="slider-desc text-center overflow-hidden">
+                                        <div class="item">
+                                            @if(is_null($product->image))
+                                                <img src="/images/no-image2.png" alt="BTI">
+                                            @else
+                                                <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
+                                            @endif
+                                        </div>
+                                        <div class="price-box rtl">
+                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
+                                            @if($product->discount > 20)
+                                                <div>
+                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
+                                                </div>
+                                            @else
+                                                <div class="mt-1">
+                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
+                                                </div>
+                                            @endif
+                                        </div>
                                     </div>
-                                    <div class="price-box rtl">
-                                        <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
-                                        @if($product->discount > 20)
-                                            <div>
-                                                <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                                <span class="badge badge-success font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                <p class="text-success font-18 mt-1 nowrap text-success">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
-                                            </div>
-                                        @else
-                                            <div class="mt-1">
-                                                <span class="font-14 mt-1 nowrap text-success">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                <p class="text-success font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg text-success"></span>  خرید با شارژ هدیه</p>
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </a>
-                        @endforeach
+                                </a>
+                            @endforeach
+                        </div>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -234,7 +202,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="owl-container">
-                        <div class="owl-carousel owl-theme owl shadow-box red">
+                        <div class="owl-carousel owl-theme owl">
                             @foreach($popular as $product)
                                 <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
                                     <div class="slider-desc text-center overflow-hidden">
@@ -251,12 +219,12 @@
                                                 <div>
                                                     <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
                                                     <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                    <p class="text-danger font-18 mt-1 nowrap text-danger">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
+                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
                                                 </div>
                                             @else
                                                 <div class="mt-1">
                                                     <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                    <p class="text-danger font-14 mt-2 nowrap text-danger"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
+                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
                                                 </div>
                                             @endif
                                         </div>
@@ -284,43 +252,43 @@
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 my-3">
-                    <h2 class="title-default"><span>محصولات تصادفی</span></h2>
+                    <h2 class="title-default green"><span>محصولات تصادفی</span></h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="owl-container">
-                    <div class="owl-carousel owl-theme owl shadow-box">
-                        @foreach($randomProduct as $product)
-                            <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
-                                <div class="slider-desc text-center overflow-hidden">
-                                <div class="item">
-                                    @if(is_null($product->image))
-                                        <img src="/images/no-image2.png" alt="BTI">
-                                    @else
-                                        <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
-                                    @endif
-                                </div>
-                                <div class="price-box rtl">
-                                    <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
-                                    @if($product->discount > 20)
-                                        <div>
-                                            <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                            <span class="badge badge-dark font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                            <p class="text-dark font-18 mt-1 nowrap text-dark">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
+                        <div class="owl-carousel owl-theme owl shadow-box green">
+                            @foreach($randomProduct as $product)
+                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                                    <div class="slider-desc text-center overflow-hidden">
+                                        <div class="item">
+                                            @if(is_null($product->image))
+                                                <img src="/images/no-image2.png" alt="BTI">
+                                            @else
+                                                <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
+                                            @endif
                                         </div>
-                                    @else
-                                        <div class="mt-1">
-                                            <span class="font-14 mt-1 nowrap text-dark">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                            <p class="text-dark font-14 mt-2 nowrap"><span class="fas fa-gift fa-lg text-dark"></span>  خرید با شارژ هدیه</p>
+                                        <div class="price-box rtl">
+                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
+                                            @if($product->discount > 20)
+                                                <div>
+                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
+                                                </div>
+                                            @else
+                                                <div class="mt-1">
+                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
+                                                </div>
+                                            @endif
                                         </div>
-                                    @endif
-                                </div>
-                            </div>
-                            </a>
-                        @endforeach
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
