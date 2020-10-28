@@ -6,43 +6,84 @@
 
 @section("content")
 
-    <div class="container-fluid" style="border-top:2px solid #8b8788">
+
+    <!-- Carousel -->
+    <div class="container">
         <div class="row">
             <div class="col-12">
-                <img src="/images/home/slider.jpg" class="img-fluid" alt="">
+                <div id="carouselExampleIndicators" class="carousel slide" style="border-top:2px solid #8b8788" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/images/home/slider.jpg" alt="..." class="img-fluid">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>بازاتر تهاتر ایرانیان</h5>
+                                <p>اولین و تنها بازار تهاتری در ایران</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/home/slider.jpg" alt="..." class="img-fluid">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>...</h5>
+                                <p>...</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/home/slider.jpg" alt="..." class="img-fluid">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>...</h5>
+                                <p>...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid bg-primary d-none d-lg-block">
+    <!-- Counter -->
+    <div class="container-fluid d-none d-lg-block bg-light mt-3">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="d-flex flex-column flex-md-row justify-content-around align-items-center text-center">
                     <div class="counter-group">
-                        <div class="counter text-white" data-count="150">0</div>
-                        <h5 class="text-white">افراد آنلاین</h5>
+                        <div class="counter text-dark" data-count="150">0</div>
+                        <h5>افراد آنلاین</h5>
                     </div>
                     <div class="counter-group">
-                        <div class="counter text-white" data-count="21">0</div>
-                        <h5 class="text-white">نمایندگی ها</h5>
+                        <div class="counter text-dark" data-count="21">0</div>
+                        <h5>نمایندگی ها</h5>
                     </div>
                     <div class="counter-group">
-                        <div class="counter text-white" data-count="8420">0</div>
-                        <h5 class="text-white">اعضاء</h5>
+                        <div class="counter text-dark" data-count="8420">0</div>
+                        <h5>اعضاء</h5>
                     </div>
                     <div class="counter-group">
-                        <div class="counter text-white" data-count="3720">0</div>
-                        <h5 class="text-white">محصولات</h5>
+                        <div class="counter text-dark" data-count="3720">0</div>
+                        <h5>محصولات</h5>
                     </div>
                     <div class="counter-group">
-                        <div class="counter text-white" data-count="26">0</div>
-                        <h5 class="text-white">فروش امروز</h5>
+                        <div class="counter text-dark" data-count="26">0</div>
+                        <h5>فروش امروز</h5>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Gif -->
     <div class="container mt-3">
         <div class="row">
             <div class="col-6 col-lg-3 text-center mt-3">
@@ -80,7 +121,8 @@
         </div>
     </div>
 
-    <div class="container mt-4">
+    <!-- Application -->
+    <div class="container mt-3">
         <div class="row align-items-center">
             <div class="col-md-4 text-center mt-3">
                 <h3 class="card-title">BAZARTI APPLICATION</h3>
@@ -108,6 +150,7 @@
         </div>
     </div>
 
+    <!-- Banner -->
     <div class="container mt-3">
         <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-12 text-center mt-4">
@@ -124,19 +167,18 @@
         </div>
     </div>
 
+    <!-- Last Products -->
     @if(isset($lastProducts))
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
-                <div class="col-xs-12 my-3">
-                    <div class="section__title--2 text-center">
-                        <h2 class="title__line font-16">آخرین محصولات</h2>
-                    </div>
+                <div class="col-12 my-3">
+                    <h2 class="title-default green"><span>آخرین محصولات</span></h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="owl-container">
-                    <div class="owl-carousel owl-theme owl">
+                    <div class="owl-carousel owl-theme owl shadow-box green">
                         @foreach($lastProducts as $product)
                             <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
                                 <div class="slider-desc text-center overflow-hidden">
@@ -148,17 +190,17 @@
                                         @endif
                                     </div>
                                     <div class="price-box rtl">
-                                        <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
+                                        <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
                                         @if($product->discount > 20)
                                             <div>
-                                                <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                                <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                                <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                <span class="badge badge-success font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                                <p class="text-success font-18 mt-1 nowrap text-success">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
                                             </div>
                                         @else
                                             <div class="mt-1">
-                                                <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
+                                                <span class="font-14 mt-1 nowrap text-success">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                <p class="text-success font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg text-success"></span>  خرید با شارژ هدیه</p>
                                             </div>
                                         @endif
                                     </div>
@@ -172,6 +214,7 @@
         </div>
     @endif
 
+    <!-- Banner -->
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
@@ -180,19 +223,18 @@
         </div>
     </div>
 
+    <!-- Popular Products -->
     @if(isset($popular))
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
-                <div class="col-xs-12 my-3">
-                    <div class="section__title--2 text-center">
-                        <h2 class="title__line">پربازدیدترین ها</h2>
-                    </div>
+                <div class="col-12 my-3">
+                    <h2 class="title-default red"><span>پربازدید ترین ها</span></h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="owl-container">
-                        <div class="owl-carousel owl-theme owl">
+                        <div class="owl-carousel owl-theme owl shadow-box red">
                             @foreach($popular as $product)
                                 <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
                                     <div class="slider-desc text-center overflow-hidden">
@@ -204,17 +246,17 @@
                                             @endif
                                         </div>
                                         <div class="price-box rtl">
-                                            <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
+                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
                                             @if($product->discount > 20)
                                                 <div>
-                                                    <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
                                                     <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                                    <p class="text-danger font-18 mt-1 nowrap text-danger">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
                                                 </div>
                                             @else
                                                 <div class="mt-1">
-                                                    <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                    <p class="text-danger font-14 mt-2 nowrap"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
+                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                    <p class="text-danger font-14 mt-2 nowrap text-danger"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
                                                 </div>
                                             @endif
                                         </div>
@@ -228,6 +270,7 @@
         </div>
     @endif
 
+    <!-- Banner -->
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
@@ -236,19 +279,18 @@
         </div>
     </div>
 
+    <!-- Random Products -->
     @if(isset($randomProduct))
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
-                <div class="col-xs-12 my-3">
-                    <div class="section__title--2 text-center">
-                        <h2 class="title__line">محصولات تصادفی</h2>
-                    </div>
+                <div class="col-12 my-3">
+                    <h2 class="title-default"><span>محصولات تصادفی</span></h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="owl-container">
-                    <div class="owl-carousel owl-theme owl">
+                    <div class="owl-carousel owl-theme owl shadow-box">
                         @foreach($randomProduct as $product)
                             <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
                                 <div class="slider-desc text-center overflow-hidden">
@@ -260,17 +302,17 @@
                                     @endif
                                 </div>
                                 <div class="price-box rtl">
-                                    <p class="mt-1 font-13 nowrap">{{ $product->product_name }}</p>
+                                    <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
                                     @if($product->discount > 20)
                                         <div>
-                                            <del class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                            <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                            <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="text-muted font-12">ریال</span></p>
+                                            <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                            <span class="badge badge-dark font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                            <p class="text-dark font-18 mt-1 nowrap text-dark">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
                                         </div>
                                     @else
                                         <div class="mt-1">
-                                            <span class="font-14 mt-1 nowrap">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                            <p class="text-danger font-14 mt-2 nowrap"><span class="fas fa-gift fa-lg text-danger"></span>  خرید با شارژ هدیه</p>
+                                            <span class="font-14 mt-1 nowrap text-dark">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                            <p class="text-dark font-14 mt-2 nowrap"><span class="fas fa-gift fa-lg text-dark"></span>  خرید با شارژ هدیه</p>
                                         </div>
                                     @endif
                                 </div>
@@ -284,10 +326,18 @@
         </div>
     @endif
 
+    <!-- Banner Fixed Background -->
     <div class="container-fluid mt-3">
-        <div class="row">
-            <div class="w-100"
-                 style="background-image:url('/images/home/sale.jpg');background-position: center center;height: 250px"></div>
+        <div class="row justify-content-center align-items-center">
+            <div class="w-100" style="background: fixed center center url('/images/home/pattern-off.jpg'); height: 250px;">
+                <div class="row flex-column justify-content-center align-items-center h-100">
+                    <div class="font-30 font-weight-bold py-3 px-5 rounded-sm mt-3 ">
+                        <img src="{{ asset('images/logo/logo_100_50.png') }}" alt="logo" class="img-fluid d-block d-md-inline mx-a">
+                        <span class="d-block d-md-inline text-center">بازار تهاتر ایرانیان</span>
+                        <div class="font-20 text-orange font-weight-bold bg-white py-1 px-5 rounded-sm mt-2 shadow-sm">اولین و تنها بازار تهاتری در ایران</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -305,7 +355,7 @@
             <div class="col-12 col-lg-3">
                 <div class="section bg-orange">
                     <div class="subject">اعطای نمایندگی</div>
-                    <i class="fas fa-file-powerpoint icon"></i>
+                    <i class="fas fa-certificate icon"></i>
                     <div class="desc">چگونه نماینده شوم؟</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
@@ -337,7 +387,7 @@
             <div class="col-12 col-lg-3">
                 <div class="section bg-purple">
                     <div class="subject">قوانین و مقررات</div>
-                    <i class="fa fa-money icon"></i>
+                    <i class="fa fa-balance-scale icon"></i>
                     <div class="desc">بدانید و آگاه باشید</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
@@ -372,6 +422,7 @@
             responsiveClass: true,
             loop: true,
             dots: false,
+
             responsive: {
                 0: {
                     items: 2,
