@@ -46,7 +46,7 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">نام فروشگاه</span>
+                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>نام فروشگاه</span>
                                             </div>
                                             <input name="shop" type="text" class="form-control"
                                                    value="{{ old("shop") }}">
@@ -64,7 +64,7 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">ماهیت</span>
+                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>ماهیت</span>
                                             </div>
                                             <select name="nature" class="form-control">
                                                 <option value="0" selected disabled>انتخاب ماهیت</option>
@@ -87,7 +87,7 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">نام و نام خانوادگی صاحب فروشگاه</span>
+                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>نام و نام خانوادگی صاحب فروشگاه</span>
                                             </div>
                                             <input type="text" name="name" class="form-control"
                                                    value="{{ old("name") }}">
@@ -96,7 +96,7 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">کد ملی صاحب فروشگاه</span>
+                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>کد ملی صاحب فروشگاه</span>
                                             </div>
                                             <input type="text" name="melli_code" maxlength="11" class="form-control"
                                                    value="{{ old("melli_code") }}">
@@ -105,7 +105,7 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">نوع خدمات</span>
+                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>نوع خدمات</span>
                                             </div>
                                             <select name="category" class="form-control">
                                                 <option value="0" selected disabled>انتخاب دسته بندی</option>
@@ -136,7 +136,7 @@
                                     <div class="col-12 col-lg-9">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">آدرس</span>
+                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
                                             </div>
                                             <input type="text" name="address" class="form-control"
                                                    value="{{ old("address") }}">
@@ -156,7 +156,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">نام فروشگاه</span>
+                                                    <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>نام فروشگاه</span>
                                                 </div>
                                                 <input name="shop" type="text" class="form-control"
                                                        value="{{ $result['shop'] }}">
@@ -174,7 +174,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">ماهیت</span>
+                                                    <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>ماهیت</span>
                                                 </div>
                                                 <select name="nature" class="form-control">
                                                     <option value="0" selected disabled>انتخاب ماهیت</option>
@@ -197,7 +197,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">نام و نام خانوادگی صاحب فروشگاه</span>
+                                                    <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>نام و نام خانوادگی صاحب فروشگاه</span>
                                                 </div>
                                                 <input type="text" name="name" class="form-control"
                                                        value="{{ $result['name'] }}">
@@ -206,7 +206,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">کد ملی صاحب فروشگاه</span>
+                                                    <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>کد ملی صاحب فروشگاه</span>
                                                 </div>
                                                 <input type="text" name="melli_code" maxlength="11" class="form-control"
                                                        value="{{ $result['melli_code'] }}">
@@ -215,7 +215,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">نوع خدمات</span>
+                                                    <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>نوع خدمات</span>
                                                 </div>
                                                 <select name="category" class="form-control">
                                                     <option value="0" selected disabled>انتخاب دسته بندی</option>
@@ -246,7 +246,7 @@
                                         <div class="col-12 col-lg-9">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">آدرس</span>
+                                                    <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
                                                 </div>
                                                 <input type="text" name="address" class="form-control"
                                                        value="{{ $result['address'] }}">

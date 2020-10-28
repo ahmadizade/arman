@@ -25,7 +25,7 @@
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
-            type: 'doughnut',
+            type: 'line',
             data: {
                 labels: ['کل دریافتی', 'سود دریافتی'],
                 datasets: [{

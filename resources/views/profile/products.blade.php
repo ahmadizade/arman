@@ -18,7 +18,7 @@
                         <div class="row">
                             @if(isset($product))
                                 @foreach($product as $item)
-                                <div class="col-12 @if(count($product) == 1) col-lg-12 @else col-lg-6 @endif">
+                                <div class="col-12 col-lg-6">
                                     <div class="card shadow-sm mt-3">
                                         <div class="row no-gutters">
                                             <div class="col-md-4 d-flex align-self-center">

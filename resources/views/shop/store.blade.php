@@ -122,7 +122,7 @@
                             <div class="row">
                                 <div class="col-12 col-lg-8">
                                     <h1 class="text-white mb-0">
-                                        <span class="font-18 nowrap"><i class="fa fa-shopping-basket pl-2"></i>فروشگاه {{ $result['title'] }}</span>
+                                        <span class="font-18 nowrap"><i class="fa fa-shopping-basket pl-2"></i>فروشگاه {{ $result['shop'] }}</span>
                                     </h1>
                                 </div>
                                 <div class="col-12 col-lg-4 text-left">
@@ -301,7 +301,7 @@
         });
 
         $(".submit-comment").on("click",function(e){
-            $(".submit-comment").html("<span class='fa fa-spinner fa-spin d-block mx-auto'></span>");
+            $(this).html("<span class='fa fa-spinner fa-spin d-block mx-auto'></span>");
             $.ajax({
                 url: '{{ route("comment_action",["store" => $result['id']]) }}',
                 type: 'POST',
@@ -319,7 +319,7 @@
         });
 
         $(".bookmark").on("click",function(e){
-            $(".bookmark").html("<span class='fa fa-spinner fa-spin font-20 px-2'></span>");
+            $(this).html("<span class='fa fa-spinner fa-spin font-20 px-2'></span>");
             $.ajax({
                 url: '{{ route("bookmark") }}',
                 type: 'POST',
@@ -331,7 +331,7 @@
                             icon: 'warning',
                             text: data.desc,
                             showConfirmButton: false,
-                            timer: 2500
+                            timer: 3000
                         })
                     }else if(data.status == "1") {
                         Swal.fire({
@@ -339,7 +339,7 @@
                             icon: 'success',
                             text: data.desc,
                             showConfirmButton: false,
-                            timer: 2500
+                            timer: 3000
                         });
                     }
                     $(".bookmark").html('<i class="fa fa-bookmark-o font-20 pl-2" title="نشان کردن"></i>');
@@ -349,7 +349,7 @@
         });
 
         $(".like").on("click",function(e){
-            $(".like").html("<span class='fa fa-spinner fa-spin font-20'></span>");
+            $(this).html("<span class='fa fa-spinner fa-spin font-20'></span>");
             $.ajax({
                 url: '{{ route("like") }}',
                 type: 'POST',
@@ -361,7 +361,7 @@
                             icon: 'warning',
                             text: data.desc,
                             showConfirmButton: false,
-                            timer: 2500
+                            timer: 3000
                         })
                     }else if(data.status == "2"){
                         Swal.fire({
@@ -369,7 +369,7 @@
                             icon: 'success',
                             text: data.desc,
                             showConfirmButton: false,
-                            timer: 2500
+                            timer: 3000
                         })
                     }else if(data.status == "1"){
                         Swal.fire({
@@ -377,11 +377,11 @@
                             icon: 'success',
                             text: data.desc,
                             showConfirmButton: false,
-                            timer: 2500
+                            timer: 3000
                         });
                         setTimeout(function(){
                             window.location.reload();
-                        },2500);
+                        },3000);
                     }
                     $(".like").html('<i class="fa fa-thumbs-o-up font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif');
                 },
@@ -390,7 +390,7 @@
         });
 
         $(".report-submit").on("click",function(e){
-            $(".report-submit").html("<span class='fa fa-spinner fa-spin font-20 px-2'></span>");
+            $(this).html("<span class='fa fa-spinner fa-spin font-20 px-2'></span>");
             $.ajax({
                 url: '{{ route("report") }}',
                 type: 'POST',
@@ -402,7 +402,7 @@
                             icon: 'warning',
                             text: data.desc,
                             showConfirmButton: false,
-                            timer: 2500
+                            timer: 3000
                         })
                     }else if(data.status == "2"){
                         Swal.fire({
@@ -410,7 +410,7 @@
                             icon: 'success',
                             text: data.desc,
                             showConfirmButton: false,
-                            timer: 2500
+                            timer: 3000
                         })
                     }else if(data.status == "1"){
                         Swal.fire({
@@ -418,11 +418,11 @@
                             icon: 'success',
                             text: data.desc,
                             showConfirmButton: false,
-                            timer: 2500
+                            timer: 3000
                         });
                         setTimeout(function(){
                             window.location.reload();
-                        },2500);
+                        },3000);
                     }
                     $(".report-submit").html('ثبت گزارش');
                 },

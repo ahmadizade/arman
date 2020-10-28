@@ -25,7 +25,7 @@
                         icon: 'warning',
                         text: data.desc,
                         showConfirmButton: false,
-                        timer: 2000
+                        timer: 3000
                     })
                 }else{
                     $("#auth").html(data);
@@ -35,7 +35,7 @@
     });
 
     $("#password-submit").on("click",function(){
-        $("#password-submit").html(" <span class='fa fa-spinner fa-spin d-block mx-auto'></span> ");
+        $(this).html(" <span class='fa fa-spinner fa-spin d-block mx-auto'></span> ");
         $.ajax({
             url: '{{ route("login_password_action") }}',
             type: 'POST',
@@ -47,7 +47,7 @@
                         icon: 'warning',
                         text: data.desc,
                         showConfirmButton: false,
-                        timer: 2000
+                        timer: 3000
                     })
                 }else if(data.status == "1"){
                     window.location.reload();

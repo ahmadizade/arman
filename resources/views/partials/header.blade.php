@@ -37,16 +37,8 @@
                                     </ul>
                                 </li>
                             @endif
-                                <li><a href="{{ route("About_Us") }}" class="nav-link">درباره ما</a></li>
                                 <li><a href="{{ route("contact") }}" class="nav-link">تماس با ما</a></li>
-                                <li>
-                                    @if(Auth::check() && Auth::user()->role == "user")
-                                        <a href="{{ route("store") }}" class="nav-link text-primary">ثبت فروشگاه</a>
-                                    @elseif(Auth::check() && Auth::user()->role == "supplier")
-                                        <a href="{{ route("store") }}" class="nav-link text-primary">فروشگاه من</a>
-                                    @endif
-                                </li>
-
+                                <li><a href="{{ route("About_Us") }}" class="nav-link">درباره ما</a></li>
                                 <li class="has-children"><a href="#contact-section" class="nav-link">مرکز خدمات</a>
                                 <ul class="dropdown text-right">
                                     <li><a href="#" class="nav-link">دریافت ثمین کارت</a></li>
@@ -58,9 +50,6 @@
                                     <li><a href="#" class="nav-link">باشگاه مشتریان</a></li>
                                 </ul>
                             </li>
-                            @if(Auth::check() && Auth::user()->role == "supplier")
-                                <li><a href="{{route('profile_add_product')}}" class="nav-link">ثبت محصول</a></li>
-                            @endif
                             <li><a href="/" class="nav-link">صفحه اصلی<i class="fa fa-home fa-lg d-none d-sm-inline pl-2 text-primary"></i></a></li>
                         </ul>
                     </nav>

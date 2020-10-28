@@ -8,7 +8,7 @@
 
 <script>
     $("#code-submit").on("click",function(){
-        $("#code-submit").html(" <span class='fa fa-spinner fa-spin d-block mx-auto'></span> ");
+        $(this).html(" <span class='fa fa-spinner fa-spin d-block mx-auto'></span> ");
         $.ajax({
             url: '{{ route("login_token_action") }}',
             type: 'POST',
@@ -20,7 +20,7 @@
                         icon: 'warning',
                         text: data.desc,
                         showConfirmButton: false,
-                        timer: 2000
+                        timer: 3000
                     })
                 }else if(data.status == "-1") {
                     Swal.fire({
@@ -28,11 +28,11 @@
                         icon: 'warning',
                         text: data.desc,
                         showConfirmButton: false,
-                        timer: 2000
+                        timer: 3000
                     })
                     setTimeout(function(){
                         window.location.reload();
-                    },2000);
+                    },3000);
                 }else{
                     window.location.reload();
                 }

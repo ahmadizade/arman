@@ -40,7 +40,7 @@
                                         @foreach($bookmark as $item)
                                             <tr class="text-center">
                                                 <td>{{ $i }}</td>
-                                                <td> <span class="text-muted font-11">فروشگاه</span> {{ $item->store->title }} @if(strlen($item->store->branch) > 0) <span class="text-muted font-11">شعبه</span> {{ $item->store->branch }} @endif</td>
+                                                <td> <span class="text-muted font-11">فروشگاه</span> {{ $item->store->shop }} @if(strlen($item->store->branch) > 0) <span class="text-muted font-11">شعبه</span> {{ $item->store->branch }} @endif</td>
                                                 <td><a href="#" class="text-danger delete-bookmark" data-id="{{ $item->store_id }}">حذف</a></td>
                                             </tr>
                                         @endforeach
@@ -79,7 +79,7 @@
         });
 
         $(".delete-bookmark").on("click",function(e){
-            $(".delete-bookmark").html("<span class='fa fa-spinner fa-spin font-20 px-2'></span>");
+            $(this).html("<span class='fa fa-spinner fa-spin font-20 px-2'></span>");
             $.ajax({
                 url: '{{ route("profile_bookmark_delete") }}',
                 type: 'POST',
@@ -91,7 +91,7 @@
                             icon: 'warning',
                             text: data.desc,
                             showConfirmButton: false,
-                            timer: 2500
+                            timer: 3000
                         })
                     }else if(data.status == "1") {
                         Swal.fire({
@@ -99,11 +99,11 @@
                             icon: 'success',
                             text: data.desc,
                             showConfirmButton: false,
-                            timer: 2500
+                            timer: 3000
                         });
                         setTimeout(function(){
                             window.location.reload();
-                        },2500);
+                        },3000);
                     }
                     $(".delete-bookmark").html('حذف');
                 },

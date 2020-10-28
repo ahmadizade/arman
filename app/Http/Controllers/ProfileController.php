@@ -488,6 +488,31 @@ class ProfileController extends Controller
 
     }
 
+    public function StoreBio(){
+
+        $bio = Store::where("user_id",Auth::id())->first();
+
+        return view("profile.bio", ["bio" => $bio , "menu" => "bio"]);
+    }
+
+    public function StoreBioAction(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $request->validate([
+            'bio' => 'required|min:10|max:10000',
+        ]);
+
+        Store::where("user_id",Auth::id())->update([
+            "about" => $request->bio
+        ]);
+
+        session()->flash("status", "بیوگرافی فروشگاه با موفقیت ثبت شد");
+
+        return back();
+
+    }
+
     public function ProfileEdit()
     {
         return view("profile.profile", ["user" => Auth::user(), "menu" => "profile"]);
