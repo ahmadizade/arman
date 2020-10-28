@@ -40,62 +40,12 @@
 
                             </div>
                         </div>
-                        <!-- Socials -->
-                        <hr class="my-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-4 text-center mt-2">
-                                <p><a class="btn btn-primary mt-3 bg-orange" href="#" role="button"><i class="fa fa-instagram"></i>&nbsp;صفحه اینستاگرام</a></p>
-                            </div>
-                            <div class="col-12 col-lg-4 text-center mt-2">
-                                <p><a class="btn btn-success mt-3 bg-green" href="#" role="button"><i class="fa fa-whatsapp"></i>&nbsp;پشتیبان واتساپ</a></p>
-                            </div>
-                            <div class="col-12 col-lg-4 text-center mt-2">
-                                <p><a class="btn btn-info mt-3 bg-blue" href="#" role="button"><i class="fa fa-telegram"></i>&nbsp;کانال تلگرام</a></p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Sections -->
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-12 col-lg-3">
-                <div class="section bg-orange">
-                    <div class="subject">اعطای نمایندگی</div>
-                    <i class="fa fa-podcast icon"></i>
-                    <div class="desc">چگونه نماینده شوم؟</div>
-                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3">
-                <div class="section bg-blue">
-                    <div class="subject">گواهی نامه ها</div>
-                    <i class="fa fa-cloud-download icon"></i>
-                    <div class="desc">مجوزها و گواهی نامه</div>
-                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3">
-                <div class="section bg-green">
-                    <div class="subject">سوالات متداول</div>
-                    <i class="fa fa-window-restore icon"></i>
-                    <div class="desc">پاسخ به سوالات شما</div>
-                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
-                </div>
-            </div>
-            <div class="col-12 col-lg-3">
-                <div class="section bg-green">
-                    <div class="subject">تماس با ما</div>
-                    <i class="fa fa-users icon"></i>
-                    <div class="desc">با ما در ارتباط باشید</div>
-                    <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 

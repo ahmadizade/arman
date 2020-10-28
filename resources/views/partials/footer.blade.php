@@ -20,7 +20,7 @@
                 <h2 class="footer-heading mb-4">Follow Us</h2>
                 <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
                 <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="fab fa-instagram"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="fa fa-instagram"></span></a>
                 <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
             </div>
             <div class="col-md-3 text-center">
@@ -30,7 +30,7 @@
                         <input type="text" style="height: 43px" class="form-control border-secondary text-white bg-transparent"
                                placeholder="رایانامه" aria-label="Enter Email" aria-describedby="button-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-primary text-black" type="button" id="button-addon2">Send
+                            <button class="btn btn-primary" type="button" id="button-addon2">عضویت
                             </button>
                         </div>
                     </div>
