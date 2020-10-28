@@ -6,20 +6,12 @@
 
 @section("content")
 
-    <!-- Split -->
-
-
-
-
     <!-- Carousel -->
     <div class="container-fluid" style="border-top:2px solid #8b8788">
         <div class="row">
             <div class="col-12">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="images/home/categories.jpg" alt="First slide">
-                        </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="images/home/no-money.jpg" alt="Second slide">
                         </div>
@@ -154,42 +146,30 @@
         </div>
     </div>
 
-    <!-- Last Products -->
-    @if(isset($lastProducts))
+    <!-- Popular Shop -->
+    @if(isset($popularShop))
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 my-3">
-                    <h2 class="title-default"><span>محصولات تصادفی</span></h2>
+                    <h2 class="title-default"><span>فروشگاه های برگزیده</span></h2>
                 </div>
             </div>
                <div class="row">
                     <div class="col-12">
                         <div class="owl-container">
                             <div class="owl-carousel owl-theme owl">
-                            @foreach($lastProducts as $product)
-                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                            @foreach($popularShop as $shop)
+                                    <a href="/">
                                     <div class="slider-desc text-center overflow-hidden">
                                         <div class="item">
-                                            @if(is_null($product->image))
+                                            @if(is_null($shop->logo))
                                                 <img src="/images/no-image2.png" alt="BTI">
                                             @else
-                                                <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
+                                                <img src="{{Storage::disk('vms')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
                                             @endif
                                         </div>
                                         <div class="price-box rtl">
-                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
-                                            @if($product->discount > 20)
-                                                <div>
-                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
-                                                </div>
-                                            @else
-                                                <div class="mt-1">
-                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
-                                                </div>
-                                            @endif
+                                            <p class="mt-3 font-13 nowrap">{{ $shop->shop }}</p>
                                         </div>
                                     </div>
                                 </a>
@@ -211,42 +191,30 @@
         </div>
     </div>
 
-    <!-- Popular Products -->
-    @if(isset($popular))
+    <!-- Random Shop -->
+    @if(isset($randomShop))
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 my-3">
-                    <h2 class="title-default red"><span>پربازدید ترین ها</span></h2>
+                    <h2 class="title-default red"><span>فروشگاه های تصادفی</span></h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="owl-container">
                         <div class="owl-carousel owl-theme owl">
-                            @foreach($popular as $product)
-                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                            @foreach($randomShop as $shop)
+                                <a href="/">
                                     <div class="slider-desc text-center overflow-hidden">
                                         <div class="item">
-                                            @if(is_null($product->image))
+                                            @if(is_null($shop->logo))
                                                 <img src="/images/no-image2.png" alt="BTI">
                                             @else
-                                                <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
+                                                <img src="{{Storage::disk('vms')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
                                             @endif
                                         </div>
                                         <div class="price-box rtl">
-                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
-                                            @if($product->discount > 20)
-                                                <div>
-                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
-                                                </div>
-                                            @else
-                                                <div class="mt-1">
-                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
-                                                </div>
-                                            @endif
+                                            <p class="mt-3 font-13 nowrap">{{ $shop->shop }}</p>
                                         </div>
                                     </div>
                                 </a>
@@ -272,7 +240,7 @@
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 my-3">
-                    <h2 class="title-default green"><span>محصولات تصادفی</span></h2>
+                    <h2 class="title-default green"><span>آخرین کالا های ثبت شده</span></h2>
                 </div>
             </div>
             <div class="row">
