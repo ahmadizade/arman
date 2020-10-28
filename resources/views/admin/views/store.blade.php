@@ -542,7 +542,6 @@
                         </div>
                     </div>
 
-
                     <button type="button"
                             class="btn font-weight-bolder text-white myfont bg-gradient-info my-2"
                             id="save-report-data">
