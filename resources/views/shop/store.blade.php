@@ -410,6 +410,5 @@
             });
             e.preventDefault();
         });
-
     </script>
 @endsection
