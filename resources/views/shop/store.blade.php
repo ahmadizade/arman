@@ -17,18 +17,14 @@
         }
         .comment-title{
             width:100%;
-            padding: 20px;
+            padding: 10px 20px;
             margin-bottom: 25px;
             border-radius: 3px;
             text-align: center;
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            background: -webkit-linear-gradient(-25deg,{{ $result['color'] }} 0%, #fff 85%);
-            background: -moz-linear-gradient(-25deg,{{ $result['color'] }} 0%, #fff 85%);
-            background: -o-linear-gradient(-25deg,{{ $result['color'] }} 0%, #fff 85%);
-            background: -ms-linear-gradient(-25deg,{{ $result['color'] }} 0%, #fff 85%);
-            background: linear-gradient(-25deg,{{ $result['color'] }} 0%, #fff 85%);
+            background-color: {{ $result['color'] }};
         }
         .comment-title h2{
             color:#fff;
@@ -96,28 +92,11 @@
         </div>
     </div>
 
-    <div class="modal fade" id="map" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content text-center">
-                <div class="modal-header">
-                    <h5 class="modal-title">نقشه فروشگاه</h5>
-                </div>
-                <div class="modal-body">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12949.29648675451!2d51.4552484881714!3d35.76741376606546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1603803763903!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <div class="container mt-3">
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="row">
-                    <div class="col-12 col-lg-2 logo_shop d-flex justify-content-center align-self-center">
-                        <img @if(Str::length($result['logo'] ) > 0) src="/images/shop/logo/{{ $result['logo'] }}" @else src="/images/shop/logo/no-image.png" @endif class="img-fluid" style="max-width: 140px;max-height: 140px" alt="logo">
-                    </div>
-                    <div class="col-12 col-lg-10 py-3">
+                    <div class="col-12 col-lg-12 py-3">
                         <div class="logo_shop_bg w-100 p-3">
                             <div class="row">
                                 <div class="col-12 col-lg-8">
@@ -127,48 +106,50 @@
                                 </div>
                                 <div class="col-12 col-lg-4 text-left">
                                     @if(Str::length($result['branch_slug']) > 0)
-                                        <h2 class="text-white mb-0 mt-2">
-                                            <span class="nowrap map font-14" data-toggle="modal" data-target="#map"><i class="fa fa-map-marker text-white pl-1 font-20"></i> شعبه {{ $result['branch'] }} </span>
+                                        <h2 class="text-white mb-0">
+                                            <span class="nowrap font-14"><i class="fa fa-map-marker text-white pl-1 font-20"></i> شعبه {{ $result['branch'] }} </span>
                                         </h2>
                                     @endif
-                                </div>
-                            </div>
-                        </div>
-                        <div class="logo_shop_bg w-100 px-3 pt-0 pb-3">
-                            <div class="row">
-                                <div class="col-12 col-lg-6">
-                                    <h2 class="text-white mb-0">
-                                        آدرس:<span class="font-13"> {{ $result['address'] }} </span>
-                                    </h2>
-                                </div>
-                                <div class="col-12 col-lg-6 text-left">
-                                    <div class="text-white mb-0 mt-2">
-                                        <span class="report" data-toggle="modal" data-target="#report"><i class="fa fa-exclamation-circle font-20 pl-2" title="گزارش تخلف"></i></span>
-                                        <span class="bookmark"><i class="fa fa-bookmark-o font-20 pl-2" title="نشان کردن"></i></span>
-                                        <span class="like"><i class="fa fa-thumbs-o-up font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-12">
+            <div class="col-12 col-lg-3 mt-2">
+                <div class="text-center">
+                    <img @if(Str::length($result['logo']) > 0) src="/images/shop/logo/{{ $result['logo'] }}" @else src="/images/shop/logo/no-image.png" @endif class="img-fluid" alt="logo">
+                </div>
+                <hr>
+                <div class="text-center">
+                    <span class="report" data-toggle="modal" data-target="#report"><i class="fa fa-exclamation-circle font-20 pl-2" title="گزارش تخلف"></i></span>
+                    <span class="bookmark"><i class="fa fa-bookmark-o font-20 pl-2" title="نشان کردن"></i></span>
+                    <span class="like"><i class="fa fa-heart text-danger font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif</span>
+                </div>
+                @if(strlen($result['about']) > 10)
+                    <hr>
+                    <h3><span class="fa fa-address-book-o pl-2"></span>بیوگرافی:</h3>
+                    <p>
+                        {{ $result['about'] }}
+                    </p>
+                @endif
+                @if(strlen($result['address']) > 0)
+                    <hr>
+                    <h3><span class="fa fa-map-marker pl-2"></span>آدرس فروشگاه:</h3>
+                    <p>
+                        {{ $result['address'] }}
+                    </p>
+                @endif
+                {{--@if(strlen($result['map']) > 10)--}}
+                    <hr>
+                    <h3><span class="fa fa-map-marker pl-2"></span>مکان بر روی نقشه:</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12949.29648675451!2d51.4552484881714!3d35.76741376606546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1603803763903!5m2!1sen!2s" width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                {{--@endif--}}
+            </div>
+            <div class="col-12 col-lg-9">
                 @if(strlen($result['desc']) > 0)
-                    <div class="card shadow border-0 mt-3">
+                    <div class="card shadow border-0 mt-2">
                         <div class="card-body p-3">
-                            @if ($errors->any())
-                                <div class="alert alert-danger mb-2">
-                                    <ul class="mb-0">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            @if(Session::has("status"))
-                                <div class="alert text-center alert-success mb-2">{{ Session::get("status") }}</div>
-                            @endif
                             <div class="row">
                                 <div class="col-12 col-lg-12 store_desc">
                                     {!! $result['desc'] !!}
@@ -342,7 +323,7 @@
                             timer: 3000
                         });
                     }
-                    $(".bookmark").html('<i class="fa fa-bookmark-o font-20 pl-2" title="نشان کردن"></i>');
+                    $(".bookmark").html('<i class="fa fa-heart font-20 pl-2" title="نشان کردن"></i>');
                 },
             });
             e.preventDefault();
@@ -383,7 +364,7 @@
                             window.location.reload();
                         },3000);
                     }
-                    $(".like").html('<i class="fa fa-thumbs-o-up font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif');
+                    $(".like").html('<i class="fa fa-heart font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif');
                 },
             });
             e.preventDefault();
@@ -429,6 +410,5 @@
             });
             e.preventDefault();
         });
-
     </script>
 @endsection
