@@ -37,7 +37,7 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::post('/store/view-store', 'App\Http\Controllers\AdminController@Store_ViewStore')->name("Store_view_store")->middleware("ajax","verify.domain");
     Route::post('/store/save-store-data', 'App\Http\Controllers\AdminController@SaveStoreData')->name("Save_store_Data_Action")->middleware("ajax","verify.domain");
     Route::post('/store/delete-store-action', 'App\Http\Controllers\AdminController@DeleteStoreAction')->name("delete_store_action")->middleware("ajax","verify.domain");
-
+    Route::get('/store/get-report', 'App\Http\Controllers\AdminController@Store_GetReport')->name("Store_GetReport")->middleware("ajax","verify.domain");
 });
 // admin
 

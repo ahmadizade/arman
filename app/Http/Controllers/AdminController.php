@@ -149,6 +149,11 @@ class AdminController extends Controller
         return datatables()->of(DB::table('users'))->toJson();
     }
 
+    public function Store_GetReport()
+    {
+        return datatables()->of(DB::table('report'))->toJson();
+    }
+
     public function DeleteUserAction(request $request)
     {
         $id = self::faToEn($request['id']);

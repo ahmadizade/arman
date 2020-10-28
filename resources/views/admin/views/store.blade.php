@@ -101,6 +101,51 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 myfont font-weight-bold text-primary">
+                                مشاهده گزارشات تخلف فروشگاه
+                            </h6>
+                            <div class="dropdown no-arrow">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                     aria-labelledby="dropdownMenuLink">
+                                    <div class="dropdown-header">Dropdown Header:</div>
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <table id="report_table"
+                                   class="table table-responsive-xl table-responsive-sm text-center border-bottom-primary bg-gradient-info text-white table-sm table-borderless table-striped"
+                                   width="100%">
+                                <thead class="bg-gradient-primary text-white shadow">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">User_Id</th>
+                                    <th scope="col">Store_Id</th>
+                                    <th scope="col">Report_Id</th>
+                                    <th scope="col">DESC</th>
+                                    <th scope="col">Created_at</th>
+                                    <th scope="col">Answer</th>
+                                    <th scope="col">Answer_at</th>
+                                    <th scope="col">EDIT</th>
+                                    <th scope="col">MESSAGE</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -183,7 +228,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-gradient-light">
                 <div class="modal-header bg-gradient-info border-bottom-info">
-                    <h5 class="text-white" style="font-size: 15px">Www.SaminTakhfif.com</h5>
+                    <h5 class="text-white" style="font-size: 15px">REPORT VIEW</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span>&times;</span>
                     </button>
@@ -230,7 +275,8 @@
                             <select name="res_category" id="res-category" class="form-control">
                                 <option value="0" selected disabled>انتخاب دسته بندی</option>
                                 @foreach($category as $item)
-                                    <option @if(old("category") == $item['id']) selected @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                    <option @if(old("category") == $item['id']) selected
+                                            @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                                 @endforeach
                             </select>
                             <div class="input-group-prepend">
@@ -576,7 +622,6 @@
                 {data: 'name', name: 'name'},
                 {data: 'melli_code', name: 'melli_code'},
                 {data: 'category', name: 'category'},
-                // {data: 'desc', name: 'desc'},
                 {data: 'shenase_melli', name: 'shenase_melli'},
                 {data: 'nature', name: 'nature'},
                 {data: 'branch', name: 'branch'},
@@ -589,6 +634,48 @@
                 {
                     className: "ltr text-center", data: "id", render: function (data, type, row) {
                         return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger delete" data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.id + '"  class="btn btn-sm text-white bg-gradient-success view" data-toggle="modal" data-target="#view">VIEW</button></div></div>';
+                    }
+                },
+                {
+                    className: "ltr text-center", data: "id", render: function (data, type, row) {
+                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" data-user_id="' + row.user_id + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '" data-user_id="' + row.user_id + '" class="btn btn-sm text-white bg-gradient-primary reply" data-toggle="modal" data-target="#reply-email" >Email</button></div></div>';
+                    },
+                },
+            ]
+        });
+
+        //DataTable REPORT
+        $('#report_table').DataTable({
+            processing: true,
+            serverSide: true,
+            dom: 'Bfrtip',
+            bLengthChange: false,
+            pageLength: 5,
+            "searching": true,
+            "scrollCollapse": true,
+            ajax: {
+                dataType: 'json',
+                type: 'GET',
+                url: '{{route('Store_GetReport')}}',
+            },
+            buttons: [
+                // 'copy', 'csv', 'excel', 'pdf', 'print'
+                //     {extend: 'create', editor: myEditor},
+                //     {extend: 'edit', editor: myEditor},
+                //     {extend: 'remove', editor: myEditor}
+            ],
+            columns: [
+                {data: 'id', name: 'id'},
+                {data: 'user_id', name: 'user_id'},
+                {data: 'store_id', name: 'store_id'},
+                {data: 'report_id', name: 'report_id'},
+                {data: 'desc', name: 'desc'},
+                {data: 'created_at', name: 'created_at'},
+                {data: 'answer', name: 'answer'},
+                {data: 'answer_at', name: 'answer_at'},
+                {
+                    className: "ltr text-center", data: "id", render: function (data, type, row) {
+                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger delete disabled" disabled data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.id + '"  class="btn btn-sm text-white bg-gradient-success view disabled" disabled data-toggle="modal" data-target="#view">VIEW</button></div></div>';
                     }
                 },
                 {
