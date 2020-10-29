@@ -60,55 +60,39 @@
 
 @section('extra_js')
     <script>
-        $(document).ready(function(){
-            $("#online-payment-gold").on("click",function(e){
-                $(this).append("<span class='fa fa-spinner fa-spin font-16 mr-2'></span>");
+        $(document).ready(function() {
+            $(".delete-bookmark").on("click", function (e) {
+                $(this).html("<span class='fa fa-spinner fa-spin font-20 px-2'></span>");
                 $.ajax({
-                    type: "POST",
-                    url: "{{ route("profile_gold_action") }}",
-                    success: function (result) {
-                        if(result.errors == 1){
-                            $("#online-payment-gold").html("پرداخت");
-                        }else if(result.errors == 0){
-                            //samanBankPayment({MID:12291850,CellNumber:"{{ Auth::user()->mobile ?? '' }}",ResNum:result.ref,Amount:result.total,RedirectURL:"{{ request()->root() }}/shop/verify-online-payment"});
+                    url: '{{ route("profile_bookmark_delete") }}',
+                    type: 'POST',
+                    data: {"store": $(this).attr("data-id")},
+                    success: function (data) {
+                        if (data.status == "0") {
+                            Swal.fire({
+                                position: 'center-center',
+                                icon: 'warning',
+                                text: data.desc,
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+                        } else if (data.status == "1") {
+                            Swal.fire({
+                                position: 'center-center',
+                                icon: 'success',
+                                text: data.desc,
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 3000);
                         }
-                    }
+                        $(".delete-bookmark").html('حذف');
+                    },
                 });
                 e.preventDefault();
             });
-        });
-
-        $(".delete-bookmark").on("click",function(e){
-            $(this).html("<span class='fa fa-spinner fa-spin font-20 px-2'></span>");
-            $.ajax({
-                url: '{{ route("profile_bookmark_delete") }}',
-                type: 'POST',
-                data: {"store":$(this).attr("data-id")},
-                success: function(data) {
-                    if(data.status == "0"){
-                        Swal.fire({
-                            position: 'center-center',
-                            icon: 'warning',
-                            text: data.desc,
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
-                    }else if(data.status == "1") {
-                        Swal.fire({
-                            position: 'center-center',
-                            icon: 'success',
-                            text: data.desc,
-                            showConfirmButton: false,
-                            timer: 3000
-                        });
-                        setTimeout(function(){
-                            window.location.reload();
-                        },3000);
-                    }
-                    $(".delete-bookmark").html('حذف');
-                },
-            });
-            e.preventDefault();
         });
     </script>
 @endsection
