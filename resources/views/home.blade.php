@@ -175,7 +175,7 @@
                                         @endif
                                         <div class="card-body">
                                             <h5 class="card-title" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
-                                            <p class="card-text text-left text-justify">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
+                                            <p class="card-text text-justify text-right">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
                                             <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
                                         </div>
                                     </div>
@@ -218,7 +218,7 @@
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
-                                        <p class="card-text text-left text-justify">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
+                                        <p class="card-text text-justify text-right">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
                                         <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
                                     </div>
                                 </div>
