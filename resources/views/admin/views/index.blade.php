@@ -37,8 +37,8 @@
                     <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-4">
                         <a href="{{route('profile_index')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                     class="fas fa-arrow-right fa-sm text-white-50"></i> Add User On WebSite</a>
-                        <a href="{{route('store')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Add Store On WebSite</a>
+{{--                        <a href="{{route('store')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i--}}
+{{--                                    class="fas fa-download fa-sm text-white-50"></i> Add Store On WebSite</a>--}}
 
                     </div>
 

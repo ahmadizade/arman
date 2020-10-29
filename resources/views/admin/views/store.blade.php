@@ -83,7 +83,6 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Melli_Code</th>
                                     <th scope="col">Category</th>
-                                    {{--                                    <th scope="col">Description</th>--}}
                                     <th scope="col">Shenase_Melli</th>
                                     <th scope="col">Nature</th>
                                     <th scope="col">branch</th>
