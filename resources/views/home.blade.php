@@ -10,20 +10,28 @@
     <div class="container-fluid" style="border-top:2px solid #8b8788">
         <div class="row">
             <div class="col-12">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div id="carouselHome" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselHome" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselHome" data-slide-to="1"></li>
+                        <li data-target="#carouselHome" data-slide-to="2"></li>
+                    </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="images/home/no-money.jpg" alt="Second slide">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="images/home/no-money.jpg" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="images/home/bazarti.jpg" alt="Third slide">
+                            <img class="d-block w-100" src="images/home/bazarti.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="images/home/categories.jpg" alt="Second slide">
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselHome" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carouselHome" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
@@ -202,20 +210,18 @@
                     <div class="owl-container">
                         <div class="owl-carousel owl-theme owl">
                             @foreach($randomShop as $shop)
-                                <a href="/">
-                                    <div class="slider-desc text-center overflow-hidden">
-                                        <div class="item">
-                                            @if(is_null($shop->logo))
-                                                <img src="/images/no-image2.png" alt="BTI">
-                                            @else
-                                                <img src="{{Storage::disk('vms')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
-                                            @endif
-                                        </div>
-                                        <div class="price-box rtl">
-                                            <p class="mt-3 font-13 nowrap">{{ $shop->shop }}</p>
-                                        </div>
+                                <div class="card">
+                                    @if(is_null($shop->logo))
+                                        <img class="card-img-top" src="/images/no-image2.png" alt="BTI">
+                                    @else
+                                        <img class="card-img-top" src="{{Storage::disk('vms')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
+                                    @endif
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
+                                        <p class="card-text text-left text-justify">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
+                                        <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
                                     </div>
-                                </a>
+                                </div>
                             @endforeach
                         </div>
                     </div>
