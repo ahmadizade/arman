@@ -342,14 +342,14 @@
                                             <input disabled name="address" class="form-control"
                                                    value="{{ $result["address"] }}">
                                         </div>
+                                        <hr>
                                     </div>
                                     <div class="col-12 text-center">
-                                        <hr>
-                                        <img src="/images/shop/logo/{{ $result['logo'] }}" alt="">
+                                        <img src="/images/shop/logo/{{ $result['logo'] }}" class="img-fluid" style="max-width: 250px" alt="logo">
                                     </div>
                                 </div>
                             <form action="{{ route("store_desc_action") }}" method="post" enctype="multipart/form-data">
-                                <div class="row">
+                                <div class="row mt-3">
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
