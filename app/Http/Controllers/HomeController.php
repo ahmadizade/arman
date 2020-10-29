@@ -24,6 +24,7 @@ class HomeController extends Controller
 
         $randomProduct = Product::inRandomOrder()->limit(12)->get();
         return view('home' , ['popularShop' => $popularShop , 'randomShop' => $randomShop, 'randomProduct' => $randomProduct]);
+
     }
 
     public function contact(){

@@ -35,7 +35,9 @@ class ShopController extends Controller
 
                 $likeCount = Like::where("store_id",$store->id)->count();
 
-                return view("shop.store",["result" => $store , "products" => $products , "comments" => $comments , "likeCount" => $likeCount]);
+                $suggest = Store::inRandomOrder()->limit(3)->get();
+
+                return view("shop.store",["result" => $store , "products" => $products , "comments" => $comments , "likeCount" => $likeCount , "suggest" => $suggest]);
 
             }
 

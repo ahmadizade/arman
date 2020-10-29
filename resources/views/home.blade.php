@@ -41,8 +41,8 @@
     </div>
 
     <!-- Counter -->
-    <div class="container-fluid d-none d-lg-block bg-light mt-3">
-        <div class="container">
+    <div class="d-none d-lg-block mt-3">
+        <div class="container bg-light">
             <div class="row d-flex justify-content-center">
                 <div class="d-flex flex-column flex-md-row justify-content-around align-items-center text-center">
                     <div class="counter-group">
