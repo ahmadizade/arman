@@ -123,7 +123,7 @@
                 <hr>
                 <div class="text-center">
                     <span class="report" data-toggle="modal" data-target="#report"><i class="fa fa-exclamation-circle font-20 pl-2" title="گزارش تخلف"></i></span>
-                    <span class="bookmark"><i class="fa fa-bookmark-o font-20 pl-2" title="نشان کردن"></i></span>
+                    <span class="bookmark"><i class="fa fa-bookmark font-20 pl-2" title="نشان کردن"></i></span>
                     <span class="like"><i class="fa fa-heart text-danger font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif</span>
                 </div>
                 @if(strlen($result['about']) > 10)
@@ -323,7 +323,7 @@
                             timer: 3000
                         });
                     }
-                    $(".bookmark").html('<i class="fa fa-heart font-20 pl-2" title="نشان کردن"></i>');
+                    $(".bookmark").html('<i class="fa fa-bookmark font-20 pl-2" title="نشان کردن"></i>');
                 },
             });
             e.preventDefault();
@@ -364,7 +364,7 @@
                             window.location.reload();
                         },3000);
                     }
-                    $(".like").html('<i class="fa fa-heart font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif');
+                    $(".like").html('<i class="fa fa-heart text-danger font-20 ml-2" title="پسندیدم"></i>@if($likeCount > 0)<span class="font-10"><span class="font-15">{{ $likeCount }}</span> نفر پسندیده اند</span>@endif');
                 },
             });
             e.preventDefault();
