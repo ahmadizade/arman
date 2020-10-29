@@ -39,7 +39,9 @@
                                 @if(Auth::check() && Auth::user()->user_mode == "gold")
                                     <p class="text-center text-warning font-18">شما عضو طلایی هستید</p>
                                 @elseif(Auth::check() && Auth::user()->user_mode == "normal" && Auth::user()->credit < 440000)
-                                    <button id="online-payment-gold" class="btn btn-primary">پرداخت آنلاین</button>
+                                    <p class="text-center">
+                                        <button id="online-payment-gold" class="btn btn-primary">پرداخت آنلاین</button>
+                                    </p>
                                 @else
                                     <p class="text-center">
                                         <button id="online-payment-gold" class="btn btn-primary">پرداخت آنلاین</button>
@@ -80,15 +82,27 @@
 
             $("#credit-payment-gold").on("click",function(e){
                 $(this).append("<span class='fa fa-spinner fa-spin font-16 mr-2'></span>");
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route("profile_gold_credit_action") }}",
-                    success: function (result) {
-                        if(result.errors == 1){
-                            $("#online-payment-gold").html("پرداخت از اعتبار");
-                        }else if(result.errors == 0){
-                            window.location.href = "/profile/edit"
-                        }
+                Swal.fire({
+                    text: "مبلغ 44 هزار تومان بابت عضویت طلایی کم میشود. آیا اطمینان دارید؟",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'بله',
+                    cancelButtonText: 'خیر',
+                }).then((result) => {
+                    if(result.value) {
+                        $.ajax({
+                            type: "POST",
+                            url: "{{ route("profile_gold_credit_action") }}",
+                            success: function (result) {
+                                if(result.errors == 1){
+                                    $("#online-payment-gold").html("پرداخت از اعتبار");
+                                }else if(result.errors == 0){
+                                    window.location.href = "/profile/edit"
+                                }
+                            }
+                        });
                     }
                 });
                 e.preventDefault();

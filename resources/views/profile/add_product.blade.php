@@ -35,7 +35,7 @@
                                 <div class="col-12 col-lg-12">
                                     <div class="input-group mt-2">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">نام کالا</span>
+                                            <span class="input-group-text font-12">نام کالا یا خدمات</span>
                                         </div>
                                         <input id="product_name" name="name" type="text" class="form-control"
                                                value="{{ old("name") }}">
@@ -98,7 +98,7 @@
                                 <div class="col-12 col-lg-4">
                                     <div class="input-group mt-2">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">نوع کالا</span>
+                                            <span class="input-group-text font-12">نوع کالا یا خدمات</span>
                                         </div>
                                         <select class="form-control" name="stock" id="product_stock">
                                             <option @if(old("stock") != null && old("stock") == 1) selected

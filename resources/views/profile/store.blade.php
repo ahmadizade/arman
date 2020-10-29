@@ -405,7 +405,6 @@
             .catch( err => {
                 console.error( err.stack );
             } );
-        ClassicEditor.config.removeButtons = 'Image';
     </script>
 
 @endsection

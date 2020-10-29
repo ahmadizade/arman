@@ -260,7 +260,7 @@
             itemsMobile: false,
             lazyLoad: true,
             responsiveClass: true,
-            loop: false,
+            loop: true,
             dots: false,
             responsive: {
                 0: {

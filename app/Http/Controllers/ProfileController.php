@@ -11,6 +11,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -416,7 +417,7 @@ class ProfileController extends Controller
             'name' => 'required|min:3|max:56',
             'price' => 'required|min:3|max:56',
             'mobile' => 'required|min:3|max:14',
-            'desc' => 'required|min:10|max:128',
+            'desc' => 'required|min:10|max:10000',
             'discount' => 'required|min:1|max:16',
             'quantity' => 'required|min:1|max:128',
             'stock' => 'required|max:10',
@@ -609,9 +610,12 @@ class ProfileController extends Controller
 
             if($check->credit > 440000) {
 
+                DB::table("users")->where("id", Auth::id())->decrement("credit",440000);
+
                 User::where("id", Auth::id())->update([
                     "user_mode" => "gold"
                 ]);
+
 
                 return response()->json(['errors' => 0]);
 

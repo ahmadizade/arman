@@ -26,7 +26,11 @@
                                 <li><a href="#" class="nav-link text-primary" data-toggle="modal" data-target="#login-register">ورود / ثبت نام</a></li>
                             @else
                                 <li class="has-children">
-                                    <a href="#profile" class="nav-link">{{ Auth::user()->mobile }}</a>
+                                    @if(Auth::check() && Auth::user()->user_mode == "gold")
+                                        <a href="#profile" class="nav-link text-warning">{{ Auth::user()->mobile }}<span class="fa fa-diamond text-warning pl-2"></span></a>
+                                    @else
+                                        <a href="#profile" class="nav-link">{{ Auth::user()->mobile }}</a>
+                                    @endif
                                     <ul class="dropdown text-right rtl">
                                         <li><a class="nav-link text-success"> اعتبار {{ number_format(Auth::user()->credit) }} ریال </a></li>
                                         @if(Auth::check() && Auth::user()->role == "admin")

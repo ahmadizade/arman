@@ -13,7 +13,7 @@
         <div class="row">
             @include("profile.sidebar")
             <div class="col-12 col-lg-9 mt-3">
-                <canvas id="myChart" width="400" height="150"></canvas>
+                <canvas id="chart" width="400" height="150"></canvas>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
 @section('extra_js')
     <script src="/js/chart.js"></script>
     <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
+        var ctx = document.getElementById('chart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {

@@ -386,7 +386,6 @@
             responsiveClass: true,
             loop: true,
             dots: false,
-
             responsive: {
                 0: {
                     items: 2,
