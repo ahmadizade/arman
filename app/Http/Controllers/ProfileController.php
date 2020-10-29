@@ -591,7 +591,7 @@ class ProfileController extends Controller
 
     }
 
-    public function ProfileGoldAction(Request $request)
+    public function ProfileGoldOnlineAction(Request $request)
     {
 
         $request = $request->replace(self::faToEn($request->all()));
@@ -600,6 +600,30 @@ class ProfileController extends Controller
 
     }
 
+    public function ProfileGoldCreditAction(Request $request)
+    {
+
+        $check = User::where("id",Auth::id())->first();
+
+        if(isset($check->id) && $check->user_mode == "normal"){
+
+            if($check->credit > 440000) {
+
+                User::where("id", Auth::id())->update([
+                    "user_mode" => "gold"
+                ]);
+
+                return response()->json(['errors' => 0]);
+
+            }
+
+            return response()->json(['errors' => 1 , "desc" => "اعتبار شما کمتر از حد نصاب می باشد"]);
+
+        }
+
+        return response()->json(['errors' => 1 , "desc" => "شما قبلا عضو طلایی شده اید"]);
+
+    }
 
     //Jquery Cropper
     public function uploadCropImage(Request $request)

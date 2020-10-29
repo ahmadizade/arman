@@ -36,7 +36,18 @@
                                     <li>شرکت در قرعه کشی</li>
                                     <li>حمایت از تیم مورد علاقه</li>
                                 </ul>
-                                <p class="text-center"><button id="online-payment-gold" class="btn btn-primary">پرداخت</button></p>
+                                @if(Auth::check() && Auth::user()->user_mode == "gold")
+                                    <p class="text-center text-warning font-18">شما عضو طلایی هستید</p>
+                                @elseif(Auth::check() && Auth::user()->user_mode == "normal" && Auth::user()->credit < 440000)
+                                    <button id="online-payment-gold" class="btn btn-primary">پرداخت آنلاین</button>
+                                @else
+                                    <p class="text-center">
+                                        <button id="online-payment-gold" class="btn btn-primary">پرداخت آنلاین</button>
+                                        @if(Auth::check() && Auth::user()->credit > 44000)
+                                            <button id="credit-payment-gold" class="btn btn-primary">پرداخت از اعتبار</button>
+                                        @endif
+                                    </p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -50,14 +61,15 @@
 @section('extra_js')
     <script>
         $(document).ready(function(){
+
             $("#online-payment-gold").on("click",function(e){
                 $(this).append("<span class='fa fa-spinner fa-spin font-16 mr-2'></span>");
                 $.ajax({
                     type: "POST",
-                    url: "{{ route("profile_gold_action") }}",
+                    url: "{{ route("profile_gold_online_action") }}",
                     success: function (result) {
                         if(result.errors == 1){
-                            $("#online-payment-gold").html("پرداخت");
+                            $("#online-payment-gold").html("پرداخت آنلاین");
                         }else if(result.errors == 0){
                             //samanBankPayment({MID:12291850,CellNumber:"{{ Auth::user()->mobile ?? '' }}",ResNum:result.ref,Amount:result.total,RedirectURL:"{{ request()->root() }}/shop/verify-online-payment"});
                         }
@@ -65,6 +77,23 @@
                 });
                 e.preventDefault();
             });
+
+            $("#credit-payment-gold").on("click",function(e){
+                $(this).append("<span class='fa fa-spinner fa-spin font-16 mr-2'></span>");
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route("profile_gold_credit_action") }}",
+                    success: function (result) {
+                        if(result.errors == 1){
+                            $("#online-payment-gold").html("پرداخت از اعتبار");
+                        }else if(result.errors == 0){
+                            window.location.href = "/profile/edit"
+                        }
+                    }
+                });
+                e.preventDefault();
+            });
+
         });
     </script>
 @endsection

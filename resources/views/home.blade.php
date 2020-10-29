@@ -7,9 +7,9 @@
 @section("content")
 
     <!-- Carousel -->
-    <div class="container-fluid" style="border-top:2px solid #8b8788">
+    <div class="container" style="border-top:2px solid #8b8788">
         <div class="row">
-            <div class="col-12">
+            <div class="w-100">
                 <div id="carouselHome" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselHome" data-slide-to="0" class="active"></li>
