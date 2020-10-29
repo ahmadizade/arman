@@ -171,12 +171,14 @@
                                         @if(is_null($shop->logo))
                                             <img class="card-img-top" src="/images/no-image2.png" alt="BTI">
                                         @else
-                                            <img class="card-img-top" src="{{Storage::disk('vms')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
+                                            <img class="card-img-top" src="{{Storage::disk('logo')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
                                         @endif
                                         <div class="card-body">
                                             <h5 class="card-title" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
-                                            <p class="card-text text-justify text-right">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
-                                            <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
+                                            <p class="card-text text-justify text-right" style="direction: rtl">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
+                                            <div class="row justify-content-center">
+                                                <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
+                                            </div>
                                         </div>
                                     </div>
                             @endforeach
@@ -214,12 +216,14 @@
                                     @if(is_null($shop->logo))
                                         <img class="card-img-top" src="/images/no-image2.png" alt="BTI">
                                     @else
-                                        <img class="card-img-top" src="{{Storage::disk('vms')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
+                                        <img class="card-img-top" src="{{Storage::disk('logo')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
-                                        <p class="card-text text-justify text-right">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
-                                        <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
+                                        <p class="card-text text-justify text-right" style="direction: rtl">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
+                                        <div class="row justify-content-center">
+                                            <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach
