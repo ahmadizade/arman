@@ -11,6 +11,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -28,17 +29,19 @@ class ProfileController extends Controller
         return view("profile.index", ["user" => Auth::user(), "menu" => "index"]);
     }
 
-    public function Store(Request $request){
+    public function Store(Request $request)
+    {
 
-        $result = Store::where("user_id",Auth::id())->first();
+        $result = Store::where("user_id", Auth::id())->first();
 
         $category = Category::all();
 
-        return view("profile.store", ["result" => $result, "category" => $category ,"menu" => "store"]);
+        return view("profile.store", ["result" => $result, "category" => $category, "menu" => "store"]);
 
     }
 
-    public function StoreEditAction(Request $request){
+    public function StoreEditAction(Request $request)
+    {
 
         $request = $request->replace(self::faToEn($request->all()));
 
@@ -66,7 +69,7 @@ class ProfileController extends Controller
                 $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->resize(300,300, function ($constraint) {
+                $img->resize(300, 300, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -75,7 +78,7 @@ class ProfileController extends Controller
             } else {
 
                 $imageName = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'))->resize(300,300, function ($constraint) {
+                $img = Image::make($request->file('file'))->resize(300, 300, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -83,13 +86,13 @@ class ProfileController extends Controller
 
             }
 
-            Store::where("user_id",Auth::id())->update([
+            Store::where("user_id", Auth::id())->update([
                 'logo' => $imageName,
             ]);
 
         }
 
-        Store::where("user_id",Auth::id())->update([
+        Store::where("user_id", Auth::id())->update([
             'shop' => $request->shop,
             'branch' => $request->branch,
             'nature' => $request->nature,
@@ -102,19 +105,20 @@ class ProfileController extends Controller
             'branch_slug' => self::slug($request->branch),
         ]);
 
-        if(isset($request->color)){
-            Store::where("user_id",Auth::id())->update([
+        if (isset($request->color)) {
+            Store::where("user_id", Auth::id())->update([
                 "color" => $request->color
             ]);
         }
 
-        session()->flash("status","اطلاعات با موفقیت ویرایش شد");
+        session()->flash("status", "اطلاعات با موفقیت ویرایش شد");
 
         return back();
 
     }
 
-    public function StoreAction(Request $request){
+    public function StoreAction(Request $request)
+    {
 
         $request = $request->replace(self::faToEn($request->all()));
 
@@ -141,7 +145,7 @@ class ProfileController extends Controller
                 $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->resize(300,300, function ($constraint) {
+                $img->resize(300, 300, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -150,7 +154,7 @@ class ProfileController extends Controller
             } else {
 
                 $imageName = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'))->resize(300,300, function ($constraint) {
+                $img = Image::make($request->file('file'))->resize(300, 300, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -177,19 +181,20 @@ class ProfileController extends Controller
             'branch_slug' => self::slug($request->branch),
         ]);
 
-        if(isset($request->color)){
-            Store::where("user_id",Auth::id())->update([
+        if (isset($request->color)) {
+            Store::where("user_id", Auth::id())->update([
                 "color" => $request->color
             ]);
         }
 
-        session()->flash("status","اطلاعات با موفقیت ثبت شد");
+        session()->flash("status", "اطلاعات با موفقیت ثبت شد");
 
         return back();
 
     }
 
-    public function StoreDescAction(Request $request){
+    public function StoreDescAction(Request $request)
+    {
 
         $request = $request->replace(self::faToEn($request->all()));
 
@@ -210,7 +215,7 @@ class ProfileController extends Controller
                 $imageName = $imageName . "." . $request->file('file')->getClientOriginalExtension();
 
                 $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->resize(300,300, function ($constraint) {
+                $img->resize(300, 300, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -219,7 +224,7 @@ class ProfileController extends Controller
             } else {
 
                 $imageName = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'))->resize(300,300, function ($constraint) {
+                $img = Image::make($request->file('file'))->resize(300, 300, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -228,29 +233,30 @@ class ProfileController extends Controller
 
             }
 
-            Store::where("user_id",Auth::id())->update([
+            Store::where("user_id", Auth::id())->update([
                 "logo" => $imageName
             ]);
 
         }
 
-        Store::where("user_id",Auth::id())->update([
+        Store::where("user_id", Auth::id())->update([
             "desc" => $request->desc,
         ]);
 
-        if(isset($request->color)){
-            Store::where("user_id",Auth::id())->update([
+        if (isset($request->color)) {
+            Store::where("user_id", Auth::id())->update([
                 "color" => $request->color
             ]);
         }
 
-        session()->flash("status","توضیحات با موفقیت ثبت شد");
+        session()->flash("status", "توضیحات با موفقیت ثبت شد");
 
         return back();
 
     }
 
-    public function Products(){
+    public function Products()
+    {
 
         $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->paginate(20);
 
@@ -263,7 +269,7 @@ class ProfileController extends Controller
 
         $products = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->limit(6)->get();
 
-        return view('profile.add_product', ["user" => Auth::user(),"products" => $products, "menu" => "add_product"]);
+        return view('profile.add_product', ["user" => Auth::user(), "products" => $products, "menu" => "add_product"]);
 
     }
 
@@ -295,7 +301,7 @@ class ProfileController extends Controller
                 $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                 $img = Image::make('images/shop/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->resize(400,400, function ($constraint) {
+                $img->resize(400, 400, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -304,7 +310,7 @@ class ProfileController extends Controller
             } else {
 
                 $imageName = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'))->resize(400,400, function ($constraint) {
+                $img = Image::make($request->file('file'))->resize(400, 400, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
@@ -347,7 +353,7 @@ class ProfileController extends Controller
 
             $product = Product::where('id', $request->id)->where("user_id", Auth::id())->first();
 
-            if(isset($product->id)){
+            if (isset($product->id)) {
 
                 Product::where('id', $request->id)->where("user_id", Auth::id())->update(array('status' => 0));
 
@@ -355,11 +361,11 @@ class ProfileController extends Controller
 
             }
 
-            return response()->json(['errors' => 1 , "desc" => "این پست وجود ندارد یا مطعلق به شما نمیباشد"]);
+            return response()->json(['errors' => 1, "desc" => "این پست وجود ندارد یا مطعلق به شما نمیباشد"]);
 
         }
 
-        return response()->json(['errors' => 1 , "desc" => "حذف پست انجام نشد"]);
+        return response()->json(['errors' => 1, "desc" => "حذف پست انجام نشد"]);
 
 
     }
@@ -371,7 +377,7 @@ class ProfileController extends Controller
 
             $product = Product::where('id', $id)->where("user_id", Auth::id())->first();
 
-            if(isset($product->id)){
+            if (isset($product->id)) {
 
                 return view('profile.single_product', ["product" => $product, "menu" => "add_product"]);
 
@@ -394,7 +400,7 @@ class ProfileController extends Controller
 
             $product = Product::where('id', $id)->where("user_id", Auth::id())->first();
 
-            if(isset($product->id)) {
+            if (isset($product->id)) {
 
                 return view('profile.edit_product', ["product" => $product, "menu" => "add_product"]);
 
@@ -408,12 +414,13 @@ class ProfileController extends Controller
 
     }
 
-    public function EditProductSingleAction(Request $request){
+    public function EditProductSingleAction(Request $request)
+    {
 
         $request = $request->replace(self::faToEn($request->all()));
 
         $request->validate([
-            'id' =>  'required',
+            'id' => 'required',
             'name' => 'required|min:3|max:56',
             'price' => 'required|min:3|max:56',
             'mobile' => 'required|min:3|max:14',
@@ -424,9 +431,9 @@ class ProfileController extends Controller
             'file' => 'image|nullable|dimensions:min_width=400,min_height=400|max:2048',
         ]);
 
-        $checkProduct = Product::where("id",$request->id)->where("user_id",Auth::id())->first();
+        $checkProduct = Product::where("id", $request->id)->where("user_id", Auth::id())->first();
 
-        if(isset($checkProduct->id)) {
+        if (isset($checkProduct->id)) {
 
             if (isset($request->file) && strlen($request->file) > 0) {
 
@@ -440,7 +447,7 @@ class ProfileController extends Controller
                     $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
 
                     $img = Image::make('images/shop/products/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                    $img->resize(400,400, function ($constraint) {
+                    $img->resize(400, 400, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });
@@ -449,7 +456,7 @@ class ProfileController extends Controller
                 } else {
 
                     $imageName = $request->file('file')->getClientOriginalName();
-                    $img = Image::make($request->file('file'))->resize(400,400, function ($constraint) {
+                    $img = Image::make($request->file('file'))->resize(400, 400, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });
@@ -489,14 +496,16 @@ class ProfileController extends Controller
 
     }
 
-    public function StoreBio(){
+    public function StoreBio()
+    {
 
-        $bio = Store::where("user_id",Auth::id())->first();
+        $bio = Store::where("user_id", Auth::id())->first();
 
-        return view("profile.bio", ["bio" => $bio , "menu" => "bio"]);
+        return view("profile.bio", ["bio" => $bio, "menu" => "bio"]);
     }
 
-    public function StoreBioAction(Request $request){
+    public function StoreBioAction(Request $request)
+    {
 
         $request = $request->replace(self::faToEn($request->all()));
 
@@ -504,7 +513,7 @@ class ProfileController extends Controller
             'bio' => 'required|min:10|max:10000',
         ]);
 
-        Store::where("user_id",Auth::id())->update([
+        Store::where("user_id", Auth::id())->update([
             "about" => $request->bio
         ]);
 
@@ -521,7 +530,6 @@ class ProfileController extends Controller
 
     public function ProfileEditAction(Request $request)
     {
-
         $request = $request->replace(self::faToEn($request->all()));
 
         $request->validate([
@@ -549,8 +557,33 @@ class ProfileController extends Controller
             "gender" => $request->sex,
             "city_code" => $request->state,
         ]);
-
-        session()->flash("status", "پروفایل با موفقیت بروزرسانی شد");
+        if (isset($request->email) && strlen($request->email)) {
+//            if (Cache::has("email_code_" . Auth::user()->id, true,)) {
+//                session()->flash("error", "تا 2 دقیقه امکان تغییر ایمیل را ندارید");
+//                return back();
+//            } else {
+                $exist = User::where('email', $request->email)->where('verified', 1)->exists();
+                if ($exist == 1) {
+                    session()->flash("error", "ایمیل وارد شده تکراری می باشد");
+                    return back();
+                } else {
+                    $code = Str::random(16);
+                    $userID = Auth::id();
+                    $email = $request->email;
+                    $url = route("email_verify_action", ["awpf" => base64_encode($userID), "ccew" => base64_encode($email), "prmy" => base64_encode($code)]);
+                    $content = $url;
+                    User::where("id",$userID)->where("email",$email)->update([
+                        "email_code" => $code,
+                    ]);
+                    $view = 'verify_email';
+                    $subject = 'لینک تایید رایانامه شما';
+                    $title = 'پشتیبانی سایت ثمین تخفیف';
+                    self::email($email, $view, $content, $title, $subject);
+                    session()->flash("error", "لینک تایید به ایمیل شما ارسال شد");
+                    Cache::put("email_code_" . Auth::user()->id, true, 600);
+                }
+            }
+//        }
         if (isset($request->password) && strlen($request->password)) {
             User::where("mobile", $user->mobile)->update([
                 "password" => Hash::make($request->password),
@@ -558,30 +591,67 @@ class ProfileController extends Controller
             ]);
             session()->flash("status", "پروفایل و رمز عبور شما با موفقیت بروزرسانی شد");
         }
-
+        session()->flash("status", "پروفایل با موفقیت بروزرسانی شد");
         return back();
 
     }
 
-    public function Bookmark(){
+    public function emailVerifyAction(Request $request){
 
-        $bookmark = Bookmark::where("user_id",Auth::id())->get();
+        if(isset($request->awpf) && isset($request->ccew) && isset($request->prmy)){
 
-        return view("profile.bookmark", ["bookmark" => $bookmark , "menu" => "bookmark"]);
+            $code = base64_decode($request->prmy);
+            $userID = base64_decode($request->awpf);;
+            $email =  base64_decode($request->ccew);;
 
-    }
+            $user = User::where("id",$userID)->where("email",$email)->where("email_code",$code)->first();
 
-    public function BookmarkDelete(Request $request){
+            if(isset($user->id)){
 
-        if(isset($request->store)){
+                if($user->verified == 0){
 
-            Bookmark::where("user_id",Auth::id())->where("store_id",$request->store)->delete();
+                    User::where("id",$userID)->where("email",$email)->where("email_code",$code)->where("verified",0)->update([
+                        "verified" => 1,
+                        "email_verified_at" => Carbon::now()
+                    ]);
 
-            return response()->json(['status' => "1","desc" => "فروشگاه مورد نظر با موفقیت از لیست شما حذف شد"]);
+                    return view("auth.email_verify",["verify" => 0]);
+
+                }else if ($user->verified == 1) {
+
+                    return view("auth.email_verify",["verify" => 1]);
+
+                }
+
+            }
+
+            return view("auth.email_verify",["verify" => 2]);
 
         }
 
-        return response()->json(['status' => "0","desc" => "مشکلی پیش آمده است لطفا دوباره تلاش کنید"]);
+    }
+
+    public function Bookmark()
+    {
+
+        $bookmark = Bookmark::where("user_id", Auth::id())->get();
+
+        return view("profile.bookmark", ["bookmark" => $bookmark, "menu" => "bookmark"]);
+
+    }
+
+    public function BookmarkDelete(Request $request)
+    {
+
+        if (isset($request->store)) {
+
+            Bookmark::where("user_id", Auth::id())->where("store_id", $request->store)->delete();
+
+            return response()->json(['status' => "1", "desc" => "فروشگاه مورد نظر با موفقیت از لیست شما حذف شد"]);
+
+        }
+
+        return response()->json(['status' => "0", "desc" => "مشکلی پیش آمده است لطفا دوباره تلاش کنید"]);
 
     }
 
@@ -604,13 +674,13 @@ class ProfileController extends Controller
     public function ProfileGoldCreditAction(Request $request)
     {
 
-        $check = User::where("id",Auth::id())->first();
+        $check = User::where("id", Auth::id())->first();
 
-        if(isset($check->id) && $check->user_mode == "normal"){
+        if (isset($check->id) && $check->user_mode == "normal") {
 
-            if($check->credit > 440000) {
+            if ($check->credit > 440000) {
 
-                DB::table("users")->where("id", Auth::id())->decrement("credit",440000);
+                DB::table("users")->where("id", Auth::id())->decrement("credit", 440000);
 
                 User::where("id", Auth::id())->update([
                     "user_mode" => "gold"
@@ -621,11 +691,11 @@ class ProfileController extends Controller
 
             }
 
-            return response()->json(['errors' => 1 , "desc" => "اعتبار شما کمتر از حد نصاب می باشد"]);
+            return response()->json(['errors' => 1, "desc" => "اعتبار شما کمتر از حد نصاب می باشد"]);
 
         }
 
-        return response()->json(['errors' => 1 , "desc" => "شما قبلا عضو طلایی شده اید"]);
+        return response()->json(['errors' => 1, "desc" => "شما قبلا عضو طلایی شده اید"]);
 
     }
 
