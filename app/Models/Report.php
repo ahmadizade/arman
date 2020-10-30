@@ -12,4 +12,13 @@ class Report extends Model
     protected $guarded = [];
     public $timestamps = false;
 
+    public function user()
+    {
+        return $this->belongsTo("App\Models\User", "user_id", "id");
+    }
+
+    public function store()
+    {
+        return $this->belongsTo("App\Models\Store", "store_id", "id");
+    }
 }

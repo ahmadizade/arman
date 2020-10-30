@@ -469,10 +469,10 @@
                     </div>
                     <div class="col-12">
                         <div class="input-group my-2">
-                            <input id="res_report_id" name="res_report_id" type="text"
+                            <input id="res_report_mobile" name="res_report_mobile" type="text"
                                    class="form-control bg-muted" required autofocus>
                             <div class="input-group-prepend">
-                                <span class="input-group-text font-12">ID</span>
+                                <span class="input-group-text font-12">موبایل</span>
                             </div>
                         </div>
                     </div>
@@ -499,20 +499,9 @@
 
                     <div class="col-12">
                         <div class="input-group my-2">
-                            <input id="res_created_at" name="res_created_at" type="text"
+                            <textarea id="res_desc" name="res_desc" type="text"
                                    class="form-control bg-muted"
-                                   required autofocus>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text font-12">زمان ثبت</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="input-group my-2">
-                            <input id="res_desc" name="res_desc" type="text"
-                                   class="form-control bg-muted"
-                                   required autofocus>
+                                      required autofocus rows="4"></textarea>
                             <div class="input-group-prepend">
                                 <span class="input-group-text font-12">متن شکایت</span>
                             </div>
@@ -521,9 +510,9 @@
 
                     <div class="col-12">
                         <div class="input-group my-2">
-                            <input id="res_answer" name="res_answer" type="text"
+                            <textarea id="res_answer" name="res_answer" type="text"
                                    class="form-control bg-muted"
-                                   required autofocus>
+                                      required autofocus rows="4"></textarea>
                             <div class="input-group-prepend">
                                 <span class="input-group-text font-12">متن پاسخ</span>
                             </div>
@@ -793,11 +782,10 @@
                 success: function (response) {
                     {
                         $("#res_report_id").val(response.id);
-                        $("#res_user_id").val(response.user_id);
-                        $("#res_store_id").val(response.store_id);
-                        $("#res_report_id").val(response.report_id);
+                        $("#res_user_id").val(response.user);
+                        $("#res_store_id").val(response.shop);
+                        $("#res_report_mobile").val(response.mobile);
                         $("#res_desc").val(response.desc);
-                        $("#res_created_at").val(response.created_at);
                         $("#res_answer").val(response.answer);
                         $("#res_answer_at").val(response.answer_at);
                     }
@@ -809,10 +797,12 @@
 
         //Edit Report Save Data
         $("#save-report-data").click(function (e) {
+            let id = $("#res_report_id").val();
+            let answer = $("#res_answer").val();
             $.ajax({
                 type: "POST",
                 url: '{{route('Save_report_Data_Action')}}',
-                data: $("#save-store-form").serialize(),
+                data: {"id": id , 'answer':  answer},
                 success: function (res) {
                     if (res.status == 1) {
                         $("#error_box").fadeOut();

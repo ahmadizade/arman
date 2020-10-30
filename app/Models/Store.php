@@ -11,4 +11,9 @@ class Store extends Model
     protected $table = "store";
     protected $guarded = [];
     public $timestamps = false;
+
+    public function report()
+    {
+        return $this->hasMany("App\Models\Report", "store_id", "id");
+    }
 }

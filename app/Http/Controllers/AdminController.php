@@ -179,12 +179,11 @@ class AdminController extends Controller
     public function SuggestionAction(Request $request)
     {
         $data = [];
-
         if ($request->has('q')) {
             $search = $request->q;
             $data = DB::table("users")
                 ->select("id", "name", "credit", "mobile")
-                ->where('name', 'LIKE', "%$search%")
+                ->where('mobile', 'LIKE', "%$search%")->orWhere('name', 'LIKE', "%$search%")
                 ->get();
         }
         return response()->json($data);
@@ -292,8 +291,17 @@ class AdminController extends Controller
 
     public function Store_ViewReport(Request $request)
     {
-        return Report::where('id', $request->id)->first();
+        $report =  Report::where('id', $request->id)->first();
+        $user = $report->user->name;
+        $mobile = $report->user->mobile;
+        $shop= $report->store->shop;
+        $desc = $report->desc;
+        $answer = $report->answer;
+        $answer_at = $report->answer_at;
+        $data = ['user' => $user, 'shop' => $shop, 'mobile' => $mobile , 'desc' => $desc , 'answer' => $answer , 'answer_at' => $answer_at];
+        return response()->json($data);
     }
+
 
     public function SaveStoreData(request $request)
     {
@@ -335,30 +343,13 @@ class AdminController extends Controller
     public function SaveReportData(request $request)
     {
         $validator = Validator::make($request->all(), [
-            'res-title' => ['string', 'min:5', 'max:128',],
-            'res-name' => ['string', 'min:3', 'max:128',],
-            'res-melli_code' => ['string', 'min:5', 'max:32', 'nullable'],
-            'res-category' => ['string', 'min:1', 'max:16',],
-            'res-desc' => ['string', 'max:1024', 'nullable'],
-            'res-shenase_melli' => ['string', 'min:5', 'max:128', 'nullable'],
-            'res-nature' => ['string', 'min:1', 'max:32', 'nullable'],
-            'res-branch' => ['string', 'min:1', 'max:128', 'nullable'],
-            'res-address' => ['string', 'min:1', 'max:256', 'nullable'],
-            'res-status' => ['string', 'max:8', 'nullable'],
-            'res-verify' => ['string', 'max:8', 'nullable'],
-            'res-delete' => ['string', 'max:8', 'nullable'],
+            'res-answer' => ['string', 'min:5', 'max:512',],
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
         } else {
             $report = Report::where('id', $request->res_report_id)->first();
-            $report->user_id = $request->res_user_id;
-            $report->store_id = $request->res_store_id;
-            $report->report_id = $request->res_report_id;
-            $report->desc = $request->res_desc;
-            $report->created_at = $request->res_created_at;
             $report->answer = $request->res_answer;
-            $report->answer_at = Carbon::now();
             $report->save();
             return Response::json(["status" => "1", "description" => " ذخیره اطلاعات فروشگاه $request->res_user_id با موفقیت انجام شد "]);
         }

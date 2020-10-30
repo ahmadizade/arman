@@ -44,7 +44,6 @@
 
                     <!-- Content Row -->
                     <div class="row">
-
                         <!-- Earnings (Daily) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
@@ -261,7 +260,6 @@
                             </div>
                         </div>
                         <!-- Bootstrap Modal User Info-->
-
 
                         <!-- Search Users -->
                         <div class="col-xl-3 col-md-6 mb-4">
