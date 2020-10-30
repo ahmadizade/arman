@@ -168,14 +168,15 @@
                             <div class="owl-carousel owl-theme owl">
                             @foreach($popularShop as $shop)
                                     <div class="card">
-                                        @if(is_null($shop->logo))
-                                            <img class="card-img-top" src="/images/no-image2.png" alt="BTI">
-                                        @else
-                                            <img class="card-img-top" src="{{Storage::disk('logo')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
-                                        @endif
                                         <div class="card-body">
-                                            <h5 class="card-title" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
-                                            <p class="card-text text-justify text-right" style="direction: rtl">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
+                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
+                                                @if(is_null($shop->logo))
+                                                    <img class="card-img-top img-fluid" src="/images/no-image2.png" alt="BTI">
+                                                @else
+                                                    <img class="card-img-top img-fluid" src="{{Storage::disk('logo')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
+                                                @endif
+                                            </div>
+                                            <h5 class="card-title text-center" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
                                             <div class="row justify-content-center">
                                                 <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
                                             </div>
@@ -213,14 +214,15 @@
                         <div class="owl-carousel owl-theme owl">
                             @foreach($randomShop as $shop)
                                 <div class="card">
-                                    @if(is_null($shop->logo))
-                                        <img class="card-img-top" src="/images/no-image2.png" alt="BTI">
-                                    @else
-                                        <img class="card-img-top" src="{{Storage::disk('logo')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
-                                    @endif
                                     <div class="card-body">
-                                        <h5 class="card-title" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
-                                        <p class="card-text text-justify text-right" style="direction: rtl">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
+                                        <div style="min-height: 260px;" class="row justify-content-center align-items-center">
+                                            @if(is_null($shop->logo))
+                                                <img class="card-img-top" src="/images/no-image2.png" alt="BTI">
+                                            @else
+                                                <img class="card-img-top" src="{{Storage::disk('logo')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
+                                            @endif
+                                        </div>
+                                        <h5 class="card-title text-center" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
                                         <div class="row justify-content-center">
                                             <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
                                         </div>
@@ -244,7 +246,7 @@
     </div>
 
     <!-- Random Products -->
-    @if(isset($randomProduct))
+    @if(isset($lastProduct))
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 my-3">
@@ -255,15 +257,17 @@
                 <div class="col-12">
                     <div class="owl-container">
                         <div class="owl-carousel owl-theme owl">
-                            @foreach($randomProduct as $product)
+                            @foreach($lastProduct as $product)
                                 <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
                                     <div class="slider-desc text-center overflow-hidden">
                                         <div class="item">
-                                            @if(is_null($product->image))
-                                                <img src="/images/no-image2.png" alt="BTI">
-                                            @else
-                                                <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI">
-                                            @endif
+                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
+                                                @if(is_null($product->image))
+                                                    <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
+                                                @else
+                                                    <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI" class="img-fluid">
+                                                @endif
+                                            </div>
                                         </div>
                                         <div class="price-box rtl">
                                             <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
@@ -291,17 +295,13 @@
     @endif
 
     <!-- Banner Fixed Background -->
-    <div class="container-fluid mt-3">
-        <div class="row justify-content-center align-items-center">
-            <div class="w-100" style="background: fixed center center url('/images/home/pattern-off.jpg'); height: 250px;">
-                <div class="row flex-column justify-content-center align-items-center h-100">
-                    <div class="font-30 font-weight-bold py-3 px-5 rounded-sm mt-3 ">
-                        <img src="{{ asset('images/logo/logo_100_50.png') }}" alt="logo" class="img-fluid d-block d-md-inline mx-a">
-                        <span class="d-block d-md-inline text-center">بازار تهاتر ایرانیان</span>
-                        <div class="font-20 text-orange font-weight-bold bg-white py-1 px-5 rounded-sm mt-2 shadow-sm">اولین و تنها بازار تهاتری در ایران</div>
-                    </div>
-                </div>
-            </div>
+    <div class="container-fluid">
+        <div class="row flex-column justify-content-center align-items-center h-100" style="background: fixed center center url('/images/home/pattern-off.jpg'); height: 250px;">
+            <span class="font-30 font-weight-bold py-3 px-5 rounded-sm mt-3 ">
+                <img src="{{ asset('images/logo/logo_100_50.png') }}" alt="logo" class="img-fluid d-block d-md-inline mx-a">
+                <span class="d-block d-md-inline text-center">بازار تهاتر ایرانیان</span>
+                <div class="font-20 text-orange font-weight-bold bg-white py-1 px-5 rounded-sm mt-2 shadow-sm">اولین و تنها بازار تهاتری در ایران</div>
+            </span>
         </div>
     </div>
 
@@ -386,6 +386,7 @@
             responsiveClass: true,
             loop: true,
             dots: false,
+            stopOnHover: true,
             responsive: {
                 0: {
                     items: 2,
