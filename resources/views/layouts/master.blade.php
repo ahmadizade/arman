@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/fonts/icomoon/style.css">
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css?57986">
     <link rel="stylesheet" href="/css/fontawesome.css">
 
 
@@ -69,7 +69,7 @@
     });
 </script>
 <script src="/js/owl.carousel.min.js"></script>
-<script src="/js/main.js"></script>
+<script src="/js/main.js?57986"></script>
 <script src="/js/alert.js"></script>
 <script>
     $('body').on("keypress","#mobile",function(event) {
