@@ -464,8 +464,8 @@
                 </div>
                 <form id="save-report-form" class="modal-body text-center">
                     <div class="admin-rtl my-1 text-white font-weight-bolder">
-                        <p id="error_box" class="myfont text-danger" style="font-size: 14px;"></p>
-                        <p id="res_msg" class="myfont text-success" style="font-size: 14px;"></p>
+                        <p id="report_error_box" class="myfont text-danger" style="font-size: 14px;"></p>
+                        <p id="report_res_msg" class="myfont text-success" style="font-size: 14px;"></p>
                     </div>
                     <div class="col-12">
                         <div class="input-group my-2">
@@ -476,6 +476,8 @@
                             </div>
                         </div>
                     </div>
+
+                            <input id="res_report_id" name="res_report_id" type="hidden">
 
                     <div class="col-12">
                         <div class="input-group my-2">
@@ -497,10 +499,12 @@
                         </div>
                     </div>
 
+
+
                     <div class="col-12">
                         <div class="input-group my-2">
                             <textarea id="res_desc" name="res_desc" type="text"
-                                   class="form-control bg-muted"
+                                      class="form-control bg-muted"
                                       required autofocus rows="4"></textarea>
                             <div class="input-group-prepend">
                                 <span class="input-group-text font-12">متن شکایت</span>
@@ -511,7 +515,7 @@
                     <div class="col-12">
                         <div class="input-group my-2">
                             <textarea id="res_answer" name="res_answer" type="text"
-                                   class="form-control bg-muted"
+                                      class="form-control bg-muted"
                                       required autofocus rows="4"></textarea>
                             <div class="input-group-prepend">
                                 <span class="input-group-text font-12">متن پاسخ</span>
@@ -519,16 +523,29 @@
                         </div>
                     </div>
 
-                    <div class="col-12">
-                        <div class="input-group my-2">
-                            <input id="res_answer_at" name="res_answer_at" type="text"
-                                   class="form-control bg-muted"
-                                   required autofocus>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text font-12">زمان پاسخ</span>
-                            </div>
-                        </div>
+                    <div class="form-group text-right">
+                        <label class="" for="myTextarea" id="counter"></label>
+                        <i class="fas fa-pencil-alt prefix"></i>
+                        <textarea id="res_answer" name="res_answer" class="text-right form-control" rows="3"
+                                  placeholder="...SMS"></textarea>
                     </div>
+
+                    <script type="text/javascript">
+                        $('#sms_content').keyup(function () {
+                            var left = 41 - $(this).val().length;
+                            if (left < 0) {
+                                left = "صفحه دوم";
+                            }
+                            $('#counter').text('حروف باقیمانده: ' + left);
+                        });
+                    </script>
+
+
+
+
+
+
+
 
                     <button type="button"
                             class="btn font-weight-bolder text-white myfont bg-gradient-info my-2"
@@ -752,8 +769,8 @@
             ],
             columns: [
                 {data: 'id', name: 'id'},
-                {data: 'user_id', name: 'user_id'},
-                {data: 'store_id', name: 'store_id'},
+                {data: 'name', name: 'name'},
+                {data: 'store', name: 'store'},
                 {data: 'report_id', name: 'report_id'},
                 {data: 'created_at', name: 'created_at'},
                 {data: 'answer', name: 'answer'},
@@ -802,15 +819,15 @@
             $.ajax({
                 type: "POST",
                 url: '{{route('Save_report_Data_Action')}}',
-                data: {"id": id , 'answer':  answer},
+                data: {"id": id, 'answer': answer},
                 success: function (res) {
                     if (res.status == 1) {
-                        $("#error_box").fadeOut();
-                        $("#res_msg").html(res.description).fadeIn();
+                        $("#report_error_box").fadeOut();
+                        $("#report_res_msg").html(res.description).fadeIn();
                     } else {
                         $.each(res.errors, function (i, item) {
-                            $("#res_msg").fadeOut();
-                            $("#error_box").html('<p class="text-danger">' + res.errors[i] + '</p>').fadeIn();
+                            $("#report_res_msg").fadeOut();
+                            $("#report_error_box").html('<p class="text-danger">' + res.errors[i] + '</p>').fadeIn();
                         });
                     }
                 }
@@ -818,7 +835,5 @@
             e.preventDefault(e);
         });
         //Edit Report Save Data
-
-
     </script>
 @endsection

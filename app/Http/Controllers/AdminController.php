@@ -152,15 +152,24 @@ class AdminController extends Controller
 
     public function Store_GetReport()
     {
-        return datatables()->of(DB::table('report'))->toJson();
+//        $model = Report::with('user');
+//        return DataTables::eloquent($model)
+//            ->addColumn('user_id', function (Report $report) {
+//                return $report->user->name;
+//            })
+//            ->toJson();
+
+        return DataTables::of(DB::table('report')->leftJoin('users','users.id','=','report.user_id')
+            ->leftJoin('store','users.id','=','store.user_id')
+            ->get(['report.*', 'users.name', 'store.shop as store']))->toJson();
+
+
     }
 
     public function DeleteUserAction(request $request)
     {
         $id = self::faToEn($request['id']);
-
         if (isset($id) && is_numeric($id) && $id > 0) {
-
             $user_delete = DB::table('users')->where('id', $request['id'])->delete();
             return "DONE";
         }
@@ -292,13 +301,14 @@ class AdminController extends Controller
     public function Store_ViewReport(Request $request)
     {
         $report =  Report::where('id', $request->id)->first();
+        $id = $request->id;
         $user = $report->user->name;
         $mobile = $report->user->mobile;
         $shop= $report->store->shop;
         $desc = $report->desc;
         $answer = $report->answer;
         $answer_at = $report->answer_at;
-        $data = ['user' => $user, 'shop' => $shop, 'mobile' => $mobile , 'desc' => $desc , 'answer' => $answer , 'answer_at' => $answer_at];
+        $data = ['id' => $id , 'user' => $user, 'shop' => $shop, 'mobile' => $mobile , 'desc' => $desc , 'answer' => $answer , 'answer_at' => $answer_at];
         return response()->json($data);
     }
 
@@ -343,15 +353,16 @@ class AdminController extends Controller
     public function SaveReportData(request $request)
     {
         $validator = Validator::make($request->all(), [
-            'res-answer' => ['string', 'min:5', 'max:512',],
+            'answer' => ['string', 'min:5', 'max:512',],
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->all()]);
         } else {
-            $report = Report::where('id', $request->res_report_id)->first();
-            $report->answer = $request->res_answer;
+            $report = Report::where('id', $request->id)->first();
+            $report->answer = $request->answer;
+            $report->answer_at = Carbon::now();
             $report->save();
-            return Response::json(["status" => "1", "description" => " ذخیره اطلاعات فروشگاه $request->res_user_id با موفقیت انجام شد "]);
+            return Response::json(["status" => "1", "description" => " پاسخ با موفقیت ارسال شد "]);
         }
     }
 
