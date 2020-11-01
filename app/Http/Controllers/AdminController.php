@@ -302,9 +302,9 @@ class AdminController extends Controller
     {
         $report =  Report::where('id', $request->id)->first();
         $id = $request->id;
-        $user = $report->user->name;
-        $mobile = $report->user->mobile;
-        $shop= $report->store->shop;
+        $user = $report->user->name ?? "";
+        $mobile = $report->user->mobile ?? "";
+        $shop= $report->store->shop ?? "";
         $desc = $report->desc;
         $answer = $report->answer;
         $answer_at = $report->answer_at;
@@ -376,4 +376,6 @@ class AdminController extends Controller
             return "DONE";
         }
     }
+
+
 }

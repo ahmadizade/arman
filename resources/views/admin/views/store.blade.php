@@ -72,6 +72,7 @@
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
+                            <button class="btn btn-sm text-white bg-gradient-success" data-toggle="modal" data-target="#view">Create Store</button>
                             <table id="user_table"
                                    class="table table-responsive-xl table-responsive-sm text-center border-bottom-primary bg-gradient-info text-white table-sm table-borderless table-striped"
                                    width="100%">
@@ -225,7 +226,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-gradient-light">
                 <div class="modal-header bg-gradient-info border-bottom-info">
-                    <h5 class="text-white" style="font-size: 15px">REPORT VIEW</h5>
+                    <h5 class="text-white" style="font-size: 15px">STORE VIEW</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span>&times;</span>
                     </button>
@@ -477,7 +478,7 @@
                         </div>
                     </div>
 
-                            <input id="res_report_id" name="res_report_id" type="hidden">
+                    <input id="res_report_id" name="res_report_id" type="hidden">
 
                     <div class="col-12">
                         <div class="input-group my-2">
@@ -498,7 +499,6 @@
                             </div>
                         </div>
                     </div>
-
 
 
                     <div class="col-12">
@@ -522,30 +522,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group text-right">
-                        <label class="" for="myTextarea" id="counter"></label>
-                        <i class="fas fa-pencil-alt prefix"></i>
-                        <textarea id="res_answer" name="res_answer" class="text-right form-control" rows="3"
-                                  placeholder="...SMS"></textarea>
-                    </div>
-
-                    <script type="text/javascript">
-                        $('#sms_content').keyup(function () {
-                            var left = 41 - $(this).val().length;
-                            if (left < 0) {
-                                left = "صفحه دوم";
-                            }
-                            $('#counter').text('حروف باقیمانده: ' + left);
-                        });
-                    </script>
-
-
-
-
-
-
-
 
                     <button type="button"
                             class="btn font-weight-bolder text-white myfont bg-gradient-info my-2"
@@ -712,10 +688,16 @@
                 url: '{{route('Store_GetUser')}}',
             },
             buttons: [
-                // 'copy', 'csv', 'excel', 'pdf', 'print'
-                //     {extend: 'create', editor: myEditor},
-                //     {extend: 'edit', editor: myEditor},
-                //     {extend: 'remove', editor: myEditor}
+                // 'copy', 'csv', 'excel', 'pdf', 'print',
+                // {extend: 'create', editor: myEditor},
+                // {extend: 'edit', editor: myEditor},
+                // {extend: 'remove', editor: myEditor},
+                {
+                    text: 'New Store',
+                    action: function ( e, dt, node, config ) {
+                        alert( 'Button activated' );
+                    }
+                }
             ],
             columns: [
                 {data: 'id', name: 'id'},
@@ -777,12 +759,12 @@
                 {data: 'answer_at', name: 'answer_at'},
                 {
                     className: "ltr text-center", data: "id", render: function (data, type, row) {
-                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger delete" data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.id + '"  class="btn btn-sm text-white bg-gradient-success view-report" data-toggle="modal" data-target="#view-report">VIEW</button></div></div>';
+                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" class="btn btn-sm text-white bg-gradient-danger del disabled" disabled data-toggle="modal" data-target="#delete">Delete</button><button type="button" data-id="' + row.id + '"  class="btn btn-sm text-white bg-gradient-success view-report" data-toggle="modal" data-target="#view-report">VIEW</button></div></div>';
                     }
                 },
                 {
                     className: "ltr text-center", data: "id", render: function (data, type, row) {
-                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" data-user_id="' + row.user_id + '" class="btn btn-sm text-white bg-gradient-info sms" data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '" data-user_id="' + row.user_id + '" class="btn btn-sm text-white bg-gradient-primary reply" data-toggle="modal" data-target="#reply-email" >Email</button></div></div>';
+                        return '<div class="btn-group-vertical btn-group-sm"><button type="button" data-id="' + row.id + '" data-user_id="' + row.user_id + '" class="btn btn-sm text-white bg-gradient-info sms disabled" disabled data-toggle="modal" data-target="#sms">SMS</button><button type="button" data-id="' + row.id + '" data-user_id="' + row.user_id + '" class="btn btn-sm text-white bg-gradient-primary reply disabled" disabled data-toggle="modal" data-target="#reply-email" >Email</button></div></div>';
                     },
                 },
             ]
@@ -835,5 +817,6 @@
             e.preventDefault(e);
         });
         //Edit Report Save Data
+
     </script>
 @endsection

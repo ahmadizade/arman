@@ -138,6 +138,9 @@
                     <h3><span class="fa fa-map-marker pl-2"></span>آدرس فروشگاه:</h3>
                     <p>
                         {{ $result['address'] }}
+                     {{--   @if(isset($user->id))
+                            <div class="mt-2"><span class="fa fa-phone font-17 pl-2"></span> تلفن {{ $user->phone }}</div>
+                        @endif--}}
                     </p>
                 @endif
                 {{--@if(strlen($result['map']) > 10)--}}
