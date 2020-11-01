@@ -65,6 +65,7 @@
                                             <span class="input-group-text font-12">جنسیت</span>
                                         </div>
                                         <select class="form-control" name="sex" id="sex">
+                                            <option @if($user->profile->gender == "") selected @endif value="">انتخاب کنید</option>
                                             <option @if($user->profile->gender == "m") selected @endif value="m">آقا</option>
                                             <option @if($user->profile->gender == "f") selected @endif value="f">خانم</option>
                                         </select>

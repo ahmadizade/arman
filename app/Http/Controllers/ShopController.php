@@ -6,6 +6,7 @@ use App\Models\Bookmark;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Product;
+use App\Models\Profile;
 use App\Models\Report;
 use App\Models\Store;
 use Carbon\Carbon;
@@ -36,6 +37,8 @@ class ShopController extends Controller
                 $likeCount = Like::where("store_id",$store->id)->count();
 
                 $suggest = Store::inRandomOrder()->limit(3)->get();
+
+               /* $user = Profile::where("user_id",$store->user_id)->first();*/
 
                 return view("shop.store",["result" => $store , "products" => $products , "comments" => $comments , "likeCount" => $likeCount , "suggest" => $suggest]);
 
