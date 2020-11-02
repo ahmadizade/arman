@@ -177,6 +177,7 @@
                                                 @endif
                                             </div>
                                             <h5 class="card-title text-center" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
+                                            <p class="card-text text-justify" style="direction: rtl; height: 130px; overflow: hidden;">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
                                             <div class="row justify-content-center">
                                                 <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
                                             </div>
@@ -223,6 +224,7 @@
                                             @endif
                                         </div>
                                         <h5 class="card-title text-center" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
+                                        <p class="card-text text-justify" style="direction: rtl; height: 130px; overflow: hidden;">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
                                         <div class="row justify-content-center">
                                             <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
                                         </div>
@@ -296,7 +298,7 @@
 
     <!-- Banner Fixed Background -->
     <div class="container-fluid">
-        <div class="row flex-column justify-content-center align-items-center h-100" style="background: fixed center center url('/images/home/pattern-off.jpg'); height: 250px;">
+        <div class="row flex-column justify-content-center align-items-center h-100 py-5" style="background: fixed center center url('/images/home/pattern-off.jpg'); height: 250px;">
             <span class="font-30 font-weight-bold py-3 px-5 rounded-sm mt-3 ">
                 <img src="{{ asset('images/logo/logo_100_50.png') }}" alt="logo" class="img-fluid d-block d-md-inline mx-a">
                 <span class="d-block d-md-inline text-center">بازار تهاتر ایرانیان</span>
