@@ -545,9 +545,15 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
+        if($user->verified_email == 0 && !Cache::has("email_code_" . $user->id)){
+            User::where("mobile", $user->mobile)->update([
+                "email" => $request->email,
+            ]);
+        }
+
         User::where("mobile", $user->mobile)->update([
-            "email" => $request->email,
             "name" => $request->name,
+            "updated_at" => Carbon::now()
         ]);
 
         Profile::where("user_id", $user->id)->update([
@@ -557,13 +563,14 @@ class ProfileController extends Controller
             "gender" => $request->sex,
             "city_code" => $request->state,
         ]);
-        if (isset($request->email) && strlen($request->email)) {
-//            if (Cache::has("email_code_" . Auth::user()->id, true,)) {
-//                session()->flash("error", "تا 2 دقیقه امکان تغییر ایمیل را ندارید");
-//                return back();
-//            } else {
-                $exist = User::where('email', $request->email)->where('verified', 1)->exists();
-                if ($exist == 1) {
+
+        if ($user->verified_email == 0 && isset($request->email) && strlen($request->email)) {
+            if (Cache::has("email_code_" . $user->id, true,)) {
+                session()->flash("error", "تا 10 دقیقه امکان تغییر ایمیل را ندارید");
+                return back();
+            } else {
+                $exist = User::where('email', $request->email)->where('verified_email', 1)->exists();
+                if ($exist == true) {
                     session()->flash("error", "ایمیل وارد شده تکراری می باشد");
                     return back();
                 } else {
@@ -580,10 +587,11 @@ class ProfileController extends Controller
                     $title = 'پشتیبانی سایت ثمین تخفیف';
                     self::email($email, $view, $content, $title, $subject);
                     session()->flash("error", "لینک تایید به ایمیل شما ارسال شد");
-                    Cache::put("email_code_" . Auth::user()->id, true, 600);
+                    Cache::put("email_code_" . $user->id, true, 600);
                 }
             }
-//        }
+        }
+
         if (isset($request->password) && strlen($request->password)) {
             User::where("mobile", $user->mobile)->update([
                 "password" => Hash::make($request->password),
@@ -591,12 +599,13 @@ class ProfileController extends Controller
             ]);
             session()->flash("status", "پروفایل و رمز عبور شما با موفقیت بروزرسانی شد");
         }
+
         session()->flash("status", "پروفایل با موفقیت بروزرسانی شد");
         return back();
 
     }
 
-    public function emailVerifyAction(Request $request){
+    public function EmailVerifyAction(Request $request){
 
         if(isset($request->awpf) && isset($request->ccew) && isset($request->prmy)){
 
@@ -608,16 +617,16 @@ class ProfileController extends Controller
 
             if(isset($user->id)){
 
-                if($user->verified == 0){
+                if($user->verified_email == 0){
 
-                    User::where("id",$userID)->where("email",$email)->where("email_code",$code)->where("verified",0)->update([
-                        "verified" => 1,
+                    User::where("id",$userID)->where("email",$email)->where("email_code",$code)->where("verified_email",0)->update([
+                        "verified_email" => 1,
                         "email_verified_at" => Carbon::now()
                     ]);
 
                     return view("auth.email_verify",["verify" => 0]);
 
-                }else if ($user->verified == 1) {
+                }else if ($user->verified_email == 1) {
 
                     return view("auth.email_verify",["verify" => 1]);
 
@@ -723,6 +732,5 @@ class ProfileController extends Controller
         return response()->json(['success' => 'Crop Image Uploaded Successfully']);
     }
     //Jquery Cropper
-
 
 }
