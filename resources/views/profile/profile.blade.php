@@ -64,7 +64,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text font-12">ایمیل</span>
                                         </div>
-                                        <input type="text" name="email" class="form-control" value="{{ $user->email }}">
+                                        <input type="text" @if(Auth::user()->verified_email == 1) disabled @else name="email" @endif class="form-control" value="{{ $user->email }}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-3">
