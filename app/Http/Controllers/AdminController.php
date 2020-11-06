@@ -378,13 +378,37 @@ class AdminController extends Controller
         }
     }
 
-    public function Product(){
+    public function Product()
+    {
         return view('admin.views.product');
     }
 
     public function Product_GetStore(Request $request)
     {
         return datatables()->of(DB::table('products')->orderBy('created_at', 'desc'))->toJson();
+    }
+
+    public function product_SuggestionAction(Request $request)
+    {
+        $data = [];
+        if ($request->has('q')) {
+            $search = $request->q;
+            $data = DB::table("products")
+                ->leftJoin('category', 'category.id', '=', 'products.category_id')
+                ->where('product_name', 'LIKE', "%$search%")
+                ->get(['products.*', 'category.name as category']);
+
+        }
+        return response()->json($data);
+    }
+
+    public function ProductShowAction(Request $request)
+    {
+//        $product = DB::table('products')->where('id', $request->id)
+//            ->leftJoin('category', 'category.id', '=', 'products.category_id')
+//            ->get(['products.*', 'category.name as category']);
+        $product = Product::where('id',$request->id)->first();
+        return $product;
     }
 
 }
