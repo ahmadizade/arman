@@ -42,9 +42,7 @@ class ProfileController extends Controller
 
     public function StoreEditAction(Request $request)
     {
-
         $request = $request->replace(self::faToEn($request->all()));
-
         $request->validate([
             'shop' => 'required|min:3|max:128|unique:store',
             'branch' => 'nullable|min:3|max:100',
