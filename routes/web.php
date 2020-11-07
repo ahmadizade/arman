@@ -7,6 +7,8 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
 Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
 Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("About_Us");
+//MAIL
+Route::get('/verify-email', 'App\Http\Controllers\Controller@build_mail')->name('build_mail');
 
 
 // admin
@@ -40,6 +42,10 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/store/get-report', 'App\Http\Controllers\AdminController@Store_GetReport')->name("Store_GetReport")->middleware("ajax", "verify.domain");
     Route::post('/store/view-report', 'App\Http\Controllers\AdminController@Store_ViewReport')->name("Store_view_report")->middleware("ajax", "verify.domain");
     Route::post('/store/save-report-data', 'App\Http\Controllers\AdminController@SaveReportData')->name("Save_report_Data_Action")->middleware("ajax", "verify.domain");
+    Route::get('/product', 'App\Http\Controllers\AdminController@Product')->name("Product");
+    Route::get('/product/get-store', 'App\Http\Controllers\AdminController@Product_GetStore')->name("Product_Get_store");
+    Route::get('/product/product-suggestion-action', 'App\Http\Controllers\AdminController@product_SuggestionAction')->name("product_suggestion_action");
+    Route::post('/product/product-show-action', 'App\Http\Controllers\AdminController@ProductShowAction')->name("product_show_action")->middleware("ajax", "verify.domain");
 
 });
 // admin
@@ -48,11 +54,6 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
 //QR.Code Generator
 Route::get('/code-generator', 'App\Http\Controllers\CodeController@Code_Generator')->name("code_generator")->middleware("auth");
 
-
-//MAIL
-Route::get('/build-mail', 'App\Http\Controllers\Controller@build_mail')->name('build_mail');
-// Email verify action
-Route::get('/profile/email-verify-action', 'App\Http\Controllers\ProfileController@emailVerifyAction')->name('email_verify_action');
 
 // auth
 Route::post('/login-token', 'App\Http\Controllers\LoginController@LoginToken')->name("login_token")->middleware("ajax", "verify.domain");
@@ -84,6 +85,7 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::post('/store-desc-action', 'App\Http\Controllers\ProfileController@StoreDescAction')->name("store_desc_action");
     Route::get('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("profile_bookmark");
     Route::post('/bookmark-delete', 'App\Http\Controllers\ProfileController@BookmarkDelete')->name("profile_bookmark_delete")->middleware("ajax", "verify.domain");
+    Route::get('/email-verify-action', 'App\Http\Controllers\ProfileController@EmailVerifyAction')->name('email_verify_action');
 });
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\Product;
 use App\Models\Report;
 use App\Models\Store;
 use App\Models\User;
@@ -159,8 +160,8 @@ class AdminController extends Controller
 //            })
 //            ->toJson();
 
-        return DataTables::of(DB::table('report')->leftJoin('users','users.id','=','report.user_id')
-            ->leftJoin('store','users.id','=','store.user_id')
+        return DataTables::of(DB::table('report')->leftJoin('users', 'users.id', '=', 'report.user_id')
+            ->leftJoin('store', 'users.id', '=', 'store.user_id')
             ->get(['report.*', 'users.name', 'store.shop as store']))->toJson();
 
 
@@ -300,15 +301,15 @@ class AdminController extends Controller
 
     public function Store_ViewReport(Request $request)
     {
-        $report =  Report::where('id', $request->id)->first();
+        $report = Report::where('id', $request->id)->first();
         $id = $request->id;
         $user = $report->user->name ?? "";
         $mobile = $report->user->mobile ?? "";
-        $shop= $report->store->shop ?? "";
+        $shop = $report->store->shop ?? "";
         $desc = $report->desc;
         $answer = $report->answer;
         $answer_at = $report->answer_at;
-        $data = ['id' => $id , 'user' => $user, 'shop' => $shop, 'mobile' => $mobile , 'desc' => $desc , 'answer' => $answer , 'answer_at' => $answer_at];
+        $data = ['id' => $id, 'user' => $user, 'shop' => $shop, 'mobile' => $mobile, 'desc' => $desc, 'answer' => $answer, 'answer_at' => $answer_at];
         return response()->json($data);
     }
 
@@ -377,5 +378,37 @@ class AdminController extends Controller
         }
     }
 
+    public function Product()
+    {
+        return view('admin.views.product');
+    }
+
+    public function Product_GetStore(Request $request)
+    {
+        return datatables()->of(DB::table('products')->orderBy('created_at', 'desc'))->toJson();
+    }
+
+    public function product_SuggestionAction(Request $request)
+    {
+        $data = [];
+        if ($request->has('q')) {
+            $search = $request->q;
+            $data = DB::table("products")
+                ->leftJoin('category', 'category.id', '=', 'products.category_id')
+                ->where('product_name', 'LIKE', "%$search%")
+                ->get(['products.*', 'category.name as category']);
+
+        }
+        return response()->json($data);
+    }
+
+    public function ProductShowAction(Request $request)
+    {
+//        $product = DB::table('products')->where('id', $request->id)
+//            ->leftJoin('category', 'category.id', '=', 'products.category_id')
+//            ->get(['products.*', 'category.name as category']);
+        $product = Product::where('id',$request->id)->first();
+        return $product;
+    }
 
 }
