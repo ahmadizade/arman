@@ -670,7 +670,7 @@
                             </div>
                         </div>
                     </div>
-                {{--MINUS MODAL--}}
+                    {{--MINUS MODAL--}}
 
                 <!-- Approach -->
                 </div>
