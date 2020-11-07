@@ -286,10 +286,10 @@
                                                 <span class="input-group-text font-12">ماهیت</span>
                                             </div>
                                             <select id="nature" disabled class="form-control">
-                                                <option @if($result["branch"] == 1) selected @endif>شخصی (حقیقی)</option>
-                                                <option @if($result["branch"] == 2) selected @endif>حقوقی</option>
-{{--                                                <option @if($result["branch"] == 3) selected @endif>خصوصی</option>--}}
-{{--                                                <option @if($result["branch"] == 4) selected @endif>تعاونی</option>--}}
+                                                <option  @if($result["nature"] == 1) selected @endif>شخصی (حقیقی)</option>
+                                                <option  @if($result["nature"] == 2) selected @endif>حقوقی</option>
+{{--                                                <option @if($result["nature"] == 3) selected @endif>خصوصی</option>--}}
+{{--                                                <option @if($result["nature"] == 4) selected @endif>تعاونی</option>--}}
                                             </select>
                                         </div>
                                     </div>
@@ -302,7 +302,7 @@
                                                    value="{{ $result["shenase_melli"] }}">
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12 col-lg-6 legal">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">نام و نام خانوادگی صاحب فروشگاه</span>
@@ -318,6 +318,24 @@
                                             </div>
                                             <input disabled maxlength="11" class="form-control"
                                                    value="{{ $result["melli_code"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">شماره موبایل صاحب فروشگاه</span>
+                                            </div>
+                                            <input disabled maxlength="11" class="form-control"
+                                                   value="{{ $result["ca_mobile"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">نوع</span>
+                                            </div>
+                                            <input disabled maxlength="11" class="form-control"
+                                                   value="{{ $result["kind"] }}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">
@@ -406,5 +424,12 @@
                 console.error( err.stack );
             } );
     </script>
-
+    <script>
+        // console.log($('#nature').val())
+       if ($('#nature').val() == "شخصی (حقیقی)"){
+           $('.legal').hide();
+       }if ($('#nature').val() == "حقوقی"){
+           $('.legal').show();
+       }
+    </script>
 @endsection
