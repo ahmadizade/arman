@@ -19,25 +19,18 @@ class HomeController extends Controller
 {
     public function index()
     {
-
         $popularShop = Store::inRandomOrder()->orderBy('id' , 'desc')->orderBy('like' , 'desc')->limit(12)->get();
         $randomShop = Store::inRandomOrder()->limit(12)->get();
-
         $lastProduct = Product::orderBy('id' , 'desc')->limit(12)->get();
         return view('home' , ['popularShop' => $popularShop , 'randomShop' => $randomShop, 'lastProduct' => $lastProduct]);
-
     }
 
     public function contact(){
-
         return view('contact');
-
     }
 
     public function contactAction(Request $request){
-
         $request = $request->replace(self::faToEn($request->all()));
-
         $request->validate([
             'name' => 'required|min:3|max:100',
             'mobile' => 'required|min:3|max:100',
@@ -55,11 +48,8 @@ class HomeController extends Controller
             "body" => $request->desc,
             "created_at" => Carbon::now(),
         ]);
-
         session()->flash("status","فرم شما با موفقیت ثبت شد. در صورت لزوم کارشناسان ما با شما تماس خواهند گرفت");
-
         return back();
-
     }
 
     public function AboutUs(){

@@ -12104,15 +12104,3 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
     width: 100%;
 }
-
-.border-none {
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: groove;
-    background-color: #eee;
-}
-
-.border-none:focus {
-    outline: none;
-}

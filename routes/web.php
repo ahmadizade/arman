@@ -46,6 +46,7 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/product/get-store', 'App\Http\Controllers\AdminController@Product_GetStore')->name("Product_Get_store");
     Route::get('/product/product-suggestion-action', 'App\Http\Controllers\AdminController@product_SuggestionAction')->name("product_suggestion_action");
     Route::post('/product/product-show-action', 'App\Http\Controllers\AdminController@ProductShowAction')->name("product_show_action")->middleware("ajax", "verify.domain");
+    Route::post('/product/product-save-action', 'App\Http\Controllers\AdminController@ProductSaveAction')->name("product_save_action")->middleware("ajax", "verify.domain");
 
 });
 // admin

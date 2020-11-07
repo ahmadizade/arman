@@ -411,4 +411,15 @@ class AdminController extends Controller
         return $product;
     }
 
+    public function ProductSaveAction(Request $request)
+    {
+        if ($request->status == 1){
+            Product::where('id',$request->id)->update(array('status' => 1));
+            return response()->json(['status' => "کالا با موفقیت فعال شد"]);
+        }elseif ($request->status == 0){
+            Product::where('id',$request->id)->update(array('status' => 0));
+            return response()->json(['status' => "کالای مورد نظر غیر فعال شد"]);
+        }
+    }
+
 }

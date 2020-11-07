@@ -29,6 +29,31 @@
         .admin-rtl {
             direction: rtl !important;
         }
+
+        .border-none {
+            border-top-style: hidden;
+            border-right-style: hidden;
+            border-left-style: hidden;
+            border-bottom-style: hidden;
+            background-color: transparent;
+            /*height: 50px;*/
+            width: 50px;
+            text-align: center;
+            vertical-align: middle;
+
+        }
+
+        .border-none:focus {
+            outline: none;
+        }
+
+        /*td*/
+        /*{*/
+        /*    height: 50px;*/
+        /*    width: 50px;*/
+        /*    text-align: center;*/
+        /*    vertical-align: middle;*/
+        /*}*/
     </style>
 @endsection
 @section("content")
@@ -50,7 +75,8 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,7 +96,7 @@
                                     </h6>
 
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body admin-rtl">
                                     <!-- Card Body -->
                                     <form id="product-search-form" method="" action="">
                                         <div class="col-4">
@@ -80,57 +106,54 @@
                                     </form>
 
                                     <table id="product_table"
-                                           class="table mt-4 table-responsive-xl table-responsive-sm text-center  text-black table-sm table-striped"
+                                           class="table mt-4 table-responsive-xl table-responsive-sm text-center  text-black table-striped"
                                            width="100%">
-                                        <thead class="text-black shadow">
+                                        <thead class="text-black shadow text-white bg-gradient-info">
                                         <tr>
-                                            <th scope="col">Id</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">product_name</th>
-                                            {{--                                            <th scope="col">User_Id</th>--}}
-                                            {{--                                            <th scope="col">category_id</th>--}}
+                                            <th scope="col">ID</th>
+                                            <th scope="col">عکس</th>
+                                            <th scope="col">نام محصول</th>
                                             {{--                                            <th scope="col">product_desc</th>--}}
-                                            <th scope="col">price</th>
-                                            <th scope="col">discount</th>
-                                            <th scope="col">stock</th>
-                                            <th scope="col">status</th>
-                                            <th scope="col">quantity</th>
-                                            <th scope="col">city</th>
-                                            <th scope="col">mobile</th>
-                                            <th scope="col">view</th>
-                                            <th scope="col">created_at</th>
-                                            <th scope="col">updated_at</th>
-                                            {{--                                            <th scope="col">Edit</th>--}}
-                                            {{--                                            <th scope="col">Message</th>--}}
+                                            <th scope="col">قیمت</th>
+                                            <th scope="col">تخفیف</th>
+                                            <th scope="col">وضعیت کالا</th>
+                                            <th scope="col">تعداد</th>
+                                            <th scope="col">شهر</th>
+                                            <th scope="col">موبایل</th>
+                                            <th scope="col">بازدید</th>
+                                            <th scope="col">تاریخ ساخت</th>
+                                            <th scope="col">تاریخ ویرایش</th>
+                                            <th scope="col">نمایش</th>
+                                            <th scope="col">ویرایش</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr class="text-center">
-                                            <td id="data-id" scope="row"></td>
-                                            <td id="data-image" style="max-width: 200px;max-height: 200px;"></td>
-                                            <td><input id="data-product_name" name="product_name"></td>
-                                            {{--                                            <td id="data-User_Id"></td>--}}
-                                            {{--                                            <td id="data-category_id"></td>--}}
-                                            {{--                                            <td id="data-product_desc"></td>--}}
-                                            <td><input style="width: 100px" id="data-price" name="price"></td>
-                                            <td><input style="width: 50px" id="data-discount" name="discount"></td>
+                                        <tr>
+                                            <td scope="row"><input class="border-none" id="data-id"></td>
                                             <td>
-                                                <select style="width: 50px" id="data-stock" name="stock">
-                                                    <option value="1">نو</option>
-                                                    <option value="0">کارکرده</option>
-                                                </select>
+                                                <img style="max-width: 70px;max-height: 70px;" id="data-image"
+                                                     class="img-fluid" src="" alt="">
                                             </td>
+                                            <td><input class="border-none" id="data-product_name" name="product_name">
+                                            </td>
+                                            {{--                                            <td id="data-product_desc"></td>--}}
+                                            <td><input class="border-none" style="width: 100px" id="data-price"
+                                                       name="price"></td>
+
+                                            <td><input class="border-none" style="width: 50px" id="data-discount"
+                                                       name="discount"></td>
                                             <td>
-                                                <select style="width: 50px" id="data-status" name="status">
-                                                    <option value="1">فعال</option>
-                                                    <option value="0">غیر فعال</option>
+                                                <select class="border-none" style="width: 70px" id="data-stock"
+                                                        name="stock">
+                                                    <option value="1">آکبند</option>
+                                                    <option value="0">کارکرده</option>
                                                 </select>
                                             </td>
                                             <td><input class="border-none" style="width: 50px" id="data-quantity"
                                                        name="quantity"></td>
                                             <td><input class="border-none" style="width: 100px" id="data-city"
                                                        name="city"></td>
-                                            <td><input class="border-none" style="width: 100px" id="data-mobile"
+                                            <td><input class="border-none" style="width: 60px" id="data-mobile"
                                                        name="mobile"></td>
                                             <td><input class="border-none" style="width: 50px" id="data-view"
                                                        name="view"></td>
@@ -138,8 +161,16 @@
                                                        name="created_at"></td>
                                             <td><input class="border-none" style="width: 100px" id="data-updated_at"
                                                        name="updated_at"></td>
-                                            {{--                                            <td id="data-Edit"></td>--}}
-                                            {{--                                            <td id="data-Message"></td>--}}
+                                            <td>
+                                                <select class="border-none" style="width: 70px" id="data-status"
+                                                        name="status">
+                                                    <option value="1">فعال</option>
+                                                    <option value="0">غیر فعال</option>
+                                                </select>
+                                            </td>
+                                            <td id="data-Edit">
+                                                <button class="btn text-white btn-sm bg-gradient-success" data-toggle="modal" data-target="#save">ذخیره</button>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -151,7 +182,30 @@
             </div>
         </div>
     </div>
-
+    {{--Save MODAL--}}
+    <div class="modal fade" id="save" tabindex="-1" role="dialog" aria-labelledby="del"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="text-danger modal-shop myfont" id="del">تغییر وضعیت نمایش</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-right">
+                    آیا از انجام این عملیات اطمینان دارید؟
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
+                    <button type="button" id="save-product" class="btn btn-success" data-dismiss="modal">
+                        ذخیره
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--Save MODAL--}}
 
 @endsection
 @section("extra_js")

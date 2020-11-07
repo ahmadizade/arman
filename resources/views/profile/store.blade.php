@@ -70,8 +70,8 @@
                                                 <option value="0" selected disabled>انتخاب ماهیت</option>
                                                 <option @if(old("nature") == 1) selected @endif value="1">شخصی (حقیقی)</option>
                                                 <option @if(old("nature") == 2) selected @endif value="2">دولتی یا عمومی</option>
-                                                <option @if(old("nature") == 3) selected @endif value="3">خصوصی</option>
-                                                <option @if(old("nature") == 4) selected @endif value="4">تعاونی</option>
+{{--                                                <option @if(old("nature") == 3) selected @endif value="3">خصوصی</option>--}}
+{{--                                                <option @if(old("nature") == 4) selected @endif value="4">تعاونی</option>--}}
                                             </select>
                                         </div>
                                     </div>
@@ -162,7 +162,7 @@
                                                        value="{{ $result['shop'] }}">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-6">
+                                        <div class="col-12 col-lg-6 d-none legal">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">شعبه</span>
@@ -179,13 +179,13 @@
                                                 <select name="nature" class="form-control">
                                                     <option value="0" selected disabled>انتخاب ماهیت</option>
                                                     <option @if($result['nature'] == 1) selected @endif value="1">شخصی (حقیقی)</option>
-                                                    <option @if($result['nature'] == 2) selected @endif value="2">دولتی یا عمومی</option>
-                                                    <option @if($result['nature'] == 3) selected @endif value="3">خصوصی</option>
-                                                    <option @if($result['nature'] == 4) selected @endif value="4">تعاونی</option>
+                                                    <option @if($result['nature'] == 2) selected @endif value="2">حقوقی</option>
+{{--                                                    <option @if($result['nature'] == 3) selected @endif value="3">خصوصی</option>--}}
+{{--                                                    <option @if($result['nature'] == 4) selected @endif value="4">تعاونی</option>--}}
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-6">
+                                        <div class="col-12 col-lg-6 d-none legal">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">شناسه ملی</span>
@@ -271,7 +271,7 @@
                                                    value="{{ $result["shop"] }}">
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
+                                    <div id="branch" class="col-12 col-lg-6 legal">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">شعبه</span>
@@ -285,15 +285,15 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">ماهیت</span>
                                             </div>
-                                            <select disabled class="form-control">
+                                            <select id="nature" disabled class="form-control">
                                                 <option @if($result["branch"] == 1) selected @endif>شخصی (حقیقی)</option>
-                                                <option @if($result["branch"] == 2) selected @endif>دولتی یا عمومی</option>
-                                                <option @if($result["branch"] == 3) selected @endif>خصوصی</option>
-                                                <option @if($result["branch"] == 4) selected @endif>تعاونی</option>
+                                                <option @if($result["branch"] == 2) selected @endif>حقوقی</option>
+{{--                                                <option @if($result["branch"] == 3) selected @endif>خصوصی</option>--}}
+{{--                                                <option @if($result["branch"] == 4) selected @endif>تعاونی</option>--}}
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12 col-lg-6 legal">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">شناسه ملی</span>

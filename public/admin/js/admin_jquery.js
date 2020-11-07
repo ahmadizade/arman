@@ -87,7 +87,7 @@ $(document).ready(function () {
     $('.product_id').select2({
         width: '100%',
         closeOnSelect: true,
-        // minimumInputLength: 1,
+        minimumInputLength: 3,
         placeholder: 'جستجوی کالا',
         language: "fa",
         dir: "rtl",
@@ -113,14 +113,12 @@ $(document).ready(function () {
             url: '/tahator/product/product-show-action',
             data: e.params.args.data,
             success: function (data) {
-                $('#data-id').html(data['id']);
-                $('#data-image').html(data['image']);
+                $('#data-id').val(data['id'])
+                $('#data-image').attr("src", '/uploads/products/' + data['image']);
                 $('#data-product_name').val(data['product_name']);
-                // $('#data-User_Id').html(data['user_id']);
-                // $('#data-category_id').html(data['category_id']);
                 // $('#data-product_desc').html(data['product_desc']);
                 $('#data-price').val(data['price']);
-                $('#data-discount').val(data['discount']+ "%");
+                $('#data-discount').val(data['discount'] + "%");
                 $('#data-stock').val(data['stock']);
                 $('#data-status').val(data['status']);
                 $('#data-quantity').val(data['quantity']);
@@ -131,5 +129,21 @@ $(document).ready(function () {
                 $('#data-updated_at').val(data['updated_at']);
             }
         });
+    });
+    $('#save-product').click(function () {
+        let id = $('#data-id').val();
+        if (id == "") {
+            alert('ابتدا کالای خود را جستجو و انتخاب کنید')
+        }else {
+            let status = $('#data-status').val();
+            $.ajax({
+                type: 'post',
+                url: '/tahator/product/product-save-action',
+                data: ({id: id, status: status}),
+                success: function (response) {
+                    alert(response['status']);
+                }
+            });
+        }
     });
 });
