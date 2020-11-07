@@ -46,13 +46,39 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
+                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>ماهیت</span>
+                                            </div>
+                                            <select id="nature" name="nature" class="form-control">
+                                                <option value="0" selected disabled>انتخاب ماهیت</option>
+                                                <option @if(old("nature") == 1) selected @endif value="1">شخصی (حقیقی)</option>
+                                                <option @if(old("nature") == 2) selected @endif value="2">دولتی یا عمومی</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6  legal">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>نوع</span>
+                                            </div>
+                                            <select name="kind_of" class="form-control">
+                                                <option value="0" selected disabled>انتخاب کنید</option>
+                                                <option @if(old("kind_of") == 1) selected @endif value="1">سهامی عام</option>
+                                                <option @if(old("kind_of") == 2) selected @endif value="2">سهامی خاص</option>
+                                                <option @if(old("kind_of") == 3) selected @endif value="2">مسئولیت محدود</option>
+                                                <option @if(old("kind_of") == 4) selected @endif value="2">سایر</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
                                                 <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>نام فروشگاه</span>
                                             </div>
                                             <input name="shop" type="text" class="form-control"
                                                    value="{{ old("shop") }}">
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12 col-lg-6  legal">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">شعبه</span>
@@ -61,21 +87,7 @@
                                                    value="{{ old("branch") }}">
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
-                                        <div class="input-group mt-2">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>ماهیت</span>
-                                            </div>
-                                            <select name="nature" class="form-control">
-                                                <option value="0" selected disabled>انتخاب ماهیت</option>
-                                                <option @if(old("nature") == 1) selected @endif value="1">شخصی (حقیقی)</option>
-                                                <option @if(old("nature") == 2) selected @endif value="2">دولتی یا عمومی</option>
-{{--                                                <option @if(old("nature") == 3) selected @endif value="3">خصوصی</option>--}}
-{{--                                                <option @if(old("nature") == 4) selected @endif value="4">تعاونی</option>--}}
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12 col-lg-6  legal">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">شناسه ملی</span>
@@ -84,7 +96,7 @@
                                                    value="{{ old("shenase_melli") }}">
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12 col-lg-6  legal">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>نام و نام خانوادگی صاحب فروشگاه</span>
@@ -96,7 +108,7 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>کد ملی صاحب فروشگاه</span>
+                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>کد ملی</span>
                                             </div>
                                             <input type="text" name="melli_code" maxlength="11" class="form-control"
                                                    value="{{ old("melli_code") }}">
@@ -105,7 +117,7 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>نوع خدمات</span>
+                                                <span class="input-group-text font-12"><span class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
                                             </div>
                                             <select name="category" class="form-control">
                                                 <option value="0" selected disabled>انتخاب دسته بندی</option>
@@ -113,6 +125,33 @@
                                                     <option @if(old("category") == $item['id']) selected @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6  legal">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">شماره موبایل صاحب فروشگاه</span>
+                                            </div>
+                                            <input maxlength="12" class="form-control text-left" placeholder="...0912"
+                                                   value="{{ $result["ca_mobile"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">شماره تماس فروشگاه</span>
+                                            </div>
+                                            <input maxlength="12" class="form-control text-left" placeholder="...021"
+                                                   value="{{ $result["ca_telephone"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">نام خدمت</span>
+                                            </div>
+                                            <input class="form-control" placeholder="نام خدمات شما"
+                                                   value="{{ $result["kind"] }}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">
@@ -162,7 +201,7 @@
                                                        value="{{ $result['shop'] }}">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 d-none legal">
+                                        <div class="col-12 col-lg-6  legal">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">شعبه</span>
@@ -185,7 +224,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 d-none legal">
+                                        <div class="col-12 col-lg-6  legal">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">شناسه ملی</span>
@@ -325,23 +364,32 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">شماره موبایل صاحب فروشگاه</span>
                                             </div>
-                                            <input disabled maxlength="11" class="form-control"
+                                            <input disabled maxlength="12" class="form-control"
                                                    value="{{ $result["ca_mobile"] }}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">نوع</span>
+                                                <span class="input-group-text font-12">شماره تماس فروشگاه</span>
                                             </div>
-                                            <input disabled maxlength="11" class="form-control"
+                                            <input maxlength="12" class="form-control text-left" placeholder="...021"
+                                                   value="{{ $result["ca_telephone"] }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">نام خدمت</span>
+                                            </div>
+                                            <input disabled class="form-control"
                                                    value="{{ $result["kind"] }}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">نوع خدمات</span>
+                                                <span class="input-group-text font-12">دسته بندی</span>
                                             </div>
                                             <select disabled class="form-control">
                                                 @foreach($category as $item)
@@ -425,11 +473,18 @@
             } );
     </script>
     <script>
-        // console.log($('#nature').val())
-       if ($('#nature').val() == "شخصی (حقیقی)"){
-           $('.legal').hide();
-       }if ($('#nature').val() == "حقوقی"){
-           $('.legal').show();
-       }
+        $(document).ready(function () {
+            //مرحله اول (اطلاعات وارد نشده)
+            $('.legal').hide();
+            $('#nature').on('change', function() {
+                console.log("change shod");
+                if ($('#nature').val() == 1) {
+                    $('.legal').fadeOut('slow');
+                }
+                if ($('#nature').val() == "2") {
+                    $('.legal').fadeIn('slow');
+                }
+            });
+        });
     </script>
 @endsection
