@@ -6,6 +6,7 @@ use App\Models\Bookmark;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Profile;
+use App\Models\Statement;
 use App\Models\Store;
 use App\Models\User;
 use Carbon\Carbon;
@@ -672,13 +673,33 @@ class ProfileController extends Controller
 
         $request = $request->replace(self::faToEn($request->all()));
 
-        $request->validate([
-            'membership_number' => 'required|min:5|max:11',
-            'amount' => 'required|min:3|max:25',
-            'description' => 'required|min:5|max:10000',
-        ]);
+        if(isset($request->membership_number) && isset($request->amount) && is_numeric($request->amount) && $request->amount > 0){
 
-        return 222;
+            $user = self::membershipNumberDecode($request->membership_number);
+
+            if(isset($user->id)) {
+
+                Statement::create([
+                    "from_user_id" => Auth::id(),
+                    "to_user_id" => $user->id,
+                    "amount" => $request->amount,
+                    "desc" => $request->desc,
+                    "type" => "cart-to-cart",
+                    "status" => "pending",
+                    "created_at" => Carbon::now(),
+                ]);
+
+                $store = Store::where("user_id", $user->id)->first();
+
+                return ["status" => true, "name" => $store->shop . " " . $store->branch, "amount" => number_format($request->amount)];
+
+            }
+
+            return ["status" => false];
+
+        }
+
+        return ["status" => false];
 
     }
 

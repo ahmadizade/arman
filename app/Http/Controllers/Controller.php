@@ -108,7 +108,7 @@ class Controller extends BaseController
 
             if(isset($user->id)){
 
-                return $user->id;
+                return $user;
 
             }
 

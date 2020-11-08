@@ -903,7 +903,9 @@ input, select {
     background-color: #6769ec;
 }
 
-
+.swal2-input{
+    text-align: center;
+}
 
 
 /* Rajolani - Bootstrap Developed */
