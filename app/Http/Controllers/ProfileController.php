@@ -662,8 +662,27 @@ class ProfileController extends Controller
 
     }
 
-    public function ProfileGold()
-    {
+    public function Qrcode(){
+
+        return view("profile.qrcode", ["menu" => "qrcode"]);
+
+    }
+
+    public function QrcodeAction(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $request->validate([
+            'membership_number' => 'required|min:5|max:11',
+            'amount' => 'required|min:3|max:25',
+            'description' => 'required|min:5|max:10000',
+        ]);
+
+        return 222;
+
+    }
+
+    public function ProfileGold(){
 
         return view("profile.gold", ["menu" => "gold"]);
 

@@ -188,6 +188,8 @@ return [
         'category'              => 'دسته بندی',
         'shop'              => 'نام فروشگاه',
         'bio'              => 'بیوگرافی',
+        'membership_number'              => 'شماره عضویت',
+        'amount'              => 'مبلغ',
 
     ],
 ];
