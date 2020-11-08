@@ -9,8 +9,6 @@ Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactActio
 Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("About_Us");
 //MAIL
 Route::get('/verify-email', 'App\Http\Controllers\Controller@build_mail')->name('build_mail');
-
-
 // admin
 Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
@@ -47,7 +45,6 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/product/product-suggestion-action', 'App\Http\Controllers\AdminController@product_SuggestionAction')->name("product_suggestion_action");
     Route::post('/product/product-show-action', 'App\Http\Controllers\AdminController@ProductShowAction')->name("product_show_action")->middleware("ajax", "verify.domain");
     Route::post('/product/product-save-action', 'App\Http\Controllers\AdminController@ProductSaveAction')->name("product_save_action")->middleware("ajax", "verify.domain");
-
 });
 // admin
 

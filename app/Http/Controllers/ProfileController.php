@@ -108,87 +108,144 @@ class ProfileController extends Controller
                 "color" => $request->color
             ]);
         }
-
         session()->flash("status", "اطلاعات با موفقیت ویرایش شد");
-
         return back();
-
     }
 
     public function StoreAction(Request $request)
     {
-
-        $request = $request->replace(self::faToEn($request->all()));
-
-        $request->validate([
-            'shop' => 'required|min:3|max:128|unique:store',
-            'branch' => 'nullable|min:3|max:100',
-            'nature' => 'required|min:1',
-            'category' => 'required|min:1',
-            'shenase_melli' => 'nullable|min:3|max:32',
-            'name' => 'required|min:2|max:60',
-            'melli_code' => 'required|digits:10',
-            'address' => 'required',
-            'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
-        ]);
-
-        $imageName = null;
-        if (isset($request->file) && strlen($request->file) > 0) {
-
-            $exists = Storage::disk('logo')->exists($request->file('file')->getClientOriginalName());
-
-            if ($exists == true) {
-
-                $imageName = time();
-                $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
-
-                $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->resize(300, 300, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                });
-                $img->save('images/shop/logo/' . $imageName);
-
-            } else {
-
-                $imageName = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'))->resize(300, 300, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                });
-                $img->save('images/shop/logo/' . $imageName);
-
-            }
-
-        }
-
-        Store::create([
-            'user_id' => Auth::id(),
-            'shop' => $request->shop,
-            'branch' => $request->branch,
-            'nature' => $request->nature,
-            'category' => $request->category,
-            'shenase_melli' => $request->shenase_melli,
-            'name' => $request->name,
-            'melli_code' => $request->melli_code,
-            'address' => $request->address,
-            'created_at' => Carbon::now(),
-            'logo' => $imageName,
-            'color' => $request->color,
-            'shop_slug' => self::slug($request->shop),
-            'branch_slug' => self::slug($request->branch),
-        ]);
-
-        if (isset($request->color)) {
-            Store::where("user_id", Auth::id())->update([
-                "color" => $request->color
+        if ($request->nature == 0) {
+            session()->flash("status", "لطفا  فیلد ماهیت و فیلدهای مرتبط را تکمیل نمایید");
+        } elseif ($request->nature == 1) {
+            $request = $request->replace(self::faToEn($request->all()));
+            $request->validate([
+                'shop' => 'required|min:3|max:128|unique:store',
+                'name' => 'required|min:2|max:60',
+                'branch' => 'nullable|min:3|max:100',
+                'nature' => 'required|min:1',
+                'category' => 'required|min:1',
+                'shenase_melli' => 'nullable|min:3|max:32',
+                'telephone' => 'nullable|digits:8',
+                'melli_code' => 'required|digits:10',
+                'address' => 'required',
+                'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
             ]);
+            $imageName = null;
+            if (isset($request->file) && strlen($request->file) > 0) {
+
+                $exists = Storage::disk('logo')->exists($request->file('file')->getClientOriginalName());
+
+                if ($exists == true) {
+                    $imageName = time();
+                    $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
+                    $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                    $img->resize(300, 300, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $img->save('images/shop/logo/' . $imageName);
+
+                } else {
+                    $imageName = $request->file('file')->getClientOriginalName();
+                    $img = Image::make($request->file('file'))->resize(300, 300, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $img->save('images/shop/logo/' . $imageName);
+                }
+            }
+            Store::create([
+                'user_id' => Auth::id(),
+                'shop' => $request->shop,
+                'branch' => $request->branch,
+                'nature' => $request->nature,
+                'category' => $request->category,
+                'shenase_melli' => $request->shenase_melli,
+                'telephone' => $request->telephone,
+                'name' => $request->name,
+                'melli_code' => $request->melli_code,
+                'address' => $request->address,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'logo' => $imageName,
+                'color' => $request->color,
+                'shop_slug' => self::slug($request->shop),
+                'branch_slug' => self::slug($request->branch),
+            ]);
+            if (isset($request->color)) {
+                Store::where("user_id", Auth::id())->update([
+                    "color" => $request->color
+                ]);
+            }
+            session()->flash("status", "اطلاعات با موفقیت ثبت شد");
+            return back();
+        } elseif ($request->nature == 2) {
+            $request = $request->replace(self::faToEn($request->all()));
+            $request->validate([
+                'legal_shop' => 'required|min:3|max:128|unique:store',
+                'legal_name' => 'required|min:2|max:60',
+                'legal_mobile' => 'required|digits:11',
+                'legal_telephone' => 'required|digits:8',
+                'legal_branch' => 'nullable|min:3|max:100',
+                'nature' => 'required|min:1',
+                'legal_category' => 'required|min:1',
+                'legal_kind_of' => 'required|min:1',
+                'legal_service' => 'required|min:1|max:128',
+                'shenase_melli' => 'nullable|min:3|max:32',
+                'registration_number' => 'nullable|min:3|max:32',
+                'legal_melli_code' => 'required|digits:10',
+                'legal_address' => 'required',
+                'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
+            ]);
+            $imageName = null;
+            if (isset($request->file) && strlen($request->file) > 0) {
+                $exists = Storage::disk('logo')->exists($request->file('file')->getClientOriginalName());
+                if ($exists == true) {
+                    $imageName = time();
+                    $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
+                    $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
+                    $img->resize(300, 300, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $img->save('images/shop/logo/' . $imageName);
+                } else {
+                    $imageName = $request->file('file')->getClientOriginalName();
+                    $img = Image::make($request->file('file'))->resize(300, 300, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $img->save('images/shop/logo/' . $imageName);
+                }
+            }
+            Store::create([
+                'user_id' => Auth::id(),
+                'shop' => $request->legal_shop,
+                'name' => $request->legal_name,
+                'ceo_mobile' => $request->legal_mobile,
+                'telephone' => $request->legal_telephone,
+                'branch' => $request->legal_branch,
+                'nature' => $request->nature,
+                'category' => $request->legal_category,
+                'kind_of' => $request->legal_kind_of,
+                'shenase_melli' => $request->shenase_melli,
+                'melli_code' => $request->legal_melli_code,
+                'registration' => $request->registration_number,
+                'address' => $request->legal_address,
+                'created_at' => Carbon::now(),
+                'logo' => $imageName,
+                'color' => $request->color,
+                'shop_slug' => self::slug($request->legal_shop),
+                'branch_slug' => self::slug($request->legal_branch),
+            ]);
+            if (isset($request->color)) {
+                Store::where("user_id", Auth::id())->update([
+                    "color" => $request->color
+                ]);
+            }
+            session()->flash("status", "اطلاعات با موفقیت ثبت شد");
+            return back();
         }
-
-        session()->flash("status", "اطلاعات با موفقیت ثبت شد");
-
-        return back();
-
     }
 
     public function StoreDescAction(Request $request)
@@ -543,7 +600,7 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
-        if($user->verified_email == 0 && !Cache::has("email_code_" . $user->id)){
+        if ($user->verified_email == 0 && !Cache::has("email_code_" . $user->id)) {
             User::where("mobile", $user->mobile)->update([
                 "email" => $request->email,
             ]);
@@ -577,7 +634,7 @@ class ProfileController extends Controller
                     $email = $request->email;
                     $url = route("email_verify_action", ["awpf" => base64_encode($userID), "ccew" => base64_encode($email), "prmy" => base64_encode($code)]);
                     $content = $url;
-                    User::where("id",$userID)->where("email",$email)->update([
+                    User::where("id", $userID)->where("email", $email)->update([
                         "email_code" => $code,
                     ]);
                     $view = 'verify_email';
@@ -603,36 +660,37 @@ class ProfileController extends Controller
 
     }
 
-    public function EmailVerifyAction(Request $request){
+    public function EmailVerifyAction(Request $request)
+    {
 
-        if(isset($request->awpf) && isset($request->ccew) && isset($request->prmy)){
+        if (isset($request->awpf) && isset($request->ccew) && isset($request->prmy)) {
 
             $code = base64_decode($request->prmy);
             $userID = base64_decode($request->awpf);;
-            $email =  base64_decode($request->ccew);;
+            $email = base64_decode($request->ccew);;
 
-            $user = User::where("id",$userID)->where("email",$email)->where("email_code",$code)->first();
+            $user = User::where("id", $userID)->where("email", $email)->where("email_code", $code)->first();
 
-            if(isset($user->id)){
+            if (isset($user->id)) {
 
-                if($user->verified_email == 0){
+                if ($user->verified_email == 0) {
 
-                    User::where("id",$userID)->where("email",$email)->where("email_code",$code)->where("verified_email",0)->update([
+                    User::where("id", $userID)->where("email", $email)->where("email_code", $code)->where("verified_email", 0)->update([
                         "verified_email" => 1,
                         "email_verified_at" => Carbon::now()
                     ]);
 
-                    return view("auth.email_verify",["verify" => 0]);
+                    return view("auth.email_verify", ["verify" => 0]);
 
-                }else if ($user->verified_email == 1) {
+                } else if ($user->verified_email == 1) {
 
-                    return view("auth.email_verify",["verify" => 1]);
+                    return view("auth.email_verify", ["verify" => 1]);
 
                 }
 
             }
 
-            return view("auth.email_verify",["verify" => 2]);
+            return view("auth.email_verify", ["verify" => 2]);
 
         }
 
