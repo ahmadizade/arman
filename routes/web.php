@@ -88,7 +88,7 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::post('/bookmark-delete', 'App\Http\Controllers\ProfileController@BookmarkDelete')->name("profile_bookmark_delete")->middleware("ajax", "verify.domain");
     Route::get('/email-verify-action', 'App\Http\Controllers\ProfileController@EmailVerifyAction')->name('email_verify_action');
     Route::get('/qrcode', 'App\Http\Controllers\ProfileController@Qrcode')->name("profile_qrcode");
-    Route::post('/qrcode_action', 'App\Http\Controllers\ProfileController@QrcodeAction')->name("profile_qrcode_action");
+    Route::post('/qrcode-action', 'App\Http\Controllers\ProfileController@QrcodeAction')->name("profile_qrcode_action");
 });
 
 
