@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\Email;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Morilog\Jalali\Jalalian;
 
 class Controller extends BaseController
 {
@@ -78,6 +81,42 @@ class Controller extends BaseController
         $string = preg_replace("/[\s_]/", $separator, $string);
 
         return $string;
+
+    }
+
+    public static function membershipNumberEncode($id){
+
+        $user = User::where("id",$id)->first();
+
+        if(isset($user->id)){
+
+            $membershipNumber = Jalalian::forge($user['created_at'])->format("y").Jalalian::forge($user['created_at'])->format("m").$id;
+
+            return $membershipNumber;
+
+        }
+
+        return false;
+
+    }
+
+    public static function membershipNumberDecode($code){
+
+        if(isset($code)) {
+
+            $user = User::where("membership_number", $code)->first();
+
+            if(isset($user->id)){
+
+                return $user;
+
+            }
+
+            return false;
+
+        }
+
+        return false;
 
     }
 

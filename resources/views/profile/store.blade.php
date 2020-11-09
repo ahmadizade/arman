@@ -41,8 +41,6 @@
                             <hr>
                             <h2 class="text-center text-warning">فروشگاه خود را ثبت کنید</h2>
                             <hr>
-
-
                             <form action="{{route('store_action')}}" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     {{-- ماهیت --}}
@@ -50,13 +48,13 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12"><span
-                                                        class="text-danger line-height-0 pl-1 font-15">*</span>ماهیت</span>
+                                                            class="text-danger line-height-0 pl-1 font-15">*</span>ماهیت</span>
                                             </div>
                                             <select id="nature" name="nature" class="form-control">
                                                 <option value="0" selected disabled>انتخاب ماهیت</option>
-                                                <option @if(old("nature") == 1) selected @endif value="1">شخصی (حقیقی)
+                                                <option value="1">شخصی (حقیقی)
                                                 </option>
-                                                <option @if(old("nature") == 2) selected @endif value="2">دولتی یا
+                                                <option value="2">دولتی یا
                                                     عمومی
                                                 </option>
                                             </select>
@@ -69,7 +67,7 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>نام و نام خانوادگی</span>
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>نام و نام خانوادگی</span>
                                             </div>
                                             <input name="name" type="text" class="form-control"
                                                    value="{{ old("name") }}">
@@ -79,7 +77,7 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>نام فروشگاه</span>
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>نام فروشگاه</span>
                                             </div>
                                             <input name="shop" type="text" class="form-control"
                                                    value="{{ old("shop") }}">
@@ -89,7 +87,7 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>کد ملی</span>
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>کد ملی</span>
                                             </div>
                                             <input type="text" name="melli_code" maxlength="11" class="form-control"
                                                    value="{{ old("melli_code") }}">
@@ -99,7 +97,7 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
                                             </div>
                                             <select name="category" class="form-control">
                                                 <option value="0" selected disabled>انتخاب دسته بندی</option>
@@ -124,7 +122,7 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
                                             </div>
                                             <input type="text" name="address" class="form-control"
                                                    value="{{ old("address") }}">
@@ -137,8 +135,8 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span
-                                                    class="input-group-text font-12"><span
-                                                        class="text-danger line-height-0 pl-1 font-15">*</span>نام فروشگاه</span>
+                                                        class="input-group-text font-12"><span
+                                                            class="text-danger line-height-0 pl-1 font-15">*</span>نام فروشگاه</span>
                                             </div>
                                             <input name="legal_shop" type="text" class="form-control"
                                                    placeholder="مثلا تهاتر ایرانیان"
@@ -148,9 +146,9 @@
                                     <div class="col-12 col-lg-6 legal">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                                                    <span
-                                                                                        class="input-group-text font-12"><span
-                                                                                            class="text-danger line-height-0 pl-1 font-15">*</span>نام و نام خانوادگی</span>
+                                                <span
+                                                        class="input-group-text font-12"><span
+                                                            class="text-danger line-height-0 pl-1 font-15">*</span>نام و نام خانوادگی</span>
                                             </div>
                                             <input type="text" name="legal_name" class="form-control"
                                                    placeholder="صاحب فروشگاه"
@@ -161,7 +159,7 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span
-                                                    class="input-group-text font-12">شماره موبایل</span>
+                                                        class="input-group-text font-12">شماره موبایل</span>
                                             </div>
                                             <input name="legal_mobile" maxlength="12" class="form-control text-left"
                                                    placeholder="صاحب فروشگاه"
@@ -197,8 +195,8 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span
-                                                    class="input-group-text font-12"><span
-                                                        class="text-danger line-height-0 pl-1 font-15">*</span>نوع</span>
+                                                        class="input-group-text font-12"><span
+                                                            class="text-danger line-height-0 pl-1 font-15">*</span>نوع</span>
                                             </div>
                                             <select name="legal_kind_of" class="form-control">
                                                 <option value="0" selected disabled>انتخاب کنید</option>
@@ -240,8 +238,8 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span
-                                                    class="input-group-text font-12"><span
-                                                        class="text-danger line-height-0 pl-1 font-15">*</span>کد ملی</span>
+                                                        class="input-group-text font-12"><span
+                                                            class="text-danger line-height-0 pl-1 font-15">*</span>کد ملی</span>
                                             </div>
                                             <input type="text" name="legal_melli_code" maxlength="11"
                                                    class="form-control"
@@ -263,7 +261,7 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12"><span
-                                                        class="text-danger line-height-0 pl-1 font-15">*</span>شماره ثبت</span>
+                                                            class="text-danger line-height-0 pl-1 font-15">*</span>شماره ثبت</span>
                                             </div>
                                             <input type="text" name="registration_number" class="form-control"
                                                    value="{{ old("registration_number") }}">
@@ -273,7 +271,7 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
                                             </div>
                                             <input type="text" name="legal_address" class="form-control"
                                                    value="{{ old("legal_address") }}">
@@ -308,15 +306,16 @@
                             </form>
 
                         @elseif(isset($result['id']) && $result['verify'] == 0)
-                            <div class="alert alert-danger mb-0 text-center">لطفا تا زمان احراز هویت صبر کنید</div>
+                            <div class="alert alert-danger mb-0 text-center">فروشگاه شما پس از تایید فعال خواهد شد</div>
                             <form action="{{route('store_edit_action')}}" method="post" enctype="multipart/form-data">
                                 @if(isset($result['id']) && $result['nature'] == 1)
                                     <div class="row">
+                                        <input name="id" type="hidden" value="{{ $result['id'] }}">
+                                        <input name="nature" type="hidden" value="{{ $result['nature'] }}">
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>نام و نام خانوادگی</span>
+                                                    <span class="input-group-text font-12">نام و نام خانوادگی</span>
                                                 </div>
                                                 <input name="name" type="text" class="form-control"
                                                        value="{{ $result['name'] }}">
@@ -325,8 +324,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>نام فروشگاه</span>
+                                                    <span class="input-group-text font-12">نام فروشگاه</span>
                                                 </div>
                                                 <input name="shop" type="text" class="form-control"
                                                        value="{{ $result['shop'] }}">
@@ -335,8 +333,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>کد ملی</span>
+                                                    <span class="input-group-text font-12">کد ملی</span>
                                                 </div>
                                                 <input type="text" name="melli_code" maxlength="11" class="form-control"
                                                        value="{{ $result['melli_code'] }}">
@@ -345,8 +342,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
+                                                    <span class="input-group-text font-12">دسته بندی</span>
                                                 </div>
                                                 <select name="category" class="form-control">
                                                     <option value="0" selected disabled>انتخاب دسته بندی</option>
@@ -362,7 +358,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">شماره تماس فروشگاه</span>
                                                 </div>
-                                                <input name="telephone" maxlength="12" class="form-control text-left"
+                                                <input name="telephone" maxlength="12" class="form-control"
                                                        placeholder="...021"
                                                        value="{{ $result['telephone'] }}">
                                             </div>
@@ -370,8 +366,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
+                                                    <span class="input-group-text font-12">آدرس</span>
                                                 </div>
                                                 <input type="text" name="address" class="form-control"
                                                        value="{{ $result['address'] }}">
@@ -380,12 +375,13 @@
                                     </div>
                                 @elseif(isset($result['id']) && $result['nature'] == 2)
                                     <div class="row">
+                                        <input name="id" type="hidden" value="{{ $result['id'] }}">
+                                        <input name="nature" type="hidden" value="{{ $result['nature'] }}">
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                 <span
-                                                    class="input-group-text font-12"><span
-                                                        class="text-danger line-height-0 pl-1 font-15">*</span>نام فروشگاه</span>
+                                                        class="input-group-text font-12">نام فروشگاه</span>
                                                 </div>
                                                 <input name="legal_shop" type="text" class="form-control"
                                                        placeholder="مثلا تهاتر ایرانیان"
@@ -395,22 +391,21 @@
                                         <div class="col-12 col-lg-6 legal">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                                                    <span
-                                                                                        class="input-group-text font-12"><span
-                                                                                            class="text-danger line-height-0 pl-1 font-15">*</span>نام و نام خانوادگی</span>
+                                                    <span
+                                                            class="input-group-text font-12">نام و نام خانوادگی</span>
                                                 </div>
                                                 <input type="text" name="legal_name" class="form-control"
                                                        placeholder="صاحب فروشگاه"
-                                                       value="{{ $result["legal_name"] }}">
+                                                       value="{{ $result["name"] }}">
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6 legal">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                 <span
-                                                    class="input-group-text font-12">شماره موبایل</span>
+                                                        class="input-group-text font-12">شماره موبایل</span>
                                                 </div>
-                                                <input name="legal_mobile" maxlength="12" class="form-control text-left"
+                                                <input name="legal_mobile" maxlength="12" class="form-control"
                                                        placeholder="صاحب فروشگاه"
                                                        value="{{ $result["ceo_mobile"] }}">
                                             </div>
@@ -421,7 +416,7 @@
                                                     <span class="input-group-text font-12">شماره تماس فروشگاه</span>
                                                 </div>
                                                 <input name="legal_telephone" maxlength="12"
-                                                       class="form-control text-left"
+                                                       class="form-control"
                                                        placeholder="...021"
                                                        value="{{ $result["telephone"] }}">
                                             </div>
@@ -429,8 +424,7 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">
-                                                    <span class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
+                                                    <span class="input-group-text font-12">دسته بندی</span>
                                                 </div>
                                                 <select name="legal_category" class="form-control">
                                                     <option value="0" selected disabled>انتخاب دسته بندی</option>
@@ -445,10 +439,226 @@
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                 <span
-                                                    class="input-group-text font-12"><span
-                                                        class="text-danger line-height-0 pl-1 font-15">*</span>نوع</span>
+                                                        class="input-group-text font-12">نوع</span>
                                                 </div>
                                                 <select name="legal_kind_of" class="form-control">
+                                                    <option value="0" selected disabled>انتخاب کنید</option>
+                                                    <option @if($result['kind_of'] == 1) selected @endif value="1">
+                                                        سهامی
+                                                        عام
+                                                    </option>
+                                                    <option @if($result['kind_of'] == 2) selected @endif value="2">
+                                                        سهامی
+                                                        خاص
+                                                    </option>
+                                                    <option @if($result['kind_of'] == 3) selected @endif value="2">
+                                                        مسئولیت
+                                                        محدود
+                                                    </option>
+                                                    <option @if($result['kind_of'] == 4) selected @endif value="2">
+                                                        سایر
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 legal">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">شعبه</span>
+                                                </div>
+                                                <input name="legal_branch" type="text"
+                                                       placeholder="در صورت نداشتن شعبه خالی بزارید"
+                                                       class="form-control"
+                                                       value="{{ $result['branch'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                <span
+                                                        class="input-group-text font-12">کد ملی</span>
+                                                </div>
+                                                <input type="text" name="legal_melli_code" maxlength="11"
+                                                       class="form-control"
+                                                       value="{{ $result['melli_code'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 legal">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">شناسه ملی</span>
+                                                </div>
+                                                <input type="text" name="shenase_melli"
+                                                       placeholder="در صورت نداشتن شناسه ملی خالی بزارید"
+                                                       class="form-control"
+                                                       value="{{ $result['shenase_melli'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">شماره ثبت</span>
+                                                </div>
+                                                <input type="text" name="registration_number" class="form-control"
+                                                       value="{{ $result['registration'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">آدرس</span>
+                                                </div>
+                                                <input type="text" name="legal_address" class="form-control"
+                                                       value="{{ $result['address'] }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                                <div class="row">
+                                    <div class="col-12 text-left">
+                                        <button class="btn btn-primary my-2">ویرایش اطلاعات</button>
+                                    </div>
+                                </div>
+                            </form>
+                        @elseif(isset($result['id']) && $result['verify'] == 1)
+                            <div class="alert alert-success mb-0 text-center">فروشگاه شما ( <a target="_blank"
+                                                                                               href="{{ route("single_shop",["shop" => $result['shop_slug'] ,"branch" => $result['branch_slug']]) }}">{{$result['shop']}}</a>
+                                ) احراز هویت شده
+                            </div>
+                            <div class="row">
+                                @if(isset($result['id']) && $result['nature'] == 1)
+                                    <div class="row mx-1">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">نام و نام خانوادگی</span>
+                                                </div>
+                                                <input name="name" disabled type="text" class="form-control"
+                                                       value="{{ $result['name'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">نام فروشگاه</span>
+                                                </div>
+                                                <input name="shop" disabled type="text" class="form-control"
+                                                       value="{{ $result['shop'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">کد ملی</span>
+                                                </div>
+                                                <input type="text" disabled name="melli_code" maxlength="11"
+                                                       class="form-control"
+                                                       value="{{ $result['melli_code'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">دسته بندی</span>
+                                                </div>
+                                                <select name="category" disabled class="form-control">
+                                                    <option value="0" selected disabled>انتخاب دسته بندی</option>
+                                                    @foreach($category as $item)
+                                                        <option @if($result['category'] == $item['id']) selected
+                                                                @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">شماره تماس فروشگاه</span>
+                                                </div>
+                                                <input name="telephone" disabled maxlength="12"
+                                                       class="form-control"
+                                                       placeholder="...021"
+                                                       value="{{ $result['telephone'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">آدرس</span>
+                                                </div>
+                                                <input disabled type="text" name="address" class="form-control"
+                                                       value="{{ $result['address'] }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @elseif(isset($result['id']) && $result['nature'] == 2)
+                                    <div class="row mx-1">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                <span
+                                                        class="input-group-text font-12">نام فروشگاه</span>
+                                                </div>
+                                                <input disabled name="legal_shop" type="text" class="form-control"
+                                                       placeholder="مثلا تهاتر ایرانیان"
+                                                       value="{{ $result["shop"] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 legal">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                                                    <span
+                                                                                            class="input-group-text font-12">نام و نام خانوادگی</span>
+                                                </div>
+                                                <input disabled type="text" name="legal_name" class="form-control"
+                                                       placeholder="صاحب فروشگاه"
+                                                       value="{{ $result["legal_name"] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 legal">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                <span
+                                                        class="input-group-text font-12">شماره موبایل</span>
+                                                </div>
+                                                <input disabled name="legal_mobile" maxlength="12"
+                                                       class="form-control"
+                                                       placeholder="صاحب فروشگاه"
+                                                       value="{{ $result["ceo_mobile"] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">شماره تماس فروشگاه</span>
+                                                </div>
+                                                <input disabled name="legal_telephone" maxlength="12"
+                                                       class="form-control"
+                                                       placeholder="...021"
+                                                       value="{{ $result["telephone"] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">دسته بندی</span>
+                                                </div>
+                                                <select disabled name="legal_category" class="form-control">
+                                                    <option value="0" selected disabled>انتخاب دسته بندی</option>
+                                                    @foreach($category as $item)
+                                                        <option @if($result['category'] == $item['id']) selected
+                                                                @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 legal">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                <span
+                                                        class="input-group-text font-12">نوع</span>
+                                                </div>
+                                                <select disabled name="legal_kind_of" class="form-control">
                                                     <option value="0" selected disabled>انتخاب کنید</option>
                                                     <option @if($result['kind_of'] == 1) selected @endif value="1">
                                                         سهامی
@@ -473,7 +683,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">نام خدمت</span>
                                                 </div>
-                                                <input name="legal_service" class="form-control"
+                                                <input disabled name="legal_service" class="form-control"
                                                        placeholder="نام خدمات شما"
                                                        value="{{ $result['parent'] }}">
                                             </div>
@@ -483,7 +693,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">شعبه</span>
                                                 </div>
-                                                <input name="legal_branch" type="text"
+                                                <input disabled name="legal_branch" type="text"
                                                        placeholder="در صورت نداشتن شعبه خالی بزارید"
                                                        class="form-control"
                                                        value="{{ $result['branch'] }}">
@@ -493,10 +703,9 @@
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                 <span
-                                                    class="input-group-text font-12"><span
-                                                        class="text-danger line-height-0 pl-1 font-15">*</span>کد ملی</span>
+                                                        class="input-group-text font-12">کد ملی</span>
                                                 </div>
-                                                <input type="text" name="legal_melli_code" maxlength="11"
+                                                <input disabled type="text" name="legal_melli_code" maxlength="11"
                                                        class="form-control"
                                                        value="{{ $result['melli_code'] }}">
                                             </div>
@@ -506,7 +715,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">شناسه ملی</span>
                                                 </div>
-                                                <input type="text" name="shenase_melli"
+                                                <input disabled type="text" name="shenase_melli"
                                                        placeholder="در صورت نداشتن شناسه ملی خالی بزارید"
                                                        class="form-control"
                                                        value="{{ $result['shenase_melli'] }}">
@@ -515,196 +724,31 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                <span class="input-group-text font-12"><span
-                                                        class="text-danger line-height-0 pl-1 font-15">*</span>شماره ثبت</span>
+                                                    <span class="input-group-text font-12">شماره ثبت</span>
                                                 </div>
-                                                <input type="text" name="registration_number" class="form-control"
+                                                <input disabled type="text" name="registration_number"
+                                                       class="form-control"
                                                        value="{{ $result['registration'] }}">
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
+                                                    <span class="input-group-text font-12">آدرس</span>
                                                 </div>
-                                                <input type="text" name="legal_address" class="form-control"
+                                                <input disabled type="text" name="legal_address"
+                                                       class="form-control"
                                                        value="{{ $result['address'] }}">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12 col-lg-6"  >
-                                            <div class="input-group mt-2">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="file">
-                                                    <label class="custom-file-label text-left">+ افزودن
-                                                        لوگو</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-3">
-                                            <div class="input-group mt-2">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">رنگ فروشگاه</span>
-                                                </div>
-                                                <input type="color" name="color" class="form-control"
-                                                       value="{{ $result['color'] ?? "#3498db" }}">
-                                            </div>
-                                        </div>
-                                    </div>
                                 @endif
-
-                                <div class="row">
-                                    <div class="col-12 text-left">
-                                        <button class="btn btn-primary my-2">ویرایش اطلاعات</button>
-                                    </div>
-                                </div>
-                            </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        @elseif(isset($result['id']) && $result['verify'] == 1)
-                            <div class="alert alert-success mb-0 text-center">فروشگاه شما ( <a target="_blank"
-                                                                                               href="{{ route("single_shop",["shop" => $result['shop_slug'] ,"branch" => $result['branch_slug']]) }}">{{$result['shop']}}</a>
-                                ) احراز هویت شده
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-lg-12">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">نام فروشگاه</span>
-                                        </div>
-                                        <input disabled class="form-control"
-                                               value="{{ $result["shop"] }}">
-                                    </div>
-                                </div>
-                                <div id="branch" class="col-12 col-lg-6 legal">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">شعبه</span>
-                                        </div>
-                                        <input disabled class="form-control"
-                                               value="{{ $result["branch"] }}">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">ماهیت</span>
-                                        </div>
-                                        <select id="nature" disabled class="form-control">
-                                            <option @if($result["nature"] == 1) selected @endif>شخصی (حقیقی)</option>
-                                            <option @if($result["nature"] == 2) selected @endif>حقوقی</option>
-                                            {{--                                                <option @if($result["nature"] == 3) selected @endif>خصوصی</option>--}}
-                                            {{--                                                <option @if($result["nature"] == 4) selected @endif>تعاونی</option>--}}
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6 legal">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">شناسه ملی</span>
-                                        </div>
-                                        <input disabled class="form-control"
-                                               value="{{ $result["shenase_melli"] }}">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6 legal">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span
-                                                class="input-group-text font-12">نام و نام خانوادگی صاحب فروشگاه</span>
-                                        </div>
-                                        <input disabled class="form-control"
-                                               value="{{ $result["name"] }}">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">کد ملی صاحب فروشگاه</span>
-                                        </div>
-                                        <input disabled maxlength="11" class="form-control"
-                                               value="{{ $result["melli_code"] }}">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">شماره موبایل</span>
-                                        </div>
-                                        <input disabled maxlength="12" class="form-control" placeholder="صاحب فروشگاه"
-                                               value="{{ $result["ca_mobile"] }}">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">شماره تماس فروشگاه</span>
-                                        </div>
-                                        <input maxlength="12" class="form-control text-left" placeholder="...021"
-                                               value="{{ $result["ca_telephone"] }}">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">نام خدمت</span>
-                                        </div>
-                                        <input disabled class="form-control"
-                                               value="{{ $result["kind"] }}">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">دسته بندی</span>
-                                        </div>
-                                        <select disabled class="form-control">
-                                            @foreach($category as $item)
-                                                <option @if($result["category"] == $item['id']) disabled selected
-                                                        @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                </div>
-                                <div class="col-12 col-lg-12">
-                                    <div class="input-group mt-2">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text font-12">آدرس</span>
-                                        </div>
-                                        <input disabled name="address" class="form-control"
-                                               value="{{ $result["address"] }}">
-                                    </div>
-                                    <hr>
-                                </div>
-                                <div class="col-12 text-center">
+                                <div class="col-12 mt-3 text-center">
                                     <img src="/images/shop/logo/{{ $result['logo'] }}" class="img-fluid"
                                          style="max-width: 250px" alt="logo">
                                 </div>
                             </div>
+
                             <form action="{{ route("store_desc_action") }}" method="post" enctype="multipart/form-data">
                                 <div class="row mt-3">
                                     <div class="col-12 col-lg-6">
@@ -741,7 +785,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('extra_js')
@@ -779,4 +822,17 @@
             });
         });
     </script>
+{{--    <script>--}}
+{{--        $( window ).on( "load", function() {--}}
+{{--            if ($('#nature').val() == 1) {--}}
+{{--                $('.person-box').show();--}}
+{{--                $('.legal-box').hide();--}}
+{{--            }--}}
+{{--            if ($('#nature').val() == 2) {--}}
+{{--                $('.person-box').hide();--}}
+{{--                $('.legal-box').show();--}}
+{{--            }--}}
+{{--        });--}}
+{{--    </script>--}}
+
 @endsection

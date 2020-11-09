@@ -6,6 +6,7 @@ use App\Models\Bookmark;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Profile;
+use App\Models\Statement;
 use App\Models\Store;
 use App\Models\User;
 use Carbon\Carbon;
@@ -43,81 +44,73 @@ class ProfileController extends Controller
     public function StoreEditAction(Request $request)
     {
         $request = $request->replace(self::faToEn($request->all()));
-        $request->validate([
-            'shop' => 'required|min:3|max:128|unique:store',
-            'branch' => 'nullable|min:3|max:100',
-            'nature' => 'required|min:1',
-            'category' => 'required|min:1',
-            'shenase_melli' => 'nullable|min:3|max:32',
-            'name' => 'required|min:2|max:60',
-            'melli_code' => 'required|digits:10',
-            'address' => 'required',
-            'file' => 'image|nullable|dimensions:min_width=300,min_height=300|max:2048',
-        ]);
-
-        if (isset($request->file) && strlen($request->file) > 0) {
-
-            $imageName = null;
-
-            $exists = Storage::disk('logo')->exists($request->file('file')->getClientOriginalName());
-
-            if ($exists == true) {
-
-                $imageName = time();
-                $imageName = $imageName . "-" . $request->file('file')->getClientOriginalName();
-
-                $img = Image::make('images/shop/logo/' . pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_BASENAME));
-                $img->resize(300, 300, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                });
-                $img->save('images/shop/logo/' . $imageName);
-
-            } else {
-
-                $imageName = $request->file('file')->getClientOriginalName();
-                $img = Image::make($request->file('file'))->resize(300, 300, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                });
-                $img->save('images/shop/logo/' . $imageName);
-
-            }
-
-            Store::where("user_id", Auth::id())->update([
-                'logo' => $imageName,
+        if ($request->nature == 1) {
+            $request->validate([
+                'shop' => 'required|min:3|max:128',
+                'name' => 'required|min:2|max:60',
+                'category' => 'required|min:1',
+                'telephone' => 'nullable|digits:8',
+                'melli_code' => 'required|digits:10',
+                'address' => 'required',
             ]);
-
-        }
-
-        Store::where("user_id", Auth::id())->update([
-            'shop' => $request->shop,
-            'branch' => $request->branch,
-            'nature' => $request->nature,
-            'category' => $request->category,
-            'shenase_melli' => $request->shenase_melli,
-            'name' => $request->name,
-            'melli_code' => $request->melli_code,
-            'address' => $request->address,
-            'shop_slug' => self::slug($request->shop),
-            'branch_slug' => self::slug($request->branch),
-        ]);
-
-        if (isset($request->color)) {
-            Store::where("user_id", Auth::id())->update([
-                "color" => $request->color
+            Store::where('id',$request->id)->update([
+                'user_id' => Auth::id(),
+                'shop' => $request->shop,
+                'name' => $request->name,
+                'category' => $request->category,
+                'telephone' => $request->telephone,
+                'melli_code' => $request->melli_code,
+                'address' => $request->address,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'shop_slug' => self::slug($request->shop),
             ]);
+            session()->flash("status", "اطلاعات با موفقیت ثبت شد");
+            return back();
+        } elseif ($request->nature == 2) {
+            $request->validate([
+                'legal_shop' => 'required|min:3|max:128',
+                'legal_name' => 'required|min:2|max:60',
+                'legal_mobile' => 'required|digits:11',
+                'legal_telephone' => 'required|digits:8',
+                'legal_branch' => 'nullable|min:3|max:100',
+                'legal_category' => 'required|min:1',
+                'legal_kind_of' => 'required|min:1',
+                'shenase_melli' => 'nullable|min:3|max:32',
+                'registration_number' => 'nullable|min:3|max:32',
+                'legal_melli_code' => 'required|digits:10',
+                'legal_address' => 'required',
+            ]);
+            Store::where('id',$request->id)->update([
+                'user_id' => Auth::id(),
+                'shop' => $request->legal_shop,
+                'name' => $request->legal_name,
+                'ceo_mobile' => $request->legal_mobile,
+                'telephone' => $request->legal_telephone,
+                'branch' => $request->legal_branch,
+                'category' => $request->legal_category,
+                'kind_of' => $request->legal_kind_of,
+                'shenase_melli' => $request->shenase_melli,
+                'melli_code' => $request->legal_melli_code,
+                'registration' => $request->registration_number,
+                'address' => $request->legal_address,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'shop_slug' => self::slug($request->legal_shop),
+                'branch_slug' => self::slug($request->legal_branch),
+            ]);
+            session()->flash("status", "اطلاعات با موفقیت ویرایش شد");
+            return back();
         }
-        session()->flash("status", "اطلاعات با موفقیت ویرایش شد");
-        return back();
     }
 
     public function StoreAction(Request $request)
     {
+        $request = $request->replace(self::faToEn($request->all()));
         if ($request->nature == 0) {
             session()->flash("status", "لطفا  فیلد ماهیت و فیلدهای مرتبط را تکمیل نمایید");
+            return back();
         } elseif ($request->nature == 1) {
-            $request = $request->replace(self::faToEn($request->all()));
             $request->validate([
                 'shop' => 'required|min:3|max:128|unique:store',
                 'name' => 'required|min:2|max:60',
@@ -180,7 +173,6 @@ class ProfileController extends Controller
             session()->flash("status", "اطلاعات با موفقیت ثبت شد");
             return back();
         } elseif ($request->nature == 2) {
-            $request = $request->replace(self::faToEn($request->all()));
             $request->validate([
                 'legal_shop' => 'required|min:3|max:128|unique:store',
                 'legal_name' => 'required|min:2|max:60',
@@ -717,6 +709,48 @@ class ProfileController extends Controller
         }
 
         return response()->json(['status' => "0", "desc" => "مشکلی پیش آمده است لطفا دوباره تلاش کنید"]);
+
+    }
+
+    public function Qrcode()
+    {
+
+        return view("profile.qrcode", ["menu" => "qrcode"]);
+
+    }
+
+    public function QrcodeAction(Request $request)
+    {
+
+        $request = $request->replace(self::faToEn($request->all()));
+
+        if (isset($request->membership_number) && isset($request->amount) && is_numeric($request->amount) && $request->amount > 0) {
+
+            $user = self::membershipNumberDecode($request->membership_number);
+
+            if (isset($user->id)) {
+
+                Statement::create([
+                    "from_user_id" => Auth::id(),
+                    "to_user_id" => $user->id,
+                    "amount" => $request->amount,
+                    "desc" => $request->desc,
+                    "type" => "cart-to-cart",
+                    "status" => "pending",
+                    "created_at" => Carbon::now(),
+                ]);
+
+                $store = Store::where("user_id", $user->id)->first();
+
+                return ["status" => true, "name" => $store->shop . " " . $store->branch, "amount" => number_format($request->amount)];
+
+            }
+
+            return ["status" => false];
+
+        }
+
+        return ["status" => false];
 
     }
 
