@@ -108,7 +108,7 @@ class ProfileController extends Controller
     {
         $request = $request->replace(self::faToEn($request->all()));
         if ($request->nature == 0) {
-            session()->flash("status", "لطفا  فیلد ماهیت و فیلدهای مرتبط را تکمیل نمایید");
+            session()->flash("error", "لطفا  فیلد ماهیت و فیلدهای مرتبط را تکمیل نمایید");
             return back();
         } elseif ($request->nature == 1) {
             $request->validate([
@@ -174,7 +174,7 @@ class ProfileController extends Controller
             return back();
         } elseif ($request->nature == 2) {
             $request->validate([
-                'legal_shop' => 'required|min:3|max:128|unique:store',
+                'legal_shop' => 'required|min:3|max:128',
                 'legal_name' => 'required|min:2|max:60',
                 'legal_mobile' => 'required|digits:11',
                 'legal_telephone' => 'required|digits:8',
@@ -210,33 +210,40 @@ class ProfileController extends Controller
                     $img->save('images/shop/logo/' . $imageName);
                 }
             }
-            Store::create([
-                'user_id' => Auth::id(),
-                'shop' => $request->legal_shop,
-                'name' => $request->legal_name,
-                'ceo_mobile' => $request->legal_mobile,
-                'telephone' => $request->legal_telephone,
-                'branch' => $request->legal_branch,
-                'nature' => $request->nature,
-                'category' => $request->legal_category,
-                'kind_of' => $request->legal_kind_of,
-                'shenase_melli' => $request->shenase_melli,
-                'melli_code' => $request->legal_melli_code,
-                'registration' => $request->registration_number,
-                'address' => $request->legal_address,
-                'created_at' => Carbon::now(),
-                'logo' => $imageName,
-                'color' => $request->color,
-                'shop_slug' => self::slug($request->legal_shop),
-                'branch_slug' => self::slug($request->legal_branch),
-            ]);
-            if (isset($request->color)) {
-                Store::where("user_id", Auth::id())->update([
-                    "color" => $request->color
+            $check_shop = Store::where('shop' , $request->legal_shop)->exists();
+            if ($check_shop == false){
+                Store::create([
+                    'user_id' => Auth::id(),
+                    'shop' => $request->legal_shop,
+                    'name' => $request->legal_name,
+                    'ceo_mobile' => $request->legal_mobile,
+                    'telephone' => $request->legal_telephone,
+                    'branch' => $request->legal_branch,
+                    'nature' => $request->nature,
+                    'category' => $request->legal_category,
+                    'kind_of' => $request->legal_kind_of,
+                    'shenase_melli' => $request->shenase_melli,
+                    'melli_code' => $request->legal_melli_code,
+                    'registration' => $request->registration_number,
+                    'address' => $request->legal_address,
+                    'created_at' => Carbon::now(),
+                    'logo' => $imageName,
+                    'color' => $request->color,
+                    'shop_slug' => self::slug($request->legal_shop),
+                    'branch_slug' => self::slug($request->legal_branch),
                 ]);
+                if (isset($request->color)) {
+                    Store::where("user_id", Auth::id())->update([
+                        "color" => $request->color
+                    ]);
+                }
+                session()->flash("status", "اطلاعات با موفقیت ثبت شد");
+                return back();
+            }else{
+                session()->flash("error", "فروشگاه تکراریست");
+                return back();
             }
-            session()->flash("status", "اطلاعات با موفقیت ثبت شد");
-            return back();
+
         }
     }
 

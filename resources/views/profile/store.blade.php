@@ -35,7 +35,7 @@
                         @if(Session::has("status"))
                             <div class="alert text-center alert-success mb-2">{{ Session::get("status") }}</div>
                         @elseif(Session::has("error"))
-                            <div class="alert text-white alert-danger mb-2">{{ Session::get("error") }}</div>
+                            <div class="alert text-center alert-danger mb-2">{{ Session::get("error") }}</div>
                         @endif
                         @if(!isset($result['id']))
                             <hr>
@@ -52,9 +52,9 @@
                                             </div>
                                             <select id="nature" name="nature" class="form-control">
                                                 <option value="0" selected disabled>انتخاب ماهیت</option>
-                                                <option value="1">شخصی (حقیقی)
+                                                <option @if(old('nature') == 1) selected @endif value="1">شخصی (حقیقی)
                                                 </option>
-                                                <option value="2">دولتی یا
+                                                <option @if(old('nature') == 2) selected @endif value="2">دولتی یا
                                                     عمومی
                                                 </option>
                                             </select>
@@ -822,17 +822,16 @@
             });
         });
     </script>
-{{--    <script>--}}
-{{--        $( window ).on( "load", function() {--}}
-{{--            if ($('#nature').val() == 1) {--}}
-{{--                $('.person-box').show();--}}
-{{--                $('.legal-box').hide();--}}
-{{--            }--}}
-{{--            if ($('#nature').val() == 2) {--}}
-{{--                $('.person-box').hide();--}}
-{{--                $('.legal-box').show();--}}
-{{--            }--}}
-{{--        });--}}
-{{--    </script>--}}
-
+    <script>
+        $( window ).on( "load", function() {
+            if ($('#nature').val() == 1) {
+                $('.person-box').show();
+                $('.legal-box').hide();
+            }
+            if ($('#nature').val() == 2) {
+                $('.person-box').hide();
+                $('.legal-box').show();
+            }
+        });
+    </script>
 @endsection
