@@ -71,7 +71,6 @@
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
-                            <button class="btn btn-sm text-white bg-gradient-success" data-toggle="modal" data-target="#view">Create Store</button>
                             <table id="user_table"
                                    class="table table-responsive-xl table-responsive-sm text-center border-bottom-primary bg-gradient-info text-white table-sm table-borderless table-striped"
                                    width="100%">
