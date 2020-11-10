@@ -19,6 +19,7 @@ class LoginController extends Controller
 {
     public function LoginToken(Request $request){
 
+
         $request = $request->replace(self::faToEn($request->all()));
 
         $mobile = $request->mobile;
@@ -26,7 +27,7 @@ class LoginController extends Controller
         if(!Cache::has("mobile_code_".$mobile)){
 
             $validate = Validator::make($request->all(), [
-                'mobile' => 'required|digits:11',
+                'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
             ]);
 
             if ($validate->fails()) {
@@ -90,7 +91,7 @@ class LoginController extends Controller
         $code = self::faToEn($request->code);
 
         $validate = Validator::make($request->all(), [
-            'mobile' => 'required|digits:11',
+            'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
             'code' => 'required'
         ]);
 
@@ -128,7 +129,7 @@ class LoginController extends Controller
         $code = self::faToEn($request->code);
 
         $validate = Validator::make($request->all(), [
-            'mobile' => 'required|digits:11',
+            'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
             'code' => 'required|digits:5'
         ]);
 
@@ -168,6 +169,10 @@ class LoginController extends Controller
                         "updated_at" => Carbon::now(),
                     ]);
 
+                    User::where("id",$user)->update([
+                        "membership_number" => self::membershipNumberEncode($user)
+                    ]);
+
                     Profile::create([
                         "user_id" => $user,
                         "city_code" => 0
@@ -200,7 +205,7 @@ class LoginController extends Controller
         if(!Cache::has("mobile_code_".$mobile)){
 
             $validate = Validator::make($request->all(), [
-                'mobile' => 'required|digits:11',
+                'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
             ]);
 
             if ($validate->fails()) {

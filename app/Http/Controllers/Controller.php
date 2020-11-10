@@ -17,6 +17,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    const MerchantId = 'K146';
+    const admin_email = 'info@bazarti.com';
+    const sha1Key = '22338240992352910814917221751200141041845518824222260';
+
     public static function sms($mobile, $content)
     {
 

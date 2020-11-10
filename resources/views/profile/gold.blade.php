@@ -38,17 +38,12 @@
                                 </ul>
                                 @if(Auth::check() && Auth::user()->user_mode == "gold")
                                     <p class="text-center text-warning font-18">شما عضو طلایی هستید</p>
-                                @elseif(Auth::check() && Auth::user()->user_mode == "normal" && Auth::user()->credit < 440000)
-                                    <p class="text-center">
-                                        <button id="online-payment-gold" class="btn btn-primary">پرداخت آنلاین</button>
-                                    </p>
-                                @else
-                                    <p class="text-center">
-                                        <button id="online-payment-gold" class="btn btn-primary">پرداخت آنلاین</button>
-                                        @if(Auth::check() && Auth::user()->credit > 44000)
-                                            <button id="credit-payment-gold" class="btn btn-primary">پرداخت از اعتبار</button>
-                                        @endif
-                                    </p>
+                                @elseif(Auth::check() && Auth::user()->user_mode == "normal")
+                                    <form action="{{ route("profile_gold_online_action") }}" method="post">
+                                        <p class="text-center">
+                                            <button id="online-payment-gold" class="btn btn-primary">پرداخت آنلاین</button>
+                                        </p>
+                                    </form>
                                 @endif
                             </div>
                         </div>
@@ -64,7 +59,7 @@
     <script>
         $(document).ready(function(){
 
-            $("#online-payment-gold").on("click",function(e){
+/*            $("#online-payment-gold").on("click",function(e){
                 $(this).append("<span class='fa fa-spinner fa-spin font-16 mr-2'></span>");
                 $.ajax({
                     type: "POST",
@@ -78,7 +73,7 @@
                     }
                 });
                 e.preventDefault();
-            });
+            });*/
 
             $("#credit-payment-gold").on("click",function(e){
                 $(this).append("<span class='fa fa-spinner fa-spin font-16 mr-2'></span>");

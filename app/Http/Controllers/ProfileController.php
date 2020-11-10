@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bookmark;
 use App\Models\Category;
+use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Profile;
 use App\Models\Statement;
@@ -15,7 +16,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
@@ -53,7 +56,7 @@ class ProfileController extends Controller
                 'melli_code' => 'required|digits:10',
                 'address' => 'required',
             ]);
-            Store::where('id',$request->id)->update([
+            Store::where('id', $request->id)->update([
                 'user_id' => Auth::id(),
                 'shop' => $request->shop,
                 'name' => $request->name,
@@ -81,7 +84,7 @@ class ProfileController extends Controller
                 'legal_melli_code' => 'required|digits:10',
                 'legal_address' => 'required',
             ]);
-            Store::where('id',$request->id)->update([
+            Store::where('id', $request->id)->update([
                 'user_id' => Auth::id(),
                 'shop' => $request->legal_shop,
                 'name' => $request->legal_name,
@@ -210,8 +213,8 @@ class ProfileController extends Controller
                     $img->save('images/shop/logo/' . $imageName);
                 }
             }
-            $check_shop = Store::where('shop' , $request->legal_shop)->exists();
-            if ($check_shop == false){
+            $check_shop = Store::where('shop', $request->legal_shop)->exists();
+            if ($check_shop == false) {
                 Store::create([
                     'user_id' => Auth::id(),
                     'shop' => $request->legal_shop,
@@ -239,7 +242,7 @@ class ProfileController extends Controller
                 }
                 session()->flash("status", "اطلاعات با موفقیت ثبت شد");
                 return back();
-            }else{
+            } else {
                 session()->flash("error", "فروشگاه تکراریست");
                 return back();
             }
@@ -761,6 +764,20 @@ class ProfileController extends Controller
 
     }
 
+    public function QrcodeActionMobile(Request $request)
+    {
+
+        $validate = Validator::make($request->all(), [
+            'code' => 'required|digits:5'
+        ]);
+
+        if ($validate->fails()) {
+            return Response::json(["status" => "0", "desc" => "کد وارد شده اشتباه می باشد"]);
+        }
+
+
+    }
+
     public function ProfileGold()
     {
 
@@ -773,7 +790,7 @@ class ProfileController extends Controller
 
         $request = $request->replace(self::faToEn($request->all()));
 
-        return response()->json(['errors' => 1]);
+        return PaymentController::PaymentGold();
 
     }
 
@@ -828,6 +845,17 @@ class ProfileController extends Controller
 
         return response()->json(['success' => 'Crop Image Uploaded Successfully']);
     }
+
     //Jquery Cropper
 
+    public function ProfileCredit()
+    {
+        return view('profile.credit', ["user" => Auth::user(), "menu" => "credit"]);
+    }
+
+    public function CreditAction(Request $request)
+    {
+        session()->flash("error", "این صفحه در حال بروزرسانی می باشد");
+        return back();
+    }
 }
