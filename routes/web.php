@@ -99,3 +99,8 @@ Route::prefix("shop")->group(function () {
     Route::post('/shop-bookmark', 'App\Http\Controllers\ShopController@Bookmark')->name("bookmark")->middleware("ajax", "verify.domain");
     Route::post('/shop-report', 'App\Http\Controllers\ShopController@Report')->name("report")->middleware("ajax", "verify.domain");
 });
+
+
+
+//bank
+Route::post('/incoming', 'App\Http\Controllers\PaymentController@BackBank')->name("back_bank");

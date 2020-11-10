@@ -19,6 +19,7 @@ class LoginController extends Controller
 {
     public function LoginToken(Request $request){
 
+
         $request = $request->replace(self::faToEn($request->all()));
 
         $mobile = $request->mobile;

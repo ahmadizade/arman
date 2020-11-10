@@ -9,6 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3",
+        "ext-curl": "*",
+        "ext-gd": "*",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -17,9 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "morilog/jalali": "3.*",
-        "yajra/laravel-datatables-oracle": "~9.0",
-      "ext-curl": "*",
-      "ext-gd": "*"
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

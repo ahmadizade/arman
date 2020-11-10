@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bookmark;
 use App\Models\Category;
+use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Profile;
 use App\Models\Statement;
@@ -782,7 +783,7 @@ class ProfileController extends Controller
 
         $request = $request->replace(self::faToEn($request->all()));
 
-        return response()->json(['errors' => 1]);
+        return PaymentController::PaymentGold();
 
     }
 
