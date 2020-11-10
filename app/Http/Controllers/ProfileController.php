@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
@@ -751,6 +753,20 @@ class ProfileController extends Controller
         }
 
         return ["status" => false];
+
+    }
+
+    public function QrcodeActionMobile(Request $request){
+
+        $validate = Validator::make($request->all(), [
+            'code' => 'required|digits:5'
+        ]);
+
+        if ($validate->fails()) {
+            return Response::json(["status" => "0","desc" => "کد وارد شده اشتباه می باشد"]);
+        }
+
+
 
     }
 

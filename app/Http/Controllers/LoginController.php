@@ -168,6 +168,10 @@ class LoginController extends Controller
                         "updated_at" => Carbon::now(),
                     ]);
 
+                    User::where("id",$user)->update([
+                        "membership_number" => self::membershipNumberEncode($user)
+                    ]);
+
                     Profile::create([
                         "user_id" => $user,
                         "city_code" => 0

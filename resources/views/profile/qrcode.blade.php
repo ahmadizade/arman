@@ -89,6 +89,26 @@
                                         cancelButtonText: 'منصرف شدم',
                                     }).then((result) => {
                                         if (result.isConfirmed) {
+
+                                            $.ajax({
+                                                url: '{{ route("profile_qrcode_action_mobile") }}',
+                                                type: 'POST',
+                                                data: $("#code").serialize(),
+                                                success: function (data) {
+                                                    if(data.status == "0"){
+                                                        Swal.fire({
+                                                            position: 'center-center',
+                                                            icon: 'success',
+                                                            text: "عملیات با موفقیت انجام شد",
+                                                            showConfirmButton: false,
+                                                            timer: 3000
+                                                        })
+                                                    }else{
+
+                                                    }
+                                                }
+                                            });
+
                                             Swal.fire({
                                                 position: 'center-center',
                                                 icon: 'success',
@@ -96,6 +116,7 @@
                                                 showConfirmButton: false,
                                                 timer: 3000
                                             })
+
                                         }else{
                                             Swal.fire({
                                                 position: 'center-center',
