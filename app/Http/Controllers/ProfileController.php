@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bookmark;
 use App\Models\Category;
+use App\Models\Category_variety;
 use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Profile;
@@ -35,13 +36,10 @@ class ProfileController extends Controller
 
     public function Store(Request $request)
     {
-
         $result = Store::where("user_id", Auth::id())->first();
-
         $category = Category::all();
-
-        return view("profile.store", ["result" => $result, "category" => $category, "menu" => "store"]);
-
+        $category_variety = Category_variety::all();
+        return view("profile.store", ["result" => $result, "category" => $category, "menu" => "store", "category_variety" => $category_variety]);
     }
 
     public function StoreEditAction(Request $request)
@@ -120,6 +118,7 @@ class ProfileController extends Controller
                 'branch' => 'nullable|min:3|max:100',
                 'nature' => 'required|min:1',
                 'category' => 'required|min:1',
+                'category_variety' => 'required|min:1',
                 'shenase_melli' => 'nullable|min:3|max:32',
                 'telephone' => 'nullable|digits:8',
                 'melli_code' => 'required|digits:10',
@@ -156,6 +155,7 @@ class ProfileController extends Controller
                 'branch' => $request->branch,
                 'nature' => $request->nature,
                 'category' => $request->category,
+                'category_variety' => $request->category_variety,
                 'shenase_melli' => $request->shenase_melli,
                 'telephone' => $request->telephone,
                 'name' => $request->name,
@@ -184,6 +184,7 @@ class ProfileController extends Controller
                 'legal_branch' => 'nullable|min:3|max:100',
                 'nature' => 'required|min:1',
                 'legal_category' => 'required|min:1',
+                'legal_category_variety' => 'required|min:1',
                 'legal_kind_of' => 'required|min:1',
                 'legal_service' => 'required|min:1|max:128',
                 'shenase_melli' => 'nullable|min:3|max:32',
@@ -312,6 +313,15 @@ class ProfileController extends Controller
 
     }
 
+    public function StoreCategoryAction(Request $request){
+        $id = $request->id;
+        if (is_numeric($id) && $id > 0 ){
+            $variety = Category_variety::where('category_id' , $id)->get();
+            return response()->json($variety);
+        }else{
+            return response()->json('error', "0");
+        }
+    }
     public function Products()
     {
 

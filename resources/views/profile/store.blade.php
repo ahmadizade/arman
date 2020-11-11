@@ -39,7 +39,7 @@
                         @endif
                         @if(!isset($result['id']))
                             <hr>
-                            <h2 class="text-center text-warning">فروشگاه خود را ثبت کنید</h2>
+                            <h2 class="text-center text-primary">فروشگاه خود را ثبت کنید</h2>
                             <hr>
                             <form action="{{route('store_action')}}" method="post" enctype="multipart/form-data">
                                 <div class="row">
@@ -54,9 +54,7 @@
                                                 <option value="0" selected disabled>انتخاب ماهیت</option>
                                                 <option @if(old('nature') == 1) selected @endif value="1">شخصی (حقیقی)
                                                 </option>
-                                                <option @if(old('nature') == 2) selected @endif value="2">دولتی یا
-                                                    عمومی
-                                                </option>
+                                                <option @if(old('nature') == 2) selected @endif value="2">شرکت یا فروشگاه(حقوقی)</option>
                                             </select>
                                         </div>
                                     </div>
@@ -99,12 +97,23 @@
                                                     <span class="input-group-text font-12"><span
                                                                 class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
                                             </div>
-                                            <select name="category" class="form-control">
+                                            <select id="category" name="category" class="form-control category">
                                                 <option value="0" selected disabled>انتخاب دسته بندی</option>
                                                 @foreach($category as $item)
                                                     <option @if(old("category") == $item['id']) selected
                                                             @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                                                 @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12"><span
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>خدمات</span>
+                                            </div>
+                                            <select name="category_variety" class="form-control category_variety">
+                                                <option value="0" selected disabled>نوع خدمت</option>
                                             </select>
                                         </div>
                                     </div>
@@ -118,7 +127,7 @@
                                                    value="{{ old("telephone") }}">
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
@@ -179,15 +188,25 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">
-                                                    <span class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
+                                                    <span class="input-group-text font-12"><span
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
                                             </div>
-                                            <select name="legal_category" class="form-control">
+                                            <select id="legal_category" name="category" class="form-control category">
                                                 <option value="0" selected disabled>انتخاب دسته بندی</option>
                                                 @foreach($category as $item)
-                                                    <option @if(old("legal_category") == $item['id']) selected
+                                                    <option @if(old("category") == $item['id']) selected
                                                             @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                                                 @endforeach
+                                            </select>
+                                        </div>
+                                    </div>                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12"><span
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>خدمات</span>
+                                            </div>
+                                            <select id="legal_category_variety" name="legal_category_variety" class="form-control">
+                                                <option value="0" selected disabled>نوع خدمت</option>
                                             </select>
                                         </div>
                                     </div>
@@ -212,15 +231,6 @@
                                                 <option @if(old("legal_kind_of") == 4) selected @endif value="2">سایر
                                                 </option>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <div class="input-group mt-2">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">نام خدمت</span>
-                                            </div>
-                                            <input name="legal_service" class="form-control" placeholder="نام خدمات شما"
-                                                   value="{{ old("legal_service") }}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6 legal">
@@ -808,10 +818,11 @@
     </script>
     <script>
         $(document).ready(function () {
-            //مرحله اول (اطلاعات وارد نشده)
+////nature hide DOM in start page
             $('.legal-box , .person-box').hide();
             $('#nature').on('change', function () {
                 if ($('#nature').val() == 1) {
+                    // $('#legal_category option').empty().remove();
                     $('.person-box').show();
                     $('.legal-box').hide();
                 }
@@ -821,9 +832,8 @@
                 }
             });
         });
-    </script>
-    <script>
-        $( window ).on( "load", function() {
+//nature change DOM
+        $(window).on("load", function () {
             if ($('#nature').val() == 1) {
                 $('.person-box').show();
                 $('.legal-box').hide();
@@ -833,5 +843,30 @@
                 $('.legal-box').show();
             }
         });
+//Category and Category_Variety Value for HAGHIGHI
+        $('.category').on("change", function () {
+            let id = "";
+            if ($('#category').change){
+                console.log("haghighi");
+                id = $('#category').val();
+            }if ($('#legal_category').change){
+                console.log("hoghughi");
+                id = $('#legal_category').val();
+            }
+            console.log(id);
+            $.ajax({
+                type: "post",
+                url: "{{route('store_category_action')}}",
+                data: {'id': id},
+                success(response) {
+                    $('.category_variety option, #legal_category_variety option').val("").empty().remove();
+                    $(response).each(function (index, item) {
+                        $('.category_variety, #legal_category_variety').append("<option value=" +item['id'] + ">" + item['name'] + "</option>");
+                    });
+                }
+            });
+        });
+//Category and Category_Variety Value for HOGHUGHI
+
     </script>
 @endsection

@@ -81,6 +81,7 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::post('/store-action', 'App\Http\Controllers\ProfileController@StoreAction')->name("store_action");
     Route::post('/store-edit-action', 'App\Http\Controllers\ProfileController@StoreEditAction')->name("store_edit_action");
     Route::post('/store-desc-action', 'App\Http\Controllers\ProfileController@StoreDescAction')->name("store_desc_action");
+    Route::post('/store-category-action', 'App\Http\Controllers\ProfileController@StoreCategoryAction')->name("store_category_action");
     Route::get('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("profile_bookmark");
     Route::post('/bookmark-delete', 'App\Http\Controllers\ProfileController@BookmarkDelete')->name("profile_bookmark_delete")->middleware("ajax", "verify.domain");
     Route::get('/email-verify-action', 'App\Http\Controllers\ProfileController@EmailVerifyAction')->name('email_verify_action');
