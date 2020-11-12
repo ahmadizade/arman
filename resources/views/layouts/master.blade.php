@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="/css/style.css?57986">
     <link rel="stylesheet" href="/css/fontawesome.css">
-
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     @yield("extra_css")
     @yield("title")
 </head>
@@ -71,6 +70,7 @@
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/js/main.js?57986"></script>
 <script src="/js/alert.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script>
     $('body').on("keypress","#mobile",function(event) {
         if (event.keyCode == 13 || event.which == 13) {
@@ -89,6 +89,55 @@
             $("#password-submit").click();
             event.preventDefault();
         }
+    });
+</script>
+<script>
+    $('.search').select2({
+        width: '100%',
+        closeOnSelect: true,
+        minimumInputLength: 3,
+        placeholder: 'جستجوی ...',
+        language: "fa",
+        theme:"bootstrap",
+        dir: "rtl",
+        ajax: {
+            url: '/tahator/product/product-suggestion-action',
+            dataType: 'json',
+            delay: 250,
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.product_name + "  --  " + "از دسته : " + "  " + item.category,
+                            id: item.id,
+                        }
+                    })
+                };
+            },
+            cache: true,
+        }
+    }).on('select2:selecting', function (e) {
+        $.ajax({
+            type: 'post',
+            url: '/tahator/product/product-show-action',
+            data: e.params.args.data,
+            success: function (data) {
+                $('#data-id').val(data['id'])
+                $('#data-image').attr("src", '/uploads/products/' + data['image']);
+                $('#data-product_name').val(data['product_name']);
+                // $('#data-product_desc').html(data['product_desc']);
+                $('#data-price').val(data['price']);
+                $('#data-discount').val(data['discount'] + "%");
+                $('#data-stock').val(data['stock']);
+                $('#data-status').val(data['status']);
+                $('#data-quantity').val(data['quantity']);
+                $('#data-city').val(data['city']);
+                $('#data-mobile').val(data['mobile']);
+                $('#data-view').val(data['view']);
+                $('#data-created_at').val(data['created_at']);
+                $('#data-updated_at').val(data['updated_at']);
+            }
+        });
     });
 </script>
 @yield('extra_js')

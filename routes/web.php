@@ -7,8 +7,12 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
 Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
 Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("About_Us");
+
+
 //MAIL
 Route::get('/verify-email', 'App\Http\Controllers\Controller@build_mail')->name('build_mail');
+
+
 // admin
 Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
@@ -74,7 +78,6 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::post('/edit-action', 'App\Http\Controllers\ProfileController@ProfileEditAction')->name("profile_edit_action");
     Route::get('/gold', 'App\Http\Controllers\ProfileController@ProfileGold')->name("profile_gold");
     Route::post('/gold-online-action', 'App\Http\Controllers\ProfileController@ProfileGoldOnlineAction')->name("profile_gold_online_action");
-    Route::post('/gold-credit-action', 'App\Http\Controllers\ProfileController@ProfileGoldCreditAction')->name("profile_gold_credit_action");
     Route::get('/store', 'App\Http\Controllers\ProfileController@Store')->name("profile_store");
     Route::get('/store-bio', 'App\Http\Controllers\ProfileController@StoreBio')->name("profile_bio");
     Route::post('/store-bio-action', 'App\Http\Controllers\ProfileController@StoreBioAction')->name("profile_bio_action");
@@ -101,6 +104,7 @@ Route::prefix("shop")->group(function () {
     Route::post('/shop-like', 'App\Http\Controllers\ShopController@Like')->name("like")->middleware("ajax", "verify.domain");
     Route::post('/shop-bookmark', 'App\Http\Controllers\ShopController@Bookmark')->name("bookmark")->middleware("ajax", "verify.domain");
     Route::post('/shop-report', 'App\Http\Controllers\ShopController@Report')->name("report")->middleware("ajax", "verify.domain");
+    Route::post('/search', 'App\Http\Controllers\ShopController@Search')->name("search")->middleware("ajax", "verify.domain");
 });
 
 

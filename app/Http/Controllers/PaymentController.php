@@ -153,24 +153,24 @@ class PaymentController extends Controller
                             ]);
                             return redirect()->route("profile_gold")->with("bankStatus", $payment->reference_id);
                         } else {
-                            return redirect()->route("profile_gold");
+                            return redirect()->route("profile_gold")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
                         }
 
                     }
 
-                    return redirect()->route("profile_gold");
+                    return redirect()->route("profile_gold")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
 
                 }
 
-                return redirect()->route("profile_gold");
+                return redirect()->route("profile_gold")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
 
             }
 
-            return redirect()->route("profile_gold");
+            return redirect()->route("profile_gold")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
 
         }
 
-        return redirect()->route("profile_gold");
+        return redirect()->route("profile_gold")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
 
     }
 

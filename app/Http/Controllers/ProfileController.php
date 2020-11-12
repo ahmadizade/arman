@@ -785,13 +785,13 @@ class ProfileController extends Controller
             return Response::json(["status" => "0", "desc" => "کد وارد شده اشتباه می باشد"]);
         }
 
-
     }
 
-    public function ProfileGold()
-    {
+    public function ProfileGold(){
 
-        return view("profile.gold", ["menu" => "gold"]);
+        $payment = Payment::where("type","GOLD")->where("user_id",Auth::id())->where("status","SUCCESS")->first();
+
+        return view("profile.gold", ["payment" => $payment , "menu" => "gold"]);
 
     }
 
@@ -804,33 +804,6 @@ class ProfileController extends Controller
 
     }
 
-    public function ProfileGoldCreditAction(Request $request)
-    {
-
-        $check = User::where("id", Auth::id())->first();
-
-        if (isset($check->id) && $check->user_mode == "normal") {
-
-            if ($check->credit > 440000) {
-
-                DB::table("users")->where("id", Auth::id())->decrement("credit", 440000);
-
-                User::where("id", Auth::id())->update([
-                    "user_mode" => "gold"
-                ]);
-
-
-                return response()->json(['errors' => 0]);
-
-            }
-
-            return response()->json(['errors' => 1, "desc" => "اعتبار شما کمتر از حد نصاب می باشد"]);
-
-        }
-
-        return response()->json(['errors' => 1, "desc" => "شما قبلا عضو طلایی شده اید"]);
-
-    }
 
     //Jquery Cropper
     public function uploadCropImage(Request $request)

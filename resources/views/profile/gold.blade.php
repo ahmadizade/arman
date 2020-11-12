@@ -37,7 +37,11 @@
                                     <li>حمایت از تیم مورد علاقه</li>
                                 </ul>
                                 @if(Auth::check() && Auth::user()->user_mode == "gold")
-                                    <p class="text-center text-warning font-18">شما عضو طلایی هستید</p>
+                                    <hr>
+                                    @if(isset($payment->reference_id))
+                                        <div class="text-center alert alert-success mb-2">کد رهگیری: <span class="font-weight-bold font-14">{{ $payment->reference_id }}</span></div>
+                                    @endif
+                                    <p class="text-center alert alert-warning font-16"><i class="fas fa-gem font-20 pl-2"></i> شما عضو طلایی هستید </p>
                                 @elseif(Auth::check() && Auth::user()->user_mode == "normal")
                                     <form action="{{ route("profile_gold_online_action") }}" method="post">
                                         <p class="text-center">

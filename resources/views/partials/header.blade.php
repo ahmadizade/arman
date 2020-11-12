@@ -18,6 +18,7 @@
                                 class="text-primary">.</span></a><img style="margin-top: -9px; width: 40px;"
                                                                       src="{{url('/images/logo/logo_100_50.png')}}">
                 </h1>
+
             </div>
 
             <div class="col-12 col-md-9 d-none d-xl-block">
@@ -80,6 +81,10 @@
             <div class="col-4 col-md-9 d-inline-block d-xl-none ml-md-0 py-2" style="position: relative; top: 3px;"><a
                         href="#" class="site-menu-toggle js-menu-toggle float-right"><span
                             class="icon-menu h3 fa-2x"></span></a></div>
+
+            <div class="col-12 col-lg-4 mb-2">
+                <select class="search form-control"></select>
+            </div>
 
         </div>
     </div>
