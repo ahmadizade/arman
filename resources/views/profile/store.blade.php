@@ -874,17 +874,18 @@
             }
         });
         //Category and Category_Variety Value for HAGHIGHI
-        old_variety = "{{ old("category_variety") }}";
-        let id = $('#category').val();
+        category_id = "{{ old("category") }}";
+        category_variety = "{{ old("category_variety") }}";
         $.ajax({
             type: "post",
             url: "{{route('store_category_action')}}",
-            data: {'id': id},
+            data: {'id': category_id},
             success(response) {
                 $('#category_variety').empty();
                 $(response).each(function (index, item) {
                     $('#category_variety').append("<option value=" + item['id'] + ">" + item['name'] + "</option>");
                 });
+                $("#category_variety option[value="+category_variety+"]").attr("selected",true);
             }
         });
         $('#category').on("change", function () {
