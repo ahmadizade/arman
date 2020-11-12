@@ -6,7 +6,7 @@
 
 @section("content")
 
-    <div class="container mt-3">
+    <div class="container">
         <div class="row">
             @include("profile.sidebar")
             <div class="col-12 col-lg-9">

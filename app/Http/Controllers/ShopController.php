@@ -12,11 +12,25 @@ use App\Models\Store;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class ShopController extends Controller
 {
+
+    public function Search(Request $request){
+
+        if ($request->has('q') && Str::length($request->q) > 2) {
+
+            $data = Store::where('shop', 'LIKE', "%$request->q%")->orWhere('branch', 'LIKE', "%$request->q%")->get();
+
+            return response()->json($data);
+
+        }
+
+    }
 
     public function singleShop($shop,$branch = null){
 
