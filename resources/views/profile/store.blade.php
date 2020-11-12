@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 {{--حقیقی--}}
-                                <div class="row person-box">
+                                <div class="row person-box d-none">
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
@@ -96,6 +96,16 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
+                                                <span class="input-group-text font-12">شماره تماس فروشگاه</span>
+                                            </div>
+                                            <input name="telephone" maxlength="12" class="form-control text-left"
+                                                   placeholder="...021"
+                                                   value="{{ old("telephone") }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
                                                             class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
                                             </div>
@@ -119,16 +129,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
-                                        <div class="input-group mt-2">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text font-12">شماره تماس فروشگاه</span>
-                                            </div>
-                                            <input name="telephone" maxlength="12" class="form-control text-left"
-                                                   placeholder="...021"
-                                                   value="{{ old("telephone") }}">
-                                        </div>
-                                    </div>
                                     <div class="col-12">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
@@ -141,7 +141,7 @@
                                     </div>
                                 </div>
                                 {{--حقوقی--}}
-                                <div class="row legal-box">
+                                <div class="row legal-box d-none">
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
@@ -196,7 +196,7 @@
                                             <select id="legal_category" name="legal_category" class="form-control">
                                                 <option value="0" selected disabled>انتخاب دسته بندی</option>
                                                 @foreach($category as $item)
-                                                    <option @if(old("category") == $item['id']) selected
+                                                    <option @if(old("legal_category") == $item['id']) selected
                                                             @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                                                 @endforeach
                                             </select>
@@ -208,8 +208,7 @@
                                                     <span class="input-group-text font-12"><span
                                                             class="text-danger line-height-0 pl-1 font-15">*</span>خدمات</span>
                                             </div>
-                                            <select id="legal_category_variety" name="legal_category_variety"
-                                                    class="form-control">
+                                            <select id="legal_category_variety" name="legal_category_variety" class="form-control">
                                                 <option value="0" selected disabled>نوع خدمت</option>
                                             </select>
                                         </div>
@@ -293,7 +292,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12 col-lg-6 foot d-none">
                                         <div class="input-group mt-2">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="file">
@@ -302,7 +301,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-3">
+                                    <div class="col-12 col-lg-3 foot d-none">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text font-12">رنگ فروشگاه</span>
@@ -356,6 +355,16 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">شماره تماس فروشگاه</span>
+                                                </div>
+                                                <input name="telephone" maxlength="12" class="form-control"
+                                                       placeholder="...021"
+                                                       value="{{ $result['telephone'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
                                                             class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
                                                 </div>
@@ -374,20 +383,9 @@
                                                     <span class="input-group-text font-12"><span
                                                             class="text-danger line-height-0 pl-1 font-15">*</span>خدمات</span>
                                                 </div>
-                                                <select id="category_variety" name="category_variety"
-                                                        class="form-control">
+                                                <select id="category_variety" name="category_variety" class="form-control">
                                                     <option value="0" selected disabled>نوع خدمت</option>
                                                 </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6">
-                                            <div class="input-group mt-2">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">شماره تماس فروشگاه</span>
-                                                </div>
-                                                <input name="telephone" maxlength="12" class="form-control"
-                                                       placeholder="...021"
-                                                       value="{{ $result['telephone'] }}">
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6">
@@ -454,7 +452,7 @@
                                                     <span class="input-group-text font-12"><span
                                                             class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
                                                 </div>
-                                                <select id="legal_category" name="legal_category" class="form-control">
+                                                <select id="category" name="category" class="form-control">
                                                     <option value="0" selected disabled>انتخاب دسته بندی</option>
                                                     @foreach($category as $item)
                                                         <option @if(old("category") == $item['id']) selected
@@ -469,8 +467,7 @@
                                                     <span class="input-group-text font-12"><span
                                                             class="text-danger line-height-0 pl-1 font-15">*</span>خدمات</span>
                                                 </div>
-                                                <select id="legal_category_variety" name="legal_category_variety"
-                                                        class="form-control">
+                                                <select id="category_variety" name="category_variety" class="form-control">
                                                     <option value="0" selected disabled>نوع خدمت</option>
                                                 </select>
                                             </div>
@@ -849,30 +846,33 @@
     <script>
         $(document).ready(function () {
 ////nature hide DOM in start page
-            $('.legal-box , .person-box').hide();
+//             $('.legal-box , .person-box').hide();
             $('#nature').on('change', function () {
                 if ($('#nature').val() == 1) {
-                    // $('#legal_category option').empty().remove();
-                    $('.person-box').show();
-                    $('.legal-box').hide();
+                    $('.legal-box').removeClass('d-block');
+                    $('.foot').addClass('d-block');
+                    $('.person-box').addClass('d-block');
+                    $('.legal-box').addClass('d-none');
                 }
                 if ($('#nature').val() == "2") {
-                    $('.person-box').hide();
-                    $('.legal-box').show();
+                    $('.person-box').addClass('d-block');
+                    $('.person-box').removeClass('d-block');
+                    $('.foot').addClass('d-block');
+                    $('.legal-box').addClass('d-block');
                 }
             });
         });
         //nature change DOM
-        $(window).on("load", function () {
-            if ($('#nature').val() == 1) {
-                $('.person-box').show();
-                $('.legal-box').hide();
-            }
-            if ($('#nature').val() == 2) {
-                $('.person-box').hide();
-                $('.legal-box').show();
-            }
-        });
+        // $(window).on("load", function () {
+        //     if ($('#nature').val() == 1) {
+        //         $('.person-box').show();
+        //         $('.legal-box').hide();
+        //     }
+        //     if ($('#nature').val() == 2) {
+        //         $('.person-box').hide();
+        //         $('.legal-box').show();
+        //     }
+        // });
         //Category and Category_Variety Value for HAGHIGHI
         category_id = "{{ old("category") }}";
         category_variety = "{{ old("category_variety") }}";
@@ -903,6 +903,20 @@
             });
         });
         //Category and Category_Variety Value for HOGHUGHI
+        legal_category_id = "{{ old("legal_category") }}";
+        legal_category_variety = "{{ old("legal_category_variety") }}";
+        $.ajax({
+            type: "post",
+            url: "{{route('store_category_action')}}",
+            data: {'id': legal_category_id},
+            success(response) {
+                $('#legal_category_variety').empty();
+                $(response).each(function (index, item) {
+                    $('#legal_category_variety').append("<option value=" + item['id'] + ">" + item['name'] + "</option>");
+                });
+                $("#legal_category_variety option[value="+legal_category_variety+"]").attr("selected",true);
+            }
+        });
         $('#legal_category').on("change", function () {
             let id = $('#legal_category').val();
             $.ajax({
