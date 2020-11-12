@@ -98,17 +98,17 @@
         minimumInputLength: 3,
         placeholder: 'جستجوی ...',
         language: "fa",
-        theme:"bootstrap",
         dir: "rtl",
         ajax: {
-            url: '/tahator/product/product-suggestion-action',
+            url: "{{ route("search") }}",
             dataType: 'json',
             delay: 250,
             processResults: function (data) {
+                console.log(data);
                 return {
                     results: $.map(data, function (item) {
                         return {
-                            text: item.product_name + "  --  " + "از دسته : " + "  " + item.category,
+                            text: item.shop + " " + item.branch,
                             id: item.id,
                         }
                     })

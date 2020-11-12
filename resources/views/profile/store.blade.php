@@ -14,7 +14,7 @@
 
 @section("content")
 
-    <div class="container mt-3">
+    <div class="container">
         <div class="row">
             @include("profile.sidebar")
             <div class="col-12 col-lg-9">
@@ -124,7 +124,7 @@
                                                     <span class="input-group-text font-12"><span
                                                             class="text-danger line-height-0 pl-1 font-15">*</span>خدمات</span>
                                             </div>
-                                            <select id="category_variety" name="category_variety" class="form-control">
+                                            <select id="category_variety" name="category_variety" class="form-control" disabled="disabled">
                                                 <option value="0" selected disabled>نوع خدمت</option>
                                             </select>
                                         </div>
@@ -208,7 +208,7 @@
                                                     <span class="input-group-text font-12"><span
                                                             class="text-danger line-height-0 pl-1 font-15">*</span>خدمات</span>
                                             </div>
-                                            <select id="legal_category_variety" name="legal_category_variety" class="form-control">
+                                            <select id="legal_category_variety" name="legal_category_variety" class="form-control" disabled="disabled">
                                                 <option value="0" selected disabled>نوع خدمت</option>
                                             </select>
                                         </div>
@@ -322,6 +322,7 @@
                             <div class="alert alert-danger mb-0 text-center">فروشگاه شما پس از تایید فعال خواهد شد</div>
                             <form action="{{route('store_edit_action')}}" method="post" enctype="multipart/form-data">
                                 @if(isset($result['id']) && $result['nature'] == 1)
+                                    {{--حقیقی--}}
                                     <div class="row">
                                         <input name="id" type="hidden" value="{{ $result['id'] }}">
                                         <input name="nature" type="hidden" value="{{ $result['nature'] }}">
@@ -365,13 +366,12 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
+                                                    <span class="input-group-text font-12">دسته بندی</span>
                                                 </div>
                                                 <select id="category" name="category" class="form-control">
                                                     <option value="0" selected disabled>انتخاب دسته بندی</option>
                                                     @foreach($category as $item)
-                                                        <option @if(old("category") == $item['id']) selected
+                                                        <option @if($result['category'] == $item['id']) selected
                                                                 @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                                                     @endforeach
                                                 </select>
@@ -381,10 +381,14 @@
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>خدمات</span>
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>خدمات</span>
                                                 </div>
-                                                <select id="category_variety" name="category_variety" class="form-control">
+                                                <select id="category_variety" name="category_variety" class="form-control" disabled="disabled">
                                                     <option value="0" selected disabled>نوع خدمت</option>
+                                                    @foreach($category_variety as $item)
+                                                        <option @if($result['category_variety'] == $item['id']) selected
+                                                                @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -399,6 +403,7 @@
                                         </div>
                                     </div>
                                 @elseif(isset($result['id']) && $result['nature'] == 2)
+                                    {{--حقوقی--}}
                                     <div class="row">
                                         <input name="id" type="hidden" value="{{ $result['id'] }}">
                                         <input name="nature" type="hidden" value="{{ $result['nature'] }}">
@@ -449,13 +454,12 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>دسته بندی</span>
+                                                    <span class="input-group-text font-12">دسته بندی</span>
                                                 </div>
-                                                <select id="category" name="category" class="form-control">
+                                                <select id="legal_category" name="legal_category" class="form-control">
                                                     <option value="0" selected disabled>انتخاب دسته بندی</option>
                                                     @foreach($category as $item)
-                                                        <option @if(old("category") == $item['id']) selected
+                                                        <option @if($result['category'] == $item['id']) selected
                                                                 @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                                                     @endforeach
                                                 </select>
@@ -464,11 +468,14 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>خدمات</span>
+                                                    <span class="input-group-text font-12">خدمات</span>
                                                 </div>
-                                                <select id="category_variety" name="category_variety" class="form-control">
+                                                <select id="legal_category_variety" name="legal_category_variety" class="form-control" disabled="disabled">
                                                     <option value="0" selected disabled>نوع خدمت</option>
+                                                    @foreach($category_variety as $item)
+                                                        <option @if($result['category_variety'] == $item['id']) selected
+                                                                @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -564,6 +571,7 @@
                             </div>
                             <div class="row">
                                 @if(isset($result['id']) && $result['nature'] == 1)
+                                    {{--حقیقی--}}
                                     <div class="row mx-1">
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
@@ -586,16 +594,6 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">کد ملی</span>
-                                                </div>
-                                                <input type="text" disabled name="melli_code" maxlength="11"
-                                                       class="form-control"
-                                                       value="{{ $result['melli_code'] }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6">
-                                            <div class="input-group mt-2">
-                                                <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">دسته بندی</span>
                                                 </div>
                                                 <select name="category" disabled class="form-control">
@@ -610,6 +608,30 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">خدمات</span>
+                                                </div>
+                                                <select id="category_variety" name="category_variety" disabled class="form-control">
+                                                    <option value="0" selected disabled>نوع خدمت</option>
+                                                    @foreach($category_variety as $item)
+                                                        <option @if($result['category_variety'] == $item['id']) selected
+                                                                @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">کد ملی</span>
+                                                </div>
+                                                <input type="text" disabled name="melli_code" maxlength="11"
+                                                       class="form-control"
+                                                       value="{{ $result['melli_code'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">شماره تماس فروشگاه</span>
                                                 </div>
                                                 <input name="telephone" disabled maxlength="12"
@@ -618,7 +640,7 @@
                                                        value="{{ $result['telephone'] }}">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-6">
+                                        <div class="col-12">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">آدرس</span>
@@ -629,6 +651,7 @@
                                         </div>
                                     </div>
                                 @elseif(isset($result['id']) && $result['nature'] == 2)
+                                    {{--حقوقی--}}
                                     <div class="row mx-1">
                                         <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
@@ -644,8 +667,8 @@
                                         <div class="col-12 col-lg-6 legal">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
-                                                                                    <span
-                                                                                        class="input-group-text font-12">نام و نام خانوادگی</span>
+                                                    <span
+                                                        class="input-group-text font-12">نام و نام خانوادگی</span>
                                                 </div>
                                                 <input disabled type="text" name="legal_name" class="form-control"
                                                        placeholder="صاحب فروشگاه"
@@ -689,6 +712,20 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12">خدمات</span>
+                                                </div>
+                                                <select id="category_variety" name="category_variety" disabled class="form-control">
+                                                    <option value="0" selected disabled>نوع خدمت</option>
+                                                    @foreach($category_variety as $item)
+                                                        <option @if($result['category_variety'] == $item['id']) selected
+                                                                @endif value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div class="col-12 col-lg-6 legal">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
@@ -713,16 +750,6 @@
                                                         سایر
                                                     </option>
                                                 </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6">
-                                            <div class="input-group mt-2">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12">نام خدمت</span>
-                                                </div>
-                                                <input disabled name="legal_service" class="form-control"
-                                                       placeholder="نام خدمات شما"
-                                                       value="{{ $result['parent'] }}">
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6 legal">
@@ -849,30 +876,30 @@
 //             $('.legal-box , .person-box').hide();
             $('#nature').on('change', function () {
                 if ($('#nature').val() == 1) {
-                    $('.legal-box').removeClass('d-block');
-                    $('.foot').addClass('d-block');
-                    $('.person-box').addClass('d-block');
+                    $('.person-box').removeClass('d-none');
                     $('.legal-box').addClass('d-none');
+                    $('.foot').addClass('d-block');
                 }
                 if ($('#nature').val() == "2") {
-                    $('.person-box').addClass('d-block');
-                    $('.person-box').removeClass('d-block');
+                    $('.legal-box').removeClass('d-none');
+                    $('.person-box').addClass('d-none');
                     $('.foot').addClass('d-block');
-                    $('.legal-box').addClass('d-block');
                 }
             });
         });
         //nature change DOM
-        // $(window).on("load", function () {
-        //     if ($('#nature').val() == 1) {
-        //         $('.person-box').show();
-        //         $('.legal-box').hide();
-        //     }
-        //     if ($('#nature').val() == 2) {
-        //         $('.person-box').hide();
-        //         $('.legal-box').show();
-        //     }
-        // });
+        $(window).on("load", function () {
+            if ($('#nature').val() == 1) {
+                $('.person-box').removeClass('d-none');
+                $('.legal-box').addClass('d-none');
+                $('.foot').addClass('d-block');
+            }
+            if ($('#nature').val() == 2) {
+                $('.legal-box').removeClass('d-none');
+                $('.person-box').addClass('d-none');
+                $('.foot').addClass('d-block');
+            }
+        });
         //Category and Category_Variety Value for HAGHIGHI
         category_id = "{{ old("category") }}";
         category_variety = "{{ old("category_variety") }}";
@@ -886,6 +913,7 @@
                     $('#category_variety').append("<option value=" + item['id'] + ">" + item['name'] + "</option>");
                 });
                 $("#category_variety option[value="+category_variety+"]").attr("selected",true);
+                $("#category_variety").attr("disabled",false);
             }
         });
         $('#category').on("change", function () {
@@ -899,6 +927,7 @@
                     $(response).each(function (index, item) {
                         $('#category_variety').append("<option value=" + item['id'] + ">" + item['name'] + "</option>");
                     });
+                    $("#category_variety").attr("disabled",false);
                 }
             });
         });
@@ -915,6 +944,7 @@
                     $('#legal_category_variety').append("<option value=" + item['id'] + ">" + item['name'] + "</option>");
                 });
                 $("#legal_category_variety option[value="+legal_category_variety+"]").attr("selected",true);
+                $("#legal_category_variety").attr("disabled",false);
             }
         });
         $('#legal_category').on("change", function () {
@@ -928,9 +958,9 @@
                     $(response).each(function (index, item) {
                         $('#legal_category_variety').append("<option value=" + item['id'] + ">" + item['name'] + "</option>");
                     });
+                    $("#legal_category_variety").attr("disabled",false);
                 }
             });
         });
-
     </script>
 @endsection

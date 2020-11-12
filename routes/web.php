@@ -98,13 +98,13 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
 
 // shop
 Route::prefix("shop")->group(function () {
-    Route::get('/{shop}/{branch?}', 'App\Http\Controllers\ShopController@singleShop')->name("single_shop");
-    Route::get('/product/{id}', 'App\Http\Controllers\ShopController@ProductSingle')->name("shop_product_single");
     Route::post('/comment-action', 'App\Http\Controllers\ShopController@CommentAction')->name("comment_action")->middleware("ajax", "verify.domain");
     Route::post('/shop-like', 'App\Http\Controllers\ShopController@Like')->name("like")->middleware("ajax", "verify.domain");
     Route::post('/shop-bookmark', 'App\Http\Controllers\ShopController@Bookmark')->name("bookmark")->middleware("ajax", "verify.domain");
     Route::post('/shop-report', 'App\Http\Controllers\ShopController@Report')->name("report")->middleware("ajax", "verify.domain");
-    Route::post('/search', 'App\Http\Controllers\ShopController@Search')->name("search")->middleware("ajax", "verify.domain");
+    Route::get('/search', 'App\Http\Controllers\ShopController@Search')->name("search");
+    Route::get('/{shop}/{branch?}', 'App\Http\Controllers\ShopController@singleShop')->name("single_shop");
+    Route::get('/product/{id}', 'App\Http\Controllers\ShopController@ProductSingle')->name("shop_product_single");
 });
 
 

@@ -13,15 +13,13 @@
     <div class="container">
         <div class="row align-items-center">
 
-            <div class="col-8 col-md-3 text-left">
-                <h1 class="mb-0 mt-3 site-logo"><a href="#" style="font-size: 25px" class="mb-0 text-muted">Bazarti<span
-                                class="text-primary">.</span></a><img style="margin-top: -9px; width: 40px;"
-                                                                      src="{{url('/images/logo/logo_100_50.png')}}">
+            <div class="col-8 col-md-4 text-left text-md-center">
+                <h1 class="mb-0 mt-3 site-logo"><a href="#" style="font-size: 25px" class="mb-0 text-muted">Bazarti<span class="text-primary">.</span></a><img style="margin-top: -9px; width: 40px;" src="{{url('/images/logo/logo_100_50.png')}}">
                 </h1>
 
             </div>
 
-            <div class="col-12 col-md-9 d-none d-xl-block">
+            <div class="col-4 col-md-8 d-none d-xl-block">
                 <nav class="site-navigation position-relative text-right" role="navigation">
                     <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
 
@@ -78,7 +76,7 @@
                 </nav>
             </div>
 
-            <div class="col-4 col-md-9 d-inline-block d-xl-none ml-md-0 py-2" style="position: relative; top: 3px;"><a
+            <div class="col-4 col-md-8 d-inline-block d-xl-none ml-md-0 py-2" style="position: relative; top: 3px;"><a
                         href="#" class="site-menu-toggle js-menu-toggle float-right"><span
                             class="icon-menu h3 fa-2x"></span></a></div>
 
