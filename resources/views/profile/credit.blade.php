@@ -12,7 +12,7 @@
             <div class="col-12 col-lg-9">
                 <div class="card shadow mt-3">
                     <div class="card-header p-3">
-                        <h3 class="mb-0 font-14 text-danger float-right">خرید اعتبار</h3>
+                        <h3 class="mb-0 font-14 float-right">خرید اعتبار</h3>
                     </div>
                     <div class="card-body p-3">
                         @if ($errors->any())

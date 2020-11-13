@@ -196,6 +196,7 @@ return [
         'legal_shop'            => 'نام فروشگاه',
         'legal_name'            => 'نام و نام خانوادگی',
         'legal_mobile'          => 'شماره موبایل',
+        'legal_discount'          => 'درصد تخفیف فروشگاه',
         'legal_telephone'       => 'شماره تماس فروشگاه',
         'legal_category'        => 'دسته بندی',
         'legal_category_variety'=> 'خدمات',

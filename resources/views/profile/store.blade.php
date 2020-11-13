@@ -129,14 +129,24 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
                                                             class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
                                             </div>
-                                            <input type="text" name="address" class="form-control"
+                                            <input type="text" name="address" class="form-control" placeholder="مثلا : ولنجک، مقدس اردبیلی،میدان الف، بازار تهاتر ایرانیان"
                                                    value="{{ old("address") }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12"><span
+                                                            class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
+                                            </div>
+                                            <input type="number" name="discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
+                                                   value="{{ old("discount") }}">
                                         </div>
                                     </div>
                                 </div>
@@ -284,9 +294,19 @@
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
                                                     <span class="input-group-text font-12"><span
-                                                            class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
+                                                                class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
                                             </div>
-                                            <input type="text" name="legal_address" class="form-control"
+                                            <input type="number" name="legal_discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
+                                                   value="{{ old("legal_discount") }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="input-group mt-2">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12"><span
+                                                                class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
+                                            </div>
+                                            <input type="text" name="legal_address" class="form-control" placeholder="مثلا : ولنجک، مقدس اردبیلی،میدان الف، بازار تهاتر ایرانیان"
                                                    value="{{ old("legal_address") }}">
                                         </div>
                                     </div>
@@ -313,7 +333,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12 text-left">
-                                        <button class="btn btn-primary my-2">ثبت فروشگاه</button>
+                                        <button class="btn btn-sm btn-primary my-2">ثبت فروشگاه</button>
                                     </div>
                                 </div>
                             </form>
@@ -399,6 +419,16 @@
                                                 </div>
                                                 <input type="text" name="address" class="form-control"
                                                        value="{{ $result['address'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12"><span
+                                                                class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
+                                                </div>
+                                                <input type="number" name="discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
+                                                       value="{{ $result['discount'] }}">
                                             </div>
                                         </div>
                                     </div>
@@ -547,6 +577,16 @@
                                                        value="{{ $result['registration'] }}">
                                             </div>
                                         </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12"><span
+                                                                class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
+                                                </div>
+                                                <input type="number" name="legal_discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
+                                                       value="{{ $result['discount'] }}">
+                                            </div>
+                                        </div>
                                         <div class="col-12">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
@@ -640,13 +680,23 @@
                                                        value="{{ $result['telephone'] }}">
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12 col-lg-6">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">آدرس</span>
                                                 </div>
                                                 <input disabled type="text" name="address" class="form-control"
                                                        value="{{ $result['address'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12"><span
+                                                                class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
+                                                </div>
+                                                <input disabled type="number" name="discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
+                                                       value="{{ $result['discount'] }}">
                                             </div>
                                         </div>
                                     </div>
@@ -796,6 +846,16 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6">
+                                            <div class="input-group mt-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text font-12"><span
+                                                                class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
+                                                </div>
+                                                <input disabled type="number" name="legal_discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
+                                                       value="{{ $result['discount'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
                                             <div class="input-group mt-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text font-12">آدرس</span>

@@ -49,6 +49,7 @@ class ProfileController extends Controller
             $request->validate([
                 'shop' => 'required|min:3|max:128',
                 'name' => 'required|min:2|max:60',
+                'discount' => 'required|min:0|max:100',
                 'category' => 'required|min:1',
                 'category_variety' => 'required|min:1',
                 'telephone' => 'nullable|digits:8',
@@ -59,6 +60,7 @@ class ProfileController extends Controller
                 'user_id' => Auth::id(),
                 'shop' => $request->shop,
                 'name' => $request->name,
+                'discount' => $request->discount,
                 'category' => $request->category,
                 'category_variety' => $request->category_variety,
                 'telephone' => $request->telephone,
@@ -74,6 +76,7 @@ class ProfileController extends Controller
             $request->validate([
                 'legal_shop' => 'required|min:3|max:128',
                 'legal_name' => 'required|min:2|max:60',
+                'legal_discount' => 'required|min:0|max:100',
                 'legal_mobile' => 'required|digits:11',
                 'legal_telephone' => 'required|digits:8',
                 'legal_branch' => 'nullable|min:3|max:100',
@@ -89,6 +92,7 @@ class ProfileController extends Controller
                 'user_id' => Auth::id(),
                 'shop' => $request->legal_shop,
                 'name' => $request->legal_name,
+                'discount' => $request->legal_discount,
                 'ceo_mobile' => $request->legal_mobile,
                 'telephone' => $request->legal_telephone,
                 'branch' => $request->legal_branch,
@@ -119,6 +123,7 @@ class ProfileController extends Controller
             $request->validate([
                 'shop' => 'required|min:3|max:128|unique:store',
                 'name' => 'required|min:2|max:60',
+                'discount' => 'required|min:0|max:100',
                 'branch' => 'nullable|min:3|max:100',
                 'nature' => 'required|min:1',
                 'category' => 'required|min:1',
@@ -163,6 +168,7 @@ class ProfileController extends Controller
                 'shenase_melli' => $request->shenase_melli,
                 'telephone' => $request->telephone,
                 'name' => $request->name,
+                'discount' => $request->discount,
                 'melli_code' => $request->melli_code,
                 'address' => $request->address,
                 'created_at' => Carbon::now(),
@@ -183,6 +189,7 @@ class ProfileController extends Controller
             $request->validate([
                 'legal_shop' => 'required|min:3|max:128',
                 'legal_name' => 'required|min:2|max:60',
+                'legal_discount' => 'required|min:0|max:100',
                 'legal_mobile' => 'required|digits:11',
                 'legal_telephone' => 'required|digits:8',
                 'legal_branch' => 'nullable|min:3|max:100',
@@ -223,6 +230,7 @@ class ProfileController extends Controller
                     'user_id' => Auth::id(),
                     'shop' => $request->legal_shop,
                     'name' => $request->legal_name,
+                    'discount' => $request->legal_discount,
                     'ceo_mobile' => $request->legal_mobile,
                     'telephone' => $request->legal_telephone,
                     'branch' => $request->legal_branch,
