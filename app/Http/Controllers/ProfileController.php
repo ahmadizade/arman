@@ -24,6 +24,8 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
+use phpDocumentor\Reflection\Types\Self_;
+use SoapClient;
 use function PHPUnit\Framework\returnArgument;
 
 class ProfileController extends Controller
@@ -325,15 +327,17 @@ class ProfileController extends Controller
 
     }
 
-    public function StoreCategoryAction(Request $request){
+    public function StoreCategoryAction(Request $request)
+    {
         $id = $request->id;
-        if (is_numeric($id) && $id > 0 ){
-            $variety = Category_variety::where('category_id' , $id)->get();
+        if (is_numeric($id) && $id > 0) {
+            $variety = Category_variety::where('category_id', $id)->get();
             return response()->json($variety);
-        }else{
+        } else {
             return response()->json('error', "0");
         }
     }
+
     public function Products()
     {
 
@@ -799,11 +803,12 @@ class ProfileController extends Controller
 
     }
 
-    public function ProfileGold(){
+    public function ProfileGold()
+    {
 
-        $payment = Payment::where("type","GOLD")->where("user_id",Auth::id())->where("status","SUCCESS")->first();
+        $payment = Payment::where("type", "GOLD")->where("user_id", Auth::id())->where("status", "SUCCESS")->first();
 
-        return view("profile.gold", ["payment" => $payment , "menu" => "gold"]);
+        return view("profile.gold", ["payment" => $payment, "menu" => "gold"]);
 
     }
 
@@ -850,7 +855,58 @@ class ProfileController extends Controller
 
     public function CreditAction(Request $request)
     {
-        session()->flash("error", "این صفحه در حال بروزرسانی می باشد");
-        return back();
+        $request = $request->replace(self::faToEn($request->all()));
+        $Err = '';
+        if ($request->credit >= 1000) {
+            if (!empty(Auth::user()->name)) {
+
+                $invoice_number = Str::random(4) . "_" . Auth::id();
+                $amount = $request->credit;
+                $merchantId = self::MerchantId;
+                $admin_email = self::admin_email;
+                $sha1Key = self::sha1Key;
+
+                $_SESSION['merchantId'] = $merchantId;
+                $_SESSION['sha1Key'] = $sha1Key;
+                $_SESSION['admin_email'] = $admin_email;
+                $_SESSION['amount'] = $amount;
+                $_SESSION['PayOrderId'] = $invoice_number;
+                $_SESSION['fullname'] = Auth::user()->name ?? "";
+                $_SESSION['email'] = Auth::user()->email ?? "";
+                $revertURL = "http://localhost:8000/incoming";
+
+                $client = new SoapClient('https://ikc.shaparak.ir/XToken/Tokens.xml', array('soap_version' => SOAP_1_1));
+
+                $params['amount'] = $_SESSION['amount'];
+                $params['merchantId'] = $merchantId;
+                $params['invoiceNo'] = $invoice_number;
+                $params['paymentId'] = "";
+                $params['specialPaymentId'] = $invoice_number;
+                $params['revertURL'] = $revertURL;
+                $params['description'] = "";
+                $result = $client->__soapCall("MakeToken", array($params));
+                $_SESSION['token'] = $result->MakeTokenResult->token;
+                $data['token'] = $_SESSION['token'];
+                $data['merchantId'] = $_SESSION['merchantId'];
+                PaymentController::redirect_post('https://ikc.shaparak.ir/TPayment/Payment/index', $data);
+            } else {
+                session()->flash("noname");
+                return back();
+            }
+        } else {
+            session()->flash("error", "مبلغ وارد شده صحیح نسیت");
+            return back();
+        }
     }
+
+
+
+
+
+
+//    public static function Credit_Payment(Request $request){
+//        $invoice_number = Str::random(4)."_".Auth::id();
+//        $amount = 10000;
+//
+//    }
 }
