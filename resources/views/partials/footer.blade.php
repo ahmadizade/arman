@@ -42,13 +42,11 @@
                 <div class="border-top pt-5">
                     <p class="copyright">
                         <small>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                             تمامی حقوق این سایت متعلق به بازار تهاتر ایرانیان می باشد <i
                                 class="fa fa-exclamation-triangle text-primary"
                                 aria-hidden="true"></i> by <a
                                 href="https://bazarti.com" target="_blank">www.Bazarti.com</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </small>
                     </p>
 

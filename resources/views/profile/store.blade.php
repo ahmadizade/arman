@@ -9,6 +9,9 @@
         .ck-editor__editable_inline {
             min-height: 200px;
         }
+        .ck-file-dialog-button{
+            display: none;
+        }
     </style>
 @endsection
 
