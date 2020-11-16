@@ -8,6 +8,7 @@ use App\Models\Category_variety;
 use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Profile;
+use App\Models\Setting;
 use App\Models\Statement;
 use App\Models\Store;
 use App\Models\User;
@@ -26,6 +27,7 @@ use Morilog\Jalali\Jalalian;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\Types\Self_;
 use SoapClient;
+use function GuzzleHttp\Promise\all;
 use function PHPUnit\Framework\returnArgument;
 
 class ProfileController extends Controller
@@ -850,13 +852,13 @@ class ProfileController extends Controller
 
     public function ProfileCredit()
     {
-        return view('profile.credit', ["user" => Auth::user(), "menu" => "credit"]);
+        $user = User::where('id', Auth::id())->first();
+        return view('profile.credit', ["user" => $user, "menu" => "credit"]);
     }
 
     public function CreditAction(Request $request)
     {
         $request = $request->replace(self::faToEn($request->all()));
-        $Err = '';
         if ($request->credit >= 1000) {
             if (!empty(Auth::user()->name)) {
 
@@ -873,10 +875,9 @@ class ProfileController extends Controller
                 $_SESSION['PayOrderId'] = $invoice_number;
                 $_SESSION['fullname'] = Auth::user()->name ?? "";
                 $_SESSION['email'] = Auth::user()->email ?? "";
-                $revertURL = "http://localhost:8000/incoming";
+                $revertURL = "http://localhost:8000/incoming-credit";
 
                 $client = new SoapClient('https://ikc.shaparak.ir/XToken/Tokens.xml', array('soap_version' => SOAP_1_1));
-
                 $params['amount'] = $_SESSION['amount'];
                 $params['merchantId'] = $merchantId;
                 $params['invoiceNo'] = $invoice_number;
@@ -888,6 +889,17 @@ class ProfileController extends Controller
                 $_SESSION['token'] = $result->MakeTokenResult->token;
                 $data['token'] = $_SESSION['token'];
                 $data['merchantId'] = $_SESSION['merchantId'];
+                Payment::create([
+                    "user_id" => Auth::id(),
+                    "invoice_number" => $invoice_number,
+                    "amount" => $amount,
+                    "status" => "PENDING",
+                    "type" => "Percent_Gift",
+                    "json_result_payment" => "",
+                    "json_result_verify" => "",
+                    "token" => $result->MakeTokenResult->token,
+                    "created_at" => Carbon::now()
+                ]);
                 PaymentController::redirect_post('https://ikc.shaparak.ir/TPayment/Payment/index', $data);
             } else {
                 session()->flash("noname");
@@ -899,14 +911,78 @@ class ProfileController extends Controller
         }
     }
 
+    public function CreditBack(Request $request){
+        $request = $request->replace(self::faToEn($request->all()));
+        if(isset($request->token) && isset($request->merchantId) && isset($request->InvoiceNumber) && isset($request->amount)){
+            if($request->merchantId == self::MerchantId && $request->resultCode === "100" && isset($request->referenceId) && isset($request->cardNo) && isset($request->cno)){
+                $checkMerchantId = explode("_",$request->InvoiceNumber);
+                $user_id = $checkMerchantId[1];
+                if(is_numeric($user_id) && $user_id > 0) {
+                    $payment = Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->first();
+                    if (isset($payment->id)) {
+                        Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
+                            "json_result_payment" => json_encode($request->all()),
+                            "reference_id" => $request->referenceId,
+                            "status" => "UNVERIFY",
+                        ]);
+                        //VERIFY
+//                        $referenceId = isset($request->referenceId) ? $request->referenceId : 0;
+//                        $client = new SoapClient('https://ikc.shaparak.ir/XVerify/Verify.xml', array('soap_version' => SOAP_1_1));
+//                        $params['token'] = $request->token;
+//                        $params['merchantId'] = $request->merchantId;
+//                        $params['referenceNumber'] = $referenceId;
+//                        $params['sha1Key'] = self::sha1Key;
+//                        $result = $client->__soapCall("KicccPaymentsVerification", array($params));
+//                        $result = ($result->KicccPaymentsVerificationResult);
+                        $result = 23;
+                        Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
+                            "json_result_verify" => json_encode($result),
+                        ]);
+                        if (floatval($result) > 0 && floatval($result) !== floatval($payment->amount)) {
+                            $setting = Setting::get();
+                            $user = User::where('id', $user_id)->first();
+                            if ($user->user_mode == "gold"){
+                                $gift = $request->amount + $request->amount * $setting[0]->percent_gold;
+                                Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
+                                    "status" => "SUCCESS",
+                                    "credit" => $gift,
+                                    "type" => "GOLD",
+                                ]);
+                                User::where("id", $user_id)->update([
+                                    "credit" => $user->credit + $gift,
+                                ]);
+                                return view("profile.credit", ["payment" => $request->amount , "gift" => $gift , "menu" => "credit", "credit_gold" => $user->credit]);
+                            }elseif ($user->user_mode == "normal"){
+                                $gift = $request->amount + $request->amount * $setting[0]->percent_gift;
+                                Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
+                                    "status" => "SUCCESS",
+                                    "credit" => $gift,
+                                ]);
+                                User::where("id", $user_id)->update([
+                                    "credit" => $user->credit + $gift,
+                                ]);
+                                return view("profile.credit", ["payment" => $request->amount , "gift" => $gift , "menu" => "credit", "credit" => $user->credit]);
+                            }
+                        } else {
+                            return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
+                        }
 
+                    }
 
+                    return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
 
+                }
 
+                return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
 
-//    public static function Credit_Payment(Request $request){
-//        $invoice_number = Str::random(4)."_".Auth::id();
-//        $amount = 10000;
-//
-//    }
+            }
+
+            return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
+
+        }
+
+        return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
+
+    }
+
 }

@@ -111,4 +111,4 @@ Route::prefix("shop")->group(function () {
 
 //bank
 Route::post('/incoming', 'App\Http\Controllers\PaymentController@BackBank')->name("back_bank");
-Route::post('/myincoming', 'App\Http\Controllers\PaymentController@BackBank')->name("back_bank");
+Route::post('/incoming-credit', 'App\Http\Controllers\ProfileController@CreditBack')->name("credit_back");
