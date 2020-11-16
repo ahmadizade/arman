@@ -79,34 +79,6 @@
                 e.preventDefault();
             });*/
 
-            $("#credit-payment-gold").on("click",function(e){
-                $(this).append("<span class='fa fa-spinner fa-spin font-16 mr-2'></span>");
-                Swal.fire({
-                    text: "مبلغ 44 هزار تومان بابت عضویت طلایی کم میشود. آیا اطمینان دارید؟",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'بله',
-                    cancelButtonText: 'خیر',
-                }).then((result) => {
-                    if(result.value) {
-                        $.ajax({
-                            type: "POST",
-                            url: "{{ route("profile_gold_credit_action") }}",
-                            success: function (result) {
-                                if(result.errors == 1){
-                                    $("#online-payment-gold").html("پرداخت از اعتبار");
-                                }else if(result.errors == 0){
-                                    window.location.href = "/profile/edit"
-                                }
-                            }
-                        });
-                    }
-                });
-                e.preventDefault();
-            });
-
         });
     </script>
 @endsection

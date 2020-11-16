@@ -946,12 +946,12 @@ class ProfileController extends Controller
                                 Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
                                     "status" => "SUCCESS",
                                     "credit" => $gift,
-                                    "type" => "GOLD",
+                                    "type" => "Percent_Gift_gold",
                                 ]);
                                 User::where("id", $user_id)->update([
                                     "credit" => $user->credit + $gift,
                                 ]);
-                                return view("profile.credit", ["payment" => $request->amount , "gift" => $gift , "menu" => "credit", "credit_gold" => $user->credit]);
+                                return view("profile.credit", ["payment" => $request->amount , "gift" => $gift , "menu" => "credit", "credit_gold" => $gift]);
                             }elseif ($user->user_mode == "normal"){
                                 $gift = $request->amount + $request->amount * $setting[0]->percent_gift;
                                 Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
@@ -961,7 +961,7 @@ class ProfileController extends Controller
                                 User::where("id", $user_id)->update([
                                     "credit" => $user->credit + $gift,
                                 ]);
-                                return view("profile.credit", ["payment" => $request->amount , "gift" => $gift , "menu" => "credit", "credit" => $user->credit]);
+                                return view("profile.credit", ["payment" => $request->amount , "gift" => $gift , "menu" => "credit", "credit" => $gift]);
                             }
                         } else {
                             return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");

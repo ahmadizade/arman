@@ -71,6 +71,7 @@
 <script src="/js/main.js?57986"></script>
 <script src="/js/alert.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/fa.min.js"></script>
 <script>
     $('body').on("keypress","#mobile",function(event) {
         if (event.keyCode == 13 || event.which == 13) {
@@ -92,11 +93,40 @@
     });
 </script>
 <script>
+    var data = [
+        {
+            id: 0,
+            text: 'enhancement',
+            value:'asd'
+        },
+        {
+            id: 1,
+            text: 'enhancement',
+            value:'asd'
+        },
+        {
+            id: 2,
+            text: 'enhancement',
+            value:'asd'
+        },
+        {
+            id: 3,
+            text: 'enhancement',
+            value:'asd'
+        },
+        {
+            id: 4,
+            text: 'enhancement',
+            value:'asd'
+        }
+    ];
+
+
     $('.search').select2({
         width: '100%',
         closeOnSelect: true,
-        minimumInputLength: 3,
-        placeholder: 'جستجوی ...',
+        minimumInputLength: 2,
+        placeholder: 'جستجوی فروشگاه ...',
         language: "fa",
         dir: "rtl",
         ajax: {
@@ -104,41 +134,22 @@
             dataType: 'json',
             delay: 250,
             processResults: function (data) {
-                console.log(data);
                 return {
                     results: $.map(data, function (item) {
                         return {
                             text: item.shop + " " + item.branch,
                             id: item.id,
+                            value: item.shop_slug + "/" + item.branch_slug
                         }
                     })
                 };
             },
             cache: true,
         }
-    }).on('select2:selecting', function (e) {
-        $.ajax({
-            type: 'post',
-            url: '/tahator/product/product-show-action',
-            data: e.params.args.data,
-            success: function (data) {
-                $('#data-id').val(data['id'])
-                $('#data-image').attr("src", '/uploads/products/' + data['image']);
-                $('#data-product_name').val(data['product_name']);
-                // $('#data-product_desc').html(data['product_desc']);
-                $('#data-price').val(data['price']);
-                $('#data-discount').val(data['discount'] + "%");
-                $('#data-stock').val(data['stock']);
-                $('#data-status').val(data['status']);
-                $('#data-quantity').val(data['quantity']);
-                $('#data-city').val(data['city']);
-                $('#data-mobile').val(data['mobile']);
-                $('#data-view').val(data['view']);
-                $('#data-created_at').val(data['created_at']);
-                $('#data-updated_at').val(data['updated_at']);
-            }
-        });
+    }).on('select2:select', function (e) {
+        window.location.href = "/shop/"+e.params.data.value;
     });
+
 </script>
 @yield('extra_js')
 </body>

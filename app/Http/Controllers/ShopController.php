@@ -22,7 +22,7 @@ class ShopController extends Controller
 
     public function Search(Request $request){
 
-        if ($request->has('q') && Str::length($request->q) > 2) {
+        if ($request->has('q') && Str::length($request->q) > 1) {
 
             $data = Store::where('shop', 'LIKE', "%$request->q%")->orWhere('branch', 'LIKE', "%$request->q%")->get();
 
