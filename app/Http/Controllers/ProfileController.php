@@ -856,11 +856,14 @@ class ProfileController extends Controller
     public function CreditAction(Request $request)
     {
         $request = $request->replace(self::faToEn($request->all()));
-        if ($request->credit >= 1000) {
+
+        $credit = filter_var($request->credit, FILTER_SANITIZE_NUMBER_INT);
+
+        if ($credit >= 1000) {
             if (!empty(Auth::user()->name)) {
 
                 $invoice_number = Str::random(4) . "_" . Auth::id();
-                $amount = $request->credit;
+                $amount = $credit;
                 $merchantId = self::MerchantId;
                 $admin_email = self::admin_email;
                 $sha1Key = self::sha1Key;

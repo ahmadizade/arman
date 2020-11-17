@@ -109,6 +109,12 @@
         }
     });
 </script>
+<script type="text/javascript">
+    $('.number-format').on('keyup', function () {
+        $price = accounting.formatNumber($(this).val());
+        $(this).val($price);
+    });
+</script>
 <script>
 
     $('.search').select2({

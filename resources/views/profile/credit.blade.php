@@ -39,7 +39,7 @@
                                             <span class="input-group-text font-12"><span
                                                     class="text-primary line-height-0 pl-1 font-15"></span>مبلغ افزایش اعتبار</span>
                                         </div>
-                                        <input id="credit" name="credit" type="number" class="form-control"
+                                        <input name="credit" type="text" class="form-control number-format"
                                                placeholder="برای مثال  :  1.000.000 ریال"
                                                value="{{ old("credit") }}">
                                     </div>
@@ -54,20 +54,4 @@
             </div>
         </div>
     </div>
-
-@endsection
-@section('extra_js')
-    <script type="text/javascript">
-        $('#credit').on('change', function () {
-
-            $price = accounting.formatMoney($("#credit").val());
-            $('#credit').val($price);
-            console.log($('#credit').val($price));
-//عملیات برعکس
-            $simple = accounting.unformat($price); // 12345678.9
-            console.log($simple);
-//گرد کردن اعداد
-            // accounting.toFixed(0.615, 2); // "0.62"
-        });
-    </script>
 @endsection
