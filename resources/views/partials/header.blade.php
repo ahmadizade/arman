@@ -24,7 +24,7 @@
                         <li>
                             <a href="#" class="nav-link" data-toggle="modal" data-target="#search-modal">
                                 جستجو
-                                <span class="fa fa-search font-18 text-muted pl-1"></span></a>
+                                <span class="fa fa-search font-16 text-muted pl-1"></span></a>
                             </a>
                         </li>
                         @if(!Auth::check())
@@ -39,7 +39,7 @@
                                         @elseif(Auth::user()->name !== "")
                                             {{ Auth::user()->name }}
                                         @endif
-                                        <span class="fa fa-diamond font-18 text-warning pl-1"></span></a>
+                                        <span class="fa fa-diamond font-16 text-warning pl-1"></span></a>
                                 @else
                                     <a href="#profile"
                                        class="nav-link">
@@ -74,7 +74,7 @@
                                 <li><a href="#" class="nav-link">باشگاه مشتریان</a></li>
                             </ul>
                         </li>
-                        <li><a href="/" class="nav-link pr-0">صفحه اصلی<i class="fa fa-home fa-lg d-none d-sm-inline pl-2 text-primary"></i></a></li>
+                        <li><a href="/" class="nav-link pr-0">صفحه اصلی<i class="fa fa-home font-19 fa-lg d-none d-sm-inline pl-2 text-primary"></i></a></li>
                     </ul>
                 </nav>
             </div>

@@ -34,7 +34,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">جستجو کنید ..</h5>
             </div>
-            <div id="auth" class="modal-body">
+            <div class="modal-body">
                 <div class="form-group mb-0 pt-1 pb-5">
                     <select type="text" class="search form-control"></select>
                 </div>
