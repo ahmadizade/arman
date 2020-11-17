@@ -19,16 +19,13 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
-use phpDocumentor\Reflection\DocBlock\Tags\See;
-use phpDocumentor\Reflection\Types\Self_;
 use SoapClient;
-use function GuzzleHttp\Promise\all;
-use function PHPUnit\Framework\returnArgument;
 
 class ProfileController extends Controller
 {
@@ -902,7 +899,8 @@ class ProfileController extends Controller
                 ]);
                 PaymentController::redirect_post('https://ikc.shaparak.ir/TPayment/Payment/index', $data);
             } else {
-                session()->flash("noname");
+                Session::flash("error",
+                    '<div class="alert alert-danger text-center mb-2">' . "متاسفانه همچنان فرم " . '<a target="_blank" class="text-primary" href='. route("profile_edit") .'>' . "تنظیمات کاربری" .'</a>'. " را تکمیل نکرده اید" .'</div>' );
                 return back();
             }
         } else {
@@ -951,7 +949,11 @@ class ProfileController extends Controller
                                 User::where("id", $user_id)->update([
                                     "credit" => $user->credit + $gift,
                                 ]);
-                                return view("profile.credit", ["payment" => $request->amount , "gift" => $gift , "menu" => "credit", "credit_gold" => $gift]);
+                                 Session::flash("status",
+                                     '<div class="alert alert-success text-center mb-2">' . "پرداخت شما به مبلغ " .  number_format($request->amount) . " ریال با موفقیت انجام شد" . '</div>
+                                     <div class="alert alert-success text-center mb-2">' . "اعتبار شما به اضافه" . '<span class="text-danger">' . " 15% شارژ هدیه " . '</span>' . "به مبلغ " .  number_format($gift) . " ریال افزایش پیدا کرد" . '</div>'
+                                 );
+                                return redirect()->route("profile_credit");
                             }elseif ($user->user_mode == "normal"){
                                 $gift = $request->amount + $request->amount * $setting[0]->percent_gift;
                                 Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
@@ -961,7 +963,11 @@ class ProfileController extends Controller
                                 User::where("id", $user_id)->update([
                                     "credit" => $user->credit + $gift,
                                 ]);
-                                return view("profile.credit", ["payment" => $request->amount , "gift" => $gift , "menu" => "credit", "credit" => $gift]);
+                                Session::flash("status",
+                                    '<div class="alert alert-success text-center mb-2">' . "پرداخت شما به مبلغ " .  number_format($request->amount) . " ریال با موفقیت انجام شد" . '</div>
+                                     <div class="alert alert-success text-center mb-2">' . "اعتبار شما به اضافه" . '<span class="text-danger">' . " 10% شارژ هدیه " . '</span>' . "به مبلغ " .  number_format($gift) . " ریال افزایش پیدا کرد" . '</div>'
+                                );
+                                return redirect()->route("profile_credit");
                             }
                         } else {
                             return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");

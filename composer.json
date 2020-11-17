@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "morilog/jalali": "3.*",
-        "yajra/laravel-datatables-oracle": "~9.0"
+        "yajra/laravel-datatables-oracle": "~9.0",
+      "ext-mongodb": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
