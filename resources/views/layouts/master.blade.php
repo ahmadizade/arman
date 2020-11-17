@@ -26,7 +26,23 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/fontawesome.js"></script>
-<div class="modal fade" id="login-register" tabindex="-1">
+
+<div class="modal fade" id="search-modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <h5 class="modal-title">جستجو کنید ..</h5>
+            </div>
+            <div id="auth" class="modal-body">
+                <div class="form-group mb-0 pt-1 pb-5">
+                    <select type="text" class="search form-control"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="login-register">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-center">
             <div class="modal-header">
@@ -93,34 +109,6 @@
     });
 </script>
 <script>
-    var data = [
-        {
-            id: 0,
-            text: 'enhancement',
-            value:'asd'
-        },
-        {
-            id: 1,
-            text: 'enhancement',
-            value:'asd'
-        },
-        {
-            id: 2,
-            text: 'enhancement',
-            value:'asd'
-        },
-        {
-            id: 3,
-            text: 'enhancement',
-            value:'asd'
-        },
-        {
-            id: 4,
-            text: 'enhancement',
-            value:'asd'
-        }
-    ];
-
 
     $('.search').select2({
         width: '100%',
@@ -137,7 +125,7 @@
                 return {
                     results: $.map(data, function (item) {
                         return {
-                            text: item.shop + " " + item.branch,
+                            text:"فروشگاه " + item.shop + " " + (item.branch != null ? item.branch : ""),
                             id: item.id,
                             value: item.shop_slug + "/" + item.branch_slug
                         }

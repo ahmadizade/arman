@@ -34,7 +34,7 @@
                         window.location.reload();
                     },3000);
                 }else{
-                    window.location.reload();
+                    window.location.href = "{{ route("profile_index") }}";
                 }
                 $("#code-submit").html("تایید");
             },
