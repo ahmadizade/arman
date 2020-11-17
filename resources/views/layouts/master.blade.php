@@ -26,6 +26,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/fontawesome.js"></script>
+<script src="/js/accounting.min.js"></script>
 
 <div class="modal fade" id="search-modal">
     <div class="modal-dialog modal-dialog-centered">
