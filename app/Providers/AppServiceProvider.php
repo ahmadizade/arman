@@ -40,11 +40,5 @@ class AppServiceProvider extends ServiceProvider
             $view->with('contact_us',$contact_us);
         });
 
-        View::composer('*', function ($view) {
-            $sss = Store::inRandomOrder()->limit(5)->get();
-            $view->with('sss',response()->json($sss));
-        });
-
-
     }
 }

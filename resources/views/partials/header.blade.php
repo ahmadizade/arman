@@ -13,16 +13,20 @@
     <div class="container">
         <div class="row align-items-center">
 
-            <div class="col-8 col-md-4 text-left text-md-center">
-                <h1 class="mb-0 mt-3 site-logo"><a href="#" style="font-size: 25px" class="mb-0 text-muted">Bazarti<span class="text-primary">.</span></a><img style="margin-top: -9px; width: 40px;" src="{{url('/images/logo/logo_100_50.png')}}">
-                </h1>
-
+            <div class="col-8 col-md-4 text-left">
+                <h1 class="mb-0 mt-3 site-logo"><a href="#" style="font-size: 25px" class="mb-0 text-muted">Bazarti<span class="text-primary">.</span></a><img style="margin-top: -9px; width: 40px;" src="{{url('/images/logo/logo_100_50.png')}}"></h1>
             </div>
 
             <div class="col-4 col-md-8 d-none d-xl-block">
                 <nav class="site-navigation position-relative text-right" role="navigation">
                     <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
 
+                        <li>
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#search-modal">
+                                جستجو
+                                <span class="fa fa-search font-18 text-muted pl-1"></span></a>
+                            </a>
+                        </li>
                         @if(!Auth::check())
                             <li><a href="#" class="nav-link text-primary" data-toggle="modal"
                                    data-target="#login-register">ورود / ثبت نام</a></li>
@@ -35,7 +39,7 @@
                                         @elseif(Auth::user()->name !== "")
                                             {{ Auth::user()->name }}
                                         @endif
-                                            <span class="fa fa-diamond text-warning pl-2"></span></a>
+                                        <span class="fa fa-diamond font-18 text-warning pl-1"></span></a>
                                 @else
                                     <a href="#profile"
                                        class="nav-link">
@@ -70,8 +74,7 @@
                                 <li><a href="#" class="nav-link">باشگاه مشتریان</a></li>
                             </ul>
                         </li>
-                        <li><a href="/" class="nav-link">صفحه اصلی<i
-                                        class="fa fa-home fa-lg d-none d-sm-inline pl-2 text-primary"></i></a></li>
+                        <li><a href="/" class="nav-link pr-0">صفحه اصلی<i class="fa fa-home fa-lg d-none d-sm-inline pl-2 text-primary"></i></a></li>
                     </ul>
                 </nav>
             </div>
@@ -79,10 +82,6 @@
             <div class="col-4 col-md-8 d-inline-block d-xl-none ml-md-0 py-2" style="position: relative; top: 3px;"><a
                         href="#" class="site-menu-toggle js-menu-toggle float-right"><span
                             class="icon-menu h3 fa-2x"></span></a></div>
-
-            <div class="col-12 col-lg-4 mb-2">
-                <select class="search form-control"></select>
-            </div>
 
         </div>
     </div>
