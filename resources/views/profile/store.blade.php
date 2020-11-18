@@ -145,11 +145,9 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="input-group mt-2">
                                             <div class="input-group-prepend">
-                                                    <span class="input-group-text font-12"><span
-                                                            class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
+                                                    <span class="input-group-text font-12"><span class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
                                             </div>
-                                            <input type="number" name="discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
-                                                   value="{{ old("discount") }}">
+                                            <input type="number" name="discount" class="form-control" placeholder="بین 0 تا 100" value="{{ old("discount") }}">
                                         </div>
                                     </div>
                                 </div>
@@ -299,8 +297,7 @@
                                                     <span class="input-group-text font-12"><span
                                                                 class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
                                             </div>
-                                            <input type="number" name="legal_discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
-                                                   value="{{ old("legal_discount") }}">
+                                            <input type="number" name="legal_discount" class="form-control" placeholder="بین 0 تا 100"                                                    value="{{ old("legal_discount") }}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -430,8 +427,7 @@
                                                     <span class="input-group-text font-12"><span
                                                                 class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
                                                 </div>
-                                                <input type="number" name="discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
-                                                       value="{{ $result['discount'] }}">
+                                                <input type="number" name="discount" class="form-control" placeholder="بین 0 تا 100"                                                        value="{{ $result['discount'] }}">
                                             </div>
                                         </div>
                                     </div>
@@ -586,8 +582,7 @@
                                                     <span class="input-group-text font-12"><span
                                                                 class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
                                                 </div>
-                                                <input type="number" name="legal_discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
-                                                       value="{{ $result['discount'] }}">
+                                                <input type="number" name="legal_discount" class="form-control" placeholder="بین 0 تا 100"                                                        value="{{ $result['discount'] }}">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -698,8 +693,7 @@
                                                     <span class="input-group-text font-12"><span
                                                                 class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
                                                 </div>
-                                                <input disabled type="number" name="discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
-                                                       value="{{ $result['discount'] }}">
+                                                <input disabled type="number" name="discount" class="form-control" placeholder="بین 0 تا 100"                                                        value="{{ $result['discount'] }}">
                                             </div>
                                         </div>
                                     </div>
@@ -854,8 +848,7 @@
                                                     <span class="input-group-text font-12"><span
                                                                 class="text-primary font-weight-bolder line-height-0 pl-1 font-15">%</span>کمترین تخفیف فروشگاه</span>
                                                 </div>
-                                                <input disabled type="number" name="legal_discount" class="form-control" placeholder="بین 0 تا 100" min="0" max="100"
-                                                       value="{{ $result['discount'] }}">
+                                                <input disabled type="number" name="legal_discount" class="form-control" placeholder="بین 0 تا 100"                                                        value="{{ $result['discount'] }}">
                                             </div>
                                         </div>
                                         <div class="col-12">

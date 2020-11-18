@@ -39,9 +39,12 @@
                                             <span class="input-group-text font-12"><span
                                                     class="text-primary line-height-0 pl-1 font-15"></span>مبلغ افزایش اعتبار</span>
                                         </div>
-                                        <input name="credit" type="text" class="form-control number-format"
+                                        <input id="credit" name="credit" type="text" class="form-control number-format"
                                                placeholder="برای مثال  :  1.000.000 ریال"
                                                value="{{ old("credit") }}">
+                                    </div>
+                                    <div class="input-group mt-2">
+                                       <input type="text" class="form-control words no-outline">
                                     </div>
                                     <div class="form-group mt-2 text-left">
                                         <button class="btn btn-sm btn-primary">پرداخت</button>

@@ -89,6 +89,7 @@
 <script src="/js/alert.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/fa.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mahmoud-eskandari/NumToPersian/dist/num2persian-min.js"></script>
 <script>
     $('body').on("keypress","#mobile",function(event) {
         if (event.keyCode == 13 || event.which == 13) {
@@ -113,6 +114,7 @@
     $('.number-format').on('keyup', function () {
         $price = accounting.formatNumber($(this).val());
         $(this).val($price);
+        $(".words").val(Num2persian($(this).val()));
     });
 </script>
 <script>

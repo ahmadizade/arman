@@ -1030,5 +1030,17 @@ input, select {
     box-shadow: 1px 5px 14px 0 #999999;
 }
 
+.no-outline {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: transparent;
+
+}
+
+.no-outline:focus {
+    outline: none;
+}
 
 
