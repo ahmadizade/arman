@@ -927,15 +927,14 @@ class ProfileController extends Controller
                             "status" => "UNVERIFY",
                         ]);
                         //VERIFY
-//                        $referenceId = isset($request->referenceId) ? $request->referenceId : 0;
-//                        $client = new SoapClient('https://ikc.shaparak.ir/XVerify/Verify.xml', array('soap_version' => SOAP_1_1));
-//                        $params['token'] = $request->token;
-//                        $params['merchantId'] = $request->merchantId;
-//                        $params['referenceNumber'] = $referenceId;
-//                        $params['sha1Key'] = self::sha1Key;
-//                        $result = $client->__soapCall("KicccPaymentsVerification", array($params));
-//                        $result = ($result->KicccPaymentsVerificationResult);
-                        $result = 23;
+                        $referenceId = isset($request->referenceId) ? $request->referenceId : 0;
+                        $client = new SoapClient('https://ikc.shaparak.ir/XVerify/Verify.xml', array('soap_version' => SOAP_1_1));
+                        $params['token'] = $request->token;
+                        $params['merchantId'] = $request->merchantId;
+                        $params['referenceNumber'] = $referenceId;
+                        $params['sha1Key'] = self::sha1Key;
+                        $result = $client->__soapCall("KicccPaymentsVerification", array($params));
+                        $result = ($result->KicccPaymentsVerificationResult);
                         Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
                             "json_result_verify" => json_encode($result),
                         ]);
