@@ -26,7 +26,7 @@
 	// currency and number formatting
 	lib.settings = {
 		currency: {
-			symbol : "تومان",		// default currency symbol is '$'
+			symbol : "ریال",		// default currency symbol is '$'
 			format : "%s%v",	// controls output: %s = symbol, %v = value (can be object, see docs)
 			decimal : ".",		// decimal point separator
 			thousand : ",",		// thousands separator

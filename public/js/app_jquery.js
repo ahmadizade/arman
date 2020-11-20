@@ -1,8 +1,5 @@
 $(document).ready(function () {
 
-    console.log("OK");
-
-
     //Add User In Admin Page
     // $("#add-user").on("click",function (e) {
     //     console.log("TEST");
@@ -410,9 +407,9 @@ $(document).ready(function () {
 
 
 //date picker business form page
-    $("#shdr_referred_date, #created_at, #mortgage_date, #refund_credit_from ,#refund_credit_until").persianDatepicker({
-        formatDate: "YYYY/MM/DD",
-    });
+//     $("#shdr_referred_date, #created_at, #mortgage_date, #refund_credit_from ,#refund_credit_until").persianDatepicker({
+//         formatDate: "YYYY/MM/DD",
+//     });
 
 //MAJIDI
     // $("#s-btn").on("click",function(e){
@@ -489,35 +486,60 @@ $(document).ready(function () {
         }
     });
 
-    $("#owl-food, #owl-watch, #home-service, #apartment-service").owlCarousel({
-        // items: 10, //10 items above 1000px browser width
-        itemsDesktop: [1000, 6], //5 items between 1000px and 901px
-        itemsDesktopSmall: [900, 3], // betweem 900px and 601px
-        itemsTablet: [600, 2], //2 items between 600 and 0
-        itemsMobile: false, // itemsMobile disabled - inherit from itemsTablet option
+    $(".owl").owlCarousel({
+        itemsDesktop: [1000, 6],
+        itemsDesktopSmall: [900, 3],
+        itemsTablet: [600, 2],
+        itemsMobile: false,
         lazyLoad: true,
-        // navigation: true,
         responsiveClass: true,
         loop: true,
-        // autoplay:true,
-        // autoplayTimeout:2000,
-        // autoplayHoverPause:true,
         responsive: {
             0: {
                 items: 2,
-                nav: false
+                nav: false,
+                margin:10
             },
             600: {
                 items: 3,
-                nav: false
+                nav: false,
+                margin:10
             },
             1000: {
-                items: 6,
+                items: 5,
                 nav: false,
-                // loop: true,
+                margin:10
             }
         }
     });
+
+
+
+    $(document).ready(function () {
+        $('.counter').each(function () {
+            var $this = $(this),
+                countTo = $this.attr('data-count');
+
+            $({countNum: $this.text()}).animate({
+                    countNum: countTo
+                },
+
+                {
+
+                    duration: 8000,
+                    easing: 'linear',
+                    step: function () {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function () {
+                        $this.text(this.countNum);
+                        //alert('finished');
+                    }
+                });
+        });
+
+    });
+
 
 
 });

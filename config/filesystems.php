@@ -55,6 +55,20 @@ return [
             'visibility' => 'public',
         ],
 
+        'vms' => [
+            'driver' => 'local',
+            'root' => public_path('/images/shop/products'),
+            'url' => env('APP_URL') . '/images/shop/products',
+            'visibility' => 'public',
+        ],
+
+        'logo' => [
+            'driver' => 'local',
+            'root' => public_path('/images/shop/logo'),
+            'url' => env('APP_URL') . '/images/shop/logo/',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
