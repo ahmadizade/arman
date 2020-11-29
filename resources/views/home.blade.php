@@ -76,20 +76,26 @@
     <!-- Application -->
     <div class="container mt-3">
         <div class="row align-items-center">
-            <div class="col-md-4 text-center mt-3">
-                <h3 class="card-title">BAZARTI APPLICATION</h3>
-                <p>شما میتوانید اپ بازارتی را از سایت بازار یا بازارتی دانلود کنید</p>
-                <p>اگر موقع نصب مشکلی داشتی با پشتیبانی دوازده هفت بیست و چهار ما تماس بگیر</p>
-                <a class="fr__btn text-white">پشتیبانی آنلاین</a>
+            <div class="col-lg-4 text-center mt-3">
+                <h3 class="card-title">CiOCE APPLICATION</h3>
+{{--                <p>شما میتوانید اپ بازارتی را از سایت بازار یا بازارتی دانلود کنید</p>--}}
+{{--                <p>اگر موقع نصب مشکلی داشتی با پشتیبانی دوازده هفت بیست و چهار ما تماس بگیر</p>--}}
+{{--                <a class="fr__btn text-white">پشتیبانی آنلاین</a>--}}
+                <img id="add-store-btn" src="images/home/stand-2.svg" alt="Cioce,Stand"
+                     class="img-fluid pointer-event mb-4">
             </div>
-            <div class="col-md-4 text-center mt-3">
-                <img src="images/home/mobile.png" alt="Bazar Tahator Iranian" class="img-fluid mb-4">
+            <div class="col-lg-4 text-center mt-3">
+                <img src="images/home/mobile.png" alt="CIOCE APPLICATION" class="img-fluid mb-4">
             </div>
-            <div class="col-md-4 text-center mt-3">
+            <div class="col-lg-4 text-center mt-3">
                 <h3 class="card-title">CMS APPLICATION</h3>
-                <p>اپلیکیشن کارت به کارت بازارتی امکان پرداخت اعتبار و خرید از سایت را به شما می دهد</p>
-                <p>تازه می تونی تو قرعه کشی ما هم از این طریق ثبت نام کنید</p>
-                <a class="fr__btn text-white">کاربر طلایی</a>
+{{--                <p>اپلیکیشن کارت به کارت بازارتی امکان پرداخت اعتبار و خرید از سایت را به شما می دهد</p>--}}
+{{--                <p>تازه می تونی تو قرعه کشی ما هم از این طریق ثبت نام کنید</p>--}}
+{{--                <a class="fr__btn text-white">کاربر طلایی</a>--}}
+                <img id="add-store-btn" src="images/home/walk.svg" alt="Cioce,Stand"
+                     class="img-fluid pointer-event mb-4" style="margin-left: 100px">
+                <img id="add-store-btn" src="images/home/sit.svg" alt="Cioce,Stand"
+                     class="img-fluid pointer-event mb-4">
             </div>
             <!--< mid shape>-->
             <div class="col-12 mt-4">
