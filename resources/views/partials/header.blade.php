@@ -63,15 +63,16 @@
                         @endif
                         <li><a href="{{ route("contact") }}" class="nav-link">تماس با ما</a></li>
                         <li><a href="{{ route("About_Us") }}" class="nav-link">درباره ما</a></li>
-                        <li class="has-children"><a href="#contact-section" class="nav-link">مرکز خدمات</a>
+                        <li class="has-children"><a href="#contact-section" class="nav-link">خدمات ما</a>
                             <ul class="dropdown text-right">
-                                <li><a href="#" class="nav-link">دریافت ثمین کارت</a></li>
-                                <li><a href="#" class="nav-link">هواداران استقلال</a></li>
-                                <li><a href="#" class="nav-link">جشنواره</a></li>
-                                <li><a href="#" class="nav-link">مطب</a></li>
-                                <li><a href="#" class="nav-link">قرعه کشی</a></li>
+                                <li><a href="#" class="nav-link">پلاگین وردپرس</a></li>
+                                <li><a href="#" class="nav-link">فروش وب سایت اختصاصی</a></li>
+                                <li><a href="#" class="nav-link">فروش اپلیکیشن</a></li>
+                                <li><a href="#" class="nav-link">وب سایت های رایگان</a></li>
+                                <li><a href="#" class="nav-link">مشارکت در پروژه</a></li>
+                                <li><a href="#" class="nav-link">سرمایه گذاری در پروژه</a></li>
+                                <li><a href="#" class="nav-link">مشارکت برنامه نویسان</a></li>
                                 <li><a href="#" class="nav-link">خبرنامه</a></li>
-                                <li><a href="#" class="nav-link">باشگاه مشتریان</a></li>
                             </ul>
                         </li>
                         <li><a href="/" class="nav-link pr-0">صفحه اصلی<i class="fa fa-home font-19 fa-lg d-none d-sm-inline pl-2 text-primary"></i></a></li>

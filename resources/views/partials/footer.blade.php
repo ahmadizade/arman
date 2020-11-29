@@ -43,10 +43,10 @@
                     <p class="copyright">
                         <small>
                             Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                            تمامی حقوق این سایت متعلق به بازار تهاتر ایرانیان می باشد <i
+                            تمامی حقوق این سایت متعلق به گروه مهندسی 33 می باشد <i
                                 class="fa fa-exclamation-triangle text-primary"
                                 aria-hidden="true"></i> by <a
-                                href="https://bazarti.com" target="_blank">www.Bazarti.com</a>
+                                href="https://bazarti.com" target="_blank">Www.CioCe.ir</a>
                         </small>
                     </p>
 

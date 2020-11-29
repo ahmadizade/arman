@@ -7,6 +7,7 @@
 @section("content")
 
     <!-- Carousel -->
+{{--    <div class="container">--}}
 {{--        <div class="row">--}}
 {{--            <div class="col-12">--}}
 {{--                <div id="carouselHome" class="carousel slide" data-ride="carousel">--}}
@@ -17,13 +18,13 @@
 {{--                    </ol>--}}
 {{--                    <div class="carousel-inner">--}}
 {{--                        <div class="carousel-item active">--}}
-{{--                            <img class="d-block w-100" src="images/home/no-money.jpg" alt="First slide">--}}
+{{--                            <img class="d-block w-100" src="images/slider/1.png" alt="First slide">--}}
 {{--                        </div>--}}
 {{--                        <div class="carousel-item">--}}
-{{--                            <img class="d-block w-100" src="images/home/bazarti.jpg" alt="Second slide">--}}
+{{--                            <img class="d-block w-100" src="images/slider/2.png" alt="Second slide">--}}
 {{--                        </div>--}}
 {{--                        <div class="carousel-item">--}}
-{{--                            <img class="d-block w-100" src="images/home/categories.jpg" alt="Second slide">--}}
+{{--                            <img class="d-block w-100" src="images/slider/3.png" alt="Third slide">--}}
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                    <a class="carousel-control-prev" href="#carouselHome" role="button" data-slide="prev">--}}
@@ -37,18 +38,19 @@
 {{--                </div>--}}
 {{--            </div>--}}
 {{--        </div>--}}
+{{--    </div>--}}
     <!-- Counter -->
 
-
+    {{--Head Image--}}
     <img class="img-fluid" src="{{url('/images/bg/ankara-web-tasarim-slayt-3.png')}}">
-    <!-- Gif -->
+{{--Application Picture--}}
     <div class="container mt-3">
         <div class="row">
             <div class="col-6 col-lg-4 text-center mt-3">
                 <img src="images/home/investment.png" alt="تالار سرمایه گذاری"
                      class="img-fluid mb-4">
                 <h3 class="card-title font-weight-bolder">سرمایه گذاری و مشارکت در پروژه</h3>
-                <p>فروشگاهت و ثبت کن، درآمد کسب کن</p>
+                <p>حتی می تونی مشارکت علمی داشته باشی</p>
             </div>
             <div class="col-6 col-lg-4 text-center mt-3">
                 <img id="add-store-btn" src="images/home/presale.png" alt="پیش فروش"
@@ -72,158 +74,12 @@
             <!--< mid shape>-->
         </div>
     </div>
-
-    <!-- Application -->
-    <div class="container mt-3">
-        <div class="row align-items-center">
-            <div class="col-lg-4 text-center mt-3">
-                <h3 class="card-title">CiOCE APPLICATION</h3>
-{{--                <p>شما میتوانید اپ بازارتی را از سایت بازار یا بازارتی دانلود کنید</p>--}}
-{{--                <p>اگر موقع نصب مشکلی داشتی با پشتیبانی دوازده هفت بیست و چهار ما تماس بگیر</p>--}}
-{{--                <a class="fr__btn text-white">پشتیبانی آنلاین</a>--}}
-                <img id="add-store-btn" src="images/home/stand-2.svg" alt="Cioce,Stand"
-                     class="img-fluid pointer-event mb-4">
-            </div>
-            <div class="col-lg-4 text-center mt-3">
-                <img src="images/home/mobile.png" alt="CIOCE APPLICATION" class="img-fluid mb-4">
-            </div>
-            <div class="col-lg-4 text-center mt-3">
-                <h3 class="card-title">CMS APPLICATION</h3>
-{{--                <p>اپلیکیشن کارت به کارت بازارتی امکان پرداخت اعتبار و خرید از سایت را به شما می دهد</p>--}}
-{{--                <p>تازه می تونی تو قرعه کشی ما هم از این طریق ثبت نام کنید</p>--}}
-{{--                <a class="fr__btn text-white">کاربر طلایی</a>--}}
-                <img id="add-store-btn" src="images/home/walk.svg" alt="Cioce,Stand"
-                     class="img-fluid pointer-event mb-4" style="margin-left: 100px">
-                <img id="add-store-btn" src="images/home/sit.svg" alt="Cioce,Stand"
-                     class="img-fluid pointer-event mb-4">
-            </div>
-            <!--< mid shape>-->
-            <div class="col-12 mt-4">
-                <div class="mid-shape mt-4">
-                    <div class="mid-shapemask"></div>
-                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                </div>
-            </div>
-            <!--< mid shape>-->
-        </div>
-    </div>
-
-    <!-- Banner -->
-    <div class="container mt-3">
-        <div class="row align-items-center justify-content-center text-center">
-            <div class="col-md-12 text-center mt-4">
-                <img src="/images/home/new.jpg" alt="Bazar Tahator Iranian" class="img-fluid mb-4">
-            </div>
-            <!--< mid shape>-->
-            <div class="col-12">
-                <div class="mid-shape mt-4">
-                    <div class="mid-shapemask"></div>
-                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
-                </div>
-            </div>
-            <!--< mid shape>-->
-        </div>
-    </div>
-
-    <!-- Popular Shop -->
-    @if(isset($popularShop))
-        <div class="container mt-3">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 my-3">
-                    <h2 class="title-default"><span>فروشگاه های برگزیده</span></h2>
-                </div>
-            </div>
-               <div class="row">
-                    <div class="col-12">
-                        <div class="owl-container">
-                            <div class="owl-carousel owl-theme owl">
-                            @foreach($popularShop as $shop)
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
-                                                @if(is_null($shop->logo))
-                                                    <img class="card-img-top img-fluid" src="/images/no-image2.png" alt="BTI">
-                                                @else
-                                                    <img class="card-img-top img-fluid" src="{{Storage::disk('logo')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
-                                                @endif
-                                            </div>
-                                            <h5 class="card-title text-center" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
-                                            <p class="card-text text-justify" style="direction: rtl; height: 130px; overflow: hidden;">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
-                                            <div class="row justify-content-center">
-                                                <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                            @endforeach
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-    <!-- Banner -->
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-12">
-                <img src="/images/home/mid-1.jpg" class="img-fluid" alt="">
-            </div>
-        </div>
-    </div>
-
-    <!-- Random Shop -->
-    @if(isset($randomShop))
-        <div class="container mt-3">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 my-3">
-                    <h2 class="title-default red"><span>فروشگاه های تصادفی</span></h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-container">
-                        <div class="owl-carousel owl-theme owl">
-                            @foreach($randomShop as $shop)
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div style="min-height: 260px;" class="row justify-content-center align-items-center">
-                                            @if(is_null($shop->logo))
-                                                <img class="card-img-top" src="/images/no-image2.png" alt="BTI">
-                                            @else
-                                                <img class="card-img-top" src="{{Storage::disk('logo')->url($shop['logo'])}}" alt="{{ $shop->shop }}">
-                                            @endif
-                                        </div>
-                                        <h5 class="card-title text-center" style="color: {{ $shop->color }}">{{ $shop->shop }}</h5>
-                                        <p class="card-text text-justify" style="direction: rtl; height: 130px; overflow: hidden;">{!! \Illuminate\Support\Str::limit(strip_tags($shop->desc), 150, ' (...)') !!}</p>
-                                        <div class="row justify-content-center">
-                                            <a href="{{ route('single_shop',['shop' => $shop->shop_slug , 'branch' => $shop->branch_slug]) }}" class="btn btn-primary" style="background-color: {{ $shop->color }}; border-color: {{ $shop->color }}">مشاهده فروشگاه</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-    <!-- Banner -->
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-12">
-                <img src="/images/home/mid-2.jpg" class="img-fluid" alt="">
-            </div>
-        </div>
-    </div>
-
-    <!-- Random Products -->
+<!-- Free Website -->
     @if(isset($lastProduct))
         <div class="container mt-3">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 my-3">
-                    <h2 class="title-default green"><span>آخرین کالا های ثبت شده</span></h2>
+                    <h2 class="title-default green"><span>وبسایت های رایگان</span></h2>
                 </div>
             </div>
             <div class="row">
@@ -267,14 +123,210 @@
         </div>
     @endif
 
-    <!-- Banner Fixed Background -->
+<!-- Store Website -->
+    @if(isset($lastProduct))
+        <div class="container mt-3">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 my-3">
+                    <h2 class="title-default green"><span>وبسایت های فروشگاهی</span></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="owl-container">
+                        <div class="owl-carousel owl-theme owl">
+                            @foreach($lastProduct as $product)
+                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                                    <div class="slider-desc text-center overflow-hidden">
+                                        <div class="item">
+                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
+                                                @if(is_null($product->image))
+                                                    <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
+                                                @else
+                                                    <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI" class="img-fluid">
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="price-box rtl">
+                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
+                                            @if($product->discount > 20)
+                                                <div>
+                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
+                                                </div>
+                                            @else
+                                                <div class="mt-1">
+                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+<!-- Wordpress Website -->
+    @if(isset($lastProduct))
+        <div class="container mt-3">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 my-3">
+                    <h2 class="title-default green"><span>وب سایت های رایگان</span></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="owl-container">
+                        <div class="owl-carousel owl-theme owl">
+                            @foreach($lastProduct as $product)
+                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                                    <div class="slider-desc text-center overflow-hidden">
+                                        <div class="item">
+                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
+                                                @if(is_null($product->image))
+                                                    <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
+                                                @else
+                                                    <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI" class="img-fluid">
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="price-box rtl">
+                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
+                                            @if($product->discount > 20)
+                                                <div>
+                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
+                                                </div>
+                                            @else
+                                                <div class="mt-1">
+                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    <!-- Wordpress Plugin -->
+    @if(isset($lastProduct))
+        <div class="container mt-3">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 my-3">
+                    <h2 class="title-default green"><span>وب سایت های رایگان</span></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="owl-container">
+                        <div class="owl-carousel owl-theme owl">
+                            @foreach($lastProduct as $product)
+                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                                    <div class="slider-desc text-center overflow-hidden">
+                                        <div class="item">
+                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
+                                                @if(is_null($product->image))
+                                                    <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
+                                                @else
+                                                    <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI" class="img-fluid">
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="price-box rtl">
+                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
+                                            @if($product->discount > 20)
+                                                <div>
+                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
+                                                </div>
+                                            @else
+                                                <div class="mt-1">
+                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+<!-- Web Picture -->
+    @if(isset($lastProduct))
+        <div class="container mt-3">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 my-3">
+                    <h2 class="title-default green"><span>وب سایت های رایگان</span></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="owl-container">
+                        <div class="owl-carousel owl-theme owl">
+                            @foreach($lastProduct as $product)
+                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                                    <div class="slider-desc text-center overflow-hidden">
+                                        <div class="item">
+                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
+                                                @if(is_null($product->image))
+                                                    <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
+                                                @else
+                                                    <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI" class="img-fluid">
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="price-box rtl">
+                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
+                                            @if($product->discount > 20)
+                                                <div>
+                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
+                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
+                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
+                                                </div>
+                                            @else
+                                                <div class="mt-1">
+                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
+                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    <!-- Banner Fixed Background 2-->
     <div class="container-fluid">
-        <div class="row flex-column justify-content-center align-items-center h-100 py-5" style="background: fixed center center url('/images/home/pattern-off.jpg'); height: 250px;">
-            <span class="font-30 font-weight-bold py-3 px-5 rounded-sm mt-3 ">
-                <img src="{{ asset('images/logo/logo_100_50.png') }}" alt="logo" class="img-fluid d-block d-md-inline mx-a">
-                <span class="d-block d-md-inline text-center">بازار تهاتر ایرانیان</span>
-                <div class="font-20 text-orange font-weight-bold bg-white py-1 px-5 rounded-sm mt-2 shadow-sm">اولین و تنها بازار تهاتری در ایران</div>
-            </span>
+        <div class="row flex-column justify-content-center align-items-center py-5" style="background: fixed center center url('/images/bg/s1.jpg'); height: 250px;background-repeat: no-repeat;background-size: cover;">
+{{--            <span class="font-30 text-center font-weight-bold py-3 px-5 rounded-sm mt-3 ">--}}
+{{--                <img src="{{ asset('images/logo/logo-250.png') }}" alt="logo" class="img-fluid d-block d-md-inline mx-a">--}}
+{{--                <span class="d-block d-md-inline text-center">CioCe</span>--}}
+{{--                <div class="font-20 text-primary font-weight-bold bg-white py-1 px-5 rounded-sm mt-2 shadow-sm">CioCe Web Pack For Everyone</div>--}}
+{{--            </span>--}}
         </div>
     </div>
 
