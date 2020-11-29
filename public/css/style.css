@@ -146,6 +146,30 @@ input, select {
     color: rgba(0, 0, 0, 0.5);
 }
 
+.site-blocks-cover {
+    /*direction: ltr;*/
+    height: 946px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-position: center center;
+}
+
+.site-blocks-cover.overlay {
+    position: relative;
+}
+
+.site-blocks-cover.overlay:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background: rgba(184, 178, 166, 0.7);
+}
+
+
 .color-white-opacity-5 {
     color: rgba(255, 255, 255, 0.5);
 }
@@ -321,14 +345,14 @@ input, select {
 }
 
 .site-navbar .site-navigation .site-menu > li > a {
-    padding: 20px 20px;
+    /*padding: 20px 20px;*/
     color: #000;
     display: inline-block;
     text-decoration: none !important;
 }
 
 .site-navbar .site-navigation .site-menu > li > a:hover {
-    color: #3498db;
+    color: #c200db;
 }
 
 .site-navbar .site-navigation .site-menu > li.social > a {
@@ -811,7 +835,7 @@ input, select {
 .counter {
     display: table-cell;
     color: #c4d3d4;
-    font-size: 50px;
+    font-size: 35px;
     width: 200px;
     text-align: center;
 }

@@ -7,7 +7,6 @@
 @section("content")
 
     <!-- Carousel -->
-    <div class="container">
         <div class="row">
             <div class="col-12">
                 <div id="carouselHome" class="carousel slide" data-ride="carousel">
@@ -38,38 +37,11 @@
                 </div>
             </div>
         </div>
-    </div>
-
     <!-- Counter -->
-    <div class="d-none d-lg-block mt-3">
-        <div class="container">
-            <div class="col-12">
-                <div class="row d-flex bg-light justify-content-center">
-                <div class="d-flex flex-column flex-md-row justify-content-around align-items-center text-center">
-                    <div class="counter-group">
-                        <div class="counter text-dark" data-count="150">0</div>
-                        <h5>افراد آنلاین</h5>
-                    </div>
-                    <div class="counter-group">
-                        <div class="counter text-dark" data-count="21">0</div>
-                        <h5>نمایندگی ها</h5>
-                    </div>
-                    <div class="counter-group">
-                        <div class="counter text-dark" data-count="8420">0</div>
-                        <h5>اعضاء</h5>
-                    </div>
-                    <div class="counter-group">
-                        <div class="counter text-dark" data-count="3720">0</div>
-                        <h5>محصولات</h5>
-                    </div>
-                    <div class="counter-group">
-                        <div class="counter text-dark" data-count="26">0</div>
-                        <h5>فروش امروز</h5>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
+
+
+    <div class="site-blocks-cover w-100" style="background-image:url({{url('/images/bg/welcome-bg.png')}})">
+
     </div>
 
     <!-- Gif -->
