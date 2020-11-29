@@ -7,75 +7,66 @@
 @section("content")
 
     <!-- Carousel -->
-        <div class="row">
-            <div class="col-12">
-                <div id="carouselHome" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselHome" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselHome" data-slide-to="1"></li>
-                        <li data-target="#carouselHome" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="images/home/no-money.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="images/home/bazarti.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="images/home/categories.jpg" alt="Second slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselHome" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselHome" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+{{--        <div class="row">--}}
+{{--            <div class="col-12">--}}
+{{--                <div id="carouselHome" class="carousel slide" data-ride="carousel">--}}
+{{--                    <ol class="carousel-indicators">--}}
+{{--                        <li data-target="#carouselHome" data-slide-to="0" class="active"></li>--}}
+{{--                        <li data-target="#carouselHome" data-slide-to="1"></li>--}}
+{{--                        <li data-target="#carouselHome" data-slide-to="2"></li>--}}
+{{--                    </ol>--}}
+{{--                    <div class="carousel-inner">--}}
+{{--                        <div class="carousel-item active">--}}
+{{--                            <img class="d-block w-100" src="images/home/no-money.jpg" alt="First slide">--}}
+{{--                        </div>--}}
+{{--                        <div class="carousel-item">--}}
+{{--                            <img class="d-block w-100" src="images/home/bazarti.jpg" alt="Second slide">--}}
+{{--                        </div>--}}
+{{--                        <div class="carousel-item">--}}
+{{--                            <img class="d-block w-100" src="images/home/categories.jpg" alt="Second slide">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <a class="carousel-control-prev" href="#carouselHome" role="button" data-slide="prev">--}}
+{{--                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+{{--                        <span class="sr-only">Previous</span>--}}
+{{--                    </a>--}}
+{{--                    <a class="carousel-control-next" href="#carouselHome" role="button" data-slide="next">--}}
+{{--                        <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+{{--                        <span class="sr-only">Next</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     <!-- Counter -->
 
 
-    <div class="site-blocks-cover w-100" style="background-image:url({{url('/images/bg/welcome-bg.png')}})">
-
-    </div>
-
+    <img class="img-fluid" src="{{url('/images/bg/ankara-web-tasarim-slayt-3.png')}}">
     <!-- Gif -->
     <div class="container mt-3">
         <div class="row">
-            <div class="col-6 col-lg-3 text-center mt-3">
-                <img src="images/gif/tienda.gif" alt="Bazar Tahator Iranian"
-                     class="img-fluid mb-4" style="width: 100px">
-                <h3 class="card-title">ثبت فروشگاه</h3>
+            <div class="col-6 col-lg-4 text-center mt-3">
+                <img src="images/home/investment.png" alt="تالار سرمایه گذاری"
+                     class="img-fluid mb-4">
+                <h3 class="card-title font-weight-bolder">سرمایه گذاری و مشارکت در پروژه</h3>
                 <p>فروشگاهت و ثبت کن، درآمد کسب کن</p>
             </div>
-            <div class="col-6 col-lg-3 text-center mt-3">
-                <img id="add-store-btn" src="images/gif/gold.gif" alt="Bazar Tahator Iranian"
-                     class="img-fluid pointer-event mb-4" style="width: 100px">
-                <h3 class="card-title">طلایی شو</h3>
-                <p>طلایی شو، شارژ بیشتر بگیر</p>
+            <div class="col-6 col-lg-4 text-center mt-3">
+                <img id="add-store-btn" src="images/home/presale.png" alt="پیش فروش"
+                     class="img-fluid pointer-event mb-4">
+                <h3 class="card-title font-weight-bolder">طراحی وب سایت</h3>
+                <p>طراحی و ساخت وب سایت با جدیدترین روش های روز دنیا</p>
             </div>
-            <div class="col-6 col-lg-3 text-center mt-3">
-                <img id="add-store-btn" src="images/gif/football3.gif" alt="Bazar Tahator Iranian"
-                     class="img-fluid pointer-event mb-4" style="width: 100px">
-                <h3 class="card-title">هواداران</h3>
-                <p>از تیم محبوبت حمایت کن</p>
-            </div>
-            <div class="col-6 col-lg-3 text-center mt-3">
-                <img id="add-store-btn" src="images/gif/support-icon.gif" alt="Bazar Tahator Iranian"
-                     class="img-fluid pointer-event mb-4" style="width: 90px">
-                <h3 class="card-title">پشتیبانی 24 ساعته</h3>
-                <p>7 روز هفته 24 ساعته</p>
+            <div class="col-6 col-lg-4 text-center mt-3">
+                <img id="add-store-btn" src="images/home/webdesign.png" alt="طراحی وب سایت"
+                     class="img-fluid pointer-event mb-4">
+                <h3 class="card-title font-weight-bolder">میز کار</h3>
+                <p>برنامه نویسان می توانند جهت همکاری ثبت نام کنند</p>
             </div>
             <!--< mid shape>-->
             <div class="col-12">
                 <div class="mid-shape mt-4">
                     <div class="mid-shapemask"></div>
-                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo_50_22.png" alt=""></a></i></span>
+                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo50px.png" alt=""></a></i></span>
                 </div>
             </div>
             <!--< mid shape>-->

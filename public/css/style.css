@@ -148,7 +148,7 @@ input, select {
 
 .site-blocks-cover {
     /*direction: ltr;*/
-    height: 946px;
+    /*height: 800px;*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
@@ -816,7 +816,7 @@ input, select {
     border-radius: 100%;
     border: 1px dashed #f78e2f;
     text-align: center;
-    line-height: 50px;
+    line-height: 53px;
     font-style: normal;
     color: #001fff;
 }

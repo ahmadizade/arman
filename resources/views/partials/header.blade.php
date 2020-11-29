@@ -14,7 +14,7 @@
         <div class="row align-items-center">
 
             <div class="col-8 col-md-4 text-left">
-                <h1 class="mb-0 mt-3 site-logo"><a href="#" style="font-size: 25px" class="mb-0 text-muted">Bazarti<span class="text-primary">.</span></a><img style="margin-top: -9px; width: 40px;" src="{{url('/images/logo/logo_100_50.png')}}"></h1>
+                <h1 class="mb-0 mt-3 site-logo"><img style="width: 100px;" class="img-fluid" src="{{url('/images/logo/cioce-tet-logo.png')}}"></h1>
             </div>
 
             <div class="col-4 col-md-8 d-none d-xl-block">
