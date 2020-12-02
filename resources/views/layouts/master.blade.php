@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="/css/style.css?57986">
+    <link rel="sthamidreza ylesheet" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/fontawesome.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     @yield("extra_css")
@@ -35,6 +35,7 @@
                 <h5 class="modal-title">جستجو کنید ..</h5>
             </div>
             <div class="modal-body">
+                <img src="{{ asset('images/icon/search.png') }}" alt="Search" class="mx-auto img-fluid d-block">
                 <div class="form-group mb-0 pt-1 pb-5">
                     <select type="text" class="search form-control"></select>
                 </div>
@@ -85,7 +86,6 @@
     });
 </script>
 <script src="/js/owl.carousel.min.js"></script>
-<script src="/js/main.js?57986"></script>
 <script src="/js/alert.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/fa.min.js"></script>
@@ -110,20 +110,19 @@
         }
     });
 </script>
-<script type="text/javascript">
+<script>
     $('.number-format').on('keyup', function () {
         $price = accounting.formatNumber($(this).val());
         $(this).val($price);
-        $(".words").val(Num2persian($(this).val()));
+        $(".words").val(Num2persian($(this).val()) + " ریال ");
     });
 </script>
 <script>
-
     $('.search').select2({
         width: '100%',
         closeOnSelect: true,
         minimumInputLength: 2,
-        placeholder: 'جستجوی فروشگاه ...',
+        placeholder: 'جستجوی فروشگاه و محصول...',
         language: "fa",
         dir: "rtl",
         ajax: {
@@ -131,15 +130,27 @@
             dataType: 'json',
             delay: 250,
             processResults: function (data) {
-                return {
-                    results: $.map(data, function (item) {
-                        return {
-                            text:"فروشگاه " + item.shop + " " + (item.branch != null ? item.branch : ""),
-                            id: item.id,
-                            value: item.shop_slug + "/" + item.branch_slug
-                        }
-                    })
-                };
+                if (data.beta == 1) {
+                    return {
+                        results: $.map(data.data, function (item) {
+                            return {
+                                text: item.product_name + " // " + "در فروشگاه " + item.shop + "  //  " + "از دسته : " + "  " + item.category,
+                                id: item.id,
+                                value: item.slug + "/" + item.branch,
+                            }
+                        })
+                    };
+                }if(data.beta == 2){
+                    return {
+                        results: $.map(data.data, function (item) {
+                            return {
+                                text:"فروشگاه " + item.shop + " // " + "از دسته بندی : " + "  " + item.category,
+                                id: item.id,
+                                value: item.shop_slug + "/" + item.branch_slug,
+                            }
+                        })
+                    };
+                }
             },
             cache: true,
         }
@@ -148,6 +159,8 @@
     });
 
 </script>
+
 @yield('extra_js')
+
 </body>
 </html>

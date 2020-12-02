@@ -113,17 +113,4 @@
         </div>
     </div>
 
-{{--    <div class="container">--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-12 col-lg-4">--}}
-{{--                <iframe width="460" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"--}}
-{{--                        id="gmap_canvas"--}}
-{{--                        src="https://maps.google.com/maps?width=460&amp;height=300&amp;hl=en&amp;q=%20%D8%AA%D9%87%D8%B1%D8%A7%D9%86+(%D9%86%D8%B4%D8%A7%D9%86%DB%8C%20%D9%85%D8%A7)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>--}}
-{{--                <a href='https://addmap.net/'>how to add google maps to a website</a>--}}
-{{--                <script type='text/javascript'--}}
-{{--                        src='https://maps-generator.com/google-maps-authorization/script.js?id=2d5fc4cb127e2ac6f3c4abfab5246aba5dee27e6'></script>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
 @endsection

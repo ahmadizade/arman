@@ -58,27 +58,3 @@
     </div>
 
 @endsection
-
-@section('extra_js')
-    <script>
-        $(document).ready(function(){
-
-/*            $("#online-payment-gold").on("click",function(e){
-                $(this).append("<span class='fa fa-spinner fa-spin font-16 mr-2'></span>");
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route("profile_gold_online_action") }}",
-                    success: function (result) {
-                        if(result.errors == 1){
-                            $("#online-payment-gold").html("پرداخت آنلاین");
-                        }else if(result.errors == 0){
-                            //samanBankPayment({MID:12291850,CellNumber:"{{ Auth::user()->mobile ?? '' }}",ResNum:result.ref,Amount:result.total,RedirectURL:"{{ request()->root() }}/shop/verify-online-payment"});
-                        }
-                    }
-                });
-                e.preventDefault();
-            });*/
-
-        });
-    </script>
-@endsection

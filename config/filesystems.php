@@ -62,6 +62,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'qrcode' => [
+            'driver' => 'local',
+            'root' => public_path('/images/qrcode'),
+            'url' => env('APP_URL') . '/images/qrcode',
+            'visibility' => 'public',
+        ],
+
         'logo' => [
             'driver' => 'local',
             'root' => public_path('/images/shop/logo'),

@@ -78,6 +78,8 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::post('/edit-action', 'App\Http\Controllers\ProfileController@ProfileEditAction')->name("profile_edit_action");
     Route::get('/gold', 'App\Http\Controllers\ProfileController@ProfileGold')->name("profile_gold");
     Route::post('/gold-online-action', 'App\Http\Controllers\ProfileController@ProfileGoldOnlineAction')->name("profile_gold_online_action");
+    Route::get('/cart-transfer', 'App\Http\Controllers\ProfileController@CartTransfer')->name("profile_cart_transfer");
+    Route::post('/cart-transfer-action', 'App\Http\Controllers\ProfileController@CartTransferAction')->name("profile_cart_transfer_action");
     Route::get('/store', 'App\Http\Controllers\ProfileController@Store')->name("profile_store");
     Route::get('/store-bio', 'App\Http\Controllers\ProfileController@StoreBio')->name("profile_bio");
     Route::post('/store-bio-action', 'App\Http\Controllers\ProfileController@StoreBioAction')->name("profile_bio_action");
@@ -110,5 +112,5 @@ Route::prefix("shop")->group(function () {
 
 
 //bank
-Route::post('/incoming', 'App\Http\Controllers\PaymentController@BackBank')->name("back_bank");
-Route::post('/incoming-credit', 'App\Http\Controllers\ProfileController@CreditBack')->name("credit_back");
+Route::post('/incoming-gold', 'App\Http\Controllers\PaymentController@BackBankGold')->name("back_bank");
+Route::post('/incoming-credit', 'App\Http\Controllers\PaymentController@CreditBack')->name("credit_back");

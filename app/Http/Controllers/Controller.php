@@ -11,7 +11,9 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Morilog\Jalali\Jalalian;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class Controller extends BaseController
 {
@@ -124,5 +126,13 @@ class Controller extends BaseController
 
     }
 
+    public static function makeQrcode($user_id){
+
+        if(!Storage::disk('qrcode')->has(self::membershipNumberEncode($user_id).'.svg')){
+            $image =  QrCode::size(500)->generate($user_id);
+            Storage::disk('qrcode')->put(self::membershipNumberEncode($user_id).'.svg',$image);
+        }
+
+    }
 
 }

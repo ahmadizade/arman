@@ -928,8 +928,6 @@
     </script>
     <script>
         $(document).ready(function () {
-////nature hide DOM in start page
-//             $('.legal-box , .person-box').hide();
             $('#nature').on('change', function () {
                 if ($('#nature').val() == 1) {
                     $('.person-box').removeClass('d-none');

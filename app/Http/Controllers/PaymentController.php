@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
+use App\Models\Setting;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use SoapClient;
 
@@ -68,7 +70,7 @@ class PaymentController extends Controller
     public static function PaymentGold(){
 
         $invoice_number = Str::random(4)."_".Auth::id();
-        $amount = 10000;
+        $amount = Setting::first()->gold_payment;
 
         $_SESSION['merchantId'] = self::MerchantId;
         $_SESSION['sha1Key'] = self::sha1Key;
@@ -77,7 +79,7 @@ class PaymentController extends Controller
         $_SESSION['PayOrderId'] = $invoice_number;
         $_SESSION['fullname'] = Auth::user()->name ?? '';
         $_SESSION['email'] = Auth::user()->email ?? '';
-        $revertURL = 'http://localhost:8000/incoming';
+        $revertURL = 'http://localhost:8000/incoming-gold';
 
         $client = new SoapClient('https://ikc.shaparak.ir/XToken/Tokens.xml', array('soap_version'   => SOAP_1_1));
 
@@ -109,7 +111,7 @@ class PaymentController extends Controller
 
     }
 
-    public function BackBank(Request $request){
+    public function BackBankGold(Request $request){
 
         if(isset($request->token) && isset($request->merchantId) && isset($request->InvoiceNumber) && isset($request->amount)){
 
@@ -171,6 +173,96 @@ class PaymentController extends Controller
         }
 
         return redirect()->route("profile_gold")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
+
+    }
+
+    public function CreditBack(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
+        if(isset($request->token) && isset($request->merchantId) && isset($request->InvoiceNumber) && isset($request->amount)){
+            if($request->merchantId == self::MerchantId && $request->resultCode === "100" && isset($request->referenceId) && isset($request->cardNo) && isset($request->cno)){
+                $checkMerchantId = explode("_",$request->InvoiceNumber);
+                $user_id = $checkMerchantId[1];
+                if(is_numeric($user_id) && $user_id > 0) {
+                    $payment = Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->first();
+                    if (isset($payment->id)) {
+
+                        Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
+                            "json_result_payment" => json_encode($request->all()),
+                            "reference_id" => $request->referenceId,
+                            "status" => "UNVERIFY",
+                        ]);
+
+                        //VERIFY
+                        $referenceId = isset($request->referenceId) ? $request->referenceId : 0;
+                        $client = new SoapClient('https://ikc.shaparak.ir/XVerify/Verify.xml', array('soap_version' => SOAP_1_1));
+                        $params['token'] = $request->token;
+                        $params['merchantId'] = $request->merchantId;
+                        $params['referenceNumber'] = $referenceId;
+                        $params['sha1Key'] = self::sha1Key;
+                        $result = $client->__soapCall("KicccPaymentsVerification", array($params));
+                        $result = ($result->KicccPaymentsVerificationResult);
+
+                        Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
+                            "json_result_verify" => json_encode($result),
+                        ]);
+
+                        if (floatval($result) > 0 && floatval($result) == floatval($payment->amount)) {
+
+                            $setting = Setting::first();
+                            $user = User::where('id', $user_id)->first();
+
+                            if ($user->user_mode == "gold"){
+                                $gift = $request->amount + ($request->amount * $setting->percent_gold);
+                                Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
+                                    "status" => "SUCCESS",
+                                    "credit" => $gift,
+                                    "type" => "PERCENT_GIFT_GOLD",
+                                ]);
+
+                                User::where("id", $user_id)->increment("credit",$gift);
+
+                                Session::flash("status",
+                                    '<div class="alert alert-success text-center mb-2">' . "پرداخت شما به مبلغ " .  number_format($request->amount) . " ریال با موفقیت انجام شد" . '</div>
+                                     <div class="alert alert-success text-center mb-2">' . "اعتبار شما به اضافه" . '<span class="text-danger">' . " 15% شارژ هدیه " . '</span>' . "به مبلغ " .  number_format($gift) . " ریال افزایش پیدا کرد" . '</div>'
+                                );
+                                return redirect()->route("profile_credit");
+
+                            }elseif ($user->user_mode == "normal"){
+                                $gift = $request->amount + ($request->amount * $setting->percent_gift);
+                                Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
+                                    "status" => "SUCCESS",
+                                    "credit" => $gift,
+                                ]);
+
+                                User::where("id", $user_id)->increment("credit",$gift);
+
+                                Session::flash("status",
+                                    '<div class="alert alert-success text-center mb-2">' . "پرداخت شما به مبلغ " .  number_format($request->amount) . " ریال با موفقیت انجام شد" . '</div>
+                                     <div class="alert alert-success text-center mb-2">' . "اعتبار شما به اضافه" . '<span class="text-danger">' . " 10% شارژ هدیه " . '</span>' . "به مبلغ " .  number_format($gift) . " ریال افزایش پیدا کرد" . '</div>'
+                                );
+                                return redirect()->route("profile_credit");
+                            }
+
+                        } else {
+                            return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
+                        }
+
+                    }
+
+                    return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
+
+                }
+
+                return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
+
+            }
+
+            return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
+
+        }
+
+        return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
 
     }
 

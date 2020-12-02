@@ -3,6 +3,7 @@
         <a href="{{ route("profile_index") }}" class="list-group-item list-group-item-action @if($menu == "index") active @endif">پیشخوان</a>
         <a href="{{ route("profile_store") }}" class="list-group-item list-group-item-action @if($menu == "store") active @endif"><i class="fas fa-cash-register text-blue font-17 pl-2"></i>فروشگاه من</a>
         <a href="{{ route("profile_credit") }}" class="list-group-item list-group-item-action @if($menu == "credit") active @endif"><i class="fas text-danger fa-credit-card font-14 pl-2"></i>دریافت اعتبار</a>
+        <a href="{{ route("profile_cart_transfer") }}" class="list-group-item list-group-item-action @if($menu == "cart_transfer") active @endif"><i class="fa text-danger fa-exchange font-14 pl-2"></i>فرم ثبت کارت به کارت</a>
         <a href="{{ route("profile_products") }}" class="list-group-item list-group-item-action @if($menu == "products") active @endif"><i class="fas fa-shopping-cart text-blue font-14 pl-2"></i>محصولات من</a>
         <a href="{{ route("profile_add_product") }}" class="list-group-item list-group-item-action @if($menu == "add_product") active @endif"><i class="fas fa-cart-plus text-blue font-14 pl-2"></i>افزودن محصول</a>
         <a href="{{ route("profile_bio") }}" class="list-group-item list-group-item-action @if($menu == "bio") active @endif"><i class="fas fa-file-alt text-blue font-14 pl-2"></i>بیوگرافی فروشگاه</a>

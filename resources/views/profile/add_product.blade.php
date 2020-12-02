@@ -131,60 +131,13 @@
                         </form>
                     </div>
                 </div>
-                @if(isset($products))
+                @if(isset($product))
                     <div class="row">
                         <div class="col-12">
                             <h2 class="mt-5">آخرین محصولات اضافه شده به سایت توسط شما</h2>
                             <hr class="my-2">
                         </div>
-                        @foreach($products as $product)
-                            <div class="col-12 col-lg-6">
-                                <div class="card shadow-sm mt-3">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4 d-flex align-self-center">
-                                            @if(is_null($product->image))
-                                                <img src="/images/no-image2.png" class="card-img"
-                                                     alt="No Image">
-                                            @else
-                                                <img src="{{ Storage::disk('vms')->url($product['image']) }}"
-                                                     class="card-img"
-                                                     alt="...">
-                                            @endif
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title mb-1 font-15 nowrap">@if($product->stock == 1) <span
-                                                        class="badge badge-secondary font-weight-normal">نو</span>  @else
-                                                        <span
-                                                            class="badge badge-secondary font-weight-normal">کارکرده</span>  @endif
-                                                    | {{ $product->product_name }}</h5>
-                                                <p class="card-text mb-1"><span
-                                                        class="text-muted font-12">قیمت:</span>
-                                                    <span class="font-18">{{ number_format($product->price) }}</span>
-                                                    @if($product->discount > 20) |
-                                                        <span class="badge badge-danger font-14 font-weight-normal">%{{$product->discount - 20}} تخفیف </span>
-                                                    @endif
-                                                </p>
-                                                <p class="card-text"><span
-                                                        class="text-muted font-12">موجودی:</span> {{$product->quantity}}
-                                                    عدد |
-                                                    <span
-                                                        class="text-muted font-12">تاریخ:</span><span> {{ \Morilog\Jalali\Jalalian::forge($product->created_at)->format("Y/m/d") }} </span>
-                                                </p>
-                                            </div>
-                                            <div class="card-footer">
-                                                <a href="#"
-                                                   class="text-danger pl-3 delete" data-id="{{ $product->id }}">حذف</a>
-                                                <a href="{{route('profile_edit_product',["id" => $product->id])}}"
-                                                   class="text-warning pl-3">ویرایش</a>
-                                                <a href=""
-                                                   class="text-success pl-3">مشاهده</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                        @include('profile.my_products')
                     </div>
                 @endif
             </div>

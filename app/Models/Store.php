@@ -16,4 +16,8 @@ class Store extends Model
     {
         return $this->hasMany("App\Models\Report", "store_id", "id");
     }
+    public function user()
+    {
+        return $this->belongsTo("App\Models\User", "user_id", "id");
+    }
 }

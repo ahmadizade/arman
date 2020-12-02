@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bookmark;
+use App\Models\CartTransfer;
 use App\Models\Category;
 use App\Models\Category_variety;
+use App\Models\Like;
 use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Profile;
@@ -26,13 +28,24 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
 use SoapClient;
+use function PHPUnit\Framework\isEmpty;
 
 class ProfileController extends Controller
 {
 
     public function Index()
     {
-        return view("profile.index", ["user" => Auth::user(), "menu" => "index"]);
+        if (Auth::check()) {
+            $store = Store::where('user_id', Auth::id())->first();
+            if (isEmpty($store) && $store == "") {
+                return view("profile.index", ["user" => Auth::user(), "menu" => "index"]);
+            } else {
+                $like = Like::where('store_id', $store->id)->count();
+                return view("profile.index", ["user" => Auth::user(), "like" => $like, "store" => $store, "menu" => "index"]);
+            }
+        } else {
+            return redirect()->to(route('home'));
+        }
     }
 
     public function Store(Request $request)
@@ -339,19 +352,17 @@ class ProfileController extends Controller
 
     public function Products()
     {
-
         $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->paginate(20);
-
-        return view('profile.products', ["product" => $product, "menu" => "products"]);
-
+        $count = Product::where('user_id', Auth::id())->where('status', 1)->count();
+        return view('profile.products', ["product" => $product, "count" => $count, "menu" => "products"]);
     }
 
     public function AddProduct()
     {
 
-        $products = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->limit(6)->get();
+        $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->paginate(2);
 
-        return view('profile.add_product', ["user" => Auth::user(), "products" => $products, "menu" => "add_product"]);
+        return view('profile.add_product', ["user" => Auth::user(), "product" => $product, "menu" => "add_product"]);
 
     }
 
@@ -850,7 +861,8 @@ class ProfileController extends Controller
     public function ProfileCredit()
     {
         $user = User::where('id', Auth::id())->first();
-        return view('profile.credit', ["user" => $user, "menu" => "credit"]);
+        $payments = Payment::orderBy('created_at', 'desc')->where('user_id', Auth::id())->paginate(2);
+        return view('profile.credit', ["user" => $user, "payments" => $payments, "menu" => "credit"]);
     }
 
     public function CreditAction(Request $request)
@@ -859,7 +871,7 @@ class ProfileController extends Controller
 
         $credit = filter_var($request->credit, FILTER_SANITIZE_NUMBER_INT);
 
-        if ($credit >= 1000) {
+        if ($credit >= 10000) {
             if (!empty(Auth::user()->name)) {
 
                 $invoice_number = Str::random(4) . "_" . Auth::id();
@@ -894,7 +906,7 @@ class ProfileController extends Controller
                     "invoice_number" => $invoice_number,
                     "amount" => $amount,
                     "status" => "PENDING",
-                    "type" => "Percent_Gift",
+                    "type" => "PERCENT_GIFT",
                     "json_result_payment" => "",
                     "json_result_verify" => "",
                     "token" => $result->MakeTokenResult->token,
@@ -903,7 +915,7 @@ class ProfileController extends Controller
                 PaymentController::redirect_post('https://ikc.shaparak.ir/TPayment/Payment/index', $data);
             } else {
                 Session::flash("error",
-                    '<div class="alert alert-danger text-center mb-2">' . "متاسفانه همچنان فرم " . '<a target="_blank" class="text-primary" href='. route("profile_edit") .'>' . "تنظیمات کاربری" .'</a>'. " را تکمیل نکرده اید" .'</div>' );
+                    '<div class="alert alert-danger text-center mb-2">' . "متاسفانه همچنان فرم " . '<a target="_blank" class="text-primary" href=' . route("profile_edit") . '>' . "تنظیمات کاربری" . '</a>' . " را تکمیل نکرده اید" . '</div>');
                 return back();
             }
         } else {
@@ -912,84 +924,39 @@ class ProfileController extends Controller
         }
     }
 
-    public function CreditBack(Request $request){
+    public function CartTransfer()
+    {
+
+        return view("profile.cart_transfer", ["menu" => "cart_transfer"]);
+
+    }
+
+    public function CartTransferAction(Request $request)
+    {
+
         $request = $request->replace(self::faToEn($request->all()));
-        if(isset($request->token) && isset($request->merchantId) && isset($request->InvoiceNumber) && isset($request->amount)){
-            if($request->merchantId == self::MerchantId && $request->resultCode === "100" && isset($request->referenceId) && isset($request->cardNo) && isset($request->cno)){
-                $checkMerchantId = explode("_",$request->InvoiceNumber);
-                $user_id = $checkMerchantId[1];
-                if(is_numeric($user_id) && $user_id > 0) {
-                    $payment = Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->first();
-                    if (isset($payment->id)) {
-                        Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
-                            "json_result_payment" => json_encode($request->all()),
-                            "reference_id" => $request->referenceId,
-                            "status" => "UNVERIFY",
-                        ]);
-                        //VERIFY
-                        $referenceId = isset($request->referenceId) ? $request->referenceId : 0;
-                        $client = new SoapClient('https://ikc.shaparak.ir/XVerify/Verify.xml', array('soap_version' => SOAP_1_1));
-                        $params['token'] = $request->token;
-                        $params['merchantId'] = $request->merchantId;
-                        $params['referenceNumber'] = $referenceId;
-                        $params['sha1Key'] = self::sha1Key;
-                        $result = $client->__soapCall("KicccPaymentsVerification", array($params));
-                        $result = ($result->KicccPaymentsVerificationResult);
-                        Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
-                            "json_result_verify" => json_encode($result),
-                        ]);
-                        if (floatval($result) > 0 && floatval($result) !== floatval($payment->amount)) {
-                            $setting = Setting::get();
-                            $user = User::where('id', $user_id)->first();
-                            if ($user->user_mode == "gold"){
-                                $gift = $request->amount + $request->amount * $setting[0]->percent_gold;
-                                Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
-                                    "status" => "SUCCESS",
-                                    "credit" => $gift,
-                                    "type" => "Percent_Gift_gold",
-                                ]);
-                                User::where("id", $user_id)->update([
-                                    "credit" => $user->credit + $gift,
-                                ]);
-                                 Session::flash("status",
-                                     '<div class="alert alert-success text-center mb-2">' . "پرداخت شما به مبلغ " .  number_format($request->amount) . " ریال با موفقیت انجام شد" . '</div>
-                                     <div class="alert alert-success text-center mb-2">' . "اعتبار شما به اضافه" . '<span class="text-danger">' . " 15% شارژ هدیه " . '</span>' . "به مبلغ " .  number_format($gift) . " ریال افزایش پیدا کرد" . '</div>'
-                                 );
-                                return redirect()->route("profile_credit");
-                            }elseif ($user->user_mode == "normal"){
-                                $gift = $request->amount + $request->amount * $setting[0]->percent_gift;
-                                Payment::where("user_id", $user_id)->where("invoice_number", $request->InvoiceNumber)->where("amount", $request->amount)->update([
-                                    "status" => "SUCCESS",
-                                    "credit" => $gift,
-                                ]);
-                                User::where("id", $user_id)->update([
-                                    "credit" => $user->credit + $gift,
-                                ]);
-                                Session::flash("status",
-                                    '<div class="alert alert-success text-center mb-2">' . "پرداخت شما به مبلغ " .  number_format($request->amount) . " ریال با موفقیت انجام شد" . '</div>
-                                     <div class="alert alert-success text-center mb-2">' . "اعتبار شما به اضافه" . '<span class="text-danger">' . " 10% شارژ هدیه " . '</span>' . "به مبلغ " .  number_format($gift) . " ریال افزایش پیدا کرد" . '</div>'
-                                );
-                                return redirect()->route("profile_credit");
-                            }
-                        } else {
-                            return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
-                        }
 
-                    }
+        $request->validate([
+            'bank' => 'required|min:3|max:255',
+            'tracking' => 'required|min:3|max:255',
+            'amount' => 'required',
+            'date' => 'required|min:3|max:255',
+            'time' => 'required|min:3|max:255',
+            'desc' => 'required|min:5|max:255',
+        ]);
 
-                    return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
+        CartTransfer::create([
+            "bank" => $request->bank,
+            "tracking" => $request->tracking,
+            "date" => $request->date,
+            "time" => $request->time,
+            "desc" => $request->desc,
+            "status" => "PENDING"
+        ]);
 
-                }
+        session()->flash("status", "فرم شما با موفقیت ثبت شد. پس از تایید تراکنش توسط پشتیبانی , اعتبار شما افزایش خواهد یافت");
 
-                return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
-
-            }
-
-            return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
-
-        }
-
-        return redirect()->route("profile_credit")->withErrors("عملیات پرداخت بانکی با موفقیت انجام نشد");
+        return back();
 
     }
 

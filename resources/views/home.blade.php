@@ -74,251 +74,38 @@
             <!--< mid shape>-->
         </div>
     </div>
+<!-- Application -->
+    <div class="container mt-3">
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center mt-3">
+                <img src="images/home/stand-2.svg" alt="CIOCE" class="img-fluid ml-5">
+                <p>اینجا کلی وب سایت و پلاگین وردپرس و پنل های رایگان و سرویسای توپ مجانی هست، همشونم رایگان، حالا اینا که چیزی نیست!! میتونی کنار ما کلی پول در بیاری</p>
+                <p>می تونی وب سایت رایگان از ما بگیری و واست رایگان راه اندازیش کنیم، هیچی پولم ازت نمی گیریم که هیچ، تازه پشتیبانیتم می کنیم</p>
+            </div>
+            <div class="col-md-4 text-center mt-3">
+                <img src="images/home/mobile2.png" alt="Bazar Tahator Iranian" class="img-fluid mb-4">
+            </div>
+            <div class="col-md-4 text-center mt-3">
+                <img src="images/home/walk.svg" alt="CIOCE" class="img-fluid">
+                <img src="images/home/sit.svg" alt="CIOCE" class="img-fluid ml-5 mr-5">
+                <p>می تونی سایت بسازی ، پلاگین بسازی، عکس درست کنی و کلی چیزای دیگه ، همشم بزاری رایگان اینجا بفروشی</p>
+                <p>میتونی پنل کیو آر کد رایگان بگیری ازمون و کلی پنل رایگان دیگه، تازه می تونی اینجا سرمایه گذار واسه وب سایتت پیدا کنی</p>
+                <p>حتی می تونی روی وب سایت های توی سایت سرمایه گذاری کنی و تو سود اونا شریک بشی</p>
+            </div>
+            <!--< mid shape>-->
+            <div class="col-12 mt-4">
+                <div class="mid-shape mt-4">
+                    <div class="mid-shapemask"></div>
+                    <span><i><a href="index.html"><img class="logo-shape" src="images/logo/logo50px.png" alt=""></a></i></span>
+                </div>
+            </div>
+            <!--< mid shape>-->
+        </div>
+    </div>
 <!-- Free Website -->
-    @if(isset($lastProduct))
-        <div class="container mt-3">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 my-3">
-                    <h2 class="title-default green"><span>وبسایت های رایگان</span></h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-container">
-                        <div class="owl-carousel owl-theme owl">
-                            @foreach($lastProduct as $product)
-                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
-                                    <div class="slider-desc text-center overflow-hidden">
-                                        <div class="item">
-                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
-                                                @if(is_null($product->image))
-                                                    <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
-                                                @else
-                                                    <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI" class="img-fluid">
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="price-box rtl">
-                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
-                                            @if($product->discount > 20)
-                                                <div>
-                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
-                                                </div>
-                                            @else
-                                                <div class="mt-1">
-                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
 
-<!-- Store Website -->
-    @if(isset($lastProduct))
-        <div class="container mt-3">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 my-3">
-                    <h2 class="title-default green"><span>وبسایت های فروشگاهی</span></h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-container">
-                        <div class="owl-carousel owl-theme owl">
-                            @foreach($lastProduct as $product)
-                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
-                                    <div class="slider-desc text-center overflow-hidden">
-                                        <div class="item">
-                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
-                                                @if(is_null($product->image))
-                                                    <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
-                                                @else
-                                                    <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI" class="img-fluid">
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="price-box rtl">
-                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
-                                            @if($product->discount > 20)
-                                                <div>
-                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
-                                                </div>
-                                            @else
-                                                <div class="mt-1">
-                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-<!-- Wordpress Website -->
-    @if(isset($lastProduct))
-        <div class="container mt-3">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 my-3">
-                    <h2 class="title-default green"><span>وب سایت های رایگان</span></h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-container">
-                        <div class="owl-carousel owl-theme owl">
-                            @foreach($lastProduct as $product)
-                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
-                                    <div class="slider-desc text-center overflow-hidden">
-                                        <div class="item">
-                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
-                                                @if(is_null($product->image))
-                                                    <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
-                                                @else
-                                                    <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI" class="img-fluid">
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="price-box rtl">
-                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
-                                            @if($product->discount > 20)
-                                                <div>
-                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
-                                                </div>
-                                            @else
-                                                <div class="mt-1">
-                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-    <!-- Wordpress Plugin -->
-    @if(isset($lastProduct))
-        <div class="container mt-3">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 my-3">
-                    <h2 class="title-default green"><span>وب سایت های رایگان</span></h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-container">
-                        <div class="owl-carousel owl-theme owl">
-                            @foreach($lastProduct as $product)
-                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
-                                    <div class="slider-desc text-center overflow-hidden">
-                                        <div class="item">
-                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
-                                                @if(is_null($product->image))
-                                                    <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
-                                                @else
-                                                    <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI" class="img-fluid">
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="price-box rtl">
-                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
-                                            @if($product->discount > 20)
-                                                <div>
-                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
-                                                </div>
-                                            @else
-                                                <div class="mt-1">
-                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-<!-- Web Picture -->
-    @if(isset($lastProduct))
-        <div class="container mt-3">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 my-3">
-                    <h2 class="title-default green"><span>وب سایت های رایگان</span></h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-container">
-                        <div class="owl-carousel owl-theme owl">
-                            @foreach($lastProduct as $product)
-                                <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
-                                    <div class="slider-desc text-center overflow-hidden">
-                                        <div class="item">
-                                            <div style="min-height: 260px;" class="row justify-content-center align-items-center">
-                                                @if(is_null($product->image))
-                                                    <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
-                                                @else
-                                                    <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="BTI" class="img-fluid">
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="price-box rtl">
-                                            <p class="mt-3 font-13 nowrap">{{ $product->product_name }}</p>
-                                            @if($product->discount > 20)
-                                                <div>
-                                                    <del class="font-14 mt-1 nowrap text-secondary">{{ number_format($product->price) }} <span class="font-12">ریال</span></del>
-                                                    <span class="badge badge-danger font-14 mt-1">{{ $product->discount - 20 }}<span>%</span></span>
-                                                    <p class="text-danger font-18 mt-1 nowrap">{{ number_format($product->price - (($product->price * ($product->discount - 20)) / 100)) }} <span class="font-12">ریال</span></p>
-                                                </div>
-                                            @else
-                                                <div class="mt-1">
-                                                    <span class="font-14 mt-1 nowrap text-danger">{{ number_format($product->price) }} <span class="font-12">ریال</span></span>
-                                                    <p class="text-danger font-13 mt-2 nowrap"><span class="fas fa-gift fa-lg"></span>  خرید با شارژ هدیه</p>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
+<!-- free Website -->
+@include('/product.free_products')
     <!-- Banner Fixed Background 2-->
     <div class="container-fluid">
         <div class="row flex-column justify-content-center align-items-center py-5" style="background: fixed center center url('/images/bg/s1.jpg'); height: 250px;background-repeat: no-repeat;background-size: cover;">
@@ -421,12 +208,12 @@
                 600: {
                     items: 3,
                     nav: false,
-                    margin: 10
+                    margin: 20
                 },
                 1000: {
                     items: 5,
                     nav: false,
-                    margin: 10
+                    margin: 30
                 }
             }
         });

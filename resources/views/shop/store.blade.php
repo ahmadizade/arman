@@ -133,6 +133,8 @@
                         {{ $result['about'] }}
                     </p>
                 @endif
+                <hr>
+                <div class="text-center"><img src="/images/qrcode/{{ $membershipNumber ?? 0 }}.svg" class="img-fluid" style="max-width: 120px" alt="qrcode"></div>
                 @if(strlen($result['address']) > 0)
                     <hr>
                     <h3><span class="fa fa-map-marker pl-2"></span>آدرس فروشگاه:</h3>
@@ -286,7 +288,12 @@
                     nav: false,
                     margin: 10
                 },
-                1000: {
+                900: {
+                    items: 4,
+                    nav: false,
+                    margin: 10
+                },
+                1200: {
                     items: 5,
                     nav: false,
                     margin: 10

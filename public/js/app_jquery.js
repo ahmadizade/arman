@@ -472,16 +472,23 @@ $(document).ready(function () {
         responsive: {
             0: {
                 items: 2,
-                nav: false
+                nav: false,
+                margin: 10
             },
             600: {
                 items: 3,
-                nav: false
-            },
-            1000: {
-                items: 6,
                 nav: false,
-                // loop: true,
+                margin: 10
+            },
+            900: {
+                items: 4,
+                nav: false,
+                margin: 10
+            },
+            1200: {
+                items: 5,
+                nav: false,
+                margin: 10
             }
         }
     });
@@ -498,17 +505,22 @@ $(document).ready(function () {
             0: {
                 items: 2,
                 nav: false,
-                margin:10
+                margin: 10
             },
             600: {
                 items: 3,
                 nav: false,
-                margin:10
+                margin: 10
             },
-            1000: {
+            900: {
+                items: 4,
+                nav: false,
+                margin: 10
+            },
+            1200: {
                 items: 5,
                 nav: false,
-                margin:10
+                margin: 10
             }
         }
     });
