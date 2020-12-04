@@ -1,16 +1,16 @@
-<!-- free Products -->
-@if(isset($freeproduct))
+<!-- Popular Products -->
+@if(isset($popularproduct))
     <div class="container mt-3">
         <div class="row align-items-center justify-content-center">
             <div class="col-12 my-3">
-                <h2 class="title-default green"><span>وب سایت های رایگان</span></h2>
+                <h2 class="title-default green"><span>پر بازدیدترین ها</span></h2>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="owl-container">
                     <div class="owl-carousel owl-theme owl">
-                        @foreach($freeproduct as $product)
+                        @foreach($popularproduct as $product)
                             <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
                                 <div class="slider-desc text-center overflow-hidden">
                                     <div class="item">

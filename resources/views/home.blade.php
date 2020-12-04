@@ -106,6 +106,9 @@
 
 <!-- free Website -->
 @include('/product.free_products')
+@include('/product.popular_products')
+@include('/product.cioce_products')
+
     <!-- Banner Fixed Background 2-->
     <div class="container-fluid">
         <div class="row flex-column justify-content-center align-items-center py-5" style="background: fixed center center url('/images/bg/s1.jpg'); height: 250px;background-repeat: no-repeat;background-size: cover;">
@@ -116,7 +119,6 @@
 {{--            </span>--}}
         </div>
     </div>
-
     <!-- Sections -->
     <div class="container mt-3">
         <div class="row">

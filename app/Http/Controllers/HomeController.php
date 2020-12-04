@@ -19,14 +19,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-//        $popularShop = Store::inRandomOrder()->orderBy('id' , 'desc')->orderBy('like' , 'desc')->limit(12)->get();
-        $popularShop = Store::orderBy('id' , 'asc')->limit(6)->get();
+//        $popularshop = Store::inRandomOrder()->orderBy('id' , 'desc')->orderBy('like' , 'desc')->limit(12)->get();
+        $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
 //        $randomShop = Store::inRandomOrder()->limit(12)->get();
         $randomShop = Store::orderBy('id' , 'asc')->limit(7)->get();
 //        $lastProduct = Product::orderBy('id' , 'desc')->limit(12)->get();
         $lastProduct = Product::orderBy('id' , 'asc')->limit(7)->get();
         $freeproduct = Product::orderBy('id' , 'desc')->where('free' , 1)->limit(10)->get();
-        return view('home' , ['freeproduct' => $freeproduct ,'popularShop' => $popularShop , 'randomShop' => $randomShop, 'lastProduct' => $lastProduct]);
+        return view('home' , ['freeproduct' => $freeproduct ,'popularproduct' => $popularproduct , 'randomShop' => $randomShop, 'lastProduct' => $lastProduct]);
     }
 
     public function contact(){
