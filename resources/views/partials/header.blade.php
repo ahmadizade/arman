@@ -1,7 +1,14 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-2 px-0 ltr">
-        <a href="#" class="navbar-brand font-weight-bold">
-            <img src="/images/logo/logo.png" alt="">
+        <a href="{{route('home')}}" class="navbar-brand">
+            <img class="img-fluid" style="max-width: 89px;" src="/images/logo/cioce-tet-logo.png" alt="CioCe">
+        </a>
+        <a href="{{route('cart_page')}}" class="m-0 p-0" title="سبد خرید"><i class="fas fa-cart-plus font-20 text-primary pt-1"></i>
+            @if(!empty(Illuminate\Support\Facades\Session::has('product') && count(Illuminate\Support\Facades\Session::get('product')) > 0))
+                <span class="badge font-11 badge-danger text-white m-0 p-1">
+                    {{count(Illuminate\Support\Facades\Session::get('product'))}}
+                </span>
+            @endif
         </a>
         <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"> <span class="navbar-toggler-icon"></span> </button>
         <div id="navbarContent" class="collapse navbar-collapse mt-3 mt-lg-0 rtl">

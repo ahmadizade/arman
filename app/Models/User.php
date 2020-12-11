@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function store(){
         return $this->hasOne("App\Models\Store", "user_id", "id");
     }
+
+    public function product(){
+        return $this->hasMany("App\Models\Product", "user_id", "id");
+    }
 }

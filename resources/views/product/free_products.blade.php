@@ -6,7 +6,7 @@
                 <div class="owl-container">
                     <div class="owl-carousel owl-theme owl">
                         @foreach($freeproduct as $product)
-                            <a href="{{ route("shop_product_single",["id" => $product->id]) }}">
+                            <a href="{{ route("single_product",["slug" => $product->product_slug]) }}">
                                 <div class="slider-desc text-center overflow-hidden">
                                     <div class="item">
                                         <div style="min-height: 200px;" class="row justify-content-center align-items-center">

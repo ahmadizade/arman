@@ -2,7 +2,7 @@
 <div class="container mt-3">
     <div class="row align-items-center justify-content-center">
         <div class="col-12 my-3">
-            <h2 class="title-default green"><span>پیشنهاد ما</span></h2>
+            <h2 class="title-default green"><span>پیشنهاد فوق العاده</span></h2>
         </div>
     </div>
     <div class="row">
@@ -13,7 +13,7 @@
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;" class="row justify-content-center align-items-center overflow-hidden">
-                                    <img src="{{url('/images/product/cioce_product/website-template-66149.jpg')}}"
+                                    <img style="max-height: 400px" src="{{url('/images/product/cioce_product/website-template-60525.jpg')}}"
                                          alt="CioCe.ir" class="img-fluid">
                                 </div>
                                 <div class="price-box rtl">
@@ -34,7 +34,7 @@
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;" class="row justify-content-center align-items-center overflow-hidden">
-                                    <img src="{{url('/images/product/cioce_product/website-template-71063.jpg')}}"
+                                    <img style="max-height: 400px" src="{{url('/images/product/cioce_product/website-template-63541.jpg')}}"
                                          alt="CioCe.ir" class="img-fluid">
                                 </div>
                                 <div class="price-box rtl">
@@ -55,7 +55,7 @@
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;;" class="row justify-content-center align-items-center overflow-hidden">
-                                    <img src="{{url('/images/product/cioce_product/website-template-16755.jpg')}}"
+                                    <img style="max-height: 400px" src="{{url('/images/product/cioce_product/website-template-82540.jpg')}}"
                                          alt="CioCe.ir" class="img-fluid">
                                 </div>
                                 <div class="price-box rtl">
@@ -76,7 +76,7 @@
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;;" class="row justify-content-center align-items-center overflow-hidden">
-                                    <img src="{{url('/images/product/cioce_product/website-template-23291.jpg')}}"
+                                    <img style="max-height: 400px" src="{{url('/images/product/cioce_product/website-template-23291.jpg')}}"
                                          alt="CioCe.ir" class="img-fluid">
                                 </div>
                                 <div class="price-box rtl">
@@ -98,7 +98,7 @@
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;;" class="row justify-content-center align-items-center overflow-hidden">
-                                    <img src="{{url('/images/product/cioce_product/website-template-24984.jpg')}}"
+                                    <img style="max-height: 400px" src="{{url('/images/product/cioce_product/website-template-24984.jpg')}}"
                                          alt="CioCe.ir" class="img-fluid">
                                 </div>
                                 <div class="price-box rtl">
@@ -119,7 +119,7 @@
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;;" class="row justify-content-center align-items-center overflow-hidden">
-                                    <img src="{{url('/images/product/cioce_product/website-template-25392.jpg')}}"
+                                    <img style="max-height: 400px" src="{{url('/images/product/cioce_product/website-template-16742.jpg')}}"
                                          alt="CioCe.ir" class="img-fluid">
                                 </div>
                                 <div class="price-box rtl">
@@ -140,7 +140,7 @@
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;" class="row justify-content-center align-items-center overflow-hidden">
-                                    <img src="{{url('/images/product/cioce_product/website-template-28885.jpg')}}"
+                                    <img style="max-height: 400px" src="{{url('/images/product/cioce_product/website-template-23291.jpg')}}"
                                          alt="CioCe.ir" class="img-fluid">
                                 </div>
                             </div>

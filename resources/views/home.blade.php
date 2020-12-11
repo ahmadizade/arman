@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
+    <title>صفحه اصلی | CioCe.ir</title>
 @endsection
 
 @section("content")
