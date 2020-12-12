@@ -197,15 +197,15 @@ input, select {
 
 .btn.btn-primary {
     font-family: iranyekan, icomoon, sans-serif !important;
-    background: #3498db;
-    border-color: #3498db;
+    background: #7d2ae8;
+    border-color: #7d2ae8;
     font-size: 14px;
     color: #fff;
 }
 
 .btn.btn-primary:hover {
-    background: #3498db;
-    border-color: #3498db;
+    background: #8d39fa;
+    border-color: #8d39fa;
     color: #fff;
 }
 

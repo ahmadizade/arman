@@ -1,13 +1,13 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>سبد خرید | CioCe</title>
+    <title>تکمیل فرایند خرید | CioCe</title>
 @endsection
 
 @section("content")
     <!-- Banner Fixed Background 2-->
     <div class="container">
-        <div class="row flex-column rounded justify-content-center align-items-center mx-1" style="background: center center url('/images/banner/tablet and others.webp'); height: 250px;background-repeat: no-repeat;background-size: cover;">
+        <div class="row flex-column rounded justify-content-center align-items-center mx-1" style="background: center center url('/images/banner/market.png'); height: 250px;background-repeat: no-repeat;background-size: cover;">
             <span class="font-30 text-center mt-3">
                 <span class="d-block text-black d-md-inline text-center">CioCe</span>
                 <div class="font-15 text-black-50 font-weight-bold">CioCe Web Pack For Everyone</div>
@@ -53,14 +53,23 @@
 {{--                                                    {{ $price = 0 }}--}}
 {{--                                                </div>--}}
 {{--                                                <div style="display: none">{{$price += $item->price}}</div>--}}
-                                                <p class="font-weight-bold">  مبلغ قابل پرداخت : <span class="badge badge-danger font-14 font-weight-normal">{{number_format($total_prices) ?? "0 ریال"}} ریال</span></p>
+                                                <p class="font-weight-bold">  مبلغ قابل پرداخت : <span class="badge badge-danger font-14 font-weight-normal">{{number_format(234234) ?? "0 ریال"}} ریال</span></p>
                                                 <p class="">  موجودی من : <span class="badge font-14 font-weight-normal">{{number_format(Auth::user()->credit) ?? "0 ریال"}} ریال</span></p>
-                                                <a href="{{route('before_buying')}}" class="btn btn-primary btn-sm" type="button"><i class="fas fa-shopping-cart text-white font-14 pl-1"></i>تکمیل فرایند خرید</a>
+                                                <a href="#" class="btn btn-success btn-sm" type="button"><i class="fas fa-shopping-cart text-white font-14 pl-1"></i>انتقال به بانک</a>
                                             </div>
                                             <div class="col-lg-4">
-
+                                                <a href="#" class="btn btn-primary btn-sm" type="button"><i class="fas fa-shopping-cart text-white font-14 pl-1"></i>شارژ کیف پول</a>
                                             </div>
                                             <div class="col-lg-4">
+                                                <form action="" method="post">
+                                                    <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text font-12">کد تخفیف</span>
+                                                    </div>
+                                                        <input type="text" name="legal_name" class="form-control" placeholder="">
+                                                    </div>
+                                                    <button class="btn btn-success btn-sm mt-2" type="submit"><i class="fas fa-check text-white font-14 pl-1"></i>تایید کد</button>
+                                                </form>
                                             </div>
 
                                         </div>

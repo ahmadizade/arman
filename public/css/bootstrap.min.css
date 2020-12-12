@@ -5507,8 +5507,8 @@ a.badge-dark.focus, a.badge-dark:focus {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #3498db;
-    border-color: #3498db
+    background-color: #00b8ff;
+    border-color: #50b9ff;
 }
 
 .list-group-item + .list-group-item {
@@ -6685,11 +6685,11 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-color: #3498db !important
+    background-color: #00b8ff !important
 }
 
 a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover {
-    background-color: #3498db !important
+    background-color: #00b8ff !important
 }
 
 .bg-secondary {

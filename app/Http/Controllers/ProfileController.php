@@ -414,13 +414,23 @@ class ProfileController extends Controller
             return back();
         }
     }
+
+    public function BeforeBuying(){
+        if (Session::has('product') && count(Session::get('product'))> 0 && Auth::check()){
+            return view('profile.before_buying' , ["menu" => "index"]);
+        }elseif (Session::has('product') && count(Session::get('product'))> 0 && Auth::guest()){
+            Session::flash('error' ,"اگر عضو سایت نیستید ثبت نام کنید در غیر این صورت ورود را بزنید");
+            return back();
+        }elseif (!Session::has('product') || count(Session::get('product')) == 0){
+            Session::flash('error' ,"سبد خرید شما خالی می باشد");
+            return back();
+        }
+    }
+
     public function AddProduct()
     {
-
         $product = Product::orderBy('id', 'desc')->where('user_id', Auth::id())->where('status', 1)->paginate(2);
-
         return view('profile.add_product', ["user" => Auth::user(), "product" => $product, "menu" => "add_product"]);
-
     }
 
     public function AddProductAction(Request $request)
