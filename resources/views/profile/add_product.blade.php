@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>ثبت محصول جدید | ثمین تخفیف</title>
+    <title>ثبت محصول جدید | فروشگاه سیوسه</title>
 @endsection
 
 @section("content")

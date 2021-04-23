@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>فرم پرداخت کارت به کارت | ثمین تخفیف</title>
+    <title>فرم پرداخت کارت به کارت | فروشگاه سیوسه</title>
 @endsection
 
 @section("content")
@@ -38,7 +38,7 @@
                                                 <span class="pr-1 font-weight-bold font-14">02126205777</span>
                                             </a>
                                         </p>
-                                        <p style="line-height: 5px"><span class="pr-5">به نام بازار تهاتر ایرانیان</span></p>
+                                        <p style="line-height: 5px"><span class="pr-5">به نام CioCe.ir</span></p>
                                         <hr class="mt-4">
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-6">
@@ -47,7 +47,7 @@
                                                 <span class="pr-1 font-weight-bold font-14">02126205777</span>
                                             </a>
                                         </p>
-                                        <p style="line-height: 5px"><span class="pr-5">به نام بازار تهاتر ایرانیان</span></p>
+                                        <p style="line-height: 5px"><span class="pr-5">به نام CioCe.ir</span></p>
                                         <hr class="mt-4">
                                     </div>
                                 </div>

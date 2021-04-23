@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>کاربر طلایی | ثمین تخفیف</title>
+    <title>کاربر طلایی | فروشگاه سیوسه</title>
 @endsection
 
 @section("content")

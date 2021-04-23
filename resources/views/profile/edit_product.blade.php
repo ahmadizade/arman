@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>ویرایش پست | ثمین تخفیف</title>
+    <title>ویرایش پست | فروشگاه سیوسه</title>
 @endsection
 
 @section("content")

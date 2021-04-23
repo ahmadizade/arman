@@ -58,7 +58,7 @@
                 <h3 class="card-title font-weight-bolder">طراحی وب سایت</h3>
                 <p>طراحی و ساخت وب سایت با جدیدترین روش های روز دنیا</p>
             </div>
-            <div class="col-6 col-lg-4 text-center mt-3">
+            <div class="col-12 col-lg-4 text-center mt-3">
                 <img id="add-store-btn" src="images/home/webdesign.png" alt="طراحی وب سایت"
                      class="img-fluid pointer-event mb-4">
                 <h3 class="card-title font-weight-bolder">میز کار</h3>
@@ -83,7 +83,7 @@
                 <p>می تونی وب سایت رایگان از ما بگیری و واست رایگان راه اندازیش کنیم، هیچی پولم ازت نمی گیریم که هیچ، تازه پشتیبانیتم می کنیم</p>
             </div>
             <div class="col-md-4 text-center mt-3">
-                <img src="images/home/mobile2.png" alt="Bazar Tahator Iranian" class="img-fluid mb-4">
+                <img src="images/home/mobile2.png" alt="Bazar cioce Iranian" class="img-fluid mb-4">
             </div>
             <div class="col-md-4 text-center mt-3">
                 <img src="images/home/walk.svg" alt="CIOCE" class="img-fluid">
@@ -124,7 +124,7 @@
         <div class="row">
             <div class="col-12 col-lg-3">
                 <div class="section bg-red">
-                    <div class="subject">پذیرندگان ثمین تخفیف</div>
+                    <div class="subject">پذیرندگان فروشگاه سیوسه</div>
                     <i class="fas fa-people-carry icon"></i>
                     <div class="desc">از کجا خرید کنم؟</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
@@ -158,7 +158,7 @@
                 <div class="section bg-blue">
                     <div class="subject">ثمین آموزش</div>
                     <i class="fa fa-graduation-cap icon"></i>
-                    <div class="desc">مشارکت در ثمین تخفیف و سررسید</div>
+                    <div class="desc">مشارکت در فروشگاه سیوسه و سررسید</div>
                     <a href="#" class="button">ادامه مطلب&nbsp;<i class="fa fa-chevron-left"></i></a>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("title")
-    <title>سامانه مدیریت کاربر | ثمین تخفیف</title>
+    <title>سامانه مدیریت کاربر | فروشگاه سیوسه</title>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -97,7 +97,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content bg-gradient-light">
                             <div class="modal-header bg-gradient-info border-bottom-info">
-                                <h5 class="text-white" style="font-size: 15px">Www.Bazarti.com</h5>
+                                <h5 class="text-white" style="font-size: 15px">www.CioCe.ir</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span>&times;</span>
                                 </button>
@@ -395,7 +395,7 @@
             ajax: {
                 dataType: 'json',
                 type: 'GET',
-                url: '/tahator/contact-us/get-user',
+                url: '/cioce/contact-us/get-user',
             },
             buttons: [
                 // 'copy', 'csv', 'excel', 'pdf', 'print'

@@ -40,5 +40,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('contact_us',$contact_us);
         });
 
+        View::composer('*', function ($view) {
+            $category = DB::table('category')->get();
+            $view->with('category',$category);
+        });
+
     }
 }

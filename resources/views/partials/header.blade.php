@@ -119,7 +119,7 @@
                         <div class="dropdown-menu dropdown-menu-right text-right font-13">
                             <a class="dropdown-item px-3"> اعتبار {{ number_format(Auth::user()->credit) }} ریال </a>
                             @if(Auth::check() && Auth::user()->role == "admin")
-                                <a href="{{ route("tahator") }}" class="dropdown-item px-3">پنل مدیریت</a>
+                                <a href="{{ route("cioce") }}" class="dropdown-item px-3">پنل مدیریت</a>
                             @endif
                             <a href="{{ route("profile_index") }}" class="dropdown-item px-3">پروفایل</a>
                             <a href="{{ route("logout") }}" class="dropdown-item px-3">خروج</a>
@@ -171,7 +171,7 @@
                                     <li><a class="nav-link text-success">
                                             اعتبار {{ number_format(Auth::user()->credit) }} ریال </a></li>
                                     @if(Auth::check() && Auth::user()->role == "admin")
-                                        <li><a href="{{ route("tahator") }}" class="nav-link">پنل مدیریت</a></li>
+                                        <li><a href="{{ route("cioce") }}" class="nav-link">پنل مدیریت</a></li>
                                     @endif
                                     <li><a href="{{ route("profile_index") }}" class="nav-link">پروفایل</a></li>
                                     <li><a href="{{ route("logout") }}" class="nav-link">خروج</a></li>

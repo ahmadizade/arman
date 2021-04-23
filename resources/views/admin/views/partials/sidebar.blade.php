@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">BAZARTI <sup>S.T</sup></div>
+        <div class="sidebar-brand-text mx-3">CioCe <sup>S.T</sup></div>
     </a>
 
     <!-- Divider -->
@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{route('tahator')}}">
+        <a class="nav-link" href="{{route('cioce')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -61,6 +61,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Product Management:</h6>
                 <a class="collapse-item font-weight-bolder" href="{{route('Store')}}">فروشگاه ها</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('Store')}}">محصولات ما</a>
                 <a class="collapse-item font-weight-bolder" href="{{route('Product')}}">محصولات ثبت شده</a>
                 <a class="collapse-item font-weight-bolder" href="#">مدیریت فروشگاه ها</a>
                 <a class="collapse-item font-weight-bolder" href="#">صفحه ثبت فروشگاه</a>

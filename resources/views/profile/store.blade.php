@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>فروشگاه | ثمین تخفیف</title>
+    <title>فروشگاه | فروشگاه سیوسه</title>
 @endsection
 
 @section('extra_css')
@@ -138,7 +138,7 @@
                                                     <span class="input-group-text font-12"><span
                                                             class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
                                             </div>
-                                            <input type="text" name="address" class="form-control" placeholder="مثلا : ولنجک، مقدس اردبیلی،میدان الف، بازار تهاتر ایرانیان"
+                                            <input type="text" name="address" class="form-control" placeholder="مثلا : ولنجک، مقدس اردبیلی،میدان الف، CioCe.ir"
                                                    value="{{ old("address") }}">
                                         </div>
                                     </div>
@@ -161,7 +161,7 @@
                                                         class="text-danger line-height-0 pl-1 font-15">*</span>نام فروشگاه</span>
                                             </div>
                                             <input name="legal_shop" type="text" class="form-control"
-                                                   placeholder="مثلا تهاتر ایرانیان"
+                                                   placeholder="مثلا فروشگاه CioCe"
                                                    value="{{ old("legal_shop") }}">
                                         </div>
                                     </div>
@@ -306,7 +306,7 @@
                                                     <span class="input-group-text font-12"><span
                                                                 class="text-danger line-height-0 pl-1 font-15">*</span>آدرس</span>
                                             </div>
-                                            <input type="text" name="legal_address" class="form-control" placeholder="مثلا : ولنجک، مقدس اردبیلی،میدان الف، بازار تهاتر ایرانیان"
+                                            <input type="text" name="legal_address" class="form-control" placeholder="مثلا : ولنجک، مقدس اردبیلی،میدان الف، CioCe.ir"
                                                    value="{{ old("legal_address") }}">
                                         </div>
                                     </div>
@@ -443,7 +443,7 @@
                                                     class="input-group-text font-12">نام فروشگاه</span>
                                                 </div>
                                                 <input name="legal_shop" type="text" class="form-control"
-                                                       placeholder="مثلا تهاتر ایرانیان"
+                                                       placeholder="مثلا فروشگاه CioCe"
                                                        value="{{ $result["shop"] }}">
                                             </div>
                                         </div>
@@ -707,7 +707,7 @@
                                                     class="input-group-text font-12">نام فروشگاه</span>
                                                 </div>
                                                 <input disabled name="legal_shop" type="text" class="form-control"
-                                                       placeholder="مثلا تهاتر ایرانیان"
+                                                       placeholder="مثلا فروشگاه CioCe"
                                                        value="{{ $result["shop"] }}">
                                             </div>
                                         </div>

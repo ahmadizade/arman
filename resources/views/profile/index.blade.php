@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>پیشخوان | ثمین تخفیف</title>
+    <title>پیشخوان | فروشگاه سیوسه</title>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" href="/css/chart.css">
@@ -106,8 +106,8 @@
             <span class="font-30 font-weight-bold py-3 px-5 rounded-sm mt-3 ">
                 <img src="{{ asset('images/logo/logo_100_50.png') }}" alt="logo"
                      class="img-fluid d-block d-md-inline mx-a">
-                <span class="d-block d-md-inline text-center">بازار تهاتر ایرانیان</span>
-                <div class="font-20 text-orange font-weight-bold bg-white py-1 px-5 rounded-sm mt-2 shadow-sm">اولین و تنها بازار تهاتری در ایران</div>
+                <span class="d-block d-md-inline text-center">CioCe.ir</span>
+                <div class="font-20 text-orange font-weight-bold bg-white py-1 px-5 rounded-sm mt-2 shadow-sm">فروشگاه اینترنتی سیویه</div>
             </span>
         </div>
     </div>

@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("title")
-    <title>بازار تهاتر ایرانیان | اعتبارات</title>
+    <title>CioCe.ir | اعتبارات</title>
 @endsection
 @section("extra_css")
 @endsection

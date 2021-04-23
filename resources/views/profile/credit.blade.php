@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>خرید اعتبار | ثمین تخفیف</title>
+    <title>خرید اعتبار | فروشگاه سیوسه</title>
 @endsection
 
 @section("content")

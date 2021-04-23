@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>بیوگرافی فروشگاه | ثمین تخفیف</title>
+    <title>بیوگرافی فروشگاه | فروشگاه سیوسه</title>
 @endsection
 
 @section("content")

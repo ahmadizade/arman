@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("shop")
-    <shop>سامانه مدیریت کاربر | ثمین تخفیف</shop>
+    <shop>سامانه مدیریت کاربر | فروشگاه سیوسه</shop>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -169,7 +169,9 @@
                                                 </select>
                                             </td>
                                             <td id="data-Edit">
-                                                <button class="btn text-white btn-sm bg-gradient-success" data-toggle="modal" data-target="#save">ذخیره</button>
+                                                <button class="btn text-white btn-sm bg-gradient-success"
+                                                        data-toggle="modal" data-target="#save">ذخیره
+                                                </button>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -178,6 +180,91 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        ثبت محصول
+                                    </div>
+                                    <div class="card-body">
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger mb-2">
+                                                <ul class="mb-0">
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @if(Session::has("status"))
+                                            <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
+                                        @endif
+                                        <form action="{{route('add_product')}}" method="POST" enctype="multipart/form-data">
+                                            <div class="row text-right">
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="category" class="form-label ">انتخاب دسته</label>
+                                                        <select name="category" class="form-control">
+                                                            @if(isset($category))
+                                                                @foreach($category as $item)
+                                                                    <option value="{{$item->id}}" @if($item->id == old('category')) selected @endif>
+                                                                        {{$item->name}}
+                                                                    </option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="name" class="form-label ">نام محصول</label>
+                                                        <input type="text" name="name" class="form-control" placeholder="مثلا : ساعت هوشمند سامسونگ">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="discount" class="form-label "> (لطفا مقدار درصد قرار ندهید)   تخفیف</label>
+                                                        <input type="text" name="discount" class="form-control" placeholder="مثلا : 20">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="price" class="form-label ">قیمت</label>
+                                                        <input type="text" name="price" class="form-control" placeholder="مثلا : 2,245,000">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="description" class="form-label ">توضیحات</label>
+                                                        <textarea cols="3" rows="4" type="text" name="description" class="form-control"></textarea>
+                                                    </div>
+                                                </div>
+                                                    <div class="col-12 col-md-6 col-lg-6 text-left">
+                                                        <div class="my-3">
+                                                            <label for="image" class="form-label text-success">عکس بزرگ</label>
+                                                            <input type="file" name="image">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-6 text-left">
+                                                        <div class="my-3">
+                                                            <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>
+                                                            <input type="file" name="thumbnail">
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="buttons text-right">
+                                                <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">ثبت محصول</button>
+                                                <a href="" class="a-button btn btn-danger btn-sm">حذف محصول</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -206,6 +293,9 @@
         </div>
     </div>
     {{--Save MODAL--}}
+
+
+
 
 @endsection
 @section("extra_js")

@@ -26,7 +26,7 @@ use Yajra\DataTables\Facades\DataTables;
 class AdminController extends Controller
 {
     //admin-page
-    public function tahator()
+    public function cioce()
     {
         $lastmonth = DB::table('users')->where('created_at', ">=", Carbon::today()->subMonth())->count();
         $lastweek = DB::table('users')->where('created_at', ">=", Carbon::today()->subWeek())->count();
@@ -41,7 +41,7 @@ class AdminController extends Controller
     }
 
     //admin-page-login
-    public function tahator_login()
+    public function cioce_login()
     {
         return view('admin.login');
     }
@@ -68,7 +68,7 @@ class AdminController extends Controller
     }
 
 
-    public function tahator_register()
+    public function cioce_register()
     {
         return view('admin.register');
     }
@@ -141,7 +141,7 @@ class AdminController extends Controller
         $name = $user->name;
         $view = 'from_admin';
         $subject = 'Www.SaminTakhfif.Com';
-        $title = 'پشتیبانی سایت ثمین تخفیف';
+        $title = 'پشتیبانی سایت فروشگاه سیوسه';
         self::email($email, $view, $content, $title, $subject);
     }
 
@@ -420,6 +420,58 @@ class AdminController extends Controller
             Product::where('id',$request->id)->update(array('status' => 0));
             return response()->json(['status' => "کالای مورد نظر غیر فعال شد"]);
         }
+    }
+
+    public function addProduct(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2|max:255',
+            'category' => 'required',
+            'price' => 'nullable|min:2|max:255',
+            'discount' => 'nullable|max:2',
+            'thumbnail' => 'required|max:2048',
+            'image' => 'required|max:2048',
+            'description' => 'nullable|min:3|max:9000000',
+        ]);
+        if ($validator->fails()){
+            session()->flash("error",$validator->errors()->first());
+            return back();
+        }
+        $image = null;
+        if ($request->has('image')) {
+            $imagePath = "/uploads/products/";
+            $file = $request->file('image');
+            $image = $file->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $image)) {
+                $image = Carbon::now()->timestamp . $image;
+            }
+            $file->move(public_path($imagePath), $image);
+        }
+        $thumbnail = null;
+        if ($request->has('thumbnail')) {
+            $imagePath = "/uploads/thumbnail/";
+            $image = $request->file('thumbnail');
+            $thumbnail = $image->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $thumbnail)) {
+                $thumbnail = Carbon::now()->timestamp . $thumbnail;
+            }
+            $image->move(public_path($imagePath), $thumbnail);
+        }
+        Product::create([
+           'product_name' => $request->name,
+           'product_slug' => self::slug($request->name),
+           'category_id' => $request->category,
+           'discount' => $request->discount,
+           'price' => str_replace(',', '' , $request->price),
+           'quantity' => 20000,
+           'mobile' => Auth::user()->mobile,
+           'user_id' => Auth::id(),
+           'product_desc' => $request->description,
+            'thumbnail' => $thumbnail,
+            "image" => $image,
+            "created_at" => Carbon::now(),
+        ]);
+        session()->flash("status","محصول با موفقیت ثبت گردید");
+        return back();
     }
 
 }

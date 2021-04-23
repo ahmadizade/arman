@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>کاربر طلایی | ثمین تخفیف</title>
+    <title>کاربر طلایی | فروشگاه سیوسه</title>
 @endsection
 
 @section("content")
@@ -53,8 +53,8 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-3">
                                         <p class="mb-0">
-                                            <a href="mailto:info@bazarti.com"><img src="/images/icon/email.png" alt="phone-contact" class="pl-2">
-                                                <span class="pr-1 font-weight-bold font-14">info@bazarti.com</span>
+                                            <a href="mailto:info@CioCe.ir"><img src="/images/icon/email.png" alt="phone-contact" class="pl-2">
+                                                <span class="pr-1 font-weight-bold font-14">info@CioCe.ir</span>
                                             </a>
                                         </p>
                                         <p style="line-height: 5px"><span class="pr-5">ایمیل پشتیبانی</span></p>

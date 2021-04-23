@@ -4,7 +4,7 @@
     @endif
 {{--@extends("admin.layouts.master")--}}
 {{--@section("title")--}}
-{{--    <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>--}}
+{{--    <title>CioCe.ir | فروشگاه سیوسه</title>--}}
 {{--@endsection--}}
 {{--@section("extra_css")--}}
 {{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">--}}

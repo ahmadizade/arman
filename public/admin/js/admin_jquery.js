@@ -7,7 +7,7 @@ $(document).ready(function () {
         language: "fa",
         dir: "rtl",
         ajax: {
-            url: '/tahator/credit-suggestion-action',
+            url: '/cioce/credit-suggestion-action',
             dataType: 'json',
             delay: 250,
             processResults: function (data) {
@@ -25,7 +25,7 @@ $(document).ready(function () {
     }).on('select2:selecting', function (e) {
         $.ajax({
             type: 'post',
-            url: '/tahator/credit-show-action',
+            url: '/cioce/credit-show-action',
             data: e.params.args.data,
             success(response) {
                 if (response['credit'] !== 0) {
@@ -49,7 +49,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: 'post',
-            url: '/tahator/credit-charge-action',
+            url: '/cioce/credit-charge-action',
             data: {'operation': $operation, 'user_id': $('#user_id').val(), 'new_credit': $('#new-credit').val()},
             success: function (response) {
                 if (response['sum'] == 'done') {
@@ -92,7 +92,7 @@ $(document).ready(function () {
         language: "fa",
         dir: "rtl",
         ajax: {
-            url: '/tahator/product/product-suggestion-action',
+            url: '/cioce/product/product-suggestion-action',
             dataType: 'json',
             delay: 250,
             processResults: function (data) {
@@ -110,7 +110,7 @@ $(document).ready(function () {
     }).on('select2:selecting', function (e) {
         $.ajax({
             type: 'post',
-            url: '/tahator/product/product-show-action',
+            url: '/cioce/product/product-show-action',
             data: e.params.args.data,
             success: function (data) {
                 $('#data-id').val(data['id'])
@@ -138,7 +138,7 @@ $(document).ready(function () {
             let status = $('#data-status').val();
             $.ajax({
                 type: 'post',
-                url: '/tahator/product/product-save-action',
+                url: '/cioce/product/product-save-action',
                 data: ({id: id, status: status}),
                 success: function (response) {
                     alert(response['status']);

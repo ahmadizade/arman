@@ -1,6 +1,6 @@
 @extends("/admin/views/layouts.master")
 @section("title")
-    <title>بازار تهاتر ایرانیان | ثمین تخفیف</title>
+    <title>CioCe.ir | فروشگاه سیوسه</title>
 @endsection
 @section("style")
     <style>
@@ -146,7 +146,7 @@
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content bg-gradient-light">
                                     <div class="modal-header bg-gradient-info border-bottom-info">
-                                        <h5 class="text-white" style="font-size: 15px">Www.Bazarti.com</h5>
+                                        <h5 class="text-white" style="font-size: 15px">www.CioCe.ir</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span>&times;</span>
                                         </button>

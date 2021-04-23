@@ -3,14 +3,14 @@
         <div class="row">
             <div class="rtl col-md-3 myfont">
                 <h2 class="footer-heading mb-4 text-center">درباره ما</h2>
-                <p class="text-right">بازار بزرگ تهاتر در سال 1394 کار خود را شروع کرد و در طول این چند سال
-                    پیشرفت های بزرگی در صنعت تهاتر و معاوضه داشته است.</p>
+                <p class="text-right">فروشگاه CioCe در سال 1396 کار خود را شروع کرد و در طول این چند سال
+                    پیشرفت های بزرگی در صنعت فروشگاه های آنلاین داشته است.</p>
             </div>
             <div class="col-md-3 mr-auto text-center myfont">
                 <h2 class="footer-heading mb-4">لینک های مرتبط</h2>
                 <ul class="list-unstyled">
                     <li><a href="#about-section" class="smoothscroll text-decoration-none">قوانین</a></li>
-                    <li><a href="#about-section" class="smoothscroll text-decoration-none">پاساژ برلیان</a></li>
+                    <li><a href="#about-section" class="smoothscroll text-decoration-none">تماس با ما</a></li>
                     <li><a href="#about-section" class="smoothscroll text-decoration-none">کاربر طلایی</a></li>
                     <li><a href="#contact-section" class="smoothscroll text-decoration-none">تماس با ما</a>
                     </li>
@@ -41,18 +41,20 @@
             <div class="col-md-12">
                 <div class="border-top pt-5">
                     <p class="copyright">
+{{--                        <small>--}}
+{{--                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>--}}
+{{--                            تمامی حقوق این سایت متعلق به CioCe.ir می باشد <i--}}
+{{--                                class="fa fa-exclamation-triangle text-primary"--}}
+{{--                                aria-hidden="true"></i> by <a--}}
+{{--                                href="https://CioCe.ir" target="_blank">www.CioCe.ir</a>--}}
+{{--                        </small>--}}
                         <small>
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                            تمامی حقوق این سایت متعلق به بازار تهاتر ایرانیان می باشد <i
-                                class="fa fa-exclamation-triangle text-primary"
-                                aria-hidden="true"></i> by <a
-                                href="https://bazarti.com" target="_blank">www.Bazarti.com</a>
+                            <p class="p-0 m-0">تمامی حقوق این وب سایت متعلق به فروشگاه اینترنتی  سیو سه می باشد</p>
+                            <p class="p-0 m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> / <a href="www.cioce.ir">www.cioce.ir</a></p>
                         </small>
                     </p>
-
                 </div>
             </div>
-
         </div>
     </div>
 </footer>

@@ -73,7 +73,7 @@
                                                     <p>
                                                         <span class="text-black font-weight-bold">فروشنده :</span>
                                                         @if(strlen($product->user->name > 0))
-                                                            <span>{{$product->user->name}}</span>
+                                                            <span>{{$product->user->name ?? ""}}</span>
                                                         @else
                                                             <span>ناشناس</span>
                                                         @endif

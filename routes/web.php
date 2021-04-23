@@ -14,8 +14,8 @@ Route::get('/verify-email', 'App\Http\Controllers\Controller@build_mail')->name(
 
 
 // admin
-Route::middleware(['admin'])->prefix("tahator")->group(function () {
-    Route::get('/', 'App\Http\Controllers\AdminController@tahator')->name("tahator");
+Route::middleware(['admin'])->prefix("admin")->group(function () {
+    Route::get('/', 'App\Http\Controllers\AdminController@cioce')->name("cioce");
     //User Manager
     Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user")->middleware("ajax", "verify.domain");
     Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user")->middleware("ajax", "verify.domain");
@@ -48,7 +48,8 @@ Route::middleware(['admin'])->prefix("tahator")->group(function () {
     Route::get('/product/get-store', 'App\Http\Controllers\AdminController@Product_GetStore')->name("Product_Get_store");
     Route::get('/product/product-suggestion-action', 'App\Http\Controllers\AdminController@product_SuggestionAction')->name("product_suggestion_action");
     Route::post('/product/product-show-action', 'App\Http\Controllers\AdminController@ProductShowAction')->name("product_show_action")->middleware("ajax", "verify.domain");
-    Route::post('/product/product-save-action', 'App\Http\Controllers\AdminController@ProductSaveAction')->name("product_save_action")->middleware("ajax", "verify.domain");
+    Route::post('/product/add-product', 'App\Http\Controllers\AdminController@addProduct')->name("add_product");
+
 });
 // admin
 

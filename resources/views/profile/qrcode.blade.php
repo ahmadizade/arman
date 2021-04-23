@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>نشان پرداخت | ثمین تخفیف</title>
+    <title>نشان پرداخت | فروشگاه سیوسه</title>
 @endsection
 
 @section("content")
@@ -29,7 +29,7 @@
                         @endif
                         <div class="row">
                             <div class="col-12 col-lg-12">
-                                <span class="text-muted d-block font-12 mb-2">با پر کردن فرم زیر میتوانید در وب سایت ثمین تخفیف انتقال وجه کنید</span>
+                                <span class="text-muted d-block font-12 mb-2">با پر کردن فرم زیر میتوانید در وب سایت فروشگاه سیوسه انتقال وجه کنید</span>
                                 <hr>
                                 <form id="transaction" method="post">
                                     <div class="row">
