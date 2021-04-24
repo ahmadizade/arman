@@ -14,7 +14,7 @@ Route::get('/verify-email', 'App\Http\Controllers\Controller@build_mail')->name(
 
 
 // admin
-Route::middleware(['admin'])->prefix("admin")->group(function () {
+Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::get('/', 'App\Http\Controllers\AdminController@cioce')->name("cioce");
     //User Manager
     Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user")->middleware("ajax", "verify.domain");
@@ -49,6 +49,7 @@ Route::middleware(['admin'])->prefix("admin")->group(function () {
     Route::get('/product/product-suggestion-action', 'App\Http\Controllers\AdminController@product_SuggestionAction')->name("product_suggestion_action");
     Route::post('/product/product-show-action', 'App\Http\Controllers\AdminController@ProductShowAction')->name("product_show_action")->middleware("ajax", "verify.domain");
     Route::post('/product/add-product', 'App\Http\Controllers\AdminController@addProduct')->name("add_product");
+    Route::get('/product/delete-product/{id}', 'App\Http\Controllers\AdminController@deleteProduct')->name("delete_product");
 
 });
 // admin

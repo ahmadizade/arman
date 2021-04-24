@@ -380,7 +380,8 @@ class AdminController extends Controller
 
     public function Product()
     {
-        return view('admin.views.product');
+        $last_product = Product::where('delete', 0)->orderByDesc('id')->limit(3)->get();
+        return view('admin.views.product', ['last_product' => $last_product]);
     }
 
     public function Product_GetStore(Request $request)
@@ -471,6 +472,15 @@ class AdminController extends Controller
             "created_at" => Carbon::now(),
         ]);
         session()->flash("status","محصول با موفقیت ثبت گردید");
+        return back();
+    }
+
+    public function deleteProduct($id){
+        Product::where('id' , $id)->update([
+            'delete' => 1,
+            'deleted_at' => Carbon::now(),
+        ]);
+        Session::flash('status' , 'حذف محصول با موفقیت انجام شد');
         return back();
     }
 

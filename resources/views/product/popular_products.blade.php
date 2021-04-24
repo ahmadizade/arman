@@ -15,10 +15,10 @@
                                 <div class="slider-desc text-center overflow-hidden">
                                     <div class="item">
                                         <div style="min-height: 200px;" class="row justify-content-center align-items-center">
-                                            @if(is_null($product->image))
+                                            @if(is_null($product->thumbnail))
                                                 <img src="/images/no-image2.png" alt="BTI" class="img-fluid">
                                             @else
-                                                <img src="{{Storage::disk('vms')->url($product['image'])}}" alt="CioCe.ir" class="img-fluid">
+                                                <img src="/uploads/thumbnail/{{$product->thumbnail}}" alt="CioCe.ir" class="img-fluid">
                                             @endif
                                         </div>
                                     </div>

@@ -185,7 +185,7 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12">
                                 <div class="card">
-                                    <div class="card-header">
+                                    <div class="card-header text-right">
                                         ثبت محصول
                                     </div>
                                     <div class="card-body">
@@ -261,10 +261,47 @@
                                         </form>
                                     </div>
                                 </div>
+
+
+                                <div class="card">
+                                    <div class="card-header text-right">
+                                        آخرین محصولات افزوده شده
+                                    </div>
+                                    <div class="card-body">
+                                        @if (isset($last_product))
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead class="table-light">
+                                                    <tr>
+                                                        <th>عکس</th>
+                                                        <th>نام محصول</th>
+                                                        <th>قیمت</th>
+                                                        <th>تخفیف</th>
+                                                        <th>تاریخ</th>
+                                                        <th>عملیات</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody class="border">
+                                                    @foreach($last_product as $item)
+                                                        <tr>
+                                                            <td><img class="img-fluid" src="/uploads/thumbnail/{{$item->thumbnail}}" style="max-width: 150px"></td>
+                                                            <td>{{$item->product_name}}</td>
+                                                            <td>{{number_format($item->price)}}</td>
+                                                            <td>{{$item->discount}}%</td>
+                                                            <td>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</td>
+                                                            <td><a href="{{route('delete_product' , $item->id)}}" class="btn btn-danger btn-sm">حذف</a></td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
