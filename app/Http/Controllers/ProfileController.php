@@ -368,20 +368,22 @@ class ProfileController extends Controller
 
     public function Card(Request $request)
     {
-        if (Auth::check() && Auth::id() > 0){
-            $product = Product::where('id', $request->id)->first();
-            if (Session::has('product') && count(Session::get('product')) > 0){
-                Session::push('product', $product);
-                Session::flash('status' , "کالای شما با موفقیت به سبد خرید افزوده شد");
-                return back();
-            }else{
-                Session::put('product', [$product]);
-                Session::flash('status' , "کالای شما با موفقیت به سبد خرید افزوده شد");
-                return back();
+        $product = Product::where('id', $request->id)->first();
+        if (Session::has('product') && count(Session::get('product')) > 0){
+            foreach (Session::get('product') as $item){
+                if ($item->id == $product->id) {
+                    Session::flash('error' , "این محصول را قبلا انتخاب کرده اید!");
+                    return back();
+                }else {
+                    Session::push('product', $product);
+                    Session::flash('status' , "کالای شما با موفقیت به سبد خرید افزوده شد");
+                    return back();
+                }
             }
-        }
-        if (Auth::guest()){
-            return "guest";
+        }else{
+            Session::put('product', [$product]);
+            Session::flash('status' , "کالای شما با موفقیت به سبد خرید افزوده شد");
+            return back();
         }
     }
 
@@ -405,16 +407,16 @@ class ProfileController extends Controller
                     Session::forget('product.' . $request->key);
                     Session::flash('status' , "حذف محصول از سبد خرید با موفقیت انجام شد");
                     return back();
-                }else{
+                }elseif (count(Session::get('product')) == 0){
                     Session::flash('error' , "این محصول در سبد خرید شما نیست");
                     return back();
                 }
             }
-        }elseif (count(Session::get('product')) == 0){
-            return back();
         }
     }
-
+    public function showSessionCart(){
+        return Session::get('product');
+    }
     public function BeforeBuying(){
         if (Session::has('product') && count(Session::get('product'))> 0 && Auth::check()){
             return view('profile.before_buying' , ["menu" => "index"]);

@@ -74,6 +74,7 @@ Route::middleware(['auth'])->prefix("profile")->group(function () {
     Route::get('/single-product/{slug}', 'App\Http\Controllers\ProfileController@SingleProduct')->name("single_product");
     Route::get('/card/{id}', 'App\Http\Controllers\ProfileController@Card')->name("card");
     Route::get('/cart-page', 'App\Http\Controllers\ProfileController@CartPage')->name("cart_page");
+    Route::get('/show_session_cart', 'App\Http\Controllers\ProfileController@showSessionCart')->name("show_session_cart");
     Route::get('/cart-product-delete/{key}', 'App\Http\Controllers\ProfileController@CartProductDelete')->name("cart_product_delete");
     Route::get('/before-buying', 'App\Http\Controllers\ProfileController@BeforeBuying')->name("before_buying");
     Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product");
