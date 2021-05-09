@@ -50,6 +50,7 @@ Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::post('/product/product-show-action', 'App\Http\Controllers\AdminController@ProductShowAction')->name("product_show_action")->middleware("ajax", "verify.domain");
     Route::post('/product/add-product', 'App\Http\Controllers\AdminController@addProduct')->name("add_product");
     Route::get('/product/delete-product/{id}', 'App\Http\Controllers\AdminController@deleteProduct')->name("delete_product");
+    Route::post('upload/tiny/image','App\Http\Controllers\UploadController@uploadImageDescription')->name('tiny.upload');
 
 });
 // admin

@@ -201,7 +201,7 @@
                                         @if(Session::has("status"))
                                             <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
                                         @endif
-                                        <form action="{{route('add_product')}}" method="POST" enctype="multipart/form-data">
+                                        <form id="make_product" action="{{route('add_product')}}" method="POST" enctype="multipart/form-data">
                                             <div class="row text-right">
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
@@ -238,7 +238,7 @@
                                                 <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="description" class="form-label ">توضیحات</label>
-                                                        <textarea cols="3" rows="4" type="text" name="description" class="form-control"></textarea>
+                                                        <textarea class="form-control textarea-editor" name="description" id="description" rows="10" aria-hidden="true" wfd-invisible="true"></textarea>
                                                     </div>
                                                 </div>
                                                     <div class="col-12 col-md-6 col-lg-6 text-left">
@@ -336,6 +336,11 @@
 
 @endsection
 @section("extra_js")
+    @include('admin.views.tinymce')
+    <script>
+        tinyMCE.triggerSave(true, true);
+        var dataForm = new FormData($("#make_product")[0]);
+    </script>
     <script src="/admin/js/admin_jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 @endsection
