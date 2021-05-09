@@ -6,7 +6,7 @@
 </div>
 <div class="form-group mb-0">
     <p class="text-left mb-0">
-        <a href="#" class="mt-3 text-primary" id="login-token-password">ارسال رمز یک بار مصرف</a>
+        <a href="{{route('home')}}" class="mt-3 text-primary" id="login-token-password">ارسال رمز یک بار مصرف</a>
     </p>
 </div>
 

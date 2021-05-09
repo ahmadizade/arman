@@ -41,7 +41,7 @@
                                             <tr class="text-center">
                                                 <td>{{ $i }}</td>
                                                 <td> <span class="text-muted font-11">فروشگاه</span> {{ $item->store->shop }} @if(strlen($item->store->branch) > 0) <span class="text-muted font-11">شعبه</span> {{ $item->store->branch }} @endif</td>
-                                                <td><a href="#" class="text-danger delete-bookmark" data-id="{{ $item->store_id }}">حذف</a></td>
+                                                <td><a href="{{route('home')}}" class="text-danger delete-bookmark" data-id="{{ $item->store_id }}">حذف</a></td>
                                             </tr>
                                         @endforeach
                                     </table>

@@ -9,7 +9,7 @@
         <div class="col-12">
             <div class="owl-container">
                 <div class="owl-carousel owl-theme owl">
-                    <a href="#">
+                    <a href="{{route('home')}}">
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;" class="row justify-content-center align-items-center overflow-hidden">
@@ -30,7 +30,7 @@
                         </div>
                     </a>
 
-                    <a href="#">
+                    <a href="{{route('home')}}">
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;" class="row justify-content-center align-items-center overflow-hidden">
@@ -51,7 +51,7 @@
                         </div>
                     </a>
 
-                    <a href="#">
+                    <a href="{{route('home')}}">
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;;" class="row justify-content-center align-items-center overflow-hidden">
@@ -72,7 +72,7 @@
                         </div>
                     </a>
 
-                    <a href="#">
+                    <a href="{{route('home')}}">
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;;" class="row justify-content-center align-items-center overflow-hidden">
@@ -94,7 +94,7 @@
                     </a>
 
 
-                    <a href="#">
+                    <a href="{{route('home')}}">
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;;" class="row justify-content-center align-items-center overflow-hidden">
@@ -115,7 +115,7 @@
                         </div>
                     </a>
 
-                    <a href="#">
+                    <a href="{{route('home')}}">
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;;" class="row justify-content-center align-items-center overflow-hidden">
@@ -136,7 +136,7 @@
                         </div>
                     </a>
 
-                    <a href="#">
+                    <a href="{{route('home')}}">
                         <div class="slider-desc text-center overflow-hidden">
                             <div class="item">
                                 <div style="width: 200px;" class="row justify-content-center align-items-center overflow-hidden">

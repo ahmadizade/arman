@@ -128,8 +128,8 @@
                                     <img class="img-fluid" src="/images/home/empty-cart.png" alt="سبد خرید خالی است">
                                     <p class="font-16">سبد خرید شما خالی است!</p>
                                     <p>می‌توانید برای مشاهده محصولات بیشتر به صفحات زیر بروید</p>
-                                    <p><a class="text-blue-light" href="#">پربازدید ترین ها</a> | <a
-                                            class="text-blue-light" href="#">پرفروش ترین ها</a></p>
+                                    <p><a class="text-blue-light" href="{{route('home')}}">پربازدید ترین ها</a> | <a
+                                            class="text-blue-light" href="{{route('home')}}">پرفروش ترین ها</a></p>
                                 </div>
                             </div>
                         </div>

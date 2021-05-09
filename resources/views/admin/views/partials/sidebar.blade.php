@@ -29,7 +29,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+        <a class="nav-link collapsed" href="{{route('home')}}" data-toggle="collapse" data-target="#collapseTwo"
            aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span class="font-weight-bolder">سامانه مدیریت کاربر</span>
@@ -51,7 +51,7 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+        <a class="nav-link collapsed" href="{{route('home')}}" data-toggle="collapse" data-target="#collapseUtilities"
            aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
             <span class="font-weight-bolder">مدیریت فروشگاه</span>
@@ -63,8 +63,8 @@
                 <a class="collapse-item font-weight-bolder" href="{{route('Store')}}">فروشگاه ها</a>
                 <a class="collapse-item font-weight-bolder" href="{{route('Product')}}">محصولات ما</a>
                 <a class="collapse-item font-weight-bolder" href="{{route('Product')}}">محصولات ثبت شده</a>
-                <a class="collapse-item font-weight-bolder" href="#">مدیریت فروشگاه ها</a>
-                <a class="collapse-item font-weight-bolder" href="#">صفحه ثبت فروشگاه</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('home')}}">مدیریت فروشگاه ها</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('home')}}">صفحه ثبت فروشگاه</a>
             </div>
         </div>
     </li>
@@ -79,7 +79,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+        <a class="nav-link collapsed" href="{{route('home')}}" data-toggle="collapse" data-target="#collapsePages"
            aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>مدیریت حساب</span>
@@ -88,26 +88,26 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Credit Management</h6>
                 <a class="collapse-item" href="{{route('credit')}}">اعتبارات</a>
-                <a class="collapse-item" href="#">Register</a>
-                <a class="collapse-item" href="#">Forgot Password</a>
+                <a class="collapse-item" href="{{route('home')}}">Register</a>
+                <a class="collapse-item" href="{{route('home')}}">Forgot Password</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="#">404 Page</a>
-                <a class="collapse-item" href="#">Blank Page</a>
+                <a class="collapse-item" href="{{route('home')}}">404 Page</a>
+                <a class="collapse-item" href="{{route('home')}}">Blank Page</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('home')}}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('home')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
     </li>

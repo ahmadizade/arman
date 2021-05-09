@@ -37,13 +37,13 @@
                                     <img style="max-width: 200px;" class="img-fluid"
                                          src="/uploads/thumbnail/{{$product->thumbnail}}">
                                     <div class="col-12 pt-1 text-center">
-                                        <a href="#" class="font-12 badge badge-secondary py-1 px-1" title="LIKE"><i
+                                        <a href="{{route('home')}}" class="font-12 badge badge-secondary py-1 px-1" title="LIKE"><i
                                                 class="fa fa-thumbs-up font-15" aria-hidden="true"></i></a>
-                                        <a href="#" class="font-12 badge badge-secondary py-1 px-1 mr-1"
+                                        <a href="{{route('home')}}" class="font-12 badge badge-secondary py-1 px-1 mr-1"
                                            title="Bookmark"><i class="fa fa-heart font-15" aria-hidden="true"></i></a>
-                                        <a href="#" class="font-12 badge badge-secondary py-1 px-1 mr-1"
+                                        <a href="{{route('home')}}" class="font-12 badge badge-secondary py-1 px-1 mr-1"
                                            title="Email"><i class="fa fa-envelope font-15" aria-hidden="true"></i></a>
-                                        <a href="#" class="font-12 badge badge-secondary py-1 px-1 mr-1"
+                                        <a href="{{route('home')}}" class="font-12 badge badge-secondary py-1 px-1 mr-1"
                                            title="Share"><i class="fa fa-share-alt font-15" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                                                        class="btn btn-sm btn-primary"> <i
                                                             class="fa fa-shopping-basket font-12"
                                                             aria-hidden="true"></i> افزودن به سبد خرید </a>
-                                                    <p class="mt-4"><a href="#" class="font-11 text-muted">گزارش تخلف و
+                                                    <p class="mt-4"><a href="{{route('home')}}" class="font-11 text-muted">گزارش تخلف و
                                                             خرابی لینک</a></p>
                                                 </div>
                                             </div>

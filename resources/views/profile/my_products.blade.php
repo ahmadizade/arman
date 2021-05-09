@@ -37,7 +37,7 @@
                                         </p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="#"
+                                        <a href="{{route('home')}}"
                                            class="text-danger pl-3 delete" data-id="{{ $item->id }}">حذف</a>
                                         <a href="{{route('profile_edit_product',["id" => $item->id])}}"
                                            class="text-warning pl-3">ویرایش</a>

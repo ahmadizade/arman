@@ -55,10 +55,10 @@
 {{--                                                <div style="display: none">{{$price += $item->price}}</div>--}}
                                                 <p class="font-weight-bold">  مبلغ قابل پرداخت : <span class="badge badge-danger font-14 font-weight-normal">{{number_format(234234) ?? "0 ریال"}} ریال</span></p>
                                                 <p class="">  موجودی من : <span class="badge font-14 font-weight-normal">{{number_format(Auth::user()->credit) ?? "0 ریال"}} ریال</span></p>
-                                                <a href="#" class="btn btn-success btn-sm" type="button"><i class="fas fa-shopping-cart text-white font-14 pl-1"></i>انتقال به بانک</a>
+                                                <a href="{{route('home')}}" class="btn btn-success btn-sm" type="button"><i class="fas fa-shopping-cart text-white font-14 pl-1"></i>انتقال به بانک</a>
                                             </div>
                                             <div class="col-lg-4">
-                                                <a href="#" class="btn btn-primary btn-sm" type="button"><i class="fas fa-shopping-cart text-white font-14 pl-1"></i>شارژ کیف پول</a>
+                                                <a href="{{route('home')}}" class="btn btn-primary btn-sm" type="button"><i class="fas fa-shopping-cart text-white font-14 pl-1"></i>شارژ کیف پول</a>
                                             </div>
                                             <div class="col-lg-4">
                                                 <form action="" method="post">
@@ -112,7 +112,7 @@
                                                                 </p>
                                                                     <a href="{{route('cart_product_delete' , ['key' => $key])}}" type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>
                                                                         حذف</a>
-                                                                    <a href="#" type="button" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i>
+                                                                    <a href="{{route('home')}}" type="button" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i>
 
                                                                         مشاهده</a>
                                                             </div>

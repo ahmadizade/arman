@@ -1,204 +1,825 @@
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-2 px-0 ltr">
-        <a href="{{route('home')}}" class="navbar-brand">
-            <img class="img-fluid" style="max-width: 89px;" src="/images/logo/cioce-tet-logo.png" alt="CioCe">
-        </a>
-        <a href="{{route('cart_page')}}" class="m-0 p-0" title="سبد خرید"><i class="fas fa-cart-plus font-20 text-primary pt-1"></i>
-            @if(!empty(Illuminate\Support\Facades\Session::has('product') && count(Illuminate\Support\Facades\Session::get('product')) > 0))
-                <span class="badge font-11 badge-danger text-white m-0 p-1">
-                    {{count(Illuminate\Support\Facades\Session::get('product'))}}
-                </span>
-            @endif
-        </a>
-        <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"> <span class="navbar-toggler-icon"></span> </button>
-        <div id="navbarContent" class="collapse navbar-collapse mt-3 mt-lg-0 rtl">
-            <ul class="navbar-nav pr-0 ml-auto">
-                <li class="nav-item"><a href="/" class="nav-link px-3 pr-0"><i class="fa fa-home font-19 fa-lg d-none d-sm-inline pl-2 text-primary"></i>صفحه اصلی</a></li>
-                <li class="nav-item dropdown megamenu"><a id="megamneu" href="" data-toggle="dropdown" class="nav-link dropdown-toggle px-3">دسته بندی</a>
-                    <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
-                        <div class="container">
-                            <div class="row w-100 bg-white rounded-0 m-0 mt-1 shadow">
-                                <div class="col-lg-12">
-                                    <div class="p-4">
-                                        <div class="row">
-                                            <div class="col-sm-6 col-lg-3 mb-3 text-right">
-                                                <h6 class="font-weight-bold font-13 text-uppercase">دسته بندی 1</h6>
-                                                <ul class="list-unstyled pr-0">
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-6 col-lg-3 mb-3 text-right">
-                                                <h6 class="font-weight-bold font-13 text-uppercase">دسته بندی 2</h6>
-                                                <ul class="list-unstyled pr-0">
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-6 col-lg-3 mb-3 text-right">
-                                                <h6 class="font-weight-bold font-13 text-uppercase">دسته بندی 3</h6>
-                                                <ul class="list-unstyled pr-0">
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-6 col-lg-3 mb-3 text-right">
-                                                <h6 class="font-weight-bold font-13 text-uppercase">دسته بندی 4</h6>
-                                                <ul class="list-unstyled pr-0">
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-right">
-                                                <h6 class="font-weight-bold font-13 text-uppercase">دسته بندی 5</h6>
-                                                <ul class="list-unstyled pr-0">
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-right">
-                                                <h6 class="font-weight-bold font-13 text-uppercase">دسته بندی 6</h6>
-                                                <ul class="list-unstyled pr-0">
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-right">
-                                                <h6 class="font-weight-bold font-13 text-uppercase">دسته بندی 7</h6>
-                                                <ul class="list-unstyled pr-0">
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0 text-right">
-                                                <h6 class="font-weight-bold font-13 text-uppercase">دسته بندی 8</h6>
-                                                <ul class="list-unstyled pr-0">
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link font-14 pt-0 pb-0">زیر دسته</a></li>
-                                                </ul>
+<!-- Start header -->
+<header class="main-header">
+    <!-- Start ads -->
+    <div class="ads-header-wrapper">
+        <a href="{{route('home')}}" class="ads-header hidden-sm" target="_blank"
+           style="background-image: url(/img/banner/large-ads.jpg)"></a>
+    </div>
+    <!-- End ads -->
+    <!-- Start topbar -->
+    <div class="container main-container">
+        <div class="topbar dt-sl">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="logo-area">
+                        <a href="{{route('home')}}">
+                            <img src="/img/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5 hidden-sm">
+                    <div class="search-area dt-sl">
+                        <form action="" class="search">
+                            <input type="text"
+                                   placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
+                            <i class="far fa-search search-icon"></i>
+                            <button class="close-search-result" type="button"><i
+                                    class="mdi mdi-close"></i></button>
+                            <div class="search-result">
+                                <ul>
+                                    <li>
+                                        <a href="{{route('home')}}">موبایل</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('home')}}">مد و پوشاک</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('home')}}">میکروفن</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('home')}}">میز تلویزیون</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6 topbar-left">
+                    <ul class="nav float-left">
+                        @if(!Auth::check())
+                            <li class="nav-item account dropdown">
+                                <a class="nav-link" href="{{route('register')}}">
+                                    <span class="label-dropdown">حساب کاربری</span>
+                                    <i class="mdi mdi-account-circle-outline"></i>
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav-item account dropdown">
+                                    <a class="nav-link" href="{{route('home')}}" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">
+                                    <span class="label-dropdown">
+                                        @if(Auth::user()->name == "")
+                                            {{ Auth::user()->mobile }}
+                                        @elseif(Auth::user()->name !== "")
+                                            {{ Auth::user()->name }}
+                                        @endif
+                                    </span>
+                                        <i class="mdi mdi-account-circle-outline"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-left">
+                                        <a class="dropdown-item" href="{{route('home')}}">
+                                            <i class="mdi mdi-account-card-details-outline"></i>پروفایل
+                                        </a>
+                                        <a class="dropdown-item" href="{{route('home')}}">
+                                            <span class="float-left badge badge-dark">۴</span>
+                                            <i class="mdi mdi-comment-text-outline"></i>پیغام ها
+                                        </a>
+                                        <a class="dropdown-item" href="{{route('home')}}">
+                                            <i class="mdi mdi-account-edit-outline"></i>ویرایش حساب کاربری
+                                        </a>
+                                        <div class="dropdown-divider" role="presentation"></div>
+                                        <a class="dropdown-item" href="{{route('home')}}">
+                                            <i class="mdi mdi-logout-variant"></i>خروج
+                                        </a>
+                                    </div>
+                                </li>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End topbar -->
+
+    <!-- Start bottom-header -->
+    <div class="bottom-header dt-sl mb-sm-bottom-header">
+        <div class="container main-container">
+            <!-- Start Main-Menu -->
+            <nav class="main-menu d-flex justify-content-md-between justify-content-end dt-sl">
+                <ul class="list hidden-sm">
+                    <!-- mega menu 2 column -->
+                    <li class="list-item list-item-has-children mega-menu mega-menu-col-2">
+                        <a class="nav-link" href="{{route('home')}}">کالای دیجیتال</a>
+                        <ul class="sub-menu nav">
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو پنج</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو شش</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو پنج</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو شش</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو هفت</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- mega menu 3 column -->
+                    <li class="list-item list-item-has-children mega-menu mega-menu-col-3">
+                        <a class="nav-link" href="{{route('home')}}">بهداشت و سلامت</a>
+                        <ul class="sub-menu nav">
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو پنج</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو شش</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو هفت</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
+                                            زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
+                                            زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
+                                            زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
+                                            زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
+                                            زیر منو پنج</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
+                                            زیر منو شش</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
+                                            زیر منو هفت</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-item">
+                                <a href="{{route('home')}}">
+                                    <img src="/img/theme/mega-menu.jpg" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- mega menu 4 column -->
+                    <li class="list-item list-item-has-children mega-menu mega-menu-col-4">
+                        <a class="nav-link" href="{{route('home')}}">ابزار و اداری</a>
+                        <ul class="sub-menu nav">
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو پنج</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو شش</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو هفت</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو هشت</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو نه</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو پنج</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو شش</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو هفت</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو پنج</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو شش</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- mega menu 5 column -->
+                    <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
+                        <a class="nav-link" href="">مد و پوشاک</a>
+                        <ul class="sub-menu nav">
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو پنج</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو شش</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو هفت</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو هشت</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو نه</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو پنج</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو شش</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو هفت</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو پنج</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو شش</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">عنوان دسته</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو چهار</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو پنج</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- dropdown-menu -->
+                    <li class="list-item list-item-has-children menu-col-1">
+                        <a class="nav-link" href="{{route('home')}}">خانه و آشپزخانه</a>
+                        <ul class="sub-menu nav">
+                            <li class="list-item">
+                                <a class="nav-link" href="{{route('home')}}">زیر منو یک</a>
+                            </li>
+                            <li class="list-item">
+                                <a class="nav-link" href="{{route('home')}}">زیر منو دو</a>
+                            </li>
+                            <li class="list-item list-item-has-children">
+                                <a class="nav-link" href="{{route('home')}}">زیر منو سه</a>
+                                <ul class="sub-menu nav">
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه - یک</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه - دو</a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="nav-link" href="{{route('home')}}">زیر منو سه - سه</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-item">
+                        <a class="nav-link" href="{{route('home')}}">ورزش و سفر</a>
+                    </li>
+                </ul>
+                <div class="nav">
+                    <div class="nav-item cart--wrapper">
+                        <a class="nav-link" href="{{route('home')}}">
+                            <span class="label-dropdown">سبد خرید</span>
+                            <i class="mdi mdi-cart-outline"></i>
+                            @if(!empty(Illuminate\Support\Facades\Session::has('product') && count(Illuminate\Support\Facades\Session::get('product')) > 0))
+                                <span class="count">
+                                    {{count(Illuminate\Support\Facades\Session::get('product'))}}
+                                </span>
+                            @else
+                                <span class="count">0</span>
+                            @endif
+                        </a>
+                        <div class="header-cart-info">
+                            <div class="header-cart-info-header">
+                                <div class="header-cart-info-count">
+                                    3 کالا
+                                </div>
+                                <a href="{{route('home')}}" class="header-cart-info-link">
+                                    <span>مشاهده سبد خرید</span>
+                                </a>
+                            </div>
+                            <ul class="header-basket-list do-nice-scroll">
+                                <li class="cart-item">
+                                    <a href="{{route('home')}}" class="header-basket-list-item">
+                                        <div class="header-basket-list-item-image">
+                                            <img src="/img/cart/1.jpg" alt="">
+                                        </div>
+                                        <div class="header-basket-list-item-content">
+                                            <p class="header-basket-list-item-title">
+                                                گوشی موبایل سامسونگ مدل Galaxy A30 SM-A305F/DS دو سیم کارت ظرفیت
+                                                64 گیگابایت
+                                            </p>
+                                            <div class="header-basket-list-item-footer">
+                                                <div class="header-basket-list-item-props">
+                                                            <span class="header-basket-list-item-props-item">
+                                                                1 x
+                                                            </span>
+                                                    <span class="header-basket-list-item-props-item">
+                                                                <div class="header-basket-list-item-color-badge"
+                                                                     style="background: #2196f3"></div>
+                                                                آبی
+                                                            </span>
+                                                </div>
+                                                <button class="header-basket-list-item-remove">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
+                                </li>
+                                <li class="cart-item">
+                                    <a href="{{route('home')}}" class="header-basket-list-item">
+                                        <div class="header-basket-list-item-image">
+                                            <img src="/img/cart/2.jpg" alt="">
+                                        </div>
+                                        <div class="header-basket-list-item-content">
+                                            <p class="header-basket-list-item-title">
+                                                گوشی موبایل هوآوی مدل Y9 2019 JKM-LX1 دو سیم کارت ظرفیت 64
+                                                گیگابایت
+                                            </p>
+                                            <div class="header-basket-list-item-footer">
+                                                <div class="header-basket-list-item-props">
+                                                            <span class="header-basket-list-item-props-item">
+                                                                1 x
+                                                            </span>
+                                                    <span class="header-basket-list-item-props-item">
+                                                                <div class="header-basket-list-item-color-badge"
+                                                                     style="background: #212121"></div>
+                                                                سفید
+                                                            </span>
+                                                </div>
+                                                <button class="header-basket-list-item-remove">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="cart-item">
+                                    <a href="{{route('home')}}" class="header-basket-list-item">
+                                        <div class="header-basket-list-item-image">
+                                            <img src="/img/cart/3.jpg" alt="">
+                                        </div>
+                                        <div class="header-basket-list-item-content">
+                                            <p class="header-basket-list-item-title">
+                                                گوشی موبایل سامسونگ مدل Galaxy A70 SM-A705FN/DS دو سیم‌کارت
+                                                ظرفیت 128 گیگابایت
+                                            </p>
+                                            <div class="header-basket-list-item-footer">
+                                                <div class="header-basket-list-item-props">
+                                                            <span class="header-basket-list-item-props-item">
+                                                                1 x
+                                                            </span>
+                                                    <span class="header-basket-list-item-props-item">
+                                                                <div class="header-basket-list-item-color-badge"
+                                                                     style="background: #FFFFFF"></div>
+                                                                سفید
+                                                            </span>
+                                                </div>
+                                                <button class="header-basket-list-item-remove">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="header-cart-info-footer">
+                                <div class="header-cart-info-total">
+                                    <span class="header-cart-info-total-text">مبلغ قابل پرداخت:</span>
+                                    <p class="header-cart-info-total-amount">
+                                                <span class="header-cart-info-total-amount-number">
+                                                    9,500,000 <span>تومان</span></span>
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <a href="{{route('home')}}" class="header-cart-info-submit">
+                                        ثبت سفارش
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-                <li class="nav-item"><a href="{{ route("About_Us") }}" class="nav-link px-3">درباره ما</a></li>
-                <li class="nav-item"><a href="{{ route("contact") }}" class="nav-link px-3">تماس با ما</a></li>
-                @if(!Auth::check())
-                    <a href="#" class="nav-link px-3 text-primary" data-toggle="modal" data-target="#login-register">ورود / ثبت نام</a>
-                @else
-                    <div class="btn-group nav-link" style="cursor: pointer">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            @if(Auth::check() && Auth::user()->user_mode == "gold")
-                                <span class="fa fa-diamond font-16 text-warning pl-1"></span>
-                            @endif
-                            @if(Auth::user()->name == "")
-                                {{ Auth::user()->mobile }}
-                            @elseif(Auth::user()->name !== "")
-                                {{ Auth::user()->name }}
-                            @endif
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right text-right font-13">
-                            <a class="dropdown-item px-3"> اعتبار {{ number_format(Auth::user()->credit) }} ریال </a>
-                            @if(Auth::check() && Auth::user()->role == "admin")
-                                <a href="{{ route("cioce") }}" class="dropdown-item px-3">پنل مدیریت</a>
-                            @endif
-                            <a href="{{ route("profile_index") }}" class="dropdown-item px-3">پروفایل</a>
-                            <a href="{{ route("logout") }}" class="dropdown-item px-3">خروج</a>
-                        </div>
+                </div>
+                <button class="btn-menu">
+                    <div class="align align__justify">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
-                @endif
-                <li class="nav-item"><a data-toggle="modal" data-target="#search-modal" href="#" class="nav-link px-3"><span class="fa fa-search text-primary font-15 pl-1"></span>جستجو </a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
-
-
-
-{{--
-<header class="site-navbar js-sticky-header site-navbar-target ltr" role="banner">
-    <div class="container">
-        <div class="row align-items-center">
-
-
-            <div class="col-4 col-md-8 d-none d-xl-block">
-                <nav class="site-navigation position-relative text-right" role="navigation">
-                    <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-
-                        @if(!Auth::check())
-                            <li><a href="#" class="nav-link text-primary" data-toggle="modal"
-                                   data-target="#login-register">ورود / ثبت نام</a></li>
-                        @else
-                            <li class="has-children">
-                                @if(Auth::check() && Auth::user()->user_mode == "gold")
-                                    <a href="#profile" class="nav-link text-warning">
-                                        @if(Auth::user()->name == "")
-                                            {{ Auth::user()->mobile }}
-                                        @elseif(Auth::user()->name !== "")
-                                            {{ Auth::user()->name }}
-                                        @endif
-                                        <span class="fa fa-diamond font-16 text-warning pl-1"></span></a>
-                                @else
-                                    <a href="#profile"
-                                       class="nav-link">
-                                        @if(Auth::user()->name == "")
-                                            {{ Auth::user()->mobile }}
-                                        @elseif(Auth::user()->name !== "")
-                                            {{ Auth::user()->name }}
-                                        @endif
-                                    </a>
-                                @endif
-                                <ul class="dropdown text-right rtl">
-                                    <li><a class="nav-link text-success">
-                                            اعتبار {{ number_format(Auth::user()->credit) }} ریال </a></li>
-                                    @if(Auth::check() && Auth::user()->role == "admin")
-                                        <li><a href="{{ route("cioce") }}" class="nav-link">پنل مدیریت</a></li>
-                                    @endif
-                                    <li><a href="{{ route("profile_index") }}" class="nav-link">پروفایل</a></li>
-                                    <li><a href="{{ route("logout") }}" class="nav-link">خروج</a></li>
-                                </ul>
-                            </li>
-                        @endif
-                        <li><a href="{{ route("contact") }}" class="nav-link">تماس با ما</a></li>
-                        <li><a href="{{ route("About_Us") }}" class="nav-link">درباره ما</a></li>
-                        <li class="has-children"><a href="#contact-section" class="nav-link">مرکز خدمات</a>
-                            <ul class="dropdown text-right">
-                                <li><a href="#" class="nav-link">دریافت ثمین کارت</a></li>
-                                <li><a href="#" class="nav-link">هواداران استقلال</a></li>
-                                <li><a href="#" class="nav-link">جشنواره</a></li>
-                                <li><a href="#" class="nav-link">مطب</a></li>
-                                <li><a href="#" class="nav-link">قرعه کشی</a></li>
-                                <li><a href="#" class="nav-link">خبرنامه</a></li>
-                                <li><a href="#" class="nav-link">باشگاه مشتریان</a></li>
+                </button>
+                <div class="side-menu">
+                    <div class="logo-nav-res dt-sl text-center">
+                        <a href="{{route('home')}}">
+                            <img src="/img/logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="search-box-side-menu dt-sl text-center mt-2 mb-3">
+                        <form action="">
+                            <input type="text" name="s" placeholder="جستجو کنید...">
+                            <i class="mdi mdi-magnify"></i>
+                        </form>
+                    </div>
+                    <ul class="navbar-nav dt-sl">
+                        <li class="sub-menu">
+                            <a href="{{route('home')}}">کالای دیجیتال</a>
+                            <ul>
+                                <li class="sub-menu">
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو یک</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو دو</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو سه</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو چهار</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو یک</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو دو</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو سه</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو یک</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو دو</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو سه</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو چهار</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
-
+                        <li class="sub-menu">
+                            <a href="{{route('home')}}">بهداشت و سلامت</a>
+                            <ul>
+                                <li class="sub-menu">
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو یک</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو دو</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو سه</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو چهار</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو یک</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو دو</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو سه</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو یک</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو دو</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو سه</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو چهار</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="{{route('home')}}">ابزار و اداری</a>
+                            <ul>
+                                <li class="sub-menu">
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو یک</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو دو</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو سه</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو چهار</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو یک</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو دو</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو سه</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="{{route('home')}}">عنوان دسته</a>
+                                    <ul>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو یک</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو دو</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو سه</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('home')}}">زیر منو چهار</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{route('home')}}">مد و پوشاک</a>
+                        </li>
+                        <li>
+                            <a href="{{route('home')}}">خانه و آشپزخانه</a>
+                        </li>
+                        <li>
+                            <a href="{{route('home')}}">ورزش و سفر</a>
+                        </li>
                     </ul>
-                </nav>
-            </div>
-
+                </div>
+                <div class="overlay-side-menu">
+                </div>
+            </nav>
+            <!-- End Main-Menu -->
         </div>
     </div>
+    <!-- End bottom-header -->
 </header>
---}}
-
-
+<!-- End header -->
