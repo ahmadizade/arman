@@ -20,13 +20,12 @@
     <!-- Main CSS File -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/colors/default.css" id="colorswitch">
+    <link rel="stylesheet" href="/css/vendor/sweetalert2.all.css">
 
 </head>
 
 <body>
-
     <div class="wrapper">
-
         <!-- Start main-content -->
         <main class="main-content dt-sl mt-4 mb-3">
             <div class="container main-container">
@@ -40,20 +39,20 @@
                             <div class="section-title title-wide mb-1 no-after-title-wide">
                                 <h2 class="font-weight-bold">ورود</h2>
                             </div>
-                            <form action="#">
+                            <form id="loginForm" action="#">
                                 <div class="form-row-title">
-                                    <h3>ایمیل یا شماره موبایل</h3>
+                                    <h3>شماره موبایل</h3>
                                 </div>
                                 <div class="form-row with-icon">
-                                    <input type="text" class="input-ui pr-2"
-                                        placeholder="ایمیل یا شماره موبایل خود را وارد نمایید">
+                                    <input id="mobile" name="mobile" type="text" class="input-ui pr-2"
+                                        placeholder="شماره موبایل خود را وارد نمایید">
                                     <i class="mdi mdi-account-circle-outline"></i>
                                 </div>
                                 <div class="form-row-title">
                                     <h3>رمز عبور</h3>
                                 </div>
                                 <div class="form-row with-icon">
-                                    <input type="password" class="input-ui pr-2"
+                                    <input id="code" name="code" type="password" class="input-ui pr-2"
                                         placeholder="رمز عبور خود را وارد نمایید">
                                     <i class="mdi mdi-lock-open-variant-outline"></i>
                                 </div>
@@ -66,16 +65,16 @@
                                     </div>
                                 </div>
                                 <div class="form-row mt-3">
-                                    <button class="btn-primary-cm btn-with-icon mx-auto w-100">
+                                    <button id="login" class="btn-primary-cm btn-with-icon mx-auto w-100">
                                         <i class="mdi mdi-login-variant"></i>
-                                        ورود به دیدیکالا
+                                        ورود به CioCe
                                     </button>
                                 </div>
                             </form>
                             <div class="form-footer mt-3">
                                 <div>
                                     <span class="font-weight-bold">کاربر جدید هستید؟</span>
-                                    <a href="#" class="mr-3 mt-2">ثبت نام در دیدیکالا</a>
+                                    <a href="#" class="mr-3 mt-2">ثبت نام در CioCe</a>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +91,7 @@
                 <div class="row">
                     <div class="col-12">
                         <ul class="mini-footer-menu">
-                            <li><a href="#">درباره دیدیکالا</a></li>
+                            <li><a href="#">درباره Cioce</a></li>
                             <li><a href="#">فرصت های شغلی</a></li>
                             <li><a href="#">تماس با ما</a></li>
                             <li><a href="#">همکاری با سازمان ها</a></li>
@@ -100,28 +99,27 @@
                     </div>
                     <div class="col-12 mt-2 mb-3">
                         <div class="footer-light-text">
-                            استفاده از مطالب فروشگاه اینترنتی دیدیکالا فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع
-                            است. کلیه حقوق این سایت متعلق به (فروشگاه آنلاین دیدیکالا) می‌باشد.
+                            استفاده از مطالب فروشگاه اینترنتی سیوسه فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع
+                            است. کلیه حقوق این سایت متعلق به (فروشگاه آنلاین سیوسه) می‌باشد.
                         </div>
                     </div>
                     <div class="col-12 text-center">
                         <div class="copy-right-mini-footer">
-                            Copyright © 2019 Didikala
+                            Copyright © 2019 CioCe.ir
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
         <!-- End mini-footer -->
-
     </div>
-
     <!-- Core JS Files -->
     <script src="/js/vendor/jquery-3.4.1.min.js"></script>
     <script src="/js/vendor/popper.min.js"></script>
     <script src="/js/vendor/bootstrap.min.js"></script>
     <!-- Plugins -->
     <script src="/js/vendor/owl.carousel.min.js"></script>
+    <script src="/js/vendor/sweetalert2.all.min.js"></script>
     <script src="/js/vendor/jquery.horizontalmenu.js"></script>
     <script src="/js/vendor/nouislider.min.js"></script>
     <script src="/js/vendor/wNumb.js"></script>
@@ -129,6 +127,43 @@
     <script src="/js/vendor/theia-sticky-sidebar.min.js"></script>
     <!-- Main JS File -->
     <script src="/js/main.js"></script>
+    <script>
+        $('#login').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                'url' : '{{route('login_action')}}',
+                'type' : "POST",
+                'data' : $('#loginForm').serialize(),
+                success : function (data) {
+                    if(data.status == "0") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'error',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                    if(data.status == "1") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'success',
+                            text: data.desc,
+                            title: 'CioCe.ir',
+                            showConfirmButton: false,
+                            timer: 3000
+                        }).then(function () {
+                            setTimeout(function(){
+                                window.location.replace('{{route('home')}}');
+                            },2000);
+                        });
+                    }
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>

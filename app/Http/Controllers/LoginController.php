@@ -25,6 +25,76 @@ class LoginController extends Controller
     public function login(){
         return view('auth.login');
     }
+
+    public function loginAction(Request $request){
+        $request = $request->replace(self::faToEn($request->all()));
+        $mobile = self::faToEn($request->mobile);
+        $code = self::faToEn($request->code);
+        $validate = Validator::make($request->all(), [
+            'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
+            'code' => 'required'
+        ]);
+        if ($validate->fails()) {
+            return Response::json(["status" => "0","desc" => $validate->getMessageBag()->first()]);
+        }
+        $user = User::where("mobile",$mobile)->where("status",1)->first();
+        if(isset($user->id)) {
+            if (Hash::check($code,$user->password) || $code == $user->password) {
+                Auth::loginUsingId($user->id, true);
+                Cache::forget("mobile_code_".$mobile);
+                return Response::json(["status" => "1", "desc" => "همراه عزیز خوش آمدید"]);
+            }
+            return Response::json(["status" => "0","desc" => "رمز عبور شما اشتباه می باشد"]);
+        }
+        return Response::json(["status" => "0","desc" => "برای ورود ابتدا باید ثبت نام کنید!"]);
+    }
+
+    public function registerAction(Request $request){
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $mobile = $request->mobile;
+
+        if(!Cache::has("mobile_code_".$mobile)) {
+
+            $validate = Validator::make($request->all(), [
+                'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
+            ]);
+
+            if ($validate->fails()) {
+                return Response::json(["status" => "0", "desc" => "شماره موبایل وارد شده اشتباه می باشد"]);
+            }
+
+            $checkUser = User::where("mobile", $mobile)->where("status", "active")->first();
+
+            if (isset($checkUser->id)) {
+                // Go To login Page
+                return Response::json(['status' => "0" , 'desc' => "شما قبلا ثبت نام کرده اید"]);
+            }else{
+                    $code = 00000;//rand(10000,99999);
+
+                    /*    self::sms($mobile,"کد ورود شما به سایت فروشگاه سیوسه ".
+                            "\n".
+                            "code: ".$code
+                        );*/
+
+                    Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(60)], 60);
+
+                    return Response::json(['status' => 1 , 'desc' => "رمز پنج رقمی به شماره موبایل شما وارد شد" , 'mobile' => $mobile , 'code' => $code]);
+
+                }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
     public function LoginToken(Request $request){
 
         $request = $request->replace(self::faToEn($request->all()));
@@ -61,7 +131,7 @@ class LoginController extends Controller
 
                     Cache::put("mobile_code_".$mobile,[$code,Carbon::now()->addSeconds(60)],60);
 
-                    return view("auth.login",["mobile" => $mobile]);
+                    return view("auth.login",["mobile" => $mobile , "code" => $code]);
 
                 }
 

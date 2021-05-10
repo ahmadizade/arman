@@ -11,6 +11,7 @@
     <title>Index Page</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/vendor/sweetalert2.all.css">
     <!-- Plugins -->
     <link rel="stylesheet" href="/css/vendor/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/vendor/jquery.horizontalmenu.css">
@@ -48,6 +49,7 @@
         <script src="/js/vendor/bootstrap.min.js"></script>
         <!-- Plugins -->
         <script src="/js/vendor/owl.carousel.min.js"></script>
+        <script src="/js/vendor/sweetalert2.all.min.js"></script>
         <script src="/js/vendor/jquery.nicescroll.min.js"></script>
         <script src="/js/vendor/jquery.horizontalmenu.js"></script>
         <script src="/js/vendor/jQuery.headroom.js"></script>

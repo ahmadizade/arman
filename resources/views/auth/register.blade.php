@@ -34,33 +34,33 @@
                         <div class="logo-area text-center mb-3">
                             <a href="{{route('home')}}"><img src="/img/logo.png" class="img-fluid" alt="logo"></a>
                         </div>
-                        <div class="auth-wrapper form-ui pt-4">
+                            <div id="inputMobile" class="auth-wrapper form-ui pt-4">
                             <div class="section-title title-wide mb-1 no-after-title-wide">
                                 <h2 class="font-weight-bold">ثبت نام</h2>
                             </div>
                             <div class="message-light">
                                 اگر قبلا ثبت‌نام کرده‌اید، نیاز به ثبت‌نام مجدد با شماره همراه ندارید
                             </div>
-                            <form action="#">
+                            <form id="registerForm" action="#">
                                 <div class="form-row-title">
                                     <h3>شماره موبایل</h3>
                                 </div>
                                 <div class="form-row with-icon">
-                                    <input type="text" class="input-ui pr-2"
+                                    <input id="mobile" name="mobile" type="text" class="input-ui pr-2"
                                         placeholder="شماره موبایل خود را وارد نمایید">
                                     <i class="mdi mdi-account-circle-outline"></i>
                                 </div>
-                                <div class="form-row-title">
-                                    <h3>رمز عبور</h3>
-                                </div>
-                                <div class="form-row with-icon">
-                                    <input type="password" class="input-ui pr-2"
-                                        placeholder="رمز عبور خود را وارد نمایید">
-                                    <i class="mdi mdi-lock-open-variant-outline"></i>
-                                </div>
+{{--                                <div class="form-row-title">--}}
+{{--                                    <h3>رمز عبور</h3>--}}
+{{--                                </div>--}}
+{{--                                <div class="form-row with-icon">--}}
+{{--                                    <input type="password" class="input-ui pr-2"--}}
+{{--                                        placeholder="رمز عبور خود را وارد نمایید">--}}
+{{--                                    <i class="mdi mdi-lock-open-variant-outline"></i>--}}
+{{--                                </div>--}}
                                 <div class="form-row mt-2">
                                     <div class="custom-control custom-checkbox float-right mt-2">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck3" name="customCheck3" >
                                         <label class="custom-control-label text-justify" for="customCheck3">
                                             <a href="{{route('home')}}">حریم خصوصی</a> و <a href="{{route('home')}}">شرایط و قوانین</a> استفاده از سرویس
                                             های سایت سیوسه را مطالعه نموده و با کلیه موارد آن موافقم.
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                                 <div class="form-row mt-3">
-                                    <button class="btn-primary-cm btn-with-icon mx-auto w-100">
+                                    <button id="register" class="btn-primary-cm btn-with-icon mx-auto w-100">
                                         <i class="mdi mdi-account-circle-outline"></i>
                                         ثبت نام در سیوسه
                                     </button>
@@ -78,6 +78,48 @@
                                 <div>
                                     <span class="font-weight-bold">قبلا ثبت نام کرده اید؟</span>
                                     <a href="{{route('login')}}" class="mr-3 mt-2">وارد شوید</a>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div id="verifiedCode" class="auth-wrapper form-ui pt-4 d-none">
+                            <div class="section-title title-wide mb-1 no-after-title-wide">
+                                <h2 class="font-weight-bold">تایید شماره</h2>
+                            </div>
+                            <div class="message-light">
+                                برای شماره همراه <span id="mobileNumber"></span> کد تایید ارسال گردید
+                                <a href="#" class="btn-link-border">
+                                    ویرایش شماره
+                                </a>
+                            </div>
+                            <form action="#">
+                                <div class="form-row-title">
+                                    <h3>کد تایید را وارد کنید</h3>
+                                </div>
+                                <div class="form-row">
+                                    <div class="numbers-verify">
+                                        <div class="lines-number-input">
+                                            <input type="text" class="line-number" maxlength="1" autofocus="">
+                                            <input type="text" class="line-number" maxlength="1">
+                                            <input type="text" class="line-number" maxlength="1">
+                                            <input type="text" class="line-number" maxlength="1">
+                                            <input type="text" class="line-number" maxlength="1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row mt-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="text-primary btn-link-border ml-1">دریافت مجدد کد تایید</span>
+                                        <span>(</span>
+                                        <p id="countdown-verify-end"></p>
+                                        <span>)</span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="form-footer mt-3">
+                                <div>
+                                    <span class="font-weight-bold">کاربر جدید هستید؟</span>
+                                    <a href="#" class="mr-3 mt-2">ثبت نام در دیدیکالا</a>
                                 </div>
                             </div>
                         </div>
@@ -123,14 +165,57 @@
     <script src="/js/vendor/bootstrap.min.js"></script>
     <!-- Plugins -->
     <script src="/js/vendor/owl.carousel.min.js"></script>
+    <script src="/js/vendor/sweetalert2.all.min.js"></script>
     <script src="./assets/js/vendor/isotope.pkgd.min.js"></script>
     <script src="/js/vendor/jquery.horizontalmenu.js"></script>
     <script src="/js/vendor/nouislider.min.js"></script>
     <script src="/js/vendor/wNumb.js"></script>
     <script src="/js/vendor/ResizeSensor.min.js"></script>
     <script src="/js/vendor/theia-sticky-sidebar.min.js"></script>
+    <link rel="stylesheet" href="/css/vendor/sweetalert2.all.css">
     <!-- Main JS File -->
     <script src="/js/main.js"></script>
+    <script>
+        $('#register').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                'url' : '{{route('register_action')}}',
+                'type' : "POST",
+                'data' : $('#registerForm').serialize(),
+                success : function (data) {
+                    console.log(data)
+                    if(data.status == "0") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'error',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                    if(data.status == "1") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'success',
+                            text: data.desc,
+                            title: 'CioCe.ir',
+                            showConfirmButton: false,
+                            timer: 3000
+                        }).then(function () {
+                            setTimeout(function(){
+                                $('#mobileNumber').text(data.mobile);
+                                $('#inputMobile').addClass('d-none');
+                                $('#verifiedCode').removeClass('d-none');
+                            },1500);
+                        });
+                    }
+                }
+            })
+        });
+    </script>
+
 </body>
 
 </html>

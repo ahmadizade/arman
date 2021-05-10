@@ -66,7 +66,9 @@ Route::get('/code-generator', 'App\Http\Controllers\CodeController@Code_Generato
 //Route::post('/login-password-action', 'App\Http\Controllers\LoginController@LoginPasswordAction')->name("login_password_action")->middleware("ajax", "verify.domain");
 //Route::post('/login-token-password', 'App\Http\Controllers\LoginController@LoginTokenPassword')->name("login_token_password")->middleware("ajax", "verify.domain");
 Route::get('/register', 'App\Http\Controllers\LoginController@register')->name("register");
+Route::post('/register-action', 'App\Http\Controllers\LoginController@registerAction')->name("register_action");
 Route::get('/login', 'App\Http\Controllers\LoginController@login')->name("login");
+Route::post('/login-action', 'App\Http\Controllers\LoginController@loginAction')->name("login_action");
 Route::get('/logout', 'App\Http\Controllers\LoginController@Logout')->name("logout")->middleware("auth");
 
 
