@@ -1,114 +1,398 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>پیشخوان | فروشگاه سیوسه</title>
+<title>پروفایل کاربری | CioCe.ir</title>
 @endsection
-@section("extra_css")
-    <link rel="stylesheet" href="/css/chart.css">
-@endsection
+
 @section("content")
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <img src="/images/banner/samin-bag.png" class="img-fluid" alt="about" style="background-position: left">
-            </div>
-        </div>
-    </div>
+    <!-- Start main-content -->
+    <main class="main-content dt-sl mb-3">
+        <div class="container main-container">
+            <div class="row">
 
-    <div class="container">
-        <div class="row">
-            @include("profile.sidebar")
-            <div class="col-12 col-lg-9 mt-3">
-                <div class="card shadow">
-                    <div class="card-header p-3 bg-primary text-white">
-                        <h3 class="mb-0 font-14 float-right"><i class="text-white fas fa-gifts"></i> فروشگاه :
-                            @if (isset($store))
-                            {{$store->shop}}
-                            @else
-                            متاسفانه فروشگاهی ثبت نشده
-                            @endif
-                        </h3>
-                    </div>
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-12 col-lg-3 text-center mt-2">
-                                <div>
-                                    <p class="font-13 font-weight-bold border-top pt-2">پسند شده</p>
+                @include('profile.sidebar')
 
-                                    <p class="font-16 font-weight-bold border-bottom pb-2">{{$like ?? "0"}} <i class="fas fa-heart font-12" aria-hidden="true"></i></p>
+                <!-- Start Content -->
+                <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12">
+                            <div class="px-3">
+                                <div
+                                    class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2">
+                                    <h2>اطلاعات شخصی</h2>
+                                </div>
+                                <div class="profile-section dt-sl">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="label-info">
+                                                <span>نام و نام خانوادگی:</span>
+                                            </div>
+                                            <div class="value-info">
+                                                <span>{{$user->name ?? "" . $user->family ?? ""}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="label-info">
+                                                <span>پست الکترونیک:</span>
+                                            </div>
+                                            <div class="value-info">
+                                                <span>{{$user->email ?? ""}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="label-info">
+                                                <span>شماره تلفن همراه:</span>
+                                            </div>
+                                            <div class="value-info">
+                                                <span>{{$user->mobile ?? ""}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="label-info">
+                                                <span>کد ملی:</span>
+                                            </div>
+                                            <div class="value-info">
+                                                <span>{{$user->profile->national_code ?? "_"}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="label-info">
+                                                <span>دریافت خبرنامه:</span>
+                                            </div>
+                                            <div class="value-info">
+                                                <span>خیر</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="label-info">
+                                                <span>شماره کارت:</span>
+                                            </div>
+                                            <div class="value-info">
+                                                <span>{{$user->profile->bank_cart_number ?? "_"}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="profile-section-link">
+                                        <a href="#" class="border-bottom-dt">
+                                            <i class="mdi mdi-account-edit-outline"></i>
+                                            ویرایش اطلاعات شخصی
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-3 text-center mt-2">
-                                <div>
-                                    <p class="font-13 font-weight-bold border-top pt-2">
-                                        دیده شده</p>
-                                    <p class="font-16 font-weight-bold border-bottom pb-2">120 <i class="fa fa-eye font-14" aria-hidden="true"></i>
-                                    </p></div>
-                            </div>
-                            <div class="col-12 col-lg-3 text-center mt-2">
-                                <div>
-                                    <p class="font-13 font-weight-bold border-top pt-2">تخفیف فروشگاه</p>
-                                    <p class="font-16 font-weight-bold border-bottom pb-2">{{$store->discount ?? "0"}} <i class="fa fa-percent font-13" aria-hidden="true"></i></p></div>
-                            </div>
-                            <div class="col-12 col-lg-3 text-center mt-2">
-                                <div>
-                                        <p class="font-13 font-weight-bold border-top pt-2">وضعیت من</p>
-                                    @if($user->user_mode == "gold")
-                                        <p class="font-14 border-bottom pb-2 font-weight-bold">کاربر طلایی <i class="far fa-smile font-15 text-warning" aria-hidden="true"></i></p></div>
-                                    @elseif($user->user_mode == "normal")
-                                        <p class="font-14 border-bottom pb-2 font-weight-bold">کاربر معمولی <i class="far fa-meh font-15" aria-hidden="true"></i></p></div>
-                                    @endif
                         </div>
+                        <div class="col-xl-6 col-lg-12">
+                            <div class="px-3">
+                                <div
+                                    class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2">
+                                    <h2>لیست آخرین علاقه‌مندی‌ها</h2>
+                                </div>
+                                <div class="profile-section dt-sl">
+                                    <ul class="list-favorites">
+                                        <li>
+                                            <a href="#">
+                                                <img src="/img/products/016.jpg" alt="">
+                                                <span>کت مردانه مجلسی مدل k-m-5500</span>
+                                            </a>
+                                            <button>
+                                                <i class="mdi mdi-trash-can-outline"></i>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="/img/products/020.jpg" alt="">
+                                                <span>کت مردانه مجلسی مدل k-m-5640</span>
+                                            </a>
+                                            <button>
+                                                <i class="mdi mdi-trash-can-outline"></i>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="/img/products/017.jpg" alt="">
+                                                <span>کت مردانه مجلسی مدل k-m-5110</span>
+                                            </a>
+                                            <button>
+                                                <i class="mdi mdi-trash-can-outline"></i>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <div class="profile-section-link">
+                                        <a href="#" class="border-bottom-dt">
+                                            <i class="mdi mdi-square-edit-outline"></i>
+                                            مشاهده و ویرایش لیست مورد علاقه
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <div
+                                class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
+                                <h2>آخرین سفارش‌ها</h2>
+                            </div>
+                            <div class="dt-sl">
+                                <div class="table-responsive">
+                                    <table class="table table-order">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>شماره سفارش</th>
+                                                <th>تاریخ ثبت سفارش</th>
+                                                <th>مبلغ قابل پرداخت</th>
+                                                <th>مبلغ کل</th>
+                                                <th>عملیات پرداخت</th>
+                                                <th>جزییات</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>DDC-57456951</td>
+                                                <td>۳۱ مرداد ۱۳۹۸</td>
+                                                <td>۰</td>
+                                                <td>۹,۹۸۹,۰۰۰ تومان</td>
+                                                <td>لغو شده</td>
+                                                <td class="details-link">
+                                                    <a href="#">
+                                                        <i class="mdi mdi-chevron-left"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>DKC-45173498</td>
+                                                <td>۱۰ خرداد ۱۳۹۸</td>
+                                                <td>۰</td>
+                                                <td>۱۸,۰۴۹,۰۰۰ تومان</td>
+                                                <td>لغو شده</td>
+                                                <td class="details-link">
+                                                    <a href="#">
+                                                        <i class="mdi mdi-chevron-left"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>DDC-58976951</td>
+                                                <td>۲۱ مرداد ۱۳۹۸</td>
+                                                <td>۰</td>
+                                                <td>۹,۱۸۹,۰۰۰ تومان</td>
+                                                <td>لغو شده</td>
+                                                <td class="details-link">
+                                                    <a href="#">
+                                                        <i class="mdi mdi-chevron-left"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="link-to-orders" colspan="7"><a href="#">مشاهده لیست سفارش
+                                                        ها</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card shadow mt-3">
-                    <div class="card-header p-3 bg-primary text-white">
-                        <h3 class="mb-0 font-14 float-right"><i class="fa fa-credit-card" aria-hidden="true"></i> مالی و اعتبارات
-                        </h3>
-                    </div>
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-12 col-lg-3 text-center mt-2">
-                                <div>
-                                    <p class="font-13 font-weight-bold border-top pt-2">مبلغ آخرین پرداخت من</p>
+                <!-- End Content -->
 
-                                    <p class="font-16 font-weight-bold border-bottom pb-2">{{number_format($user->credit) ?? "0"}} <i class="fas fa-credit-card font-12" aria-hidden="true"></i></p>
+            </div>
+            <!-- Start Product-Slider -->
+            <section class="slider-section dt-sl mt-5 mb-5">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="section-title text-sm-title title-wide no-after-title-wide">
+                            <h2>محصولات پیشنهادی برای شما</h2>
+                            <a href="#">مشاهده همه</a>
+                        </div>
+                    </div>
+
+                    <!-- Start Product-Slider -->
+                    <div class="col-12 px-res-0">
+                        <div class="product-carousel carousel-lg owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="product-card mb-3">
+                                    <div class="product-head">
+                                        <div class="rating-stars">
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                        </div>
+                                        <div class="discount">
+                                            <span>20%</span>
+                                        </div>
+                                    </div>
+                                    <a class="product-thumb" href="shop-single.html">
+                                        <img src="/img/products/07.jpg" alt="Product Thumbnail">
+                                    </a>
+                                    <div class="product-card-body">
+                                        <h5 class="product-title">
+                                            <a href="shop-single.html">مانتو زنانه</a>
+                                        </h5>
+                                        <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                        <span class="product-price">157,000 تومان</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-3 text-center mt-2">
-                                <div>
-                                    <p class="font-13 font-weight-bold border-top pt-2">
-                                        فاکتورها</p>
-                                    <p class="font-16 font-weight-bold border-bottom pb-2">120 <i class="fas fa-mail-bulk font-14" aria-hidden="true"></i>
-                                    </p></div>
+                            <div class="item">
+                                <div class="product-card mb-3">
+                                    <div class="product-head">
+                                        <div class="rating-stars">
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                        </div>
+                                    </div>
+                                    <a class="product-thumb" href="shop-single.html">
+                                        <img src="/img/products/017.jpg" alt="Product Thumbnail">
+                                    </a>
+                                    <div class="product-card-body">
+                                        <h5 class="product-title">
+                                            <a href="shop-single.html">کت مردانه</a>
+                                        </h5>
+                                        <a class="product-meta" href="shop-categories.html">لباس مردانه</a>
+                                        <span class="product-price">199,000 تومان</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-12 col-lg-3 text-center mt-2">
-                                <div>
-                                    <p class="font-13 font-weight-bold border-top pt-2">تخفیف فروشگاه</p>
-                                    <p class="font-16 font-weight-bold border-bottom pb-2">{{$store->discount ?? "0"}} <i class="fa fa-percent font-13" aria-hidden="true"></i></p></div>
+                            <div class="item">
+                                <div class="product-card mb-3">
+                                    <div class="product-head">
+                                        <div class="rating-stars">
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star"></i>
+                                        </div>
+                                    </div>
+                                    <a class="product-thumb" href="shop-single.html">
+                                        <img src="/img/products/013.jpg" alt="Product Thumbnail">
+                                    </a>
+                                    <div class="product-card-body">
+                                        <h5 class="product-title">
+                                            <a href="shop-single.html">مانتو زنانه مدل هودی تیک تین</a>
+                                        </h5>
+                                        <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                        <span class="product-price">135,000 تومان</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-12 col-lg-3 text-center mt-2">
-                                <div>
-                                    <p class="font-13 font-weight-bold border-top pt-2">اعتبار من</p>
-                                    <p class="font-16 font-weight-bold border-bottom pb-2 text-success">{{number_format($user->credit) ?? "0"}} <i class="fa fa-credit-card font-13" aria-hidden="true"></i></p></div>
+                            <div class="item">
+                                <div class="product-card mb-3">
+                                    <div class="product-head">
+                                        <div class="rating-stars">
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star"></i>
+                                        </div>
+                                    </div>
+                                    <a class="product-thumb" href="shop-single.html">
+                                        <img src="/img/products/09.jpg" alt="Product Thumbnail">
+                                    </a>
+                                    <div class="product-card-body">
+                                        <h5 class="product-title">
+                                            <a href="shop-single.html">مانتو زنانه</a>
+                                        </h5>
+                                        <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                        <span class="product-price">145,000 تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-card mb-3">
+                                    <div class="product-head">
+                                        <div class="rating-stars">
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                        </div>
+                                    </div>
+                                    <a class="product-thumb" href="shop-single.html">
+                                        <img src="/img/products/010.jpg" alt="Product Thumbnail">
+                                    </a>
+                                    <div class="product-card-body">
+                                        <h5 class="product-title">
+                                            <a href="shop-single.html">مانتو زنانه</a>
+                                        </h5>
+                                        <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                        <span class="product-price">170,000 تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-card mb-3">
+                                    <div class="product-head">
+                                        <div class="rating-stars">
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star"></i>
+                                        </div>
+                                        <div class="discount">
+                                            <span>20%</span>
+                                        </div>
+                                    </div>
+                                    <a class="product-thumb" href="shop-single.html">
+                                        <img src="/img/products/011.jpg" alt="Product Thumbnail">
+                                    </a>
+                                    <div class="product-card-body">
+                                        <h5 class="product-title">
+                                            <a href="shop-single.html">مانتو زنانه</a>
+                                        </h5>
+                                        <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                        <span class="product-price">185,000 تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-card mb-3">
+                                    <div class="product-head">
+                                        <div class="rating-stars">
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star active"></i>
+                                            <i class="mdi mdi-star"></i>
+                                        </div>
+                                    </div>
+                                    <a class="product-thumb" href="shop-single.html">
+                                        <img src="/img/products/019.jpg" alt="Product Thumbnail">
+                                    </a>
+                                    <div class="product-card-body">
+                                        <h5 class="product-title">
+                                            <a href="shop-single.html">تیشرت مردانه</a>
+                                        </h5>
+                                        <a class="product-meta" href="shop-categories.html">لباس مردانه</a>
+                                        <span class="product-price">54,000 تومان</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <!-- End Product-Slider -->
 
-    <div class="container-fluid">
-        <div class="row flex-column justify-content-center align-items-center h-100 py-3"
-             style="background: fixed center center url('/images/home/pattern-off.jpg'); height: 250px;">
-            <span class="font-30 font-weight-bold py-3 px-5 rounded-sm mt-3 ">
-                <img src="{{ asset('images/logo/logo_100_50.png') }}" alt="logo"
-                     class="img-fluid d-block d-md-inline mx-a">
-                <span class="d-block d-md-inline text-center">CioCe.ir</span>
-                <div class="font-20 text-orange font-weight-bold bg-white py-1 px-5 rounded-sm mt-2 shadow-sm">فروشگاه اینترنتی سیویه</div>
-            </span>
+                </div>
+            </section>
+            <!-- End Product-Slider -->
         </div>
-    </div>
+    </main>
+    <!-- End main-content -->
+@endsection
+
+@section('extra_js')
+
 @endsection

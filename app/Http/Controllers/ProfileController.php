@@ -698,9 +698,11 @@ class ProfileController extends Controller
             'email' => 'nullable|email|max:255',
             'sex' => 'nullable|max:1',
             'name' => 'nullable|max:255',
+            'family' => 'nullable|max:255',
             'phone' => 'nullable',
             'state' => 'nullable|max:3',
             'bank_cart_number' => 'nullable|numeric|digits:16',
+            'national_code' => 'nullable|numeric|digits:10',
             'sheba' => 'nullable|digits:24',
             "password" => 'nullable|min:6'
         ]);
@@ -715,11 +717,13 @@ class ProfileController extends Controller
 
         User::where("mobile", $user->mobile)->update([
             "name" => $request->name,
+            "family" => $request->family,
             "updated_at" => Carbon::now()
         ]);
 
         Profile::where("user_id", $user->id)->update([
             "bank_cart_number" => $request->bank_cart_number,
+            "national_code" => $request->national_code,
             "sheba" => $request->sheba,
             "phone" => $request->phone,
             "gender" => $request->sex,

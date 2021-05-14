@@ -1,16 +1,105 @@
-<div class="col-12 col-lg-3">
-    <div class="list-group mt-3">
-        <a href="{{ route("profile_index") }}" class="list-group-item list-group-item-action @if($menu == "index") active @endif">پیشخوان</a>
-        <a href="{{ route("profile_store") }}" class="list-group-item list-group-item-action @if($menu == "store") active @endif"><i class="fas fa-cash-register text-blue font-17 pl-2"></i>فروشگاه من</a>
-        <a href="{{ route("profile_credit") }}" class="list-group-item list-group-item-action @if($menu == "credit") active @endif"><i class="fas text-danger fa-credit-card font-14 pl-2"></i>دریافت اعتبار</a>
-        <a href="{{ route("profile_cart_transfer") }}" class="list-group-item list-group-item-action @if($menu == "cart_transfer") active @endif"><i class="fa text-danger fa-exchange font-14 pl-2"></i>فرم ثبت کارت به کارت</a>
-        <a href="{{ route("profile_products") }}" class="list-group-item list-group-item-action @if($menu == "products") active @endif"><i class="fas fa-shopping-cart text-blue font-14 pl-2"></i>محصولات من</a>
-        <a href="{{ route("profile_add_product") }}" class="list-group-item list-group-item-action @if($menu == "add_product") active @endif"><i class="fas fa-cart-plus text-blue font-14 pl-2"></i>افزودن محصول</a>
-        <a href="{{ route("profile_bio") }}" class="list-group-item list-group-item-action @if($menu == "bio") active @endif"><i class="fas fa-file-alt text-blue font-14 pl-2"></i>بیوگرافی فروشگاه</a>
-        <a href="{{ route("profile_bookmark") }}" class="list-group-item list-group-item-action @if($menu == "bookmark") active @endif"><i class="far fa-bookmark text-blue font-14 pl-2"></i>نشان شده ها</a>
-        <a href="{{ route("profile_edit") }}" class="list-group-item list-group-item-action @if($menu == "profile") active @endif"><i class="fas fa-user-cog text-blue font-14 pl-2"></i>تنظیمات کاربری</a>
-        <a href="{{ route("profile_gold") }}" class="list-group-item list-group-item-action @if($menu == "gold") active @endif"><i class="fas fa-gem text-warning font-17 pl-2"></i>عضو طلایی</a>
-        <a href="{{ route("profile_qrcode") }}" class="list-group-item list-group-item-action @if($menu == "qrcode") active @endif"><i class="fa text-blue fa-qrcode font-17 pl-2"></i>نشان پرداخت</a>
-        <a href="{{ route("logout") }}" class="list-group-item list-group-item-action"><i class="icon-exit_to_app text-blue font-17 pl-2"></i>خروج</a>
+<!-- Start Sidebar -->
+<div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 sticky-sidebar">
+<div class="profile-sidebar dt-sl">
+@if(isset($user) && \Illuminate\Support\Facades\Auth::check())
+    <div class="dt-sl dt-sn mb-3">
+    <div class="profile-sidebar-header dt-sl">
+    <div class="d-flex align-items-center">
+    <div class="profile-avatar">
+        <img src="/img/theme/avatar.png" alt="">
     </div>
+    <div class="profile-header-content mr-3 mt-2">
+        <span class="d-block profile-username">{{$user->name ?? ""}} {{$user->family ?? ""}}</span>
+        <span class="d-block profile-phone">{{$user->mobile ?? "ثبت نشده"}}</span>
+    </div>
+    </div>
+    <div class="profile-point mt-3 mb-2 dt-sl">
+    <span class="label-profile-point">امتیاز شما:</span>
+    <span class="float-left value-profile-point">120</span>
+    </div>
+    <div class="profile-link mt-2 dt-sl">
+    <div class="row">
+        <div class="col-6 text-center">
+            <a href="{{route('change_password')}}">
+                <i class="mdi mdi-lock-reset"></i>
+                <span class="d-block">تغییر رمز</span>
+            </a>
+        </div>
+        <div class="col-6 text-center">
+            <a href="{{route('logout')}}">
+                <i class="mdi mdi-logout-variant"></i>
+                <span class="d-block">خروج از حساب</span>
+            </a>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="dt-sl dt-sn mb-3 text-center">
+    <a href="#">
+    <img src="/img/banner/sidebar-banner-3.jpg" class="img-fluid" alt="">
+    </a>
+    </div>
+    <div class="dt-sl dt-sn mb-3">
+    <div class="profile-menu-section dt-sl">
+    <div class="label-profile-menu mt-2 mb-2">
+    <span>حساب کاربری شما</span>
+    </div>
+    <div class="profile-menu">
+    <ul>
+        <li>
+            <a href="{{ route("profile_index") }}" class="@if($menu == "index") active @endif">
+                <i class="mdi mdi-account-circle-outline"></i>
+                پروفایل
+            </a>
+        </li>
+        <li>
+            <a href="{{ route("profile_edit") }}">
+                <i class="mdi mdi-account-edit-outline @if($menu == "profile") active @endif"></i>
+                تنظیمات کاربری
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="mdi mdi-basket @if($menu == "order") active @endif"></i>
+                سفارشات من
+            </a>
+        </li>
+        <li>
+            <a href="{{ route("profile_store") }}">
+                <i class="mdi mdi-backburger @if($menu == "store") active @endif"></i>
+                فروشگاه من
+            </a>
+        </li>
+        <li>
+            <a href="{{ route("profile_bookmark") }}">
+                <i class="mdi mdi-heart-outline @if($menu == "bookmark") active @endif"></i>
+                نشان شده ها
+            </a>
+        </li>
+        <li>
+            <a href="{{ route("profile_products") }}">
+                <i class="mdi mdi-glasses @if($menu == "products") active @endif"></i>
+                محصولات من
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="mdi mdi-sign-direction"></i>
+                آدرس ها
+            </a>
+        </li>
+        <li>
+            <a href="{{ route("profile_add_product") }}">
+                <i class="mdi mdi-eye-outline @if($menu == "add_product") active @endif"></i>
+                افزودن محصول
+            </a>
+        </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+@endif
 </div>
+</div>
+<!-- End Sidebar -->

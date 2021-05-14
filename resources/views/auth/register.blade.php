@@ -34,7 +34,8 @@
                         <div class="logo-area text-center mb-3">
                             <a href="{{route('home')}}"><img src="/img/logo.png" class="img-fluid" alt="logo"></a>
                         </div>
-                            <div id="inputMobile" class="auth-wrapper form-ui pt-4">
+{{--Import Phone Number Cart--}}
+                        <div id="inputMobile" class="auth-wrapper form-ui pt-4">
                             <div class="section-title title-wide mb-1 no-after-title-wide">
                                 <h2 class="font-weight-bold">ثبت نام</h2>
                             </div>
@@ -70,7 +71,7 @@
                                 <div class="form-row mt-3">
                                     <button id="register" class="btn-primary-cm btn-with-icon mx-auto w-100">
                                         <i class="mdi mdi-account-circle-outline"></i>
-                                        ثبت نام در سیوسه
+                                        دریافت کد یکبار مصرف
                                     </button>
                                 </div>
                             </form>
@@ -81,45 +82,68 @@
                                 </div>
                             </div>
                         </div>
-
-                            <div id="verifiedCode" class="auth-wrapper form-ui pt-4 d-none">
+{{--Verified Code Card--}}
+                        <div id="verifiedCode" class="auth-wrapper form-ui pt-4 d-none">
                             <div class="section-title title-wide mb-1 no-after-title-wide">
                                 <h2 class="font-weight-bold">تایید شماره</h2>
                             </div>
                             <div class="message-light">
                                 برای شماره همراه <span id="mobileNumber"></span> کد تایید ارسال گردید
-                                <a href="#" class="btn-link-border">
+                                <a href="{{route('register')}}" class="btn-link-border">
                                     ویرایش شماره
                                 </a>
                             </div>
-                            <form action="#">
+                            <form id="verified_code_form">
+
+                                <div class="form-row-title">
+                                    <h3>نام</h3>
+                                </div>
+                                <div class="form-row with-icon">
+                                    <input id="name" name="name" type="text" class="input-ui pr-2"
+                                           placeholder="نام خود را وارد نمایید">
+                                    <i class="mdi mdi-account-circle-outline"></i>
+                                </div>
+
+                                <div class="form-row-title">
+                                    <h3>نام خانوادگی</h3>
+                                </div>
+                                <div class="form-row with-icon">
+                                    <input id="family" name="family" type="text" class="input-ui pr-2"
+                                           placeholder="نام خانوادگی خود را وارد نمایید">
+                                    <i class="mdi mdi-account-circle-outline"></i>
+                                </div>
+
                                 <div class="form-row-title">
                                     <h3>کد تایید را وارد کنید</h3>
                                 </div>
                                 <div class="form-row">
                                     <div class="numbers-verify">
                                         <div class="lines-number-input">
-                                            <input type="text" class="line-number" maxlength="1" autofocus="">
-                                            <input type="text" class="line-number" maxlength="1">
-                                            <input type="text" class="line-number" maxlength="1">
-                                            <input type="text" class="line-number" maxlength="1">
-                                            <input type="text" class="line-number" maxlength="1">
+                                            <input id="c1" type="text" class="line-number" maxlength="1">
+                                            <input id="c2" type="text" class="line-number" maxlength="1">
+                                            <input id="c3" type="text" class="line-number" maxlength="1">
+                                            <input id="c4" type="text" class="line-number" maxlength="1">
+                                            <input id="c5" type="text" class="line-number" maxlength="1">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row mt-3">
+                                    <button type="button" id="send_code" class="btn-primary-cm btn-with-icon mx-auto w-100">
+                                        <i class="mdi mdi-account-circle-outline"></i>
+                                        ثبت نام در سیوسه
+                                    </button>
+                                </div>
+                                <div class="form-row mt-3">
                                     <div class="d-flex align-items-center">
-                                        <span class="text-primary btn-link-border ml-1">دریافت مجدد کد تایید</span>
-                                        <span>(</span>
-                                        <p id="countdown-verify-end"></p>
-                                        <span>)</span>
+                                        <span id="resend_sms" class="text-primary btn-link-border ml-1">دریافت مجدد کد تایید</span>
+                                        <span>(<span id="countdown"></span>)</span>
                                     </div>
                                 </div>
                             </form>
                             <div class="form-footer mt-3">
                                 <div>
-                                    <span class="font-weight-bold">کاربر جدید هستید؟</span>
-                                    <a href="#" class="mr-3 mt-2">ثبت نام در دیدیکالا</a>
+                                    <span class="font-weight-bold">قبلا ثبت نام کرده اید؟</span>
+                                    <a href="{{route('login')}}" class="mr-3 mt-2">وارد شوید</a>
                                 </div>
                             </div>
                         </div>
@@ -166,7 +190,7 @@
     <!-- Plugins -->
     <script src="/js/vendor/owl.carousel.min.js"></script>
     <script src="/js/vendor/sweetalert2.all.min.js"></script>
-    <script src="./assets/js/vendor/isotope.pkgd.min.js"></script>
+{{--    <script src="./assets/js/vendor/isotope.pkgd.min.js"></script>--}}
     <script src="/js/vendor/jquery.horizontalmenu.js"></script>
     <script src="/js/vendor/nouislider.min.js"></script>
     <script src="/js/vendor/wNumb.js"></script>
@@ -176,14 +200,14 @@
     <!-- Main JS File -->
     <script src="/js/main.js"></script>
     <script>
-        $('#register').click(function (e) {
+        $( document ).ready(function() {
+            $('#register').click(function (e) {
             e.preventDefault();
             $.ajax({
                 'url' : '{{route('register_action')}}',
                 'type' : "POST",
                 'data' : $('#registerForm').serialize(),
                 success : function (data) {
-                    console.log(data)
                     if(data.status == "0") {
                         Swal.fire({
                             position: 'top-end',
@@ -214,8 +238,69 @@
                 }
             })
         });
+        });
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $('.line-number').on( "keyup", function () {
+            if (this.value.length == this.maxLength) {
+                $(this).next('.line-number').val("");
+                $(this).next('.line-number').focus();
+            }
+            });
+        });
+
     </script>
 
+    <script>
+        $( document ).ready(function() {
+            $('#resend_sms').click(function () {
+                var timeleft = 10;
+                var downloadTimer = setInterval(function(){
+                    if(timeleft <= 0){
+                        clearInterval(downloadTimer);
+                        document.getElementById("countdown").innerHTML = "ارسال شد";
+                    } else {
+                        document.getElementById("countdown").innerHTML = timeleft;
+                    }
+                    timeleft -= 1;
+                }, 1000);
+            });
+
+        });
+    </script>
+
+    <script>
+        $( document ).ready(function() {
+            $('#send_code').on( "click", function (e) {
+            e.preventDefault();
+            $mobile = $('#mobileNumber').text();
+            $name = $('#name').val();
+            $family = $('#family').val();
+            $code = $('#c1').val() + $('#c2').val() + $('#c3').val() + $('#c4').val() + $('#c5').val();
+            $.ajax({
+                'url' : "{{route('verified_code_action')}}",
+                'type' : 'POST',
+                'data' : { "code" : $code , "name" : $name , "family" : $family , "mobile" : $mobile},
+                success : function (data) {
+                    if(data.status == "0") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'error',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                    if(data.status == "1") {
+                        window.location.replace('{{route('home')}}');
+                    };
+                }
+            })
+        });
+        });
+    </script>
 </body>
 
 </html>

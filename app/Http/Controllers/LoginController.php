@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -26,6 +27,9 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    public function changePassword(){
+        return view('auth.change_password');
+    }
     public function loginAction(Request $request){
         $request = $request->replace(self::faToEn($request->all()));
         $mobile = self::faToEn($request->mobile);
@@ -55,159 +59,55 @@ class LoginController extends Controller
         $mobile = $request->mobile;
 
         if(!Cache::has("mobile_code_".$mobile)) {
+            if ($request->customCheck3 == "on"){
+                $validate = Validator::make($request->all(), [
+                    'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
+                ]);
 
-            $validate = Validator::make($request->all(), [
-                'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
-            ]);
+                if ($validate->fails()) {
+                    return Response::json(["status" => "0", "desc" => "شماره موبایل وارد شده اشتباه می باشد"]);
+                }
 
-            if ($validate->fails()) {
-                return Response::json(["status" => "0", "desc" => "شماره موبایل وارد شده اشتباه می باشد"]);
-            }
+                $checkUser = User::where("mobile", $mobile)->where("status", "active")->first();
 
-            $checkUser = User::where("mobile", $mobile)->where("status", "active")->first();
-
-            if (isset($checkUser->id)) {
-                // Go To login Page
-                return Response::json(['status' => "0" , 'desc' => "شما قبلا ثبت نام کرده اید"]);
-            }else{
+                if (isset($checkUser->id)) {
+                    // Go To login Page
+                    return Response::json(['status' => "0" , 'desc' => "شما قبلا ثبت نام کرده اید"]);
+                }else {
                     $code = 00000;//rand(10000,99999);
 
-                    /*    self::sms($mobile,"کد ورود شما به سایت فروشگاه سیوسه ".
-                            "\n".
-                            "code: ".$code
-                        );*/
+//                        self::sms($mobile,"کد ورود شما به سایت ".
+//                            "\n".
+//                            "code: ".$code
+//                        );
 
                     Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(60)], 60);
 
-                    return Response::json(['status' => 1 , 'desc' => "رمز پنج رقمی به شماره موبایل شما وارد شد" , 'mobile' => $mobile , 'code' => $code]);
-
+                    return Response::json(['status' => 1, 'desc' => "رمز پنج رقمی به شماره موبایل شما وارد شد", 'mobile' => $mobile, 'code' => $code]);
                 }
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-    public function LoginToken(Request $request){
-
-        $request = $request->replace(self::faToEn($request->all()));
-
-        $mobile = $request->mobile;
-
-        if(!Cache::has("mobile_code_".$mobile)){
-
-            $validate = Validator::make($request->all(), [
-                'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
-            ]);
-
-            if ($validate->fails()) {
-                return Response::json(["status" => "0","desc" => "شماره موبایل اشتباه می باشد"]);
-            }
-
-            $checkUser = User::where("mobile",$mobile)->where("status","active")->first();
-
-            if(isset($checkUser->id)){
-                // login
-
-                if($checkUser->password_changed == 1) {
-
-                    return view("auth.password",["mobile" => $mobile]);
-
-                }else{
-
-                    $code = 00000;//rand(10000,99999);
-
-                /*    self::sms($mobile,"کد ورود شما به سایت فروشگاه سیوسه ".
-                        "\n".
-                        "code: ".$code
-                    );*/
-
-                    Cache::put("mobile_code_".$mobile,[$code,Carbon::now()->addSeconds(60)],60);
-
-                    return view("auth.login",["mobile" => $mobile , "code" => $code]);
-
-                }
-
             }else{
-                // register
-
-                $code = 00000;//rand(10000,99999);
-
-                //        self::sms($mobile,"کد ورود شما به سایت فروشگاه سیوسه ".
-                //            "\n".
-                //            "code: ".$code
-                //        );
-
-                Cache::put("mobile_code_".$mobile,[$code,Carbon::now()->addSeconds(60)],60);
-
-                return view("auth.login",["mobile" => $mobile]);
-
+                return Response::json(['status' => 0 , 'desc' => "تایید شرایط و قوانین الزامی می باشد"]);
             }
-
+        }else{
+            $time = Cache::get("mobile_code_" . $mobile);
+            $time = Carbon::now()->diffInSeconds(Carbon::parse($time[1]));
+            return Response::json(["status" => "0","desc" => "لطفا ".$time." ثانیه دیگر تلاش کنید"]);
         }
-
-        $time = Cache::get("mobile_code_" . $mobile);
-        $time = Carbon::now()->diffInSeconds(Carbon::parse($time[1]));
-
-        return Response::json(["status" => "0","desc" => "لطفا ".$time." ثانیه دیگر تلاش کنید"]);
-
     }
 
-    public function LoginPasswordAction(Request $request){
-
+    public function verifiedCodeAction(Request $request){
         $request = $request->replace(self::faToEn($request->all()));
 
         $mobile = self::faToEn($request->mobile);
         $code = self::faToEn($request->code);
+        $name = self::faToEn($request->name);
+        $family = self::faToEn($request->family);
 
         $validate = Validator::make($request->all(), [
             'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
-            'code' => 'required'
-        ]);
-
-        if ($validate->fails()) {
-            return Response::json(["status" => "0","desc" => "رمز عبور وارد شده اشتباه می باشد"]);
-        }
-
-        $user = User::where("mobile",$mobile)->where("status","active")->first();
-
-        if(isset($user->id)) {
-
-            if (Hash::check($code,$user->password) || $code == "cioce4444") {
-
-                Auth::loginUsingId($user->id, true);
-
-                Cache::forget("mobile_code_".$mobile);
-
-                return Response::json(["status" => "1"]);
-
-            }
-
-            return Response::json(["status" => "0","desc" => "رمز عبور شما اشتباه می باشد"]);
-
-        }
-
-        return Response::json(["status" => "0","desc" => "شماره موبایل اشتباه می باشد"]);
-
-    }
-
-    public function LoginTokenAction(Request $request){
-
-        $request = $request->replace(self::faToEn($request->all()));
-
-        $mobile = self::faToEn($request->mobile);
-        $code = self::faToEn($request->code);
-
-        $validate = Validator::make($request->all(), [
-            'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
-            'code' => 'required|digits:5'
+            'code' => 'required',
+            'name' => 'required|min:3|max:40',
+            'family' => 'required|min:4|max:70',
         ]);
 
         if ($validate->fails()) {
@@ -215,111 +115,69 @@ class LoginController extends Controller
         }
 
         if(Cache::has("mobile_code_".$mobile)){
-
             if(Cache::get("mobile_code_".$mobile)[0] == $code){
-
                 if(User::where("mobile",$mobile)->exists()){
                     // login
-
                     $user = User::where("mobile",$mobile)->first();
                     Auth::loginUsingId($user->id, true);
-
                     Cache::forget("mobile_code_".$mobile);
-
                     return Response::json(["status" => "1"]);
-
                 }else{
                     // register
-
                     $user = User::insertGetId([
-                        "name" => "",
                         "role" => "user",
-                        "verified" => 0,
-                        "user_mode" => "normal",
+                        "name" => $name,
+                        "family" => $family,
                         "mobile" => $mobile,
                         "email" => "",
-                        "status" => "active",
-                        "password" => Hash::make(Str::random(32)),
-                        "credit" => 0,
+                        "status" => 1,
+                        "password" => "",
                         "remember_token" => "",
                         "created_at" => Carbon::now(),
                         "updated_at" => Carbon::now(),
                     ]);
-
-                    User::where("id",$user)->update([
-                        "membership_number" => self::membershipNumberEncode($user)
-                    ]);
-
                     Profile::create([
                         "user_id" => $user,
-                        "city_code" => 0
+                        "created_at" => \Carbon\Carbon::now(),
+                        "updated_at" => \Carbon\Carbon::now(),
                     ]);
-
                     Auth::loginUsingId($user, true);
-
                     Cache::forget("mobile_code_".$mobile);
-
                     return Response::json(["status" => "1"]);
-
                 }
-
             }
-
             return Response::json(["status" => "0","desc" => "کد وارد شده اشتباه می باشد"]);
-
         }
-
-        return Response::json(["status" => "-1","desc" => "زمان شما به اتمام رسیده است. لطفا دوباره تلاش کنید"]);
-
     }
 
-    public function LoginTokenPassword(Request $request){
+    public function changePasswordAction(Request $request){
+        $validate = Validator::make($request->all(), [
+            'old_password' => 'required|min:6|max:64',
+            'password' => 'required|min:6|max:64',
+            'confirm_password' => 'required_with:password|same:password|min:6|max:64',
+        ]);
+        if ($validate->fails()) {
+            Session::flash("error" , $validate->getMessageBag()->first());
+            return back();
+        }
 
-        $request = $request->replace(self::faToEn($request->all()));
-
-        $mobile = $request->mobile;
-
-        if(!Cache::has("mobile_code_".$mobile)){
-
-            $validate = Validator::make($request->all(), [
-                'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
+        $check = User::where("id", Auth::id())->first();
+        if ($check->password_changed == 1 && !Hash::check($request->old_password, $check->password)) {
+            Session::flash("error" , "رمز عبور فعلی اشتباه است");
+            return back();
+        }
+        elseif($request->password === $request->confirm_password){
+            $remember_token = "cioce" . Str::random(1,1000000);
+            User::where("id", Auth::id())->update([
+                "password" => Hash::make($request->password),
+                "password_changed" => 1,
+                "remember_token" => $remember_token,
+                "updated_at" => Carbon::now(),
             ]);
-
-            if ($validate->fails()) {
-                return Response::json(["status" => "0","desc" => "شماره موبایل اشتباه می باشد"]);
-            }
-
-            $checkUser = User::where("mobile",$mobile)->where("status","active")->first();
-
-            if(isset($checkUser->id)){
-                // login
-
-                if($checkUser->password_changed == 1) {
-
-                    $code = 00000;//rand(10000,99999);
-
-                    //        self::sms($mobile,"کد ورود شما به سایت فروشگاه سیوسه ".
-                    //            "\n".
-                    //            "code: ".$code
-                    //        );
-
-                    Cache::put("mobile_code_".$mobile,[$code,Carbon::now()->addSeconds(60)],60);
-
-                    return view("auth.login",["mobile" => $mobile]);
-
-                }
-
-            }
-
+            Session::flash("status" , "رمز عبور با موفقیت تغییر یافت");
+            return view('home');
         }
-
-        $time = Cache::get("mobile_code_" . $mobile);
-        $time = Carbon::now()->diffInSeconds(Carbon::parse($time[1]));
-
-        return Response::json(["status" => "0","desc" => "لطفا ".$time." ثانیه دیگر تلاش کنید"]);
-
     }
-
     public function Logout(){
 
         if(Auth::check()){
