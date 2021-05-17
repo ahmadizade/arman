@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Product;
+use App\Models\Product_tag;
 use App\Models\Report;
 use App\Models\Store;
 use App\Models\User;
@@ -423,10 +424,34 @@ class AdminController extends Controller
         }
     }
 
+    public function addTag(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2|max:255|unique:product_tag',
+        ]);
+
+        if ($validator->fails()) {
+            session()->flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        Product_tag::create([
+            "name" => $request->name,
+            "user_id" => Auth::id(),
+            "slug" => self::slug($request->name),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now()
+        ]);
+
+        session()->flash("error","برچسب با موفقیت ثبت شد");
+        return back();
+    }
+
     public function addProduct(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:2|max:255',
+            'englishName' => 'required|min:2|max:255',
             'category' => 'required',
+            'tag' => 'nullable|min:2|max:255',
             'price' => 'nullable|min:2|max:255',
             'discount' => 'nullable|max:2',
             'thumbnail' => 'required|max:2048',
@@ -459,8 +484,10 @@ class AdminController extends Controller
         }
         Product::create([
            'product_name' => $request->name,
+           'english_name' => $request->englishName,
            'product_slug' => self::slug($request->name),
            'category_id' => $request->category,
+           'tag_id' => json_encode($request->tag),
            'discount' => $request->discount,
            'price' => str_replace(',', '' , $request->price),
            'quantity' => 20000,

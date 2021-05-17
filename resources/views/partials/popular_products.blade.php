@@ -8,8 +8,8 @@
                         <a href="{{route('home')}}">مشاهده همه</a>
                     </div>
                 </div>
-            @if(isset($popularproduct[0]))
-                <!-- Start Product-Slider -->
+                @if(isset($popularproduct[0]))
+                    <!-- Start Product-Slider -->
                     <div class="col-12 px-res-0">
                         <div class="product-carousel carousel-md owl-carousel owl-theme">
                             @foreach($popularproduct as $item)

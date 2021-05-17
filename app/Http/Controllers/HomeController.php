@@ -25,8 +25,8 @@ class HomeController extends Controller
         $randomShop = Store::orderBy('id' , 'asc')->limit(7)->get();
 //        $lastProduct = Product::orderBy('id' , 'desc')->limit(12)->get();
         $lastProduct = Product::orderBy('id' , 'asc')->limit(7)->get();
-        $freeproduct = Product::orderBy('id' , 'desc')->where('free' , 1)->limit(10)->get();
-        return view('home' , ['freeproduct' => $freeproduct ,'popularproduct' => $popularproduct , 'randomShop' => $randomShop, 'lastProduct' => $lastProduct]);
+        $mostVisited = Product::orderBy('view' , 'desc')->limit(10)->get();
+        return view('home' , ['mostVisited' => $mostVisited ,'popularproduct' => $popularproduct , 'randomShop' => $randomShop, 'lastProduct' => $lastProduct]);
     }
 
     public function contact(){

@@ -49,6 +49,7 @@ Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::get('/product/product-suggestion-action', 'App\Http\Controllers\AdminController@product_SuggestionAction')->name("product_suggestion_action");
     Route::post('/product/product-show-action', 'App\Http\Controllers\AdminController@ProductShowAction')->name("product_show_action")->middleware("ajax", "verify.domain");
     Route::post('/product/add-product', 'App\Http\Controllers\AdminController@addProduct')->name("add_product");
+    Route::post('/product/add-teg', 'App\Http\Controllers\AdminController@addTag')->name("add_tag");
     Route::get('/product/delete-product/{id}', 'App\Http\Controllers\AdminController@deleteProduct')->name("delete_product");
     Route::post('upload/tiny/image','App\Http\Controllers\UploadController@uploadImageDescription')->name('tiny.upload');
 

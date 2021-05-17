@@ -45,5 +45,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('category',$category);
         });
 
+        View::composer('*', function ($view) {
+            $product_tag = DB::table('product_tag')->get();
+            $view->with('product_tag',$product_tag);
+        });
+
     }
 }

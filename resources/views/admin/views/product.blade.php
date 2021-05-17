@@ -181,6 +181,48 @@
                         </div>
                     </div>
 
+                    {{--Add TAG--}}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="card">
+                                    <div class="card-header text-right">
+                                        مدیریت برچسب ها
+                                    </div>
+                                    <div class="card-body">
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger mb-2">
+                                                <ul class="mb-0">
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @if(Session::has("status"))
+                                            <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
+                                        @endif
+                                        <form action="{{route('add_tag')}}" method="POST">
+                                            <div class="row text-right">
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="name" class="form-label ">ثبت برچسب</label>
+                                                        <input type="text" name="name" class="form-control text-right" placeholder="مثلا : سامسونگ">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 buttons text-right">
+                                                    <button class="btn btn-success btn-sm" type="submit">ذخیره</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{--ADD Product--}}
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-12 col-lg-12">
@@ -219,8 +261,28 @@
                                                 </div>
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
-                                                        <label for="name" class="form-label ">نام محصول</label>
+                                                        <label for="tag" class="form-label ">برچسب ها</label>
+                                                        <select name="tag[]" class="form-control select2" multiple>
+                                                            @if(isset($product_tag))
+                                                                @foreach($product_tag as $item)
+                                                                    <option value="{{$item->id}}" @if($item->id == old('tag')) selected @endif>
+                                                                        {{$item->name}}
+                                                                    </option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="name" class="form-label ">نام محصول (فارسی)</label>
                                                         <input type="text" name="name" class="form-control" placeholder="مثلا : ساعت هوشمند سامسونگ">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="englishName" class="form-label ">نام محصول (اینگلیسی)</label>
+                                                        <input type="text" name="englishName" class="form-control" placeholder="مثلا : Smart Watch Samsung">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-6 col-lg-6">
@@ -303,7 +365,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                    {{--Add TAG--}}
+
+                </div>
         </div>
     </div>
     {{--Save MODAL--}}
@@ -336,11 +400,20 @@
 
 @endsection
 @section("extra_js")
-    @include('admin.views.tinymce')
+    @include('admin.views.tinymce')1
+    <script src="/admin/js/admin_jquery.js"></script>
+    <script src="/js/admin_jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+
+
+    <script>
+        $(".select2").select2({
+            tags:true,
+        })
+    </script>
     <script>
         tinyMCE.triggerSave(true, true);
         var dataForm = new FormData($("#make_product")[0]);
     </script>
-    <script src="/admin/js/admin_jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 @endsection
