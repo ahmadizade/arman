@@ -50,5 +50,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('product_tag',$product_tag);
         });
 
+        View::composer('*', function ($view) {
+            $category_variety = DB::table('category_variety')->get();
+            $view->with('category_variety',$category_variety);
+        });
+
     }
 }

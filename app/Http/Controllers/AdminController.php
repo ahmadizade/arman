@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Category_variety;
 use App\Models\Contact;
 use App\Models\Product;
 use App\Models\Product_tag;
@@ -446,11 +447,49 @@ class AdminController extends Controller
         return back();
     }
 
+    public function addCategory(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2|max:255|unique:product_tag',
+        ]);
+
+        if ($validator->fails()) {
+            session()->flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        Category::create([
+            "name" => $request->name,
+        ]);
+
+        session()->flash("error","برچسب با موفقیت ثبت شد");
+        return back();
+    }
+
+    public function addCategoryVariety(Request $request){
+        $validator = Validator::make($request->all() ,[
+            'category' => 'required|min:1',
+            'variety' => 'required|min:1',
+        ]);
+        if ($validator->fails()) {
+            Session::flash('error', $validator->errors()->first());
+            return back();
+        }
+        foreach ($request->variety as $item){
+            Category_variety::create([
+                "category_id" => $request->category,
+                "name" => $item,
+            ]);
+        }
+        Session::flash('status',"افزودن با موفقیت انجام شد");
+        return back();
+    }
+
     public function addProduct(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:2|max:255',
             'englishName' => 'required|min:2|max:255',
             'category' => 'required',
+            'category_variety' => 'required',
             'tag' => 'nullable|min:2|max:255',
             'price' => 'nullable|min:2|max:255',
             'discount' => 'nullable|max:2',
@@ -487,6 +526,7 @@ class AdminController extends Controller
            'english_name' => $request->englishName,
            'product_slug' => self::slug($request->name),
            'category_id' => $request->category,
+           'category_variety' => $request->category_variety,
            'tag_id' => json_encode($request->tag),
            'discount' => $request->discount,
            'price' => str_replace(',', '' , $request->price),

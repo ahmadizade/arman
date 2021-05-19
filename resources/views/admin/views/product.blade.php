@@ -211,7 +211,80 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 buttons text-right">
-                                                    <button class="btn btn-success btn-sm" type="submit">ذخیره</button>
+                                                    <button class="btn btn-success btn-sm" type="submit">افزودن برچسب</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{--Add Category And Category-Variety--}}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="card">
+                                    <div class="card-header text-right">
+                                        مدیریت دسته بندی ها
+                                    </div>
+                                    <div class="card-body">
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger mb-2">
+                                                <ul class="mb-0">
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @if(Session::has("status"))
+                                            <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
+                                        @endif
+                                        <form action="{{route('add_category')}}" method="POST">
+                                            <div class="row text-right">
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="name" class="form-label ">ثبت دسته بندی</label>
+                                                        <input type="text" name="name" class="form-control text-right" placeholder="مثلا : کالای دیجیتال">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 buttons text-right">
+                                                    <button class="btn btn-success btn-sm" type="submit">افزودن دسته بندی</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <hr>
+                                        <form action="{{route('add_category_variety')}}" method="POST">
+                                            <div class="row text-right">
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="category" class="form-label ">انتخاب دسته بندی</label>
+                                                        <select name="category" class="form-control">
+                                                            @if(isset($category))
+                                                                @foreach($category as $item)
+                                                                    <option value="{{$item->id}}" @if($item->id == old('category')) selected @endif>
+                                                                        {{$item->name}}
+                                                                    </option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="name" class="form-label ">زیردسته</label>
+                                                        <select name="variety[]" class="form-control select2" multiple>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 buttons text-right">
+                                                    <button class="btn btn-success btn-sm" type="submit">افزودن زیردسته</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -247,11 +320,11 @@
                                             <div class="row text-right">
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
-                                                        <label for="category" class="form-label ">انتخاب دسته</label>
-                                                        <select name="category" class="form-control">
+                                                        <label for="category" class="form-label ">دسته بندی</label>
+                                                        <select id="select_category" name="category" class="form-control">
                                                             @if(isset($category))
                                                                 @foreach($category as $item)
-                                                                    <option value="{{$item->id}}" @if($item->id == old('category')) selected @endif>
+                                                                    <option id="select_item" value="{{$item->id}}" @if($item->id == old('category')) selected @endif>
                                                                         {{$item->name}}
                                                                     </option>
                                                                 @endforeach
@@ -259,6 +332,22 @@
                                                         </select>
                                                     </div>
                                                 </div>
+
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="category_variety" class="form-label ">زیردسته ها</label>
+                                                        <select id="category_variety" name="category_variety" class="form-control">
+                                                            @if(isset($category_variety))
+                                                                @foreach($category_variety as $item)
+                                                                    <option value="{{$item->id}}" @if($item->id == old('$category_variety')) selected @endif>
+                                                                        {{$item->name}}
+                                                                    </option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
                                                         <label for="tag" class="form-label ">برچسب ها</label>
@@ -273,6 +362,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
                                                         <label for="name" class="form-label ">نام محصول (فارسی)</label>
@@ -400,11 +490,16 @@
 
 @endsection
 @section("extra_js")
-    @include('admin.views.tinymce')1
+    @include('admin.views.tinymce')
     <script src="/admin/js/admin_jquery.js"></script>
     <script src="/js/admin_jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
+    <script>
+        $('#select_category').on('change', function () {
+            alert($(this).val());
+        })
+    </script>
 
 
     <script>
