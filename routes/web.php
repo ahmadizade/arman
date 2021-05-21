@@ -49,10 +49,13 @@ Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::get('/product/product-suggestion-action', 'App\Http\Controllers\AdminController@product_SuggestionAction')->name("product_suggestion_action");
     Route::post('/product/product-show-action', 'App\Http\Controllers\AdminController@ProductShowAction')->name("product_show_action")->middleware("ajax", "verify.domain");
     Route::post('/product/add-product', 'App\Http\Controllers\AdminController@addProduct')->name("add_product");
+    Route::post('/product/get-variety', 'App\Http\Controllers\AdminController@getVariety')->name("get_variety");
     Route::post('/product/add-teg', 'App\Http\Controllers\AdminController@addTag')->name("add_tag");
     Route::post('/product/add-category', 'App\Http\Controllers\AdminController@addCategory')->name("add_category");
     Route::post('/product/add-category-variety', 'App\Http\Controllers\AdminController@addCategoryVariety')->name("add_category_variety");
     Route::get('/product/delete-product/{id}', 'App\Http\Controllers\AdminController@deleteProduct')->name("delete_product");
+    Route::get('/product/edit-product/{id}', 'App\Http\Controllers\AdminController@editProduct')->name("edit_product");
+    Route::post('/product/admin-edit-product-action', 'App\Http\Controllers\AdminController@adminEditproductAction')->name("admin_edit_product_action");
     Route::post('upload/tiny/image','App\Http\Controllers\UploadController@uploadImageDescription')->name('tiny.upload');
 
 });
@@ -75,7 +78,7 @@ Route::post('/change-password-action', 'App\Http\Controllers\LoginController@cha
 
 
 // profile
-Route::middleware(['auth'])->prefix("profile")->group(function () {
+Route::prefix("profile")->group(function () {
     Route::get('/', 'App\Http\Controllers\ProfileController@Index')->name("profile_index");
     Route::get('/products', 'App\Http\Controllers\ProfileController@Products')->name("profile_products");
     Route::get('/single-product/{slug}', 'App\Http\Controllers\ProfileController@SingleProduct')->name("single_product");

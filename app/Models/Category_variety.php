@@ -11,5 +11,4 @@ class Category_variety extends Model
     protected $table = "category_variety";
     protected $guarded = [];
     public $timestamps = false;
-
 }

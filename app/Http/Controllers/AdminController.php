@@ -483,24 +483,41 @@ class AdminController extends Controller
         Session::flash('status',"افزودن با موفقیت انجام شد");
         return back();
     }
-
+    public function getVariety(Request $request){
+        $variety = Category_variety::where('category_id', $request->category_id)->get();
+        return $variety;
+    }
     public function addProduct(Request $request){
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:2|max:255',
-            'englishName' => 'required|min:2|max:255',
-            'category' => 'required',
-            'category_variety' => 'required',
-            'tag' => 'nullable|min:2|max:255',
+            'name' => 'nullable|min:2|max:255',
+            'englishName' => 'nullable|min:2|max:255',
+            'category' => 'nullable',
+            'category_variety' => 'nullable',
+            'tag' => 'nullable',
             'price' => 'nullable|min:2|max:255',
             'discount' => 'nullable|max:2',
-            'thumbnail' => 'required|max:2048',
-            'image' => 'required|max:2048',
+            'thumbnail' => 'nullable|max:2048',
+            'image' => 'nullable|max:2048',
             'description' => 'nullable|min:3|max:9000000',
+            'framework' => 'nullable',
+            'framework_version' => 'nullable',
+            'framework_details' => 'nullable|min:3|max:9000000',
+            'special_features' => 'nullable|min:3|max:9000000',
+            'short_description_of_backend' => 'nullable|min:3|max:9000000',
+            'admin_pannel_features' => 'nullable|min:3|max:9000000',
+            'framework_frontend_details' => 'nullable|min:3|max:9000000',
+            'other_plugins' => 'nullable|min:3|max:9000000',
+            'data_usage' => 'nullable',
+            'admin_pannel' => 'nullable',
+            'framework_frontend' => 'nullable',
+            'framework_frontend_version' => 'nullable',
         ]);
-        if ($validator->fails()){
+
+        if ($validator->fails()) {
             session()->flash("error",$validator->errors()->first());
             return back();
         }
+
         $image = null;
         if ($request->has('image')) {
             $imagePath = "/uploads/products/";
@@ -511,6 +528,7 @@ class AdminController extends Controller
             }
             $file->move(public_path($imagePath), $image);
         }
+
         $thumbnail = null;
         if ($request->has('thumbnail')) {
             $imagePath = "/uploads/thumbnail/";
@@ -537,6 +555,18 @@ class AdminController extends Controller
             'thumbnail' => $thumbnail,
             "image" => $image,
             "created_at" => Carbon::now(),
+            'framework' => $request->description,
+            'framework_version' => $request->framework_version,
+            'framework_details' => $request->framework_details,
+            'special_features' => $request->special_features,
+            'short_description_of_backend' => $request->short_description_of_backend,
+            'admin_pannel_features' => $request->admin_pannel_features,
+            'framework_frontend_details' => $request->framework_frontend_details,
+            'other_plugins' => $request->other_plugins,
+            'data_usage' => $request->data_usage,
+            'admin_pannel' => $request->admin_pannel,
+            'framework_frontend' => $request->framework_frontend,
+            'framework_frontend_version' => $request->framework_frontend_version,
         ]);
         session()->flash("status","محصول با موفقیت ثبت گردید");
         return back();
@@ -549,6 +579,15 @@ class AdminController extends Controller
         ]);
         Session::flash('status' , 'حذف محصول با موفقیت انجام شد');
         return back();
+    }
+
+    public function editProduct($id){
+        $product = Product::where('id' , $id)->first();
+        return view('admin.views.product_edit', ['product' => $product]);
+    }
+
+    public function adminEditproductAction(Request $request){
+        return $request;
     }
 
 }
