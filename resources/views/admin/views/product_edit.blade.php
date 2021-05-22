@@ -81,13 +81,14 @@
                                         @if(isset($product))
                                             <form id="make_product" action="{{route('admin_edit_product_action')}}" method="POST" enctype="multipart/form-data">
                                         <div class="row">
+                                            <input type="hidden" name="id" class="d-none" value="{{$product->id}}">
                                             <div class="col-12 col-md-6 col-lg-6">
                                                 <div class="my-3">
                                                     <label for="category" class="form-label ">دسته بندی</label>
                                                     <select id="select_category" name="category" class="form-control">
-                                                        @if(isset($category))
+                                                        @if(isset($category) && isset($product))
                                                             @foreach($category as $item)
-                                                                <option id="select_item" value="{{$item->id}}" @if($item->id == old('category')) selected @endif>
+                                                                <option id="select_item" value="{{$item->id}}" @if($item->id == $product->category_id) selected @endif>
                                                                     {{$item->name}}
                                                                 </option>
                                                             @endforeach
@@ -100,18 +101,17 @@
                                                 <div class="my-3">
                                                     <label for="category_variety" class="form-label ">زیردسته ها</label>
                                                     <select id="category_variety" name="category_variety" class="form-control">
-
+                                                        <option value="{{$product->category_variety}}" selected>{{$product->variety->name}}</option>
                                                     </select>
                                                 </div>
                                             </div>
-
                                             <div class="col-12 col-md-6 col-lg-6">
                                                 <div class="my-3">
                                                     <label for="tag" class="form-label ">برچسب ها</label>
                                                     <select name="tag[]" class="form-control select2" multiple>
                                                         @if(isset($product_tag))
                                                             @foreach($product_tag as $item)
-                                                                <option value="{{$item->id}}" @if($item->id == old('tag')) selected @endif>
+                                                                <option value="{{$item->id}}" @if($item->id == $product->tag) selected @endif>
                                                                     {{$item->name}}
                                                                 </option>
                                                             @endforeach
@@ -123,133 +123,133 @@
                                             <div class="col-12 col-md-6 col-lg-6">
                                                 <div class="my-3">
                                                     <label for="name" class="form-label ">نام محصول (فارسی)</label>
-                                                    <input type="text" name="name" class="form-control" placeholder="مثلا : ساعت هوشمند سامسونگ">
+                                                    <input value="{{$product->product_name}}" type="text" name="name" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-6 col-lg-6">
                                                 <div class="my-3">
                                                     <label for="englishName" class="form-label ">نام محصول (اینگلیسی)</label>
-                                                    <input type="text" name="englishName" class="form-control" placeholder="مثلا : Smart Watch Samsung">
+                                                    <input value="{{$product->english_name}}" type="text" name="englishName" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-6 col-lg-6">
                                                 <div class="my-3">
                                                     <label for="discount" class="form-label "> (لطفا مقدار درصد قرار ندهید)   تخفیف</label>
-                                                    <input type="text" name="discount" class="form-control" placeholder="مثلا : 20">
+                                                    <input value="{{$product->discount}}" type="text" name="discount" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="price" class="form-label ">قیمت</label>
-                                                    <input type="text" name="price" class="form-control" placeholder="مثلا : 2,245,000">
+                                                    <input value="{{$product->price}}" type="text" name="price" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="description" class="form-label ">توضیحات</label>
-                                                    <textarea class="form-control textarea-editor" name="description" id="description" rows="10" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    <textarea class="form-control textarea-editor" name="description" id="description" rows="10" aria-hidden="true" wfd-invisible="true">{{$product->product_desc}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-3 col-lg-3">
                                                 <div class="my-3">
                                                     <label for="framework" class="form-label ">FrameWork</label>
-                                                    <input type="text" name="framework" class="form-control" placeholder="مثلا : Laravel">
+                                                    <input value="{{$product->framework}}" type="text" name="framework" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-3 col-lg-3">
                                                 <div class="my-3">
                                                     <label for="admin_pannel" class="form-label ">پنل مدیریت</label>
                                                     <select name="admin_pannel" class="form-control">
-                                                        <option value="1" selected>دارد</option>
-                                                        <option value="0">ندارد</option>
+                                                        <option value="1" @if($product->admin_pannel == 1) selected @endif>دارد</option>
+                                                        <option value="0" @if($product->admin_pannel == 0) selected @endif>ندارد</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-3 col-lg-3">
                                                 <div class="my-3">
                                                     <label for="framework_version" class="form-label ">Framework_Version</label>
-                                                    <input type="text" name="framework_version" class="form-control" placeholder="مثلا : 8.4">
+                                                    <input value="{{$product->framework_version}}" type="text" name="framework_version" class="form-control" placeholder="مثلا : 8.4">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-3 col-lg-3">
                                                 <div class="my-3">
                                                     <label for="data_usage" class="form-label ">data_usage</label>
-                                                    <input type="text" name="data_usage" class="form-control" placeholder="مثلا : میزان حجم اشغالی">
+                                                    <input value="{{$product->data_usage}}" type="text" name="data_usage" class="form-control" placeholder="مثلا : میزان حجم اشغالی">
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="framework_details" class="form-label ">framework_details</label>
-                                                    <textarea class="form-control textarea-editor" name="framework_details" id="framework_details" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    <textarea class="form-control textarea-editor" name="framework_details" id="framework_details" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->framework_details}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="special_features" class="form-label ">special_features</label>
-                                                    <textarea class="form-control textarea-editor" name="special_features" id="special_features" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    <textarea class="form-control textarea-editor" name="special_features" id="special_features" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->special_features}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="short_description_of_backend" class="form-label ">short_description_of_backend</label>
-                                                    <textarea class="form-control textarea-editor" name="short_description_of_backend" id="short_description_of_backend" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    <textarea class="form-control textarea-editor" name="short_description_of_backend" id="short_description_of_backend" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->short_description_of_backend}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="admin_pannel_features" class="form-label ">admin_pannel_features</label>
-                                                    <textarea class="form-control textarea-editor" name="admin_pannel_features" id="admin_pannel_features" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    <textarea class="form-control textarea-editor" name="admin_pannel_features" id="admin_pannel_features" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->admin_pannel_features}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-6 col-lg-6">
                                                 <div class="my-3">
                                                     <label for="framework_frontend" class="form-label ">framework_frontend</label>
-                                                    <input type="text" name="framework_frontend" class="form-control" placeholder="مثلا : فریم ورک یوآی">
+                                                    <input value="{{$product->framework_frontend}}" type="text" name="framework_frontend" class="form-control" placeholder="مثلا : فریم ورک یوآی">
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-6 col-lg-6">
                                                 <div class="my-3">
                                                     <label for="framework_frontend_version" class="form-label ">framework_frontend_version</label>
-                                                    <input type="text" name="framework_frontend_version" class="form-control" placeholder="مثلا : ورژه 4">
+                                                    <input value="{{$product->framework_frontend_version}}" type="text" name="framework_frontend_version" class="form-control" placeholder="مثلا : ورژه 4">
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="framework_frontend_details" class="form-label ">framework_frontend_details</label>
-                                                    <textarea class="form-control textarea-editor" name="framework_frontend_details" id="framework_frontend_details" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    <textarea class="form-control textarea-editor" name="framework_frontend_details" id="framework_frontend_details" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->framework_frontend_details}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="other_plugins" class="form-label ">other_plugins</label>
-                                                    <textarea class="form-control textarea-editor" name="other_plugins" id="other_plugins" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    <textarea class="form-control textarea-editor" name="other_plugins" id="other_plugins" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->other_plugins}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-4 col-lg-4 text-center">
                                                 <div class="mt-3">
                                                     <label for="image" class="form-label text-success">عکس بزرگ</label>
-                                                    <input type="file" name="image">
+                                                    <input value="{{$product->image}}" type="file" name="image">
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-4 col-lg-4 text-center">
                                                 <div class="mt-3">
                                                     <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>
-                                                    <input type="file" name="thumbnail">
+                                                    <input value="{{$product->thumbnail}}" type="file" name="thumbnail">
                                                 </div>
                                             </div>
 

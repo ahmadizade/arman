@@ -489,15 +489,15 @@ class AdminController extends Controller
     }
     public function addProduct(Request $request){
         $validator = Validator::make($request->all(), [
-            'name' => 'nullable|min:2|max:255',
-            'englishName' => 'nullable|min:2|max:255',
-            'category' => 'nullable',
-            'category_variety' => 'nullable',
+            'name' => 'required|min:2|max:255',
+            'englishName' => 'required|min:2|max:255',
+            'category' => 'required',
+            'category_variety' => 'required',
             'tag' => 'nullable',
-            'price' => 'nullable|min:2|max:255',
+            'price' => 'required|min:2|max:255',
             'discount' => 'nullable|max:2',
-            'thumbnail' => 'nullable|max:2048',
-            'image' => 'nullable|max:2048',
+            'thumbnail' => 'required|max:2048',
+            'image' => 'required|max:2048',
             'description' => 'nullable|min:3|max:9000000',
             'framework' => 'nullable',
             'framework_version' => 'nullable',
@@ -587,7 +587,90 @@ class AdminController extends Controller
     }
 
     public function adminEditproductAction(Request $request){
-        return $request;
+        $validator = Validator::make($request->all(), [
+            'id' => 'nullable',
+            'name' => 'required|min:2|max:255',
+            'englishName' => 'required|min:2|max:255',
+            'category' => 'required',
+            'category_variety' => 'required',
+            'tag' => 'nullable',
+            'price' => 'required|min:2|max:255',
+            'discount' => 'nullable|max:2',
+            'thumbnail' => 'nullable|max:2048',
+            'image' => 'nullable|max:2048',
+            'description' => 'nullable|min:3|max:9000000',
+            'framework' => 'nullable',
+            'framework_version' => 'nullable',
+            'framework_details' => 'nullable|min:3|max:9000000',
+            'special_features' => 'nullable|min:3|max:9000000',
+            'short_description_of_backend' => 'nullable|min:3|max:9000000',
+            'admin_pannel_features' => 'nullable|min:3|max:9000000',
+            'framework_frontend_details' => 'nullable|min:3|max:9000000',
+            'other_plugins' => 'nullable|min:3|max:9000000',
+            'data_usage' => 'nullable',
+            'admin_pannel' => 'nullable',
+            'framework_frontend' => 'nullable',
+            'framework_frontend_version' => 'nullable',
+        ]);
+
+        if ($validator->fails()) {
+            session()->flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        $image = null;
+        if ($request->has('image')) {
+            $imagePath = "/uploads/products/";
+            $file = $request->file('image');
+            $image = $file->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $image)) {
+                $image = Carbon::now()->timestamp . $image;
+            }
+            $file->move(public_path($imagePath), $image);
+        }
+
+        $thumbnail = null;
+        if ($request->has('thumbnail')) {
+            $imagePath = "/uploads/thumbnail/";
+            $image = $request->file('thumbnail');
+            $thumbnail = $image->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $thumbnail)) {
+                $thumbnail = Carbon::now()->timestamp . $thumbnail;
+            }
+            $image->move(public_path($imagePath), $thumbnail);
+        }
+        Product::where('id' , $request->id)->update([
+            'product_name' => $request->name,
+            'english_name' => $request->englishName,
+            'product_slug' => self::slug($request->name),
+            'category_id' => $request->category,
+            'category_variety' => $request->category_variety,
+            'tag_id' => json_encode($request->tag),
+            'discount' => $request->discount,
+            'price' => str_replace(',', '' , $request->price),
+            'quantity' => 20000,
+            'mobile' => Auth::user()->mobile,
+            'user_id' => Auth::id(),
+            'product_desc' => $request->description,
+            'thumbnail' => $thumbnail,
+            "image" => $image,
+            "created_at" => Carbon::now(),
+            'framework' => $request->description,
+            'framework_version' => $request->framework_version,
+            'framework_details' => $request->framework_details,
+            'special_features' => $request->special_features,
+            'short_description_of_backend' => $request->short_description_of_backend,
+            'admin_pannel_features' => $request->admin_pannel_features,
+            'framework_frontend_details' => $request->framework_frontend_details,
+            'other_plugins' => $request->other_plugins,
+            'data_usage' => $request->data_usage,
+            'admin_pannel' => $request->admin_pannel,
+            'framework_frontend' => $request->framework_frontend,
+            'framework_frontend_version' => $request->framework_frontend_version,
+            'updated_at' => Carbon::now(),
+        ]);
+        session()->flash("status","محصول با موفقیت ویرایش گردید");
+        return back();
     }
 
 }
