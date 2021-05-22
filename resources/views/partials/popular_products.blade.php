@@ -32,13 +32,13 @@
                                             </div>
                                         </div>
                                         <a class="product-thumb" href="{{ route("single_product",["slug" => $item->product_slug]) }}">
-                                            <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="Product Thumbnail">
+                                            <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="{{$item->product_name}}" style="width: 200px;height: 130px;">
                                         </a>
                                         <div class="product-card-body">
                                             <h5 class="product-title">
                                                 <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="text-truncate">{{$item->product_name}}</a>
                                             </h5>
-                                            <a class="product-meta text-truncate mt-2" href="#">{{$item->category->name}}</a>
+                                            <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->category->name}}</a>
                                             <span class="product-price">{{$item->price}} تومان</span>
                                             <div class="mt-4">
                                                 <span class="product-meta d-inline"><i class="fa fa-eye"></i> {{$item->view}}</span>
@@ -86,7 +86,7 @@
                                     </div>
                                 </div>
                                 <a class="product-thumb" href="{{ route("single_product",["slug" => $item->product_slug]) }}">
-                                    <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="Product Thumbnail">
+                                    <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="{{$item->product_name}}" style="width: 200px;height: 130px;">
                                 </a>
                                 <div class="product-card-body">
                                     <h5 class="product-title">

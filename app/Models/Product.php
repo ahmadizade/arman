@@ -20,4 +20,8 @@ class Product extends Model
     {
         return $this->belongsTo("App\Models\Category", "category_id", "id");
     }
+    public function variety()
+    {
+        return $this->belongsTo("App\Models\Category_variety", "category_variety", "id");
+    }
 }

@@ -1,11 +1,10 @@
 @extends("admin.views.layouts.master")
 @section("shop")
-    <shop>سامانه مدیریت کاربر | فروشگاه سیوسه</shop>
+    <shop>سامانه ثبت محصول | فروشگاه سی وسه</shop>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
-
 @endsection
 @section("style")
     <style>
@@ -317,7 +316,7 @@
                                             <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
                                         @endif
                                         <form id="make_product" action="{{route('add_product')}}" method="POST" enctype="multipart/form-data">
-                                            <div class="row text-right">
+                                            <div class="row">
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
                                                         <label for="category" class="form-label ">دسته بندی</label>
@@ -337,13 +336,7 @@
                                                     <div class="my-3">
                                                         <label for="category_variety" class="form-label ">زیردسته ها</label>
                                                         <select id="category_variety" name="category_variety" class="form-control">
-                                                            @if(isset($category_variety))
-                                                                @foreach($category_variety as $item)
-                                                                    <option value="{{$item->id}}" @if($item->id == old('$category_variety')) selected @endif>
-                                                                        {{$item->name}}
-                                                                    </option>
-                                                                @endforeach
-                                                            @endif
+
                                                         </select>
                                                     </div>
                                                 </div>
@@ -369,46 +362,137 @@
                                                         <input type="text" name="name" class="form-control" placeholder="مثلا : ساعت هوشمند سامسونگ">
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
                                                         <label for="englishName" class="form-label ">نام محصول (اینگلیسی)</label>
                                                         <input type="text" name="englishName" class="form-control" placeholder="مثلا : Smart Watch Samsung">
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
                                                         <label for="discount" class="form-label "> (لطفا مقدار درصد قرار ندهید)   تخفیف</label>
                                                         <input type="text" name="discount" class="form-control" placeholder="مثلا : 20">
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6 col-lg-6">
+
+                                                <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="price" class="form-label ">قیمت</label>
                                                         <input type="text" name="price" class="form-control" placeholder="مثلا : 2,245,000">
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="description" class="form-label ">توضیحات</label>
                                                         <textarea class="form-control textarea-editor" name="description" id="description" rows="10" aria-hidden="true" wfd-invisible="true"></textarea>
                                                     </div>
                                                 </div>
-                                                    <div class="col-12 col-md-6 col-lg-6 text-left">
-                                                        <div class="my-3">
-                                                            <label for="image" class="form-label text-success">عکس بزرگ</label>
-                                                            <input type="file" name="image">
-                                                        </div>
+
+                                                <div class="col-12 col-md-3 col-lg-3">
+                                                    <div class="my-3">
+                                                        <label for="framework" class="form-label ">FrameWork</label>
+                                                        <input type="text" name="framework" class="form-control" placeholder="مثلا : Laravel">
                                                     </div>
-                                                    <div class="col-12 col-md-6 col-lg-6 text-left">
-                                                        <div class="my-3">
-                                                            <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>
-                                                            <input type="file" name="thumbnail">
-                                                        </div>
+                                                </div>
+                                                <div class="col-12 col-md-3 col-lg-3">
+                                                    <div class="my-3">
+                                                        <label for="admin_pannel" class="form-label ">پنل مدیریت</label>
+                                                        <select name="admin_pannel" class="form-control">
+                                                            <option value="1" selected>دارد</option>
+                                                            <option value="0">ندارد</option>
+                                                        </select>
                                                     </div>
-                                            </div>
-                                            <div class="buttons text-right">
-                                                <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">ثبت محصول</button>
-                                                <a href="" class="a-button btn btn-danger btn-sm">حذف محصول</a>
+                                                </div>
+                                                <div class="col-12 col-md-3 col-lg-3">
+                                                    <div class="my-3">
+                                                        <label for="framework_version" class="form-label ">Framework_Version</label>
+                                                        <input type="text" name="framework_version" class="form-control" placeholder="مثلا : 8.4">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-3 col-lg-3">
+                                                    <div class="my-3">
+                                                        <label for="data_usage" class="form-label ">data_usage</label>
+                                                        <input type="text" name="data_usage" class="form-control" placeholder="مثلا : میزان حجم اشغالی">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="framework_details" class="form-label ">framework_details</label>
+                                                        <textarea class="form-control textarea-editor" name="framework_details" id="framework_details" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="special_features" class="form-label ">special_features</label>
+                                                        <textarea class="form-control textarea-editor" name="special_features" id="special_features" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="short_description_of_backend" class="form-label ">short_description_of_backend</label>
+                                                        <textarea class="form-control textarea-editor" name="short_description_of_backend" id="short_description_of_backend" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="admin_pannel_features" class="form-label ">admin_pannel_features</label>
+                                                        <textarea class="form-control textarea-editor" name="admin_pannel_features" id="admin_pannel_features" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="framework_frontend" class="form-label ">framework_frontend</label>
+                                                        <input type="text" name="framework_frontend" class="form-control" placeholder="مثلا : فریم ورک یوآی">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="framework_frontend_version" class="form-label ">framework_frontend_version</label>
+                                                        <input type="text" name="framework_frontend_version" class="form-control" placeholder="مثلا : ورژه 4">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="framework_frontend_details" class="form-label ">framework_frontend_details</label>
+                                                        <textarea class="form-control textarea-editor" name="framework_frontend_details" id="framework_frontend_details" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="other_plugins" class="form-label ">other_plugins</label>
+                                                        <textarea class="form-control textarea-editor" name="other_plugins" id="other_plugins" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-4 col-lg-4 text-center">
+                                                    <div class="mt-3">
+                                                        <label for="image" class="form-label text-success">عکس بزرگ</label>
+                                                        <input type="file" name="image">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-4 col-lg-4 text-center">
+                                                    <div class="mt-3">
+                                                        <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>
+                                                        <input type="file" name="thumbnail">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 mt-3 col-md-4 col-lg-4 buttons text-center">
+                                                    <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">ثبت محصول</button>
+                                                    <a href="" class="a-button btn btn-danger btn-sm">حذف محصول</a>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -441,7 +525,10 @@
                                                             <td>{{number_format($item->price)}}</td>
                                                             <td>{{$item->discount}}%</td>
                                                             <td>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</td>
-                                                            <td><a href="{{route('delete_product' , $item->id)}}" class="btn btn-danger btn-sm">حذف</a></td>
+                                                            <td>
+                                                                <a href="{{route('delete_product' , $item->id)}}" class="btn btn-danger btn-sm">حذف</a>
+                                                                <a href="{{route('edit_product' , $item->id)}}" class="btn btn-success btn-sm">ویرایش</a>
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                     </tbody>
@@ -492,13 +579,25 @@
 @section("extra_js")
     @include('admin.views.tinymce')
     <script src="/admin/js/admin_jquery.js"></script>
-    <script src="/js/admin_jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
     <script>
-        $('#select_category').on('change', function () {
-            alert($(this).val());
-        })
+        $( document ).ready(function() {
+            $('#select_category').on('change', function () {
+                $category_id = $(this).val();
+                $.ajax({
+                    url : "{{route('get_variety')}}",
+                    type : "POST",
+                    data : {'category_id' : $category_id},
+                    success : function (data) {
+                        $('#category_variety').empty();
+                        $.each(data , function (key , value) {
+                            $('#category_variety').append('<option value=' + value["id"] + '>' + value['name'] + "</option>");
+                        })
+                    }
+                });
+            });
+        });
     </script>
 
 
