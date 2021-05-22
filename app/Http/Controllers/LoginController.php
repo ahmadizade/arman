@@ -97,7 +97,41 @@ class LoginController extends Controller
     }
 
     public function oneTimeCode(Request $request){
-        return $request;
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $mobile = $request->mobile;
+
+        if(!Cache::has("mobile_code_".$mobile)) {
+                $validate = Validator::make($request->all(), [
+                    'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
+                ]);
+
+                if ($validate->fails()) {
+                    return Response::json(["status" => "0", "desc" => "شماره موبایل وارد شده اشتباه می باشد"]);
+                }
+
+                $checkUser = User::where("mobile", $mobile)->first();
+
+                if (isset($checkUser->id)) {
+
+                    $code = 00000;//rand(10000,99999);
+
+//                        self::sms($mobile,"کد ورود شما به سایت ".
+//                            "\n".
+//                            "code: ".$code
+//                        );
+
+                    Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(60)], 60);
+
+                    return Response::json(['status' => 1, 'desc' => "رمز یکبار مصرف به شماره موبایل شما ارسال شد", 'mobile' => $mobile, 'code' => $code]);
+                }else {
+                    return Response::json(['status' => 0, 'desc' => "ابتدا در سایت ثبت نام کنید"]);
+                }
+        }else{
+            $time = Cache::get("mobile_code_" . $mobile);
+            $time = Carbon::now()->diffInSeconds(Carbon::parse($time[1]));
+            return Response::json(["status" => "0","desc" => "لطفا ".$time." ثانیه دیگر تلاش کنید"]);
+        }
     }
     public function verifiedCodeAction(Request $request){
         $request = $request->replace(self::faToEn($request->all()));

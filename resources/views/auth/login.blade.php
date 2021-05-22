@@ -48,6 +48,11 @@
                                         placeholder="شماره موبایل خود را وارد نمایید">
                                     <i class="mdi mdi-account-circle-outline"></i>
                                 </div>
+                                <div id="code_box" class="form-row with-icon d-none">
+                                    <input id="one_time_code_action" name="one_time_code" type="text" class="input-ui pr-2"
+                                        placeholder="کد ارسال شده به همراه">
+                                    <i class="mdi mdi-account-circle-outline"></i>
+                                </div>
                                 <div class="form-row-title">
                                     <h3>رمز عبور</h3>
                                 </div>
@@ -175,10 +180,11 @@
     <script>
         $(document).on('click','#give_code', function (){
             $.ajax({
-               'url' : '{{route('')}}',
+               'url' : '{{route('one_time_code')}}',
                'type' : 'POST',
-               'data' : {'code' : $('#code').val() , 'send' : 1},
+               'data' : {'mobile' : $('#mobile').val() , 'send' : 1},
                success : function (data){
+                   console.log(data)
                    if(data.status == "0") {
                        Swal.fire({
                            position: 'top-end',
@@ -198,10 +204,12 @@
                            title: 'CioCe.ir',
                            showConfirmButton: false,
                            timer: 3000
-                       }).then(function () {
-                           setTimeout(function(){
-                               window.location.replace('{{route('home')}}');
-                           },1000);
+                       }).then(function (data) {
+                           $('#mobile').addClass('d-none');
+                           $('#code').addClass('d-none');
+                           {{--setTimeout(function(){--}}
+                           {{--    window.location.replace('{{route('home')}}');--}}
+                           {{--},1000);--}}
                        });
                    }
                }
