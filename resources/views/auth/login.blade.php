@@ -57,11 +57,17 @@
                                     <i class="mdi mdi-lock-open-variant-outline"></i>
                                 </div>
                                 <div class="form-row mt-2">
-                                    <div class="custom-control custom-checkbox float-right mt-2">
+                                    <div id="remember_me" class="custom-control custom-checkbox float-right mt-2">
                                         <input type="checkbox" class="custom-control-input" id="customCheck3">
                                         <label class="custom-control-label" for="customCheck3">
                                             مرا به خاطر بسپار
                                         </label>
+                                    </div>
+
+                                    <div id="onetime_password" class="custom-control d-none custom-checkbox float-right mt-2">
+                                        <a href="javascript:void(0)" id="give_code">
+                                            ارسال رمز یکبار مصرف
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="form-row mt-3">
@@ -73,7 +79,7 @@
                             </form>
                             <div class="form-footer mt-3">
                                 <div>
-                                    <span class="font-weight-bold">کاربر جدید هستید؟</span>
+                                    <a href="{{route('change_password')}}" class="mr-3 mt-2 text-black-50">فراموشی رمزعبور</a>
                                     <a href="#" class="mr-3 mt-2">ثبت نام در CioCe</a>
                                 </div>
                             </div>
@@ -136,6 +142,8 @@
                 'data' : $('#loginForm').serialize(),
                 success : function (data) {
                     if(data.status == "0") {
+                        $('#remember_me').addClass('d-none');
+                        $('#onetime_password').removeClass('d-none');
                         Swal.fire({
                             position: 'top-end',
                             toast: true,
@@ -157,11 +165,47 @@
                         }).then(function () {
                             setTimeout(function(){
                                 window.location.replace('{{route('home')}}');
-                            },2000);
+                            },1000);
                         });
                     }
                 }
             })
+        });
+    </script>
+    <script>
+        $(document).on('click','#give_code', function (){
+            $.ajax({
+               'url' : '{{route('')}}',
+               'type' : 'POST',
+               'data' : {'code' : $('#code').val() , 'send' : 1},
+               success : function (data){
+                   if(data.status == "0") {
+                       Swal.fire({
+                           position: 'top-end',
+                           toast: true,
+                           icon: 'error',
+                           text: data.desc,
+                           showConfirmButton: false,
+                           timer: 3000
+                       });
+                   }
+                   if(data.status == "1") {
+                       Swal.fire({
+                           position: 'top-end',
+                           toast: true,
+                           icon: 'success',
+                           text: data.desc,
+                           title: 'CioCe.ir',
+                           showConfirmButton: false,
+                           timer: 3000
+                       }).then(function () {
+                           setTimeout(function(){
+                               window.location.replace('{{route('home')}}');
+                           },1000);
+                       });
+                   }
+               }
+            });
         });
     </script>
 </body>

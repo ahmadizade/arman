@@ -30,6 +30,7 @@ class LoginController extends Controller
     public function changePassword(){
         return view('auth.change_password');
     }
+
     public function loginAction(Request $request){
         $request = $request->replace(self::faToEn($request->all()));
         $mobile = self::faToEn($request->mobile);
@@ -68,7 +69,7 @@ class LoginController extends Controller
                     return Response::json(["status" => "0", "desc" => "شماره موبایل وارد شده اشتباه می باشد"]);
                 }
 
-                $checkUser = User::where("mobile", $mobile)->where("status", "active")->first();
+                $checkUser = User::where("mobile", $mobile)->first();
 
                 if (isset($checkUser->id)) {
                     // Go To login Page
@@ -95,6 +96,9 @@ class LoginController extends Controller
         }
     }
 
+    public function oneTimeCode(Request $request){
+        return $request;
+    }
     public function verifiedCodeAction(Request $request){
         $request = $request->replace(self::faToEn($request->all()));
 
@@ -178,6 +182,7 @@ class LoginController extends Controller
             return view('home');
         }
     }
+
     public function Logout(){
 
         if(Auth::check()){

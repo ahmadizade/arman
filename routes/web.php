@@ -69,8 +69,9 @@ Route::post('/register-action', 'App\Http\Controllers\LoginController@registerAc
 Route::post('/verified-code-action', 'App\Http\Controllers\LoginController@verifiedCodeAction')->name("verified_code_action");
 Route::get('/login', 'App\Http\Controllers\LoginController@login')->name("login");
 Route::post('/login-action', 'App\Http\Controllers\LoginController@loginAction')->name("login_action");
+Route::post('/one-time-code', 'App\Http\Controllers\LoginController@oneTimeCode')->name("one_time_code");
 Route::get('/logout', 'App\Http\Controllers\LoginController@Logout')->name("logout")->middleware("auth");
-Route::get('/change-password', 'App\Http\Controllers\LoginController@changePassword')->name("change_password")->middleware("auth");
+Route::get('/change-password', 'App\Http\Controllers\LoginController@changePassword')->name("change_password");
 Route::post('/change-password-action', 'App\Http\Controllers\LoginController@changePasswordAction')->name("change_password_action")->middleware("auth");
 
 
