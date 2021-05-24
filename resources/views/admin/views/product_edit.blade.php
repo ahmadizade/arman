@@ -111,9 +111,13 @@
                                                     <select name="tag[]" class="form-control select2" multiple>
                                                         @if(isset($product_tag))
                                                             @foreach($product_tag as $item)
-                                                                <option value="{{$item->id}}" @if($item->id == $product->tag) selected @endif>
-                                                                    {{$item->name}}
-                                                                </option>
+                                                                @foreach(json_decode($product->tag_id,1) as $tag)
+                                                                    @if($item->id == $tag)
+                                                                        <option value="{{$item->id}}" @if($item->id == $tag) selected @endif>
+                                                                            {{$item->name}}
+                                                                        </option>
+                                                                    @endif
+                                                                @endforeach
                                                             @endforeach
                                                         @endif
                                                     </select>

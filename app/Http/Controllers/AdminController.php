@@ -586,32 +586,32 @@ class AdminController extends Controller
         return view('admin.views.product_edit', ['product' => $product]);
     }
 
-    public function adminEditproductAction(Request $request){
-        $validator = Validator::make($request->all(), [
-            'id' => 'nullable',
-            'name' => 'required|min:2|max:255',
-            'englishName' => 'required|min:2|max:255',
-            'category' => 'required',
-            'category_variety' => 'required',
-            'tag' => 'nullable',
-            'price' => 'required|min:2|max:255',
-            'discount' => 'nullable|max:2',
-            'thumbnail' => 'nullable|max:2048',
-            'image' => 'nullable|max:2048',
-            'description' => 'nullable|min:3|max:9000000',
-            'framework' => 'nullable',
-            'framework_version' => 'nullable',
-            'framework_details' => 'nullable|min:3|max:9000000',
-            'special_features' => 'nullable|min:3|max:9000000',
-            'short_description_of_backend' => 'nullable|min:3|max:9000000',
-            'admin_pannel_features' => 'nullable|min:3|max:9000000',
-            'framework_frontend_details' => 'nullable|min:3|max:9000000',
-            'other_plugins' => 'nullable|min:3|max:9000000',
-            'data_usage' => 'nullable',
-            'admin_pannel' => 'nullable',
-            'framework_frontend' => 'nullable',
-            'framework_frontend_version' => 'nullable',
-        ]);
+        public function adminEditproductAction(Request $request){
+            $validator = Validator::make($request->all(), [
+                'id' => 'nullable',
+                'name' => 'required|min:2|max:255',
+                'englishName' => 'required|min:2|max:255',
+                'category' => 'required',
+                'category_variety' => 'required',
+                'tag' => 'nullable|numeric',
+                'price' => 'required|min:2|max:255',
+                'discount' => 'nullable|max:2',
+                'thumbnail' => 'nullable|max:2048',
+                'image' => 'nullable|max:2048',
+                'description' => 'nullable|min:3|max:9000000',
+                'framework' => 'nullable',
+                'framework_version' => 'nullable',
+                'framework_details' => 'nullable|min:3|max:9000000',
+                'special_features' => 'nullable|min:3|max:9000000',
+                'short_description_of_backend' => 'nullable|min:3|max:9000000',
+                'admin_pannel_features' => 'nullable|min:3|max:9000000',
+                'framework_frontend_details' => 'nullable|min:3|max:9000000',
+                'other_plugins' => 'nullable|min:3|max:9000000',
+                'data_usage' => 'nullable',
+                'admin_pannel' => 'nullable',
+                'framework_frontend' => 'nullable',
+                'framework_frontend_version' => 'nullable',
+            ]);
 
         if ($validator->fails()) {
             session()->flash("error",$validator->errors()->first());
