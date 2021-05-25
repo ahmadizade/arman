@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fa">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,7 @@
     <meta name="theme-color" content="#f7858d">
     <meta name="msapplication-navbutton-color" content="#f7858d">
     <meta name="apple-mobile-web-app-status-bar-style" content="#f7858d">
-    <title>Index Page</title>
+    @yield("title")
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="/css/vendor/sweetalert2.all.css">
@@ -21,10 +20,7 @@
     <!-- Main CSS File -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/colors/default.css" id="colorswitch">
-
-{{--    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />--}}
     @yield("extra_css")
-    @yield("title")
 </head>
 <body>
     <div class="wrapper">

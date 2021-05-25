@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -91,7 +92,6 @@ class ShopController extends Controller
 
     public function CommentAction(Request $request)
     {
-
         $request = $request->replace(self::faToEn($request->all()));
 
         $validate = Validator::make($request->all(), [
@@ -101,21 +101,32 @@ class ShopController extends Controller
         ]);
 
         if ($validate->fails()) {
-            return Response::json(["status" => "0", "desc" => "فیلد نام و توضیحات الزامیست"]);
+            session::flash("error",$validate->errors()->first());
+            return back();
         }
-
-        Comment::create([
-            "store_id" => $request->store,
-            "name" => $request->name,
-            "email" => $request->email,
-            "desc" => $request->desc,
-            "status" => 1,
-            "user_id" => Auth::id() ?? '',
-            "created_at" => Carbon::now(),
-        ]);
-
-        return Response::json(["status" => "1", "desc" => "پیام شما با موفقیت ارسال شد"]);
-
+        if (Auth::check() && Auth::id() > 0) {
+            Comment::create([
+                "store_id" => $request->store,
+                "name" => $request->name,
+                "email" => $request->email,
+                "desc" => $request->desc,
+                "status" => 0,
+                "product_id" => $request->product_id,
+                "user_id" => Auth::id() ?? '',
+                "created_at" => Carbon::now(),
+            ]);
+        }else {
+            Comment::create([
+                "name" => $request->name,
+                "email" => $request->email,
+                "desc" => $request->desc,
+                "status" => 0,
+                "product_id" => $request->product_id,
+                "created_at" => Carbon::now(),
+            ]);
+        }
+        session::flash("status", 'پیام شما با موفقیت ارسال شد و پس از تایید همکاران نمایش داده خواهد شد');
+        return back();
     }
 
     public function Bookmark(Request $request)

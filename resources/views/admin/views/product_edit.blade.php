@@ -116,6 +116,10 @@
                                                                         <option value="{{$item->id}}" @if($item->id == $tag) selected @endif>
                                                                             {{$item->name}}
                                                                         </option>
+                                                                    @else
+                                                                        <option value="{{$item->id}}">
+                                                                            {{$item->name}}
+                                                                        </option>
                                                                     @endif
                                                                 @endforeach
                                                             @endforeach
@@ -243,19 +247,72 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 col-md-4 col-lg-4 text-center">
-                                                <div class="mt-3">
-                                                    <label for="image" class="form-label text-success">عکس بزرگ</label>
-                                                    <input value="{{$product->image}}" type="file" name="image">
+{{--                                            <div class="col-12 col-md-4 col-lg-4 text-center">--}}
+{{--                                                <div class="mt-3">--}}
+{{--                                                    <label for="image" class="form-label text-success">عکس بزرگ</label>--}}
+{{--                                                    <input value="{{$product->image}}" type="file" name="image">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+
+{{--                                            <div class="col-12 col-md-4 col-lg-4 text-center">--}}
+{{--                                                <div class="mt-3">--}}
+{{--                                                    <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>--}}
+{{--                                                    <input value="{{$product->thumbnail}}" type="file" name="thumbnail">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+
+
+                                            <div class="text-center">
+                                                <p>تنظیمات Seo</p>
+                                            </div>
+                                            <div class="col-12 col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-10 col-lg-10">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-text"> عنوان سئو </div>
+                                                            <input type="text" class="form-control" autocomplete="off" value="{{ old("seo_title") }}" name="seo_title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2 col-lg-2">
+                                                        <div class="font-12 fw-normal ms-1" id="title_count"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-10 col-lg-10">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-text"> توضیحات سئو </div>
+                                                            <input type="text" class="form-control" autocomplete="off" value="{{ old("seo_description") }}" name="seo_description">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2 col-lg-2">
+                                                        <div class="font-12 fw-normal ms-1" id="description_count"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-12">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text">آدرس URL Canonical</span>
+                                                    <input type="text" class="form-control ltr" autocomplete="off" value="{{ old("seo_canonical") }}" name="seo_canonical">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-6 offset-lg-3">
+                                                <div class="google-show bottom-0 mt-4 p-3 d-none text-start rtl cu-default text-netran-blue bg-white shadow-sm rounded">
+                                                    <div class="d-flex align-items-center justify-content-center mb-4 w-100">
+                                                        <div class="me-auto">پیش نمایش گوگل<i class="fab fa-google ms-1"></i></div>
+                                                        <div class="google_star d-flex justify-content-end">
+                                                            <img src="/images/icon/star.png" alt="ستاره" width="15">
+                                                            <img src="/images/icon/star.png" alt="ستاره" width="15">
+                                                            <img src="/images/icon/star.png" alt="ستاره" width="15">
+                                                            <img src="/images/icon/star.png" alt="ستاره" width="15">
+                                                            <img src="/images/icon/star.png" alt="ستاره" width="15">
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-secondary text-success font-13 google_link rtl"></div>
+                                                    <div class="text-primary font-20 google_title rtl"></div>
+                                                    <div class="text-dark google_description font-13 rtl"></div>
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 col-md-4 col-lg-4 text-center">
-                                                <div class="mt-3">
-                                                    <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>
-                                                    <input value="{{$product->thumbnail}}" type="file" name="thumbnail">
-                                                </div>
-                                            </div>
 
                                             <div class="col-12 mt-3 col-md-4 col-lg-4 buttons text-center">
                                                 <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">ثبت محصول</button>

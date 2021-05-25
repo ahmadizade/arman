@@ -593,13 +593,13 @@ class AdminController extends Controller
                 'englishName' => 'required|min:2|max:255',
                 'category' => 'required',
                 'category_variety' => 'required',
-                'tag' => 'nullable|numeric',
+                'tag' => 'nullable',
                 'price' => 'required|min:2|max:255',
                 'discount' => 'nullable|max:2',
-                'thumbnail' => 'nullable|max:2048',
-                'image' => 'nullable|max:2048',
+//                'thumbnail' => 'nullable|max:2048',
+//                'image' => 'nullable|max:2048',
                 'description' => 'nullable|min:3|max:9000000',
-                'framework' => 'nullable',
+                'framework' => 'required',
                 'framework_version' => 'nullable',
                 'framework_details' => 'nullable|min:3|max:9000000',
                 'special_features' => 'nullable|min:3|max:9000000',
@@ -614,31 +614,31 @@ class AdminController extends Controller
             ]);
 
         if ($validator->fails()) {
-            session()->flash("error",$validator->errors()->first());
+            session::flash("error",$validator->errors()->first());
             return back();
         }
 
-        $image = null;
-        if ($request->has('image')) {
-            $imagePath = "/uploads/products/";
-            $file = $request->file('image');
-            $image = $file->getClientOriginalName();
-            if (file_exists(public_path($imagePath) . $image)) {
-                $image = Carbon::now()->timestamp . $image;
-            }
-            $file->move(public_path($imagePath), $image);
-        }
-
-        $thumbnail = null;
-        if ($request->has('thumbnail')) {
-            $imagePath = "/uploads/thumbnail/";
-            $image = $request->file('thumbnail');
-            $thumbnail = $image->getClientOriginalName();
-            if (file_exists(public_path($imagePath) . $thumbnail)) {
-                $thumbnail = Carbon::now()->timestamp . $thumbnail;
-            }
-            $image->move(public_path($imagePath), $thumbnail);
-        }
+//        $image = null;
+//        if ($request->has('image')) {
+//            $imagePath = "/uploads/products/";
+//            $file = $request->file('image');
+//            $image = $file->getClientOriginalName();
+//            if (file_exists(public_path($imagePath) . $image)) {
+//                $image = Carbon::now()->timestamp . $image;
+//            }
+//            $file->move(public_path($imagePath), $image);
+//        }
+//
+//        $thumbnail = null;
+//        if ($request->has('thumbnail')) {
+//            $imagePath = "/uploads/thumbnail/";
+//            $image = $request->file('thumbnail');
+//            $thumbnail = $image->getClientOriginalName();
+//            if (file_exists(public_path($imagePath) . $thumbnail)) {
+//                $thumbnail = Carbon::now()->timestamp . $thumbnail;
+//            }
+//            $image->move(public_path($imagePath), $thumbnail);
+//        }
         Product::where('id' , $request->id)->update([
             'product_name' => $request->name,
             'english_name' => $request->englishName,
@@ -652,10 +652,10 @@ class AdminController extends Controller
             'mobile' => Auth::user()->mobile,
             'user_id' => Auth::id(),
             'product_desc' => $request->description,
-            'thumbnail' => $thumbnail,
-            "image" => $image,
+//            'thumbnail' => $thumbnail,
+//            "image" => $image,
             "created_at" => Carbon::now(),
-            'framework' => $request->description,
+            'framework' => $request->framework,
             'framework_version' => $request->framework_version,
             'framework_details' => $request->framework_details,
             'special_features' => $request->special_features,

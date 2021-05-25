@@ -6,6 +6,7 @@ use App\Models\Bookmark;
 use App\Models\CartTransfer;
 use App\Models\Category;
 use App\Models\Category_variety;
+use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Payment;
 use App\Models\Product;
@@ -362,8 +363,9 @@ class ProfileController extends Controller
     {
         Product::where('product_slug', $request->slug)->increment('view',1);
         $product = Product::where('product_slug', $request->slug)->first();
+        $comments = Comment::where('product_id' , $product->id)->get();
         $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
-        return view('product.single_product', ["product" => $product,'popularproduct' => $popularproduct]);
+        return view('product.single_product', ["product" => $product,"comments" => $comments,'popularproduct' => $popularproduct]);
     }
 
     public function Card(Request $request)

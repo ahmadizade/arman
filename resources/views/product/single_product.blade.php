@@ -1,9 +1,24 @@
 @extends("layouts.master")
 
 @section("title")
-    @if (isset($product))
-        <title>{{$product->product_name}} | CioCe.ir</title>
+    @if(\Illuminate\Support\Str::length($product->product_name) > 1)
+        <title>{{ $product->product_name ?? '' }} - سی و سه</title>
     @endif
+    @if(\Illuminate\Support\Str::length($product->english_name) > 1)
+        <meta name="description" content="{{ $product->english_name }}">
+    @endif
+        <meta name="robots" content="all">
+        <link rel="canonical" href="{{ url()->full() }}">
+    @if(\Illuminate\Support\Str::length($product->product_name) > 1)
+        <meta property="og:title" content="{{ $product->english_name }} - سی و سه">
+    @else
+        <meta property="og:title" content="{{ $product->product_name ?? '' }} - سی و سه">
+    @endif
+        <meta property="og:url" content="{{ url()->current() }}">
+    @if(\Illuminate\Support\Str::length($product->english_name) > 1)
+        <meta property="og:site_name" content="CioCe">
+    @endif
+        <meta property="og:image" content="{{'/img/logo.png'}}">
 @endsection
 
 @section("content")
@@ -144,28 +159,23 @@
                                 <ul data-title="ویژگی‌های محصول">
                                     <li>
                                         <span>فریم ورک: </span>
-                                        <span> لاراول </span>
+                                        <span> {{$product->framework ?? ""}} </span>
                                     </li>
                                     <li>
-                                        <span>ورژن: </span>
-                                        <span> 12.0 مگاپیکسل</span>
+                                        <span>ورژن فریم ورک: </span>
+                                        <span> {{$product->framework_version ?? ""}}</span>
                                     </li>
                                     <li>
                                         <span>حجم فایل: </span>
-                                        <span> 256 گیگابایت </span>
+                                        <span> {{$product->data_usage ?? ""}} </span>
                                     </li>
                                     <li>
-                                        <span>PHP: </span>
-                                        <span> ورژن 7.4 </span>
+                                        <span>پنل ادمین: </span>
+                                        <span> {{$product->admin_pannel ?? ""}} </span>
                                     </li>
                                     <li>
                                         <span>ویژگی‌های خاص: </span>
-                                        <span> مقاوم در برابر آب
-                                            مناسب عکاسی
-                                            مناسب عکاسی سلفی
-                                            مناسب بازی
-                                            مجهز به حس‌گر تشخیص چهره
-                                        </span>
+                                        <span>{!! $product->special_features ?? "" !!}</span>
                                     </li>
                                 </ul>
                                 <div class="sum-more">
@@ -213,44 +223,27 @@
                     <div class="ah-tab-content-wrapper product-info px-4 dt-sl">
                         <div class="ah-tab-content dt-sl" data-ah-tab-active="true">
                             <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 dt-sl">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger mb-2">
+                                        <ul class="mb-0">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                @if(Session::has("status"))
+                                    <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
+                                @endif
                                 <h2>نقد و بررسی</h2>
                             </div>
                             <div class="product-title dt-sl">
-                                <h1>گوشی موبایل سامسونگ مدل Galaxy A50 SM-A505F/DS دو سیم کارت ظرفیت 128گیگابایت
-                                </h1>
-                                <h3>Samsung Galaxy A50 SM-A505F/DS Dual SIM 128GB Mobile Phone</h3>
+                                <h1>{{$product->product_name ?? ""}}</h1>
+                                <h3>{{$product->english_name ?? ""}}</h3>
                             </div>
                             <div class="description-product dt-sl mt-3 mb-3">
                                 <div class="container">
-                                    <p>سامسونگ سال 2019 را با متنوع کردن هرچند بیشتر سری گوشی‌های A خود آغاز کرد.
-                                        این سری از تولیدات سامسونگ به داشتن صفحه‌نمایش بسیار با کیفیت AMOLED و
-                                        دوربین‌هایی با امکانات بالا شهرت دارند. در این میان به نظر می‌رسد گوشی
-                                        «Galaxy A50» حرف‌های زیادی در هر دوی این زمینه‌ها داشته باشد. گوشی موبایل
-                                        Galaxy A50 با صفحه‌نمایش سوپر آمولد طراحی شده است و ظاهر زیبایی دارد.
-                                        سامسونگ تلاش کرده است حاشیه را در این تولید جدید خود تا حد امکان کم کند. این
-                                        گوشی قاب پشتی از جنس پلاستیک دارد و قاب جلویی آن را شیشه پوشانده که البته
-                                        جلوه‌ی زیبایی به گوشی داده است. این محصول سامسونگ با جدیدترین نسخه از
-                                        سیستم‌عامل اندروید (Pie) روانه بازار شده است تا از هر نظر گوشی مدرن به‌حساب
-                                        بیاید. صفحه‌نمایش استفاده‌شده در این گوشی 6.4 اینچ با رزولوشن FullHD+ است که
-                                        با استفاده از فناوری Super AMOLED و پنل OLED تصاویر شفاف و بی‌نظیری را به
-                                        نمایش می‌گذارد. این صفحه‌نمایش در هر اینچ 403 پیکسل را نشان می‌دهد که این
-                                        یعنی جزئیات و وضوح تصویر عالی است. همچنین روکش این نمایشگر لایه‌ی محافظ
-                                        Corning Gorilla Glass است که از خط‌وخش و ضربه جلوگیری می‌کند. تراشه‌ی این
-                                        محصول، Exynos 9610 از تراشه‌های 10 نانومتری سامسونگ است که به همراه 4
-                                        گیگابایت رم عرضه می‌شود. این تراشه یکی از قوی‌ترین تراشه‌های موجود در حال
-                                        حاضر است و برای انجام بازی‌های سنگین و بازکردن چندین برنامه به صورت هم‌زمان
-                                        و تماشای ویدئو کاملا مناسب است و کم نمی‌آورد. تراشه‌ی گرافیکی Mali-G72 MP3
-                                        هم برای پخش ویدئو و بازی مناسب است. این گوشی در دو ظرفیت 64 و 128 گیگابایتی
-                                        عرضه شده است و با استفاده از یک کارت حافظه‌ی جانبی قادر خواهید بود حافظه
-                                        داخلی را تا یک ترابایت دیگر هم افزایش دهید. دوربین اصلی A50 سنسور
-                                        25مگاپیکسلی دارد و از نوع عریض (Wide) است. دو سنسور 8 و 5 مگاپیکسلی دیگر هم
-                                        در کنار این دوربین اصلی مجموعه دوربین‌های قاب پشتی A50 را تشکیل داده‌اند.
-                                        دوربین سلفی 25مگاپیکسلی هم در قاب جلویی این گوشی به کار گرفته شده است. باتری
-                                        4000 میلی‌آمپرساعتی، پشتیبانی از فناوری شارژ سریع 15 واتی، درگاه USB Type-C
-                                        و حسگر اثرانگشت در زیر قاب اصلی هم از دیگر ویژگی‌های این تازه‌وارد است.
-                                        سامسونگ در ساخت این گوشی از جدیدترین فناوری‌های ساخت گوشی استفاده کرده است
-                                        تا میان‌رده‌ای با قابلیت‌های نزدیک به یک بالارده خوش‌ساخت را روانه بازار
-                                        کند.</p>
+                                    <p>{!! $product->product_desc ?? "" !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -259,99 +252,103 @@
                                 <h2>مشخصات فنی</h2>
                             </div>
                             <div class="product-title dt-sl mb-3">
-                                <h1>گوشی موبایل سامسونگ مدل Galaxy A50 SM-A505F/DS دو سیم کارت ظرفیت 128گیگابایت
-                                </h1>
-                                <h3>Samsung Galaxy A50 SM-A505F/DS Dual SIM 128GB Mobile Phone</h3>
+                                <h1>{{$product->product_name ?? ""}}</h1>
+                                <h3>{{$product->english_name ?? ""}}</h3>
                             </div>
                             <section>
                                 <h3 class="params-title">مشخصات کلی</h3>
                                 <ul class="params-list">
                                     <li>
                                         <div class="params-list-key">
-                                            <span class="d-block">ابعاد</span>
+                                            <span class="d-block">فریم ورک</span>
                                         </div>
                                         <div class="params-list-value">
                                             <span class="d-block">
-                                                7.7 × 70.9 × 143.6 میلی‌متر
+                                                {{$product->framework ?? "ثبت نشده"}}
                                             </span>
                                         </div>
                                         <div class="params-list-value">
                                             <span class="d-block">
-                                                7.7 × 70.9 × 143.6 میلی‌متر
+                                                {{$product->framework_version ?? "ثبت نشده"}}
                                             </span>
                                         </div>
                                         <div class="params-list-value">
                                             <span class="d-block">
-                                                7.7 × 70.9 × 143.6 میلی‌متر
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="params-list-key">
-                                            <span class="d-block">توضیحات سیم کارت</span>
-                                        </div>
-                                        <div class="params-list-value">
-                                            <span class="d-block">
-                                                سایز نانو (8.8 × 12.3 میلی‌متر)
+                                                {{$product->data_usage ?? "ثبت نشده"}}
                                             </span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="params-list-key">
-                                            <span class="d-block">وزن</span>
+                                            <span class="d-block">توضیحات فریم ورک</span>
                                         </div>
                                         <div class="params-list-value">
                                             <span class="d-block">
-                                                174 گرم
+                                                {{$product->framework_details ?? "ثبت نشده"}}
                                             </span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="params-list-key">
-                                            <span class="d-block">ویژگی‌های خاص</span>
+                                            <span class="d-block">فریم ورک های و ابزار فرانت _ اند</span>
                                         </div>
                                         <div class="params-list-value">
                                             <span class="d-block">
-                                                مقاوم در برابر آب , مناسب عکاسی , مناسب عکاسی
-                                                سلفی , مناسب بازی , مجهز به حس‌گر تشخیص چهره
+                                                {{$product->framework_frontend_details ?? "ثبت نشده"}}
                                             </span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="params-list-key">
-                                            <span class="d-block">تعداد سیم کارت</span>
+                                            <span class="d-block">فریم ورک و ابزار بک _ اند</span>
                                         </div>
                                         <div class="params-list-value">
                                             <span class="d-block">
-                                                تک سیم کارت
+                                                {{$product->short_description_of_backend ?? "ثبت نشده"}}
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="params-list-key">
+                                            <span class="d-block">دیگر امکانات</span>
+                                        </div>
+                                        <div class="params-list-value">
+                                            <span class="d-block">
+                                                {{$product->other_plugins ?? "ثبت نشده"}}
                                             </span>
                                         </div>
                                     </li>
                                 </ul>
                             </section>
                             <section>
-                                <h3 class="params-title">پردازنده</h3>
+                                <h3 class="params-title">پنل ادمین و سئو</h3>
                                 <ul class="params-list">
                                     <li>
                                         <div class="params-list-key">
-                                            <span class="d-block">تراشه</span>
+                                            <span class="d-block">پنل مدیریت وب سایت</span>
                                         </div>
                                         <div class="params-list-value">
                                             <span class="d-block">
-                                                Apple A11 Bionic Chipset
+                                                @if ($product->admin_pannel == 1)
+                                                    دارد
+                                                @else
+                                                    ندارد
+                                                @endif
                                             </span>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="params-list-key">
-                                            <span class="d-block">نوع پردازنده</span>
-                                        </div>
-                                        <div class="params-list-value">
-                                            <span class="d-block">
-                                                64 بیت
-                                            </span>
-                                        </div>
-                                    </li>
+                                    @if ($product->admin_pannel == 1)
+                                        <li>
+                                            <div class="params-list-key">
+                                                <span class="d-block">امکانات پنل ادمین</span>
+                                            </div>
+                                            <div class="params-list-value">
+                                                <span class="d-block">
+                                                    {{$product->admin_pannel_features ?? "ثبت نشده"}}
+                                                </span>
+                                            </div>
+                                        </li>
+                                    @endif
                                 </ul>
                             </section>
                         </div>
@@ -752,153 +749,118 @@
                                 <p class="count-comment">پرسش خود را در مورد محصول مطرح نمایید</p>
                             </div>
                             <div class="form-question-answer dt-sl mb-3">
-                                <form action="">
-                                    <textarea class="form-control mb-3" rows="5"></textarea>
-                                    <button class="btn btn-dark float-right ml-3" disabled="">ثبت پرسش</button>
+                                <form method="POST" action="{{route('comment_action')}}">
+                                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                                    @auth
+                                        <input type="hidden" name="name" value="{{\Illuminate\Support\Facades\Auth::user()->name ?? ""}}">
+                                        <input type="hidden" name="email" value="{{\Illuminate\Support\Facades\Auth::user()->email ?? "ایمیلی ثبت نشده"}}">
+                                    @endauth
+
+                                    @guest()
+                                        <input type="text" name="name" class="form-control" placeholder="نام و نام خانوادگی">
+                                        <input type="email" name="email" class="form-control mt-3" placeholder="رایانامه">
+                                    @endguest
+                                    <textarea name="desc" class="form-control my-3" rows="5">پیغام خود را اینجا وارد کنید</textarea>
+                                    <button type="submit" class="btn btn-dark float-right ml-3">ثبت پرسش</button>
                                     <div class="custom-control custom-checkbox float-right mt-2">
                                         <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                        <label class="custom-control-label" for="customCheck3">اولین پاسخی که به
-                                            پرسش من داده شد، از طریق ایمیل به من اطلاع دهید.</label>
+                                        <label class="custom-control-label" for="customCheck3">اولین پاسخی که به پرسش من داده شد، از طریق ایمیل به من اطلاع دهید.</label>
                                     </div>
                                 </form>
                             </div>
                             <div class="comments-area default">
-                                <div
-                                    class="section-title text-sm-title title-wide no-after-title-wide mt-5 mb-0 dt-sl">
+                                <div class="section-title text-sm-title title-wide no-after-title-wide mt-5 mb-0 dt-sl">
                                     <h2>پرسش ها و پاسخ ها</h2>
-                                    <p class="count-comment">123 پرسش</p>
                                 </div>
                                 <ol class="comment-list">
                                     <!-- #comment-## -->
-                                    <li>
-                                        <div class="comment-body">
-                                            <div class="comment-author">
-                                                <span class="icon-comment">?</span>
-                                                <cite class="fn">حسن</cite>
-                                                <span class="says">گفت:</span>
-                                                <div class="commentmetadata">
-                                                    <a href="#">
-                                                        اسفند ۲۰, ۱۳۹۶ در ۹:۴۱ ب.ظ
-                                                    </a>
-                                                </div>
-                                            </div>
-
-
-
-                                            <p>لورم ایپسوم متن ساختگی</p>
-
-                                            <div class="reply"><a class="comment-reply-link" href="#">پاسخ</a></div>
-                                        </div>
-                                    </li>
-                                    <!-- #comment-## -->
-                                    <li>
-                                        <div class="comment-body">
-                                            <div class="comment-author">
-                                                <span class="icon-comment">?</span>
-                                                <cite class="fn">رضا</cite>
-                                                <span class="says">گفت:</span>
-                                                <div class="commentmetadata">
-                                                    <a href="#">
-                                                        اسفند ۲۰, ۱۳۹۶ در ۹:۴۲ ب.ظ
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                                صنعت چاپ و با استفاده از طراحان گرافیک است.
-                                            </p>
-
-                                            <div class="reply"><a class="comment-reply-link" href="#">پاسخ</a></div>
-                                        </div>
-                                        <ol class="children">
+                                    @if (isset($comments) && $comments[0] !== null)
+                                        @foreach ($comments as $comment)
                                             <li>
                                                 <div class="comment-body">
                                                     <div class="comment-author">
-                                                        <span
-                                                            class="icon-comment mdi mdi-lightbulb-on-outline"></span>
-                                                        <cite class="fn">بهرامی راد</cite> <span
-                                                            class="says">گفت:</span>
+                                                        <span class="icon-comment">?</span>
+                                                        <cite class="fn">{{$comment->name ?? "ثبت نشده"}}</cite>
+{{--                                                        <span class="says">گفت:</span>--}}
                                                         <div class="commentmetadata">
-                                                            <a href="#">
-                                                                اسفند ۲۰, ۱۳۹۶ در ۹:۴۷ ب.ظ
+                                                            <a href="javascript:void(0)">
+                                                                {{\Morilog\Jalali\Jalalian::forge($comment->created_at)->format("Y/m/d")}}
                                                             </a>
                                                         </div>
                                                     </div>
-                                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی
-                                                        نامفهوم از صنعت چاپ و با استفاده از
-                                                        طراحان گرافیک است.
-                                                        چاپگرها و متون بلکه روزنامه و مجله در
-                                                        ستون و سطرآنچنان که لازم است و برای
-                                                        شرایط فعلی تکنولوژی
-                                                        مورد نیاز و کاربردهای متنوع با هدف بهبود
-                                                        ابزارهای کاربردی می باشد.</p>
+                                                    <p>{{$comment->desc}}</p>
 
-                                                    <div class="reply"><a class="comment-reply-link"
-                                                            href="#">پاسخ</a></div>
+                                                    <div class="reply"><a class="comment-reply-link" href="javascript:void(0)">پاسخ</a></div>
                                                 </div>
-                                                <ol class="children">
-                                                    <li>
-                                                        <div class="comment-body">
-                                                            <div class="comment-author">
-                                                                <span class="icon-comment">?</span>
-                                                                <cite class="fn">محمد</cite>
-                                                                <span class="says">گفت:</span>
-                                                                <div class="commentmetadata">
-                                                                    <a href="#">
-                                                                        خرداد ۳۰, ۱۳۹۷ در ۸:۵۳ ق.ظ
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <p>عالیه</p>
-
-                                                            <div class="reply"><a class="comment-reply-link"
-                                                                    href="#">پاسخ</a></div>
-                                                        </div>
-                                                        <ol class="children">
-                                                            <li>
-                                                                <div class="comment-body">
-                                                                    <div class="comment-author">
-                                                                        <span
-                                                                            class="icon-comment mdi mdi-lightbulb-on-outline"></span>
-                                                                        <cite class="fn">اشکان</cite>
-                                                                        <span class="says">گفت:</span>
-                                                                        <div class="commentmetadata">
-                                                                            <a href="#">
-                                                                                خرداد ۳۰, ۱۳۹۷ در ۸:۵۳ ق.ظ
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <p>لورم ایپسوم متن ساختگی با
-                                                                        تولید سادگی نامفهوم از
-                                                                        صنعت چاپ و با استفاده از
-                                                                        طراحان
-                                                                        گرافیک است. چاپگرها و
-                                                                        متون بلکه روزنامه و مجله
-                                                                        در ستون و سطرآنچنان که
-                                                                        لازم است و
-                                                                        برای شرایط فعلی تکنولوژی
-                                                                        مورد نیاز و کاربردهای
-                                                                        متنوع با هدف بهبود
-                                                                        ابزارهای
-                                                                        کاربردی می باشد.</p>
-
-                                                                    <div class="reply"><a class="comment-reply-link"
-                                                                            href="#">پاسخ</a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <!-- #comment-## -->
-                                                        </ol>
-                                                        <!-- .children -->
-                                                    </li>
-                                                    <!-- #comment-## -->
-                                                </ol>
-                                                <!-- .children -->
                                             </li>
-                                            <!-- #comment-## -->
-                                        </ol>
-                                        <!-- .children -->
-                                    </li>
+                                        @endforeach
+                                        <!-- #comment-## -->
+                                        <li>
+                                            <div class="comment-body">
+                                                <div class="comment-author">
+                                                    <span class="icon-comment">?</span>
+                                                    <cite class="fn">رضا</cite>
+                                                    <span class="says">گفت:</span>
+                                                    <div class="commentmetadata">
+                                                        <a href="#">
+                                                            اسفند ۲۰, ۱۳۹۶ در ۹:۴۲ ب.ظ
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                                    صنعت چاپ و با استفاده از طراحان گرافیک است.
+                                                </p>
+
+                                                <div class="reply"><a class="comment-reply-link" href="#">پاسخ</a></div>
+                                            </div>
+{{--                                            Answer to comment--}}
+                                            @auth
+{{--                                                <ol class="children">--}}
+{{--                                                    <li>--}}
+{{--                                                        <ol class="children">--}}
+{{--                                                            <li>--}}
+{{--                                                                <div class="comment-body">--}}
+{{--                                                                    <div class="comment-author">--}}
+{{--                                                                <span--}}
+{{--                                                                    class="icon-comment mdi mdi-lightbulb-on-outline"></span>--}}
+{{--                                                                        <cite class="fn">اشکان</cite>--}}
+{{--                                                                        <span class="says">گفت:</span>--}}
+{{--                                                                        <div class="commentmetadata">--}}
+{{--                                                                            <a href="#">--}}
+{{--                                                                                خرداد ۳۰, ۱۳۹۷ در ۸:۵۳ ق.ظ--}}
+{{--                                                                            </a>--}}
+{{--                                                                        </div>--}}
+{{--                                                                    </div>--}}
+{{--                                                                    <p>لورم ایپسوم متن ساختگی با--}}
+{{--                                                                        تولید سادگی نامفهوم از--}}
+{{--                                                                        صنعت چاپ و با استفاده از--}}
+{{--                                                                        طراحان--}}
+{{--                                                                        گرافیک است. چاپگرها و--}}
+{{--                                                                        متون بلکه روزنامه و مجله--}}
+{{--                                                                        در ستون و سطرآنچنان که--}}
+{{--                                                                        لازم است و--}}
+{{--                                                                        برای شرایط فعلی تکنولوژی--}}
+{{--                                                                        مورد نیاز و کاربردهای--}}
+{{--                                                                        متنوع با هدف بهبود--}}
+{{--                                                                        ابزارهای--}}
+{{--                                                                        کاربردی می باشد.</p>--}}
+
+{{--                                                                    <div class="reply"><a class="comment-reply-link"--}}
+{{--                                                                                          href="#">پاسخ</a>--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </li>--}}
+{{--                                                            <!-- #comment-## -->--}}
+{{--                                                        </ol>--}}
+{{--                                                        <!-- .children -->--}}
+{{--                                                    </li>--}}
+{{--                                                    <!-- #comment-## -->--}}
+{{--                                                </ol>--}}
+                                            @endauth
+{{--                                            Answer to comment--}}
+
+                                    @endif
                                 </ol>
                             </div>
                         </div>
