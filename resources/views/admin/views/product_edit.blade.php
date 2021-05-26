@@ -270,7 +270,7 @@
                                                     <div class="col-10 col-lg-10">
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-text"> عنوان سئو </div>
-                                                            <input type="text" class="form-control" autocomplete="off" value="{{ old("seo_title") }}" name="seo_title">
+                                                            <input type="text" class="form-control" autocomplete="off" value="{{$product->seo_title}}" name="seo_title">
                                                         </div>
                                                     </div>
                                                     <div class="col-2 col-lg-2">
@@ -281,7 +281,7 @@
                                                     <div class="col-10 col-lg-10">
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-text"> توضیحات سئو </div>
-                                                            <input type="text" class="form-control" autocomplete="off" value="{{ old("seo_description") }}" name="seo_description">
+                                                            <input type="text" class="form-control" autocomplete="off" value="{{ $product->seo_description }}" name="seo_description">
                                                         </div>
                                                     </div>
                                                     <div class="col-2 col-lg-2">
@@ -292,27 +292,9 @@
                                             <div class="col-12 col-lg-12">
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text">آدرس URL Canonical</span>
-                                                    <input type="text" class="form-control ltr" autocomplete="off" value="{{ old("seo_canonical") }}" name="seo_canonical">
+                                                    <input type="text" class="form-control ltr" autocomplete="off" value="{{ $product->seo_canonical }}" name="seo_canonical">
                                                 </div>
                                             </div>
-                                            <div class="col-12 col-lg-6 offset-lg-3">
-                                                <div class="google-show bottom-0 mt-4 p-3 d-none text-start rtl cu-default text-netran-blue bg-white shadow-sm rounded">
-                                                    <div class="d-flex align-items-center justify-content-center mb-4 w-100">
-                                                        <div class="me-auto">پیش نمایش گوگل<i class="fab fa-google ms-1"></i></div>
-                                                        <div class="google_star d-flex justify-content-end">
-                                                            <img src="/images/icon/star.png" alt="ستاره" width="15">
-                                                            <img src="/images/icon/star.png" alt="ستاره" width="15">
-                                                            <img src="/images/icon/star.png" alt="ستاره" width="15">
-                                                            <img src="/images/icon/star.png" alt="ستاره" width="15">
-                                                            <img src="/images/icon/star.png" alt="ستاره" width="15">
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-secondary text-success font-13 google_link rtl"></div>
-                                                    <div class="text-primary font-20 google_title rtl"></div>
-                                                    <div class="text-dark google_description font-13 rtl"></div>
-                                                </div>
-                                            </div>
-
 
                                             <div class="col-12 mt-3 col-md-4 col-lg-4 buttons text-center">
                                                 <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">ثبت محصول</button>
@@ -323,48 +305,11 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-header text-right">
-                                        آخرین محصولات افزوده شده
-                                    </div>
-                                    <div class="card-body">
-                                        @if (isset($last_product))
-                                            <div class="table-responsive">
-                                                <table class="table table-hover">
-                                                    <thead class="table-light">
-                                                    <tr>
-                                                        <th>عکس</th>
-                                                        <th>نام محصول</th>
-                                                        <th>قیمت</th>
-                                                        <th>تخفیف</th>
-                                                        <th>تاریخ</th>
-                                                        <th>عملیات</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody class="border">
-                                                    @foreach($last_product as $item)
-                                                        <tr>
-                                                            <td><img class="img-fluid" src="/uploads/thumbnail/{{$item->thumbnail}}" style="max-width: 150px"></td>
-                                                            <td>{{$item->product_name}}</td>
-                                                            <td>{{number_format($item->price)}}</td>
-                                                            <td>{{$item->discount}}%</td>
-                                                            <td>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</td>
-                                                            <td><a href="{{route('delete_product' , $item->id)}}" class="btn btn-danger btn-sm">حذف</a></td>
-                                                        </tr>
-                                                    @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
                     {{--Add TAG--}}
-
                 </div>
         </div>
     </div>

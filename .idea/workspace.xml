@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="a">
-      <change afterPath="$PROJECT_DIR$/public/uploads/products/9a192ff3cf3dac61d52ce4555a287ba4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/thumbnail/9a192ff3cf3dac61d52ce4555a287ba4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cioce_newface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cioce_newface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/img/noimage_200.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/noimage_500.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/noimage_64.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/product.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/views/product_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/product_edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/single_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/single_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +217,8 @@
       <workItem from="1621782166521" duration="525000" />
       <workItem from="1621789755191" duration="2595000" />
       <workItem from="1621873804185" duration="3154000" />
-      <workItem from="1621929211619" duration="13775000" />
+      <workItem from="1621929211619" duration="14717000" />
+      <workItem from="1622012998262" duration="5577000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -233,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621793467843</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="single complete">
+      <created>1621950016355</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621950016355</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -275,7 +276,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="single complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="single complete" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/routes/web.php">

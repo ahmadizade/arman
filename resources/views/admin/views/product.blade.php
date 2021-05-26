@@ -475,6 +475,42 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="text-center">
+                                                    <p>تنظیمات Seo</p>
+                                                </div>
+
+                                                <div class="col-12 col-lg-12">
+                                                    <div class="row">
+                                                        <div class="col-10 col-lg-10">
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-text"> عنوان سئو </div>
+                                                                <input type="text" class="form-control" autocomplete="off" value="{{ old("seo_title") }}" name="seo_title">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 col-lg-2">
+                                                            <div class="font-12 fw-normal ms-1" id="title_count"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-10 col-lg-10">
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-text"> توضیحات سئو </div>
+                                                                <input type="text" class="form-control" autocomplete="off" value="{{ old("seo_description") }}" name="seo_description">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 col-lg-2">
+                                                            <div class="font-12 fw-normal ms-1" id="description_count"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-lg-12">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">آدرس URL Canonical</span>
+                                                        <input type="text" class="form-control ltr" autocomplete="off" value="{{ old("seo_canonical") }}" name="seo_canonical">
+                                                    </div>
+                                                </div>
+
                                                 <div class="col-12 col-md-4 col-lg-4 text-center">
                                                     <div class="mt-3">
                                                         <label for="image" class="form-label text-success">عکس بزرگ</label>

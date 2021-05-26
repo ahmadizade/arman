@@ -511,6 +511,9 @@ class AdminController extends Controller
             'admin_pannel' => 'nullable',
             'framework_frontend' => 'nullable',
             'framework_frontend_version' => 'nullable',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_canonical' => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -567,6 +570,9 @@ class AdminController extends Controller
             'admin_pannel' => $request->admin_pannel,
             'framework_frontend' => $request->framework_frontend,
             'framework_frontend_version' => $request->framework_frontend_version,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'seo_canonical' => $request->seo_canonical,
         ]);
         session()->flash("status","محصول با موفقیت ثبت گردید");
         return back();
@@ -611,6 +617,9 @@ class AdminController extends Controller
                 'admin_pannel' => 'nullable',
                 'framework_frontend' => 'nullable',
                 'framework_frontend_version' => 'nullable',
+                'seo_title' => 'nullable',
+                'seo_description' => 'nullable',
+                'seo_canonical' => 'nullable',
             ]);
 
         if ($validator->fails()) {
@@ -667,6 +676,9 @@ class AdminController extends Controller
             'admin_pannel' => $request->admin_pannel,
             'framework_frontend' => $request->framework_frontend,
             'framework_frontend_version' => $request->framework_frontend_version,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'seo_canonical' => $request->seo_canonical,
             'updated_at' => Carbon::now(),
         ]);
         session()->flash("status","محصول با موفقیت ویرایش گردید");
