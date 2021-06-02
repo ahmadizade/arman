@@ -30,6 +30,8 @@ use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
 use Psy\Util\Json;
 use SoapClient;
+use RealRashid\SweetAlert\Toaster;
+use RealRashid\SweetAlert\Facades\Alert;
 use function PHPUnit\Framework\isEmpty;
 
 class ProfileController extends Controller
@@ -387,6 +389,8 @@ class ProfileController extends Controller
             Session::flash('status' , "کالای شما با موفقیت به سبد خرید افزوده شد");
             return back();
         }
+        Session::flash('status' , "متاسفانه مشکلی پیش آمده است!");
+        return back();
     }
 
     public function CartPage(){
@@ -407,10 +411,12 @@ class ProfileController extends Controller
             foreach (Session::get('product') as $key => $value){
                 if ($key == $request->key){
                     Session::forget('product.' . $request->key);
-                    Session::flash('status' , "حذف محصول از سبد خرید با موفقیت انجام شد");
+//                    Session::flash('status' , "حذف محصول از سبد خرید با موفقیت انجام شد");
+                    toast('success' , "حذف محصول از سبد خرید با موفقیت انجام شد");
                     return back();
                 }elseif (count(Session::get('product')) == 0){
-                    Session::flash('error' , "این محصول در سبد خرید شما نیست");
+//                    Session::flash('error' , "این محصول در سبد خرید شما نیست");
+                    toast('success' , "حذف محصول از سبد خرید با موفقیت انجام شد");
                     return back();
                 }
             }
@@ -418,6 +424,9 @@ class ProfileController extends Controller
     }
     public function showSessionCart(){
         return Session::get('product');
+    }
+    public function forgetSessionCart(){
+        return Session::forget('product');
     }
     public function BeforeBuying(){
         if (Session::has('product') && count(Session::get('product'))> 0 && Auth::check()){

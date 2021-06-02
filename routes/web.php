@@ -86,6 +86,7 @@ Route::prefix("profile")->group(function () {
     Route::get('/card/{id}', 'App\Http\Controllers\ProfileController@Card')->name("card");
     Route::get('/cart-page', 'App\Http\Controllers\ProfileController@CartPage')->name("cart_page");
     Route::get('/show_session_cart', 'App\Http\Controllers\ProfileController@showSessionCart')->name("show_session_cart");
+    Route::get('/forget_session_cart', 'App\Http\Controllers\ProfileController@forgetSessionCart')->name("forget_session_cart");
     Route::get('/cart-product-delete/{key}', 'App\Http\Controllers\ProfileController@CartProductDelete')->name("cart_product_delete");
     Route::get('/before-buying', 'App\Http\Controllers\ProfileController@BeforeBuying')->name("before_buying");
     Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product");
