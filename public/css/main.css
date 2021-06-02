@@ -1326,13 +1326,11 @@ header.main-header .overlay-side-menu {
 }
 
 .header-basket-list-item-image {
-    width: 75px;
-    height: 75px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 75px;
-    max-width: 75px;
+    max-width: 40px;
     position: relative;
 }
 

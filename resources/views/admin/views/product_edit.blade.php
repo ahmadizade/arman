@@ -57,13 +57,54 @@
             <div id="content">
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    {{--ADD Product--}}
+
+
+                    {{--Edit Image Product--}}
+                    @if(isset($product))
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                        تغییر عکس محصول
+                                    </div>
+                                        <div class="card-body">
+                                        <form method="POST" action="{{route('image_edit_product_action')}}" enctype="multipart/form-data">
+                                            <input name="user_id" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}" readonly="readonly">
+                                            <input name="id" type="hidden" value="{{$product->id}}" readonly="readonly">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 col-lg-6 text-center">
+                                                    <div class="mt-3">
+                                                        <label for="image" class="form-label text-success">عکس بزرگ</label>
+                                                        <input type="file" name="image">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-6 col-lg-6 text-center">
+                                                    <div class="mt-3">
+                                                        <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>
+                                                        <input type="file" name="thumbnail">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 mt-3 buttons text-right">
+                                                    <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">آپلود عکس</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-12 col-lg-12">
                                 <div class="card">
                                     <div class="card-header text-right">
-                                        ثبت محصول
+                                        ویرایش محصول
                                     </div>
                                     <div class="card-body">
                                         @if ($errors->any())

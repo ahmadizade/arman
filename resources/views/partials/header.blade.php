@@ -267,7 +267,7 @@
                 </ul>
                 <div class="nav">
                     <div class="nav-item cart--wrapper">
-                        <a class="nav-link" href="{{route('home')}}">
+                        <a class="nav-link" href="javascript:void(0)">
                             <span class="label-dropdown">سبد خرید</span>
                             <i class="mdi mdi-cart-outline"></i>
                             @if(!empty(Illuminate\Support\Facades\Session::has('product') && count(Illuminate\Support\Facades\Session::get('product')) > 0))
@@ -278,36 +278,35 @@
                                 <span class="count">0</span>
                             @endif
                         </a>
-                        <div class="header-cart-info">
+                        @if(!empty(Illuminate\Support\Facades\Session::has('product') && count(Illuminate\Support\Facades\Session::get('product')) > 0))
+                            <div class="header-cart-info">
                             <div class="header-cart-info-header">
                                 <div class="header-cart-info-count">
-                                    3 کالا
+                                    {{count(Illuminate\Support\Facades\Session::get('product'))}} کالا
                                 </div>
-                                <a href="{{route('home')}}" class="header-cart-info-link">
+                                <a href="{{route('cart_page')}}" class="header-cart-info-link">
                                     <span>مشاهده سبد خرید</span>
                                 </a>
                             </div>
                             <ul class="header-basket-list do-nice-scroll">
-                                <li class="cart-item">
-                                    <a href="{{route('home')}}" class="header-basket-list-item">
+                                @foreach(Illuminate\Support\Facades\Session::get('product') as $key=>$item)
+                                    <li class="cart-item">
+                                        <a href="{{route('home')}}" class="header-basket-list-item">
                                         <div class="header-basket-list-item-image">
-                                            <img src="/img/cart/1.jpg" alt="">
+                                            <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="{{$item->product_name}}">
                                         </div>
                                         <div class="header-basket-list-item-content">
                                             <p class="header-basket-list-item-title">
-                                                گوشی موبایل سامسونگ مدل Galaxy A30 SM-A305F/DS دو سیم کارت ظرفیت
-                                                64 گیگابایت
+                                                {{$item->product_name}}
                                             </p>
                                             <div class="header-basket-list-item-footer">
                                                 <div class="header-basket-list-item-props">
                                                             <span class="header-basket-list-item-props-item">
-                                                                1 x
+                                                                قیمت :
                                                             </span>
                                                     <span class="header-basket-list-item-props-item">
-                                                                <div class="header-basket-list-item-color-badge"
-                                                                     style="background: #2196f3"></div>
-                                                                آبی
-                                                            </span>
+                                                        {{number_format($item->price)}} تومان
+                                                    </span>
                                                 </div>
                                                 <button class="header-basket-list-item-remove">
                                                     <i class="far fa-trash-alt"></i>
@@ -315,80 +314,27 @@
                                             </div>
                                         </div>
                                     </a>
-                                </li>
-                                <li class="cart-item">
-                                    <a href="{{route('home')}}" class="header-basket-list-item">
-                                        <div class="header-basket-list-item-image">
-                                            <img src="/img/cart/2.jpg" alt="">
-                                        </div>
-                                        <div class="header-basket-list-item-content">
-                                            <p class="header-basket-list-item-title">
-                                                گوشی موبایل هوآوی مدل Y9 2019 JKM-LX1 دو سیم کارت ظرفیت 64
-                                                گیگابایت
-                                            </p>
-                                            <div class="header-basket-list-item-footer">
-                                                <div class="header-basket-list-item-props">
-                                                            <span class="header-basket-list-item-props-item">
-                                                                1 x
-                                                            </span>
-                                                    <span class="header-basket-list-item-props-item">
-                                                                <div class="header-basket-list-item-color-badge"
-                                                                     style="background: #212121"></div>
-                                                                سفید
-                                                            </span>
-                                                </div>
-                                                <button class="header-basket-list-item-remove">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="cart-item">
-                                    <a href="{{route('home')}}" class="header-basket-list-item">
-                                        <div class="header-basket-list-item-image">
-                                            <img src="/img/cart/3.jpg" alt="">
-                                        </div>
-                                        <div class="header-basket-list-item-content">
-                                            <p class="header-basket-list-item-title">
-                                                گوشی موبایل سامسونگ مدل Galaxy A70 SM-A705FN/DS دو سیم‌کارت
-                                                ظرفیت 128 گیگابایت
-                                            </p>
-                                            <div class="header-basket-list-item-footer">
-                                                <div class="header-basket-list-item-props">
-                                                            <span class="header-basket-list-item-props-item">
-                                                                1 x
-                                                            </span>
-                                                    <span class="header-basket-list-item-props-item">
-                                                                <div class="header-basket-list-item-color-badge"
-                                                                     style="background: #FFFFFF"></div>
-                                                                سفید
-                                                            </span>
-                                                </div>
-                                                <button class="header-basket-list-item-remove">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                                    </li>
+                                @endforeach
                             </ul>
                             <div class="header-cart-info-footer">
                                 <div class="header-cart-info-total">
                                     <span class="header-cart-info-total-text">مبلغ قابل پرداخت:</span>
-                                    <p class="header-cart-info-total-amount">
-                                                <span class="header-cart-info-total-amount-number">
-                                                    9,500,000 <span>تومان</span></span>
-                                    </p>
+                                    @foreach(Illuminate\Support\Facades\Session::get('product') as $key => $item)
+                                        <p class="header-cart-info-total-amount">
+                                            <span class="header-cart-info-total-amount-number"> {{$item->price}} <span>تومان</span></span>
+                                        </p>
+                                    @endforeach
                                 </div>
 
                                 <div>
-                                    <a href="{{route('home')}}" class="header-cart-info-submit">
+                                    <a href="{{route('cart_page')}}" class="header-cart-info-submit">
                                         ثبت سفارش
                                     </a>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <button class="btn-menu">

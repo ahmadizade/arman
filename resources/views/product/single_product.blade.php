@@ -26,6 +26,18 @@
     <!-- Start main-content -->
     <main class="main-content dt-sl mb-3">
         <div class="container main-container">
+            @if ($errors->any())
+                <div class="alert alert-danger mb-2">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @if(Session::has("status"))
+                <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
+            @endif
             <!-- Start title - breadcrumb -->
             <div class="title-breadcrumb-special dt-sl mb-3">
                 <div class="breadcrumb dt-sl">
@@ -194,7 +206,7 @@
                                 <h2>قیمت : <span class="price">{{number_format($product->price)}} تومان</span> </h2>
                             </div>
                             <div class="dt-sl mt-4">
-                                <a href="#" class="btn-primary-cm btn-with-icon">
+                                <a href="{{route('card', ['id' => $product->id])}}" class="btn-primary-cm btn-with-icon">
                                     <img src="/img/theme/shopping-cart.png" alt="">
                                     افزودن به سبد خرید
                                 </a>
@@ -223,18 +235,6 @@
                     <div class="ah-tab-content-wrapper product-info px-4 dt-sl">
                         <div class="ah-tab-content dt-sl" data-ah-tab-active="true">
                             <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 dt-sl">
-                                @if ($errors->any())
-                                    <div class="alert alert-danger mb-2">
-                                        <ul class="mb-0">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                @if(Session::has("status"))
-                                    <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
-                                @endif
                                 <h2>نقد و بررسی</h2>
                             </div>
                             <div class="product-title dt-sl">

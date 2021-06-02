@@ -627,27 +627,6 @@ class AdminController extends Controller
             return back();
         }
 
-//        $image = null;
-//        if ($request->has('image')) {
-//            $imagePath = "/uploads/products/";
-//            $file = $request->file('image');
-//            $image = $file->getClientOriginalName();
-//            if (file_exists(public_path($imagePath) . $image)) {
-//                $image = Carbon::now()->timestamp . $image;
-//            }
-//            $file->move(public_path($imagePath), $image);
-//        }
-//
-//        $thumbnail = null;
-//        if ($request->has('thumbnail')) {
-//            $imagePath = "/uploads/thumbnail/";
-//            $image = $request->file('thumbnail');
-//            $thumbnail = $image->getClientOriginalName();
-//            if (file_exists(public_path($imagePath) . $thumbnail)) {
-//                $thumbnail = Carbon::now()->timestamp . $thumbnail;
-//            }
-//            $image->move(public_path($imagePath), $thumbnail);
-//        }
         Product::where('id' , $request->id)->update([
             'product_name' => $request->name,
             'english_name' => $request->englishName,
@@ -683,6 +662,53 @@ class AdminController extends Controller
         ]);
         session()->flash("status","محصول با موفقیت ویرایش گردید");
         return back();
+    }
+
+    public function imageEditproductAction(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'user_id' => 'required',
+            'thumbnail' => 'nullable|max:2048',
+            'image' => 'nullable|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        $image = null;
+        if ($request->has('image')) {
+            $imagePath = "/uploads/products/";
+            $file = $request->file('image');
+            $image = $file->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $image)) {
+                $image = Carbon::now()->timestamp . $image;
+            }
+            $file->move(public_path($imagePath), $image);
+        }
+
+        $thumbnail = null;
+        if ($request->has('thumbnail')) {
+            $imagePath = "/uploads/thumbnail/";
+            $image = $request->file('thumbnail');
+            $thumbnail = $image->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $thumbnail)) {
+                $thumbnail = Carbon::now()->timestamp . $thumbnail;
+            }
+            $image->move(public_path($imagePath), $thumbnail);
+        }
+
+        Product::where('id' , $request->id)->update([
+            'user_id' => Auth::id(),
+            'thumbnail' => $thumbnail,
+            "image" => $image,
+            'updated_at' => Carbon::now(),
+        ]);
+        session()->flash("status","تصاویر محصول با موفقیت ویرایش گردید");
+        return back();
+
+
     }
 
 }

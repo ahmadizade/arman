@@ -56,6 +56,7 @@ Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::get('/product/delete-product/{id}', 'App\Http\Controllers\AdminController@deleteProduct')->name("delete_product");
     Route::get('/product/edit-product/{id}', 'App\Http\Controllers\AdminController@editProduct')->name("edit_product");
     Route::post('/product/admin-edit-product-action', 'App\Http\Controllers\AdminController@adminEditproductAction')->name("admin_edit_product_action");
+    Route::post('/product/image-edit-product-action', 'App\Http\Controllers\AdminController@imageEditproductAction')->name("image_edit_product_action");
     Route::post('upload/tiny/image','App\Http\Controllers\UploadController@uploadImageDescription')->name('tiny.upload');
 
 });
