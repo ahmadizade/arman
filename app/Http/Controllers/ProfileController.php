@@ -30,6 +30,8 @@ use Intervention\Image\Facades\Image;
 use Morilog\Jalali\Jalalian;
 use Psy\Util\Json;
 use SoapClient;
+use RealRashid\SweetAlert\Toaster;
+use RealRashid\SweetAlert\Facades\Alert;
 use function PHPUnit\Framework\isEmpty;
 
 class ProfileController extends Controller
@@ -387,6 +389,8 @@ class ProfileController extends Controller
             Session::flash('status' , "کالای شما با موفقیت به سبد خرید افزوده شد");
             return back();
         }
+        Session::flash('status' , "متاسفانه مشکلی پیش آمده است!");
+        return back();
     }
 
     public function CartPage(){
@@ -407,10 +411,12 @@ class ProfileController extends Controller
             foreach (Session::get('product') as $key => $value){
                 if ($key == $request->key){
                     Session::forget('product.' . $request->key);
-                    Session::flash('status' , "حذف محصول از سبد خرید با موفقیت انجام شد");
+//                    Session::flash('status' , "حذف محصول از سبد خرید با موفقیت انجام شد");
+                    toast('success' , "حذف محصول از سبد خرید با موفقیت انجام شد");
                     return back();
                 }elseif (count(Session::get('product')) == 0){
-                    Session::flash('error' , "این محصول در سبد خرید شما نیست");
+//                    Session::flash('error' , "این محصول در سبد خرید شما نیست");
+                    toast('success' , "حذف محصول از سبد خرید با موفقیت انجام شد");
                     return back();
                 }
             }
@@ -419,10 +425,20 @@ class ProfileController extends Controller
     public function showSessionCart(){
         return Session::get('product');
     }
-    public function BeforeBuying(){
+    public function showShippingCart(){
+        return Session::get('shipping');
+    }
+    public function forgetSessionCart(){
+        return Session::forget('product');
+    }
+    public function BeforeBuying(Request $request){
         if (Session::has('product') && count(Session::get('product'))> 0 && Auth::check()){
-            return view('profile.before_buying' , ["menu" => "index"]);
-        }elseif (Session::has('product') && count(Session::get('product'))> 0 && Auth::guest()){
+            $user = User::where('id' , Auth::id())->first();
+            $final_cart = array("price" => $request->price , "last_price" => $request->last_price);
+            Session::put('shipping', $final_cart);
+            return view('profile.before_buying' , ['user' => $user]);
+        }
+        elseif (Session::has('product') && count(Session::get('product'))> 0 && Auth::guest()){
             Session::flash('error' ,"اگر عضو سایت نیستید ثبت نام کنید در غیر این صورت ورود را بزنید");
             return back();
         }elseif (!Session::has('product') || count(Session::get('product')) == 0){

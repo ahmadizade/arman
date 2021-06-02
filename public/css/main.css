@@ -4967,6 +4967,7 @@ a.border-bottom-dt {
 
 .checkout-variant--color .checkout-variant-value {
     padding-left: 25px;
+    color: #fb3449;
 }
 
 .checkout-variant--color .checkout-variant-shape {
@@ -4985,6 +4986,14 @@ a.border-bottom-dt {
     cursor: pointer;
     font-size: 12px;
     line-height: 1.833;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.red-price {
+    color: #f7858d !important;
 }
 
 input[type="number"] {

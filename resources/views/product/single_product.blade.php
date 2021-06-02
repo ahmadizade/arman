@@ -24,6 +24,18 @@
 @section("content")
     @if(isset($product))
     <!-- Start main-content -->
+    @if ($errors->any())
+        <div class="alert alert-danger mb-2">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if(Session::has("status"))
+        <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
+    @endif
     <main class="main-content dt-sl mb-3">
         <div class="container main-container">
             @if ($errors->any())
@@ -774,7 +786,7 @@
                                 </div>
                                 <ol class="comment-list">
                                     <!-- #comment-## -->
-                                    @if (isset($comments) && $comments[0] !== null)
+                                    @if (isset($comments))
                                         @foreach ($comments as $comment)
                                             <li>
                                                 <div class="comment-body">

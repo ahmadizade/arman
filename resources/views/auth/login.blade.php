@@ -167,11 +167,13 @@
                             title: 'CioCe.ir',
                             showConfirmButton: false,
                             timer: 3000
-                        }).then(function () {
-                            setTimeout(function(){
-                                window.location.replace('{{route('home')}}');
-                            },1000);
                         });
+                        window.location.replace('{{route('home')}}');
+                    {{--    .then(function () {--}}
+                        {{--    setTimeout(function(){--}}
+                        {{--        window.location.replace('{{route('home')}}');--}}
+                        {{--    },1000);--}}
+                        {{--});--}}
                     }
                 }
             })

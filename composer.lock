@@ -2574,20 +2574,20 @@
         },
         {
             "name": "realrashid/sweet-alert",
-            "version": "v3.2.2",
+            "version": "v3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/realrashid/sweet-alert.git",
-                "reference": "2441267a295833480b2c8e55532f4190d1004d47"
+                "reference": "d4e40b4956e1f040bd709d54410b360023cea67f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/2441267a295833480b2c8e55532f4190d1004d47",
-                "reference": "2441267a295833480b2c8e55532f4190d1004d47",
+                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/d4e40b4956e1f040bd709d54410b360023cea67f",
+                "reference": "d4e40b4956e1f040bd709d54410b360023cea67f",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.4|^7.0|^8.0",
+                "laravel/framework": "^7.0|^8.0",
                 "php": "^7.2|^8.0"
             },
             "require-dev": {
@@ -2660,7 +2660,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-17T18:21:20+00:00"
+            "time": "2021-05-26T10:10:01+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

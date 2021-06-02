@@ -25,6 +25,7 @@
 <body>
     <div class="wrapper">
         @include("partials.header")
+        @include('sweetalert::alert')
         @yield("content")
         @include("partials.footer")
 
