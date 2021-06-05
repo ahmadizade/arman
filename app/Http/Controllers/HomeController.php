@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Product;
@@ -29,6 +30,15 @@ class HomeController extends Controller
         return view('home' , ['mostVisited' => $mostVisited ,'popularproduct' => $popularproduct , 'randomShop' => $randomShop, 'lastProduct' => $lastProduct]);
     }
 
+    public function Category($name){
+        $category = Category::where('name' , $name)->first();
+        $products = Product::where('category_id' , $category->id)->orderBy('id' , 'desc')->get();
+        $mostViewproducts = Product::where('category_id' , $category->id)->orderBy('view' , 'desc')->get();
+        $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
+        $lastProduct = Product::orderBy('id' , 'asc')->limit(7)->get();
+        $mostVisited = Product::orderBy('view' , 'desc')->limit(10)->get();
+        return view('category' , ['category' => $category , 'products' => $products, 'mostViewproducts' => $mostViewproducts, 'popularproduct' => $popularproduct, 'lastProduct' => $lastProduct, 'mostVisited' => $mostVisited]);
+    }
     public function contact(){
         return view('contact');
     }

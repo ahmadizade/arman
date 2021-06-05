@@ -449,7 +449,9 @@ class AdminController extends Controller
 
     public function addCategory(Request $request){
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:2|max:255|unique:product_tag',
+            'name' => 'required|min:2|max:255',
+            'english_name' => 'required|min:2|max:255',
+            'discription' => 'nullable|min:2|max:9000000',
         ]);
 
         if ($validator->fails()) {
@@ -498,6 +500,7 @@ class AdminController extends Controller
             'discount' => 'nullable|max:2',
             'thumbnail' => 'required|max:2048',
             'image' => 'required|max:2048',
+            'file' => 'required|file|mimes:zip',
             'description' => 'nullable|min:3|max:9000000',
             'framework' => 'nullable',
             'framework_version' => 'nullable',
@@ -542,6 +545,17 @@ class AdminController extends Controller
             }
             $image->move(public_path($imagePath), $thumbnail);
         }
+
+        $file = null;
+        if ($request->has('file')) {
+            $imagePath = "/uploads/file/";
+            $image = $request->file('file');
+            $file = $image->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $file)) {
+                $file = Carbon::now()->timestamp . $file;
+            }
+            $image->move(public_path($imagePath), $file);
+        }
         Product::create([
            'product_name' => $request->name,
            'english_name' => $request->englishName,
@@ -557,8 +571,9 @@ class AdminController extends Controller
            'product_desc' => $request->description,
             'thumbnail' => $thumbnail,
             "image" => $image,
+            "file" => $file,
             "created_at" => Carbon::now(),
-            'framework' => $request->description,
+            'framework' => $request->framework,
             'framework_version' => $request->framework_version,
             'framework_details' => $request->framework_details,
             'special_features' => $request->special_features,
@@ -592,7 +607,7 @@ class AdminController extends Controller
         return view('admin.views.product_edit', ['product' => $product]);
     }
 
-        public function adminEditproductAction(Request $request){
+    public function adminEditproductAction(Request $request){
             $validator = Validator::make($request->all(), [
                 'id' => 'nullable',
                 'name' => 'required|min:2|max:255',
@@ -707,8 +722,38 @@ class AdminController extends Controller
         ]);
         session()->flash("status","تصاویر محصول با موفقیت ویرایش گردید");
         return back();
+    }
 
+    public function adminFileproductAction(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'user_id' => 'required',
+            'file' => 'required|file|mimes:zip',
+        ]);
 
+        if ($validator->fails()) {
+            session::flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        $file = null;
+        if ($request->has('file')) {
+            $imagePath = "/uploads/file/";
+            $image = $request->file('file');
+            $file = $image->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $file)) {
+                $file = Carbon::now()->timestamp . $file;
+            }
+            $image->move(public_path($imagePath), $file);
+        }
+
+        Product::where('id' , $request->id)->update([
+            'user_id' => Auth::id(),
+            'file' => $file,
+            'updated_at' => Carbon::now(),
+        ]);
+        session()->flash("status","فایل با موفقیت ویرایش گردید");
+        return back();
     }
 
 }

@@ -59,8 +59,8 @@
                 <div class="container-fluid">
 
 
-                    {{--Edit Image Product--}}
                     @if(isset($product))
+                        {{--Edit Image Product--}}
                         <div class="container">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12">
@@ -94,6 +94,39 @@
                                             </div>
                                         </form>
                                     </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {{--Edit Image Product--}}
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            تغییر فایل آپلود شده
+                                        </div>
+                                        <div class="card-body">
+                                            <form method="POST" action="{{route('admin_file_product_action')}}" enctype="multipart/form-data">
+                                                <input name="user_id" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}" readonly="readonly">
+                                                <input name="id" type="hidden" value="{{$product->id}}" readonly="readonly">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-6 col-lg-6 text-center">
+                                                        <div class="mt-3">
+                                                            <label for="file" class="form-label text-success">فایل</label>
+                                                            <input type="file" name="file">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 mt-3 buttons text-right">
+                                                        <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">آپلود فایل</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

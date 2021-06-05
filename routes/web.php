@@ -7,6 +7,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
 Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
 Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("About_Us");
+Route::get('/category/{name}', 'App\Http\Controllers\HomeController@Category')->name("category");
 
 
 //MAIL
@@ -57,6 +58,7 @@ Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::get('/product/edit-product/{id}', 'App\Http\Controllers\AdminController@editProduct')->name("edit_product");
     Route::post('/product/admin-edit-product-action', 'App\Http\Controllers\AdminController@adminEditproductAction')->name("admin_edit_product_action");
     Route::post('/product/image-edit-product-action', 'App\Http\Controllers\AdminController@imageEditproductAction')->name("image_edit_product_action");
+    Route::post('/product/admin-file-product-action', 'App\Http\Controllers\AdminController@adminFileproductAction')->name("admin_file_product_action");
     Route::post('upload/tiny/image','App\Http\Controllers\UploadController@uploadImageDescription')->name('tiny.upload');
 
 });

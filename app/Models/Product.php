@@ -24,4 +24,17 @@ class Product extends Model
     {
         return $this->belongsTo("App\Models\Category_variety", "category_variety", "id");
     }
+    public static function status($status){
+        switch ($status){
+            case '0':
+                $result = "ندارد";
+                break;
+            case '1':
+                $result = "دارد";
+                break;
+            default:
+                $result = "ندارد";
+        }
+        return $result;
+    }
 }

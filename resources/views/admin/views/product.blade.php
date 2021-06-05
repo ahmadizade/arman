@@ -246,8 +246,20 @@
                                             <div class="row text-right">
                                                 <div class="col-12">
                                                     <div class="my-3">
-                                                        <label for="name" class="form-label ">ثبت دسته بندی</label>
+                                                        <label for="name" class="form-label ">نام فارسی دسته بندی</label>
                                                         <input type="text" name="name" class="form-control text-right" placeholder="مثلا : کالای دیجیتال">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="english_name" class="form-label ">نام اینگلیسی دسته بندی</label>
+                                                        <input type="text" name="english_name" class="form-control text-right" placeholder="مثلا : Digital Product">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="discription" class="form-label ">توضیحات دسته بندی</label>
+                                                        <input type="text" name="discription" class="form-control text-right textarea-editor">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 buttons text-right">
@@ -511,21 +523,28 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-md-4 col-lg-4 text-center">
+                                                <div class="col-12 col-md-3 col-lg-3 text-center">
                                                     <div class="mt-3">
                                                         <label for="image" class="form-label text-success">عکس بزرگ</label>
                                                         <input type="file" name="image">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-md-4 col-lg-4 text-center">
+                                                <div class="col-12 col-md-3 col-lg-3 text-center">
                                                     <div class="mt-3">
                                                         <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>
                                                         <input type="file" name="thumbnail">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 mt-3 col-md-4 col-lg-4 buttons text-center">
+                                                <div class="col-12 col-md-3 col-lg-3 text-center">
+                                                    <div class="mt-3">
+                                                        <label for="file" class="form-label text-primary">فایل</label>
+                                                        <input type="file" name="file">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 mt-3 col-md-3 col-lg-3 buttons text-center">
                                                     <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">ثبت محصول</button>
                                                     <a href="" class="a-button btn btn-danger btn-sm">حذف محصول</a>
                                                 </div>
@@ -533,8 +552,6 @@
                                         </form>
                                     </div>
                                 </div>
-
-
                                 <div class="card">
                                     <div class="card-header text-right">
                                         آخرین محصولات افزوده شده

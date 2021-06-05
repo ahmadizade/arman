@@ -110,19 +110,19 @@
                                 <a class="nav-link" href="{{route('home')}}">محصولات ایرانی</a>
                                 <ul class="sub-menu nav">
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">قالب HTML</a>
+                                        <a class="nav-link" href="{{route('home')}}">ربات قیمت گذار</a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">WhiteLabel</a>
+                                        <a class="nav-link" href="{{route('home')}}">وب سرویس محصولات</a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">User DataBase</a>
+                                        <a class="nav-link" href="{{route('home')}}">وب سرویس محصولات شبکه</a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">Product DataBase</a>
+                                        <a class="nav-link" href="{{route('home')}}">وب سرویس تور و هواپیمایی</a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">Profile DataBase</a>
+                                        <a class="nav-link" href="{{route('home')}}">ربات تولید محتوا</a>
                                     </li>
                                     <li class="list-item">
                                         <a class="nav-link" href="{{route('home')}}">تاریخ و ساعت شمسی</a>
@@ -159,52 +159,52 @@
                     </li>
                     <!-- mega menu 3 column -->
                     <li class="list-item list-item-has-children mega-menu mega-menu-col-3">
-                        <a class="nav-link" href="{{route('home')}}">وردپرس</a>
+                        <a class="nav-link" href="{{route('home')}}">دیتابیس</a>
                         <ul class="sub-menu nav">
                             <li class="list-item list-item-has-children">
-                                <a class="nav-link" href="{{route('home')}}">قالب آماده</a>
+                                <a class="nav-link" href="{{route('home')}}">فارسی</a>
                                 <ul class="sub-menu nav">
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">فروشگاهی</a>
+                                        <a class="nav-link" href="{{route('home')}}">تیبل محصولات</a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">معرفی</a>
+                                        <a class="nav-link" href="{{route('home')}}">تیبل کاربر</a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">رزومه</a>
+                                        <a class="nav-link" href="{{route('home')}}">تیبل آدرس</a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">صفحه ساز</a>
+                                        <a class="nav-link" href="{{route('home')}}">تیبل دسته بندی</a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">مدیریت</a>
+                                        <a class="nav-link" href="{{route('home')}}">تیبل پروفایل</a>
                                     </li>
                                     <li class="list-item">
                                         <a class="nav-link" href="{{route('home')}}">چند منظوره</a>
                                     </li>
                                     <li class="list-item">
-                                        <a class="nav-link" href="{{route('home')}}">خبری</a>
+                                        <a class="nav-link" href="{{route('home')}}">فروشگاهی</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="list-item list-item-has-children">
-                                <a class="nav-link" href="{{route('home')}}">وب سایت کامل</a>
+                                <a class="nav-link" href="{{route('home')}}">انگلیسی</a>
                                 <ul class="sub-menu nav">
                                     <li class="list-item">
                                         <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
-                                            آژانس هواپیمایی</a>
+                                            تیبل کاربر</a>
                                     </li>
                                     <li class="list-item">
                                         <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
-                                            فروشگاه تهاتری</a>
+                                            تیبل آدرس</a>
                                     </li>
                                     <li class="list-item">
                                         <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
-                                            پنل مدیریت</a>
+                                            تیبل دسته بندی</a>
                                     </li>
                                     <li class="list-item">
                                         <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
-                                            حسابداری</a>
+                                            تیبل پروفایل</a>
                                     </li>
                                     <li class="list-item">
                                         <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
@@ -212,11 +212,11 @@
                                     </li>
                                     <li class="list-item">
                                         <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
-                                            وب سایت خبری</a>
+                                            فروشگاهی</a>
                                     </li>
                                     <li class="list-item">
                                         <a class="nav-link" href="{{route('home')}}"><i class="mdi mdi-brightness-percent"></i>
-                                            وبلاگ</a>
+                                            خبری</a>
                                     </li>
                                 </ul>
                             </li>
