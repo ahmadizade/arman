@@ -64,7 +64,7 @@
                                         <input type="checkbox" class="custom-control-input" id="customCheck3" name="customCheck3" >
                                         <label class="custom-control-label text-justify" for="customCheck3">
                                             <a href="{{route('home')}}">حریم خصوصی</a> و <a href="{{route('home')}}">شرایط و قوانین</a> استفاده از سرویس
-                                            های سایت سیوسه را مطالعه نموده و با کلیه موارد آن موافقم.
+                                            های سایت سی و سه را مطالعه نموده و با کلیه موارد آن موافقم.
                                         </label>
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@
                                 <div class="form-row mt-3">
                                     <button type="button" id="send_code" class="btn-primary-cm btn-with-icon mx-auto w-100">
                                         <i class="mdi mdi-account-circle-outline"></i>
-                                        ثبت نام در سیوسه
+                                        ثبت نام در سی و سه
                                     </button>
                                 </div>
                                 <div class="form-row mt-3">
@@ -160,7 +160,7 @@
                 <div class="row">
                     <div class="col-12">
                         <ul class="mini-footer-menu">
-                            <li><a href="{{route('home')}}">درباره سیوسه</a></li>
+                            <li><a href="{{route('home')}}">درباره سی و سه</a></li>
                             <li><a href="{{route('home')}}">فرصت های شغلی</a></li>
                             <li><a href="{{route('home')}}">تماس با ما</a></li>
                             <li><a href="{{route('home')}}">همکاری با سازمان ها</a></li>
@@ -168,8 +168,8 @@
                     </div>
                     <div class="col-12 mt-2 mb-3">
                         <div class="footer-light-text">
-                            استفاده از مطالب فروشگاه اینترنتی سیوسه فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع
-                            است. کلیه حقوق این سایت متعلق به (فروشگاه آنلاین سیوسه) می‌باشد.
+                            استفاده از مطالب فروشگاه اینترنتی سی و سه فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع
+                            است. کلیه حقوق این سایت متعلق به (فروشگاه آنلاین سی و سه) می‌باشد.
                         </div>
                     </div>
                     <div class="col-12 text-center">

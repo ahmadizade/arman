@@ -204,14 +204,30 @@
                                 <h2>کد محصول:{{$product->id}}</h2>
                             </div>
                             <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 dt-sl">
-                                <h2>قیمت : <span class="price">{{number_format($product->price)}} تومان</span> </h2>
+                                <h2>قیمت : <span class="price">
+                                        @if ($product->price > 0)
+                                            {{number_format($product->price)}} تومان
+                                        @elseif ($product->price == 0)
+                                            <span class="text-danger" style="font-size: 20px">رایگان</span>
+                                        @endif
+
+                                    </span> </h2>
                             </div>
-                            <div class="dt-sl mt-4">
-                                <a href="{{route('card', ['id' => $product->id])}}" class="btn-primary-cm btn-with-icon">
-                                    <img src="/img/theme/shopping-cart.png" alt="">
-                                    افزودن به سبد خرید
-                                </a>
-                            </div>
+                            @if ($product->price > 0)
+                                <div class="dt-sl mt-4">
+                                    <a href="{{route('card', ['id' => $product->id])}}" class="btn-primary-cm btn-with-icon">
+                                        <img src="/img/theme/shopping-cart.png" alt="cart-icon">
+                                        افزودن به سبد خرید
+                                    </a>
+                                </div>
+                            @elseif($product->price == 0)
+                                <div class="dt-sl mt-4">
+                                    <a id="freeDownload" href="{{route('download', ['filename' => $product->file])}}" class="btn-primary-cm btn-with-icon">
+                                        <img src="/img/theme/shopping-cart.png" alt="cart-icon">
+                                        دانلود رایگان محصول
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

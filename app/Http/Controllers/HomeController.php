@@ -39,6 +39,7 @@ class HomeController extends Controller
         $mostVisited = Product::orderBy('view' , 'desc')->limit(10)->get();
         return view('category' , ['category' => $category , 'products' => $products, 'mostViewproducts' => $mostViewproducts, 'popularproduct' => $popularproduct, 'lastProduct' => $lastProduct, 'mostVisited' => $mostVisited]);
     }
+
     public function contact(){
         return view('contact');
     }
@@ -68,5 +69,10 @@ class HomeController extends Controller
 
     public function AboutUs(){
         return view('about');
+    }
+
+    public function download($filename){
+        $file_path = public_path('uploads/file/'.$filename);
+        return response()->download($file_path);
     }
 }

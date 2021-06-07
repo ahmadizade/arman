@@ -143,7 +143,7 @@ class AdminController extends Controller
         $name = $user->name;
         $view = 'from_admin';
         $subject = 'Www.SaminTakhfif.Com';
-        $title = 'پشتیبانی سایت فروشگاه سیوسه';
+        $title = 'پشتیبانی سایت فروشگاه سی و سه';
         self::email($email, $view, $content, $title, $subject);
     }
 
@@ -496,8 +496,8 @@ class AdminController extends Controller
             'category' => 'required',
             'category_variety' => 'required',
             'tag' => 'nullable',
-            'price' => 'required|min:2|max:255',
-            'discount' => 'nullable|max:2',
+            'price' => 'nullable|max:255',
+            'discount' => 'nullable|max:3',
             'thumbnail' => 'required|max:2048',
             'image' => 'required|max:2048',
             'file' => 'required|file|mimes:zip',
@@ -615,10 +615,8 @@ class AdminController extends Controller
                 'category' => 'required',
                 'category_variety' => 'required',
                 'tag' => 'nullable',
-                'price' => 'required|min:2|max:255',
-                'discount' => 'nullable|max:2',
-//                'thumbnail' => 'nullable|max:2048',
-//                'image' => 'nullable|max:2048',
+                'price' => 'nullable|max:255',
+                'discount' => 'nullable|max:3',
                 'description' => 'nullable|min:3|max:9000000',
                 'framework' => 'required',
                 'framework_version' => 'nullable',

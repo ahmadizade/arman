@@ -36,7 +36,13 @@
                                     <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="text-truncate">{{$item->product_name}}</a>
                                 </h5>
                                 <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->category->name}}</a>
-                                <span class="product-price">{{$item->price}} تومان</span>
+                                <span class="product-price">
+                                    @if ($item->price > 0)
+                                        {{number_format($item->price)}} تومان
+                                    @elseif ($item->price == 0)
+                                        <span class="text-danger">رایگان</span>
+                                    @endif
+                                </span>
                                 <div class="mt-4">
                                     <span class="product-meta d-inline"><i class="fa fa-eye"></i> {{$item->view}}</span>
                                     <span class="product-meta d-inline"><i class="fa fa-bookmark pr-2"></i></span>

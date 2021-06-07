@@ -768,7 +768,7 @@ class ProfileController extends Controller
                     ]);
                     $view = 'verify_email';
                     $subject = 'لینک تایید رایانامه شما';
-                    $title = 'پشتیبانی سایت فروشگاه سیوسه';
+                    $title = 'پشتیبانی سایت فروشگاه سی و سه';
                     self::email($email, $view, $content, $title, $subject);
                     session()->flash("error", "لینک تایید به ایمیل شما ارسال شد");
                     Cache::put("email_code_" . $user->id, true, 600);

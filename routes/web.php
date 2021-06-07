@@ -8,6 +8,12 @@ Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("con
 Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
 Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("About_Us");
 Route::get('/category/{name}', 'App\Http\Controllers\HomeController@Category')->name("category");
+Route::get('/cache', function (){
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    \Illuminate\Support\Facades\Artisan::call('clear-compiled');
+    \Illuminate\Support\Facades\Artisan::call('optimize');
+});
 
 
 //MAIL
@@ -133,7 +139,8 @@ Route::prefix("shop")->group(function () {
     Route::get('/product/{id}', 'App\Http\Controllers\ShopController@ProductSingle')->name("shop_product_single");
 });
 
-
+//Download File
+Route::get('/download/{filename}', 'App\Http\Controllers\HomeController@download')->name("download");
 
 //bank
 Route::post('/incoming-gold', 'App\Http\Controllers\PaymentController@BackBankGold')->name("back_bank");

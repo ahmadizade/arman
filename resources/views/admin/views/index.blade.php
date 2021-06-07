@@ -1,6 +1,6 @@
 @extends("/admin/views/layouts.master")
 @section("title")
-    <title>CioCe.ir | فروشگاه سیوسه</title>
+    <title>CioCe.ir | فروشگاه سی و سه</title>
 @endsection
 @section("style")
     <style>
