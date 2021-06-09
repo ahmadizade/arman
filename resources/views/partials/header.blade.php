@@ -75,10 +75,10 @@
                                                 <i class="mdi mdi-account-card-details-outline"></i>پنل مدیریت
                                             </a>
                                         @endif
-                                        <a class="dropdown-item" href="{{route('home')}}">
-                                            <span class="float-left badge badge-dark">۴</span>
-                                            <i class="mdi mdi-comment-text-outline"></i>پیغام ها
-                                        </a>
+{{--                                        <a class="dropdown-item" href="{{route('home')}}">--}}
+{{--                                            <span class="float-left badge badge-dark">۴</span>--}}
+{{--                                            <i class="mdi mdi-comment-text-outline"></i>پیغام ها--}}
+{{--                                        </a>--}}
                                         <a class="dropdown-item" href="{{ route("profile_edit") }}">
                                             <i class="mdi mdi-account-edit-outline"></i>ویرایش حساب کاربری
                                         </a>
@@ -258,11 +258,11 @@
                     <li class="list-item">
                         <a class="nav-link" href="{{route('home')}}">همکاری با ما</a>
                     </li>
+{{--                    <li class="list-item">--}}
+{{--                        <a class="nav-link" href="{{route('home')}}">مشاوره SEO</a>--}}
+{{--                    </li>--}}
                     <li class="list-item">
-                        <a class="nav-link" href="{{route('home')}}">مشاوره SEO</a>
-                    </li>
-                    <li class="list-item">
-                        <a class="nav-link" href="{{route('home')}}">تماس با ما</a>
+                        <a class="nav-link" href="{{route('about_Us')}}">تماس با ما</a>
                     </li>
                 </ul>
                 <div class="nav">

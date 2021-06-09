@@ -44,7 +44,7 @@
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="widget-menu widget card">
                         <header class="card-header">
-                            <h3 class="card-title">راهنمای خرید از سیویه</h3>
+                            <h3 class="card-title">راهنمای خرید از سی و سه</h3>
                         </header>
                         <ul class="footer-menu">
                             <li>
@@ -83,11 +83,11 @@
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="widget-menu widget card">
                         <header class="card-header">
-                            <h3 class="card-title">با سیویه</h3>
+                            <h3 class="card-title">با سی و سه</h3>
                         </header>
                         <ul class="footer-menu">
                             <li>
-                                <a href="{{route('home')}}">فروش در سیویه</a>
+                                <a href="{{route('home')}}">فروش در سی و سه</a>
                             </li>
                             <li>
                                 <a href="{{route('home')}}">همکاری با سازمان‌ها</a>
@@ -96,10 +96,10 @@
                                 <a href="{{route('home')}}">فرصت‌های شغلی</a>
                             </li>
                             <li>
-                                <a href="{{route('home')}}">تماس با سیویه</a>
+                                <a href="{{route('home')}}">تماس با سی و سه</a>
                             </li>
                             <li>
-                                <a href="{{route('home')}}">درباره سیویه</a>
+                                <a href="{{route('home')}}">درباره سی و سه</a>
                             </li>
                         </ul>
                     </div>
@@ -139,20 +139,20 @@
         <div class="container main-container">
             <div class="row">
                 <div class="site-description col-12 col-lg-7">
-                    <h1 class="site-title">فروشگاه اینترنتی سیویه، بررسی، انتخاب و خرید آنلاین</h1>
-                    <p>
-                        سیویه به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با
-                        پایبندی به سه اصل کلیدی، پرداخت در
-                        محل، 7 روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده تا همگام با فروشگاه‌های
-                        معتبر جهان، به بزرگ‌ترین فروشگاه
-                        اینترنتی ایران تبدیل شود. به محض ورود به سیویه با یک سایت پر از کالا رو به رو
-                        می‌شوید! هر آنچه که نیاز دارید و به
-                        ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
-                    </p>
+                    <h1 class="site-title">فروشگاه اینترنتی سی و سه، بررسی، انتخاب و خرید آنلاین</h1>
+                        <p>
+                            سی و سه به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با
+                            پایبندی به سه اصل کلیدی، پرداخت در
+                            محل، 7 روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده تا همگام با فروشگاه‌های
+                             معتبر جهان، به یکی از بزرگ‌ترین فروشگاه های
+                            اینترنتی ایران تبدیل شود. به محض ورود به سی و سه با یک سایت پر از کالا رو به رو
+                            می‌شوید! هر آنچه که نیاز دارید و به
+                            ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
+                        </p>
                 </div>
                 <div class="symbol col-12 col-lg-5">
-                    <a href="{{route('home')}}" target="_blank"><img src="/img/symbol-01.png" alt=""></a>
-                    <a href="{{route('home')}}" target="_blank"><img src="/img/symbol-02.png" alt=""></a>
+{{--                    <a href="{{route('home')}}" target="_blank"><img src="/img/symbol-01.png" alt=""></a>--}}
+{{--                    <a href="{{route('home')}}" target="_blank"><img src="/img/symbol-02.png" alt=""></a>--}}
                 </div>
             </div>
         </div>
@@ -160,9 +160,9 @@
     <div class="copyright">
         <div class="container main-container">
             <p>
-                استفاده از مطالب فروشگاه اینترنتی سیویه فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع است.
+                استفاده از مطالب فروشگاه اینترنتی سی و سه فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع است.
                 کلیه حقوق این سایت متعلق
-                به شرکت نوآوران فن آوازه (فروشگاه آنلاین سیویه) می‌باشد.
+                به شرکت نوآوران فن آوازه (فروشگاه آنلاین سی و سه) می‌باشد.
             </p>
         </div>
     </div>

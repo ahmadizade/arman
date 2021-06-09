@@ -41,11 +41,12 @@ class ProfileController extends Controller
     {
         if (Auth::check()) {
             $store = Store::where('user_id', Auth::id())->first();
+            $bookmark = Bookmark::where('user_id', Auth::id())->get();
             if (isEmpty($store) && $store == "") {
-                return view("profile.index", ["user" => Auth::user(), "menu" => "index"]);
+                return view("profile.index", ["user" => Auth::user(), "menu" => "index", "bookmark" => $bookmark]);
             } else {
                 $like = Like::where('store_id', $store->id)->count();
-                return view("profile.index", ["user" => Auth::user(), "like" => $like, "store" => $store, "menu" => "index"]);
+                return view("profile.index", ["user" => Auth::user(), "like" => $like, "store" => $store, "menu" => "index", "bookmark" => $bookmark]);
             }
         } else {
             return redirect()->to(route('home'));
@@ -837,9 +838,9 @@ class ProfileController extends Controller
     public function BookmarkDelete(Request $request)
     {
 
-        if (isset($request->store)) {
+        if (isset($request->id)) {
 
-            Bookmark::where("user_id", Auth::id())->where("store_id", $request->store)->delete();
+            Bookmark::where("user_id", Auth::id())->where("id", $request->id)->delete();
 
             return response()->json(['status' => "1", "desc" => "فروشگاه مورد نظر با موفقیت از لیست شما حذف شد"]);
 

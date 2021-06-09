@@ -37,7 +37,7 @@
     </div>
     <div class="dt-sl dt-sn mb-3 text-center">
     <a href="#">
-    <img src="/img/banner/sidebar-banner-3.jpg" class="img-fluid" alt="">
+    <img src="/img/banner/sidebar-banner-3.png" class="img-fluid" alt="">
     </a>
     </div>
     <div class="dt-sl dt-sn mb-3">

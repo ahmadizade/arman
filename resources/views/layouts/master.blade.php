@@ -53,7 +53,40 @@
         <script src="/js/vendor/headroom.min.js"></script>
         <!-- Main JS File -->
         <script src="/js/main.js"></script>
-
+        <script>
+            $( document ).ready(function() {
+                $('body').on('click','.bookmark_btn i',function (e){
+                    e.preventDefault();
+                    $.ajax({
+                        url : '{{route('bookmark')}}',
+                        type : 'POST',
+                        data : {'product_id' : $(this).attr("data-id")},
+                        success : function (data){
+                            if(data.status == "0") {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    toast: true,
+                                    icon: 'error',
+                                    text: data.desc,
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+                            }
+                            if(data.status == "1") {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    toast: true,
+                                    icon: 'success',
+                                    text: data.desc,
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
         @yield('extra_js')
 
     </div>

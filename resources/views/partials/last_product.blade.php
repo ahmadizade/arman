@@ -45,7 +45,7 @@
                                 </span>
                                 <div class="mt-4">
                                     <span class="product-meta d-inline"><i class="fa fa-eye"></i> {{$item->view}}</span>
-                                    <span class="product-meta d-inline"><i class="fa fa-bookmark pr-2"></i></span>
+                                    <span class="bookmark_btn product-meta d-inline"><i data-id="{{$item->id}}" class="fa fa-bookmark pr-2"></i></span>
                                     <span class="product-meta d-inline"><i class="fa fa-thumbs-up pr-3"></i></span>
                                 </div>
                             </div>

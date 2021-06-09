@@ -132,18 +132,19 @@ class ShopController extends Controller
     public function Bookmark(Request $request)
     {
 
-        if (isset($request->store) && Auth::check()) {
+        if (isset($request->product_id) && Auth::check()) {
 
-            $checkBookmark = Bookmark::where("store_id", $request->store)->where("user_id", Auth::id())->first();
+            $checkBookmark = Bookmark::where("product_id", $request->product_id)->where("user_id", Auth::id())->first();
 
             if (!isset($checkBookmark->id)) {
                 Bookmark::create([
-                    "store_id" => $request->store,
+//                    "store_id" => $request->store,
+                    "product_id" => $request->product_id,
                     "user_id" => Auth::id(),
                     "created_at" => Carbon::now()
                 ]);
             } else {
-                return Response::json(["status" => "1", "desc" => "این فروشگاه قبلا به لیست علاقه مندی های شما اضافه شده است. لطفا به پروفایل کاربری مراجعه فرمایید"]);
+                return Response::json(["status" => "0", "desc" => "این فروشگاه قبلا به لیست علاقه مندی های شما اضافه شده است"]);
             }
 
             return Response::json(["status" => "1", "desc" => "این فروشگاه به لیست علاقه مندی های شما اضافه شد"]);

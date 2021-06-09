@@ -88,42 +88,39 @@
                                     <h2>لیست آخرین علاقه‌مندی‌ها</h2>
                                 </div>
                                 <div class="profile-section dt-sl">
+                                    @if (isset($bookmark) && !$bookmark[0] == null)
+                                        <ul class="list-favorites">
+                                            @foreach($bookmark as $item)
+                                                <li>
+                                                    <a href="{{ route("single_product",["slug" => $item->product->product_slug]) }}">
+                                                        <img src="/uploads/thumbnail/{{$item->product->thumbnail ?? "noimage_64.jpg"}}" alt="">
+                                                        <span>{{$item->product->product_name ?? "بدون نام"}}</span>
+                                                    </a>
+                                                    <button class="delete_bookmark">
+                                                        <i data-id="{{$item->id}}" class="mdi mdi-trash-can-outline"></i>
+                                                    </button>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                        <div class="profile-section-link">
+                                            <a href="#" class="border-bottom-dt">
+                                                <i class="mdi mdi-square-edit-outline"></i>
+                                                مشاهده و ویرایش لیست مورد علاقه
+                                            </a>
+                                        </div>
+                                    @else
                                     <ul class="list-favorites">
                                         <li>
-                                            <a href="#">
-                                                <img src="/img/products/016.jpg" alt="">
-                                                <span>کت مردانه مجلسی مدل k-m-5500</span>
-                                            </a>
-                                            <button>
-                                                <i class="mdi mdi-trash-can-outline"></i>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img src="/img/products/020.jpg" alt="">
-                                                <span>کت مردانه مجلسی مدل k-m-5640</span>
-                                            </a>
-                                            <button>
-                                                <i class="mdi mdi-trash-can-outline"></i>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img src="/img/products/017.jpg" alt="">
-                                                <span>کت مردانه مجلسی مدل k-m-5110</span>
-                                            </a>
-                                            <button>
-                                                <i class="mdi mdi-trash-can-outline"></i>
-                                            </button>
+                                            <p>محصولی موجود نیست</p>
                                         </li>
                                     </ul>
                                     <div class="profile-section-link">
-                                        <a href="#" class="border-bottom-dt">
+                                        <a disabled href="javascript:void(0)" class="border-bottom-dt text-muted">
                                             <i class="mdi mdi-square-edit-outline"></i>
                                             مشاهده و ویرایش لیست مورد علاقه
                                         </a>
                                     </div>
-                                </div>
+                                    @endif
                             </div>
                         </div>
                     </div>
@@ -394,5 +391,39 @@
 @endsection
 
 @section('extra_js')
-
+    <script>
+        $( document ).ready(function() {
+            $('body').on('click','.delete_bookmark i',function (e){
+                e.preventDefault();
+                $.ajax({
+                   url : '{{route('profile_bookmark_delete')}}',
+                   type : 'POST',
+                   data : {'id' : $(this).attr("data-id")},
+                    success : function (data){
+                        if(data.status == "0") {
+                            Swal.fire({
+                                position: 'top-end',
+                                toast: true,
+                                icon: 'error',
+                                text: data.desc,
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                        if(data.status == "1") {
+                            Swal.fire({
+                                position: 'top-end',
+                                toast: true,
+                                icon: 'success',
+                                text: data.desc,
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                            location.reload();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
