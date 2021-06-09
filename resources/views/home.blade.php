@@ -40,22 +40,22 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/1.jpg)">
+                                       style="background-image: url(/img/main-slider/1.png)">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/2.jpg)">
+                                       style="background-image: url(/img/main-slider/2.png)">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/3.jpg)">
+                                       style="background-image: url(/img/main-slider/3.png)">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/4.jpg)">
+                                       style="background-image: url(/img/main-slider/4.png)">
                                     </a>
                                 </div>
                                 <div class="carousel-item">

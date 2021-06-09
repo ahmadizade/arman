@@ -19,7 +19,6 @@ Route::get('/cache', function (){
 //MAIL
 Route::get('/verify-email', 'App\Http\Controllers\Controller@build_mail')->name('build_mail');
 
-
 // admin
 Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::get('/', 'App\Http\Controllers\AdminController@cioce')->name("cioce");
