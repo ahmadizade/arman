@@ -19,6 +19,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "morilog/jalali": "3.*",
+        "laravelium/sitemap": "^8.0",
+        "rap2hpoutre/laravel-log-viewer": "^1.7",
         "realrashid/sweet-alert": "^3.2",
         "yajra/laravel-datatables-oracle": "~9.0"
     },

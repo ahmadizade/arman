@@ -450,8 +450,12 @@ class AdminController extends Controller
     public function addCategory(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:2|max:255',
+            'seo_title' => 'nullable|max:65',
+            'seo_description' => 'nullable',
+            'seo_canonical' => 'nullable',
             'english_name' => 'required|min:2|max:255',
             'discription' => 'nullable|min:2|max:9000000',
+            'image' => 'required|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -459,8 +463,25 @@ class AdminController extends Controller
             return back();
         }
 
+        $image = null;
+        if ($request->has('image')) {
+            $imagePath = "/uploads/category/";
+            $file = $request->file('image');
+            $image = $file->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $image)) {
+                $image = Carbon::now()->timestamp . $image;
+            }
+            $file->move(public_path($imagePath), $image);
+        }
+
         Category::create([
             "name" => $request->name,
+            "seo_title" => $request->seo_title,
+            "seo_description" => $request->seo_description,
+            "seo_canonical" => $request->seo_canonical,
+            "english_name" => $request->english_name,
+            "discription" => $request->discription,
+            "image" => $image,
         ]);
 
         session()->flash("error","برچسب با موفقیت ثبت شد");

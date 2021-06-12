@@ -1,7 +1,30 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>صفحه اصلی | CioCe.ir</title>
+    @if(\Illuminate\Support\Str::length($result->seo_title) > 1)
+        <title>{{ $category->seo_title }} - سی و سه</title>
+    @else
+        <title>{{ $category->name ?? '' }} - سی و سه</title>
+    @endif
+    @if(\Illuminate\Support\Str::length($category->seo_description) > 1)
+        <meta name="description" content="{{ $category->seo_description }}">
+    @endif
+    <meta name="robots" content="all">
+    @if(\Illuminate\Support\Str::length($category->seo_canonical) > 1)
+        <link rel="canonical" href="{{ $category->seo_canonical }}">
+    @else
+        <link rel="canonical" href="{{ route("category" , ["slug" => $category->name]) }}">
+    @endif
+    @if(\Illuminate\Support\Str::length($category->seo_title) > 1)
+        <meta property="og:title" content="{{ $category->seo_title }} - سی و سه">
+    @else
+        <meta property="og:title" content="{{ $category->name ?? '' }} - سی و سه">
+    @endif
+    <meta property="og:url" content="{{ url()->current() }}">
+    @if(\Illuminate\Support\Str::length($category->seo_description) > 1)
+        <meta property="og:site_name" content="{{ $category->seo_description }}">
+    @endif
+    <meta property="og:image" content="{{ request()->getSchemeAndHttpHost() . '/img/category/' . $category->image ?? '/img/home/logo.png'}}">
 @endsection
 
 @section("content")

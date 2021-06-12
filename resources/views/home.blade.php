@@ -60,17 +60,17 @@
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/5.jpg)">
+                                       style="background-image: url(/img/main-slider/5.png)">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/6.jpg)">
+                                       style="background-image: url(/img/main-slider/6.png)">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/7.jpg)">
+                                       style="background-image: url(/img/main-slider/7.png)">
                                     </a>
                                 </div>
                             </div>

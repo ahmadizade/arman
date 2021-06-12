@@ -253,13 +253,37 @@
                                                 <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="english_name" class="form-label ">نام اینگلیسی دسته بندی</label>
-                                                        <input type="text" name="english_name" class="form-control text-right" placeholder="مثلا : Digital Product">
+                                                        <input type="text" name="english_name" class="form-control text-right" placeholder="مثلا : نام اینگلیسی">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="seo_title" class="form-label ">SEO Title</label>
+                                                        <input type="text" name="seo_title" class="form-control text-right" placeholder="مثلا : SEO Title">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="seo_description" class="form-label ">SEO Discription</label>
+                                                        <input type="text" name="seo_description" class="form-control text-right" placeholder="مثلا : SEO Discription">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="seo_canonical" class="form-label ">SECO Canonical</label>
+                                                        <input type="text" name="seo_canonical" class="form-control text-right" placeholder="مثلا : SECO Canonical">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="discription" class="form-label ">توضیحات دسته بندی</label>
                                                         <input type="text" name="discription" class="form-control text-right textarea-editor">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="image" class="form-label ">عکس</label>
+                                                        <input type="file" name="image" class="form-control text-right">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 buttons text-right">
