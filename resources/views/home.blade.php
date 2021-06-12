@@ -94,37 +94,37 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/1.jpg" alt=""
+                                        <img src="/img/main-slider/slider-responsive/1.png" alt="MainSlider"
                                              class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/2.jpg" alt=""
+                                        <img src="/img/main-slider/slider-responsive/2.png" alt="MainSlider"
                                              class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/3.jpg" alt=""
+                                        <img src="/img/main-slider/slider-responsive/3.png" alt="MainSlider"
                                              class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/4.jpg" alt=""
+                                        <img src="/img/main-slider/slider-responsive/4.png" alt="MainSlider"
                                              class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/5.jpg" alt=""
+                                        <img src="/img/main-slider/slider-responsive/5.png" alt="MainSlider"
                                              class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="carousel-item">
                                     <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/6.jpg" alt=""
+                                        <img src="/img/main-slider/slider-responsive/6.png" alt="MainSlider"
                                              class="img-fluid">
                                     </a>
                                 </div>

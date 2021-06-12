@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/banner/sidebar-banner-3.png" afterDir="false" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="first work commit">
+      <change afterPath="$PROJECT_DIR$/resources/views.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Bookmark.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bookmark.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/sidebar-banner-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/last_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/last_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -333,7 +320,8 @@
       <workItem from="1623052562852" duration="12202000" />
       <workItem from="1623144028300" duration="2890000" />
       <workItem from="1623214686076" duration="16403000" />
-      <workItem from="1623240507493" duration="3159000" />
+      <workItem from="1623240507493" duration="3183000" />
+      <workItem from="1623472973093" duration="3836000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -363,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623219623927</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="first work commit">
+      <created>1623245903274</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623245903274</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
