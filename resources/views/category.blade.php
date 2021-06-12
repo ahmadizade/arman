@@ -1,30 +1,29 @@
 @extends("layouts.master")
-
 @section("title")
-    @if(\Illuminate\Support\Str::length($result->seo_title) > 1)
-        <title>{{ $category->seo_title }} - سی و سه</title>
+    @if(\Illuminate\Support\Str::length($Category->seo_title) > 1)
+        <title>{{ $Category->seo_title }} - سی و سه</title>
     @else
-        <title>{{ $category->name ?? '' }} - سی و سه</title>
+        <title>{{ $Category->name ?? '' }} - سی و سه</title>
     @endif
-    @if(\Illuminate\Support\Str::length($category->seo_description) > 1)
-        <meta name="description" content="{{ $category->seo_description }}">
+    @if(\Illuminate\Support\Str::length($Category->seo_description) > 1)
+        <meta name="description" content="{{ $Category->seo_description }}">
     @endif
     <meta name="robots" content="all">
-    @if(\Illuminate\Support\Str::length($category->seo_canonical) > 1)
-        <link rel="canonical" href="{{ $category->seo_canonical }}">
+    @if(\Illuminate\Support\Str::length($Category->seo_canonical) > 1)
+        <link rel="canonical" href="{{ $Category->seo_canonical }}">
     @else
-        <link rel="canonical" href="{{ route("category" , ["slug" => $category->name]) }}">
+        <link rel="canonical" href="{{ route("category" , ["name" => $Category->name]) }}">
     @endif
-    @if(\Illuminate\Support\Str::length($category->seo_title) > 1)
-        <meta property="og:title" content="{{ $category->seo_title }} - سی و سه">
+    @if(\Illuminate\Support\Str::length($Category->seo_title) > 1)
+        <meta property="og:title" content="{{ $Category->seo_title }} - سی و سه">
     @else
-        <meta property="og:title" content="{{ $category->name ?? '' }} - سی و سه">
+        <meta property="og:title" content="{{ $Category->name ?? '' }} - سی و سه">
     @endif
     <meta property="og:url" content="{{ url()->current() }}">
-    @if(\Illuminate\Support\Str::length($category->seo_description) > 1)
-        <meta property="og:site_name" content="{{ $category->seo_description }}">
+    @if(\Illuminate\Support\Str::length($Category->seo_description) > 1)
+        <meta property="og:site_name" content="{{ $Category->seo_description }}">
     @endif
-    <meta property="og:image" content="{{ request()->getSchemeAndHttpHost() . '/img/category/' . $category->image ?? '/img/home/logo.png'}}">
+    <meta property="og:image" content="{{ request()->getSchemeAndHttpHost() . '/img/uploads/Category/' . $Category->image ?? '/img/home/logo.png'}}">
 @endsection
 
 @section("content")
@@ -221,7 +220,7 @@
                                             <h5 class="product-title">
                                                 <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="text-truncate">{{$item->product_name}}</a>
                                             </h5>
-                                            <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->category->name}}</a>
+                                            <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->Category->name}}</a>
                                             <span class="product-price">{{$item->price}} تومان</span>
                                             <div class="mt-4">
                                                 <span class="product-meta d-inline"><i class="fa fa-eye"></i> {{$item->view}}</span>
@@ -311,7 +310,7 @@
                                             <h5 class="product-title">
                                                 <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="text-truncate">{{$item->product_name}}</a>
                                             </h5>
-                                            <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->category->name}}</a>
+                                            <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->Category->name}}</a>
                                             <span class="product-price">{{$item->price}} تومان</span>
                                             <div class="mt-4">
                                                 <span class="product-meta d-inline"><i class="fa fa-eye"></i> {{$item->view}}</span>
@@ -366,7 +365,7 @@
             <!-- End Banner -->
 
             <!-- Start Category-Section -->
-            @include('partials.category_icon')
+            @include('partials.Category_icon')
             <!-- End Category-Section -->
 
             <!-- Start Product-Slider -->

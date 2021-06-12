@@ -1,24 +1,31 @@
 @extends("layouts.master")
 
 @section("title")
-    @if(\Illuminate\Support\Str::length($product->product_name) > 1)
+    @if(\Illuminate\Support\Str::length($product->seo_title) > 1)
+        <title>{{ $product->seo_title }} - سی و سه</title>
+    @else
         <title>{{ $product->product_name ?? '' }} - سی و سه</title>
     @endif
-    @if(\Illuminate\Support\Str::length($product->english_name) > 1)
-        <meta name="description" content="{{ $product->english_name }}">
+    @if(\Illuminate\Support\Str::length($product->seo_description) > 1)
+        <meta name="description" content="{{ $product->seo_description }}">
     @endif
-        <meta name="robots" content="all">
+    <meta name="robots" content="all">
+    @if(\Illuminate\Support\Str::length($product->seo_canonical) > 1)
+        <link rel="canonical" href="{{ $product->seo_canonical }}">
+    @else
         <link rel="canonical" href="{{ url()->full() }}">
-    @if(\Illuminate\Support\Str::length($product->product_name) > 1)
-        <meta property="og:title" content="{{ $product->english_name }} - سی و سه">
+    @endif
+    @if(\Illuminate\Support\Str::length($product->seo_title) > 1)
+        <meta property="og:title" content="{{ $product->seo_title }} - سی و سه">
     @else
         <meta property="og:title" content="{{ $product->product_name ?? '' }} - سی و سه">
     @endif
-        <meta property="og:url" content="{{ url()->current() }}">
-    @if(\Illuminate\Support\Str::length($product->english_name) > 1)
-        <meta property="og:site_name" content="CioCe">
+    <meta property="og:url" content="{{ url()->current() }}">
+    @if(\Illuminate\Support\Str::length($product->seo_description) > 1)
+        <meta property="og:site_name" content="{{ $product->seo_description }}">
     @endif
-        <meta property="og:image" content="{{'/img/logo.png'}}">
+    <meta property="og:image" content="{{ request()->getSchemeAndHttpHost() . '/img/uploads/product/' . $product->thumbnail ?? '/img/home/logo.png'}}">
+
 @endsection
 
 @section("content")
