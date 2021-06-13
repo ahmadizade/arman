@@ -9,15 +9,46 @@ use App\Models\Product;
 use App\Models\Store;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
+    public function sitemap(){
+
+        $sitemap = App::make('sitemap');
+
+        $sitemap->setCache('laravel.sitemap', 10);
+
+        $sitemap->add(URL::to('index'), \Illuminate\Support\Carbon::now(), '1.0','daily');
+        $sitemap->add(URL::to('about'), Carbon::now(), '0.6','weekly');
+        $sitemap->add(URL::to('contact'), Carbon::now(), '0.6','weekly');
+        $sitemap->add(URL::to('policy'), Carbon::now(), '0.6','weekly');
+
+        $category = DB::table('category')->get();
+        if(isset($category)){
+            foreach ($category as $item) {
+                $sitemap->add(route("category",["name" => $item->name]), Carbon::now(), '0.7','monthly');
+            }
+        }
+
+        $product = DB::table('products')->where("status","1")->get();
+        if(isset($product)){
+            foreach ($product as $item) {
+                $sitemap->add(route("single_product",["slug" => $item->product_slug]), Carbon::now(), '0.9','monthly');
+            }
+        }
+
+        $sitemap->store('xml', 'sitemap');
+
+    }
+
     public function index()
     {
 //        $popularshop = Store::inRandomOrder()->orderBy('id' , 'desc')->orderBy('like' , 'desc')->limit(12)->get();

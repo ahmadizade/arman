@@ -23,7 +23,7 @@
     @if(\Illuminate\Support\Str::length($Category->seo_description) > 1)
         <meta property="og:site_name" content="{{ $Category->seo_description }}">
     @endif
-    <meta property="og:image" content="{{ request()->getSchemeAndHttpHost() . '/img/uploads/Category/' . $Category->image ?? '/img/home/logo.png'}}">
+    <meta property="og:image" content="{{ request()->getSchemeAndHttpHost() . '/img/uploads/category/' . $Category->image ?? '/img/home/logo.png'}}">
 @endsection
 
 @section("content")
@@ -220,7 +220,7 @@
                                             <h5 class="product-title">
                                                 <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="text-truncate">{{$item->product_name}}</a>
                                             </h5>
-                                            <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->Category->name}}</a>
+                                            <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->category->name}}</a>
                                             <span class="product-price">{{$item->price}} تومان</span>
                                             <div class="mt-4">
                                                 <span class="product-meta d-inline"><i class="fa fa-eye"></i> {{$item->view}}</span>
@@ -310,7 +310,7 @@
                                             <h5 class="product-title">
                                                 <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="text-truncate">{{$item->product_name}}</a>
                                             </h5>
-                                            <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->Category->name}}</a>
+                                            <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->category->name}}</a>
                                             <span class="product-price">{{$item->price}} تومان</span>
                                             <div class="mt-4">
                                                 <span class="product-meta d-inline"><i class="fa fa-eye"></i> {{$item->view}}</span>
@@ -365,7 +365,7 @@
             <!-- End Banner -->
 
             <!-- Start Category-Section -->
-            @include('partials.Category_icon')
+            @include('partials.category_icon')
             <!-- End Category-Section -->
 
             <!-- Start Product-Slider -->

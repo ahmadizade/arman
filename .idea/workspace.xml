@@ -5,11 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/sitemap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/sitemap/styles/google-news.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/sitemap/styles/mobile.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/sitemap/styles/sitemapindex.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/sitemap/styles/xml.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/sitemap/google-news.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/sitemap/html.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/sitemap/ror-rdf.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/sitemap/ror-rss.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/sitemap/sitemapindex.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/sitemap/txt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/sitemap/xml-mobile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/sitemap/xml.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views.zip" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/single_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/single_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -330,7 +343,8 @@
       <workItem from="1623214686076" duration="16403000" />
       <workItem from="1623240507493" duration="3183000" />
       <workItem from="1623472973093" duration="5242000" />
-      <workItem from="1623491126018" duration="9683000" />
+      <workItem from="1623491126018" duration="11073000" />
+      <workItem from="1623504773215" duration="1441000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -381,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623499387668</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="category Config">
+      <created>1623502734287</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1623502734287</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -424,7 +445,8 @@
     <MESSAGE value="a" />
     <MESSAGE value="single complete" />
     <MESSAGE value="first work commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first work commit" />
+    <MESSAGE value="category Config" />
+    <option name="LAST_COMMIT_MESSAGE" value="category Config" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/css/main.css">

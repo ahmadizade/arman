@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+Route::get("/sitemap", "App\Http\Controllers\HomeController@sitemap")->name("sitemap");
 
 // home
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
