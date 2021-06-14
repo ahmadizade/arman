@@ -4,71 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="category Config">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Blog.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/flare.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/ignition.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/logviewer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/sweetalert.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/tinker.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/trustedproxy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/banner/large-banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/banner/medium-banner-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/banner/medium-banner-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/banner/sidebar-banner-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/banner/small-banner-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/banner/small-banner-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/banner/small-banner-7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/banner/small-banner-8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/extra/image-seo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/extra/seo-cioce-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/extra/seo-cioce.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/sitemap.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/image/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/sweetalert/sweetalert.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/blog/new_content.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/seo.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/laravel-log-viewer/log.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/panel.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/subcopy.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/themes/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/panel.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/subcopy.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/notifications/email.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/sweetalert/alert.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/large-banner.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/medium-banner-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/medium-banner-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/sidebar-banner-1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/small-banner-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/small-banner-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/small-banner-7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/small-banner-8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/resources/views/seo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seo.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -393,7 +330,7 @@
       <workItem from="1623491126018" duration="11073000" />
       <workItem from="1623504773215" duration="1441000" />
       <workItem from="1623565180337" duration="19972000" />
-      <workItem from="1623646230086" duration="15331000" />
+      <workItem from="1623646230086" duration="15483000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -458,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623565314470</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="blog and seo page config">
+      <created>1623667524510</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1623667524510</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -502,7 +446,8 @@
     <MESSAGE value="single complete" />
     <MESSAGE value="first work commit" />
     <MESSAGE value="category Config" />
-    <option name="LAST_COMMIT_MESSAGE" value="category Config" />
+    <MESSAGE value="blog and seo page config" />
+    <option name="LAST_COMMIT_MESSAGE" value="blog and seo page config" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/css/main.css">
