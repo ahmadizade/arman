@@ -17,6 +17,10 @@ Route::get('/cache', function (){
     \Illuminate\Support\Facades\Artisan::call('optimize');
 });
 
+Route::get('/vendor', function (){
+    \Illuminate\Support\Facades\Artisan::call('vendor:publish');
+});
+
 
 //MAIL
 Route::get('/verify-email', 'App\Http\Controllers\Controller@build_mail')->name('build_mail');

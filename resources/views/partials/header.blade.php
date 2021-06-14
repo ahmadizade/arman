@@ -256,7 +256,7 @@
                         </ul>
                     </li>
                     <li class="list-item">
-                        <a class="nav-link" href="{{route('seo')}}">همکاری با ما</a>
+                        <a class="nav-link" href="{{route('seo')}}">مشاوره سئو</a>
                     </li>
 {{--                    <li class="list-item">--}}
 {{--                        <a class="nav-link" href="{{route('home')}}">مشاوره SEO</a>--}}

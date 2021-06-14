@@ -36,7 +36,7 @@ class BlogController extends Controller
                 'paragraph' => ['required', 'string', 'min:5', 'max:9999999'],
                 'seo_title' => ['required', 'max:65'],
                 'seo_description' => ['required', 'max:128'],
-                'seo_canonical' => ['required', 'max:512'],
+                'seo_canonical' => ['nullable', 'max:512'],
                 'thumbnail' => 'required|max:2048',
                 'image' => 'required|max:2048',
             ]);
@@ -44,7 +44,6 @@ class BlogController extends Controller
                 Session::flash('error' , $validator->errors()->first());
                 return back();
             }
-
             $image = null;
             if ($request->has('image')) {
                 $imagePath = "/uploads/blog/image/";
@@ -67,7 +66,6 @@ class BlogController extends Controller
                 $image->move(public_path($imagePath), $thumbnail);
             }
 
-
             Blog::insert([
                'user_id' => Auth::id(),
                'title' => $request->title,
@@ -81,6 +79,7 @@ class BlogController extends Controller
                'image'=> $image,
                'created_at'=> Carbon::now(),
             ]);
+
             Session::flash('status', "مطلب جدید با موفقیت ثبت شد");
             return back();
         }else{

@@ -82,7 +82,7 @@
                             <div class="post-thumbnail dt-sl">
                                 <img src="/uploads/blog/image/{{$post->image}}" alt="{{$post->title}}">
                             </div>
-                           <div class="mt-4">{{$post->content}}</div>
+                           <div class="mt-4">{!! $post->content !!}</div>
                         </div>
                     </div>
                     <div class="comments-area dt-sl my-3">
