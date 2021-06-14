@@ -102,6 +102,10 @@ class HomeController extends Controller
         return view('about');
     }
 
+    public function seo(){
+        return view('seo');
+    }
+
     public function download($filename){
         $file_path = public_path('uploads/file/'.$filename);
         return response()->download($file_path);

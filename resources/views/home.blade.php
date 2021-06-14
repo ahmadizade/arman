@@ -17,8 +17,8 @@
                         <div class="sidebar-inner dt-sl">
                             <div class="sidebar-banner">
                                 <a href="{{route('home')}}" target="_top">
-                                    <img src="/img/banner/sidebar-banner-1.gif" width="100%" height="329"
-                                         alt="">
+                                    <img src="/img/banner/sidebar-banner-1.png" width="100%" height="329"
+                                         alt="CioCe Web Service">
                                 </a>
                             </div>
                         </div>
@@ -150,14 +150,14 @@
                     <div class="col-sm-6 col-12 mb-2">
                         <div class="widget-banner">
                             <a href="{{route('home')}}">
-                                <img src="/img/banner/medium-banner-1.jpg" alt="">
+                                <img src="/img/banner/medium-banner-1.png" alt="">
                             </a>
                         </div>
                     </div>
                     <div class="col-sm-6 col-12 mb-2">
                         <div class="widget-banner">
                             <a href="{{route('home')}}">
-                                <img src="/img/banner/medium-banner-2.jpg" alt="">
+                                <img src="/img/banner/medium-banner-2.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -169,28 +169,28 @@
                     <div class="col-md-3 col-sm-6 col-6 mb-2">
                         <div class="widget-banner">
                             <a href="{{route('home')}}">
-                                <img src="/img/banner/small-banner-5.jpg" alt="">
+                                <img src="/img/banner/small-banner-5.png" alt="">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-6 mb-2">
                         <div class="widget-banner">
                             <a href="{{route('home')}}">
-                                <img src="/img/banner/small-banner-6.jpg" alt="">
+                                <img src="/img/banner/small-banner-6.png" alt="">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-6 mb-2">
                         <div class="widget-banner">
                             <a href="{{route('home')}}">
-                                <img src="/img/banner/small-banner-7.jpg" alt="">
+                                <img src="/img/banner/small-banner-7.png" alt="">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-6 mb-2">
                         <div class="widget-banner">
                             <a href="{{route('home')}}">
-                                <img src="/img/banner/small-banner-8.jpg" alt="">
+                                <img src="/img/banner/small-banner-8.png" alt="">
                             </a>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                     <div class="col-12">
                         <div class="widget-banner">
                             <a href="{{route('home')}}">
-                                <img src="/img/banner/large-banner.jpg" alt="">
+                                <img src="/img/banner/large-banner.png" alt="">
                             </a>
                         </div>
                     </div>

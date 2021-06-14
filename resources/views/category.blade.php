@@ -251,14 +251,14 @@
                 <div class="col-sm-6 col-12 mb-2">
                     <div class="widget-banner">
                         <a href="#">
-                            <img src="/img/banner/medium-banner-1.jpg" alt="">
+                            <img src="/img/banner/medium-banner-1.png" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-12 mb-2">
                     <div class="widget-banner">
                         <a href="#">
-                            <img src="/img/banner/medium-banner-2.jpg" alt="">
+                            <img src="/img/banner/medium-banner-2.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -343,21 +343,21 @@
                 <div class="col-md-3 col-sm-6 col-6 mb-2">
                     <div class="widget-banner">
                         <a href="#">
-                            <img src="/img/banner/small-banner-6.jpg" alt="">
+                            <img src="/img/banner/small-banner-6.png" alt="Free Address SQL Table">
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-6 mb-2">
                     <div class="widget-banner">
                         <a href="#">
-                            <img src="/img/banner/small-banner-7.jpg" alt="">
+                            <img src="/img/banner/small-banner-7.png" alt="Free Product SQL Table">
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-6 mb-2">
                     <div class="widget-banner">
                         <a href="#">
-                            <img src="/img/banner/small-banner-8.jpg" alt="">
+                            <img src="/img/banner/small-banner-8.png" alt="Free User SQL Table">
                         </a>
                     </div>
                 </div>
@@ -561,7 +561,7 @@
                 <div class="col-12">
                     <div class="widget-banner">
                         <a href="#">
-                            <img src="/img/banner/large-banner.jpg" alt="">
+                            <img src="/img/banner/large-banner.png" alt="">
                         </a>
                     </div>
                 </div>

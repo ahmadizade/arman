@@ -8,6 +8,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
 Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
 Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("about_Us");
+Route::get('/seo', 'App\Http\Controllers\HomeController@seo')->name("seo");
 Route::get('/category/{name}', 'App\Http\Controllers\HomeController@Category')->name("category");
 Route::get('/cache', function (){
     \Illuminate\Support\Facades\Artisan::call('cache:clear');
@@ -145,3 +146,11 @@ Route::get('/download/{filename}', 'App\Http\Controllers\HomeController@download
 //bank
 Route::post('/incoming-gold', 'App\Http\Controllers\PaymentController@BackBankGold')->name("back_bank");
 Route::post('/incoming-credit', 'App\Http\Controllers\PaymentController@CreditBack')->name("credit_back");
+
+
+//BLOG
+Route::get('/mag', 'App\Http\Controllers\BlogController@mag')->name("mag");
+Route::get('/single-mag/{slug}', 'App\Http\Controllers\BlogController@singleMag')->name("single_mag");
+Route::get('/new-single-mag', 'App\Http\Controllers\BlogController@newSingleMag')->name("new_single_mag");
+Route::post('/new-single-mag-action', 'App\Http\Controllers\BlogController@newSingleMagAction')->name("new_single_mag_action");
+Route::post('/new-single-mag-comment', 'App\Http\Controllers\BlogController@newSingleMagComment')->name("new_single_mag_comment");
