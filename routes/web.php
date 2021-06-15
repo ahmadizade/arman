@@ -157,4 +157,8 @@ Route::get('/mag', 'App\Http\Controllers\BlogController@mag')->name("mag");
 Route::get('/single-mag/{slug}', 'App\Http\Controllers\BlogController@singleMag')->name("single_mag");
 Route::get('/new-single-mag', 'App\Http\Controllers\BlogController@newSingleMag')->name("new_single_mag");
 Route::post('/new-single-mag-action', 'App\Http\Controllers\BlogController@newSingleMagAction')->name("new_single_mag_action");
+Route::post('/edit-single-mag-action', 'App\Http\Controllers\BlogController@editSingleMagAction')->name("edit_single_mag_action");
 Route::post('/new-single-mag-comment', 'App\Http\Controllers\BlogController@newSingleMagComment')->name("new_single_mag_comment");
+Route::get('/edit-mag-page/{post_id}', 'App\Http\Controllers\BlogController@editMagPage')->name("edit_mag_page");
+Route::post('/edit-image-mag-action', 'App\Http\Controllers\BlogController@editImageMagAction')->name("edit_image_mag_action");
+Route::get('/delete-mag-action/{post_id}', 'App\Http\Controllers\BlogController@deleteMagAction')->name("delete_mag_action");

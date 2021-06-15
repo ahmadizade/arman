@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="category-section dt-sn dt-sl">
             <div class="category-section-title dt-sl">
-                <h3>بیش از ۱،۵۰۰،۰۰۰ وب سایت و ربات های مختلف</h3>
+                <h2>دانلود رایگان تیبل های فارسی و سایت های لاراولی</h2>
             </div>
             <div class="category-section-slider dt-sl">
                 <div class="category-slider owl-carousel">

@@ -155,7 +155,7 @@
                         <div class="product-info dt-sl">
                             <div class="product-title dt-sl">
                                 <h1>{{$product->product_name ?? ""}}</h1>
-                                <h3>{{$product->english_name ?? ""}}</h3>
+                                <h2>{{$product->english_name ?? ""}}</h2>
                             </div>
                             <div class="product-variant dt-sl">
                                 <div class="dt-sl mb-0">
@@ -260,7 +260,7 @@
                                 <h2>نقد و بررسی</h2>
                             </div>
                             <div class="product-title dt-sl">
-                                <h1>{{$product->product_name ?? ""}}</h1>
+                                <h3>{{$product->product_name ?? ""}}</h3>
                                 <h3>{{$product->english_name ?? ""}}</h3>
                             </div>
                             <div class="description-product dt-sl mt-3 mb-3">
@@ -274,7 +274,7 @@
                                 <h2>مشخصات فنی</h2>
                             </div>
                             <div class="product-title dt-sl mb-3">
-                                <h1>{{$product->product_name ?? ""}}</h1>
+                                <h3>{{$product->product_name ?? ""}}</h3>
                                 <h3>{{$product->english_name ?? ""}}</h3>
                             </div>
                             <section>

@@ -610,11 +610,11 @@
                                                     @endforeach
                                                     </tbody>
                                                 </table>
+                                                {{$last_product->links()}}
                                             </div>
                                         @endif
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

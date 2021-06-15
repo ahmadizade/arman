@@ -382,7 +382,7 @@ class AdminController extends Controller
 
     public function Product()
     {
-        $last_product = Product::where('delete', 0)->orderByDesc('id')->limit(3)->get();
+        $last_product = Product::where('delete', 0)->orderByDesc('id')->paginate(3);
         return view('admin.views.product', ['last_product' => $last_product]);
     }
 
