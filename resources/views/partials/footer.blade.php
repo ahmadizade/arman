@@ -150,9 +150,9 @@
                             ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
                         </p>
                 </div>
-                <div class="symbol col-12 col-lg-5">
-{{--                    <a href="{{route('home')}}" target="_blank"><img src="/img/symbol-01.png" alt=""></a>--}}
-{{--                    <a href="{{route('home')}}" target="_blank"><img src="/img/symbol-02.png" alt=""></a>--}}
+                <div class="col-12 col-lg-5">
+                    <a href="{{route('home')}}" target="_blank"><img src="/img/icon/moslas_100.png" alt="Cioce.Ir"></a>
+                    <a href="{{route('home')}}" target="_blank"><img src="/img/icon/dayere_100.png" alt=""></a>
                 </div>
             </div>
         </div>
