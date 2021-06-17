@@ -14,7 +14,7 @@ use function GuzzleHttp\Promise\all;
 class BlogController extends Controller
 {
     public function mag(){
-        $post = Blog::orderBy('id' , 'desc')->paginate(3);
+        $post = Blog::orderBy('id' , 'desc')->paginate(24);
         $lastPost = Blog::orderByDesc('id')->limit(6)->get();
         $bestPost = Blog::orderByDesc('view')->limit(4)->get();
         return view('blog.blog', ["post" => $post , 'lastPost' => $lastPost , 'bestPost' => $bestPost]);

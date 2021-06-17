@@ -31,7 +31,7 @@
 
         <script src="/js/vendor/jquery-3.4.1.min.js"></script>
 {{--        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>--}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/fa.min.js"></script>
+{{--        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/fa.min.js"></script>--}}
         <script src="https://cdn.jsdelivr.net/gh/mahmoud-eskandari/NumToPersian/dist/num2persian-min.js"></script>
         <script>
             $('.number-format').on('keyup', function () {
