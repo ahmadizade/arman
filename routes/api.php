@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,6 +19,16 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
+//Weather API From RapidApi
 Route::prefix("weather")->group(function () {
-    Route::get('/get-article', 'App\Http\Controllers\ApiController@getArticle')->name("get_article");
+
+    //*** We Get From OutSide ***\\
+    Route::get('/rapid-get-weather', 'App\Http\Controllers\WeatherApiController@rapidGetWeather')->name("rapid_get_weather");
+
 });
+
+
+
+Route::get('/get-article', 'App\Http\Controllers\ApiController@getArticle')->name("get_article");
+
+

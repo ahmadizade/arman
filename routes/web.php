@@ -164,3 +164,6 @@ Route::post('/new-single-mag-comment', 'App\Http\Controllers\BlogController@newS
 Route::get('/edit-mag-page/{post_id}', 'App\Http\Controllers\BlogController@editMagPage')->name("edit_mag_page");
 Route::post('/edit-image-mag-action', 'App\Http\Controllers\BlogController@editImageMagAction')->name("edit_image_mag_action");
 Route::get('/delete-mag-action/{post_id}', 'App\Http\Controllers\BlogController@deleteMagAction')->name("delete_mag_action");
+
+//Weather API From Yahoo
+Route::get('/mag', 'App\Http\Controllers\BlogController@mag')->name("mag");
