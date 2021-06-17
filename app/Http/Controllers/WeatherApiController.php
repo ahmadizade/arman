@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 
 class WeatherApiController extends Controller
 {
-    public function rapidGetWeather(){
+    public function rapidGetWeather($q){
+        $ctn = 1;
+
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://community-open-weather-map.p.rapidapi.com/find?q=london&cnt=1&mode=null&lon=0&type=link%2C%20accurate&lat=0&units=imperial%2C%20metric",
+//            CURLOPT_URL => "https://community-open-weather-map.p.rapidapi.com/find?q=london&cnt=1&mode=null&lon=0&type=link%2C%20accurate&lat=0&units=imperial%2C%20metric",
+            CURLOPT_URL => "https://community-open-weather-map.p.rapidapi.com/find?q=$q",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_ENCODING => "",

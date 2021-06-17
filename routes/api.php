@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix("weather")->group(function () {
 
     //*** We Get From OutSide ***\\
-    Route::get('/rapid-get-weather', 'App\Http\Controllers\WeatherApiController@rapidGetWeather')->name("rapid_get_weather");
+    Route::get('/rapid-get-weather/{q}', 'App\Http\Controllers\WeatherApiController@rapidGetWeather')->name("rapid_get_weather");
 
 });
 
