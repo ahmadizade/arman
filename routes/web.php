@@ -9,7 +9,9 @@ Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("con
 Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
 Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("about_Us");
 Route::get('/seo', 'App\Http\Controllers\HomeController@seo')->name("seo");
+Route::get('/policy', 'App\Http\Controllers\HomeController@policy')->name("policy");
 Route::get('/category/{name}', 'App\Http\Controllers\HomeController@Category')->name("category");
+
 Route::get('/cache', function (){
     \Illuminate\Support\Facades\Artisan::call('cache:clear');
     \Illuminate\Support\Facades\Artisan::call('config:clear');

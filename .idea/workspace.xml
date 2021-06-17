@@ -5,24 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/image/download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/image/sidebar-banner-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/sidebar-banner-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/province.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/blog/edit_content.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blog/sidebar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/policy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/profile/bookmark.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/blog/new_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/blog/new_content.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/category_icon.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/category_icon.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/single_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/single_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/sitemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,19 +294,21 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/views/blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/profile" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\profile" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin\views\blog" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\blog" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views" />
       <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\partials" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views" />
+      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\blog" />
       <recent name="C:\xampp\htdocs\cioce_newface\resources\views" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\profile" />
@@ -351,7 +345,8 @@
       <workItem from="1623670489055" duration="6320000" />
       <workItem from="1623733491189" duration="2206000" />
       <workItem from="1623737765158" duration="219000" />
-      <workItem from="1623739232749" duration="16810000" />
+      <workItem from="1623739232749" duration="16989000" />
+      <workItem from="1623822945691" duration="13373000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -437,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623678381480</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="blog and seo page config">
+      <created>1623764040016</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1623764040016</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">

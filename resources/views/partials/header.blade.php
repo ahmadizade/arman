@@ -262,7 +262,7 @@
 {{--                        <a class="nav-link" href="{{route('home')}}">مشاوره SEO</a>--}}
 {{--                    </li>--}}
                     <li class="list-item">
-                        <a class="nav-link" href="{{route('about_Us')}}">تماس با ما</a>
+                        <a class="nav-link" href="{{route('contact')}}">تماس با ما</a>
                     </li>
                 </ul>
                 <div class="nav">

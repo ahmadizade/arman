@@ -26,15 +26,24 @@ class HomeController extends Controller
 
         $sitemap->setCache('laravel.sitemap', 10);
 
-        $sitemap->add(URL::to('index'), \Illuminate\Support\Carbon::now(), '1.0','daily');
-        $sitemap->add(URL::to('about'), Carbon::now(), '0.6','weekly');
-        $sitemap->add(URL::to('contact'), Carbon::now(), '0.6','weekly');
+        $sitemap->add(URL::to('home'), \Illuminate\Support\Carbon::now(), '1.0','daily');
+        $sitemap->add(URL::to('about_Us'), Carbon::now(), '0.6','weekly');
+        $sitemap->add(URL::to('seo'), Carbon::now(), '0.6','weekly');
+        $sitemap->add(URL::to('Category'), Carbon::now(), '0.6','weekly');
         $sitemap->add(URL::to('policy'), Carbon::now(), '0.6','weekly');
+
 
         $category = DB::table('category')->get();
         if(isset($category)){
             foreach ($category as $item) {
                 $sitemap->add(route("category",["name" => $item->name]), Carbon::now(), '0.7','monthly');
+            }
+        }
+
+        $mag = DB::table('blog')->get();
+        if(isset($mag)){
+            foreach ($mag as $item) {
+                $sitemap->add(route("single_mag",["slug" => $item->slug]), Carbon::now(), '0.7','monthly');
             }
         }
 
@@ -44,9 +53,7 @@ class HomeController extends Controller
                 $sitemap->add(route("single_product",["slug" => $item->product_slug]), Carbon::now(), '0.9','monthly');
             }
         }
-
         $sitemap->store('xml', 'sitemap');
-
     }
 
     public function index()
@@ -75,6 +82,10 @@ class HomeController extends Controller
         return view('contact');
     }
 
+    public function policy(){
+        return view('policy');
+    }
+
     public function contactAction(Request $request){
         $request = $request->replace(self::faToEn($request->all()));
         $request->validate([
@@ -94,8 +105,7 @@ class HomeController extends Controller
             "body" => $request->desc,
             "created_at" => Carbon::now(),
         ]);
-        session()->flash("status","فرم شما با موفقیت ثبت شد. در صورت لزوم کارشناسان ما با شما تماس خواهند گرفت");
-        return back();
+        return Response::json(['status' => 1 , 'desc' => "پیام شما با موفقیت ارسال شد"]);
     }
 
     public function AboutUs(){
