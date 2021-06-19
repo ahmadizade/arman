@@ -382,7 +382,7 @@ class AdminController extends Controller
 
     public function Product()
     {
-        $last_product = Product::where('delete', 0)->orderByDesc('id')->paginate(3);
+        $last_product = Product::where('delete', 0)->where('type', "table")->orderByDesc('id')->paginate(3);
         return view('admin.views.product', ['last_product' => $last_product]);
     }
 
@@ -519,6 +519,7 @@ class AdminController extends Controller
             'tag' => 'nullable',
             'price' => 'nullable|max:255',
             'discount' => 'nullable|max:3',
+            'type' => 'required|min:3',
             'thumbnail' => 'required|max:2048',
             'image' => 'required|max:2048',
             'file' => 'required|file|mimes:zip',
@@ -590,6 +591,7 @@ class AdminController extends Controller
            'mobile' => Auth::user()->mobile,
            'user_id' => Auth::id(),
            'product_desc' => $request->description,
+           'type' => $request->type,
             'thumbnail' => $thumbnail,
             "image" => $image,
             "file" => $file,
@@ -615,7 +617,7 @@ class AdminController extends Controller
     }
 
     public function deleteProduct($id){
-        Product::where('id' , $id)->update([
+        Product::where('id' , $id)->where('type', "table")->update([
             'delete' => 1,
             'deleted_at' => Carbon::now(),
         ]);
@@ -624,7 +626,7 @@ class AdminController extends Controller
     }
 
     public function editProduct($id){
-        $product = Product::where('id' , $id)->first();
+        $product = Product::where('id' , $id)->where('type', "table")->first();
         return view('admin.views.product_edit', ['product' => $product]);
     }
 
@@ -772,6 +774,187 @@ class AdminController extends Controller
             'updated_at' => Carbon::now(),
         ]);
         session()->flash("status","فایل با موفقیت ویرایش گردید");
+        return back();
+    }
+    public function newWebservice(Request $request){
+        $last_product = Product::where('delete', 0)->where('type', "api")->orderByDesc('id')->paginate(3);
+        return view('admin.views.webservice.new_service',['last_product' => $last_product]);
+    }
+
+
+
+    //Web Service Admin
+    public function newWebserviceAction(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2|max:255',
+            'englishName' => 'required|min:2|max:255',
+            'category' => 'required',
+            'category_variety' => 'required',
+            'tag' => 'nullable',
+            'price' => 'nullable|max:255',
+            'type' => 'nullable|max:255',
+            'free_request' => 'nullable|max:255',
+            'discount' => 'nullable|max:3',
+            'thumbnail' => 'nullable|max:2048',
+            'image' => 'nullable|max:2048',
+            'file' => 'nullable|file|mimes:zip',
+            'description' => 'nullable|max:9000000',
+            'php_language' => 'nullable|max:9000000',
+            'js_language' => 'nullable|max:9000000',
+            'nodejs_language' => 'nullable|max:9000000',
+            'framework_version' => 'nullable',
+            'framework_details' => 'nullable|min:3|max:9000000',
+            'special_features' => 'nullable|min:3|max:9000000',
+            'short_description_of_backend' => 'nullable|min:3|max:9000000',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_canonical' => 'nullable',
+        ]);
+
+        if ($validator->fails()) {
+            session()->flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        $image = null;
+        if ($request->has('image')) {
+            $imagePath = "/uploads/products/";
+            $file = $request->file('image');
+            $image = $file->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $image)) {
+                $image = Carbon::now()->timestamp . $image;
+            }
+            $file->move(public_path($imagePath), $image);
+        }
+
+        $thumbnail = null;
+        if ($request->has('thumbnail')) {
+            $imagePath = "/uploads/thumbnail/";
+            $image = $request->file('thumbnail');
+            $thumbnail = $image->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $thumbnail)) {
+                $thumbnail = Carbon::now()->timestamp . $thumbnail;
+            }
+            $image->move(public_path($imagePath), $thumbnail);
+        }
+
+        $file = null;
+        if ($request->has('file')) {
+            $imagePath = "/uploads/file/";
+            $image = $request->file('file');
+            $file = $image->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $file)) {
+                $file = Carbon::now()->timestamp . $file;
+            }
+            $image->move(public_path($imagePath), $file);
+        }
+        Product::create([
+            'product_name' => $request->name,
+            'english_name' => $request->englishName,
+            'product_slug' => self::slug($request->name),
+            'category_id' => $request->category,
+            'category_variety' => $request->category_variety,
+            'tag_id' => json_encode($request->tag),
+            'discount' => $request->discount,
+            'type' => $request->type,
+            'price' => str_replace(',', '' , $request->price),
+            'quantity' => 20000,
+            'mobile' => Auth::user()->mobile,
+            'user_id' => Auth::id(),
+            'product_desc' => $request->description,
+            'thumbnail' => $thumbnail,
+            'php_language' => $request->php_language,
+            'js_language' => $request->js_language,
+            'nodejs_language' => $request->nodejs_language,
+            "image" => $image,
+            "file" => $file,
+            "created_at" => Carbon::now(),
+            'framework_version' => $request->framework_version,
+            'framework_details' => $request->framework_details,
+            'special_features' => $request->special_features,
+            'short_description_of_backend' => $request->short_description_of_backend,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'seo_canonical' => $request->seo_canonical,
+        ]);
+        session()->flash("status","محصول با موفقیت ثبت گردید");
+        return back();
+    }
+
+    public function deleteApi($id){
+        Product::where('id' , $id)->where('type', "api")->update([
+            'delete' => 1,
+            'deleted_at' => Carbon::now(),
+        ]);
+        Session::flash('status' , 'حذف محصول با موفقیت انجام شد');
+        return back();
+    }
+
+    public function editApi($id){
+        $product = Product::where('id' , $id)->where('type', "api")->first();
+        return view('admin.views.webservice.web_service_edit', ['product' => $product]);
+    }
+
+    public function adminEditapiAction(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2|max:255',
+            'englishName' => 'required|min:2|max:255',
+            'category' => 'required',
+            'category_variety' => 'required',
+            'tag' => 'nullable',
+            'php_language' => 'nullable|max:9000000',
+            'js_language' => 'nullable|max:9000000',
+            'nodejs_language' => 'nullable|max:9000000',
+            'price' => 'nullable|max:255',
+            'type' => 'nullable|max:255',
+            'free_request' => 'nullable|max:255',
+            'discount' => 'nullable|max:3',
+            'thumbnail' => 'nullable|max:2048',
+            'image' => 'nullable|max:2048',
+            'file' => 'nullable|file|mimes:zip',
+            'description' => 'nullable|min:3|max:9000000',
+            'framework_version' => 'nullable',
+            'framework_details' => 'nullable|min:3|max:9000000',
+            'special_features' => 'nullable|min:3|max:9000000',
+            'short_description_of_backend' => 'nullable|min:3|max:9000000',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_canonical' => 'nullable',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        Product::where('id' , $request->id)->where('type', "api")->update([
+            'product_name' => $request->name,
+            'english_name' => $request->englishName,
+            'product_slug' => self::slug($request->name),
+            'category_id' => $request->category,
+            'category_variety' => $request->category_variety,
+            'tag_id' => json_encode($request->tag),
+            'discount' => $request->discount,
+            'type' => "api",
+            'price' => str_replace(',', '' , $request->price),
+            'quantity' => 20000,
+            'mobile' => Auth::user()->mobile,
+            'user_id' => Auth::id(),
+            'php_language' => $request->php_language,
+            'js_language' => $request->js_language,
+            'nodejs_language' => $request->nodejs_language,
+            'product_desc' => $request->description,
+            "created_at" => Carbon::now(),
+            'framework_version' => $request->framework_version,
+            'framework_details' => $request->framework_details,
+            'special_features' => $request->special_features,
+            'short_description_of_backend' => $request->short_description_of_backend,
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'seo_canonical' => $request->seo_canonical,
+            'updated_at' => Carbon::now(),
+        ]);
+        session()->flash("status","محصول با موفقیت ویرایش گردید");
         return back();
     }
 

@@ -70,116 +70,6 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="{{route('home')}}" role="button" id="dropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                             aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="{{route('home')}}">Action</a>
-                                            <a class="dropdown-item" href="{{route('home')}}">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="{{route('home')}}">Something else here</a>
-                                        </div>
-                                    </div>
-                                    <h6 class="m-0 myfont font-weight-bold text-primary">
-                                        سامانه مدیریت کالا
-                                    </h6>
-
-                                </div>
-                                <div class="card-body admin-rtl">
-                                    <!-- Card Body -->
-                                    <form id="product-search-form" method="" action="">
-                                        <div class="col-4">
-                                            <select name="product_id" id="product_id"
-                                                    class="product_id text-right form-control bg-muted"></select>
-                                        </div>
-                                    </form>
-
-                                    <table id="product_table"
-                                           class="table mt-4 table-responsive-xl table-responsive-sm text-center  text-black table-striped"
-                                           width="100%">
-                                        <thead class="text-black shadow text-white bg-gradient-info">
-                                        <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">عکس</th>
-                                            <th scope="col">نام محصول</th>
-                                            {{--                                            <th scope="col">product_desc</th>--}}
-                                            <th scope="col">قیمت</th>
-                                            <th scope="col">تخفیف</th>
-                                            <th scope="col">وضعیت کالا</th>
-                                            <th scope="col">تعداد</th>
-                                            <th scope="col">شهر</th>
-                                            <th scope="col">موبایل</th>
-                                            <th scope="col">بازدید</th>
-                                            <th scope="col">تاریخ ساخت</th>
-                                            <th scope="col">تاریخ ویرایش</th>
-                                            <th scope="col">نمایش</th>
-                                            <th scope="col">ویرایش</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td scope="row"><input class="border-none" id="data-id"></td>
-                                            <td>
-                                                <img style="max-width: 70px;max-height: 70px;" id="data-image"
-                                                     class="img-fluid" src="" alt="">
-                                            </td>
-                                            <td><input class="border-none" id="data-product_name" name="product_name">
-                                            </td>
-                                            {{--                                            <td id="data-product_desc"></td>--}}
-                                            <td><input class="border-none" style="width: 100px" id="data-price"
-                                                       name="price"></td>
-
-                                            <td><input class="border-none" style="width: 50px" id="data-discount"
-                                                       name="discount"></td>
-                                            <td>
-                                                <select class="border-none" style="width: 70px" id="data-stock"
-                                                        name="stock">
-                                                    <option value="1">آکبند</option>
-                                                    <option value="0">کارکرده</option>
-                                                </select>
-                                            </td>
-                                            <td><input class="border-none" style="width: 50px" id="data-quantity"
-                                                       name="quantity"></td>
-                                            <td><input class="border-none" style="width: 100px" id="data-city"
-                                                       name="city"></td>
-                                            <td><input class="border-none" style="width: 60px" id="data-mobile"
-                                                       name="mobile"></td>
-                                            <td><input class="border-none" style="width: 50px" id="data-view"
-                                                       name="view"></td>
-                                            <td><input class="border-none" style="width: 100px" id="data-created_at"
-                                                       name="created_at"></td>
-                                            <td><input class="border-none" style="width: 100px" id="data-updated_at"
-                                                       name="updated_at"></td>
-                                            <td>
-                                                <select class="border-none" style="width: 70px" id="data-status"
-                                                        name="status">
-                                                    <option value="1">فعال</option>
-                                                    <option value="0">غیر فعال</option>
-                                                </select>
-                                            </td>
-                                            <td id="data-Edit">
-                                                <button class="btn text-white btn-sm bg-gradient-success"
-                                                        data-toggle="modal" data-target="#save">ذخیره
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     {{--Add TAG--}}
                     <div class="container">
                         <div class="row">
@@ -219,6 +109,7 @@
                             </div>
                         </div>
                     </div>
+                    {{--Add TAG--}}
 
 
                     {{--Add Category And Category-Variety--}}
@@ -328,15 +219,17 @@
                             </div>
                         </div>
                     </div>
+                    {{--Add Category And Category-Variety--}}
 
 
                     {{--ADD Product--}}
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-12 col-lg-12">
+                                {{--ADD Product--}}
                                 <div class="card">
                                     <div class="card-header text-right">
-                                        ثبت محصول
+                                        ساخت وب سرویس جدید
                                     </div>
                                     <div class="card-body">
                                         @if ($errors->any())
@@ -351,7 +244,7 @@
                                         @if(Session::has("status"))
                                             <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
                                         @endif
-                                        <form id="make_product" action="{{route('add_product')}}" method="POST" enctype="multipart/form-data">
+                                        <form id="make_product" action="{{route('new_webservice_action')}}" method="POST" enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
@@ -391,8 +284,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <input readonly type="hidden" name="type" value="table">
-
+                                                <input type="hidden" readonly name="type" value="api">
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
                                                         <label for="name" class="form-label ">نام محصول (فارسی)</label>
@@ -431,13 +323,13 @@
                                                 <div class="col-12 col-md-3 col-lg-3">
                                                     <div class="my-3">
                                                         <label for="framework" class="form-label ">FrameWork</label>
-                                                        <input type="text" name="framework" class="form-control" placeholder="مثلا : Laravel">
+                                                        <input disabled type="text" name="framework" class="form-control" placeholder="مثلا : Laravel">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-3 col-lg-3">
                                                     <div class="my-3">
                                                         <label for="admin_pannel" class="form-label ">پنل مدیریت</label>
-                                                        <select name="admin_pannel" class="form-control">
+                                                        <select disabled name="admin_pannel" class="form-control">
                                                             <option value="1" selected>دارد</option>
                                                             <option value="0">ندارد</option>
                                                         </select>
@@ -445,20 +337,20 @@
                                                 </div>
                                                 <div class="col-12 col-md-3 col-lg-3">
                                                     <div class="my-3">
-                                                        <label for="framework_version" class="form-label ">Framework_Version</label>
+                                                        <label for="framework_version" class="form-label ">API_Version</label>
                                                         <input type="text" name="framework_version" class="form-control" placeholder="مثلا : 8.4">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-3 col-lg-3">
                                                     <div class="my-3">
-                                                        <label for="data_usage" class="form-label ">data_usage</label>
-                                                        <input type="text" name="data_usage" class="form-control" placeholder="مثلا : میزان حجم اشغالی">
+                                                        <label for="free_request" class="form-label ">Free Request</label>
+                                                        <input type="text" name="free_request" class="form-control" placeholder="مثلا : 100">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12">
                                                     <div class="my-3">
-                                                        <label for="framework_details" class="form-label ">framework_details</label>
+                                                        <label for="framework_details" class="form-label ">framework_details / Api_details </label>
                                                         <textarea class="form-control textarea-editor" name="framework_details" id="framework_details" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
                                                     </div>
                                                 </div>
@@ -472,45 +364,36 @@
 
                                                 <div class="col-12">
                                                     <div class="my-3">
-                                                        <label for="short_description_of_backend" class="form-label ">short_description_of_backend</label>
+                                                        <label for="short_description_of_backend" class="form-label ">short_description_of_backend / Api</label>
                                                         <textarea class="form-control textarea-editor" name="short_description_of_backend" id="short_description_of_backend" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
                                                     </div>
                                                 </div>
 
+                                                {{--ADD Develop language--}}
+
                                                 <div class="col-12">
                                                     <div class="my-3">
-                                                        <label for="admin_pannel_features" class="form-label ">admin_pannel_features</label>
-                                                        <textarea class="form-control textarea-editor" name="admin_pannel_features" id="admin_pannel_features" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="my-3">
-                                                        <label for="framework_frontend" class="form-label ">framework_frontend</label>
-                                                        <input type="text" name="framework_frontend" class="form-control" placeholder="مثلا : فریم ورک یوآی">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="my-3">
-                                                        <label for="framework_frontend_version" class="form-label ">framework_frontend_version</label>
-                                                        <input type="text" name="framework_frontend_version" class="form-control" placeholder="مثلا : ورژه 4">
+                                                        <label for="php_language" class="form-label ">php_language</label>
+                                                        <textarea class="form-control textarea-editor" name="php_language" id="php_language" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12">
                                                     <div class="my-3">
-                                                        <label for="framework_frontend_details" class="form-label ">framework_frontend_details</label>
-                                                        <textarea class="form-control textarea-editor" name="framework_frontend_details" id="framework_frontend_details" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                        <label for="js_language" class="form-label ">Js_language</label>
+                                                        <textarea class="form-control textarea-editor" name="js_language" id="js_language" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12">
                                                     <div class="my-3">
-                                                        <label for="other_plugins" class="form-label ">other_plugins</label>
-                                                        <textarea class="form-control textarea-editor" name="other_plugins" id="other_plugins" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                        <label for="nodejs_language" class="form-label ">Nodejs_language</label>
+                                                        <textarea class="form-control textarea-editor" name="nodejs_language" id="nodejs_language" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
                                                     </div>
                                                 </div>
+
+                                                {{--ADD Develop language--}}
+
 
                                                 <div class="text-center">
                                                     <p>تنظیمات Seo</p>
@@ -577,12 +460,15 @@
                                         </form>
                                     </div>
                                 </div>
+                                {{--ADD Product--}}
+
+                                {{--Last Product--}}
+                                @if (isset($last_product[0]))
                                 <div class="card">
                                     <div class="card-header text-right">
                                         آخرین محصولات افزوده شده
                                     </div>
                                     <div class="card-body">
-                                        @if (isset($last_product))
                                             <div class="table-responsive">
                                                 <table class="table table-hover">
                                                     <thead class="table-light">
@@ -604,8 +490,8 @@
                                                             <td>{{$item->discount}}%</td>
                                                             <td>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</td>
                                                             <td>
-                                                                <a href="{{route('delete_product' , $item->id)}}" class="btn btn-danger btn-sm">حذف</a>
-                                                                <a href="{{route('edit_product' , $item->id)}}" class="btn btn-success btn-sm">ویرایش</a>
+                                                                <a href="{{route('delete_api' , $item->id)}}" class="btn btn-danger btn-sm">حذف</a>
+                                                                <a href="{{route('edit_api' , $item->id)}}" class="btn btn-success btn-sm">ویرایش</a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -613,42 +499,18 @@
                                                 </table>
                                                 {{$last_product->links()}}
                                             </div>
-                                        @endif
                                     </div>
                                 </div>
+                                @endif
+                                {{--Last Product--}}
                             </div>
                         </div>
                     </div>
                 </div>
-                    {{--Add TAG--}}
 
                 </div>
         </div>
     </div>
-    {{--Save MODAL--}}
-    <div class="modal fade" id="save" tabindex="-1" role="dialog" aria-labelledby="del"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="text-danger modal-shop myfont" id="del">تغییر وضعیت نمایش</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-right">
-                    آیا از انجام این عملیات اطمینان دارید؟
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
-                    <button type="button" id="save-product" class="btn btn-success" data-dismiss="modal">
-                        ذخیره
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{--Save MODAL--}}
 
 
 

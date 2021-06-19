@@ -364,12 +364,20 @@ class ProfileController extends Controller
 
     public function SingleProduct(Request $request)
     {
-        Product::where('product_slug', $request->slug)->increment('view',1);
         $product = Product::where('product_slug', $request->slug)->first();
-        $comments = Comment::where('product_id' , $product->id)->get();
-        $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
-        return view('product.single_product', ["product" => $product,"comments" => $comments,'popularproduct' => $popularproduct]);
+        Product::where('product_slug', $request->slug)->increment('view',1);
+        if ($product->type == "table") {
+            $comments = Comment::where('product_id' , $product->id)->get();
+            $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
+            return view('product.single_product', ["product" => $product,"comments" => $comments,'popularproduct' => $popularproduct]);
+        }elseif ($product->type == "api"){
+            $comments = Comment::where('product_id' , $product->id)->get();
+            $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
+            return view('product.single_api', ["product" => $product,"comments" => $comments,'popularproduct' => $popularproduct]);
+        }
     }
+
+
 
     public function Card(Request $request)
     {

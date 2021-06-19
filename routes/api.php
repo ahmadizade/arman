@@ -24,6 +24,8 @@ Route::prefix("weather")->group(function () {
 
     //*** We Get From OutSide ***\\
     Route::get('/rapid-get-weather/{q}', 'App\Http\Controllers\WeatherApiController@rapidGetWeather')->name("rapid_get_weather");
+    //*** We Give To people ***\\
+    Route::get('/open-weather/{q}', 'App\Http\Controllers\WeatherApiController@openWeather')->name("open_weather");
 
 });
 

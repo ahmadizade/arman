@@ -84,6 +84,21 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('home')}}" data-toggle="collapse" data-target="#collapseapi"
+           aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span class="font-weight-bolder">وب سرویس</span>
+        </a>
+        <div id="collapseapi" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Blog Manager</h6>
+                <a class="collapse-item font-weight-bolder" href="{{route('new_webservice')}}">وب سرویس جدید</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
