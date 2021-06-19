@@ -476,6 +476,7 @@ class AdminController extends Controller
 
         Category::create([
             "name" => $request->name,
+            "slug" => self::slug($request->name),
             "seo_title" => $request->seo_title,
             "seo_description" => $request->seo_description,
             "seo_canonical" => $request->seo_canonical,
