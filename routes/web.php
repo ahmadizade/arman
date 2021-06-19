@@ -73,7 +73,14 @@ Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::post('/product/image-edit-product-action', 'App\Http\Controllers\AdminController@imageEditproductAction')->name("image_edit_product_action");
     Route::post('/product/admin-file-product-action', 'App\Http\Controllers\AdminController@adminFileproductAction')->name("admin_file_product_action");
     Route::post('upload/tiny/image','App\Http\Controllers\UploadController@uploadImageDescription')->name('tiny.upload');
-
+    //Web Service
+    Route::get('/api/new-webservice', 'App\Http\Controllers\AdminController@newWebservice')->name("new_webservice");
+    Route::post('/api/new-webservice-action', 'App\Http\Controllers\AdminController@newWebserviceAction')->name("new_webservice_action");
+    Route::get('/api/delete-api/{id}', 'App\Http\Controllers\AdminController@deleteApi')->name("delete_api");
+    Route::get('/api/edit-api/{id}', 'App\Http\Controllers\AdminController@editApi')->name("edit_api");
+    Route::post('/api/admin-edit-api-action', 'App\Http\Controllers\AdminController@adminEditapiAction')->name("admin_edit_api_action");
+    Route::post('/api/image-edit-api-action', 'App\Http\Controllers\AdminController@imageEditapiAction')->name("image_edit_api_action");
+    Route::post('/api/admin-file-api-action', 'App\Http\Controllers\AdminController@adminFileapiAction')->name("admin_file_api_action");
 });
 // admin
 
@@ -99,6 +106,7 @@ Route::prefix("profile")->group(function () {
     Route::get('/', 'App\Http\Controllers\ProfileController@Index')->name("profile_index");
     Route::get('/products', 'App\Http\Controllers\ProfileController@Products')->name("profile_products");
     Route::get('/single-product/{slug}', 'App\Http\Controllers\ProfileController@SingleProduct')->name("single_product");
+    Route::get('/single-api/{slug}', 'App\Http\Controllers\ProfileController@SingleApi')->name("single_api");
     Route::get('/card/{id}', 'App\Http\Controllers\ProfileController@Card')->name("card");
     Route::get('/cart-page', 'App\Http\Controllers\ProfileController@CartPage')->name("cart_page");
     Route::get('/show-session-cart', 'App\Http\Controllers\ProfileController@showSessionCart')->name("show_session_cart");

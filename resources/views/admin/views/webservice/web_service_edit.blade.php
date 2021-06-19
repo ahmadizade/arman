@@ -69,7 +69,7 @@
                                         تغییر عکس محصول
                                     </div>
                                         <div class="card-body">
-                                        <form method="POST" action="{{route('image_edit_product_action')}}" enctype="multipart/form-data">
+                                        <form method="POST" action="{{route('image_edit_api_action')}}" enctype="multipart/form-data">
                                             <input name="user_id" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}" readonly="readonly">
                                             <input name="id" type="hidden" value="{{$product->id}}" readonly="readonly">
                                             <div class="row">
@@ -98,9 +98,9 @@
                                 </div>
                             </div>
                         </div>
-
-
                         {{--Edit Image Product--}}
+
+                        {{--Edit File Product--}}
                         <div class="container">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12">
@@ -109,7 +109,7 @@
                                             تغییر فایل آپلود شده
                                         </div>
                                         <div class="card-body">
-                                            <form method="POST" action="{{route('admin_file_product_action')}}" enctype="multipart/form-data">
+                                            <form method="POST" action="{{route('admin_file_api_action')}}" enctype="multipart/form-data">
                                                 <input name="user_id" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}" readonly="readonly">
                                                 <input name="id" type="hidden" value="{{$product->id}}" readonly="readonly">
                                                 <div class="row">
@@ -131,8 +131,10 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
-                    <div class="container">
+                        {{--Edit File Product--}}
+
+                        {{--Edit Api Action--}}
+                        <div class="container">
                         <div class="row">
                             <div class="col-xl-12 col-lg-12">
                                 <div class="card">
@@ -153,7 +155,7 @@
                                             <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
                                         @endif
                                         @if(isset($product))
-                                            <form id="make_product" action="{{route('admin_edit_product_action')}}" method="POST" enctype="multipart/form-data">
+                                            <form id="make_product" action="{{route('admin_edit_api_action')}}" method="POST" enctype="multipart/form-data">
                                         <div class="row">
                                             <input type="hidden" name="id" class="d-none" value="{{$product->id}}">
                                             <div class="col-12 col-md-6 col-lg-6">
@@ -240,29 +242,16 @@
 
                                             <div class="col-12 col-md-3 col-lg-3">
                                                 <div class="my-3">
-                                                    <label for="framework" class="form-label ">FrameWork</label>
-                                                    <input value="{{$product->framework}}" type="text" name="framework" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-3 col-lg-3">
-                                                <div class="my-3">
-                                                    <label for="admin_pannel" class="form-label ">پنل مدیریت</label>
-                                                    <select name="admin_pannel" class="form-control">
-                                                        <option value="1" @if($product->admin_pannel == 1) selected @endif>دارد</option>
-                                                        <option value="0" @if($product->admin_pannel == 0) selected @endif>ندارد</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-3 col-lg-3">
-                                                <div class="my-3">
                                                     <label for="framework_version" class="form-label ">Framework_Version</label>
                                                     <input value="{{$product->framework_version}}" type="text" name="framework_version" class="form-control" placeholder="مثلا : 8.4">
                                                 </div>
                                             </div>
+
+
                                             <div class="col-12 col-md-3 col-lg-3">
                                                 <div class="my-3">
-                                                    <label for="data_usage" class="form-label ">data_usage</label>
-                                                    <input value="{{$product->data_usage}}" type="text" name="data_usage" class="form-control" placeholder="مثلا : میزان حجم اشغالی">
+                                                    <label for="free_request" class="form-label ">Free Request</label>
+                                                    <input type="text" value="{{$product->free_request}}" name="free_request" class="form-control" placeholder="مثلا : 100">
                                                 </div>
                                             </div>
 
@@ -286,56 +275,30 @@
                                                     <textarea class="form-control textarea-editor" name="short_description_of_backend" id="short_description_of_backend" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->short_description_of_backend}}</textarea>
                                                 </div>
                                             </div>
+                                            {{--ADD Develop language--}}
 
                                             <div class="col-12">
                                                 <div class="my-3">
-                                                    <label for="admin_pannel_features" class="form-label ">admin_pannel_features</label>
-                                                    <textarea class="form-control textarea-editor" name="admin_pannel_features" id="admin_pannel_features" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->admin_pannel_features}}</textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="my-3">
-                                                    <label for="framework_frontend" class="form-label ">framework_frontend</label>
-                                                    <input value="{{$product->framework_frontend}}" type="text" name="framework_frontend" class="form-control" placeholder="مثلا : فریم ورک یوآی">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="my-3">
-                                                    <label for="framework_frontend_version" class="form-label ">framework_frontend_version</label>
-                                                    <input value="{{$product->framework_frontend_version}}" type="text" name="framework_frontend_version" class="form-control" placeholder="مثلا : ورژه 4">
+                                                    <label for="php_language" class="form-label ">php_language</label>
+                                                    <textarea class="form-control textarea-editor" name="php_language" id="php_language" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->php_language}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
-                                                    <label for="framework_frontend_details" class="form-label ">framework_frontend_details</label>
-                                                    <textarea class="form-control textarea-editor" name="framework_frontend_details" id="framework_frontend_details" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->framework_frontend_details}}</textarea>
+                                                    <label for="js_language" class="form-label ">Js_language</label>
+                                                    <textarea class="form-control textarea-editor" name="js_language" id="js_language" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->js_language}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
-                                                    <label for="other_plugins" class="form-label ">other_plugins</label>
-                                                    <textarea class="form-control textarea-editor" name="other_plugins" id="other_plugins" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->other_plugins}}</textarea>
+                                                    <label for="nodejs_language" class="form-label ">Nodejs_language</label>
+                                                    <textarea class="form-control textarea-editor" name="nodejs_language" id="nodejs_language" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->nodejs_language}}</textarea>
                                                 </div>
                                             </div>
 
-{{--                                            <div class="col-12 col-md-4 col-lg-4 text-center">--}}
-{{--                                                <div class="mt-3">--}}
-{{--                                                    <label for="image" class="form-label text-success">عکس بزرگ</label>--}}
-{{--                                                    <input value="{{$product->image}}" type="file" name="image">--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-
-{{--                                            <div class="col-12 col-md-4 col-lg-4 text-center">--}}
-{{--                                                <div class="mt-3">--}}
-{{--                                                    <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>--}}
-{{--                                                    <input value="{{$product->thumbnail}}" type="file" name="thumbnail">--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-
+                                            {{--ADD Develop language--}}
 
                                             <div class="text-center">
                                                 <p>تنظیمات Seo</p>
@@ -383,38 +346,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                    {{--Add TAG--}}
-                </div>
-        </div>
-    </div>
-    {{--Save MODAL--}}
-    <div class="modal fade" id="save" tabindex="-1" role="dialog" aria-labelledby="del"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="text-danger modal-shop myfont" id="del">تغییر وضعیت نمایش</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-right">
-                    آیا از انجام این عملیات اطمینان دارید؟
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
-                    <button type="button" id="save-product" class="btn btn-success" data-dismiss="modal">
-                        ذخیره
-                    </button>
+                        {{--Edit Api Action--}}
+                    @endif
                 </div>
             </div>
         </div>
     </div>
-    {{--Save MODAL--}}
-
-
-
 
 @endsection
 @section("extra_js")

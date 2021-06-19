@@ -4,10 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="blog and seo page config">
+      <change afterPath="$PROJECT_DIR$/.idea/blade.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/file/1624097557variable.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/file/1624097892variable.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/file/1624103132variable.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/file/variable.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/products/1624097892Nevercode_Top10Hacks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/products/1624103132Nevercode_Top10Hacks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/products/Nevercode_Top10Hacks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/products/nutanix-wipro-database.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/thumbnail/1624097892Install Laravel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/thumbnail/1624103132Nevercode_Top10Hacks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/thumbnail/Install Laravel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/thumbnail/Nevercode_Top10Hacks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/webservice/new_service.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/webservice/web_service_edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/product/single_api.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cioce_newface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cioce_newface.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WeatherApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WeatherApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/product_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/product_edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +123,11 @@
         <option value="$PROJECT_DIR$/resources/views/partials/header.blade.php" />
       </list>
     </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -211,6 +242,7 @@
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/laravelium/sitemap" />
       <path value="$PROJECT_DIR$/vendor/rap2hpoutre/laravel-log-viewer" />
+      <path value="" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -287,17 +319,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/profile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/product" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\product" />
+      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin\views\webservice" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\profile" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin\views\blog" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\blog" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views" />
@@ -342,6 +375,9 @@
       <workItem from="1623822945691" duration="13373000" />
       <workItem from="1623905073828" duration="9920000" />
       <workItem from="1623930523822" duration="1321000" />
+      <workItem from="1624082448529" duration="19131000" />
+      <workItem from="1624108013129" duration="445000" />
+      <workItem from="1624108500083" duration="152000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -522,6 +558,10 @@
     <MESSAGE value="category Config" />
     <MESSAGE value="blog and seo page config" />
     <option name="LAST_COMMIT_MESSAGE" value="blog and seo page config" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/css/main.css">
