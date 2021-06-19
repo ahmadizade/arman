@@ -242,7 +242,7 @@
                                         @if(Session::has("status"))
                                             <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
                                         @endif
-                                        <form action="{{route('add_category')}}" method="POST">
+                                        <form action="{{route('add_category')}}" method="POST" enctype="multipart/form-data">
                                             <div class="row text-right">
                                                 <div class="col-12">
                                                     <div class="my-3">

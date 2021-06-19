@@ -455,7 +455,7 @@ class AdminController extends Controller
             'seo_canonical' => 'nullable',
             'english_name' => 'required|min:2|max:255',
             'discription' => 'nullable|min:2|max:9000000',
-            'image' => 'required|max:2048',
+            'image' => 'required|max:9048',
         ]);
 
         if ($validator->fails()) {
