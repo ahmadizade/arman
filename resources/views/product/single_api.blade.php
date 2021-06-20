@@ -204,7 +204,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="tab-content">
-                                    <div id="home" class="tab-pane active">
+                                    <div id="home" class="tab-pane text-left active">
                                         <h3>Result Sample</h3>
                                         <pre><code>{!! $product->result_sample !!}</code></pre>
                                     </div>
@@ -236,7 +236,7 @@
                                             <div class="card-header" id="headingOne">
                                                 <h5 class="mb-0">
                                                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                        About Api
+                                                        About Web Service
                                                     </button>
                                                 </h5>
                                             </div>
@@ -257,12 +257,13 @@
                                                             @endif
                                                         </div>
                                                         <div class="col-12 col-md-8 col-lg-8 mt-3 text-right product-description">
-                                                            <p class="text-justify">{{$product->product_desc}}</p>
+                                                            <p class="text-justify">{!! $product->product_desc !!}</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="card">
                                             <div class="card-header" id="headingTwo">
                                                 <h5 class="mb-0">
@@ -308,8 +309,8 @@
                                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                                 <div class="card-body">
                                                     <img class="img-fluid mt-4" src="/img/icon/download-(9).png">
-                                                    <p>پارامترهای ارسالی</p>
-                                                    <p>{{$product->parameters}}</p>
+                                                    <p>پارامترهای اجباری</p>
+                                                    <p>{!! $product->parameters !!}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -360,32 +361,10 @@
                             <section>
                                 <h3 class="params-title">مشخصات کلی</h3>
                                 <ul class="params-list">
-                                    @if(isset($product->framework) && strlen($product->framework) > 0)
-                                        <li>
-                                            <div class="params-list-key">
-                                                <span class="d-block">فریم ورک</span>
-                                            </div>
-                                            <div class="params-list-value">
-                                                <span class="d-block">
-                                                    {{$product->framework ?? "ثبت نشده"}}
-                                                </span>
-                                            </div>
-                                            <div class="params-list-value">
-                                                <span class="d-block">
-                                                    {{$product->framework_version ?? "ثبت نشده"}}
-                                                </span>
-                                            </div>
-                                            <div class="params-list-value">
-                                                <span class="d-block">
-                                                    {{$product->data_usage ?? "ثبت نشده"}}
-                                                </span>
-                                            </div>
-                                        </li>
-                                    @endif
                                     @if(isset($product->framework_details) && strlen($product->framework_details) > 0)
                                         <li>
                                             <div class="params-list-key">
-                                                <span class="d-block">توضیحات فریم ورک</span>
+                                                <span class="d-block">توضیحات وب سرویس</span>
                                             </div>
                                             <div class="params-list-value">
                                                 <span class="d-block">
@@ -394,22 +373,10 @@
                                             </div>
                                         </li>
                                     @endif
-                                    @if(isset($product->framework_frontend_details) && strlen($product->framework_frontend_details) > 0)
-                                        <li>
-                                            <div class="params-list-key">
-                                                <span class="d-block">فریم ورک و ابزار فرانت _ اند</span>
-                                            </div>
-                                            <div class="params-list-value">
-                                                <span class="d-block">
-                                                    {!! $product->framework_frontend_details ?? "ثبت نشده" !!}
-                                                </span>
-                                            </div>
-                                        </li>
-                                    @endif
                                     @if(isset($product->short_description_of_backend) && strlen($product->short_description_of_backend) > 0)
                                         <li>
                                             <div class="params-list-key">
-                                                <span class="d-block">فریم ورک و ابزار بک _ اند</span>
+                                                <span class="d-block">امکانات</span>
                                             </div>
                                             <div class="params-list-value">
                                                 <span class="d-block">
@@ -418,52 +385,7 @@
                                             </div>
                                         </li>
                                     @endif
-                                    @if(isset($product->other_plugins) && strlen($product->other_plugins) > 0)
-                                        <li>
-                                            <div class="params-list-key">
-                                                <span class="d-block">دیگر امکانات</span>
-                                            </div>
-                                            <div class="params-list-value">
-                                                <span class="d-block">
-                                                    {!! $product->other_plugins ?? "ثبت نشده" !!}
-                                                </span>
-                                            </div>
-                                        </li>
-                                    @endif
                                 </ul>
-                            </section>
-                            <section>
-                                @if(isset($product->other_plugins) && strlen($product->other_plugins) > 0)
-                                    <h3 class="params-title">پنل ادمین و سئو</h3>
-                                    <ul class="params-list">
-                                        <li>
-                                            <div class="params-list-key">
-                                                <span class="d-block">پنل مدیریت وب سایت</span>
-                                            </div>
-                                            <div class="params-list-value">
-                                                <span class="d-block">
-                                                    @if ($product->admin_pannel == 1)
-                                                        دارد
-                                                    @else
-                                                        ندارد
-                                                    @endif
-                                                </span>
-                                            </div>
-                                        </li>
-                                        @if ($product->admin_pannel == 1)
-                                            <li>
-                                                <div class="params-list-key">
-                                                    <span class="d-block">امکانات پنل ادمین</span>
-                                                </div>
-                                                <div class="params-list-value">
-                                                    <span class="d-block">
-                                                        {!! $product->admin_pannel_features ?? "ثبت نشده" !!}
-                                                    </span>
-                                                </div>
-                                            </li>
-                                        @endif
-                                    </ul>
-                                @endif
                             </section>
                         </div>
                         <div class="ah-tab-content dt-sl">
@@ -528,11 +450,9 @@
             </div>
             {{--About Web service and Comments--}}
 
-
             <!-- Start Product-Slider -->
             @include('partials.popular_products')
             <!-- End Product-Slider -->
-
         </div>
     </main>
     <!-- End main-content -->
@@ -540,9 +460,5 @@
 @endsection
 
 @section('extra_js')
-    <script>
-        $(document).ready(function(){
-            $("#home").tab('active');
-        });
-    </script>
+
 @endsection

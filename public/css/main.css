@@ -8337,12 +8337,8 @@ footer.mini-footer .copy-right-mini-footer {
 
 /* responsive */
 .card-code-container {
-    height: 500px;
+    height: 600px;
     overflow-y: scroll;
-}
-
-.card-code-container card-header {
-    overflow-y: hidden
 }
 
 /*Hamidreza Code*/
