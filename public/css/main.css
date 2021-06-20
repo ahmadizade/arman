@@ -8337,10 +8337,8 @@ footer.mini-footer .copy-right-mini-footer {
 
 /* responsive */
 .card-code-container {
-    min-height: 450px;
-    max-height: 600px;
+    height: 500px;
     overflow-y: scroll;
-    overflow-x: scroll;
 }
 
 .card-code-container card-header {
@@ -8364,6 +8362,62 @@ footer.mini-footer .copy-right-mini-footer {
     border-top-right-radius: 10px;
     background-color: #f7858d;
     color: #fff;
+}
+
+.domain-details{
+    font-size: 13px;
+}
+
+.product-description{
+    font-size: 13px;
+}
+
+.font-12 {
+    font-size: 12px !important;
+}
+
+.font-10 {
+    font-size: 10px !important;
+}
+
+.font-11 {
+    font-size: 11px !important;
+}
+
+.font-13 {
+    font-size: 13px;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.font-15 {
+    font-size: 15px;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.font-17 {
+    font-size: 17px;
+}
+
+.font-18 {
+    font-size: 18px;
+}
+
+.font-19 {
+    font-size: 19px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.font-22 {
+    font-size: 22px;
 }
 
 /*Hamidreza Code*/

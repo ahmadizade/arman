@@ -279,21 +279,35 @@
 
                                             <div class="col-12">
                                                 <div class="my-3">
-                                                    <label for="php_language" class="form-label ">php_language</label>
+                                                    <label for="result_sample" class="form-label ">Result Sample</label>
+                                                    <textarea class="form-control textarea-editor" name="result_sample" id="result_sample" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->result_sample}}</textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="my-3">
+                                                    <label for="parameters" class="form-label ">پارامترهایی که کاربر باید وارد کند</label>
+                                                    <textarea class="form-control textarea-editor" name="parameters" id="parameters" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->parameters}}</textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="my-3">
+                                                    <label for="php_language" class="form-label ">php language</label>
                                                     <textarea class="form-control textarea-editor" name="php_language" id="php_language" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->php_language}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
-                                                    <label for="js_language" class="form-label ">Js_language</label>
+                                                    <label for="js_language" class="form-label ">Js language</label>
                                                     <textarea class="form-control textarea-editor" name="js_language" id="js_language" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->js_language}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <div class="my-3">
-                                                    <label for="nodejs_language" class="form-label ">Nodejs_language</label>
+                                                    <label for="nodejs_language" class="form-label ">Nodejs language</label>
                                                     <textarea class="form-control textarea-editor" name="nodejs_language" id="nodejs_language" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->nodejs_language}}</textarea>
                                                 </div>
                                             </div>

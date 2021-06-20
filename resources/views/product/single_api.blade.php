@@ -190,65 +190,136 @@
                 </div>
             </div>
 
-
-
-
-
-
             <div class="mb-5 px-0 dt-sl pt-0">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-6 px-0">
                         <div class="card card-code-container">
                             <div class="card-header code-card">
                                 <ul class="nav">
-                                    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-                                    <li><a data-toggle="tab" href="#menu1">(PHP)cURL</a></li>
-                                    <li><a data-toggle="tab" href="#menu2">(Node.js)Unirest</a></li>
-                                    <li><a data-toggle="tab" href="#menu3">(JavaScript)JQuery</a></li>
+                                    <li class="mt-4 mt-md-0 mt-lg-0"><a class="active" data-toggle="tab" href="#home">Result Sample</a></li>
+                                    <li class="mt-4 mt-md-0 mt-lg-0"><a data-toggle="tab" href="#menu1">(PHP)cURL</a></li>
+                                    <li class="mt-4 mt-md-0 mt-lg-0"><a data-toggle="tab" href="#menu2">(Node.js)Unirest</a></li>
+                                    <li class="mt-4 mt-md-0 mt-lg-0"><a data-toggle="tab" href="#menu3">(JavaScript)JQuery</a></li>
                                 </ul>
                             </div>
                             <div class="card-body">
                                 <div class="tab-content">
-                                    <div id="home" class="tab-pane fade in active">
-                                        <h3>HOME</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <div id="home" class="tab-pane active">
+                                        <h3>Result Sample</h3>
+                                        <pre><code>{!! $product->result_sample !!}</code></pre>
                                     </div>
                                     <div id="menu1" class="tab-pane fade text-left">
                                         <h3>(PHP)cURL</h3>
-                                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <pre><code>{!! $product->php_language !!}</code></pre>
                                     </div>
                                     <div id="menu2" class="tab-pane fade text-left">
                                         <h3>(Node.js)Unirest</h3>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                        <pre><code>{!! $product->nodejs_language !!}</code></pre>
                                     </div>
                                     <div id="menu3" class="tab-pane fade text-left">
                                         <h3>(JavaScript)JQuery</h3>
-                                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                        <pre><code>{!! $product->js_language !!}</code></pre>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @if (isset($product))
+                        <div class="col-12 col-md-6 col-lg-6 px-0">
+                            <div class="card card-code-container">
+                                <div class="card-header text-center">
+                                    {{$product->product_name}}
+                                </div>
+                                <div class="card-body p-0 m-0">
+                                    <div class="w-100" id="accordion">
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        About Api
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseOne" class="collapse show text-left" aria-labelledby="headingOne" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-4 col-lg-4 text-right domain-details">
+                                                            @if (\Illuminate\Support\Facades\Auth::user()->profile->domain !== null && \Illuminate\Support\Str::length(\Illuminate\Support\Facades\Auth::user()->profile->doman) > 0)
+                                                                <img class="img-fluid" src="/img/icon/download.png">
+                                                                <p>درباره وب سرویس</p>
+                                                                <a class="text-success" href="javascript:void(0)">{{\Illuminate\Support\Facades\Auth::user()->profile->domain}}</a>
+                                                                <p class="text-warning pointer-event">تغییر دامنه</p>
+                                                            @else
+                                                                <img class="img-fluid" src="/img/icon/download.png">
+                                                                <p>درباره وب سرویس</p>
+                                                                <a class="text-success" href="#">برای ثبت دامنه خود کلیک کنید</a>
+                                                                <p class="font-weight-lighter mt-2"><b class="text-danger">نکته :</b> برای استفاده از وب سرویس های رایگان نیازی به ثبت دامنه نیست</p>
+                                                            @endif
+                                                        </div>
+                                                        <div class="col-12 col-md-8 col-lg-8 mt-3 text-right product-description">
+                                                            <p class="text-justify">{{$product->product_desc}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingTwo">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        Header Parameters
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <img class="img-fluid mt-4" src="/img/icon/reqired-parameters.png">
+                                                    <p>پارامترهای ارسالی در هدر</p>
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-6 col-lg-6 text-left">
+                                                            <lable class="font-12 text-muted">C-CioCeAPI-Key</lable>
+                                                            @if (\Illuminate\Support\Facades\Auth::user()->token !== null && \Illuminate\Support\Str::length(\Illuminate\Support\Facades\Auth::user()->token) > 0)
+                                                                <input class="form-control text-left font-10" readonly type="text" value="{{\Illuminate\Support\Facades\Auth::user()->token}}" name="token">
+                                                                <span class="text-muted font-11">REQUIRED</span>
+                                                            @else
+                                                                <input class="form-control text-left font-10" readonly type="text" value="Click Here To Get First Token" name="token">
+                                                                <span class="text-muted font-11">REQUIRED</span>
+                                                            @endif
+                                                        </div>
+                                                        <div class="col-12 col-md-6 col-lg-6 text-left">
+                                                            <lable class="font-12 text-muted">C-CioCeAPI-Host</lable>
+                                                            <input class="form-control text-left font-10" readonly type="text" value="/api/weather/api-name" name="token">
+                                                            <span class="text-muted font-11">REQUIRED</span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="mt-5 font-11"><b class="text-danger">نکته : </b>برای دریافت توکن، هاست کد مربوطه و یا معرفی نام دامنه خود، به صفحه کاربری، قسمت <a href="#">تنظیمات API</a> بروید.</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                    <div class="col-12 col-md-6 col-lg-6 px-0">
-                        <div class="card card-code-container">
-                            <div class="card-header text-center">
-                                PART 2
-                            </div>
-                            <div class="card-body">
-                                Body 2
+                                        <div class="card">
+                                            <div class="card-header" id="headingThree">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                        Required Parameters
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <img class="img-fluid mt-4" src="/img/icon/download-(9).png">
+                                                    <p>پارامترهای ارسالی</p>
+                                                    <p>{{$product->parameters}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
-
-
-
-
-
-
-
 
             {{--About Web service and Comments--}}
             <div class="dt-sn mb-5 px-0 dt-sl pt-0">
@@ -469,5 +540,9 @@
 @endsection
 
 @section('extra_js')
-
+    <script>
+        $(document).ready(function(){
+            $("#home").tab('active');
+        });
+    </script>
 @endsection

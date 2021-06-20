@@ -326,6 +326,7 @@
                                                         <input disabled type="text" name="framework" class="form-control" placeholder="مثلا : Laravel">
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 col-md-3 col-lg-3">
                                                     <div class="my-3">
                                                         <label for="admin_pannel" class="form-label ">پنل مدیریت</label>
@@ -370,6 +371,19 @@
                                                 </div>
 
                                                 {{--ADD Develop language--}}
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="result_sample" class="form-label ">Result Sample</label>
+                                                        <textarea class="form-control textarea-editor" name="result_sample" id="result_sample" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="parameters" class="form-label ">پارامترهایی که کاربر باید وارد کند</label>
+                                                        <textarea class="form-control textarea-editor" name="parameters" id="parameters" rows="5" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    </div>
+                                                </div>
 
                                                 <div class="col-12">
                                                     <div class="my-3">
