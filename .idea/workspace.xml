@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="blog and seo page config">
-      <change afterPath="$PROJECT_DIR$/app/Models/Accounting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/single_api.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/single_api.blade.php" afterDir="false" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="last">
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -373,7 +370,7 @@
       <workItem from="1623930523822" duration="1321000" />
       <workItem from="1624115489159" duration="593000" />
       <workItem from="1624170365653" duration="17377000" />
-      <workItem from="1624270734045" duration="1340000" />
+      <workItem from="1624270734045" duration="1390000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -515,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624268646799</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="last">
+      <created>1624272910410</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1624272910410</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -573,7 +577,8 @@
     <MESSAGE value="first work commit" />
     <MESSAGE value="category Config" />
     <MESSAGE value="blog and seo page config" />
-    <option name="LAST_COMMIT_MESSAGE" value="blog and seo page config" />
+    <MESSAGE value="last" />
+    <option name="LAST_COMMIT_MESSAGE" value="last" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Desktop/cioce new face/New folder (3)/didikala/didikala/cart-empty.html">
