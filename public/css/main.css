@@ -355,7 +355,7 @@ button:focus {
 }
 
 .dir-ltr {
-    direction: ltr;
+    direction: ltr !important;
 }
 
 .ps-relative {
@@ -8416,4 +8416,7 @@ footer.mini-footer .copy-right-mini-footer {
     font-size: 22px;
 }
 
+.ltr {
+    direction: ltr !important;
+}
 /*Hamidreza Code*/

@@ -133,6 +133,7 @@ Route::prefix("profile")->group(function () {
     Route::post('/store-desc-action', 'App\Http\Controllers\ProfileController@StoreDescAction')->name("store_desc_action");
     Route::post('/store-category-action', 'App\Http\Controllers\ProfileController@StoreCategoryAction')->name("store_category_action");
     Route::get('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("profile_bookmark");
+    Route::get('/my-webservice', 'App\Http\Controllers\ProfileController@myWebService')->name("my_webservice");
     Route::post('/bookmark-delete', 'App\Http\Controllers\ProfileController@BookmarkDelete')->name("profile_bookmark_delete")->middleware("ajax", "verify.domain");
     Route::get('/email-verify-action', 'App\Http\Controllers\ProfileController@EmailVerifyAction')->name('email_verify_action');
     Route::get('/qrcode', 'App\Http\Controllers\ProfileController@Qrcode')->name("profile_qrcode");

@@ -843,6 +843,16 @@ class ProfileController extends Controller
 
     }
 
+    public function myWebService()
+        {
+
+            $api = Product::where("user_id", Auth::id())->where('type', "api")->get();
+
+            return view("profile.webservice", ["api" => $api, "user" => Auth::user(), "menu" => "webservice"]);
+
+        }
+
+
     public function BookmarkDelete(Request $request)
     {
 

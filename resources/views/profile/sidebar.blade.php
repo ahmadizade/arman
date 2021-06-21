@@ -60,6 +60,12 @@
             </a>
         </li>
         <li>
+            <a href="{{route('my_webservice')}}">
+                <i class="mdi mdi-basket @if($menu == "webservice") active @endif"></i>
+                وب سرویس ها
+            </a>
+        </li>
+        <li>
             <a href="#">
                 <i class="mdi mdi-basket @if($menu == "order") active @endif"></i>
                 سفارشات من
