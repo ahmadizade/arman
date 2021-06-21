@@ -244,7 +244,7 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-12 col-md-4 col-lg-4 text-right domain-details">
-                                                            @if (\Illuminate\Support\Facades\Auth::user()->profile->domain !== null && \Illuminate\Support\Str::length(\Illuminate\Support\Facades\Auth::user()->profile->doman) > 0)
+                                                            @if (\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->profile->domain !== null && \Illuminate\Support\Str::length(\Illuminate\Support\Facades\Auth::user()->profile->doman) > 0)
                                                                 <img class="img-fluid" src="/img/icon/download.png">
                                                                 <p>درباره وب سرویس</p>
                                                                 <a class="text-success" href="javascript:void(0)">{{\Illuminate\Support\Facades\Auth::user()->profile->domain}}</a>
@@ -279,7 +279,7 @@
                                                     <div class="row">
                                                         <div class="col-12 col-md-6 col-lg-6 text-left">
                                                             <lable class="font-12 text-muted">C-CioCeAPI-Key</lable>
-                                                            @if (\Illuminate\Support\Facades\Auth::user()->token !== null && \Illuminate\Support\Str::length(\Illuminate\Support\Facades\Auth::user()->token) > 0)
+                                                            @if (\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->token !== null && \Illuminate\Support\Str::length(\Illuminate\Support\Facades\Auth::user()->token) > 0)
                                                                 <input class="form-control text-left font-10" readonly type="text" value="{{\Illuminate\Support\Facades\Auth::user()->token}}" name="token">
                                                                 <span class="text-muted font-11">REQUIRED</span>
                                                             @else
