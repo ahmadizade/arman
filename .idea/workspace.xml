@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MelliCodeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/MelliCode.php" afterDir="false" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="blog and seo page config">
+      <change afterPath="$PROJECT_DIR$/app/Models/Accounting.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/single_api.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/single_api.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,17 +316,17 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/profile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\cioce_new_face\app\Models" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\profile" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin\views\blog" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\blog" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views" />
@@ -373,6 +373,7 @@
       <workItem from="1623930523822" duration="1321000" />
       <workItem from="1624115489159" duration="593000" />
       <workItem from="1624170365653" duration="17377000" />
+      <workItem from="1624270734045" duration="1340000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -507,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623930541280</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="blog and seo page config">
+      <created>1624268646799</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1624268646799</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -547,6 +555,15 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
