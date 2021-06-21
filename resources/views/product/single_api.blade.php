@@ -205,20 +205,16 @@
                             <div class="card-body">
                                 <div class="tab-content">
                                     <div id="home" class="tab-pane text-left active">
-                                        <h3>Result Sample</h3>
-                                        <pre><code>{!! $product->result_sample !!}</code></pre>
+                                        <pre><code class="dir-ltr">{!! $product->result_sample !!}</code></pre>
                                     </div>
                                     <div id="menu1" class="tab-pane fade text-left">
-                                        <h3>(PHP)cURL</h3>
-                                        <pre><code>{!! $product->php_language !!}</code></pre>
+                                        <pre><code class="dir-ltr">{!! $product->php_language !!}</code></pre>
                                     </div>
                                     <div id="menu2" class="tab-pane fade text-left">
-                                        <h3>(Node.js)Unirest</h3>
-                                        <pre><code>{!! $product->nodejs_language !!}</code></pre>
+                                        <pre><code class="dir-ltr">{!! $product->nodejs_language !!}</code></pre>
                                     </div>
                                     <div id="menu3" class="tab-pane fade text-left">
-                                        <h3>(JavaScript)JQuery</h3>
-                                        <pre><code>{!! $product->js_language !!}</code></pre>
+                                        <pre><code class="dir-ltr">{!! $product->js_language !!}</code></pre>
                                     </div>
                                 </div>
                             </div>
@@ -293,7 +289,7 @@
                                                             <span class="text-muted font-11">REQUIRED</span>
                                                         </div>
                                                     </div>
-                                                    <p class="mt-5 font-11"><b class="text-danger">نکته : </b>برای دریافت توکن، هاست کد مربوطه و یا معرفی نام دامنه خود، به صفحه کاربری، قسمت <a href="#">تنظیمات API</a> بروید.</p>
+                                                    <p class="mt-5 font-11"><b class="text-danger">نکته : </b>برای دریافت توکن، هاست کد مربوطه و یا معرفی نام دامنه خود، به صفحه کاربری، قسمت <a href="{{route('my_webservice')}}">تنظیمات API</a> بروید.</p>
                                                 </div>
                                             </div>
                                         </div>

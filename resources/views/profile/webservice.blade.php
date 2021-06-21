@@ -39,14 +39,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="pt-2 pb-2 mb-3 dt-sl">
-                                                        <div class="form-row-title mb-2">
-                                                            <h3>شماره ملی <span class="font-11">(صاحب دامنه)</span></h3>
-                                                        </div>
-                                                        <div class="form-row">
-                                                            <input name="domain" type="text" class="input-ui text-left dir-ltr p-3" placeholder="001-123....">
-                                                        </div>
+                                                <div class="col-12 col-md-6 col-lg-6 mb-3">
+                                                    <div class="pt-2 pb-2 mb-3 dt-sl text-center text-md-left text-lg-left">
+                                                        <img class="img-fluid w-50" src="/img/extra/Internet-Domain.jpg">
                                                     </div>
                                                 </div>
 {{--                                                <div class="col-12 mb-3">--}}
@@ -76,107 +71,108 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
 
-                            <div class="col-12 mt-3">
-                                <div
-                                    class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
-                                    <h2>وب سرویس های من</h2>
-                                </div>
-                                <div class="dt-sl">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-12">
-                                            <div class="card-horizontal-product">
-                                                <div class="card-horizontal-product-thumb">
-                                                    <a href="#">
-                                                        <img src="./assets/img/products/017.jpg" alt="">
-                                                    </a>
-                                                    <small class="font-weight-bold">امتیاز وب سرویس</small>
-                                                    <div class="rating-stars">
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="card-horizontal-product-content">
-                                                    <div class="label-status-comment">تایید شده</div>
-                                                    <div class="card-horizontal-comment-title">
-                                                        <a href="#">
-                                                            <h3>عالیه</h3>
-                                                        </a>
-                                                    </div>
-                                                    <div class="card-horizontal-comment">
-                                                        <p>من اینو 6 ماه پیش خریدم واقعا عالیه،هم جنسش و هم وقتی میپوشی
-                                                            عالیه..یکی دیگم گرفتم ازش دوباره..واقعا پیشنهادش میکنم.من
-                                                            اینو 6 ماه پیش خریدم واقعا عالیه،هم جنسش و هم وقتی میپوشی
-                                                            عالیه..یکی دیگم گرفتم ازش دوباره..واقعا پیشنهادش میکنم.من
-                                                            اینو 6 ماه پیش خریدم واقعا عالیه،هم جنسش و هم وقتی میپوشی
-                                                            عالیه..یکی دیگم گرفتم ازش دوباره..واقعا پیشنهادش میکنم.من
-                                                            اینو 6 ماه پیش خریدم واقعا عالیه،هم جنسش و هم وقتی میپوشی
-                                                            عالیه..یکی دیگم گرفتم ازش دوباره..واقعا پیشنهادش میکنم.من
-                                                            اینو 6 ماه پیش خریدم واقعا عالیه،هم جنسش و هم وقتی میپوشی
-                                                            عالیه..یکی دیگم گرفتم ازش دوباره..واقعا پیشنهادش میکنم.</p>
-                                                    </div>
-                                                    <div class="card-horizontal-product-buttons">
-                                                        <div class="float-right">
-                                                            <span class="count-like">
-                                                                <i class="mdi mdi-thumb-up-outline"></i>11
-                                                            </span>
-                                                            <span class="count-like">
-                                                                <i class="mdi mdi-thumb-down-outline"></i>2
-                                                            </span>
-                                                        </div>
-                                                        <button class="btn btn-light">حذف</button>
-                                                    </div>
-                                                </div>
+
+
+
+
+                        <div class="col-12 mt-3">
+                            <div
+                                class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
+                                <h2>وب سرویس های من</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="card-horizontal-product">
+                                        <div class="card-horizontal-product-thumb">
+                                            <a href="#">
+                                                <img src="./assets/img/products/017.jpg" alt="">
+                                            </a>
+                                            <small class="font-weight-bold">امتیاز وب سرویس</small>
+                                            <div class="rating-stars">
+                                                <i class="mdi mdi-star active"></i>
+                                                <i class="mdi mdi-star active"></i>
+                                                <i class="mdi mdi-star active"></i>
+                                                <i class="mdi mdi-star active"></i>
+                                                <i class="mdi mdi-star"></i>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-12">
-                                            <div class="card-horizontal-product">
-                                                <div class="card-horizontal-product-thumb">
-                                                    <a href="#">
-                                                        <img src="./assets/img/products/019.jpg" alt="">
-                                                    </a>
-                                                    <small class="font-weight-bold">امتیاز من به محصول</small>
-                                                    <div class="rating-stars">
-                                                        <i class="mdi mdi-star active"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                    </div>
+                                        <div class="card-horizontal-product-content">
+                                            <div class="label-status-comment">تایید شده</div>
+                                            <div class="card-horizontal-comment-title">
+                                                <a href="#">
+                                                    <h3>عالیه</h3>
+                                                </a>
+                                            </div>
+                                            <div class="card-horizontal-comment">
+                                                <p>من اینو 6 ماه پیش خریدم واقعا عالیه،هم جنسش و هم وقتی میپوشی
+                                                    عالیه..یکی دیگم گرفتم ازش دوباره..واقعا پیشنهادش میکنم.من
+                                                    اینو 6 ماه پیش خریدم واقعا عالیه،هم جنسش و هم وقتی میپوشی
+                                                    عالیه..یکی دیگم گرفتم ازش دوباره..واقعا پیشنهادش میکنم.من
+                                                    اینو 6 ماه پیش خریدم واقعا عالیه،هم جنسش و هم وقتی میپوشی
+                                                    عالیه..یکی دیگم گرفتم ازش دوباره..واقعا پیشنهادش میکنم.من
+                                                    اینو 6 ماه پیش خریدم واقعا عالیه،هم جنسش و هم وقتی میپوشی
+                                                    عالیه..یکی دیگم گرفتم ازش دوباره..واقعا پیشنهادش میکنم.من
+                                                    اینو 6 ماه پیش خریدم واقعا عالیه،هم جنسش و هم وقتی میپوشی
+                                                    عالیه..یکی دیگم گرفتم ازش دوباره..واقعا پیشنهادش میکنم.</p>
+                                            </div>
+                                            <div class="card-horizontal-product-buttons">
+                                                <div class="float-right">
+                                                    <span class="count-like">
+                                                        <i class="mdi mdi-thumb-up-outline"></i>11
+                                                    </span>
+                                                    <span class="count-like">
+                                                        <i class="mdi mdi-thumb-down-outline"></i>2
+                                                    </span>
                                                 </div>
-                                                <div class="card-horizontal-product-content">
-                                                    <div class="label-status-comment">تایید شده</div>
-                                                    <div class="card-horizontal-comment-title">
-                                                        <a href="#">
-                                                            <h3>خوب نیست</h3>
-                                                        </a>
-                                                    </div>
-                                                    <div class="card-horizontal-comment">
-                                                        <p>جنسش خوب نیست..چسبم هست..</p>
-                                                    </div>
-                                                    <div class="card-horizontal-product-buttons">
-                                                        <div class="float-right">
-                                                            <span class="count-like">
-                                                                <i class="mdi mdi-thumb-up-outline"></i>31
-                                                            </span>
-                                                            <span class="count-like">
-                                                                <i class="mdi mdi-thumb-down-outline"></i>0
-                                                            </span>
-                                                        </div>
-                                                        <button class="btn btn-light">حذف</button>
-                                                    </div>
+                                                <button class="btn btn-light">حذف</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="card-horizontal-product">
+                                        <div class="card-horizontal-product-thumb">
+                                            <a href="#">
+                                                <img src="./assets/img/products/019.jpg" alt="">
+                                            </a>
+                                            <small class="font-weight-bold">امتیاز من به محصول</small>
+                                            <div class="rating-stars">
+                                                <i class="mdi mdi-star active"></i>
+                                                <i class="mdi mdi-star"></i>
+                                                <i class="mdi mdi-star"></i>
+                                                <i class="mdi mdi-star"></i>
+                                                <i class="mdi mdi-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="card-horizontal-product-content">
+                                            <div class="label-status-comment">تایید شده</div>
+                                            <div class="card-horizontal-comment-title">
+                                                <a href="#">
+                                                    <h3>خوب نیست</h3>
+                                                </a>
+                                            </div>
+                                            <div class="card-horizontal-comment">
+                                                <p>جنسش خوب نیست..چسبم هست..</p>
+                                            </div>
+                                            <div class="card-horizontal-product-buttons">
+                                                <div class="float-right">
+                                                    <span class="count-like">
+                                                        <i class="mdi mdi-thumb-up-outline"></i>31
+                                                    </span>
+                                                    <span class="count-like">
+                                                        <i class="mdi mdi-thumb-down-outline"></i>0
+                                                    </span>
                                                 </div>
+                                                <button class="btn btn-light">حذف</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <!-- End Content -->
