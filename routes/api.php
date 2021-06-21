@@ -30,6 +30,10 @@ Route::prefix("weather")->group(function () {
 });
 
 
+Route::prefix("melli-cart")->group(function () {
+    Route::get('/{q}', 'App\Http\Controllers\MelliCodeController@index')->name("melli_cart");
+});
+
 
 Route::get('/get-article', 'App\Http\Controllers\ApiController@getArticle')->name("get_article");
 
