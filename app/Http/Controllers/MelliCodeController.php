@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Cache;
 class MelliCodeController extends Controller
 {
 
-    public function index(Request $request,$q){
+    public static function index($q){
 
         if(isset($q)){
 
