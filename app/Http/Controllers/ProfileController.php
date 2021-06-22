@@ -377,8 +377,9 @@ class ProfileController extends Controller
         }
     }
 
-    public function subscribe(){
-        return view('product.subscribe');
+    public function subscribe($id){
+        $product = Product::where('id' ,$id)->where('type', "api")->first();
+        return view('product.subscribe',['product' => $product]);
     }
 
     public function Card(Request $request)

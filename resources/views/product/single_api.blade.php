@@ -172,7 +172,7 @@
 
 
                             <div class="dt-sl mt-4">
-                                <a id="freeDownload" href="{{route('download', ['filename' => $product->file])}}" class="btn-primary-my btn-with-icon">
+                                <a id="freeDownload" href="{{route('subscribe', ['id' => $product->id])}}" class="btn-primary-my btn-with-icon">
                                     <img src="/img/theme/shopping-cart.png" alt="cart-icon">
                                     استفاده از {{$product->free_request}} درخواست رایگان در ماه
                                 </a>
