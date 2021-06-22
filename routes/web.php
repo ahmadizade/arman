@@ -107,6 +107,10 @@ Route::prefix("profile")->group(function () {
     Route::get('/products', 'App\Http\Controllers\ProfileController@Products')->name("profile_products");
     Route::get('/single-product/{slug}', 'App\Http\Controllers\ProfileController@SingleProduct')->name("single_product");
     Route::get('/single-api/{slug}', 'App\Http\Controllers\ProfileController@SingleApi')->name("single_api");
+    Route::get('/subscribe', 'App\Http\Controllers\ProfileController@subscribe')->name("subscribe");
+
+
+
     Route::get('/card/{id}', 'App\Http\Controllers\ProfileController@Card')->name("card");
     Route::get('/cart-page', 'App\Http\Controllers\ProfileController@CartPage')->name("cart_page");
     Route::get('/show-session-cart', 'App\Http\Controllers\ProfileController@showSessionCart')->name("show_session_cart");

@@ -377,7 +377,9 @@ class ProfileController extends Controller
         }
     }
 
-
+    public function subscribe(){
+        return view('product.subscribe');
+    }
 
     public function Card(Request $request)
     {

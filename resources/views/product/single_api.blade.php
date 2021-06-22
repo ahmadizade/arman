@@ -167,21 +167,19 @@
 
                                     </span> </h2>
                             </div>
-                            @if ($product->price > 0)
-                                <div class="dt-sl mt-4">
-                                    <a href="{{route('card', ['id' => $product->id])}}" class="btn-primary-cm btn-with-icon">
-                                        <img src="/img/theme/shopping-cart.png" alt="cart-icon">
-                                        دریافت آنلاین توکن
-                                    </a>
-                                </div>
-                            @elseif($product->price == 0)
-                                <div class="dt-sl mt-4">
-                                    <a id="freeDownload" href="{{route('download', ['filename' => $product->file])}}" class="btn-primary-cm btn-with-icon">
-                                        <img src="/img/theme/shopping-cart.png" alt="cart-icon">
-                                        استفاده از {{$product->free_request}} درخواست رایگان در ماه
-                                    </a>
-                                </div>
-                            @endif
+
+
+
+
+                            <div class="dt-sl mt-4">
+                                <a id="freeDownload" href="{{route('download', ['filename' => $product->file])}}" class="btn-primary-my btn-with-icon">
+                                    <img src="/img/theme/shopping-cart.png" alt="cart-icon">
+                                    استفاده از {{$product->free_request}} درخواست رایگان در ماه
+                                </a>
+                            </div>
+
+
+
                         </div>
                     </div>
                 </div>
@@ -452,6 +450,7 @@
         </div>
     </main>
     <!-- End main-content -->
+
     @endif
 @endsection
 

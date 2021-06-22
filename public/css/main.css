@@ -8420,4 +8420,65 @@ footer.mini-footer .copy-right-mini-footer {
     direction: ltr !important;
 }
 
+
+
+/*//BTN*/
+
+.btn-primary-my {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: normal;
+    position: relative;
+    border-radius: 10px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    background-color: #f7858d;
+    overflow: hidden;
+}
+
+.btn-primary-my:hover {
+    color: #fff;
+}
+
+.btn-primary-my.btn-with-icon {
+    padding-right: 50px;
+}
+
+.btn-primary-my.btn-with-icon.w-100 {
+    padding-right: 0;
+}
+
+.btn-primary-my.btn-with-icon::before {
+    content: '';
+    width: 44px;
+    height: 140%;
+    position: absolute;
+    right: 0;
+    top: -10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 60px 0 0 60px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary-my.btn-with-icon:hover::before {
+    width: 110%;
+}
+
+.btn-primary-my.btn-with-icon img {
+    width: 24px;
+    position: absolute;
+    right: 10px;
+}
+
+.btn-primary-my.btn-with-icon i {
+    position: absolute;
+    right: 10px;
+    font-size: 23px;
+    top: 7px;
+}
+
+
+
 /*Hamidreza Code*/
