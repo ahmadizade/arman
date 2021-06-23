@@ -108,6 +108,8 @@ Route::prefix("profile")->group(function () {
     Route::get('/single-product/{slug}', 'App\Http\Controllers\ProfileController@SingleProduct')->name("single_product");
     Route::get('/single-api/{slug}', 'App\Http\Controllers\ProfileController@SingleApi')->name("single_api");
     Route::get('/subscribe/{id}', 'App\Http\Controllers\ProfileController@subscribe')->name("subscribe");
+    Route::get('/select-package', 'App\Http\Controllers\ProfileController@selectPackage')->name("select_package");
+    Route::get('/choice/{id}', 'App\Http\Controllers\ProfileController@choice')->name("choice");
 
 
 

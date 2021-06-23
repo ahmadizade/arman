@@ -37,7 +37,7 @@
         <div class="container main-container">
             <!-- Start Profile-order-step-Slider -->
             <div class="col-12">
-                <div class="profile-order-steps carousel-lg owl-carousel owl-theme">
+                <div class="profile-order-steps carousel-lg owl-carousel owl-theme mt-5">
                     <div class="item profile-order-steps-item is-active">
                         <img src="/img/svg/d5d5e1d2.svg">
                         <span>تایید سفارش</span>
@@ -74,10 +74,10 @@
             <!-- Start Price Lists -->
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 mt-4 mb-4">
                         <div
                             class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
-                            <h2>نرخ بر اساس تعداد</h2>
+                            <h2>{{$product->product_name}}</h2>
                         </div>
                         <div class="dt-sl">
                             <div class="table-responsive">
@@ -91,7 +91,7 @@
                                         <th>درخواست پولی 3 ماهه</th>
 {{--                                        <th>مبلغ کل</th>--}}
                                         <th>عملیات پرداخت</th>
-                                        <th>جزییات</th>
+                                        <th>مرحله بعد</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -102,9 +102,9 @@
                                         <td><img class="img-fluid" src="/img/icon/multiplit.png"></td>
                                         <td><img class="img-fluid" src="/img/icon/multiplit.png"></td>
 {{--                                        <td>رایگان</td>--}}
-                                        <td>ندارد</td>
+                                        <td><img class="img-fluid" src="/img/icon/multiplit.png"></td>
                                         <td class="details-link">
-                                            <a href="#">
+                                            <a href="{{route('select_package', ['id' => $product->id, 'package' => "basic"])}}">
                                                 <i class="mdi mdi-chevron-left"></i>
                                             </a>
                                         </td>
@@ -124,9 +124,9 @@
 
                                         </td>
 {{--                                        <td>۱۸,۰۴۹,۰۰۰ تومان</td>--}}
-                                        <td>دارد</td>
+                                        <td><img class="img-fluid" src="/img/icon/tick-green.png"></td>
                                         <td class="details-link">
-                                            <a href="#">
+                                            <a href="{{route('select_package', ['id' => $product->id, 'package' => "pro"])}}">
                                                 <i class="mdi mdi-chevron-left"></i>
                                             </a>
                                         </td>
@@ -146,9 +146,9 @@
 
                                         </td>
                                         {{--                                        <td>۱۸,۰۴۹,۰۰۰ تومان</td>--}}
-                                        <td>دارد</td>
+                                        <td><img class="img-fluid" src="/img/icon/tick-green.png"></td>
                                         <td class="details-link">
-                                            <a href="#">
+                                            <a href="{{route('select_package', ['id' => $product->id, 'package' => "ultra"])}}">
                                                 <i class="mdi mdi-chevron-left"></i>
                                             </a>
                                         </td>
@@ -168,9 +168,9 @@
 
                                         </td>
                                         {{--                                        <td>۱۸,۰۴۹,۰۰۰ تومان</td>--}}
-                                        <td>دارد</td>
+                                        <td><img class="img-fluid" src="/img/icon/tick-green.png"></td>
                                         <td class="details-link">
-                                            <a href="#">
+                                            <a href="{{route('select_package', ['id' => $product->id, 'package' => "mega"])}}">
                                                 <i class="mdi mdi-chevron-left"></i>
                                             </a>
                                         </td>
@@ -183,7 +183,6 @@
                 </div>
             </div>
             <!-- End Price Lists -->
-
         </div>
     </main>
     <!-- End main-content -->

@@ -59,13 +59,14 @@ class HomeController extends Controller
     public function index()
     {
 //        $popularshop = Store::inRandomOrder()->orderBy('id' , 'desc')->orderBy('like' , 'desc')->limit(12)->get();
-        $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
+        $popularproduct = Product::where('type' , 'table')->orderBy('view' , 'desc')->limit(10)->get();
 //        $randomShop = Store::inRandomOrder()->limit(12)->get();
-        $randomShop = Store::orderBy('id' , 'asc')->limit(7)->get();
+        $randomShop = Store::where('type' , 'table')->orderBy('id' , 'asc')->limit(7)->get();
 //        $lastProduct = Product::orderBy('id' , 'desc')->limit(12)->get();
-        $lastProduct = Product::orderBy('id' , 'asc')->limit(7)->get();
-        $mostVisited = Product::orderBy('view' , 'desc')->limit(10)->get();
-        return view('home' , ['mostVisited' => $mostVisited ,'popularproduct' => $popularproduct , 'randomShop' => $randomShop, 'lastProduct' => $lastProduct]);
+        $lastProduct = Product::where('type' , 'table')->orderBy('id' , 'asc')->limit(7)->get();
+        $mostVisited = Product::where('type' , 'table')->orderBy('view' , 'desc')->limit(10)->get();
+        $apiMostVisited = Product::where('type' , 'api')->orderBy('view' , 'desc')->limit(10)->get();
+        return view('home' , ['mostVisited' => $mostVisited ,'apiMostVisited' => $apiMostVisited ,'popularproduct' => $popularproduct , 'randomShop' => $randomShop, 'lastProduct' => $lastProduct]);
     }
 
     public function Category($name){

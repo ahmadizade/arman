@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/cioce_newface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cioce_newface.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/api_most_visited.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/product/choice.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icon/download.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/icon/download.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/svg/d5d5e1d2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/svg/d5d5e1d2.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/single_api.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/single_api.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/svg/07a0808a.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/svg/07a0808a.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/svg/2222222.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/svg/332b9ff1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/svg/332b9ff1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/svg/50450a73.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/svg/50450a73.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/svg/dbab74ce.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/svg/dbab74ce.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/product/subscribe.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/subscribe.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/storage/" />
     <ignored path="$PROJECT_DIR$/vendor/asm89/stack-cors/" />
@@ -146,8 +148,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
+            <state relative-caret-position="332">
+              <caret line="110" column="111" selection-start-line="110" selection-start-column="97" selection-end-line="110" selection-end-column="111" />
             </state>
           </provider>
         </entry>
@@ -155,35 +157,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="379" column="35" selection-start-line="379" selection-start-column="35" selection-end-line="379" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/product/single_api.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="176" column="54" selection-start-line="176" selection-start-column="54" selection-end-line="176" selection-end-column="54" />
+            <state relative-caret-position="501">
+              <caret line="410" column="268" selection-start-line="410" selection-start-column="250" selection-end-line="410" selection-end-column="268" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/product/subscribe.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/product/choice.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="166" column="90" selection-start-line="166" selection-start-column="90" selection-end-line="166" selection-end-column="90" />
+            <state relative-caret-position="483">
+              <caret line="114" column="97" lean-forward="true" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="97" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/main.css">
+        <entry file="file://$PROJECT_DIR$/resources/views/product/subscribe.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178101">
-              <caret line="8481" selection-start-line="8481" selection-end-line="8481" />
+            <state relative-caret-position="462">
+              <caret line="145" selection-start-line="143" selection-end-line="145" />
+              <folding>
+                <element signature="e#1535#3106#0#HTML" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,10 +188,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>showSessionCart</find>
-      <find>/svg</find>
-      <find>imageEditproductAction</find>
-      <find>./assets</find>
       <find>slider-section mb-5 amazing-section</find>
       <find>item</find>
       <find>پر</find>
@@ -222,12 +214,19 @@
       <find>استفاده از</find>
       <find>100</find>
       <find>/img/svg/0eab59b0.svg</find>
+      <find>نرخ بر اساس تعداد</find>
+      <find>$mostVisited</find>
+      <find>price_1_month</find>
+      <find>custom-control-input</find>
     </findStrings>
     <replaceStrings>
       <replace>سی و سه</replace>
+      <replace>$apiMostVisited</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\cioce_newface</dir>
+      <dir>C:\xampp\htdocs\cioce_newface\app\Http</dir>
+      <dir>C:\xampp\htdocs\cioce_newface\public</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -258,7 +257,6 @@
         <option value="$PROJECT_DIR$/resources/views/admin/views/product_edit.blade.php" />
         <option value="$USER_HOME$/Desktop/cioce new face/New folder (3)/didikala/didikala/index-2.html" />
         <option value="$PROJECT_DIR$/resources/views/vendor/category.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/category.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Product.php" />
         <option value="$PROJECT_DIR$/resources/views/product/single_product.blade.php" />
@@ -267,10 +265,13 @@
         <option value="$PROJECT_DIR$/resources/views/admin/views/product.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
+        <option value="$PROJECT_DIR$/resources/views/product/single_api.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/api_most_visited.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
-        <option value="$PROJECT_DIR$/resources/views/product/single_api.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/product/subscribe.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/product/choice.blade.php" />
       </list>
     </option>
   </component>
@@ -431,8 +432,12 @@
               <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
               <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Providers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
@@ -457,6 +462,54 @@
               <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+              <item name="PHP" type="5114b859:PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+              <item name="PHP" type="5114b859:PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+              <item name="PHP" type="5114b859:PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+              <item name="PHP" type="5114b859:PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+              <item name="PHP" type="5114b859:PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+              <item name="PHP" type="5114b859:PhpExternalLibrariesNodePatcher$PatchedLibraryNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="product" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -478,18 +531,18 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\product" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\app\Models" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\profile" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin\views\blog" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\blog" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\blog" />
       <recent name="C:\xampp\htdocs\cioce_newface\resources\views" />
+      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\profile" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\cioce_newface\resources\views\product" />
+      <recent name="C:\xampp\htdocs\cioce_newface\resources\views\partials" />
+      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\product" />
+      <recent name="C:\xampp\htdocs\cioce_new_face\app\Models" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\profile" />
     </key>
   </component>
@@ -545,7 +598,8 @@
       <workItem from="1624270734045" duration="1390000" />
       <workItem from="1624274808987" duration="5029000" />
       <workItem from="1624350250059" duration="6625000" />
-      <workItem from="1624381958805" duration="7037000" />
+      <workItem from="1624381958805" duration="7161000" />
+      <workItem from="1624464434014" duration="10399000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -694,17 +748,24 @@
       <option name="project" value="LOCAL" />
       <updated>1624272910410</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="subscribe">
+      <created>1624390161571</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1624390161572</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47998000" />
+    <option name="totallyTimeSpent" value="58521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18763326" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -773,7 +834,8 @@
     <MESSAGE value="category Config" />
     <MESSAGE value="blog and seo page config" />
     <MESSAGE value="last" />
-    <option name="LAST_COMMIT_MESSAGE" value="last" />
+    <MESSAGE value="subscribe" />
+    <option name="LAST_COMMIT_MESSAGE" value="subscribe" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Desktop/cioce new face/New folder (3)/didikala/didikala/cart-empty.html">
@@ -920,16 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="39" column="86" selection-start-line="39" selection-start-column="86" selection-end-line="39" selection-end-column="86" />
-          <folding>
-            <element signature="e#40#64#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Product.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="602">
@@ -1035,31 +1087,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
+        <state relative-caret-position="84">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/api_most_visited.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="379" column="35" selection-start-line="379" selection-start-column="35" selection-end-line="379" selection-end-column="35" />
+        <state relative-caret-position="147">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="67" column="21" selection-start-line="67" selection-end-line="68" />
+          <folding>
+            <element signature="e#40#64#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/product/single_api.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
+        <state relative-caret-position="470">
           <caret line="176" column="54" selection-start-line="176" selection-start-column="54" selection-end-line="176" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="110" column="111" selection-start-line="110" selection-start-column="97" selection-end-line="110" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/admin/css/sb-admin-2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="2353" column="16" selection-start-line="2353" selection-start-column="16" selection-end-line="2353" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/product/subscribe.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="166" column="90" selection-start-line="166" selection-start-column="90" selection-end-line="166" selection-end-column="90" />
+        <state relative-caret-position="462">
+          <caret line="145" selection-start-line="143" selection-end-line="145" />
+          <folding>
+            <element signature="e#1535#3106#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="410" column="268" selection-start-line="410" selection-start-column="250" selection-end-line="410" selection-end-column="268" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/product/choice.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="114" column="97" lean-forward="true" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="97" />
         </state>
       </provider>
     </entry>

@@ -379,7 +379,41 @@ class ProfileController extends Controller
 
     public function subscribe($id){
         $product = Product::where('id' ,$id)->where('type', "api")->first();
-        return view('product.subscribe',['product' => $product]);
+        $apiMostVisited = Product::where('type' , 'api')->orderBy('view' , 'desc')->limit(10)->get();
+        return view('product.subscribe',['product' => $product, 'apiMostVisited' => $apiMostVisited]);
+    }
+
+    public function selectPackage(Request $request){
+        $product = Product::where('type', "api")->where('id', $request->id)->first();
+        if ($request->package == "basic"){
+            $price = $product->price;
+            $request_quantity_1_month = $product->free_request;
+            $request_quantity_3_month = 0;
+
+        }elseif ($request->package == "pro"){
+            $price = $product->pro_price;
+            $request_quantity_1_month = $product->pro_request_1_month;
+            $request_quantity_3_month = $product->pro_request_3_month;
+            $three_month_price = $product->pro_price * 3;
+
+        }elseif ($request->package == "ultra"){
+            $price = $product->ultra_price;
+            $request_quantity_1_month = $product->ultra_request_1_month;
+            $request_quantity_3_month = $product->ultra_request_3_month;
+            $three_month_price = $product->ultra_price * 3;
+
+        }elseif ($request->package == "mega"){
+            $price = $product->mega_price;
+            $request_quantity_1_month = $product->mega_request_1_month;
+            $request_quantity_3_month = $product->mega_request_3_month;
+            $three_month_price = $product->mega_price * 3;
+        }
+        return view('product.choice', ['product' => $product, 'package' => $request->package, 'price' => $price, 'request_quantity_1_month' => $request_quantity_1_month, 'request_quantity_3_month' => $request_quantity_3_month, 'three_month_price' => $three_month_price, ]);
+    }
+
+    public function choice(Request $request){
+
+
     }
 
     public function Card(Request $request)
