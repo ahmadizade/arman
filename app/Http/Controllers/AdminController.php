@@ -728,12 +728,12 @@ class AdminController extends Controller
         $thumbnail = null;
         if ($request->has('thumbnail')) {
             $imagePath = "/uploads/thumbnail/";
-            $image = $request->file('thumbnail');
-            $thumbnail = $image->getClientOriginalName();
+            $picture = $request->file('thumbnail');
+            $thumbnail = $picture->getClientOriginalName();
             if (file_exists(public_path($imagePath) . $thumbnail)) {
                 $thumbnail = Carbon::now()->timestamp . $thumbnail;
             }
-            $image->move(public_path($imagePath), $thumbnail);
+            $picture->move(public_path($imagePath), $thumbnail);
         }
 
         Product::where('id' , $request->id)->update([
@@ -746,7 +746,55 @@ class AdminController extends Controller
         return back();
     }
 
+    public function imageEditapiAction(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'user_id' => 'required',
+            'thumbnail' => 'nullable|max:2048',
+            'image' => 'nullable|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        $image = null;
+        if ($request->has('image')) {
+            $imagePath = "/uploads/products/";
+            $file = $request->file('image');
+            $image = $file->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $image)) {
+                $image = Carbon::now()->timestamp . $image;
+            }
+            $file->move(public_path($imagePath), $image);
+        }
+
+
+        $thumbnail = null;
+        if ($request->has('thumbnail')) {
+            $imagePath = "/uploads/thumbnail/";
+            $picture = $request->file('thumbnail');
+            $thumbnail = $picture->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $thumbnail)) {
+                $thumbnail = Carbon::now()->timestamp . $thumbnail;
+            }
+            $picture->move(public_path($imagePath), $thumbnail);
+        }
+
+        Product::where('id' , $request->id)->update([
+            'user_id' => Auth::id(),
+            'thumbnail' => $thumbnail,
+            "image" => $image,
+            'updated_at' => Carbon::now(),
+        ]);
+        session()->flash("status","تصاویر محصول با موفقیت ویرایش گردید");
+        return back();
+    }
+
+
     public function adminFileproductAction(Request $request){
+
         $validator = Validator::make($request->all(), [
             'id' => 'required',
             'user_id' => 'required',
@@ -777,6 +825,7 @@ class AdminController extends Controller
         session()->flash("status","فایل با موفقیت ویرایش گردید");
         return back();
     }
+
     public function newWebservice(Request $request){
         $last_product = Product::where('delete', 0)->where('type', "api")->orderByDesc('id')->paginate(3);
         return view('admin.views.webservice.new_service',['last_product' => $last_product]);
@@ -833,23 +882,23 @@ class AdminController extends Controller
         $thumbnail = null;
         if ($request->has('thumbnail')) {
             $imagePath = "/uploads/thumbnail/";
-            $image = $request->file('thumbnail');
-            $thumbnail = $image->getClientOriginalName();
+            $picture = $request->file('thumbnail');
+            $thumbnail = $picture->getClientOriginalName();
             if (file_exists(public_path($imagePath) . $thumbnail)) {
                 $thumbnail = Carbon::now()->timestamp . $thumbnail;
             }
-            $image->move(public_path($imagePath), $thumbnail);
+            $picture->move(public_path($imagePath), $thumbnail);
         }
 
         $file = null;
         if ($request->has('file')) {
-            $imagePath = "/uploads/file/";
-            $image = $request->file('file');
-            $file = $image->getClientOriginalName();
-            if (file_exists(public_path($imagePath) . $file)) {
+            $filePath = "/uploads/file/";
+            $fileName = $request->file('file');
+            $file = $fileName->getClientOriginalName();
+            if (file_exists(public_path($filePath) . $file)) {
                 $file = Carbon::now()->timestamp . $file;
             }
-            $image->move(public_path($imagePath), $file);
+            $fileName->move(public_path($filePath), $file);
         }
         Product::create([
             'product_name' => $request->name,

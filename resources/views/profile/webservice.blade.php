@@ -22,7 +22,7 @@
                                     </div>
                                     <div class="form-ui additional-info dt-sl dt-sn pt-4">
                                         @include('partials.condition')
-                                        <form action="{{ route("profile_edit_action") }}" method="post">
+                                        <form action="{{ route("add_domain") }}" method="post">
                                             <h2 class="font-13 pb-3"><b class="text-danger">توجه :</b> در این بخش اطلاعت صاحب <b class="text-success">دامنه</b> را وارد کنید</h2>
                                             <div class="row">
                                                 <div class="col-12 col-md-6 col-lg-6 mb-3">
@@ -31,10 +31,10 @@
                                                             <h3>آدرس دامنه</h3>
                                                         </div>
                                                         <div class="form-row">
+                                                            <input readonly type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::id()}}">
                                                             <input name="domain" type="text" class="input-ui text-left dir-ltr p-3"
                                                                    placeholder="Http://">
-                                                            <button type="submit" class="btn btn-success float-left mt-3">بررسی
-                                                                اطلاعات</button>
+                                                            <button type="submit" class="btn btn-success float-left mt-3">ثبت / ویرایش دامنه</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -44,37 +44,12 @@
                                                         <img class="img-fluid w-50" src="/img/extra/Internet-Domain.jpg">
                                                     </div>
                                                 </div>
-{{--                                                <div class="col-12 mb-3">--}}
-{{--                                                    <div class="form-row mt-2">--}}
-{{--                                                        <div class="custom-control custom-checkbox float-right mt-2">--}}
-{{--                                                            <input type="checkbox" class="custom-control-input"--}}
-{{--                                                                   id="customCheck3">--}}
-{{--                                                            <label class="custom-control-label text-justify"--}}
-{{--                                                                   for="customCheck3">--}}
-{{--                                                                تبعه خارجی فاقد کد ملی هستم--}}
-{{--                                                            </label>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="form-row mt-2">--}}
-{{--                                                        <div class="custom-control custom-checkbox float-right mt-2">--}}
-{{--                                                            <input type="checkbox" class="custom-control-input"--}}
-{{--                                                                   id="customCheck4">--}}
-{{--                                                            <label class="custom-control-label text-justify"--}}
-{{--                                                                   for="customCheck4">--}}
-{{--                                                                قبلا از خدمات سی و سه استفاده کرده ام--}}
-{{--                                                            </label>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-
 
 
 

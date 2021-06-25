@@ -45,7 +45,38 @@
     @endif
     <main class="main-content dt-sl mb-3">
         <div class="container main-container">
-            @if ($errors->any())
+            <!-- Start Profile-order-step-Slider -->
+            <div class="col-12">
+                <div class="profile-order-steps carousel-lg owl-carousel owl-theme mt-5">
+                    <div class="item profile-order-steps-item is-active">
+                        <img src="/img/svg/d5d5e1d2.svg">
+                        <span>انتخاب محصول</span>
+                    </div>
+                    <div class="item profile-order-steps-item is-active">
+                        <img src="/img/svg/3db3cdeb.svg">
+                        <span>افرودن به سبد خرید</span>
+                    </div>
+                    <div class="item profile-order-steps-item">
+                        <img src="/img/svg/dbab74ce.svg">
+                        <span>بررسی اطلاعات</span>
+                    </div>
+                    <div class="item profile-order-steps-item">
+                        <img src="/img/svg/50450a73.svg">
+                        <span>ثبت سفارش</span>
+                    </div>
+                    <div class="item profile-order-steps-item">
+                        <img src="/img/svg/0eab59b0.svg">
+                        <span>کنترل پشتیبان</span>
+                    </div>
+                    <div class="item profile-order-steps-item">
+                        <img src="/img/svg/332b9ff1.svg">
+                        <span>تحویل آنلاین</span>
+                    </div>
+                </div>
+            </div>
+            <!-- End Profile-order-step-Slider -->
+
+        @if ($errors->any())
                 <div class="alert alert-danger mb-2">
                     <ul class="mb-0">
                         @foreach ($errors->all() as $error)
@@ -96,9 +127,9 @@
                             <span class="badge">پر فروش</span>
                             <div class="product-carousel owl-carousel">
                                 <div class="item">
-                                    <a class="gallery-item" href="/uploads/thumbnail/{{$product->thumbnail}}"
+                                    <a class="gallery-item" href="/uploads/products/{{$product->image}}"
                                         data-fancybox="gallery1" data-hash="one">
-                                        <img class="img-fluid" src="/uploads/thumbnail/{{$product->thumbnail ?? 'noimage_500.jpg'}}" alt="{{$product->product_name}}" style="width: 350px;">
+                                        <img class="img-fluid" src="/uploads/products/{{$product->image ?? 'noimage_500.jpg'}}" alt="{{$product->product_name}}">
                                     </a>
                                 </div>
 {{--                                <div class="item">--}}

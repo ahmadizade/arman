@@ -9,6 +9,37 @@
     <main class="main-content dt-sl mb-3">
         <div class="container main-container">
             <div class="row">
+                <!-- Start Profile-order-step-Slider -->
+                <div class="col-12">
+                    <div class="profile-order-steps carousel-lg owl-carousel owl-theme mt-5">
+                        <div class="item profile-order-steps-item is-active">
+                            <img src="/img/svg/d5d5e1d2.svg">
+                            <span>انتخاب محصول</span>
+                        </div>
+                        <div class="item profile-order-steps-item is-active">
+                            <img src="/img/svg/3db3cdeb.svg">
+                            <span>افرودن به سبد خرید</span>
+                        </div>
+                        <div class="item profile-order-steps-item is-active">
+                            <img src="/img/svg/dbab74ce.svg">
+                            <span>بررسی اطلاعات</span>
+                        </div>
+                        <div class="item profile-order-steps-item is-active">
+                            <img src="/img/svg/50450a73.svg">
+                            <span>ثبت سفارش</span>
+                        </div>
+                        <div class="item profile-order-steps-item">
+                            <img src="/img/svg/0eab59b0.svg">
+                            <span>کنترل پشتیبان</span>
+                        </div>
+                        <div class="item profile-order-steps-item">
+                            <img src="/img/svg/332b9ff1.svg">
+                            <span>تحویل آنلاین</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Profile-order-step-Slider -->
+
                 <div class="col-12">
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel"

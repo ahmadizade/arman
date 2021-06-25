@@ -110,9 +110,7 @@ Route::prefix("profile")->group(function () {
     Route::get('/subscribe/{id}', 'App\Http\Controllers\ProfileController@subscribe')->name("subscribe");
     Route::get('/select-package', 'App\Http\Controllers\ProfileController@selectPackage')->name("select_package");
     Route::get('/choice/{id}', 'App\Http\Controllers\ProfileController@choice')->name("choice");
-
-
-
+    Route::post('/add-domain', 'App\Http\Controllers\ProfileController@addDomain')->name("add_domain");
     Route::get('/card/{id}', 'App\Http\Controllers\ProfileController@Card')->name("card");
     Route::get('/cart-page', 'App\Http\Controllers\ProfileController@CartPage')->name("cart_page");
     Route::get('/show-session-cart', 'App\Http\Controllers\ProfileController@showSessionCart')->name("show_session_cart");

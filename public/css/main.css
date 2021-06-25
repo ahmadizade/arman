@@ -239,9 +239,9 @@ button:focus {
     color: #fff !important;
 }
 
-.custom-control-label {
-    padding-right: 30px;
-    padding-top: 2px;
+.my-custom-control-label {
+    /*padding-right: 30px;*/
+    /*padding-top: 2px;*/
     cursor: pointer;
 }
 
@@ -2039,8 +2039,10 @@ section.slider-section {
 }
 
 .product-card .product-thumb>img {
+    border-radius: 5px;
     display: block;
-    max-width: 80%;
+    height: 115px;
+    max-width: 90%;
     margin: 0 auto;
 }
 

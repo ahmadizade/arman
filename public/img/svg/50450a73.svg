@@ -1,1 +1,52 @@
-<svg id="a00bfe12-dbb0-49b2-a9c0-e1ac6f64ae9e" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="207.96" height="189.64" viewBox="0 0 207.96 189.64"><defs><style>.bad6e827-fbf7-4779-9d57-1fcd0a323feb{fill:#00bfd6;opacity:0.4;isolation:isolate;}.a0dd1dd3-7c32-4a48-9d1f-26fc71149c99{fill:#fff;}.a0dd1dd3-7c32-4a48-9d1f-26fc71149c99,.a573e0da-164c-451b-be1e-aa3a110bc623,.a76753d8-b48b-4c9f-b197-b5c586a21e05,.bec65c23-c0cd-47c7-9f5d-734ca641fb04,.f3dbb87b-133c-4876-916d-77ad33374e3f{stroke:#000;}.a0dd1dd3-7c32-4a48-9d1f-26fc71149c99,.a573e0da-164c-451b-be1e-aa3a110bc623,.a76753d8-b48b-4c9f-b197-b5c586a21e05,.bec65c23-c0cd-47c7-9f5d-734ca641fb04{stroke-linecap:round;stroke-linejoin:round;}.a573e0da-164c-451b-be1e-aa3a110bc623{fill:#cac8c8;}.bec65c23-c0cd-47c7-9f5d-734ca641fb04{fill:none;}.a76753d8-b48b-4c9f-b197-b5c586a21e05{fill:#f2f2f2;}.f3dbb87b-133c-4876-916d-77ad33374e3f{fill:#ccc;}</style></defs><path class="bad6e827-fbf7-4779-9d57-1fcd0a323feb" d="M168.6,157.43C120.84,203,83.2,200.81,35.43,155.22c-45.59-43.52-48-84-2.42-127.55,47.76-45.59,73.71-25,133.47,3.11C228.36,59.86,214.19,113.91,168.6,157.43Z" transform="translate(-0.01 -0.9)"/><path class="a0dd1dd3-7c32-4a48-9d1f-26fc71149c99" d="M108.21,156l52.88-31V64.4L108.21,33.88" transform="translate(-0.01 -0.9)"/><path class="a573e0da-164c-451b-be1e-aa3a110bc623" d="M108.21,33.88,55.33,64.4v58.68a4.12,4.12,0,0,0,2.06,3.57L108.21,156" transform="translate(-0.01 -0.9)"/><path class="bec65c23-c0cd-47c7-9f5d-734ca641fb04" d="M159.71,65.17l-51.5,29.74L56.71,65.17m51.5,29.76V156m0-63.22v14.44" transform="translate(-0.01 -0.9)"/><path class="a573e0da-164c-451b-be1e-aa3a110bc623" d="M50.53,61.21V74.68l57.68,33.07V81.89Z" transform="translate(-0.01 -0.9)"/><path class="a0dd1dd3-7c32-4a48-9d1f-26fc71149c99" d="M165.89,61.21V74.68l-57.68,33.07V87.38L159,59.91Z" transform="translate(-0.01 -0.9)"/><path class="a76753d8-b48b-4c9f-b197-b5c586a21e05" d="M165.89,60.86,108.21,93.93,50.53,60.86,106.16,29a4.11,4.11,0,0,1,4.1,0Z" transform="translate(-0.01 -0.9)"/><path class="a0dd1dd3-7c32-4a48-9d1f-26fc71149c99" d="M76.46,139.62l39.83,2.55a7.48,7.48,0,0,0,0-15h-.86a59.21,59.21,0,0,1-32.88-10,33.58,33.58,0,0,0-18.63-5.64H47.53l.7,35.78,44,14.73a20.75,20.75,0,0,0,14.52-.5l61.31-25.35A7.22,7.22,0,0,0,172,126.8l-.12-.28a7.21,7.21,0,0,0-9.24-3.67L122.54,139" transform="translate(-0.01 -0.9)"/><rect class="a76753d8-b48b-4c9f-b197-b5c586a21e05" x="34.13" y="106.12" width="14.08" height="44.56" rx="5.53"/><circle class="f3dbb87b-133c-4876-916d-77ad33374e3f" cx="41.44" cy="141.75" r="2.5"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.0" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 274 203.6"
+	 style="enable-background:new 0 0 274 203.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.4;fill:#00BFD6;enable-background:new    ;}
+	.st1{fill:#FFFFFF;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;}
+	.st2{fill:#CAC8C8;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;}
+	.st3{fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;}
+	.st4{fill:#F2F2F2;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;}
+	.st5{fill:#CCCCCC;stroke:#000000;}
+	.st6{fill:none;}
+	.st7{fill:#ADADAD;}
+	.st8{font-family:'MyriadPro-Regular';}
+	.st9{font-size:36px;}
+</style>
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="189.6" width="208" x="0" y="13.1"></sliceSourceBounds>
+	</sfw>
+</metadata>
+<g>
+	<path class="st0" d="M168.6,157.4c-47.8,45.6-85.4,43.4-133.2-2.2c-45.6-43.5-48-84-2.4-127.6c47.8-45.6,73.7-25,133.5,3.1
+		C228.4,59.9,214.2,113.9,168.6,157.4z"/>
+	<path class="st1" d="M108.2,156l52.9-31V64.4l-52.9-30.5"/>
+	<path class="st2" d="M108.2,33.9L55.3,64.4v58.7c0,1.5,0.8,2.8,2.1,3.6l50.8,29.3"/>
+	<path class="st3" d="M159.7,65.2l-51.5,29.7L56.7,65.2 M108.2,94.9V156 M108.2,92.8v14.4"/>
+	<path class="st2" d="M50.5,61.2v13.5l57.7,33.1V81.9L50.5,61.2z"/>
+	<path class="st1" d="M165.9,61.2v13.5l-57.7,33.1V87.4L159,59.9L165.9,61.2z"/>
+	<path class="st4" d="M165.9,60.9l-57.7,33.1L50.5,60.9L106.2,29c1.3-0.7,2.8-0.7,4.1,0L165.9,60.9z"/>
+	<path class="st1" d="M76.5,139.6l39.8,2.6c4.1,0,7.5-3.3,7.5-7.5c0-4.1-3.3-7.5-7.5-7.5c0,0,0,0,0,0h-0.8c-11.7,0-23.1-3.5-32.9-10
+		c-5.5-3.7-12-5.6-18.6-5.6H47.5l0.7,35.8l44,14.7c4.7,1.6,9.9,1.4,14.5-0.5l61.3-25.4c3.7-1.5,5.4-5.7,3.9-9.4
+		c0-0.1-0.1-0.2-0.1-0.3c-1.6-3.5-5.7-5.1-9.2-3.7L122.5,139"/>
+	<path class="st4" d="M39.7,107h3c3.1,0,5.5,2.5,5.5,5.5v33.5c0,3.1-2.5,5.5-5.5,5.5h-3c-3.1,0-5.5-2.5-5.5-5.5v-33.5
+		C34.1,109.5,36.6,107,39.7,107z"/>
+	<circle class="st5" cx="41.5" cy="142.6" r="2.5"/>
+	<rect x="91" y="44.9" class="st6" width="36.9" height="39.1"/>
+	<text transform="matrix(1 0 0 1 91 75)" class="st7 st8 st9">33</text>
+</g>
+</svg>

@@ -89,9 +89,9 @@
                             <span class="badge">پر فروش</span>
                             <div class="product-carousel owl-carousel">
                                 <div class="item">
-                                    <a class="gallery-item" href="/uploads/thumbnail/{{$product->thumbnail}}"
+                                    <a class="gallery-item" href="/uploads/products/{{$product->image}}"
                                         data-fancybox="gallery1" data-hash="one">
-                                        <img class="img-fluid" src="/uploads/thumbnail/{{$product->thumbnail ?? 'noimage_500.jpg'}}" alt="{{$product->product_name}}" style="width: 350px;">
+                                        <img class="img-fluid" src="/uploads/products/{{$product->image ?? 'noimage_500.jpg'}}" alt="{{$product->product_name}}">
                                     </a>
                                 </div>
                             </div>

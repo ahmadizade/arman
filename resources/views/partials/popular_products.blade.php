@@ -32,7 +32,7 @@
                                             </div>
                                         </div>
                                         <a class="product-thumb" href="{{ route("single_product",["slug" => $item->product_slug]) }}">
-                                            <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="{{$item->product_name}}" style="width: 200px;height: 130px;">
+                                            <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="{{$item->product_name}}">
                                         </a>
                                         <div class="product-card-body">
                                             <h5 class="product-title">
@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
                                 <a class="product-thumb" href="{{ route("single_product",["slug" => $item->product_slug]) }}">
-                                    <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="{{$item->product_name}}" style="width: 200px;height: 130px;">
+                                    <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="{{$item->product_name}}">
                                 </a>
                                 <div class="product-card-body">
                                     <h5 class="product-title">

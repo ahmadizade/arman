@@ -40,31 +40,27 @@
                 <div class="profile-order-steps carousel-lg owl-carousel owl-theme mt-5">
                     <div class="item profile-order-steps-item is-active">
                         <img src="/img/svg/d5d5e1d2.svg">
-                        <span>تایید سفارش</span>
+                        <span>انتخاب محصول</span>
                     </div>
                     <div class="item profile-order-steps-item is-active">
-                        <img src="/img/svg/0eab59b0.svg">
-                        <span>لغو شده</span>
+                        <img src="/img/svg/3db3cdeb.svg">
+                        <span>افرودن به سبد خرید</span>
+                    </div>
+                    <div class="item profile-order-steps-item is-active">
+                        <img src="/img/svg/dbab74ce.svg">
+                        <span>بررسی اطلاعات</span>
+                    </div>
+                    <div class="item profile-order-steps-item is-active">
+                        <img src="/img/svg/50450a73.svg">
+                        <span>ثبت سفارش</span>
                     </div>
                     <div class="item profile-order-steps-item">
-                        <img src="/img/svg/3db3cdeb.svg">
-                        <span>آماده‌سازی سفارش</span>
+                        <img src="/img/svg/0eab59b0.svg">
+                        <span>کنترل پشتیبان</span>
                     </div>
                     <div class="item profile-order-steps-item">
                         <img src="/img/svg/332b9ff1.svg">
-                        <span>خروج از مرکز پردازش</span>
-                    </div>
-                    <div class="item profile-order-steps-item">
-                        <img src="/img/svg/07a0808a.svg">
-                        <span>تحویل به پست</span>
-                    </div>
-                    <div class="item profile-order-steps-item">
-                        <img src="/img/svg/dbab74ce.svg">
-                        <span>مرکز مبادلات پست</span>
-                    </div>
-                    <div class="item profile-order-steps-item">
-                        <img src="/img/svg/50450a73.svg">
-                        <span>تحویل به مشتری</span>
+                        <span>تحویل آنلاین</span>
                     </div>
                 </div>
             </div>

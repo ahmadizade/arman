@@ -389,6 +389,7 @@ class ProfileController extends Controller
             $price = $product->price;
             $request_quantity_1_month = $product->free_request;
             $request_quantity_3_month = 0;
+            $three_month_price = 0;
 
         }elseif ($request->package == "pro"){
             $price = $product->pro_price;
@@ -413,7 +414,25 @@ class ProfileController extends Controller
 
     public function choice(Request $request){
 
+    }
 
+
+    public function addDomain(Request $request){
+        $validator = Validator::make($request->all() ,[
+            'user_id' => "required",
+            'domain' => ['required', 'string'],
+        ]);
+        if ($validator->fails()){
+            Session::flash('error', $validator->errors()->first());
+            return back();
+        }
+
+        User::where('id' , $request->user_id)->update([
+            'domain' => $request->domain,
+            'updated_at' => Carbon::now(),
+        ]);
+        Session::flash('status', "دامنه با موفقیت ثبت شد" );
+        return back();
     }
 
     public function Card(Request $request)
