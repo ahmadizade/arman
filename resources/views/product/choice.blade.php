@@ -219,7 +219,7 @@
                                             <div class="form-row">
                                                 <input readonly type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::id()}}">
                                                 <input name="domain" type="text" class="input-ui text-left dir-ltr p-3"
-                                                       placeholder="Http://">
+                                                       placeholder="www.cioce.ir">
                                                 <button type="submit" class="btn btn-success float-left mt-3">ثبت / ویرایش دامنه</button>
                                             </div>
                                         </div>

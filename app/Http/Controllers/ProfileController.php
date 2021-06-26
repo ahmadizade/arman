@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accounting;
 use App\Models\Bookmark;
 use App\Models\CartTransfer;
 use App\Models\Category;
@@ -902,11 +903,19 @@ class ProfileController extends Controller
     public function myWebService()
         {
 
-            $api = Product::where("user_id", Auth::id())->where('type', "api")->get();
+            $api = Accounting::where("user_id", Auth::id())->where('delete' , 0)->get();
 
             return view("profile.webservice", ["api" => $api, "user" => Auth::user(), "menu" => "webservice"]);
 
         }
+
+    public function deleteMyWebService(Request $request){
+        Accounting::where('id', $request->id)->where('user_id', Auth::id())->update([
+            'delete' => 1,
+            'deleted_at' => Carbon::now(),
+        ]);
+        return Response::json(['status' => 1, 'desc' => "حذف سرویس با موفقیت انجام شد"]);
+    }
 
 
     public function BookmarkDelete(Request $request)
