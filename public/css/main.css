@@ -2075,7 +2075,8 @@ section.slider-section {
 .product-card .product-title>a {
     -webkit-transition: color .3s;
     transition: color .3s;
-    color: #f7858d;
+    color: #f7858d !important;
+    font-size: 13px;
     text-decoration: none;
     display: block;
     font-weight: bold;

@@ -9343,3 +9343,12 @@ ew_service.blade.php) at C:\\xampp\\htdocs\\cioce_new_face\esources\\views/admi
 #47 C:\\xampp\\htdocs\\cioce_newface\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #48 {main}
 "} 
+[2021-06-25 23:12:17] local.ERROR: Command "sreve" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"sreve\" is not defined. at C:\\xampp\\htdocs\\cioce_newface\\vendor\\symfony\\console\\Application.php:682)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\cioce_newface\\vendor\\symfony\\console\\Application.php(255): Symfony\\Component\\Console\\Application->find('sreve')
+#1 C:\\xampp\\htdocs\\cioce_newface\\vendor\\symfony\\console\\Application.php(167): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\xampp\\htdocs\\cioce_newface\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(92): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\xampp\\htdocs\\cioce_newface\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\xampp\\htdocs\\cioce_newface\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 

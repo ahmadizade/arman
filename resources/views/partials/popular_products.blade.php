@@ -36,7 +36,7 @@
                                         </a>
                                         <div class="product-card-body">
                                             <h5 class="product-title">
-                                                <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="text-truncate" style="font-size: 13px">{{$item->product_name}}</a>
+                                                <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="text-truncate">{{$item->product_name}}</a>
                                             </h5>
                                             <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">دسته بندی : {{$item->category->name}}</a>
                                             <span class="product-price">
@@ -62,6 +62,10 @@
             </div>
         </section>
     </div>
+
+
+
+
     <div class="col-xl-2 col-lg-3 hidden-lg pr-0">
         <div class="widget-suggestion dt-sn pt-3" style="min-height: 444px">
             <div class="widget-suggestion-title">

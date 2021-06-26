@@ -70,9 +70,9 @@ class HomeController extends Controller
         if(isset($Category->id)) {
             $products = Product::where('category_id', $Category->id)->orderBy('id', 'desc')->get();
             $mostViewproducts = Product::where('category_id', $Category->id)->orderBy('view', 'desc')->get();
-            $popularproduct = Product::orderBy('view', 'desc')->limit(10)->get();
-            $lastProduct = Product::orderBy('id', 'asc')->limit(7)->get();
-            $mostVisited = Product::orderBy('view', 'desc')->limit(10)->get();
+            $popularproduct = Product::where('category_id' , $Category->id)->orderBy('view', 'desc')->limit(10)->get();
+            $lastProduct = Product::where('category_id' , $Category->id)->orderBy('id', 'asc')->limit(7)->get();
+            $mostVisited = Product::where('category_id' , $Category->id)->orderBy('view', 'desc')->limit(10)->get();
             return view('category', ['Category' => $Category, 'products' => $products, 'mostViewproducts' => $mostViewproducts, 'popularproduct' => $popularproduct, 'lastProduct' => $lastProduct, 'mostVisited' => $mostVisited]);
         }
         return abort(404);
