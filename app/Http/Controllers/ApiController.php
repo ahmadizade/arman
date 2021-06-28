@@ -19,8 +19,12 @@ class ApiController extends Controller
         if(isset($tokenExists->id)){
 
             // baraye tamdide api test
-            if(Carbon::parse($tokenExists->expire_date)->diff(Carbon::now())->d == 0){
-                $extension = Carbon::parse($tokenExists->expire_date)->addDays(30);
+            if($tokenExists->payment_type == "free") {
+                if (Carbon::today()->floatDiffInDays(Carbon::parse($tokenExists->expire_date), false) < 0) {
+                    $tokenExists->expire_date = Carbon::parse(Carbon::now())->addDays(30);
+                    $tokenExists->count = 100;
+                    $tokenExists->save();
+                }
             }
 
             if($tokenExists->count > 0){
@@ -32,11 +36,11 @@ class ApiController extends Controller
                     return MelliCodeController::index($query);
                 }
 
-                return response()->json(["status" => false , "result" => null , "description" => "وب سرویس درخواستی یافت نشد"]);
+                return response()->json(["status" => 1 , "result" => null , "description" => "وب سرویس درخواستی یافت نشد"]);
             }
-            return response()->json(["status" => false , "result" => null , "description" => "اعتبار شما کافی نیست"]);
+            return response()->json(["status" => 2 , "result" => null , "description" => "اعتبار شما کافی نیست"]);
         }
-        return response()->json(["status" => false , "result" => null , "description" => "توکن وارد شده غیر مجاز می باشد"]);
+        return response()->json(["status" => 3 , "result" => null , "description" => "توکن وارد شده غیر مجاز می باشد"]);
 
     }
 
