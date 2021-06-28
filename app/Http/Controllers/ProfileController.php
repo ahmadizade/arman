@@ -45,11 +45,12 @@ class ProfileController extends Controller
         if (Auth::check()) {
             $store = Store::where('user_id', Auth::id())->first();
             $bookmark = Bookmark::where('user_id', Auth::id())->get();
+            $orders = Orders::where('user_id', Auth::id())->limit(3)->get();
             if (isEmpty($store) && $store == "") {
-                return view("profile.index", ["user" => Auth::user(), "menu" => "index", "bookmark" => $bookmark]);
+                return view("profile.index", ["user" => Auth::user(), "menu" => "index", "bookmark" => $bookmark, "orders" => $orders]);
             } else {
                 $like = Like::where('store_id', $store->id)->count();
-                return view("profile.index", ["user" => Auth::user(), "like" => $like, "store" => $store, "menu" => "index", "bookmark" => $bookmark]);
+                return view("profile.index", ["user" => Auth::user(), "like" => $like, "store" => $store, "menu" => "index", "bookmark" => $bookmark, "orders" => $orders]);
             }
         } else {
             return redirect()->to(route('home'));
