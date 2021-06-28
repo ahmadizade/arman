@@ -108,7 +108,7 @@
                                 <div class="dt-sl mb-0">
                                     <p>
                                         <span>دسته بندی : </span>
-                                        <span><a href="{{route('category', $product->category->name)}}">{{$product->category->name ?? "سی و سه"}}</a></span>
+                                        <span><a href="{{route('category', $product->category->slug)}}">{{$product->category->name ?? "سی و سه"}}</a></span>
                                     </p>
                                 </div>
                             </div>

@@ -65,8 +65,8 @@ class HomeController extends Controller
         return view('home' , ['mostVisited' => $mostVisited ,'apiMostVisited' => $apiMostVisited ,'popularproduct' => $popularproduct , 'lastProduct' => $lastProduct]);
     }
 
-    public function Category($name){
-        $Category = Category::where('slug' , $name)->first();
+    public function Category($slug){
+        $Category = Category::where('slug' , $slug)->first();
         if(isset($Category->id)) {
             $products = Product::where('category_id', $Category->id)->orderBy('id', 'desc')->get();
             $mostViewproducts = Product::where('category_id', $Category->id)->orderBy('view', 'desc')->get();

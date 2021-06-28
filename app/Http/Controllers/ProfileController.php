@@ -9,6 +9,8 @@ use App\Models\Category;
 use App\Models\Category_variety;
 use App\Models\Comment;
 use App\Models\Like;
+use App\Models\OrderProducts;
+use App\Models\Orders;
 use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Profile;
@@ -1038,6 +1040,17 @@ class ProfileController extends Controller
         $user = User::where('id', Auth::id())->first();
         $payments = Payment::orderBy('created_at', 'desc')->where('user_id', Auth::id())->paginate(2);
         return view('profile.credit', ["user" => $user, "payments" => $payments, "menu" => "credit"]);
+    }
+
+    public function orders(){
+        $orders = Orders::where('user_id', Auth::id())->get();
+        return view('profile.orders',['user' => Auth::user(),'orders' => $orders, 'menu' => "orders"]);
+    }
+
+    public function orderDetails($order_id){
+        $order = Orders::where('id', $order_id)->first();
+        $products = OrderProducts::where('order_id', $order_id)->where('user_id', Auth::id())->get();
+        return view('profile.order_details',['products' => $products, 'user' => Auth::id(), 'menu' => null, 'order' => $order]);
     }
 
     public function CreditAction(Request $request)

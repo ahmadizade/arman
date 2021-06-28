@@ -71,9 +71,9 @@
                                                 <p class="cart-empty-title">چرا وب سرویس نداری!</p>
                                                 <p>بابا این همه وب سرویس اینجا داریم، برو خودت ببین!</p>
                                                 <div class="cart-empty-links mb-5">
-                                                    <a href="#" class="border-bottom-dt">وب سرویس های رایگان</a>
-                                                    <a href="#" class="border-bottom-dt">پربازدیدترین ها</a>
-                                                    <a href="#" class="border-bottom-dt">محصولات پرفروش روز</a>
+                                                    <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های رایگان</a>
+                                                    <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">پربازدیدترین ها</a>
+                                                    <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های پرفروش</a>
                                                 </div>
                                                 <a href="{{route('home')}}" class="btn-primary-cm">بازگشت به صفحه اصلی</a>
                                             </div>
@@ -151,7 +151,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
-                    <button data-id="" type="button" id="delete_confirm" class="btn btn-success" data-dismiss="modal">
+                    <button data-id="" type="button" id="delete_confirm" class="btn btn-success mr-2" data-dismiss="modal">
                         پاک کن
                     </button>
                 </div>

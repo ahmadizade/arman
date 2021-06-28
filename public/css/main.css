@@ -8497,4 +8497,12 @@ footer.mini-footer .copy-right-mini-footer {
     border-radius: 5px 5px 0 0 !important;
 }
 
+.notpaid {
+    color: #ff4a4d !important;
+}
+
+.paid {
+    color: #2bb714 !important;
+}
+
 /*Hamidreza Code*/
