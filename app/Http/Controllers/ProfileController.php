@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -416,7 +417,92 @@ class ProfileController extends Controller
         return view('product.choice', ['product' => $product, 'package' => $request->package, 'price' => $price, 'request_quantity_1_month' => $request_quantity_1_month, 'request_quantity_3_month' => $request_quantity_3_month, 'three_month_price' => $three_month_price, ]);
     }
 
-    public function choice(Request $request){
+    public function choice(Request $request,$id,$type){
+
+        $checkProduct = Product::where("id",$id)->first();
+
+        if(isset($id) && isset($type) && isset($request->month) && isset($checkProduct->id)){
+
+            if($type == "basic" || $type == "pro" || $type == "ultra" || $type == "mega") {
+
+                $checkAcc = Accounting::where("api_id", $id)->where("user_id", Auth::id())->first();
+
+                if ($request->month == "0") {
+
+                    if (isset($checkAcc)) {
+
+                        // todo ahmadi
+                        return "شما قبل از این وب سرویس استفاده کردید . جهت تست و یا خرید به بخش پروفایل کاربری برید";
+
+                    } else {
+
+                        Accounting::create([
+                            "user_id" => Auth::id(),
+                            "api_id" => $id,
+                            "token" => Str::random(32),
+                            "domain" => "",
+                            "meli_code" => "",
+                            "payment_type" => "free",
+                            "paid_type" => "",
+                            "count" => $checkProduct->free_request,
+                            "start_date" => Carbon::now(),
+                            "expire_date" => Carbon::now()->addDays(30),
+                            "bank_token" => "",
+                        ]);
+
+                        return Redirect::route("my_webservice");
+
+                    }
+
+                }
+
+                if ($request->month == "1" || $request->month == "3") {
+
+                    if (isset($checkAcc)) {
+
+                        Accounting::where("api_id", $id)->where("user_id", Auth::id())->update([
+                            "bank_token" => Str::random(32),
+                        ]);
+
+                    }else{
+
+                        Accounting::create([
+                            "user_id" => Auth::id(),
+                            "api_id" => $id,
+                            "token" => Str::random(32),
+                            "domain" => "",
+                            "meli_code" => "",
+                            "payment_type" => "free",
+                            "paid_type" => "",
+                            "count" => $checkProduct->free_request,
+                            "start_date" => Carbon::now(),
+                            "expire_date" => Carbon::now()->addDays(30),
+                            "bank_token" => Str::random(32),
+                        ]);
+
+                    }
+
+                    if($type == "pro"){
+                        $amount = $checkProduct->pro_price;
+                    }
+                    if($type == "ultra"){
+                        $amount = $checkProduct->ultra_price;
+                    }
+                    if($type == "mega"){
+                        $amount = $checkProduct->mega_price;
+                    }
+                    if ($request->month == "3") {
+                        $amount = $amount * 3;
+                    }
+
+                    PaymentController::payment($amount);
+
+                }
+
+            }
+        }
+
+        return back();
 
     }
 
