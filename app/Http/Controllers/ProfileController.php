@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accounting;
 use App\Models\Bookmark;
 use App\Models\CartTransfer;
 use App\Models\Category;
 use App\Models\Category_variety;
 use App\Models\Comment;
 use App\Models\Like;
+use App\Models\OrderProducts;
+use App\Models\Orders;
 use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Profile;
@@ -42,11 +45,12 @@ class ProfileController extends Controller
         if (Auth::check()) {
             $store = Store::where('user_id', Auth::id())->first();
             $bookmark = Bookmark::where('user_id', Auth::id())->get();
+            $orders = Orders::where('user_id', Auth::id())->limit(3)->get();
             if (isEmpty($store) && $store == "") {
-                return view("profile.index", ["user" => Auth::user(), "menu" => "index", "bookmark" => $bookmark]);
+                return view("profile.index", ["user" => Auth::user(), "menu" => "index", "bookmark" => $bookmark, "orders" => $orders]);
             } else {
                 $like = Like::where('store_id', $store->id)->count();
-                return view("profile.index", ["user" => Auth::user(), "like" => $like, "store" => $store, "menu" => "index", "bookmark" => $bookmark]);
+                return view("profile.index", ["user" => Auth::user(), "like" => $like, "store" => $store, "menu" => "index", "bookmark" => $bookmark, "orders" => $orders]);
             }
         } else {
             return redirect()->to(route('home'));
@@ -902,11 +906,19 @@ class ProfileController extends Controller
     public function myWebService()
         {
 
-            $api = Product::where("user_id", Auth::id())->where('type', "api")->get();
+            $api = Accounting::where("user_id", Auth::id())->where('delete' , 0)->get();
 
             return view("profile.webservice", ["api" => $api, "user" => Auth::user(), "menu" => "webservice"]);
 
         }
+
+    public function deleteMyWebService(Request $request){
+        Accounting::where('id', $request->id)->where('user_id', Auth::id())->update([
+            'delete' => 1,
+            'deleted_at' => Carbon::now(),
+        ]);
+        return Response::json(['status' => 1, 'desc' => "حذف سرویس با موفقیت انجام شد"]);
+    }
 
 
     public function BookmarkDelete(Request $request)
@@ -1029,6 +1041,17 @@ class ProfileController extends Controller
         $user = User::where('id', Auth::id())->first();
         $payments = Payment::orderBy('created_at', 'desc')->where('user_id', Auth::id())->paginate(2);
         return view('profile.credit', ["user" => $user, "payments" => $payments, "menu" => "credit"]);
+    }
+
+    public function orders(){
+        $orders = Orders::where('user_id', Auth::id())->get();
+        return view('profile.orders',['user' => Auth::user(),'orders' => $orders, 'menu' => "orders"]);
+    }
+
+    public function orderDetails($order_id){
+        $order = Orders::where('id', $order_id)->first();
+        $products = OrderProducts::where('order_id', $order_id)->where('user_id', Auth::id())->get();
+        return view('profile.order_details',['products' => $products, 'user' => Auth::id(), 'menu' => null, 'order' => $order]);
     }
 
     public function CreditAction(Request $request)

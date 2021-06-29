@@ -11,4 +11,10 @@ class Accounting extends Model
     protected $table = "accounting";
     protected $guarded = [];
     public $timestamps = false;
+
+    public function webservice()
+    {
+        return $this->belongsTo("App\Models\Product", "api_id", "id");
+    }
+
 }

@@ -12,7 +12,7 @@
     @if(\Illuminate\Support\Str::length($Category->seo_canonical) > 1)
         <link rel="canonical" href="{{ $Category->seo_canonical }}">
     @else
-        <link rel="canonical" href="{{ route("category" , ["name" => $Category->slug]) }}">
+        <link rel="canonical" href="{{ route("category" , ["slug" => $Category->slug]) }}">
     @endif
     @if(\Illuminate\Support\Str::length($Category->seo_title) > 1)
         <meta property="og:title" content="{{ $Category->seo_title }} - سی و سه">

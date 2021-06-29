@@ -66,8 +66,8 @@
             </a>
         </li>
         <li>
-            <a href="#">
-                <i class="mdi mdi-basket @if($menu == "order") active @endif"></i>
+            <a href="{{route('orders')}}">
+                <i class="mdi mdi-basket @if($menu == "orders") active @endif"></i>
                 سفارشات من
             </a>
         </li>

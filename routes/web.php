@@ -10,7 +10,7 @@ Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactActio
 Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("about_Us");
 Route::get('/seo', 'App\Http\Controllers\HomeController@seo')->name("seo");
 Route::get('/policy', 'App\Http\Controllers\HomeController@policy')->name("policy");
-Route::get('/category/{name}', 'App\Http\Controllers\HomeController@Category')->name("category");
+Route::get('/category/{slug}', 'App\Http\Controllers\HomeController@Category')->name("category");
 
 Route::get('/cache', function (){
     \Illuminate\Support\Facades\Artisan::call('cache:clear');
@@ -138,6 +138,7 @@ Route::prefix("profile")->group(function () {
     Route::post('/store-category-action', 'App\Http\Controllers\ProfileController@StoreCategoryAction')->name("store_category_action");
     Route::get('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("profile_bookmark");
     Route::get('/my-webservice', 'App\Http\Controllers\ProfileController@myWebService')->name("my_webservice");
+    Route::post('/delete-my-webservice', 'App\Http\Controllers\ProfileController@deleteMyWebService')->name("delete_my_webservice");
     Route::post('/bookmark-delete', 'App\Http\Controllers\ProfileController@BookmarkDelete')->name("profile_bookmark_delete")->middleware("ajax", "verify.domain");
     Route::get('/email-verify-action', 'App\Http\Controllers\ProfileController@EmailVerifyAction')->name('email_verify_action');
     Route::get('/qrcode', 'App\Http\Controllers\ProfileController@Qrcode')->name("profile_qrcode");
@@ -145,6 +146,8 @@ Route::prefix("profile")->group(function () {
     Route::post('/qrcode-action-mobile', 'App\Http\Controllers\ProfileController@QrcodeActionMobile')->name("profile_qrcode_action_mobile");
     Route::get('/credit', 'App\Http\Controllers\ProfileController@ProfileCredit')->name("profile_credit");
     Route::post('/credit-action', 'App\Http\Controllers\ProfileController@CreditAction')->name("profile_credit_action");
+    Route::get('/orders', 'App\Http\Controllers\ProfileController@orders')->name("orders");
+    Route::get('/order-details/{order_id}', 'App\Http\Controllers\ProfileController@orderDetails')->name("order_details");
 });
 
 
