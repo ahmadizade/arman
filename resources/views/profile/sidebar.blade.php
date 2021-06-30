@@ -71,36 +71,36 @@
                 سفارشات من
             </a>
         </li>
-        <li>
-            <a href="{{ route("profile_store") }}">
-                <i class="mdi mdi-backburger @if($menu == "store") active @endif"></i>
-                فروشگاه من
-            </a>
-        </li>
+{{--        <li>--}}
+{{--            <a href="{{ route("profile_store") }}">--}}
+{{--                <i class="mdi mdi-backburger @if($menu == "store") active @endif"></i>--}}
+{{--                فروشگاه من--}}
+{{--            </a>--}}
+{{--        </li>--}}
         <li>
             <a href="{{ route("profile_bookmark") }}">
                 <i class="mdi mdi-heart-outline @if($menu == "bookmark") active @endif"></i>
                 نشان شده ها
             </a>
         </li>
-        <li>
-            <a href="{{ route("profile_products") }}">
-                <i class="mdi mdi-glasses @if($menu == "products") active @endif"></i>
-                محصولات من
-            </a>
-        </li>
+{{--        <li>--}}
+{{--            <a href="{{ route("profile_products") }}">--}}
+{{--                <i class="mdi mdi-glasses @if($menu == "products") active @endif"></i>--}}
+{{--                محصولات من--}}
+{{--            </a>--}}
+{{--        </li>--}}
         <li>
             <a href="#">
                 <i class="mdi mdi-sign-direction"></i>
                 آدرس ها
             </a>
         </li>
-        <li>
-            <a href="{{ route("profile_add_product") }}">
-                <i class="mdi mdi-eye-outline @if($menu == "add_product") active @endif"></i>
-                افزودن محصول
-            </a>
-        </li>
+{{--        <li>--}}
+{{--            <a href="{{ route("profile_add_product") }}">--}}
+{{--                <i class="mdi mdi-eye-outline @if($menu == "add_product") active @endif"></i>--}}
+{{--                افزودن محصول--}}
+{{--            </a>--}}
+{{--        </li>--}}
     </ul>
     </div>
     </div>

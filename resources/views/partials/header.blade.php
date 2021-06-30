@@ -264,6 +264,9 @@
                     <li class="list-item">
                         <a class="nav-link" href="{{route('contact')}}">تماس با ما</a>
                     </li>
+                    <li class="list-item">
+                        <a class="nav-link" href="{{route('mag')}}">سیو مجله</a>
+                    </li>
                 </ul>
                 <div class="nav">
                     <div class="nav-item cart--wrapper">

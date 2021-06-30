@@ -46,13 +46,13 @@ class ApiController extends Controller
                     return MelliCodeController::index($query);
                 }
 
-                return response()->json(["status" => 1 , "result" => null , "description" => "وب سرویس درخواستی یافت نشد"]);
+                return response()->json(["status" => 200 , "result" => null , "description" => "وب سرویس درخواستی یافت نشد"]);
             }
 
-            return response()->json(["status" => 2 , "result" => null , "description" => "اعتبار شما کافی نیست"]);
+            return response()->json(["status" => 200 , "result" => null , "description" => "اعتبار شما کافی نیست"]);
         }
 
-        return response()->json(["status" => 3 , "result" => null , "description" => "توکن وارد شده غیر مجاز می باشد"]);
+        return response()->json(["status" => 200 , "result" => null , "description" => "توکن وارد شده غیر مجاز می باشد"]);
 
     }
 

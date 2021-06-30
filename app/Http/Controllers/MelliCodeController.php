@@ -39,14 +39,14 @@ class MelliCodeController extends Controller
                             }
                         }
                     }
-                    return response()->json(["status" => true , "result" => $result , "description" => "کد ملی معتبر میباشد"]);
+                    return response()->json(["status" => 200 , "result" => $result , "description" => "کد ملی معتبر میباشد"]);
                 }else{
                     $result['valid'] = false;
                     $result["city"] = "";
-                    return response()->json(["status" => true , "result" => $result , "description" => "کد ملی نامعتبر میباشد"]);
+                    return response()->json(["status" => 200 , "result" => $result , "description" => "کد ملی نامعتبر میباشد"]);
                 }
             }else{
-                return response()->json(["status" => false , "result" => null , "description" => "کد ملی باید 10 رقم باشد"]);
+                return response()->json(["status" => 200 , "result" => null , "description" => "کد ملی باید 10 رقم باشد"]);
             }
 
         }
