@@ -109,7 +109,7 @@ Route::prefix("profile")->group(function () {
     Route::get('/single-api/{slug}', 'App\Http\Controllers\ProfileController@SingleApi')->name("single_api");
     Route::get('/subscribe/{id}', 'App\Http\Controllers\ProfileController@subscribe')->name("subscribe");
     Route::get('/select-package', 'App\Http\Controllers\ProfileController@selectPackage')->name("select_package");
-    Route::get('/choice/{id}', 'App\Http\Controllers\ProfileController@choice')->name("choice");
+    Route::get('/choice/{id}/{type}', 'App\Http\Controllers\ProfileController@choice')->name("choice");
     Route::post('/add-domain', 'App\Http\Controllers\ProfileController@addDomain')->name("add_domain");
     Route::get('/card/{id}', 'App\Http\Controllers\ProfileController@Card')->name("card");
     Route::get('/cart-page', 'App\Http\Controllers\ProfileController@CartPage')->name("cart_page");
@@ -166,8 +166,8 @@ Route::prefix("shop")->group(function () {
 Route::get('/download/{filename}', 'App\Http\Controllers\HomeController@download')->name("download");
 
 //bank
-Route::post('/incoming-gold', 'App\Http\Controllers\PaymentController@BackBankGold')->name("back_bank");
-Route::post('/incoming-credit', 'App\Http\Controllers\PaymentController@CreditBack')->name("credit_back");
+Route::get("/payment", "PaymentController@payment")->middleware(["auth"])->name("payment");
+Route::any("/verify", "PaymentController@verify")->middleware("auth")->name("verify");
 
 
 //BLOG

@@ -77,7 +77,8 @@
                         </div>
                         <div class="dt-sl">
                             <div class="table-responsive">
-                                <table class="table table-order">
+                                <form id="process" action="{{ route("choice",["id" => $product->id,"type" => $package]) }}" method="get">
+                                    <table class="table table-order">
                                     <thead>
                                     <tr>
                                         <th>#</th>
@@ -101,7 +102,8 @@
                                         <td>{{$product->free_request}} عدد در ماه</td>
                                         <td>
                                             @if($package == "basic")
-                                            <p class="m-0 pt-1 text-muted">رایگان</p>
+                                                <p class="m-0 pt-1 text-muted">رایگان</p>
+                                                <input type="radio" id="customRadio" name="month" value="0" class="custom-control-input" checked>
                                             @else
                                                 <p class="m-0 pt-1 text-muted">{{number_format($price)}} تومان</p>
                                                 <div class="custom-control custom-radio">
@@ -129,13 +131,14 @@
                                             @endif
                                         </td>
                                         <td class="details-link">
-                                            <a href="#">
+                                            <a href="#" onclick="document.getElementById('process').submit()">
                                                 <i class="mdi mdi-chevron-left"></i>
                                             </a>
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
+                                </form>
                             </div>
                         </div>
                     </div>
