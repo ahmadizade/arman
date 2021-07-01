@@ -985,7 +985,7 @@ class ProfileController extends Controller
 
         $bookmark = Bookmark::where("user_id", Auth::id())->get();
 
-        return view("profile.bookmark", ["bookmark" => $bookmark, "menu" => "bookmark"]);
+        return view("profile.bookmark", ["bookmark" => $bookmark, "user" => Auth::user(), "menu" => "bookmark"]);
 
     }
 

@@ -14,6 +14,8 @@
     <!-- Plugins -->
     <link rel="stylesheet" href="/css/vendor/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/vendor/jquery.horizontalmenu.css">
+    <!-- FAV Icon -->
+    <link rel="icon" href="/img/icon/dayere_100.png" type="image/x-icon"/>
     <!-- Font Icon -->
     <link rel="stylesheet" href="/css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="/css/vendor/materialdesignicons.min.css">
@@ -59,6 +61,40 @@
                     e.preventDefault();
                     $.ajax({
                         url : '{{route('bookmark')}}',
+                        type : 'POST',
+                        data : {'product_id' : $(this).attr("data-id")},
+                        success : function (data){
+                            if(data.status == "0") {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    toast: true,
+                                    icon: 'error',
+                                    text: data.desc,
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+                            }
+                            if(data.status == "1") {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    toast: true,
+                                    icon: 'success',
+                                    text: data.desc,
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+        <script>
+            $( document ).ready(function() {
+                $('body').on('click','.like_btn i',function (e){
+                    e.preventDefault();
+                    $.ajax({
+                        url : '{{route('like')}}',
                         type : 'POST',
                         data : {'product_id' : $(this).attr("data-id")},
                         success : function (data){

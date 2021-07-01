@@ -1,10 +1,9 @@
 <!-- Start header -->
 <header class="main-header">
     <!-- Start ads -->
-    <div class="ads-header-wrapper">
-        <a href="{{route('home')}}" class="ads-header hidden-sm" target="_blank"
-           style="background-image: url(/img/banner/large-ads.jpg)"></a>
-    </div>
+{{--    <div class="ads-header-wrapper">--}}
+{{--        <a href="{{route('home')}}" class="ads-header hidden-sm" target="_blank" style="background-image: url(/img/banner/large-ads.jpg)"></a>--}}
+{{--    </div>--}}
     <!-- End ads -->
     <!-- Start topbar -->
     <div class="container main-container">
@@ -48,7 +47,7 @@
                     <ul class="nav float-left">
                         @if(!Auth::check())
                             <li class="nav-item account dropdown">
-                                <a class="nav-link" href="{{route('register')}}">
+                                <a class="nav-link" href="{{route('login')}}">
                                     <span class="label-dropdown">حساب کاربری</span>
                                     <i class="mdi mdi-account-circle-outline"></i>
                                 </a>

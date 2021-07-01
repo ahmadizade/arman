@@ -85,7 +85,7 @@
                             <div class="form-footer mt-3">
                                 <div>
                                     <a href="{{route('change_password')}}" class="mr-3 mt-2 text-black-50">فراموشی رمزعبور</a>
-                                    <a href="#" class="mr-3 mt-2">ثبت نام در CioCe</a>
+                                    <a href="{{route('register')}}" class="mr-3 mt-2">ثبت نام در CioCe</a>
                                 </div>
                             </div>
                         </div>

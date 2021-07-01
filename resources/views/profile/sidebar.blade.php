@@ -54,20 +54,20 @@
             </a>
         </li>
         <li>
-            <a href="{{ route("profile_edit") }}">
-                <i class="mdi mdi-account-edit-outline @if($menu == "profile") active @endif"></i>
+            <a href="{{ route("profile_edit") }}" class="@if($menu == "profile") active @endif">
+                <i class="mdi mdi-account-edit-outline"></i>
                 تنظیمات کاربری
             </a>
         </li>
         <li>
-            <a href="{{route('my_webservice')}}">
-                <i class="mdi mdi-basket @if($menu == "webservice") active @endif"></i>
+            <a href="{{route('my_webservice')}}" class="@if($menu == "webservice") active @endif">
+                <i class="mdi mdi-basket"></i>
                 وب سرویس ها
             </a>
         </li>
         <li>
-            <a href="{{route('orders')}}">
-                <i class="mdi mdi-basket @if($menu == "orders") active @endif"></i>
+            <a href="{{route('orders')}}" class="@if($menu == "orders") active @endif">
+                <i class="mdi mdi-basket"></i>
                 سفارشات من
             </a>
         </li>
@@ -78,8 +78,8 @@
 {{--            </a>--}}
 {{--        </li>--}}
         <li>
-            <a href="{{ route("profile_bookmark") }}">
-                <i class="mdi mdi-heart-outline @if($menu == "bookmark") active @endif"></i>
+            <a href="{{ route("profile_bookmark") }}" class="@if($menu == "bookmark") active @endif">
+                <i class="mdi mdi-heart-outline"></i>
                 نشان شده ها
             </a>
         </li>
@@ -89,12 +89,12 @@
 {{--                محصولات من--}}
 {{--            </a>--}}
 {{--        </li>--}}
-        <li>
-            <a href="#">
-                <i class="mdi mdi-sign-direction"></i>
-                آدرس ها
-            </a>
-        </li>
+{{--        <li>--}}
+{{--            <a href="#">--}}
+{{--                <i class="mdi mdi-sign-direction"></i>--}}
+{{--                آدرس ها--}}
+{{--            </a>--}}
+{{--        </li>--}}
 {{--        <li>--}}
 {{--            <a href="{{ route("profile_add_product") }}">--}}
 {{--                <i class="mdi mdi-eye-outline @if($menu == "add_product") active @endif"></i>--}}

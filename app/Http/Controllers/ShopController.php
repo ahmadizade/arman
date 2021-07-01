@@ -131,10 +131,9 @@ class ShopController extends Controller
 
     public function Bookmark(Request $request)
     {
-
         if (isset($request->product_id) && Auth::check()) {
 
-            $checkBookmark = Bookmark::where("product_id", $request->product_id)->where("user_id", Auth::id())->first();
+            $checkBookmark = Bookmark::where("product_id", $request->product_id)->first();
 
             if (!isset($checkBookmark->id)) {
                 Bookmark::create([
@@ -144,39 +143,39 @@ class ShopController extends Controller
                     "created_at" => Carbon::now()
                 ]);
             } else {
-                return Response::json(["status" => "0", "desc" => "این فروشگاه قبلا به لیست علاقه مندی های شما اضافه شده است"]);
+                return Response::json(["status" => "0", "desc" => "قبلا به لیست علاقه مندی های شما اضافه شده است"]);
             }
 
-            return Response::json(["status" => "1", "desc" => "این فروشگاه به لیست علاقه مندی های شما اضافه شد"]);
+            return Response::json(["status" => "1", "desc" => "به لیست علاقه مندی های شما اضافه شد"]);
 
         }
 
-        return Response::json(["status" => "0", "desc" => "برای اضافه کردن علاقه مندی ها , ابتدا باید در سایت عضو شوید"]);
+        return Response::json(["status" => "0", "desc" => "ابتدا باید در سایت عضو شوید"]);
 
     }
 
     public function Like(Request $request)
     {
 
-        if (isset($request->store) && Auth::check()) {
+        if (isset($request->product_id) && Auth::check()) {
 
-            $checkBookmark = Like::where("store_id", $request->store)->where("user_id", Auth::id())->first();
+            $checkBookmark = Like::where("product_id", $request->product_id)->first();
 
             if (!isset($checkBookmark->id)) {
                 Like::create([
-                    "store_id" => $request->store,
+                    "product_id" => $request->product_id,
                     "user_id" => Auth::id(),
                     "created_at" => Carbon::now()
                 ]);
             } else {
-                return Response::json(["status" => "2", "desc" => "شما قبلا این فروشگاه را پسندیده اید"]);
+                return Response::json(["status" => "0", "desc" => "شما قبلا این محصول را پسند کرده اید"]);
             }
 
-            return Response::json(["status" => "1", "desc" => "با تشکر از نظر مثبت شما به این فروشگاه"]);
+            return Response::json(["status" => "1", "desc" => "با تشکر از نظر مثبت شما به این محصول"]);
 
         }
 
-        return Response::json(["status" => "0", "desc" => "برای پسندیدن این فروشگاه , ابتدا باید در سایت عضو شوید"]);
+        return Response::json(["status" => "0", "desc" => "ابتدا باید در سایت عضو شوید"]);
 
 
     }
