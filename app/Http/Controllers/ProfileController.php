@@ -984,8 +984,8 @@ class ProfileController extends Controller
     {
 
         $bookmark = Bookmark::where("user_id", Auth::id())->get();
-
-        return view("profile.bookmark", ["bookmark" => $bookmark, "user" => Auth::user(), "menu" => "bookmark"]);
+        $like = Like::where("user_id", Auth::id())->get();
+        return view("profile.bookmark", ["bookmark" => $bookmark, "like" => $like, "user" => Auth::user(), "menu" => "bookmark"]);
 
     }
 
@@ -1009,17 +1009,20 @@ class ProfileController extends Controller
 
     public function BookmarkDelete(Request $request)
     {
-
         if (isset($request->id)) {
-
             Bookmark::where("user_id", Auth::id())->where("id", $request->id)->delete();
-
-            return response()->json(['status' => "1", "desc" => "فروشگاه مورد نظر با موفقیت از لیست شما حذف شد"]);
-
+            return response()->json(['status' => "1", "desc" => "محصول با موفقیت از لیست حذف گردید"]);
         }
+        return response()->json(['status' => "0", "desc" => "مشکلی پیش آمده است، لطفا دوباره تلاش کنید"]);
+    }
 
-        return response()->json(['status' => "0", "desc" => "مشکلی پیش آمده است لطفا دوباره تلاش کنید"]);
-
+    public function likeDelete(Request $request)
+    {
+        if (isset($request->id)) {
+            Like::where("user_id", Auth::id())->where("id", $request->id)->delete();
+            return response()->json(['status' => "1", "desc" => "محصول با موفقیت از لیست حذف گردید"]);
+        }
+        return response()->json(['status' => "0", "desc" => "مشکلی پیش آمده است، لطفا دوباره تلاش کنید"]);
     }
 
     public function Qrcode()

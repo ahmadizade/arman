@@ -12,4 +12,7 @@ class Like extends Model
     protected $guarded = [];
     public $timestamps = false;
 
+    public function product(){
+        return $this->hasOne('App\Models\product',"id","product_id");
+    }
 }

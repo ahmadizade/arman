@@ -12,9 +12,6 @@ class Bookmark extends Model
     protected $guarded = [];
     public $timestamps = false;
 
-    public function store(){
-        return $this->hasOne('App\Models\Store',"id","store_id");
-    }
     public function product(){
         return $this->hasOne('App\Models\product',"id","product_id");
     }

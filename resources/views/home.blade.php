@@ -150,7 +150,7 @@
                     <div class="col-sm-6 col-12 mb-2">
                         <div class="widget-banner">
                             <a href="{{route('home')}}">
-                                <img src="/img/banner/medium-banner-1.png" alt="">
+                                <img src="/img/banner/medium-banner-1.jpg" alt="">
                             </a>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                     <div class="col-12">
                         <div class="widget-banner">
                             <a href="{{route('home')}}">
-                                <img src="/img/banner/large-banner.png" alt="">
+                                <img src="/img/banner/large-banner.jpg" alt="">
                             </a>
                         </div>
                     </div>
