@@ -1,7 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Api\AbjadController;
+use App\Http\Controllers\Api\MelliCodeController;
+use App\Http\Controllers\Api\BmiController;
+use App\Http\Controllers\Controller;
 use App\Models\Accounting;
 use App\Models\Blog;
 use App\Models\Product;
@@ -14,7 +18,7 @@ use Illuminate\Support\Facades\DB;
 class ApiController extends Controller
 {
 
-    public function index($name,$token,$query) {
+    public function index(Request $request,$name,$token,$query) {
 
         $tokenExists = Accounting::where("token",$token)->first();
 
@@ -42,8 +46,16 @@ class ApiController extends Controller
                 $tokenExists->decrement("count");
                 $tokenExists->save();
 
-                if($name == "melli-cart"){
+                if($name == "melli-cart" && $tokenExists->api_id == 140){
                     return MelliCodeController::index($query);
+                }
+
+                if($name == "abjad" && $tokenExists->api_id == 141){
+                    return AbjadController::index($query);
+                }
+
+                if($name == "bmi" && $tokenExists->api_id == 142){
+                    return BmiController::index($request,$query);
                 }
 
                 return response()->json(["status" => 200 , "result" => null , "description" => "وب سرویس درخواستی یافت نشد"]);

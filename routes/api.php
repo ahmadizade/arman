@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('{name}/{token}/{query}', 'App\Http\Controllers\ApiController@index')->name("api_index");
+Route::get('{name}/{token}/{query}', 'App\Http\Controllers\Api\ApiController@index')->name("api_index");
 
 
 
@@ -29,10 +29,5 @@ Route::prefix("weather")->group(function () {
     //*** We Give To people ***\\
     Route::get('/open-weather/{q}', 'App\Http\Controllers\WeatherApiController@openWeather')->name("open_weather");
 
-});
-
-
-Route::prefix("melli-cart")->group(function () {
-    Route::get('/{q}', 'App\Http\Controllers\MelliCodeController@index')->name("melli_cart");
 });
 
