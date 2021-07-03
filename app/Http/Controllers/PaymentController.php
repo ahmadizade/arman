@@ -125,6 +125,12 @@ class PaymentController extends Controller
 
                         $checkAcc = DB::table("accounting")->where("user_id",Auth::id())->where("bank_token",$ref)->first();
 
+                        if($checkAcc->payment_type == "free"){
+                            DB::table("accounting")->where("user_id",Auth::id())->where("id",$checkAcc->id)->update([
+                                "count" => 0
+                            ]);
+                        }
+
                         $checkProduct = DB::table("products")->where("id",$checkAcc->api_id)->first();
 
                         if($checkAcc->month == 1){
@@ -150,32 +156,31 @@ class PaymentController extends Controller
                             }
                         }
 
-
                         DB::table("accounting")->where("user_id",Auth::id())->where("bank_token",$ref)->update([
                             "start_date" => Carbon::now(),
                             "expire_date" => Carbon::parse(Carbon::now())->addDays($checkAcc->month),
                             "payment_type" => "PAID",
-                            "count" => $count,
+                            "count" => $checkAcc->count + $count,
                         ]);
 
                         return Redirect::route("my_webservice");
 
                     }else{
 
-                        return Redirect::route("index");
+                        return Redirect::route("home");
 
                     }
                 }
 
-                return Redirect::route("index");
+                return Redirect::route("home");
 
             }
 
-            return Redirect::route("index");
+            return Redirect::route("home");
 
         }
 
-        return Redirect::route("index");
+        return Redirect::route("home");
 
     }
 
