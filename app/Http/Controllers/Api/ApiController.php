@@ -32,7 +32,7 @@ class ApiController extends Controller
             }
 
             // baraye tamdide api test
-            if($tokenExists->payment_type == "free") {
+            if($tokenExists->payment_type == "FREE") {
                 if (Carbon::today()->floatDiffInDays(Carbon::parse($tokenExists->expire_date), false) < 0) {
                     $product = Product::where("id",$tokenExists->api_id)->first();
                     $tokenExists->expire_date = Carbon::parse(Carbon::now())->addDays(30);

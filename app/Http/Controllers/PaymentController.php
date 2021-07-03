@@ -18,10 +18,10 @@ use SoapClient;
 class PaymentController extends Controller
 {
 
-    public static function payment($amount)
+    public static function payment($id,$type,$month,$amount)
     {
 
-        $data = array("merchant_id" => "365d4e5d-d4b4-4a47-89a4-9843791b0cfd",
+        $data = array("merchant_id" => "0f7a260d-4bb5-4400-b3d2-a6d49156b2aa",
             "amount" => $amount * 10,
             "callback_url" => route("verify"),
             "description" => Str::random(6),
@@ -46,39 +46,32 @@ class PaymentController extends Controller
         $result = json_decode($result, true, JSON_PRETTY_PRINT);
         curl_close($ch);
 
-
         if ($err) {
             return back();
         } else {
             if (empty($result['errors'])) {
+
                 if ($result['data']['code'] == 100 && $result['data']['message'] == "Success") {
 
-                    DB::table("orders")->where("user_id",Auth::id())->where("id",$check->id)->update(["ref_number_bank" => $result['data']['authority']]);
+                    DB::table("accounting")->where("id",$id)->update([
+                        "bank_token" => $result['data']['authority'],
+                    ]);
 
-                    $checkPayment = DB::table("payment")->where("user_id",Auth::id())->where("order_id",$check->id)->exists();
-                    if($checkPayment){
-                        DB::table("payment")->where("order_id",$check->id)->update([
-                            "user_id" => Auth::id(),
-                            "final_price" => $check->last_price,
-                            "status" => "PENDING",
-                            "date" => \Illuminate\Support\Carbon::now(),
-                            "ref_number_bank" => $result['data']['authority'],
-                            "type" => "ONLINE-PAYMENT",
-                        ]);
-                    }else{
-                        DB::table("payment")->insert([
-                            "user_id" => Auth::id(),
-                            "order_id" => $check->id,
-                            "final_price" => $check->last_price,
-                            "status" => "PENDING",
-                            "date" => Carbon::now(),
-                            "ref_number_bank" => $result['data']['authority'],
-                            "type" => "ONLINE-PAYMENT",
-                        ]);
-                    }
+                    DB::table("payment")->insert([
+                        "user_id" => Auth::id(),
+                        "final_price" => $amount,
+                        "status" => "PENDING",
+                        "date" => \Illuminate\Support\Carbon::now(),
+                        "ref_number_bank" => $result['data']['authority'],
+                        "type" => "ONLINE-PAYMENT",
+                    ]);
+
                     return Redirect::to("https://www.zarinpal.com/pg/StartPay/" . $result['data']['authority']);
+
                 }
+
             }
+
             return back();
         }
 
@@ -99,7 +92,7 @@ class PaymentController extends Controller
 
             if(isset($checkPayment->id) && $checkPayment->status == "PENDING"){
                 $Authority = $ref;
-                $data = array("merchant_id" => "365d4e5d-d4b4-4a47-89a4-9843791b0cfd", "authority" => $Authority, "amount" => $checkPayment->final_price * 10);
+                $data = array("merchant_id" => "0f7a260d-4bb5-4400-b3d2-a6d49156b2aa", "authority" => $Authority, "amount" => $checkPayment->final_price * 10);
                 $jsonData = json_encode($data);
                 $ch = curl_init('https://api.zarinpal.com/pg/v4/payment/verify.json');
                 curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v4');
@@ -130,25 +123,51 @@ class PaymentController extends Controller
                                 "json_result" => json_encode($result),
                             ]);
 
-                        DB::table("orders")->where("user_id",Auth::id())->where("ref_number_bank",$ref)->update([
-                            "status_payment" => "PAYED",
+                        $checkAcc = DB::table("accounting")->where("user_id",Auth::id())->where("bank_token",$ref)->first();
+
+                        $checkProduct = DB::table("products")->where("id",$checkAcc->api_id)->first();
+
+                        if($checkAcc->month == 1){
+                            if($checkAcc->paid_type == "pro"){
+                                $count = $checkProduct->pro_request_1_month;
+                            }
+                            if($checkAcc->paid_type == "ultra"){
+                                $count = $checkProduct->ultra_request_1_month;
+                            }
+                            if($checkAcc->paid_type == "mega"){
+                                $count = $checkProduct->mega_request_1_month;
+                            }
+                        }
+                        if($checkAcc->month == 3){
+                            if($checkAcc->paid_type == "pro"){
+                                $count = $checkProduct->pro_request_3_month;
+                            }
+                            if($checkAcc->paid_type == "ultra"){
+                                $count = $checkProduct->ultra_request_3_month;
+                            }
+                            if($checkAcc->paid_type == "mega"){
+                                $count = $checkProduct->mega_request_3_month;
+                            }
+                        }
+
+
+                        DB::table("accounting")->where("user_id",Auth::id())->where("bank_token",$ref)->update([
+                            "start_date" => Carbon::now(),
+                            "expire_date" => Carbon::parse(Carbon::now())->addDays($checkAcc->month),
+                            "payment_type" => "PAID",
+                            "count" => $count,
                         ]);
 
-                        self::log(Auth::id(), "پرداخت بانکی", "پرداخت جدیدی با شماره رهگیری ".$ref." انجام شد","payment_online_payment");
-
-                        Session::forget("shipping");
-                        Session::forget("product");
-
-                        return view("payment_confirm",["ref" => $result['data']['ref_id'] , "id" => $checkPayment->order_id]);
+                        return Redirect::route("my_webservice");
 
                     }else{
 
-                        return view("payment_not_confirm");
+                        return Redirect::route("index");
 
                     }
                 }
 
-                return view("payment_not_confirm");
+                return Redirect::route("index");
 
             }
 

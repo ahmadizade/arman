@@ -163,12 +163,14 @@ Route::prefix("shop")->group(function () {
     Route::get('/product/{id}', 'App\Http\Controllers\ShopController@ProductSingle')->name("shop_product_single");
 });
 
+
 //Download File
 Route::get('/download/{filename}', 'App\Http\Controllers\HomeController@download')->name("download");
 
+
 //bank
-Route::get("/payment", "PaymentController@payment")->middleware(["auth"])->name("payment");
-Route::any("/verify", "PaymentController@verify")->middleware("auth")->name("verify");
+Route::get("/payment", "App\Http\Controllers\PaymentController@payment")->middleware(["auth"])->name("payment");
+Route::any("/verify", "App\Http\Controllers\PaymentController@verify")->middleware("auth")->name("verify");
 
 
 //BLOG
@@ -181,6 +183,7 @@ Route::post('/new-single-mag-comment', 'App\Http\Controllers\BlogController@newS
 Route::get('/edit-mag-page/{post_id}', 'App\Http\Controllers\BlogController@editMagPage')->name("edit_mag_page");
 Route::post('/edit-image-mag-action', 'App\Http\Controllers\BlogController@editImageMagAction')->name("edit_image_mag_action");
 Route::get('/delete-mag-action/{post_id}', 'App\Http\Controllers\BlogController@deleteMagAction')->name("delete_mag_action");
+
 
 //Weather API From Yahoo
 Route::get('/mag', 'App\Http\Controllers\BlogController@mag')->name("mag");
