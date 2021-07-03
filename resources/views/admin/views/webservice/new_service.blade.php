@@ -308,8 +308,22 @@
 
                                                 <div class="col-12">
                                                     <div class="my-3">
-                                                        <label for="price" class="form-label ">قیمت</label>
-                                                        <input type="text" name="price" class="form-control" placeholder="مثلا : 2,245,000">
+                                                        <label for="pro_price" class="form-label ">pro_price</label>
+                                                        <input type="text" name="pro_price" class="form-control" placeholder="مثلا : 2,245,000">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="ultra_price" class="form-label ">ultra_price</label>
+                                                        <input type="text" name="ultra_price" class="form-control" placeholder="مثلا : 2,245,000">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="mega_price" class="form-label ">mega_price</label>
+                                                        <input type="text" name="mega_price" class="form-control" placeholder="مثلا : 2,245,000">
                                                     </div>
                                                 </div>
 
@@ -342,12 +356,59 @@
                                                         <input type="text" name="framework_version" class="form-control" placeholder="مثلا : 8.4">
                                                     </div>
                                                 </div>
+
                                                 <div class="col-12 col-md-3 col-lg-3">
                                                     <div class="my-3">
                                                         <label for="free_request" class="form-label ">Free Request</label>
                                                         <input type="text" name="free_request" class="form-control" placeholder="مثلا : 100">
                                                     </div>
                                                 </div>
+
+                                                <div class="col-12 col-md-3 col-lg-3">
+                                                    <div class="my-3">
+                                                        <label for="pro_request_1_month" class="form-label ">Pro_request_1_month</label>
+                                                        <input type="text" name="pro_request_1_month" class="form-control" placeholder="مثلا : 100">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-3 col-lg-3">
+                                                    <div class="my-3">
+                                                        <label for="ultra_request_1_month" class="form-label ">Ultra_request_1_month</label>
+                                                        <input type="text" name="ultra_request_1_month" class="form-control" placeholder="مثلا : 100">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-3 col-lg-3">
+                                                    <div class="my-3">
+                                                        <label for="mega_request_1_month" class="form-label ">Mega_request_1_month</label>
+                                                        <input type="text" name="mega_request_1_month" class="form-control" placeholder="مثلا : 100">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-12 col-md-3 col-lg-3">
+                                                    <div class="my-3">
+                                                        <label for="pro_request_3_month" class="form-label ">pro_request_3_month</label>
+                                                        <input type="text" name="pro_request_3_month" class="form-control" placeholder="مثلا : 100">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-12 col-md-3 col-lg-3">
+                                                    <div class="my-3">
+                                                        <label for="ultra_request_3_month" class="form-label ">ultra_request_3_month</label>
+                                                        <input type="text" name="ultra_request_3_month" class="form-control" placeholder="مثلا : 100">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-12 col-md-3 col-lg-3">
+                                                    <div class="my-3">
+                                                        <label for="mega_request_3_month" class="form-label ">mega_request_3_month</label>
+                                                        <input type="text" name="mega_request_3_month" class="form-control" placeholder="مثلا : 100">
+                                                    </div>
+                                                </div>
+
 
                                                 <div class="col-12">
                                                     <div class="my-3">

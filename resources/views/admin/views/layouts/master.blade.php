@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
     <!-- Custom styles for this template-->
     <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    <link href="/admin/css/fonts.css" rel="stylesheet" type="text/css">
 
     @yield("extra_css")
     @yield("title")

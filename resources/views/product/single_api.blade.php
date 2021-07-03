@@ -106,9 +106,21 @@
                             </div>
                             <div class="product-variant dt-sl">
                                 <div class="dt-sl mb-0">
-                                    <p>
+                                    <p class="font-13 mb-0">
                                         <span>دسته بندی : </span>
-                                        <span><a href="{{route('category', $product->category->slug)}}">{{$product->category->name ?? "سی و سه"}}</a></span>
+                                        <span><a href="{{route('category',["slug" => $product->product_slug])}}">{{$product->category->name ?? "سی و سه"}}</a></span>
+                                    </p>
+                                    <p>
+                                        <span class="font-13 mb-0">برجسب : </span>
+                                        <span>
+                                            @foreach (json_decode($product->tag_id) as $item)
+                                                @foreach ($product_tag as $tag)
+                                                    @if ($item == $tag->id)
+                                                        <span><a class="mx-1 font-12" href="{{route('tag',["slug" => $product->product_slug])}}">{{$tag->name ?? "سی و سه"}}</a></span>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
+                                        </span>
                                     </p>
                                 </div>
                             </div>

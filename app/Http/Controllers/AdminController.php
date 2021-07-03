@@ -447,6 +447,16 @@ class AdminController extends Controller
         return back();
     }
 
+    public function addCategoryPage(){
+        $last_category = Category::orderByDesc('id')->where('delete', 0)->paginate();
+        return view('admin.views.category.category', ['last_category' => $last_category]);
+    }
+
+    public function addTagPage(){
+        $last_tag = Product_tag::orderByDesc('id')->where('delete', 0)->paginate();
+        return view('admin.views.tag.tag', ['last_tag' => $last_tag]);
+    }
+
     public function addCategory(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:2|max:255',
@@ -489,6 +499,48 @@ class AdminController extends Controller
         return back();
     }
 
+    public function addTagg(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2|max:255',
+            'seo_title' => 'nullable|max:65',
+            'seo_description' => 'nullable',
+            'seo_canonical' => 'nullable',
+            'english_name' => 'required|min:2|max:255',
+            'discription' => 'nullable|min:2|max:9000000',
+            'image' => 'required|max:9048',
+        ]);
+
+        if ($validator->fails()) {
+            session()->flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        $image = null;
+        if ($request->has('image')) {
+            $imagePath = "/uploads/tag/";
+            $file = $request->file('image');
+            $image = $file->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $image)) {
+                $image = Carbon::now()->timestamp . $image;
+            }
+            $file->move(public_path($imagePath), $image);
+        }
+
+        Product_tag::create([
+            "name" => $request->name,
+            "slug" => self::slug($request->name),
+            "seo_title" => $request->seo_title,
+            "seo_description" => $request->seo_description,
+            "seo_canonical" => $request->seo_canonical,
+            "english_name" => $request->english_name,
+            "discription" => $request->discription,
+            "image" => $image,
+        ]);
+
+        session()->flash("error","برچسب با موفقیت ثبت شد");
+        return back();
+    }
+
     public function addCategoryVariety(Request $request){
         $validator = Validator::make($request->all() ,[
             'category' => 'required|min:1',
@@ -507,10 +559,12 @@ class AdminController extends Controller
         Session::flash('status',"افزودن با موفقیت انجام شد");
         return back();
     }
+
     public function getVariety(Request $request){
         $variety = Category_variety::where('category_id', $request->category_id)->get();
         return $variety;
     }
+
     public function addProduct(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:2|max:255',
@@ -631,6 +685,95 @@ class AdminController extends Controller
         return view('admin.views.product_edit', ['product' => $product]);
     }
 
+    public function deleteCategory($id){
+        Category::where('id' , $id)->update([
+            'delete' => 1,
+            'deleted_at' => Carbon::now(),
+        ]);
+        Session::flash('status' , 'حذف دسته بندی با موفقیت انجام شد');
+        return back();
+    }
+
+    public function deleteTag($id){
+        Product_tag::where('id' , $id)->update([
+            'delete' => 1,
+            'deleted_at' => Carbon::now(),
+        ]);
+        Session::flash('status' , 'حذف برچسب با موفقیت انجام شد');
+        return back();
+    }
+
+    public function editCategory($id){
+        $slcategory = Category::where('id' , $id)->first();
+        return view('admin.views.category.edit_category', ['slcategory' => $slcategory]);
+    }
+
+    public function editTag($id){
+        $sltag = Product_tag::where('id' , $id)->first();
+        return view('admin.views.tag.edit_tag', ['sltag' => $sltag]);
+    }
+
+    public function editCategoryAction(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'user_id' => 'nullable',
+            'name' => 'required|min:2|max:255',
+            'english_name' => 'required|min:2|max:255',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_canonical' => 'nullable',
+            'description' => 'nullable|max:999999',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        Category::where('id' , $request->id)->update([
+            'name' => $request->name,
+            'english_name' => $request->english_name,
+            'slug' => self::slug($request->name),
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'description' => $request->description,
+            'seo_canonical' => $request->seo_canonical,
+        ]);
+        session()->flash("status","دسته بندی با موفقیت ویرایش گردید");
+        return back();
+    }
+
+    public function editTagAction(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'user_id' => 'nullable',
+            'name' => 'required|min:2|max:255',
+            'english_name' => 'required|min:2|max:255',
+            'seo_title' => 'nullable',
+            'seo_description' => 'nullable',
+            'seo_canonical' => 'nullable',
+            'discription' => 'nullable|max:999999',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        Product_tag::where('id' , $request->id)->update([
+            'name' => $request->name,
+            'user_id' => Auth::id(),
+            'english_name' => $request->english_name,
+            'slug' => self::slug($request->name),
+            'seo_title' => $request->seo_title,
+            'seo_description' => $request->seo_description,
+            'discription' => $request->description,
+            'seo_canonical' => $request->seo_canonical,
+        ]);
+        session()->flash("status","برچسب با موفقیت ویرایش گردید");
+        return back();
+    }
+
     public function adminEditproductAction(Request $request){
             $validator = Validator::make($request->all(), [
                 'id' => 'nullable',
@@ -746,6 +889,66 @@ class AdminController extends Controller
         return back();
     }
 
+    public function imageEditcategoryAction(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'user_id' => 'required',
+            'image' => 'nullable|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        $image = null;
+        if ($request->has('image')) {
+            $imagePath = "/uploads/category/";
+            $file = $request->file('image');
+            $image = $file->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $image)) {
+                $image = Carbon::now()->timestamp . $image;
+            }
+            $file->move(public_path($imagePath), $image);
+        }
+
+        Category::where('id' , $request->id)->update([
+            "image" => $image,
+        ]);
+        session()->flash("status","تصاویر دسته بندی با موفقیت ویرایش گردید");
+        return back();
+    }
+
+    public function imageEdittagAction(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'user_id' => 'required',
+            'image' => 'nullable|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        $image = null;
+        if ($request->has('image')) {
+            $imagePath = "/uploads/tag/";
+            $file = $request->file('image');
+            $image = $file->getClientOriginalName();
+            if (file_exists(public_path($imagePath) . $image)) {
+                $image = Carbon::now()->timestamp . $image;
+            }
+            $file->move(public_path($imagePath), $image);
+        }
+
+        Product_tag::where('id' , $request->id)->update([
+            "image" => $image,
+        ]);
+        session()->flash("status","تصاویر دسته بندی با موفقیت ویرایش گردید");
+        return back();
+    }
+
     public function imageEditapiAction(Request $request){
         $validator = Validator::make($request->all(), [
             'id' => 'required',
@@ -791,7 +994,6 @@ class AdminController extends Controller
         session()->flash("status","تصاویر محصول با موفقیت ویرایش گردید");
         return back();
     }
-
 
     public function adminFileproductAction(Request $request){
 
@@ -842,8 +1044,17 @@ class AdminController extends Controller
             'category_variety' => 'required',
             'tag' => 'nullable',
             'price' => 'nullable|max:255',
+            'pro_price' => 'nullable|max:255',
+            'ultra_price' => 'nullable|max:255',
+            'mega_price' => 'nullable|max:255',
             'type' => 'nullable|max:255',
             'free_request' => 'nullable|max:255',
+            'pro_request_1_month' => 'nullable|max:255',
+            'ultra_request_1_month' => 'nullable|max:255',
+            'mega_request_1_month' => 'nullable|max:255',
+            'pro_request_3_month' => 'nullable|max:255',
+            'ultra_request_3_month' => 'nullable|max:255',
+            'mega_request_3_month' => 'nullable|max:255',
             'discount' => 'nullable|max:3',
             'thumbnail' => 'nullable|max:2048',
             'image' => 'nullable|max:2048',

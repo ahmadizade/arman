@@ -13,6 +13,7 @@ use App\Models\OrderProducts;
 use App\Models\Orders;
 use App\Models\Payment;
 use App\Models\Product;
+use App\Models\Product_tag;
 use App\Models\Profile;
 use App\Models\Setting;
 use App\Models\Statement;

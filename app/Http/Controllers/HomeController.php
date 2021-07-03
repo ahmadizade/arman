@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Product;
+use App\Models\Product_tag;
 use App\Models\Store;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -74,6 +75,19 @@ class HomeController extends Controller
             $lastProduct = Product::where('category_id' , $Category->id)->orderBy('id', 'asc')->limit(7)->get();
             $mostVisited = Product::where('category_id' , $Category->id)->orderBy('view', 'desc')->limit(10)->get();
             return view('category', ['Category' => $Category, 'products' => $products, 'mostViewproducts' => $mostViewproducts, 'popularproduct' => $popularproduct, 'lastProduct' => $lastProduct, 'mostVisited' => $mostVisited]);
+        }
+        return abort(404);
+    }
+
+        public function Tag($slug){
+        $tag = Product_tag::where('slug' , $slug)->first();
+        if(isset($tag->id)) {
+            $products = Product::where('tag_id', $tag->id)->orderBy('id', 'desc')->get();
+            $mostViewproducts = Product::where('tag_id', $tag->id)->orderBy('view', 'desc')->get();
+            $popularproduct = Product::where('tag_id' , $tag->id)->orderBy('view', 'desc')->limit(10)->get();
+            $lastProduct = Product::where('tag_id' , $tag->id)->orderBy('id', 'asc')->limit(7)->get();
+            $mostVisited = Product::where('tag_id' , $tag->id)->orderBy('view', 'desc')->limit(10)->get();
+            return view('tag', ['tag' => $tag, 'products' => $products, 'mostViewproducts' => $mostViewproducts, 'popularproduct' => $popularproduct, 'lastProduct' => $lastProduct, 'mostVisited' => $mostVisited]);
         }
         return abort(404);
     }

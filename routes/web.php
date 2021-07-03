@@ -11,6 +11,7 @@ Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("ab
 Route::get('/seo', 'App\Http\Controllers\HomeController@seo')->name("seo");
 Route::get('/policy', 'App\Http\Controllers\HomeController@policy')->name("policy");
 Route::get('/category/{slug}', 'App\Http\Controllers\HomeController@Category')->name("category");
+Route::get('/tag/{slug}', 'App\Http\Controllers\HomeController@tag')->name("tag");
 
 Route::get('/cache', function (){
     \Illuminate\Support\Facades\Artisan::call('cache:clear');
@@ -64,13 +65,24 @@ Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::post('/product/product-show-action', 'App\Http\Controllers\AdminController@ProductShowAction')->name("product_show_action")->middleware("ajax", "verify.domain");
     Route::post('/product/add-product', 'App\Http\Controllers\AdminController@addProduct')->name("add_product");
     Route::post('/product/get-variety', 'App\Http\Controllers\AdminController@getVariety')->name("get_variety");
-    Route::post('/product/add-teg', 'App\Http\Controllers\AdminController@addTag')->name("add_tag");
+    Route::post('/product/add-tag', 'App\Http\Controllers\AdminController@addTag')->name("add_tag");
+    Route::get('/product/add-category-page', 'App\Http\Controllers\AdminController@addCategoryPage')->name("add_category_page");
+    Route::get('/product/add-tag-page', 'App\Http\Controllers\AdminController@addTagPage')->name("add_tag_page");
     Route::post('/product/add-category', 'App\Http\Controllers\AdminController@addCategory')->name("add_category");
+    Route::post('/product/add-tag', 'App\Http\Controllers\AdminController@addTagg')->name("add_tag");
     Route::post('/product/add-category-variety', 'App\Http\Controllers\AdminController@addCategoryVariety')->name("add_category_variety");
+    Route::get('/product/delete-category/{id}', 'App\Http\Controllers\AdminController@deleteCategory')->name("delete_category");
+    Route::get('/product/delete-tag/{id}', 'App\Http\Controllers\AdminController@deleteTag')->name("delete_tag");
     Route::get('/product/delete-product/{id}', 'App\Http\Controllers\AdminController@deleteProduct')->name("delete_product");
+    Route::get('/product/edit-category/{id}', 'App\Http\Controllers\AdminController@editCategory')->name("edit_category");
+    Route::get('/product/edit-tag/{id}', 'App\Http\Controllers\AdminController@editTag')->name("edit_tag");
+    Route::post('/product/edit-category-action', 'App\Http\Controllers\AdminController@editCategoryAction')->name("edit_category_action");
+    Route::post('/product/edit-tag-action', 'App\Http\Controllers\AdminController@editTagAction')->name("edit_tag_action");
     Route::get('/product/edit-product/{id}', 'App\Http\Controllers\AdminController@editProduct')->name("edit_product");
     Route::post('/product/admin-edit-product-action', 'App\Http\Controllers\AdminController@adminEditproductAction')->name("admin_edit_product_action");
     Route::post('/product/image-edit-product-action', 'App\Http\Controllers\AdminController@imageEditproductAction')->name("image_edit_product_action");
+    Route::post('/product/image-edit-category-action', 'App\Http\Controllers\AdminController@imageEditcategoryAction')->name("image_edit_category_action");
+    Route::post('/product/image-edit-tag-action', 'App\Http\Controllers\AdminController@imageEdittagAction')->name("image_edit_tag_action");
     Route::post('/product/admin-file-product-action', 'App\Http\Controllers\AdminController@adminFileproductAction')->name("admin_file_product_action");
     Route::post('upload/tiny/image','App\Http\Controllers\UploadController@uploadImageDescription')->name('tiny.upload');
     //Web Service

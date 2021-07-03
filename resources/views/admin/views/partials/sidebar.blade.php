@@ -54,17 +54,17 @@
         <a class="nav-link collapsed" href="{{route('home')}}" data-toggle="collapse" data-target="#collapseUtilities"
            aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
-            <span class="font-weight-bolder">مدیریت فروشگاه</span>
+            <span class="font-weight-bolder">مدیریت محصولات</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Product Management:</h6>
-                <a class="collapse-item font-weight-bolder" href="{{route('Store')}}">فروشگاه ها</a>
+{{--                <a class="collapse-item font-weight-bolder" href="{{route('Store')}}">فروشگاه ها</a>--}}
                 <a class="collapse-item font-weight-bolder" href="{{route('Product')}}">محصولات ما</a>
-                <a class="collapse-item font-weight-bolder" href="{{route('Product')}}">محصولات ثبت شده</a>
-                <a class="collapse-item font-weight-bolder" href="{{route('home')}}">مدیریت فروشگاه ها</a>
-                <a class="collapse-item font-weight-bolder" href="{{route('home')}}">صفحه ثبت فروشگاه</a>
+{{--                <a class="collapse-item font-weight-bolder" href="{{route('Product')}}">محصولات ثبت شده</a>--}}
+                <a class="collapse-item font-weight-bolder" href="{{route('add_category_page')}}">دسته بندی</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('add_tag_page')}}">برچسب ها</a>
             </div>
         </div>
     </li>
