@@ -443,7 +443,8 @@ class ProfileController extends Controller
                             "token" => Str::random(32),
                             "domain" => "",
                             "meli_code" => "",
-                            "payment_type" => "free",
+                            "payment_type" => "FREE",
+                            "month" => 1,
                             "paid_type" => "",
                             "count" => $checkProduct->free_request,
                             "start_date" => Carbon::now(),
@@ -457,46 +458,47 @@ class ProfileController extends Controller
 
                 }
 
+                if($type == "pro"){
+                    $amount = $checkProduct->pro_price;
+                }
+                if($type == "ultra"){
+                    $amount = $checkProduct->ultra_price;
+                }
+                if($type == "mega"){
+                    $amount = $checkProduct->mega_price;
+                }
+                if ($request->month == "3") {
+                    $amount = $amount * 3;
+                }
+
                 if ($request->month == "1" || $request->month == "3") {
 
                     if (isset($checkAcc)) {
 
                         Accounting::where("api_id", $id)->where("user_id", Auth::id())->update([
-                            "bank_token" => Str::random(32),
+                            "paid_type" => $type,
                         ]);
+                        $id = $checkAcc->id;
 
                     }else{
 
-                        Accounting::create([
+                        $id = Accounting::create([
                             "user_id" => Auth::id(),
                             "api_id" => $id,
                             "token" => Str::random(32),
                             "domain" => "",
                             "meli_code" => "",
-                            "payment_type" => "free",
-                            "paid_type" => "",
+                            "payment_type" => "FREE",
+                            "month" => $request->month,
+                            "paid_type" => $type,
                             "count" => $checkProduct->free_request,
                             "start_date" => Carbon::now(),
                             "expire_date" => Carbon::now()->addDays(30),
-                            "bank_token" => Str::random(32),
-                        ]);
+                        ])->id;
 
                     }
 
-                    if($type == "pro"){
-                        $amount = $checkProduct->pro_price;
-                    }
-                    if($type == "ultra"){
-                        $amount = $checkProduct->ultra_price;
-                    }
-                    if($type == "mega"){
-                        $amount = $checkProduct->mega_price;
-                    }
-                    if ($request->month == "3") {
-                        $amount = $amount * 3;
-                    }
-
-                    PaymentController::payment($amount);
+                    return PaymentController::payment($id,$type,$request->month,$amount);
 
                 }
 

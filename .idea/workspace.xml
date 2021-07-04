@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="last">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +17,40 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2982">
+              <caret line="142" column="111" selection-start-line="142" selection-start-column="92" selection-end-line="142" selection-end-column="111" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19887">
+              <caret line="981" selection-start-line="981" selection-end-line="981" />
+              <folding>
+                <element signature="e#40#66#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/profile/bookmark.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="49">
+              <caret line="50" column="7" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -311,28 +346,30 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/views/tag" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin\views\tag" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin\views\category" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin\views" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views" />
+      <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers\Api" />
       <recent name="C:\xampp\htdocs\cioce_newface\resources\views\profile" />
+      <recent name="C:\xampp\htdocs\cioce_newface\app\Models" />
+      <recent name="C:\xampp\htdocs\cioce_newface\resources\views\product" />
+      <recent name="C:\xampp\htdocs\cioce_newface\resources\views\partials" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin\views\category" />
+      <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers\Api" />
+      <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers" />
+      <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers\api" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views" />
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\admin" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\blog" />
-      <recent name="C:\xampp\htdocs\cioce_newface\resources\views" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
@@ -396,8 +433,7 @@
       <workItem from="1625119483743" duration="9996000" />
       <workItem from="1625226067140" duration="686000" />
       <workItem from="1625240144269" duration="2491000" />
-      <workItem from="1625300145596" duration="15803000" />
-      <workItem from="1625373149433" duration="1455000" />
+      <workItem from="1625312458177" duration="5827000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -588,14 +624,28 @@
       <option name="project" value="LOCAL" />
       <updated>1625060475097</updated>
     </task>
-    <task id="LOCAL-00028" summary="mywebservice">
-      <created>1625317888385</created>
+    <task id="LOCAL-00028" summary="last">
+      <created>1625304625559</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1625317888385</updated>
+      <updated>1625304625559</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="last">
+      <created>1625312476711</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1625312476711</updated>
+    </task>
+    <task id="LOCAL-00030" summary="last">
+      <created>1625316669246</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1625316669246</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -667,10 +717,10 @@
     <MESSAGE value="first work commit" />
     <MESSAGE value="category Config" />
     <MESSAGE value="blog and seo page config" />
-    <MESSAGE value="last" />
     <MESSAGE value="subscribe" />
     <MESSAGE value="mywebservice" />
-    <option name="LAST_COMMIT_MESSAGE" value="mywebservice" />
+    <MESSAGE value="last" />
+    <option name="LAST_COMMIT_MESSAGE" value="last" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
