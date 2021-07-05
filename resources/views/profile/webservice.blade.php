@@ -27,7 +27,7 @@
                                             <a href="{{ route("single_product",["slug" => $item->webservice->product_slug]) }}">
                                                 <img src="/uploads/thumbnail/{{$item->webservice->thumbnail ?? "noimage_200.jpg"}}" alt="{{$item->webservice->product_name}}">
                                             </a>
-                                            <small class="font-weight-bold d-block mt-2">اتمام پکیج</small>
+                                            <small class="font-weight-bold d-block mt-2">تاریخ اتمام</small>
                                             <div class="rating-stars mt-1">
                                                 <small>{{\Morilog\Jalali\Jalalian::forge($item->expire_date)->format("Y/m/d")}}</small>
                                             </div>
@@ -40,8 +40,8 @@
                                                 </a>
                                             </div>
                                             <div class="card-horizontal-comment">
-                                                <p>دسته بندی : {{$item->webservice->category->name}}</p>
-                                                <p>قیمت : {{number_format($item->webservice->pro_price)}} تومان</p>
+                                                <p>دسته بندی : <a href="{{route('category',["slug" => $item->webservice->category->slug])}}">{{$item->webservice->category->name}}</a></p>
+                                                <p>پکیج : {{$item->payment_type}}</p>
                                                 <p>درخواست رایگان : {{number_format($item->webservice->free_request)}} عدد</p>
                                             </div>
                                             <div class="card-horizontal-product-buttons">
@@ -53,12 +53,17 @@
                                                         <i class="mdi mdi-thumb-down-outline"></i>0
                                                     </span>
                                                 </div>
-                                                <button data-id="{{$item->id}}" class="btn btn-light delete-btn" data-toggle="modal" data-target="#deleteModal">حذف</button>
+                                                <button data-id="{{$item->id}}" class="btn btn-light token-btn">Token</button>
+                                                <button data-id="{{$item->id}}" class="btn btn-light delete-btn" data-toggle="modal" data-target="#deleteModal">Archive</button>
                                             </div>
                                         </div>
                                     </div>
+                                    @if($item->payment_type !== null && $item->payment_type !== "FREE")
+                                        <span class="d-none btn btn-under-box-token mt-0 w-100"><input class="w-75 text-center border-0" type="text" value="{{$item->token}}"></span>
+                                    @else
+                                        <span class="d-none btn btn-under-box-token text-danger mt-0 w-100">همچنان توکن دریافت نکرده‌اید</span>
+                                    @endif
                                     <a href="{{route('subscribe', ['id' => $item->webservice->id])}}" class="btn btn-under-box mt-0 w-100">خرید و تمدید</a>
-
                                 </div>
                                     @endforeach
                                 @else
@@ -202,6 +207,15 @@
                     }
                 });
             });
+
+            $(document).on('click', '.token-btn', function() {
+                if ($(this).parent().parent().parent().parent().find('.btn-under-box-token').hasClass('d-none')) {
+                    $(this).parent().parent().parent().parent().find('.btn-under-box-token').removeClass('d-none');
+                }else {
+                    $(this).parent().parent().parent().parent().find('.btn-under-box-token').addClass('d-none');
+                }
+            });
+
         });
     </script>
 @endsection

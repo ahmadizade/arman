@@ -8493,6 +8493,11 @@ footer.mini-footer .copy-right-mini-footer {
     background-color: #63d3ff;
 }
 
+.btn-under-box-token {
+    transition: all 1s ease;
+    border-radius:0;
+    background-color: #fff;
+}
 .webservice-box {
     border-radius: 5px 5px 0 0 !important;
 }
