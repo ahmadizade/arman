@@ -7,7 +7,9 @@
     <meta name="theme-color" content="#f7858d">
     <meta name="msapplication-navbutton-color" content="#f7858d">
     <meta name="apple-mobile-web-app-status-bar-style" content="#f7858d">
-    @yield("title")
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+@yield("title")
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="/css/vendor/sweetalert2.all.css">

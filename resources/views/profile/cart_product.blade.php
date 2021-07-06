@@ -135,18 +135,18 @@
                                                 <span>سود شما از خرید</span><span class="red-price">{{number_format($price - $last_price)}} تومان</span>
                                             </li>
                                             <li>
-                                                <span>هزینه ارسال<span class="help-sn" data-toggle="tooltip"
+                                                <span>هزینه نصب<span class="help-sn" data-toggle="tooltip"
                                                         data-html="true" data-placement="bottom"
-                                                        title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>هزینه ارسال مرسولات می‌تواند وابسته به شهر و آدرس گیرنده متفاوت باشد. در صورتی که هر یک از مرسولات حداقل ارزشی برابر با ۱۵۰هزار تومان داشته باشد، آن مرسوله بصورت رایگان ارسال می‌شود.<br>'حداقل ارزش هر مرسوله برای ارسال رایگان، می تواند متغیر باشد.'</p></div>">
+                                                        title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>هزینه نصب : .<br>'این مبلغ فقط در خرید وب سایت آماده محاسبه خواهد شد'</p></div>">
                                                         <span class="mdi mdi-information-outline"></span>
                                                     </span></span><span>وابسته به کالا</span>
                                             </li>
                                             <li class="checkout-club-container">
-                                                <span>سیوکلاب<span class="help-sn" data-toggle="tooltip"
+                                                <span>ارزش افزوده<span class="help-sn" data-toggle="tooltip"
                                                         data-html="true" data-placement="bottom"
-                                                        title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>با امتیازهای خود در باشگاه مشتریان سی و سه (سیوکلاب) از بین جوایز متنوع انتخاب کنید.</p></div>">
+                                                        title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>ارزش افزوده طبق قانون %9 می باشد که به مبلغ قابل پرداخت شما اضافه می گردد</p></div>">
                                                         <span class="mdi mdi-information-outline"></span>
-                                                    </span></span><span><span>۱۵۰+</span><span> امتیاز</span></span>
+                                                    </span></span><span><span>{{number_format(($last_price * 9) / 100)}}</span><span> تومان</span></span>
                                             </li>
                                         </ul>
                                         <div class="checkout-summary-devider">
@@ -155,33 +155,22 @@
                                         <div class="checkout-summary-content">
                                             <div class="checkout-summary-price-title">مبلغ قابل پرداخت</div>
                                             <div class="checkout-summary-price-value">
-                                                <span class="checkout-summary-price-value-amount">{{number_format($last_price)}}</span>
+                                                <span class="checkout-summary-price-value-amount">{{number_format($last_price + (($last_price * 9) / 100))}}</span>
                                                 تومان
                                             </div>
-                                            @auth()
-                                                <a href="{{route('before_buying' , ['price' => $price , 'last_price' => $last_price])}}" class="mb-2 d-block">
-                                                    <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0">
-                                                        <i class="mdi mdi-arrow-left"></i>
-                                                        ادامه ثبت سفارش
-                                                    </button>
-                                                </a>
-                                            @endauth
-
-                                            @guest()
-                                                <a id="before_buying" href="javascript:void(0)" class="mb-2 d-block">
-                                                    <button class="btn-primary-cm text-muted btn-with-icon w-100 text-center pr-0">
-                                                        <i class="mdi mdi-arrow-left"></i>
-                                                        ادامه ثبت سفارش
-                                                    </button>
-                                                </a>
-                                            @endguest
+                                            <a id="before_buying" class="mb-2 d-block">
+                                                <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0">
+                                                    <i class="mdi mdi-arrow-left"></i>
+                                                    ادامه ثبت سفارش
+                                                </button>
+                                            </a>
                                             <div>
                                                 <span>
                                                     کالاهای موجود در سبد شما ثبت و رزرو نشده‌اند، برای ثبت سفارش
-                                                    مراحل بعدی را تکمیل کنید.
+                                                    به درگاه بانک بروید.
                                                 </span><span class="help-sn" data-toggle="tooltip" data-html="true"
                                                     data-placement="bottom"
-                                                    title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>محصولات موجود در سبد خرید شما تنها در صورت ثبت و پرداخت سفارش برای شما رزرو می‌شوند. در صورت عدم ثبت سفارش، دیجی‌کالا هیچگونه مسئولیتی در قبال تغییر قیمت یا موجودی این کالاها ندارد.</p></div>">
+                                                    title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'> برای اینکه محصولاتی که انتخاب کرده اید قابل دانلود و بهره برداری باشند ابتدا باید پرداخت را انجام دهید و پس از آن لینک های دانلود به شما داده خواهد شد </p></div>">
                                                     <span class="mdi mdi-information-outline"></span>
                                                 </span></div>
                                         </div>
@@ -190,15 +179,15 @@
                                         <ul>
                                             <li class="checkout-feature-aside-item">
                                                 <img src="./assets/img/svg/return-policy.svg" alt="">
-                                                هفت روز ضمانت تعویض
+                                                پشتیبانی 24 ساعته
                                             </li>
                                             <li class="checkout-feature-aside-item">
                                                 <img src="./assets/img/svg/payment-terms.svg" alt="">
-                                                پرداخت در محل با کارت بانکی
+                                                هفت روز هفته
                                             </li>
                                             <li class="checkout-feature-aside-item">
                                                 <img src="./assets/img/svg/delivery.svg" alt="">
-                                                تحویل اکسپرس
+                                                تحویل آنلاین و آنی
                                             </li>
                                         </ul>
                                     </div>
@@ -218,7 +207,36 @@
 @section('extra_js')
     <script>
         $('#before_buying').click(function () {
-            alert("لطفا ابتدا ثبت نام کنید")
+            $.ajax({
+               url : '{{route('before_buying')}}',
+               type : "get",
+               data : {'last_price'  : '{{$last_price + (($last_price * 9) / 100)}}' },
+                   success : function (data) {
+                   console.log(data);
+                       if (data.status == "0") {
+                           Swal.fire({
+                               position: 'top-end',
+                               toast: true,
+                               icon: 'error',
+                               title : "Support-Team",
+                               text: data.desc,
+                               footer : '<a href="{{route('login')}}" class="mt-2 text-success">ورود به سایت</a>',
+                               showConfirmButton: false,
+                               timer: 8000
+                           });
+                       }
+                       if (data.status == "1") {
+                           Swal.fire({
+                               position: 'top-end',
+                               toast: true,
+                               icon: 'success',
+                               text: data.desc,
+                               showConfirmButton: false,
+                               timer: 3000
+                           });
+                       }
+                   }
+            });
         })
     </script>
 @endsection

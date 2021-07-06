@@ -291,7 +291,13 @@
                                 </a>
                             </div>
                             <ul class="header-basket-list do-nice-scroll">
+                                @php
+                                    $price = 0;
+                                @endphp
                                 @foreach(Illuminate\Support\Facades\Session::get('product') as $key=>$item)
+                                    @php
+                                        $price = $price + $item->price;
+                                    @endphp
                                     <li class="cart-item">
                                         <a href="{{route('home')}}" class="header-basket-list-item">
                                         <div class="header-basket-list-item-image">
@@ -322,13 +328,10 @@
                             <div class="header-cart-info-footer">
                                 <div class="header-cart-info-total">
                                     <span class="header-cart-info-total-text">مبلغ قابل پرداخت:</span>
-                                    @foreach(Illuminate\Support\Facades\Session::get('product') as $key => $item)
-                                        <p class="header-cart-info-total-amount">
-                                            <span class="header-cart-info-total-amount-number"> {{$item->price}} <span>تومان</span></span>
-                                        </p>
-                                    @endforeach
                                 </div>
-
+                                <p class="header-cart-info-total-amount">
+                                    <span class="header-cart-info-total-amount-number"> {{number_format($price)}} <span>تومان</span></span>
+                                </p>
                                 <div>
                                     <a href="{{route('cart_page')}}" class="header-cart-info-submit">
                                         ثبت سفارش

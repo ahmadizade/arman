@@ -41,8 +41,8 @@
                                             </div>
                                             <div class="card-horizontal-comment">
                                                 <p>دسته بندی : <a href="{{route('category',["slug" => $item->webservice->category->slug])}}">{{$item->webservice->category->name}}</a></p>
-                                                <p>پکیج : {{$item->payment_type}}</p>
-                                                <p>درخواست رایگان : {{number_format($item->webservice->free_request)}} عدد</p>
+                                                <p>پکیج : {{$item->paid_type}}</p>
+                                                <p>تعداد درخواست : {{$item->count}} عدد</p>
                                             </div>
                                             <div class="card-horizontal-product-buttons">
                                                 <div class="float-right">

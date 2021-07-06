@@ -432,10 +432,32 @@ class ProfileController extends Controller
 
                     if (isset($checkAcc)) {
 
-                        // todo ahmadi
-                        return "شما قبل از این وب سرویس استفاده کردید . جهت تست و یا خرید به بخش پروفایل کاربری برید";
+                        Session::flash('error', 'شما قبلا از این وب سرویس استفاده کرده‌اید . برای خرید به صفحه وب سرویس‌های من مراجعه فرمایید');
+                        return back();
 
                     } else {
+
+                      $order_id = Orders::create([
+                            "user_id" => Auth::id(),
+                            "product_id" => $id,
+                            "last_price" => 0,
+                            "last_discount" => 0,
+                            "status" => 2,
+                            "created_at" => Carbon::now(),
+                            "order_number" => 'CIO' . "-" . rand(10000000,99999999),
+                        ])->id;
+
+                        OrderProducts::create([
+                            "user_id" => Auth::id(),
+                            "order_id" => $order_id,
+                            "product_id" => $id,
+                            "product_name" => $checkProduct->product_name,
+                            "product_quantity" => 1,
+                            "product_price" => "0",
+                            "discount" => "0",
+                            "type" => "api",
+                            "created_at" => Carbon::now(),
+                        ]);
 
                         Accounting::create([
                             "user_id" => Auth::id(),
@@ -444,7 +466,7 @@ class ProfileController extends Controller
                             "domain" => "",
                             "meli_code" => "",
                             "payment_type" => "FREE",
-                            "month" => 1,
+                            "month" => 0,
                             "paid_type" => "",
                             "count" => $checkProduct->free_request,
                             "start_date" => Carbon::now(),
@@ -458,29 +480,84 @@ class ProfileController extends Controller
 
                 }
 
-                if($type == "pro"){
-                    $amount = $checkProduct->pro_price;
-                }
-                if($type == "ultra"){
-                    $amount = $checkProduct->ultra_price;
-                }
-                if($type == "mega"){
-                    $amount = $checkProduct->mega_price;
-                }
-                if ($request->month == "3") {
-                    $amount = $amount * 3;
-                }
-
                 if ($request->month == "1" || $request->month == "3") {
+
+                    if($type == "pro"){
+                        $amount = $checkProduct->pro_price;
+                    }
+                    if($type == "ultra"){
+                        $amount = $checkProduct->ultra_price;
+                    }
+                    if($type == "mega"){
+                        $amount = $checkProduct->mega_price;
+                    }
+                    if ($request->month == "3") {
+                        $amount = $amount * 3;
+                    }
+                    //Discount
+                    if ($checkProduct->discount > 0) {
+                        $amountWithDiscount = $amount - (($amount * $checkProduct->discount) / 100 );
+                    }else {
+                        $amountWithDiscount = $amount;
+                    }
+                    //Taxation
+                    $amountWithTaxation = $amountWithDiscount + (($amountWithDiscount * 9) / 100 );
 
                     if (isset($checkAcc)) {
 
+                        $order_id = Orders::create([
+                            "user_id" => Auth::id(),
+                            "product_id" => $id,
+                            "last_price" => $amountWithDiscount,
+                            "price_with_taxation" => $amountWithTaxation,
+                            "last_discount" => $checkProduct->discount,
+                            "status" => 0,
+                            "created_at" => Carbon::now(),
+                            "order_number" => 'CIO' . "-" . rand(10000000,99999999),
+                        ])->id;
+
+                        OrderProducts::create([
+                            "user_id" => Auth::id(),
+                            "order_id" => $order_id,
+                            "product_id" => $id,
+                            "product_name" => $checkProduct->product_name,
+                            "product_quantity" => 1,
+                            "product_price" => $amount,
+                            "discount" => $checkProduct->discount,
+                            "type" => "api",
+                            "created_at" => Carbon::now(),
+                        ]);
+
                         Accounting::where("api_id", $id)->where("user_id", Auth::id())->update([
                             "paid_type" => $type,
+                            "month" => $request->month,
                         ]);
                         $id = $checkAcc->id;
 
                     }else{
+
+                        $order_id = Orders::create([
+                            "user_id" => Auth::id(),
+                            "product_id" => $id,
+                            "last_price" => $amountWithDiscount,
+                            "price_with_taxation" => $amountWithTaxation,
+                            "last_discount" => $checkProduct->discount,
+                            "status" => 0,
+                            "created_at" => Carbon::now(),
+                            "order_number" => 'CIO' . "-" . rand(10000000,99999999),
+                        ])->id;
+
+                        OrderProducts::create([
+                            "user_id" => Auth::id(),
+                            "order_id" => $order_id,
+                            "product_id" => $id,
+                            "product_name" => $checkProduct->product_name,
+                            "product_quantity" => 1,
+                            "product_price" => $amount,
+                            "discount" => $checkProduct->discount,
+                            "type" => "api",
+                            "created_at" => Carbon::now(),
+                        ]);
 
                         $id = Accounting::create([
                             "user_id" => Auth::id(),
@@ -498,7 +575,7 @@ class ProfileController extends Controller
 
                     }
 
-                    return PaymentController::payment($id,$type,$request->month,$amount);
+                    return PaymentController::payment($id,$type,$request->month,$amountWithTaxation);
 
                 }
 
@@ -590,18 +667,12 @@ class ProfileController extends Controller
         return Session::forget('product');
     }
     public function BeforeBuying(Request $request){
-        if (Session::has('product') && count(Session::get('product'))> 0 && Auth::check()){
-            $user = User::where('id' , Auth::id())->first();
-            $final_cart = array("price" => $request->price , "last_price" => $request->last_price);
-            Session::put('shipping', $final_cart);
-            return view('profile.before_buying' , ['user' => $user]);
-        }
-        elseif (Session::has('product') && count(Session::get('product'))> 0 && Auth::guest()){
-            Session::flash('error' ,"اگر عضو سایت نیستید ثبت نام کنید در غیر این صورت ورود را بزنید");
-            return back();
-        }elseif (!Session::has('product') || count(Session::get('product')) == 0){
-            Session::flash('error' ,"سبد خرید شما خالی می باشد");
-            return back();
+        if (Auth::check() && Auth::id() > 0){
+            
+            //todo MAJIDI
+
+        }else{
+            return Response::json(['status'=>'0', 'desc' => "ابتدا وارد سایت شوید یا ثبت نام کنید"]);
         }
     }
 
@@ -877,7 +948,7 @@ class ProfileController extends Controller
             'family' => 'nullable|max:255',
             'phone' => 'nullable',
             'state' => 'nullable|max:3',
-            'bank_cart_number' => 'nullable|numeric|digits:16',
+            'bank_cart_number' => 'nullable',
             'national_code' => 'nullable|numeric|digits:10',
             'sheba' => 'nullable|digits:24',
             "password" => 'nullable|min:6'
@@ -1143,7 +1214,7 @@ class ProfileController extends Controller
     public function orderDetails($order_id){
         $order = Orders::where('id', $order_id)->first();
         $products = OrderProducts::where('order_id', $order_id)->where('user_id', Auth::id())->get();
-        return view('profile.order_details',['products' => $products, 'user' => Auth::id(), 'menu' => null, 'order' => $order]);
+        return view('profile.order_details',['products' => $products, 'user' => Auth::user(), 'menu' => null, 'order' => $order]);
     }
 
     public function CreditAction(Request $request)

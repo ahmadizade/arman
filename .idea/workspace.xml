@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/StickySelectionHighlights.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator-enh.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/banner/medium-banner-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/banner/medium-banner-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/banner/small-banner-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/banner/small-banner-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/banner/small-banner-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/banner/small-banner-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/banner/small-banner-7.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/banner/small-banner-7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/banner/small-banner-8.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/banner/small-banner-8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/choice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/choice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/webservice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/webservice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,29 +45,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2534">
-              <caret line="984" selection-start-line="984" selection-end-line="984" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/profile/webservice.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="204" column="53" lean-forward="true" selection-start-line="204" selection-start-column="53" selection-end-line="204" selection-end-column="53" />
+            <state relative-caret-position="291">
+              <caret line="670" column="12" selection-start-line="670" selection-start-column="12" selection-end-line="670" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/main.css">
+        <entry file="file://$PROJECT_DIR$/resources/views/profile/cart_product.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="8495" column="22" lean-forward="true" selection-start-line="8495" selection-start-column="22" selection-end-line="8495" selection-end-column="22" />
+            <state relative-caret-position="546">
+              <caret line="225" column="30" lean-forward="true" selection-start-line="225" selection-start-column="30" selection-end-line="225" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -57,7 +67,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>myWebService</find>
       <find>modal</find>
       <find>$.ajax</find>
       <find>سبد خرید شما خالیست!</find>
@@ -86,7 +95,8 @@
       <find>BookmarkDelete</find>
       <find>large-banner</find>
       <find>medium-banner-1.png</find>
-      <find>.btn-under-box</find>
+      <find>before</find>
+      <find>Majidi</find>
     </findStrings>
     <replaceStrings>
       <replace>سی و سه</replace>
@@ -104,7 +114,7 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -133,7 +143,6 @@
         <option value="$PROJECT_DIR$/resources/views/partials/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WeatherApiController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/views/product.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/product/subscribe.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/most_visited.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/last_product.blade.php" />
@@ -148,6 +157,7 @@
         <option value="$PROJECT_DIR$/resources/views/profile/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/orders.php" />
         <option value="$PROJECT_DIR$/app/Models/Orders.php" />
+        <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/resources/views/profile/order_details.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/OrderProducts.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/orders.blade.php" />
@@ -157,13 +167,13 @@
         <option value="$PROJECT_DIR$/app/Models/Bookmark.php" />
         <option value="$PROJECT_DIR$/app/Models/Like.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
         <option value="$PROJECT_DIR$/resources/views/product/single_product.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/bookmark.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/category.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/resources/views/profile/webservice.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
       </list>
     </option>
   </component>
@@ -302,7 +312,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -341,6 +350,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -450,7 +460,14 @@
       <workItem from="1625240144269" duration="2491000" />
       <workItem from="1625312458177" duration="5827000" />
       <workItem from="1625397350211" duration="2065000" />
-      <workItem from="1625404537688" duration="1221000" />
+      <workItem from="1625404537688" duration="1289000" />
+      <workItem from="1625477478485" duration="883000" />
+      <workItem from="1625478894305" duration="359000" />
+      <workItem from="1625479313461" duration="4141000" />
+      <workItem from="1625545050161" duration="284000" />
+      <workItem from="1625545357499" duration="1392000" />
+      <workItem from="1625548685796" duration="2527000" />
+      <workItem from="1625553003561" duration="15715000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -669,31 +686,73 @@
       <option name="project" value="LOCAL" />
       <updated>1625402523564</updated>
     </task>
-    <task id="LOCAL-00032" summary="webservice">
-      <created>1625501037178</created>
+    <task id="LOCAL-00032" summary="last">
+      <created>1625406575156</created>
       <option name="number" value="00032" />
       <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
-      <updated>1625501037178</updated>
+      <updated>1625406575156</updated>
     </task>
-    <task id="LOCAL-00033" summary="webservice">
-      <created>1625501050769</created>
+    <task id="LOCAL-00033" summary="last">
+      <created>1625545319653</created>
       <option name="number" value="00033" />
       <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1625501050769</updated>
+      <updated>1625545319653</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="last">
+      <created>1625546255204</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1625546255204</updated>
+    </task>
+    <task id="LOCAL-00035" summary="last">
+      <created>1625548563693</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1625548563693</updated>
+    </task>
+    <task id="LOCAL-00036" summary="last">
+      <created>1625552967648</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1625552967648</updated>
+    </task>
+    <task id="LOCAL-00037" summary="last">
+      <created>1625566992177</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1625566992177</updated>
+    </task>
+    <task id="LOCAL-00038" summary="last">
+      <created>1625574644568</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1625574644568</updated>
+    </task>
+    <task id="LOCAL-00039" summary="cart">
+      <created>1625576446448</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1625576446448</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134542000" />
+    <option name="totallyTimeSpent" value="129957000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18656716" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -764,8 +823,8 @@
     <MESSAGE value="subscribe" />
     <MESSAGE value="mywebservice" />
     <MESSAGE value="last" />
-    <MESSAGE value="webservice" />
-    <option name="LAST_COMMIT_MESSAGE" value="webservice" />
+    <MESSAGE value="cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="cart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -775,8 +834,22 @@
           <line>292</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
+          <line>476</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
+          <line>474</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/css/vendor/jquery.horizontalmenu.css">
@@ -797,16 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="149" column="1" selection-start-line="149" selection-start-column="1" selection-end-line="149" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/cart_product.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" selection-start-line="11" selection-end-line="41" />
-          <folding>
-            <element signature="e#343#1842#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1063,6 +1126,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178395">
+          <caret line="8495" column="22" selection-start-line="8495" selection-start-column="22" selection-end-line="8495" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" selection-start-line="9" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/vendor/theia-sticky-sidebar.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1115,6 +1192,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/product/single_product.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="191" column="56" lean-forward="true" selection-start-line="191" selection-start-column="56" selection-end-line="191" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3234">
@@ -1131,43 +1215,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/profile/bookmark.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/product/single_product.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="195" column="40" lean-forward="true" selection-start-line="195" selection-start-column="40" selection-end-line="195" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2534">
-          <caret line="984" selection-start-line="984" selection-end-line="984" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="8495" column="22" lean-forward="true" selection-start-line="8495" selection-start-column="22" selection-end-line="8495" selection-end-column="22" />
+        <state relative-caret-position="49">
+          <caret line="50" column="7" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/profile/webservice.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="204" column="53" lean-forward="true" selection-start-line="204" selection-start-column="53" selection-end-line="204" selection-end-column="53" />
+        <state relative-caret-position="508">
+          <caret line="44" column="69" selection-start-line="44" selection-start-column="69" selection-end-line="44" selection-end-column="69" />
+          <folding>
+            <element signature="e#10826#10833#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/cart_product.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="225" column="30" lean-forward="true" selection-start-line="225" selection-start-column="30" selection-end-line="225" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="670" column="12" selection-start-line="670" selection-start-column="12" selection-end-line="670" selection-end-column="12" />
         </state>
       </provider>
     </entry>
