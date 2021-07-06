@@ -27,7 +27,7 @@
                                             <a href="{{ route("single_product",["slug" => $item->webservice->product_slug]) }}">
                                                 <img src="/uploads/thumbnail/{{$item->webservice->thumbnail ?? "noimage_200.jpg"}}" alt="{{$item->webservice->product_name}}">
                                             </a>
-                                            <small class="font-weight-bold d-block mt-2">اتمام پکیج</small>
+                                            <small class="font-weight-bold d-block mt-2">Expiry Date</small>
                                             <div class="rating-stars mt-1">
                                                 <small>{{\Morilog\Jalali\Jalalian::forge($item->expire_date)->format("Y/m/d")}}</small>
                                             </div>
@@ -40,8 +40,9 @@
                                                 </a>
                                             </div>
                                             <div class="card-horizontal-comment">
-                                                <p>دسته بندی : {{$item->webservice->category->name}}</p>
-                                                <p>قیمت : {{number_format($item->webservice->pro_price)}} تومان</p>
+
+                                                <p>دسته بندی : <a href="{{route('category',["slug" => $item->webservice->product_slug])}}">{{$item->webservice->category->name}}</a></p>
+                                                <p>نوع پکیج : {{$item->payment_type}}</p>
                                                 <p>درخواست رایگان : {{number_format($item->webservice->free_request)}} عدد</p>
                                             </div>
                                             <div class="card-horizontal-product-buttons">

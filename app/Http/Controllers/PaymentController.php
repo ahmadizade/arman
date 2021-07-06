@@ -125,7 +125,7 @@ class PaymentController extends Controller
 
                         $checkAcc = DB::table("accounting")->where("user_id",Auth::id())->where("bank_token",$ref)->first();
 
-                        if($checkAcc->payment_type == "free"){
+                        if($checkAcc->payment_type == "FREE"){
                             DB::table("accounting")->where("user_id",Auth::id())->where("id",$checkAcc->id)->update([
                                 "count" => 0
                             ]);
@@ -158,7 +158,7 @@ class PaymentController extends Controller
 
                         DB::table("accounting")->where("user_id",Auth::id())->where("bank_token",$ref)->update([
                             "start_date" => Carbon::now(),
-                            "expire_date" => Carbon::parse(Carbon::now())->addDays($checkAcc->month),
+                            "expire_date" => Carbon::parse(Carbon::now())->addMonth($checkAcc->month),
                             "payment_type" => "PAID",
                             "count" => $checkAcc->count + $count,
                         ]);

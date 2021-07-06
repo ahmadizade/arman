@@ -444,7 +444,7 @@ class ProfileController extends Controller
                             "domain" => "",
                             "meli_code" => "",
                             "payment_type" => "FREE",
-                            "month" => 1,
+                            "month" => 0,
                             "paid_type" => "",
                             "count" => $checkProduct->free_request,
                             "start_date" => Carbon::now(),
@@ -458,25 +458,26 @@ class ProfileController extends Controller
 
                 }
 
-                if($type == "pro"){
-                    $amount = $checkProduct->pro_price;
-                }
-                if($type == "ultra"){
-                    $amount = $checkProduct->ultra_price;
-                }
-                if($type == "mega"){
-                    $amount = $checkProduct->mega_price;
-                }
-                if ($request->month == "3") {
-                    $amount = $amount * 3;
-                }
-
                 if ($request->month == "1" || $request->month == "3") {
+
+                    if($type == "pro"){
+                        $amount = $checkProduct->pro_price;
+                    }
+                    if($type == "ultra"){
+                        $amount = $checkProduct->ultra_price;
+                    }
+                    if($type == "mega"){
+                        $amount = $checkProduct->mega_price;
+                    }
+                    if ($request->month == "3") {
+                        $amount = $amount * 3;
+                    }
 
                     if (isset($checkAcc)) {
 
                         Accounting::where("api_id", $id)->where("user_id", Auth::id())->update([
                             "paid_type" => $type,
+                            "month" => $request->month,
                         ]);
                         $id = $checkAcc->id;
 
