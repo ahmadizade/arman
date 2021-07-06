@@ -32,6 +32,9 @@ class Orders extends Model
             case '1':
                 $result = "پرداخت شده";
                 break;
+            case '2':
+                $result = "رایگان";
+                break;
             default:
                 $result = "پرداخت نشده";
         }

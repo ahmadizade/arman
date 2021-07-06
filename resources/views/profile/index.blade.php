@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
                                     <div class="profile-section-link">
-                                        <a href="#" class="border-bottom-dt">
+                                        <a href="{{route('profile_edit')}}" class="border-bottom-dt">
                                             <i class="mdi mdi-account-edit-outline"></i>
                                             ویرایش اطلاعات شخصی
                                         </a>

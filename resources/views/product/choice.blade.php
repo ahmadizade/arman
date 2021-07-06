@@ -195,7 +195,9 @@
                 </div>
             <!-- End Price Lists -->
             @endif
-
+            <div class="container">
+                @include('partials.condition')
+            </div>
             <!-- Domain ACCEPT -->
             <div class="container">
                 <div class="row">
@@ -205,7 +207,6 @@
                             <h2>افزودن و ویرایش دامنه</h2>
                         </div>
                         <div class="form-ui additional-info dt-sl dt-sn pt-4">
-                            @include('partials.condition')
                             <form action="{{ route("add_domain") }}" method="post">
                                 @if(\Illuminate\Support\Facades\Auth::user()->domain !== null )
                                     <p class="font-13 pb-3"><b class="text-success">دامنه </b> شما : {{\Illuminate\Support\Facades\Auth::user()->domain}}</p>
