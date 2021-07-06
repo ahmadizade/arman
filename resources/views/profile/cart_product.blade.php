@@ -158,23 +158,12 @@
                                                 <span class="checkout-summary-price-value-amount">{{number_format($last_price + (($last_price * 9) / 100))}}</span>
                                                 تومان
                                             </div>
-                                            @auth()
-                                                <a href="{{route('before_buying' , ['price' => $price , 'last_price' => $last_price])}}" class="mb-2 d-block">
-                                                    <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0">
-                                                        <i class="mdi mdi-arrow-left"></i>
-                                                        ادامه ثبت سفارش
-                                                    </button>
-                                                </a>
-                                            @endauth
-
-                                            @guest()
-                                                <a id="before_buying" href="javascript:void(0)" class="mb-2 d-block">
-                                                    <button class="btn-primary-cm text-muted btn-with-icon w-100 text-center pr-0">
-                                                        <i class="mdi mdi-arrow-left"></i>
-                                                        ادامه ثبت سفارش
-                                                    </button>
-                                                </a>
-                                            @endguest
+                                            <a id="before_buying" class="mb-2 d-block">
+                                                <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0">
+                                                    <i class="mdi mdi-arrow-left"></i>
+                                                    ادامه ثبت سفارش
+                                                </button>
+                                            </a>
                                             <div>
                                                 <span>
                                                     کالاهای موجود در سبد شما ثبت و رزرو نشده‌اند، برای ثبت سفارش
@@ -218,7 +207,34 @@
 @section('extra_js')
     <script>
         $('#before_buying').click(function () {
-            alert("لطفا ابتدا ثبت نام کنید")
+            alert(1);
+            $.ajax({
+               url : {{route('before_buying')}},
+               type : "get",
+               data : {'last_price' : {{$last_price + (($last_price * 9) / 100)}} },
+                   success : function (data) {
+                       if (data.status == "0") {
+                           Swal.fire({
+                               position: 'top-end',
+                               toast: true,
+                               icon: 'error',
+                               text: data.desc,
+                               showConfirmButton: false,
+                               timer: 3000
+                           });
+                       }
+                       if (data.status == "1") {
+                           Swal.fire({
+                               position: 'top-end',
+                               toast: true,
+                               icon: 'success',
+                               text: data.desc,
+                               showConfirmButton: false,
+                               timer: 3000
+                           });
+                       }
+                   }
+            });
         })
     </script>
 @endsection

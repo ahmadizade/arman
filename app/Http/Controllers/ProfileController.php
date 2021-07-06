@@ -667,19 +667,7 @@ class ProfileController extends Controller
         return Session::forget('product');
     }
     public function BeforeBuying(Request $request){
-        if (Session::has('product') && count(Session::get('product'))> 0 && Auth::check()){
-            $user = User::where('id' , Auth::id())->first();
-            $final_cart = array("price" => $request->price , "last_price" => $request->last_price);
-            Session::put('shipping', $final_cart);
-            return view('profile.before_buying' , ['user' => $user]);
-        }
-        elseif (Session::has('product') && count(Session::get('product'))> 0 && Auth::guest()){
-            Session::flash('error' ,"اگر عضو سایت نیستید ثبت نام کنید در غیر این صورت ورود را بزنید");
-            return back();
-        }elseif (!Session::has('product') || count(Session::get('product')) == 0){
-            Session::flash('error' ,"سبد خرید شما خالی می باشد");
-            return back();
-        }
+        return $request->last_price;
     }
 
     public function AddProduct()
