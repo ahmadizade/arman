@@ -501,7 +501,7 @@ class ProfileController extends Controller
                         $amountWithDiscount = $amount;
                     }
                     //Taxation
-                    $amountWithTaxation = $amountWithDiscount - (($amountWithDiscount * 9) / 100 );
+                    $amountWithTaxation = $amountWithDiscount + (($amountWithDiscount * 9) / 100 );
 
                     if (isset($checkAcc)) {
 
