@@ -667,7 +667,13 @@ class ProfileController extends Controller
         return Session::forget('product');
     }
     public function BeforeBuying(Request $request){
-        return $request->last_price;
+        if (Auth::check() && Auth::id() > 0){
+            
+            //todo MAJIDI
+
+        }else{
+            return Response::json(['status'=>'0', 'desc' => "ابتدا وارد سایت شوید یا ثبت نام کنید"]);
+        }
     }
 
     public function AddProduct()

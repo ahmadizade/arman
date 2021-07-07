@@ -207,20 +207,22 @@
 @section('extra_js')
     <script>
         $('#before_buying').click(function () {
-            alert(1);
             $.ajax({
-               url : {{route('before_buying')}},
+               url : '{{route('before_buying')}}',
                type : "get",
-               data : {'last_price' : {{$last_price + (($last_price * 9) / 100)}} },
+               data : {'last_price'  : '{{$last_price + (($last_price * 9) / 100)}}' },
                    success : function (data) {
+                   console.log(data);
                        if (data.status == "0") {
                            Swal.fire({
                                position: 'top-end',
                                toast: true,
                                icon: 'error',
+                               title : "Support-Team",
                                text: data.desc,
+                               footer : '<a href="{{route('login')}}" class="mt-2 text-success">ورود به سایت</a>',
                                showConfirmButton: false,
-                               timer: 3000
+                               timer: 8000
                            });
                        }
                        if (data.status == "1") {
