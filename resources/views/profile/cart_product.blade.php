@@ -49,15 +49,19 @@
                                     <div class="col-xl-9 col-lg-8 col-12 px-0">
                                     <div class="table-responsive checkout-content dt-sl">
                                         <div class="checkout-header checkout-header--express">
-                                            <span class="checkout-header-title">ارسال عادی</span>
+                                            <span class="checkout-header-title">سبد خرید</span>
                                             <span class="checkout-header-extra-info">({{count(\Illuminate\Support\Facades\Session::get('product'))}} کالا)</span>
                                         </div>
                                         @php
                                             $price = 0;
                                             $discount_price = 0;
                                             $last_price = 0;
+                                            $id = [];
                                         @endphp
-                                        @foreach(\Illuminate\Support\Facades\Session::get('product') as $key => $item)
+                                    @foreach(\Illuminate\Support\Facades\Session::get('product') as $key => $item)
+                                            @php
+                                                $id[] = $item->id;
+                                            @endphp
                                             <table class="table table-cart">
                                             <tbody>
                                                 <tr class="checkout-item">
@@ -116,7 +120,7 @@
                                                     <a href="#" class="border-bottom-dt">محصولات شگفت‌انگیز</a>
                                                     <a href="#" class="border-bottom-dt">محصولات پرفروش روز</a>
                                                 </div>
-                                                <a href="#" class="btn-primary-cm">ادامه خرید در دیدیکالا</a>
+                                                <a href="{{route('home')}}" class="btn-primary-cm">بازگشت به صفحه اصلی</a>
                                             </div>
                                         </div>
                                     </div>
@@ -161,7 +165,7 @@
                                             <a id="before_buying" class="mb-2 d-block">
                                                 <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0">
                                                     <i class="mdi mdi-arrow-left"></i>
-                                                    ادامه ثبت سفارش
+                                                    انتقال به درگاه بانک
                                                 </button>
                                             </a>
                                             <div>
@@ -199,9 +203,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
+
     <!-- End main-content -->
 @endsection
 @section('extra_js')
@@ -210,7 +214,9 @@
             $.ajax({
                url : '{{route('before_buying')}}',
                type : "get",
-               data : {'last_price'  : '{{$last_price + (($last_price * 9) / 100)}}' },
+                @if(Illuminate\Support\Facades\Session::has('product') && !empty(Illuminate\Support\Facades\Session::get('product')))
+                    data : {'last_price'  : '{{$last_price + (($last_price * 9) / 100)}}' , 'id' : {{json_encode($id)}} },
+                @endif
                    success : function (data) {
                    console.log(data);
                        if (data.status == "0") {

@@ -646,12 +646,10 @@ class ProfileController extends Controller
             foreach (Session::get('product') as $key => $value){
                 if ($key == $request->key){
                     Session::forget('product.' . $request->key);
-//                    Session::flash('status' , "حذف محصول از سبد خرید با موفقیت انجام شد");
-                    toast('success' , "حذف محصول از سبد خرید با موفقیت انجام شد");
+                    toast('حذف محصول از سبد خرید با موفقیت انجام شد' , "success");
                     return back();
                 }elseif (count(Session::get('product')) == 0){
-//                    Session::flash('error' , "این محصول در سبد خرید شما نیست");
-                    toast('success' , "حذف محصول از سبد خرید با موفقیت انجام شد");
+                    toast('حذف محصول از سبد خرید با موفقیت انجام شد' , "success");
                     return back();
                 }
             }
@@ -668,9 +666,12 @@ class ProfileController extends Controller
     }
     public function BeforeBuying(Request $request){
         if (Auth::check() && Auth::id() > 0){
-            
-            //todo MAJIDI
-
+            $order_id = Orders::create([
+                
+            ]);
+//            foreach ($request->id as $item){
+//                $product = Product::where('id', $item)->first();
+//            }
         }else{
             return Response::json(['status'=>'0', 'desc' => "ابتدا وارد سایت شوید یا ثبت نام کنید"]);
         }
