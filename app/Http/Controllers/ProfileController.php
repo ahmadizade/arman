@@ -666,12 +666,20 @@ class ProfileController extends Controller
     }
     public function BeforeBuying(Request $request){
         if (Auth::check() && Auth::id() > 0){
+            $discount= ($request->total_discount * 100)/ $request->order_price;
+
             $order_id = Orders::create([
-                
-            ]);
-//            foreach ($request->id as $item){
-//                $product = Product::where('id', $item)->first();
-//            }
+                "user_id" => Auth::id(),
+                "product_id" => json_encode($request->id),
+                "last_price" => $request->order_price,
+                "price_with_taxation" => $request->last_price,
+                "last_discount" => $discount,
+                "status" => 0,
+                "created_at" => Carbon::now(),
+                "order_number" => 'CEO' . "-" . rand(10000000,99999999),
+            ])->id;
+
+            return Response::json(['status'=>'1', 'desc' => "test OK"]);
         }else{
             return Response::json(['status'=>'0', 'desc' => "ابتدا وارد سایت شوید یا ثبت نام کنید"]);
         }

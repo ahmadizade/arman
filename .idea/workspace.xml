@@ -684,7 +684,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625576446448</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="cart">
+      <created>1625650833413</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1625650833413</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -779,6 +786,15 @@
           <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
           <line>474</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
+          <line>666</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\ProfileController" />
+            <option name="methodName" value="BeforeBuying" />
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

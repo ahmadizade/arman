@@ -56,6 +56,7 @@
                                             $price = 0;
                                             $discount_price = 0;
                                             $last_price = 0;
+                                            $total_discount = 0;
                                             $id = [];
                                         @endphp
                                     @foreach(\Illuminate\Support\Facades\Session::get('product') as $key => $item)
@@ -99,13 +100,13 @@
                                             </tbody>
                                         </table>
                                             @php
+                                                $total_discount += ($item->price * $item->discount) / 100;
                                                 $price += $item->price;
                                                 $last_price += $discount_price;
                                             @endphp
                                         @endforeach
                                     </div>
                                 </div>
-
                                 @else
                                     <div class="col-12">
                                         <div class="dt sl dt-sn dt-sn--box pt-3 pb-5">
@@ -205,7 +206,6 @@
             </div>
         </div>
     </main>
-
     <!-- End main-content -->
 @endsection
 @section('extra_js')
@@ -215,7 +215,7 @@
                url : '{{route('before_buying')}}',
                type : "get",
                 @if(Illuminate\Support\Facades\Session::has('product') && !empty(Illuminate\Support\Facades\Session::get('product')))
-                    data : {'last_price'  : '{{$last_price + (($last_price * 9) / 100)}}' , 'id' : {{json_encode($id)}} },
+                    data : {'order_price' : '{{$price - $total_discount}}' , 'total_discount' : '{{$total_discount}}' , 'last_price'  : '{{$last_price + (($last_price * 9) / 100)}}' , 'id' : {{json_encode($id)}} },
                 @endif
                    success : function (data) {
                    console.log(data);
