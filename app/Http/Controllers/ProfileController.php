@@ -668,7 +668,7 @@ class ProfileController extends Controller
     }
     public function BeforeBuying(Request $request){
         if (Auth::check() && Auth::id() > 0){
-            
+
             //todo MAJIDI
 
         }else{
