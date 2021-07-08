@@ -84,7 +84,7 @@
                                         <ul class="list-favorites">
                                             @foreach($bookmark as $item)
                                                 <li>
-                                                    <a href="{{ route("single_product",["slug" => $item->product->product_slug]) }}">
+                                                    <a href="{{ route("single_product",["slug" => $item->product->product_slug ?? "404"]) }}">
                                                         <img src="/uploads/thumbnail/{{$item->product->thumbnail ?? "noimage_64.jpg"}}" alt="{{$item->product_name}}">
                                                         <span>{{$item->product->product_name ?? "بدون نام"}}</span>
                                                     </a>

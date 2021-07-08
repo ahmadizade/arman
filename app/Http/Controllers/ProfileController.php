@@ -666,6 +666,7 @@ class ProfileController extends Controller
     }
     public function BeforeBuying(Request $request){
         if (Auth::check() && Auth::id() > 0){
+
             $discount= ($request->total_discount * 100)/ $request->order_price;
 
             $order_id = Orders::create([
@@ -679,7 +680,24 @@ class ProfileController extends Controller
                 "order_number" => 'CEO' . "-" . rand(10000000,99999999),
             ])->id;
 
-            return Response::json(['status'=>'1', 'desc' => "test OK"]);
+            foreach ($request->id as $item){
+                $product = Product::where('id', $item)->first();
+                OrderProducts::create([
+                    "user_id" => Auth::id(),
+                    "order_id" => $order_id,
+                    "product_id" => $item,
+                    "product_name" => $product->product_name,
+                    "product_quantity" => 1,
+                    "product_price" => $product->price,
+                    "discount" => $product->discount,
+                    "type" => $product->type,
+                    "created_at" => Carbon::now(),
+                ]);
+            }
+
+            //TODO MAJIDI
+            return Response::json(['status'=>'1', 'desc' => "انتقال به درگاه بانک"]);
+
         }else{
             return Response::json(['status'=>'0', 'desc' => "ابتدا وارد سایت شوید یا ثبت نام کنید"]);
         }
