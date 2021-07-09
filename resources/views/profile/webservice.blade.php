@@ -25,7 +25,7 @@
                                     <div class="card-horizontal-product mb-0 webservice-box">
                                         <div class="card-horizontal-product-thumb">
                                             <a href="{{ route("single_product",["slug" => $item->webservice->product_slug]) }}">
-                                                <img src="/uploads/thumbnail/{{$item->webservice->thumbnail ?? "noimage_200.jpg"}}" alt="{{$item->webservice->product_name}}">
+                                                <img src="/uploads/thumbnail/{{$item->webservice->thumbnail ?? "noimage_200.jpg"}}" alt="{{$item->webservice->product_name ?? "بدون نام"}}">
                                             </a>
                                             <small class="font-weight-bold d-block mt-2">تاریخ اتمام</small>
                                             <div class="rating-stars mt-1">
@@ -36,7 +36,7 @@
                                             <div class="label-status-comment">تایید شده</div>
                                             <div class="card-horizontal-comment-title">
                                                 <a href="#">
-                                                    <h3>{{$item->webservice->product_name}}</h3>
+                                                    <h3>{{$item->webservice->product_name ?? "بدون نام"}}</h3>
                                                 </a>
                                             </div>
                                             <div class="card-horizontal-comment">
@@ -74,7 +74,7 @@
                                                     <i class="mdi mdi-cart-remove"></i>
                                                 </div>
                                                 <p class="cart-empty-title">چرا وب سرویس نداری!</p>
-                                                <p>بابا این همه وب سرویس اینجا داریم، برو خودت ببین!</p>
+                                                <p>بابا این همه وب سرویس <a href="{{route('home')}}">اینجا</a> داریم، برو خودت ببین!</p>
                                                 <div class="cart-empty-links mb-5">
                                                     <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های رایگان</a>
                                                     <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">پربازدیدترین ها</a>

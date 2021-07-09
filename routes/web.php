@@ -79,6 +79,7 @@ Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::post('/product/edit-category-action', 'App\Http\Controllers\AdminController@editCategoryAction')->name("edit_category_action");
     Route::post('/product/edit-tag-action', 'App\Http\Controllers\AdminController@editTagAction')->name("edit_tag_action");
     Route::get('/product/edit-product/{id}', 'App\Http\Controllers\AdminController@editProduct')->name("edit_product");
+    Route::get('/product/show-product', 'App\Http\Controllers\AdminController@showProduct')->name("show_product");
     Route::post('/product/admin-edit-product-action', 'App\Http\Controllers\AdminController@adminEditproductAction')->name("admin_edit_product_action");
     Route::post('/product/image-edit-product-action', 'App\Http\Controllers\AdminController@imageEditproductAction')->name("image_edit_product_action");
     Route::post('/product/image-edit-category-action', 'App\Http\Controllers\AdminController@imageEditcategoryAction')->name("image_edit_category_action");
@@ -93,6 +94,8 @@ Route::middleware(['admin'])->prefix("cioce")->group(function () {
     Route::post('/api/admin-edit-api-action', 'App\Http\Controllers\AdminController@adminEditapiAction')->name("admin_edit_api_action");
     Route::post('/api/image-edit-api-action', 'App\Http\Controllers\AdminController@imageEditapiAction')->name("image_edit_api_action");
     Route::post('/api/admin-file-api-action', 'App\Http\Controllers\AdminController@adminFileapiAction')->name("admin_file_api_action");
+    Route::get('/api/show-webservice', 'App\Http\Controllers\AdminController@showWebservice')->name("show_webservice");
+
 });
 // admin
 
@@ -189,6 +192,7 @@ Route::any("/verify", "App\Http\Controllers\PaymentController@verify")->middlewa
 Route::get('/mag', 'App\Http\Controllers\BlogController@mag')->name("mag");
 Route::get('/single-mag/{slug}', 'App\Http\Controllers\BlogController@singleMag')->name("single_mag");
 Route::get('/new-single-mag', 'App\Http\Controllers\BlogController@newSingleMag')->name("new_single_mag");
+Route::get('/show-single-mag', 'App\Http\Controllers\BlogController@showSingleMag')->name("show_single_mag");
 Route::post('/new-single-mag-action', 'App\Http\Controllers\BlogController@newSingleMagAction')->name("new_single_mag_action");
 Route::post('/edit-single-mag-action', 'App\Http\Controllers\BlogController@editSingleMagAction')->name("edit_single_mag_action");
 Route::post('/new-single-mag-comment', 'App\Http\Controllers\BlogController@newSingleMagComment')->name("new_single_mag_comment");

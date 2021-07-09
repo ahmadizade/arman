@@ -87,7 +87,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 buttons text-right">
-                                                    <button class="btn btn-success btn-sm" type="submit">افزودن محتوا</button>
+                                                    <button class="btn btn-success btn-sm" type="submit">تغییر عکس</button>
                                                 </div>
                                             </form>
                                         </div>

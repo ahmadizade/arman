@@ -74,12 +74,12 @@
                                                 <i class="mdi mdi-account-card-details-outline"></i>پنل مدیریت
                                             </a>
                                         @endif
-{{--                                        <a class="dropdown-item" href="{{route('home')}}">--}}
-{{--                                            <span class="float-left badge badge-dark">۴</span>--}}
-{{--                                            <i class="mdi mdi-comment-text-outline"></i>پیغام ها--}}
-{{--                                        </a>--}}
-                                        <a class="dropdown-item" href="{{ route("profile_edit") }}">
-                                            <i class="mdi mdi-account-edit-outline"></i>ویرایش حساب کاربری
+                                        <a class="dropdown-item" href="{{route('home')}}">
+                                            <span class="float-left badge badge-danger">۴</span>
+                                            <i class="mdi mdi-comment-text-outline"></i>پیغام ها
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route("profile_credit") }}">
+                                            <i class="mdi mdi-account-edit-outline"></i>کیف پول من
                                         </a>
                                         <div class="dropdown-divider" role="presentation"></div>
                                         <a class="dropdown-item" href="{{route('logout')}}">

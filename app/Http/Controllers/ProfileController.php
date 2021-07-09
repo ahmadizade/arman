@@ -646,12 +646,10 @@ class ProfileController extends Controller
             foreach (Session::get('product') as $key => $value){
                 if ($key == $request->key){
                     Session::forget('product.' . $request->key);
-//                    Session::flash('status' , "حذف محصول از سبد خرید با موفقیت انجام شد");
-                    toast('success' , "حذف محصول از سبد خرید با موفقیت انجام شد");
+                    toast('حذف محصول از سبد خرید با موفقیت انجام شد' , "success");
                     return back();
                 }elseif (count(Session::get('product')) == 0){
-//                    Session::flash('error' , "این محصول در سبد خرید شما نیست");
-                    toast('success' , "حذف محصول از سبد خرید با موفقیت انجام شد");
+                    toast('حذف محصول از سبد خرید با موفقیت انجام شد' , "success");
                     return back();
                 }
             }
@@ -670,6 +668,36 @@ class ProfileController extends Controller
         if (Auth::check() && Auth::id() > 0){
 
             //todo MAJIDI
+            $discount= ($request->total_discount * 100)/ $request->order_price;
+
+            $order_id = Orders::create([
+                "user_id" => Auth::id(),
+                "product_id" => json_encode($request->id),
+                "last_price" => $request->order_price,
+                "price_with_taxation" => $request->last_price,
+                "last_discount" => $discount,
+                "status" => 0,
+                "created_at" => Carbon::now(),
+                "order_number" => 'CEO' . "-" . rand(10000000,99999999),
+            ])->id;
+
+            foreach ($request->id as $item){
+                $product = Product::where('id', $item)->first();
+                OrderProducts::create([
+                    "user_id" => Auth::id(),
+                    "order_id" => $order_id,
+                    "product_id" => $item,
+                    "product_name" => $product->product_name,
+                    "product_quantity" => 1,
+                    "product_price" => $product->price,
+                    "discount" => $product->discount,
+                    "type" => $product->type,
+                    "created_at" => Carbon::now(),
+                ]);
+            }
+
+            //TODO MAJIDI
+            return Response::json(['status'=>'1', 'desc' => "انتقال به درگاه بانک"]);
 
         }else{
             return Response::json(['status'=>'0', 'desc' => "ابتدا وارد سایت شوید یا ثبت نام کنید"]);

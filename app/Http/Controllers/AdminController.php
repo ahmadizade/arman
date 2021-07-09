@@ -685,6 +685,11 @@ class AdminController extends Controller
         return view('admin.views.product_edit', ['product' => $product]);
     }
 
+    public function showProduct(){
+        $last_product = Product::orderByDesc('id')->where('type', "table")->paginate(15);
+        return view('admin.views.product_show', ['last_product' => $last_product]);
+    }
+
     public function deleteCategory($id){
         Category::where('id' , $id)->update([
             'delete' => 1,
@@ -1032,6 +1037,11 @@ class AdminController extends Controller
         $last_product = Product::where('delete', 0)->where('type', "api")->orderByDesc('id')->paginate(3);
         return view('admin.views.webservice.new_service',['last_product' => $last_product]);
     }
+
+     public function showWebservice(){
+            $last_product = Product::where('type', "api")->orderByDesc('id')->paginate(15);
+            return view('admin.views.webservice.web_service_show',['last_product' => $last_product]);
+        }
 
 
 

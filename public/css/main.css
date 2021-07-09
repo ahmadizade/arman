@@ -8510,6 +8510,18 @@ footer.mini-footer .copy-right-mini-footer {
     color: #2bb714 !important;
 }
 
+.no-outline {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: transparent;
+}
+
+.no-outline:focus {
+    outline: none;
+}
+
 /*.profile-sidebar .profile-menu-section .profile-menu ul li a active{*/
 /*    color: #00BFD6;*/
 /*    background-color: #f6ffff;*/

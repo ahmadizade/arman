@@ -61,8 +61,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Product Management:</h6>
 {{--                <a class="collapse-item font-weight-bolder" href="{{route('Store')}}">فروشگاه ها</a>--}}
-                <a class="collapse-item font-weight-bolder" href="{{route('Product')}}">محصولات ما</a>
-{{--                <a class="collapse-item font-weight-bolder" href="{{route('Product')}}">محصولات ثبت شده</a>--}}
+                <a class="collapse-item font-weight-bolder" href="{{route('Product')}}">افزودن محصول</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('show_product')}}">محصولات ثبت شده</a>
                 <a class="collapse-item font-weight-bolder" href="{{route('add_category_page')}}">دسته بندی</a>
                 <a class="collapse-item font-weight-bolder" href="{{route('add_tag_page')}}">برچسب ها</a>
             </div>
@@ -80,6 +80,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Blog Manager</h6>
                 <a class="collapse-item font-weight-bolder" href="{{route('new_single_mag')}}">نوشتن مطلب</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('show_single_mag')}}">مطالب ثبت شده</a>
             </div>
         </div>
     </li>
@@ -95,6 +96,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Blog Manager</h6>
                 <a class="collapse-item font-weight-bolder" href="{{route('new_webservice')}}">وب سرویس جدید</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('show_webservice')}}">سرویس های ثبت شده</a>
             </div>
         </div>
     </li>

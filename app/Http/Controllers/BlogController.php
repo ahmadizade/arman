@@ -34,6 +34,11 @@ class BlogController extends Controller
         return view('admin.views.blog.new_content' , ["lastPost" => $lastPost]);
     }
 
+    public function showSingleMag(){
+        $lastPost = Blog::orderByDesc('id')->paginate(15);
+        return view('admin.views.blog.show_content' , ["lastPost" => $lastPost]);
+    }
+
     public function newSingleMagAction(Request $request){
         if (Auth::check()) {
             $validator = Validator::make($request->all(), [

@@ -71,12 +71,12 @@
                 سفارشات من
             </a>
         </li>
-{{--        <li>--}}
-{{--            <a href="{{ route("profile_store") }}">--}}
-{{--                <i class="mdi mdi-backburger @if($menu == "store") active @endif"></i>--}}
-{{--                فروشگاه من--}}
-{{--            </a>--}}
-{{--        </li>--}}
+        <li>
+            <a href="{{ route("profile_credit") }}">
+                <i class="mdi mdi-backburger @if($menu == "credit") active @endif"></i>
+                کیف پول من
+            </a>
+        </li>
         <li>
             <a href="{{ route("profile_bookmark") }}" class="@if($menu == "bookmark") active @endif">
                 <i class="mdi mdi-heart-outline"></i>
