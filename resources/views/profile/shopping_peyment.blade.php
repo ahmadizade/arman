@@ -247,7 +247,7 @@
                                             <div class="mt-5">
                                                 <a href="{{route('cart_page')}}" class="float-right border-bottom-dt"><i
                                                         class="mdi mdi-chevron-double-right"></i>بازگشت به سبد خرید</a>
-                                                <a href="#" class="float-left border-bottom-dt">ثبت نهایی سفارش<i
+                                                <a href="javascript:void(0)" id="before_buying2" class="float-left border-bottom-dt">ثبت نهایی سفارش<i
                                                         class="mdi mdi-chevron-double-left"></i></a>
                                             </div>
                                         </section>
@@ -345,7 +345,7 @@
     <script src="/js/vendor/wNumb.js"></script>
     <script src="/js/vendor/ResizeSensor.min.js"></script>
     <script>
-        $('#before_buying').click(function () {
+        $('#before_buying, #before_buying2').click(function () {
             $.ajax({
                 url : '{{route('before_buying')}}',
                 type : "get",

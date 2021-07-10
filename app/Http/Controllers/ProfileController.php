@@ -700,7 +700,7 @@ class ProfileController extends Controller
                     "created_at" => Carbon::now(),
                 ]);
             }
-            
+
             //TODO MAJIDI
             return Response::json(['status'=>'1', 'desc' => "انتقال به درگاه بانک"]);
 

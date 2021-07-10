@@ -167,6 +167,7 @@ Route::prefix("profile")->group(function () {
     Route::post('/credit-action', 'App\Http\Controllers\ProfileController@CreditAction')->name("profile_credit_action");
     Route::get('/orders', 'App\Http\Controllers\ProfileController@orders')->name("orders");
     Route::get('/order-details/{order_id}', 'App\Http\Controllers\ProfileController@orderDetails')->name("order_details");
+    Route::get('/my-tickets', 'App\Http\Controllers\ProfileController@myTickets')->name("my_tickets");
 });
 
 

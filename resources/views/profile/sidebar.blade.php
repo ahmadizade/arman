@@ -78,6 +78,12 @@
             </a>
         </li>
         <li>
+            <a href="{{ route("ticket") }}">
+                <i class="mdi mdi-backburger @if($menu == "ticket") active @endif"></i>
+                تیکت
+            </a>
+        </li>
+        <li>
             <a href="{{ route("profile_bookmark") }}" class="@if($menu == "bookmark") active @endif">
                 <i class="mdi mdi-heart-outline"></i>
                 نشان شده ها
