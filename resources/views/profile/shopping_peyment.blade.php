@@ -329,6 +329,15 @@
                 </div>
             </div>
         </main>
+
+        @php
+            $id = [];
+        @endphp
+        @foreach(\Illuminate\Support\Facades\Session::get('product') as $key => $item)
+            @php
+                $id[] = $item->id;
+            @endphp
+        @endforeach
         <!-- End main-content -->
 @endsection
 @section('extra_js')
@@ -341,7 +350,7 @@
                 url : '{{route('before_buying')}}',
                 type : "get",
                 @if(Illuminate\Support\Facades\Session::has('product') && !empty(Illuminate\Support\Facades\Session::get('product')))
-                    data : {'id' : '{{json_encode(\Illuminate\Support\Facades\Session::get('shipping')['id'])}}' },
+                    data : {'id' : {{json_encode($id)}} },
                 @endif
                 success : function (data) {
                     console.log(data);

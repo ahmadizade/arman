@@ -669,13 +669,14 @@ class ProfileController extends Controller
     }
     public function BeforeBuying(Request $request){
         if (Auth::check() && Auth::id() > 0){
+            $id = json_encode($request->id);
             if (Session::has('shipping') && count(Session::get('shipping')) > 0) {
             $discount= Session::get('shipping')['discount'];
             $order_price = Session::get('shipping')['order_price'];
             $last_price = Session::get('shipping')['last_price'];
             $order_id = Orders::create([
                 "user_id" => Auth::id(),
-                "product_id" => $request->id,
+                "product_id" => $id,
                 "last_price" => $order_price,
                 "price_with_taxation" => $last_price,
                 "last_discount" => $discount,
@@ -683,6 +684,7 @@ class ProfileController extends Controller
                 "created_at" => Carbon::now(),
                 "order_number" => 'CEO' . "-" . rand(10000000,99999999),
             ])->id;
+
 
             foreach ($request->id as $item){
                 $product = Product::where('id', $item)->first();
@@ -698,7 +700,7 @@ class ProfileController extends Controller
                     "created_at" => Carbon::now(),
                 ]);
             }
-
+            
             //TODO MAJIDI
             return Response::json(['status'=>'1', 'desc' => "انتقال به درگاه بانک"]);
 
