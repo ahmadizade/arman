@@ -664,17 +664,20 @@ class ProfileController extends Controller
     public function forgetSessionCart(){
         return Session::forget('product');
     }
+    public function forgetShippingCart(){
+        return Session::forget('product');
+    }
     public function BeforeBuying(Request $request){
         if (Auth::check() && Auth::id() > 0){
-
-            //todo MAJIDI
-            $discount= ($request->total_discount * 100)/ $request->order_price;
-
+            if (Session::has('shipping') && count(Session::get('shipping')) > 0) {
+            $discount= Session::get('shipping')['discount'];
+            $order_price = Session::get('shipping')['order_price'];
+            $last_price = Session::get('shipping')['last_price'];
             $order_id = Orders::create([
                 "user_id" => Auth::id(),
-                "product_id" => json_encode($request->id),
-                "last_price" => $request->order_price,
-                "price_with_taxation" => $request->last_price,
+                "product_id" => $request->id,
+                "last_price" => $order_price,
+                "price_with_taxation" => $last_price,
                 "last_discount" => $discount,
                 "status" => 0,
                 "created_at" => Carbon::now(),
@@ -699,6 +702,26 @@ class ProfileController extends Controller
             //TODO MAJIDI
             return Response::json(['status'=>'1', 'desc' => "انتقال به درگاه بانک"]);
 
+            }else{
+                return Response::json(['status'=>'0', 'desc' => "سبد خرید خود را مجدد تایید فرمایید"]);
+            }
+        }else{
+            return Response::json(['status'=>'0', 'desc' => "ابتدا وارد سایت شوید یا ثبت نام کنید"]);
+        }
+    }
+
+    public function shoppingPeymentpage(){
+        return view('profile.shopping_peyment');
+    }
+
+    public function shoppingPeyment(Request $request){
+        if (Auth::check() && Auth::id() > 0){
+            if (Session::has('product') && count(Session::get('product')) > 0) {
+                $discount= number_format(($request->total_discount * 100)/ $request->order_price);
+                Session::forget('shipping');
+                Session::put('shipping', ['id' => $request->id, 'discount' => $discount, 'order_price' => $request->order_price, 'total_discount' => $request->total_discount, 'last_price' => $request->last_price]);
+            }
+            return Response::json(['status' => 1 , "desc" =>"تکمیل سبد خرید و پرداخت"]);
         }else{
             return Response::json(['status'=>'0', 'desc' => "ابتدا وارد سایت شوید یا ثبت نام کنید"]);
         }

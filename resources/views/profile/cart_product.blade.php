@@ -142,7 +142,7 @@
                                             <li>
                                                 <span>هزینه نصب<span class="help-sn" data-toggle="tooltip"
                                                         data-html="true" data-placement="bottom"
-                                                        title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>هزینه نصب : .<br>'این مبلغ فقط در خرید وب سایت آماده محاسبه خواهد شد'</p></div>">
+                                                                     title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>هزینه نصب : <br>این مبلغ فقط در خرید وب سایت آماده محاسبه خواهد شد</p></div>">
                                                         <span class="mdi mdi-information-outline"></span>
                                                     </span></span><span>وابسته به کالا</span>
                                             </li>
@@ -163,10 +163,10 @@
                                                 <span class="checkout-summary-price-value-amount">{{number_format($last_price + (($last_price * 9) / 100))}}</span>
                                                 تومان
                                             </div>
-                                            <a id="before_buying" class="mb-2 d-block">
+                                            <a id="shopping_peyment" class="mb-2 d-block">
                                                 <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0">
                                                     <i class="mdi mdi-arrow-left"></i>
-                                                    انتقال به درگاه بانک
+                                                    تکمیل فرایند خرید
                                                 </button>
                                             </a>
                                             <div>
@@ -183,16 +183,16 @@
                                     <div class="dt-sn dt-sn--box checkout-feature-aside pt-4">
                                         <ul>
                                             <li class="checkout-feature-aside-item">
-                                                <img src="./assets/img/svg/return-policy.svg" alt="">
-                                                پشتیبانی 24 ساعته
+                                                <img src="/img/svg/return-policy.svg" alt="">
+                                                پشتیبانی 7 روز هفته
                                             </li>
                                             <li class="checkout-feature-aside-item">
-                                                <img src="./assets/img/svg/payment-terms.svg" alt="">
-                                                هفت روز هفته
+                                                <img src="/img/svg/payment-terms.svg" alt="">
+                                                پرداخت با تمام بانک های شتاب
                                             </li>
                                             <li class="checkout-feature-aside-item">
-                                                <img src="./assets/img/svg/delivery.svg" alt="">
-                                                تحویل آنلاین و آنی
+                                                <img src="/img/svg/delivery.svg" alt="">
+                                                تحویل و ایجاد لینک آنلاین
                                             </li>
                                         </ul>
                                     </div>
@@ -210,15 +210,14 @@
 @endsection
 @section('extra_js')
     <script>
-        $('#before_buying').click(function () {
+        $('#shopping_peyment').click(function () {
             $.ajax({
-               url : '{{route('before_buying')}}',
+               url : '{{route('shopping_peyment')}}',
                type : "get",
                 @if(Illuminate\Support\Facades\Session::has('product') && !empty(Illuminate\Support\Facades\Session::get('product')))
                     data : {'order_price' : '{{$price - $total_discount}}' , 'total_discount' : '{{$total_discount}}' , 'last_price'  : '{{$last_price + (($last_price * 9) / 100)}}' , 'id' : {{json_encode($id)}} },
                 @endif
                    success : function (data) {
-                   console.log(data);
                        if (data.status == "0") {
                            Swal.fire({
                                position: 'top-end',
@@ -228,7 +227,7 @@
                                text: data.desc,
                                footer : '<a href="{{route('login')}}" class="mt-2 text-success">ورود به سایت</a>',
                                showConfirmButton: false,
-                               timer: 8000
+                               timer: 9000
                            });
                        }
                        if (data.status == "1") {
@@ -236,10 +235,14 @@
                                position: 'top-end',
                                toast: true,
                                icon: 'success',
+                               title: 'CioCe',
                                text: data.desc,
+                               footer:"در حال انتقال به صفحه تایید محصولات و پرداخت نهایی",
                                showConfirmButton: false,
-                               timer: 3000
+                               timer: 9000
                            });
+                           window.location.replace('/profile/shopping-peyment-page');
+
                        }
                    }
             });
