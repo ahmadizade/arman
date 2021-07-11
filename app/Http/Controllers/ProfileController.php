@@ -18,6 +18,7 @@ use App\Models\Profile;
 use App\Models\Setting;
 use App\Models\Statement;
 use App\Models\Store;
+use App\Models\Ticket;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -1329,11 +1330,48 @@ class ProfileController extends Controller
         }
     }
 
+    public function myTickets(){
+        $ticket = Ticket::where('user_id', Auth::id())->where('delete', 0)->get();
+        return view('profile.my_tickets', ['user' => Auth::user(), 'menu'=>"ticket", 'ticket' => $ticket]);
+    }
+
+    public function newTicket(Request $request){
+        if (Auth::check() && Auth::id() > 0) {
+            $validator = Validator::make($request->all(), [
+               'subject' => 'required|min:5|max:255',
+               'message' => 'required|min:5|max:9999',
+               'priority' => 'nullable',
+               'unit' => 'nullable',
+            ]);
+            if ($validator->fails()) {
+                return Response::json(["status" => "0", "desc" => $validator->errors()->first()]);
+            }
+            Ticket::create([
+                'user_id' => Auth::id(),
+                'subject' => $request->subject,
+                'message' => $request->message,
+                'status' => 1,
+                'priority' => $request->priority,
+                'created_at' => Carbon::now(),
+                'unit' => $request->unit,
+            ]);
+            return Response::json(["status" => "1", "desc" => "پیام شما با موفقیت ثبت شد"]);
+        }
+        return Response::json(["status" => "0", "desc" => "ابتدا وارد سایت شوید"]);
+    }
+
+    public function getAnswer(Request $request){
+        $answer = Ticket::where('parent_id', $request->id)->first();
+        if (isset($answer[0]->id) && $answer[0]->id > 0) {
+            return view('profile.answer_modal', ['answer' => $answer]);
+        }else{
+            return view('profile.answer_modal', ['answer' => $answer]);
+        }
+    }
+
     public function CartTransfer()
     {
-
         return view("profile.cart_transfer", ["menu" => "cart_transfer"]);
-
     }
 
     public function CartTransferAction(Request $request)

@@ -29,67 +29,74 @@
                                             <div class="card-horizontal-address text-center px-4">
                                                 <button class="checkout-address-location" data-toggle="modal"
                                                     data-target="#modal-location">
-                                                    <strong>ایجاد آدرس جدید</strong>
-                                                    <i class="mdi mdi-map-marker-plus"></i>
+                                                    <strong>ایجاد تیکت جدید</strong>
+                                                    <i class="mdi mdi-email-mark-as-unread"></i>
                                                 </button>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-12">
                                             <div class="card-horizontal-address">
                                                 <div class="card-horizontal-address-desc">
-                                                    <h4 class="card-horizontal-address-full-name">جلال بهرامی راد</h4>
+                                                    <h4 class="card-horizontal-address-full-name">واحد پشتیبانی فنی</h4>
                                                     <p>
-                                                        خراسان شمالی، بجنورد، خراسان شمالی-بجنورد
+                                                        همراه عزیز، ما به صورت 24 ساعته در هفت روز هفته پاسخگوی شما هستیم.
                                                     </p>
+                                                    <p>خدمت به شما عزیزان افتخار ماست</p>
                                                 </div>
                                                 <div class="card-horizontal-address-data">
                                                     <ul class="card-horizontal-address-methods float-right">
                                                         <li class="card-horizontal-address-method">
                                                             <i class="mdi mdi-email-outline"></i>
-                                                            کدپستی : <span>۹۹۹۹۹۹۹۹۹۹</span>
+                                                            رایانامه : <span>Support@cioce.ir</span>
                                                         </li>
                                                         <li class="card-horizontal-address-method">
                                                             <i class="mdi mdi-cellphone-iphone"></i>
-                                                            تلفن همراه : <span>۰۹۰۳۰۸۱۳۷۴۲</span>
+                                                            تلفن همراه : <span class="rtl">26808264-021</span>
                                                         </li>
                                                     </ul>
-                                                    <div class="card-horizontal-address-actions">
-                                                        <button class="btn-note" data-toggle="modal"
-                                                            data-target="#modal-location-edit">ویرایش</button>
-                                                        <button class="btn-note" data-toggle="modal"
-                                                            data-target="#remove-location">حذف</button>
-                                                    </div>
+{{--                                                    <div class="card-horizontal-address-actions">--}}
+{{--                                                        <button class="btn-note" data-toggle="modal"--}}
+{{--                                                            data-target="#modal-location-edit">ویرایش</button>--}}
+{{--                                                        <button class="btn-note" data-toggle="modal"--}}
+{{--                                                            data-target="#remove-location">حذف</button>--}}
+{{--                                                    </div>--}}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-12">
-                                            <div class="card-horizontal-address">
-                                                <div class="card-horizontal-address-desc">
-                                                    <h4 class="card-horizontal-address-full-name">جلال بهرامی راد</h4>
-                                                    <p>
-                                                        خراسان شمالی، بجنورد، خراسان شمالی-بجنورد
-                                                    </p>
-                                                </div>
-                                                <div class="card-horizontal-address-data">
-                                                    <ul class="card-horizontal-address-methods float-right">
-                                                        <li class="card-horizontal-address-method">
-                                                            <i class="mdi mdi-email-outline"></i>
-                                                            کدپستی : <span>۹۹۹۹۹۹۹۹۹۹</span>
-                                                        </li>
-                                                        <li class="card-horizontal-address-method">
-                                                            <i class="mdi mdi-cellphone-iphone"></i>
-                                                            تلفن همراه : <span>۰۹۰۳۰۸۱۳۷۴۲</span>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="card-horizontal-address-actions">
-                                                        <button class="btn-note" data-toggle="modal"
-                                                            data-target="#modal-location-edit">ویرایش</button>
-                                                        <button class="btn-note" data-toggle="modal"
-                                                            data-target="#remove-location">حذف</button>
+
+                                        @if (isset($ticket))
+                                            @foreach($ticket as $item)
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="card-horizontal-address">
+                                                    <div class="card-horizontal-address-desc">
+                                                        <h4 class="card-horizontal-address-full-name">{{$item->subject}}</h4>
+                                                        <p>
+                                                            {{$item->message}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="card-horizontal-address-data">
+                                                        <ul class="card-horizontal-address-methods float-right">
+                                                            <li class="card-horizontal-address-method">
+                                                                <i class="mdi mdi-email-check-outline"></i>
+                                                                وضعیت تیکت :
+                                                                <span class="@if ($item->status == 2) text-success @elseif ($item->status == 3) text-warning @endif">{{\App\Models\Ticket::Status($item->status)}}</span>
+                                                            </li>
+                                                            <li class="card-horizontal-address-method">
+                                                                <i class="mdi mdi-clock-alert-outline"></i>
+                                                                تاریخ ساخت : <span>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</span>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="card-horizontal-address-actions">
+                                                            <button class="btn-note get_answer" data-id="{{$item->id}}">مشاهده</button>
+{{--                                                            <button class="btn-note get_answer" data-id="{{$item->id}}" data-toggle="modal" data-target="#modal-location-edit">مشاهده</button>--}}
+                                                            <button class="btn-note" data-toggle="modal" data-target="#remove-location">حذف</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            @endforeach
+                                        @endif
+
                                     </div>
                                 </div>
                             </div>
@@ -98,206 +105,18 @@
                     <!-- End Content -->
 
                 </div>
-                <!-- Start Product-Slider -->
-                <section class="slider-section dt-sl mt-5 mb-5">
-                    <div class="row mb-3">
-                        <div class="col-12">
-                            <div class="section-title text-sm-title title-wide no-after-title-wide">
-                                <h2>محصولات پیشنهادی برای شما</h2>
-                                <a href="#">مشاهده همه</a>
-                            </div>
-                        </div>
-
-                        <!-- Start Product-Slider -->
-                        <div class="col-12 px-res-0">
-                            <div class="product-carousel carousel-lg owl-carousel owl-theme">
-                                <div class="item">
-                                    <div class="product-card mb-3">
-                                        <div class="product-head">
-                                            <div class="rating-stars">
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                            </div>
-                                            <div class="discount">
-                                                <span>20%</span>
-                                            </div>
-                                        </div>
-                                        <a class="product-thumb" href="shop-single.html">
-                                            <img src="/img/products/07.jpg" alt="Product Thumbnail">
-                                        </a>
-                                        <div class="product-card-body">
-                                            <h5 class="product-title">
-                                                <a href="shop-single.html">مانتو زنانه</a>
-                                            </h5>
-                                            <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
-                                            <span class="product-price">157,000 تومان</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="product-card mb-3">
-                                        <div class="product-head">
-                                            <div class="rating-stars">
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                            </div>
-                                        </div>
-                                        <a class="product-thumb" href="shop-single.html">
-                                            <img src="/img/products/017.jpg" alt="Product Thumbnail">
-                                        </a>
-                                        <div class="product-card-body">
-                                            <h5 class="product-title">
-                                                <a href="shop-single.html">کت مردانه</a>
-                                            </h5>
-                                            <a class="product-meta" href="shop-categories.html">لباس مردانه</a>
-                                            <span class="product-price">199,000 تومان</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="product-card mb-3">
-                                        <div class="product-head">
-                                            <div class="rating-stars">
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star"></i>
-                                            </div>
-                                        </div>
-                                        <a class="product-thumb" href="shop-single.html">
-                                            <img src="/img/products/013.jpg" alt="Product Thumbnail">
-                                        </a>
-                                        <div class="product-card-body">
-                                            <h5 class="product-title">
-                                                <a href="shop-single.html">مانتو زنانه مدل هودی تیک تین</a>
-                                            </h5>
-                                            <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
-                                            <span class="product-price">135,000 تومان</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="product-card mb-3">
-                                        <div class="product-head">
-                                            <div class="rating-stars">
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star"></i>
-                                            </div>
-                                        </div>
-                                        <a class="product-thumb" href="shop-single.html">
-                                            <img src="/img/products/09.jpg" alt="Product Thumbnail">
-                                        </a>
-                                        <div class="product-card-body">
-                                            <h5 class="product-title">
-                                                <a href="shop-single.html">مانتو زنانه</a>
-                                            </h5>
-                                            <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
-                                            <span class="product-price">145,000 تومان</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="product-card mb-3">
-                                        <div class="product-head">
-                                            <div class="rating-stars">
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                            </div>
-                                        </div>
-                                        <a class="product-thumb" href="shop-single.html">
-                                            <img src="/img/products/010.jpg" alt="Product Thumbnail">
-                                        </a>
-                                        <div class="product-card-body">
-                                            <h5 class="product-title">
-                                                <a href="shop-single.html">مانتو زنانه</a>
-                                            </h5>
-                                            <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
-                                            <span class="product-price">170,000 تومان</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="product-card mb-3">
-                                        <div class="product-head">
-                                            <div class="rating-stars">
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star"></i>
-                                            </div>
-                                            <div class="discount">
-                                                <span>20%</span>
-                                            </div>
-                                        </div>
-                                        <a class="product-thumb" href="shop-single.html">
-                                            <img src="/img/products/011.jpg" alt="Product Thumbnail">
-                                        </a>
-                                        <div class="product-card-body">
-                                            <h5 class="product-title">
-                                                <a href="shop-single.html">مانتو زنانه</a>
-                                            </h5>
-                                            <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
-                                            <span class="product-price">185,000 تومان</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="product-card mb-3">
-                                        <div class="product-head">
-                                            <div class="rating-stars">
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star"></i>
-                                            </div>
-                                        </div>
-                                        <a class="product-thumb" href="shop-single.html">
-                                            <img src="/img/products/019.jpg" alt="Product Thumbnail">
-                                        </a>
-                                        <div class="product-card-body">
-                                            <h5 class="product-title">
-                                                <a href="shop-single.html">تیشرت مردانه</a>
-                                            </h5>
-                                            <a class="product-meta" href="shop-categories.html">لباس مردانه</a>
-                                            <span class="product-price">54,000 تومان</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Product-Slider -->
-
-                    </div>
-                </section>
-                <!-- End Product-Slider -->
             </div>
         </main>
         <!-- End main-content -->
 
         <!-- Start Modal location new -->
-        <div class="modal fade" id="modal-location" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
+        <div class="modal fade" id="modal-location" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg send-info modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">
                             <i class="now-ui-icons location_pin"></i>
-                            افزودن آدرس جدید
+                            تیکت جدید
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -307,286 +126,164 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-ui dt-sl">
-                                    <form class="form-account" action="">
+                                    <form id="new_ticket_form" class="form-account" action="">
                                         <div class="row">
-                                            <div class="col-md-6 col-sm-12 mb-2">
+                                            <div class="col-md-12 col-sm-12 mb-2">
                                                 <div class="form-row-title">
                                                     <h4>
-                                                        نام و نام خانوادگی
+                                                        موضوع پیام
                                                     </h4>
                                                 </div>
                                                 <div class="form-row">
-                                                    <input class="input-ui pr-2 text-right" type="text"
-                                                        placeholder="نام خود را وارد نمایید">
+                                                    <input class="input-ui pr-2 text-right" type="text" name="subject"
+                                                        placeholder="موضوع پیام را وارد نمایید">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-sm-12 mb-2">
+                                            <div class="col-md-12 col-sm-12 mb-3">
                                                 <div class="form-row-title">
                                                     <h4>
-                                                        شماره موبایل
+                                                        واحد
                                                     </h4>
                                                 </div>
                                                 <div class="form-row">
-                                                    <input class="input-ui pl-2 dir-ltr text-left" type="text"
-                                                        placeholder="09xxxxxxxxx">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 mb-2">
-                                                <div class="form-row-title">
-                                                    <h4>
-                                                        استان
-                                                    </h4>
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="custom-select-ui">
-                                                        <select class="right">
-                                                            <option value="khrasan-north">
-                                                                خراسان شمالی
+                                                        <select class="right form-control font-14" name="unit">
+                                                            <option value="1">
+                                                                پشتیبانی فنی
                                                             </option>
-                                                            <option value="tehran">
-                                                                تهران
+                                                            <option value="2">
+                                                                پشتیبانی فروش
                                                             </option>
-                                                            <option value="esfahan">
-                                                                اصفهان
-                                                            </option>
-                                                            <option value="shiraz">
-                                                                شیراز
-                                                            </option>
-                                                            <option value="tabriz">
-                                                                تبریز
+                                                            <option value="3">
+                                                                مدیریت
                                                             </option>
                                                         </select>
-                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-sm-12 mb-2">
+                                            <div class="col-12 mb-3">
                                                 <div class="form-row-title">
                                                     <h4>
-                                                        شهر
+                                                        متن پیام
                                                     </h4>
                                                 </div>
                                                 <div class="form-row">
-                                                    <div class="custom-select-ui">
-                                                        <select class="right">
-                                                            <option value="bojnourd">
-                                                                بجنورد
-                                                            </option>
-                                                            <option value="garme">
-                                                                گرمه
-                                                            </option>
-                                                            <option value="shirvan">
-                                                                شیروان
-                                                            </option>
-                                                            <option value="mane">
-                                                                مانه و سملقان
-                                                            </option>
-                                                            <option value="esfarayen">
-                                                                اسفراین
-                                                            </option>
-                                                        </select>
-                                                    </div>
+                                                    <textarea class="input-ui pr-2 text-right" name="message"
+                                                        placeholder=" متن پیام را وارد کنید"></textarea>
                                                 </div>
                                             </div>
-                                            <div class="col-12 mb-2">
+                                            <div class="col-md-12 col-sm-12 mb-3">
                                                 <div class="form-row-title">
                                                     <h4>
-                                                        آدرس پستی
+                                                        الویت رسیدگی
                                                     </h4>
                                                 </div>
                                                 <div class="form-row">
-                                                    <textarea class="input-ui pr-2 text-right"
-                                                        placeholder=" آدرس تحویل گیرنده را وارد نمایید"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-2">
-                                                <div class="form-row-title">
-                                                    <h4>
-                                                        کد پستی
-                                                    </h4>
-                                                </div>
-                                                <div class="form-row">
-                                                    <input class="input-ui pl-2 dir-ltr text-left placeholder-right"
-                                                        type="text" placeholder=" کد پستی را بدون خط تیره بنویسید">
+                                                    <select class="right form-control font-14" name="priority">
+                                                        <option class="text-danger" value="1">
+                                                            زیاد
+                                                        </option>
+                                                        <option class="text-warning" value="2">
+                                                            متوسط
+                                                        </option>
+                                                        <option selected class="text-success" value="3">
+                                                            کم
+                                                        </option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 pr-4 pl-4">
-                                                <button type="button" class="btn btn-sm btn-primary btn-submit-form">ثبت
-                                                    و
-                                                    ارسال به این آدرس</button>
-                                                <button type="button" class="btn-link-border float-left mt-2">انصراف
-                                                    و بازگشت</button>
+                                                <button id="new_ticket_btn" type="button" class="btn btn-sm btn-primary btn-submit-form">ثبت و ارسال پیام</button>
+                                                <button type="button" class="btn-link-border float-left mt-2">انصراف و بازگشت</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
-                                <!-- Google Map Start -->
                                 <div class="goole-map">
-                                    <div id="map" style="height:440px"></div>
+                                    <img src="/img/icon/mosalas-400.png" class="img-fluid">
                                 </div>
-                                <!-- Google Map End -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End Modal location new -->
+        <!-- End Modal ticket new -->
 
-        <!-- Start Modal location edit -->
-        <div class="modal fade" id="modal-location-edit" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg send-info modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                            <i class="now-ui-icons location_pin"></i>
-                            ویرایش آدرس
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="form-ui dt-sl">
-                                    <form class="form-account" action="">
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-12 mb-2">
-                                                <div class="form-row-title">
-                                                    <h4>
-                                                        نام و نام خانوادگی
-                                                    </h4>
-                                                </div>
-                                                <div class="form-row">
-                                                    <input class="input-ui pr-2 text-right" type="text"
-                                                        placeholder="نام خود را وارد نمایید">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 mb-2">
-                                                <div class="form-row-title">
-                                                    <h4>
-                                                        شماره موبایل
-                                                    </h4>
-                                                </div>
-                                                <div class="form-row">
-                                                    <input class="input-ui pl-2 dir-ltr text-left" type="text"
-                                                        placeholder="09xxxxxxxxx">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 mb-2">
-                                                <div class="form-row-title">
-                                                    <h4>
-                                                        استان
-                                                    </h4>
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="custom-select-ui">
-                                                        <select class="right">
-                                                            <option value="khrasan-north">
-                                                                خراسان شمالی
-                                                            </option>
-                                                            <option value="tehran">
-                                                                تهران
-                                                            </option>
-                                                            <option value="esfahan">
-                                                                اصفهان
-                                                            </option>
-                                                            <option value="shiraz">
-                                                                شیراز
-                                                            </option>
-                                                            <option value="tabriz">
-                                                                تبریز
-                                                            </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 mb-2">
-                                                <div class="form-row-title">
-                                                    <h4>
-                                                        شهر
-                                                    </h4>
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="custom-select-ui">
-                                                        <select class="right">
-                                                            <option value="bojnourd">
-                                                                بجنورد
-                                                            </option>
-                                                            <option value="garme">
-                                                                گرمه
-                                                            </option>
-                                                            <option value="shirvan">
-                                                                شیروان
-                                                            </option>
-                                                            <option value="mane">
-                                                                مانه و سملقان
-                                                            </option>
-                                                            <option value="esfarayen">
-                                                                اسفراین
-                                                            </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-2">
-                                                <div class="form-row-title">
-                                                    <h4>
-                                                        آدرس پستی
-                                                    </h4>
-                                                </div>
-                                                <div class="form-row">
-                                                    <textarea class="input-ui pr-2 text-right"
-                                                        placeholder=" آدرس تحویل گیرنده را وارد نمایید"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 mb-2">
-                                                <div class="form-row-title">
-                                                    <h4>
-                                                        کد پستی
-                                                    </h4>
-                                                </div>
-                                                <div class="form-row">
-                                                    <input class="input-ui pl-2 dir-ltr text-left placeholder-right"
-                                                        type="text" placeholder=" کد پستی را بدون خط تیره بنویسید">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 pr-4 pl-4">
-                                                <button type="button" class="btn btn-sm btn-primary btn-submit-form">ثبت
-                                                    و
-                                                    ارسال به این آدرس</button>
-                                                <button type="button" class="btn-link-border float-left mt-2">انصراف
-                                                    و بازگشت</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <!-- Google Map Start -->
-                                <div class="goole-map">
-                                    <div id="map-edit" style="height:440px"></div>
-                                </div>
-                                <!-- Google Map End -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Start Modal ticket edit -->
+        <div class="modal fade" id="modal-location-edit" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <p id="text"></p>
+{{--            <div class="modal-dialog modal-lg send-info modal-dialog-centered" role="document">--}}
+{{--                <div class="modal-content">--}}
+{{--                    <div class="modal-header">--}}
+{{--                        <h5 class="modal-title" id="exampleModalCenterTitle">--}}
+{{--                            <i class="now-ui-icons location_pin"></i>--}}
+{{--                            پاسخ و تمدید پیام--}}
+{{--                        </h5>--}}
+{{--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+{{--                            <span aria-hidden="true">&times;</span>--}}
+{{--                        </button>--}}
+{{--                    </div>--}}
+{{--                    <div class="modal-body">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-lg-6 col-md-12">--}}
+{{--                                <div class="form-ui dt-sl">--}}
+{{--                                    <form class="form-account" action="">--}}
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-12 mb-2">--}}
+{{--                                                <div class="form-row-title">--}}
+{{--                                                    <h4>--}}
+{{--                                                        پاسخ پشتیبان--}}
+{{--                                                    </h4>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="form-row">--}}
+{{--                                                    <textarea class="input-ui pr-2 text-right" id="answer"></textarea>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+
+{{--                                            <div class="col-12 pr-4 pl-4">--}}
+{{--                                                <button type="button" class="btn btn-sm btn-primary btn-submit-form">--}}
+{{--                                                    پاسخ--}}
+{{--                                                </button>--}}
+{{--                                                <button type="button" class="btn-link-border float-left mt-2">انصراف--}}
+{{--                                                    و بازگشت</button>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg-6 col-md-12">--}}
+{{--                                <!-- Google Map Start -->--}}
+{{--                                <div class="goole-map">--}}
+{{--                                    <div id="map-edit" style="height:440px"></div>--}}
+{{--                                </div>--}}
+{{--                                <!-- Google Map End -->--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
-        <!-- End Modal location edit -->
+        <!-- End Modal ticket edit -->
 
-        <!-- Start Modal remove-location -->
+
+
+
+
+
+
+
+
+
+
+        <!-- Start Modal remove-ticket -->
         <div class="modal fade" id="remove-location" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title mb-3" id="exampleModalLabel">آیا مطمئنید که
-                            این آدرس حذف شود؟</h5>
+                            این پیام حذف شود؟</h5>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="remodal-general-alert-button remodal-general-alert-button--cancel"
@@ -597,7 +294,7 @@
                 </div>
             </div>
         </div>
-        <!-- End Modal remove-location -->
+        <!-- End Modal remove-ticket -->
 
 
 @endsection
@@ -608,125 +305,78 @@
     <script src="/js/vendor/nouislider.min.js"></script>
     <script src="/js/vendor/wNumb.js"></script>
     <script src="/js/vendor/ResizeSensor.min.js"></script>
-    <!-- google map js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAq7MrCR1A2qIShmjbtLHSKjcEIEBEEwM"></script>
-    <script>
-        // When the window has finished loading create our google map below
-        google.maps.event.addDomListener(window, 'load', init);
 
-        function init() {
-            // Basic options for a simple Google Map
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-            var mapOptions = {
-                // How zoomed in you want the map to start at (always required)
-                zoom: 11,
-
-                scrollwheel: false,
-
-                // The latitude and longitude to center the map (always required)
-                center: new google.maps.LatLng(23.761226, 90.420766), // New York
-
-                // How you would like to style the map.
-                // This is where you would paste any style found on Snazzy Maps.
-                styles: [{
-                    "featureType": "administrative",
-                    "elementType": "labels.text.fill",
-                    "stylers": [{
-                        "color": "#444444"
-                    }]
-                },
-                    {
-                        "featureType": "landscape",
-                        "elementType": "all",
-                        "stylers": [{
-                            "color": "#f2f2f2"
-                        }]
-                    },
-                    {
-                        "featureType": "poi",
-                        "elementType": "all",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "all",
-                        "stylers": [{
-                            "saturation": -100
-                        },
-                            {
-                                "lightness": 45
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "all",
-                        "stylers": [{
-                            "visibility": "simplified"
-                        }]
-                    },
-                    {
-                        "featureType": "road.arterial",
-                        "elementType": "labels.icon",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "transit",
-                        "elementType": "all",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "all",
-                        "stylers": [{
-                            "color": "#314453"
-                        },
-                            {
-                                "visibility": "on"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "lightness": "-12"
-                        },
-                            {
-                                "saturation": "0"
-                            },
-                            {
-                                "color": "#4bc7e9"
-                            }
-                        ]
-                    }
-                ]
-            };
-
-            // Get the HTML DOM element that will contain your map
-            // We are using a div with id="map" seen below in the <body>
-            var mapNew = document.getElementById('map');
-            var mapEdit = document.getElementById('map-edit');
-
-            // Create the Google Map using our element and options defined above
-            var map = new google.maps.Map(mapNew, mapOptions);
-            var mapEdit = new google.maps.Map(mapEdit, mapOptions);
-
-            // Let's also add a marker while we're at it
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(23.761226, 90.420766),
-                map: map,
-                title: 'Snazzy!'
-            });
-        }
-    </script>
     <!-- Main JS File -->
     <script src="/js/main.js"></script>
 
+    <script>
+        $(document ).ready(function(){
+
+            $('#new_ticket_btn').click(function () {
+                $.ajax({
+                    url : "{{route('new_ticket')}}",
+                    type : "POST",
+                    data : $('#new_ticket_form').serialize(),
+                    success : function (data) {
+                        console.log(data);
+                        if (data.status == "0") {
+                            Swal.fire({
+                                position: 'top-end',
+                                toast: true,
+                                icon: 'error',
+                                title : "Support-Team",
+                                text: data.desc,
+                                footer : '<a href="{{route('login')}}" class="mt-2 text-success">ورود به سایت</a>',
+                                showConfirmButton: false,
+                                timer: 5000
+                            });
+                        }
+                        if (data.status == "1") {
+                            Swal.fire({
+                                position: 'top-end',
+                                toast: true,
+                                icon: 'success',
+                                title: 'CioCe',
+                                text: data.desc,
+                                footer:"پس از شماهده توسط کارشناسان ما،پاسخ در همین صفحه درج میگردد",
+                                showConfirmButton: false,
+                                timer: 9000
+                            });
+                            window.location.reload();
+
+                        }
+                    }
+                });
+            });
+
+            $('body').on('click','.get_answer',function (){
+               $.ajax({
+                  url : "{{route('get_answer')}}",
+                  type : "post",
+                  data : {'id' : $(this).attr('data-id')},
+                   success : function (data) {
+                       console.log(data);
+                       if (data.status == "0") {
+                           Swal.fire({
+                               position: 'top-end',
+                               toast: true,
+                               icon: 'error',
+                               title : "Support-Team",
+                               text: data.desc,
+                               {{--footer : '<a href="{{route('login')}}" class="mt-2 text-success">ورود به سایت</a>',--}}
+                               showConfirmButton: false,
+                               timer: 5000
+                           });
+                       }
+                       // if (data.status == "1") {
+                           $('#modal-location-edit').modal('show');
+                           $('#text').html(data);
+                       // }
+                  }
+               });
+            });
+
+
+        });
+    </script>
 @endsection
