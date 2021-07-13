@@ -239,6 +239,12 @@ button:focus {
     color: #fff !important;
 }
 
+.custom-control-label {
+    padding-right: 30px;
+    padding-top: 2px;
+    cursor: pointer;
+}
+
 .my-custom-control-label {
     /*padding-right: 30px;*/
     /*padding-top: 2px;*/
@@ -5765,6 +5771,18 @@ input[type=number]::-webkit-outer-spin-button {
     color: #f7858d;
 }
 
+.checkout-additional-options-checkbox-image {
+    margin-left: 16px;
+    cursor: pointer;
+    width: 49px;
+    height: 40px;
+    float: right;
+    font-size: 42px;
+    line-height: 47px;
+    text-align: center;
+    color: #f7858d;
+}
+
 .radio-box .content-box {
     float: right;
 }
@@ -5789,6 +5807,18 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .shopping-page .checkout-time-table-subtitle-bar {
+    font-size: 11px;
+    font-size: .786rem;
+    line-height: 2;
+    letter-spacing: -.2px;
+    color: #a2a2a2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+}
+
+.checkout-time-table-subtitle-bar {
     font-size: 11px;
     font-size: .786rem;
     line-height: 2;

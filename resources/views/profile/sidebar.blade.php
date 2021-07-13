@@ -72,9 +72,15 @@
             </a>
         </li>
         <li>
-            <a href="{{ route("profile_credit") }}">
-                <i class="mdi mdi-backburger @if($menu == "credit") active @endif"></i>
+            <a href="{{route('profile_credit')}}" class="@if($menu == "credit") active @endif">
+                <i class="mdi mdi-backburger"></i>
                 کیف پول من
+            </a>
+        </li>
+        <li>
+            <a href="{{route('my_tickets')}}" class="@if($menu == "ticket") active @endif">
+                <i class="mdi mdi-sign-direction"></i>
+                تیکت ها
             </a>
         </li>
         <li>
@@ -91,7 +97,7 @@
 {{--        </li>--}}
 {{--        <li>--}}
 {{--            <a href="#">--}}
-{{--                <i class="mdi mdi-sign-direction"></i>--}}
+{{--                <i class="mdi mdi-glasses"></i>--}}
 {{--                آدرس ها--}}
 {{--            </a>--}}
 {{--        </li>--}}
