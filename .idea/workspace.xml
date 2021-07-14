@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Ticket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/Untitled-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/mosalas-100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/mosalas-200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/mosalas-300.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/mosalas-400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/mosalas-50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/mosalas-500.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/mosalas-70.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profile/answer_modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/my_tickets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/my_tickets.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
-    </list>
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -532,7 +515,7 @@
       <workItem from="1625847972094" duration="3119000" />
       <workItem from="1625898375445" duration="22178000" />
       <workItem from="1625923277038" duration="362000" />
-      <workItem from="1625978284725" duration="27220000" />
+      <workItem from="1625978284725" duration="27361000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1621793467843</created>
@@ -863,7 +846,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625923552783</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="cart">
+      <created>1626010279382</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1626010279382</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
