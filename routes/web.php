@@ -170,6 +170,7 @@ Route::prefix("profile")->group(function () {
     Route::get('/my-tickets', 'App\Http\Controllers\ProfileController@myTickets')->name("my_tickets");
     Route::post('/new-ticket', 'App\Http\Controllers\ProfileController@newTicket')->name("new_ticket");
     Route::post('/get-answer', 'App\Http\Controllers\ProfileController@getAnswer')->name("get_answer");
+    Route::post('/delete-ticket', 'App\Http\Controllers\ProfileController@deleteTicket')->name("delete_ticket");
 });
 
 
@@ -207,5 +208,13 @@ Route::post('/edit-image-mag-action', 'App\Http\Controllers\BlogController@editI
 Route::get('/delete-mag-action/{post_id}', 'App\Http\Controllers\BlogController@deleteMagAction')->name("delete_mag_action");
 
 
+//EXTRA PAGES
+
+Route::get('domain-search', 'App\Http\Controllers\HomeController@domainSearch')->name("domain_search");
+Route::post('domain-search-action', 'App\Http\Controllers\HomeController@domainSearchAction')->name("domain_search_action");
+
+
+
 //Weather API From Yahoo
 Route::get('/mag', 'App\Http\Controllers\BlogController@mag')->name("mag");
+

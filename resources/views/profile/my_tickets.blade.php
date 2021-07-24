@@ -89,7 +89,7 @@
                                                         <div class="card-horizontal-address-actions">
                                                             <button class="btn-note get_answer" data-id="{{$item->id}}">مشاهده</button>
 {{--                                                            <button class="btn-note get_answer" data-id="{{$item->id}}" data-toggle="modal" data-target="#modal-location-edit">مشاهده</button>--}}
-                                                            <button class="btn-note" data-toggle="modal" data-target="#remove-location">حذف</button>
+                                                            <button data-id="{{$item->id}}" class="btn-note delete_btn" data-toggle="modal" data-target="#remove-location">حذف</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -212,57 +212,6 @@
 
         <!-- Start Modal ticket edit -->
         <div class="modal fade" id="modal-location-edit" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <p id="text"></p>
-{{--            <div class="modal-dialog modal-lg send-info modal-dialog-centered" role="document">--}}
-{{--                <div class="modal-content">--}}
-{{--                    <div class="modal-header">--}}
-{{--                        <h5 class="modal-title" id="exampleModalCenterTitle">--}}
-{{--                            <i class="now-ui-icons location_pin"></i>--}}
-{{--                            پاسخ و تمدید پیام--}}
-{{--                        </h5>--}}
-{{--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                            <span aria-hidden="true">&times;</span>--}}
-{{--                        </button>--}}
-{{--                    </div>--}}
-{{--                    <div class="modal-body">--}}
-{{--                        <div class="row">--}}
-{{--                            <div class="col-lg-6 col-md-12">--}}
-{{--                                <div class="form-ui dt-sl">--}}
-{{--                                    <form class="form-account" action="">--}}
-{{--                                        <div class="row">--}}
-{{--                                            <div class="col-12 mb-2">--}}
-{{--                                                <div class="form-row-title">--}}
-{{--                                                    <h4>--}}
-{{--                                                        پاسخ پشتیبان--}}
-{{--                                                    </h4>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="form-row">--}}
-{{--                                                    <textarea class="input-ui pr-2 text-right" id="answer"></textarea>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-
-{{--                                            <div class="col-12 pr-4 pl-4">--}}
-{{--                                                <button type="button" class="btn btn-sm btn-primary btn-submit-form">--}}
-{{--                                                    پاسخ--}}
-{{--                                                </button>--}}
-{{--                                                <button type="button" class="btn-link-border float-left mt-2">انصراف--}}
-{{--                                                    و بازگشت</button>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-lg-6 col-md-12">--}}
-{{--                                <!-- Google Map Start -->--}}
-{{--                                <div class="goole-map">--}}
-{{--                                    <div id="map-edit" style="height:440px"></div>--}}
-{{--                                </div>--}}
-{{--                                <!-- Google Map End -->--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
         </div>
         <!-- End Modal ticket edit -->
 
@@ -288,7 +237,7 @@
                     <div class="modal-footer">
                         <button type="button" class="remodal-general-alert-button remodal-general-alert-button--cancel"
                             data-dismiss="modal">خیر</button>
-                        <button type="button"
+                        <button type="button" id="confirm_delete" data-id=""
                             class="remodal-general-alert-button remodal-general-alert-button--approve">بله</button>
                     </div>
                 </div>
@@ -338,10 +287,11 @@
                                 icon: 'success',
                                 title: 'CioCe',
                                 text: data.desc,
-                                footer:"پس از شماهده توسط کارشناسان ما،پاسخ در همین صفحه درج میگردد",
+                                footer:"پس از مشاهده توسط کارشناسان ما،پاسخ در همین صفحه درج میگردد",
                                 showConfirmButton: false,
                                 timer: 9000
                             });
+                            $('#modal-location').modal('hide')
                             window.location.reload();
 
                         }
@@ -368,12 +318,60 @@
                                timer: 5000
                            });
                        }
-                       // if (data.status == "1") {
+                       if (data.status == "1") {
                            $('#modal-location-edit').modal('show');
-                           $('#text').html(data);
-                       // }
+                           $('#modal-location-edit').html(data);
+                       }
                   }
                });
+            });
+
+            $('body').on('click','.close-modal',function (){
+                $(this).modal('dispose');
+            });
+
+            $('body').on('click','.delete_btn',function (){
+                $id = $(this).attr('data-id');
+                $('#confirm_delete').attr('data-id', $id);
+            });
+
+            $('body').on('click','#confirm_delete',function (e){
+                e.preventDefault();
+                $id = $(this).attr('data-id');
+                $.ajax({
+                   url : "{{route('delete_ticket')}}",
+                   type : "post",
+                   data : {"id" : $id},
+                   success : function (data) {
+                       console.log(data);
+                       if (data.status == "0") {
+                           Swal.fire({
+                               position: 'top-end',
+                               toast: true,
+                               icon: 'error',
+                               title : "Support-Team",
+                               text: data.desc,
+                               {{--footer : '<a href="{{route('login')}}" class="mt-2 text-success">ورود به سایت</a>',--}}
+                               showConfirmButton: false,
+                               timer: 5000
+                           });
+                       }
+                       if (data.status == "1") {
+                           Swal.fire({
+                               position: 'top-end',
+                               toast: true,
+                               icon: 'success',
+                               title: 'CioCe',
+                               text: data.desc,
+                               footer:"جهت بازیابی به قسمت آرشیوها مراجعه فرمایید",
+                               showConfirmButton: false,
+                               timer: 9000
+                           });
+                           $('#remove-location').modal('hide');
+                           window.location.reload();
+                       }
+                   }
+                })
             });
 
 

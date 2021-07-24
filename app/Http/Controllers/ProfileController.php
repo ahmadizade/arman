@@ -1369,6 +1369,14 @@ class ProfileController extends Controller
         }
     }
 
+    public function deleteTicket(Request $request){
+        Ticket::where('id', $request->id)->where('user_id', Auth::id())->update([
+            'delete' => 1,
+            'deleted_at' =>Carbon::now(),
+        ]);
+        return Response::json(['status' => 1, 'desc' => "حذف پیام با موفقیت انجام شد"]);
+    }
+
     public function CartTransfer()
     {
         return view("profile.cart_transfer", ["menu" => "cart_transfer"]);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Contact;
+use App\Models\DomainSearch;
 use App\Models\Product;
 use App\Models\Product_tag;
 use App\Models\Store;
@@ -134,4 +135,55 @@ class HomeController extends Controller
         $file_path = public_path('uploads/file/'.$filename);
         return response()->download($file_path);
     }
+
+    public function domainSearch(){
+        return view('extra.domain.domain_search');
+    }
+
+    public function domainSearchAction(Request $request){
+        $api_key = "dae1f8f980f5474a3189a706ac589d199bec74bf";
+        $user_id = Auth::id() ?? 0;
+        $finder = DomainSearch::where('domain_searched', $request->domain)->first();
+        if (isset($finder->id) && $finder !== null){
+            return view('extra.domain.domain_search', ['finder' => $finder]);
+        }else{
+            $curl = curl_init();
+            curl_setopt_array($curl, [
+                CURLOPT_URL => "https://api.hunter.io/v2/domain-search?domain=$request->domain&api_key=$api_key",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false),
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+            ]);
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            curl_close($curl);
+            if ($err) {
+//            echo "cURL Error #:" . $err;
+                return Response::json(['status' => 0 , 'desc' => "متاسفانه نتیجه‌ای یافت نشد "]);
+            } else {
+
+                if ($response !== null){
+                    $finder = DomainSearch::create([
+                        'user_id' => $user_id,
+                        'domain_searched' => $request->domain,
+                        'domain_answer' => $response,
+                        'created_at' => Carbon::now(),
+                    ]);
+                    return view('extra.domain.domain_search', ['finder' => $finder]);
+                }
+                return Response::json(['status' => 0 , 'desc' => "متاسفانه نتیجه‌ای یافت نشد "]);
+            }
+        }
+
+    }
+
+
+
+
+
 }
