@@ -193,6 +193,7 @@ Route::get('/download/{filename}', 'App\Http\Controllers\HomeController@download
 //bank
 Route::get("/payment", "App\Http\Controllers\PaymentController@payment")->middleware(["auth"])->name("payment");
 Route::any("/verify", "App\Http\Controllers\PaymentController@verify")->middleware("auth")->name("verify");
+Route::any("/verify-cart", "App\Http\Controllers\PaymentController@verifyCart")->middleware("auth")->name("verify_cart");
 
 
 //BLOG

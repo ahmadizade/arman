@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
@@ -576,7 +577,7 @@ class ProfileController extends Controller
 
                     }
 
-                    return PaymentController::payment($id,$type,$request->month,$amountWithTaxation);
+                    return PaymentController::payment($id,$amountWithTaxation);
 
                 }
 
@@ -669,6 +670,7 @@ class ProfileController extends Controller
         return Session::forget('product');
     }
     public function BeforeBuying(Request $request){
+
         if (Auth::check() && Auth::id() > 0){
             $id = json_encode($request->id);
             if (Session::has('shipping') && count(Session::get('shipping')) > 0) {
@@ -702,8 +704,7 @@ class ProfileController extends Controller
                 ]);
             }
 
-            //TODO MAJIDI
-            return Response::json(['status'=>'1', 'desc' => "انتقال به درگاه بانک"]);
+            return PaymentController::paymentCart($order_id,$last_price);
 
             }else{
                 return Response::json(['status'=>'0', 'desc' => "سبد خرید خود را مجدد تایید فرمایید"]);
