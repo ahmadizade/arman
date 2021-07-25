@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/storage/" />
     <ignored path="$PROJECT_DIR$/vendor/asm89/stack-cors/" />
@@ -163,8 +165,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="60" column="26" lean-forward="true" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+            <state relative-caret-position="120">
+              <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -182,7 +184,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ProfileCredit</find>
       <find>افزایش اعتبار</find>
       <find>addpro</find>
       <find>edit</find>
@@ -212,6 +213,7 @@
       <find>page-cover.jpg</find>
       <find>page-cover-title</find>
       <find>content-faq-question</find>
+      <find>domain-names-2.jpg</find>
     </findStrings>
     <replaceStrings>
       <replace>سی و سه</replace>
@@ -454,14 +456,20 @@
             <path>
               <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
               <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
               <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
@@ -605,14 +613,9 @@
       <workItem from="1626894227175" duration="294000" />
       <workItem from="1627023809721" duration="12306000" />
       <workItem from="1627053894463" duration="591000" />
-      <workItem from="1627116478334" duration="936000" />
-    </task>
-    <task id="LOCAL-00001" summary="a">
-      <created>1621793467843</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1621793467843</updated>
+      <workItem from="1627116478334" duration="1591000" />
+      <workItem from="1627136349414" duration="4796000" />
+      <workItem from="1627227820135" duration="49000" />
     </task>
     <task id="LOCAL-00002" summary="single complete">
       <created>1621950016355</created>
@@ -950,17 +953,24 @@
       <option name="project" value="LOCAL" />
       <updated>1627116675871</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Merge branch 'work' of https://github.com/ahmadizade/cioce_new_face into ahmadi&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <created>1627117431940</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1627117431941</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163743000" />
+    <option name="totallyTimeSpent" value="169243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21428572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2185501" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1467,8 +1477,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="60" column="26" lean-forward="true" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+        <state relative-caret-position="120">
+          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
         </state>
       </provider>
     </entry>
