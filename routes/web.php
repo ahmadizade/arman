@@ -27,6 +27,7 @@ Route::get('/vendor', function (){
 
 //MAIL
 Route::get('/verify-email', 'App\Http\Controllers\Controller@build_mail')->name('build_mail');
+Route::get('/incoming-download-link', 'App\Http\Controllers\ProfileController@incomingDownloadLink')->name('incoming_download_link');
 
 // admin
 Route::middleware(['admin'])->prefix("cioce")->group(function () {
@@ -135,6 +136,7 @@ Route::prefix("profile")->group(function () {
     Route::get('/cart-product-delete/{key}', 'App\Http\Controllers\ProfileController@CartProductDelete')->name("cart_product_delete");
     Route::get('/before-buying', 'App\Http\Controllers\ProfileController@BeforeBuying')->name("before_buying");
     Route::get('/shopping-peyment', 'App\Http\Controllers\ProfileController@shoppingPeyment')->name("shopping_peyment");
+    Route::get('/shopping-complete/{ref}', 'App\Http\Controllers\ProfileController@shoppingComplete')->name("shopping_complete");
     Route::get('/shopping-peyment-page', 'App\Http\Controllers\ProfileController@shoppingPeymentpage')->name("shopping_peyment_page");
     Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product");
     Route::post('/add-product-action', 'App\Http\Controllers\ProfileController@AddProductAction')->name("add_product_action");
@@ -171,6 +173,8 @@ Route::prefix("profile")->group(function () {
     Route::post('/new-ticket', 'App\Http\Controllers\ProfileController@newTicket')->name("new_ticket");
     Route::post('/get-answer', 'App\Http\Controllers\ProfileController@getAnswer')->name("get_answer");
     Route::post('/delete-ticket', 'App\Http\Controllers\ProfileController@deleteTicket')->name("delete_ticket");
+    Route::post('/link-builder', 'App\Http\Controllers\ProfileController@linkBuilder')->name("link_builder");
+    Route::get('/download-link-page', 'App\Http\Controllers\ProfileController@downloadLinkPage')->name("download_link_page");
 });
 
 
@@ -188,11 +192,13 @@ Route::prefix("shop")->group(function () {
 
 //Download File
 Route::get('/download/{filename}', 'App\Http\Controllers\HomeController@download')->name("download");
+Route::post('/purchase-download', 'App\Http\Controllers\ProfileController@purchaseDownload')->name("purchase_download");
 
 
 //bank
 Route::get("/payment", "App\Http\Controllers\PaymentController@payment")->middleware(["auth"])->name("payment");
 Route::any("/verify", "App\Http\Controllers\PaymentController@verify")->middleware("auth")->name("verify");
+Route::any("/verify-cart", "App\Http\Controllers\PaymentController@verifyCart")->middleware("auth")->name("verify_cart");
 
 
 //BLOG

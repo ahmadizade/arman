@@ -48,12 +48,12 @@
                                             <div class="col-md-6 col-sm-12">
                                                 <span class="title">زمان تحویل:</span>
                                                 <span class="value">برخط (Online)</span>
-                                                <button class="btn btn-light mr-2">
-                                                    ثبت شکایات
+                                                <button data-id="{{$order->id}}" id="make_link" class="btn btn-light mr-2">
+                                                    لینک دانلود
                                                 </button>
                                             </div>
                                             <div class="col-12 text-center pb-0">
-                                                <span class="title">مبلغ قابل پرداخت:</span>
+                                                <span class="title">مبلغ قابل پرداخت بدون مالیات:</span>
                                                 <span class="value">{{number_format($order->last_price)}} تومان</span>
                                             </div>
                                         </div>
@@ -130,5 +130,51 @@
 @endsection
 
 @section('extra_js')
+    <script>
+        $(document ).ready(function(){
 
+            $('body').on('click','#make_link',function (e){
+                $('#make_link').append('<i class="fas fa-spinner fa-spin" aria-hidden="true"></i>');
+            e.preventDefault();
+            $order_id = $(this).attr('data-id');
+            $.ajax({
+                url : "{{route('link_builder')}}",
+                type : "post",
+                data : {"order_id" : $order_id},
+                success : function (data) {
+                    console.log(data);
+                    if (data.status == "0") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'error',
+                            title : "Support-Team",
+                            text: data.desc,
+                            footer:'خطا در ارسال لینک دانلود',
+                            showConfirmButton: false,
+                            timer: 5000
+                        });
+                        $('#make_link').addClass('bg-danger');
+                        $('#make_link').html('<i class="fa fa-times text-white" aria-hidden="true"></i>' + '  ' + '<span class="text-white">ارسال نشد</span>');
+                    }
+                    if (data.status == "1") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'success',
+                            title: 'CioCe',
+                            text: data.desc,
+                            footer:"برای مشاهده لینک دانلود به ایمیل خود مراجعه فرمایید",
+                            showConfirmButton: false,
+                            timer: 9000
+                        });
+                        $('#make_link').addClass('bg-light');
+                        $('#make_link').html('<i class="fas fa-check text-success"></i>\n' +'\n' + '  ' + 'ارسال شد');
+                    }
+                }
+            })
+        });
+
+        });
+    </script>
 @endsection

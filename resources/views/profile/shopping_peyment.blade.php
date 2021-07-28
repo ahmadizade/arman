@@ -353,7 +353,6 @@
                     data : {'id' : {{json_encode($id)}} },
                 @endif
                 success : function (data) {
-                    console.log(data);
                     if (data.status == "0") {
                         Swal.fire({
                             position: 'top-end',
@@ -367,14 +366,7 @@
                         });
                     }
                     if (data.status == "1") {
-                        Swal.fire({
-                            position: 'top-end',
-                            toast: true,
-                            icon: 'success',
-                            text: data.desc,
-                            showConfirmButton: false,
-                            timer: 3000
-                        });
+                        window.location.href = data.result;
                     }
                 }
             });

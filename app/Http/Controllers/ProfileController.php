@@ -8,6 +8,7 @@ use App\Models\CartTransfer;
 use App\Models\Category;
 use App\Models\Category_variety;
 use App\Models\Comment;
+use App\Models\Download;
 use App\Models\Like;
 use App\Models\OrderProducts;
 use App\Models\Orders;
@@ -26,6 +27,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
@@ -576,7 +578,7 @@ class ProfileController extends Controller
 
                     }
 
-                    return PaymentController::payment($id,$type,$request->month,$amountWithTaxation);
+                    return PaymentController::payment($id,$amountWithTaxation);
 
                 }
 
@@ -669,6 +671,7 @@ class ProfileController extends Controller
         return Session::forget('product');
     }
     public function BeforeBuying(Request $request){
+
         if (Auth::check() && Auth::id() > 0){
             $id = json_encode($request->id);
             if (Session::has('shipping') && count(Session::get('shipping')) > 0) {
@@ -702,8 +705,7 @@ class ProfileController extends Controller
                 ]);
             }
 
-            //TODO MAJIDI
-            return Response::json(['status'=>'1', 'desc' => "انتقال به درگاه بانک"]);
+            return PaymentController::paymentCart($order_id,$last_price);
 
             }else{
                 return Response::json(['status'=>'0', 'desc' => "سبد خرید خود را مجدد تایید فرمایید"]);
@@ -715,6 +717,11 @@ class ProfileController extends Controller
 
     public function shoppingPeymentpage(){
         return view('profile.shopping_peyment');
+    }
+
+      public function shoppingComplete($ref){
+        $order = Orders::where('user_id',Auth::id())->where("bank_token",$ref)->first();
+        return view('profile.shopping_complete',['order' => $order]);
     }
 
     public function shoppingPeyment(Request $request){
@@ -1270,6 +1277,69 @@ class ProfileController extends Controller
         $products = OrderProducts::where('order_id', $order_id)->where('user_id', Auth::id())->get();
         return view('profile.order_details',['products' => $products, 'user' => Auth::user(), 'menu' => null, 'order' => $order]);
     }
+
+    public function linkBuilder(Request $request){
+        $order = Orders::where('user_id',Auth::id())->where('id',$request->order_id)->first();
+        $userID = Auth::id();
+        if (Auth::user()->email == null && Strlen(Auth::user()->email) == 0){
+            return Response::json(["status" => "0" , 'desc' => 'ابتدا به پروفایل کاربری رفته و ایمیل خود را ثبت کنید']);
+        }else{
+            $email = Auth::user()->email;
+            $url = route("incoming_download_link", ["dlid" => base64_encode($userID), "dlt" => base64_encode($order->download_token), "orid" => base64_encode($order->id)]);
+            $content = $url;
+            $view = 'download_email';
+            $subject = 'با تشکر از شما برای خرید از سیوسه';
+            $title = 'لینک دانلود فایل / CIOCE.IR';
+            self::email($email, $view, $content, $title, $subject);
+            Cache::put("download_link_" . Auth::id(), true, 600);
+            return Response::json(["status" => "1" , 'desc' => 'لینک دانلود به ایمیل شما ارسال شد']);
+        }
+    }
+
+    public function incomingDownloadLink(Request $request){
+        $user_id = base64_decode($request->dlid);
+        $token = base64_decode($request->dlt);
+        $order_id = base64_decode($request->orid);
+        $product_links = [];
+        $order = Orders::where('user_id', $user_id)->where('id', $order_id)->where('download_token',$token)->first();
+        foreach ( json_decode($order->product_id) as $product){
+            $oneProduct = Product::where('id', $product)->first();
+            array_push($product_links, $oneProduct);
+        }
+        return view('profile.download_links', ['product_links' => $product_links, 'order' => $order]);
+    }
+
+    public function purchaseDownload (Request $request){
+        $order = Orders::where('id', $request->order_id)->where('user_id', Auth::id())->first();
+        $product = Product::where('id', $request->product_id)->first();
+        if  (Download::where('user_id', Auth::id())->where('product_id',$product->id)->where('token', $order->download_token)->where('download_count', '>=', 3 )->exists()){
+            return Response::json(["status" => "0" ,'desc' => "شما بیش از 3 بار این فایل را دانلود کرده اید"]);
+        }else{
+            $filename = $product->file;
+            $file_path = public_path('uploads/file/'.$filename);
+            $count = 0;
+            $download_row = Download::where('user_id', Auth::id())->where('product_id',$product->id)->where('token', $order->download_token)->first();
+            if (isset($download_row)){
+                $count = $count + $download_row->download_count;
+                Download::where('user_id', Auth::id())->where('product_id',$product->id)->where('token', $order->download_token)->update([
+                    "download_count" => $count + 1,
+                    "downloaded_at" => Carbon::now(),
+                ]);
+                return response()->download($file_path);
+            }else{
+                Download::insert([
+                    "user_id" => Auth::id(),
+                    "product_id" => $request->product_id,
+                    "order_id" => $request->order_id,
+                    "token" => $order->download_token,
+                    "download_count" => $count + 1,
+                    "downloaded_at" => Carbon::now(),
+                ]);
+                return response()->download($file_path);
+            }
+        }
+    }
+
 
     public function CreditAction(Request $request)
     {

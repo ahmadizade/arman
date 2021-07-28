@@ -57,7 +57,7 @@ class Controller extends BaseController
         ];
 
         Mail::send('emails.'.$view, ["result" => $result], function ($message) use ($result,$subject,$title) {
-            $message->from('hr.ahmadi@setarehvanak.com', $title);
+            $message->from('support@cioce.ir', $title);
             $message->to($result['email'])->subject($subject);
         });
     }
