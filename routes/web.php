@@ -216,8 +216,9 @@ Route::get('/delete-mag-action/{post_id}', 'App\Http\Controllers\BlogController@
 
 //EXTRA PAGES
 
-Route::get('domain-search', 'App\Http\Controllers\HomeController@domainSearch')->name("domain_search");
-Route::post('domain-search-action', 'App\Http\Controllers\HomeController@domainSearchAction')->name("domain_search_action");
+Route::get('domain-search', 'App\Http\Controllers\ExtraController@domainSearch')->name("domain_search");
+Route::post('domain-search-action', 'App\Http\Controllers\ExtraController@domainSearchAction')->name("domain_search_action");
+Route::get('domain-result/{finder}', 'App\Http\Controllers\ExtraController@domainResult')->name("domain_result");
 
 
 

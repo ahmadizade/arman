@@ -137,7 +137,7 @@
                                                                         class="checkout-order-summary-col checkout-order-summary-col-how-to-send">
                                                                         <span>ارسال از</span>
                                                                         <span class="fs-sm">
-                                                            سرور اصلی سیوسه
+                                                            سرور اصلی سی و سه
                                                         </span>
                                                                     </div>
                                                                     <div
@@ -187,7 +187,7 @@
                                                 <div class="col-sm-6 col-12">
                                                     <div class="dt-sn dt-sn--box pt-3 pb-3 px-res-1">
                                                         <div class="section-title text-sm-title title-wide no-after-title-wide mb-0">
-                                                            <h2>استفاده از کارت هدیه سیوسه
+                                                            <h2>استفاده از کارت هدیه سی و سه
                                                                 <span class="help-sn" data-toggle="tooltip" data-html="true"
                                                                       data-placement="bottom"
                                                                       title="<div class='help-container is-left'><div class='help-arrow'></div><p class='help-text'>با استفاده از کد کارت هدیه، تمام یا بخشی از مبلغ سفارش توسط کارت هدیه پرداخت می‌شود.
@@ -217,7 +217,7 @@
                                                 <div class="col-sm-6 col-12">
                                                     <div class="dt-sn dt-sn--box pt-3 pb-3 px-res-1">
                                                         <div class="section-title text-sm-title title-wide no-after-title-wide mb-0">
-                                                            <h2>استفاده از کد تخفیف سیوسه
+                                                            <h2>استفاده از کد تخفیف سی و سه
                                                                 <span class="help-sn" data-toggle="tooltip" data-html="true"
                                                                       data-placement="bottom"
                                                                       title="<div class='help-container is-left'><div class='help-arrow'></div><p class='help-text'>بعد از نهایی شدن سفارش کد تخفیف را ثبت نمایید. بعد از ثبت کد تخفیف امکان بازگشت و یا تغییر سبد وجود نخواهد داشت. در صورت تغییر سفارش، کد تخفیف از بین خواهد رفت و امکان اعمال مجدد آن وجود ندارد</p></div>">
@@ -272,7 +272,7 @@
                                                 <li class="checkout-club-container">
                                     <span>سیوکلاب<span class="help-sn" data-toggle="tooltip" data-html="true"
                                                         data-placement="bottom"
-                                                        title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>با امتیازهای خود در باشگاه مشتریان سیوسه (سیو کلاب) از بین جوایز متنوع انتخاب کنید.</p></div>">
+                                                        title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>با امتیازهای خود در باشگاه مشتریان سی و سه (سیو کلاب) از بین جوایز متنوع انتخاب کنید.</p></div>">
                                             <span class="mdi mdi-information-outline"></span>
                                         </span></span><span><span>۱۵۰+</span><span> امتیاز</span></span>
                                                 </li>
@@ -299,7 +299,7 @@
                                         مراحل بعدی را تکمیل کنید.
                                     </span><span class="help-sn" data-toggle="tooltip" data-html="true"
                                                  data-placement="bottom"
-                                                 title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>محصولات موجود در سبد خرید شما تنها در صورت ثبت و پرداخت سفارش برای شما رزرو می‌شوند. در صورت عدم ثبت سفارش، سیوسه هیچگونه مسئولیتی در قبال تغییر قیمت یا موجودی این کالاها ندارد.</p></div>">
+                                                 title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>محصولات موجود در سبد خرید شما تنها در صورت ثبت و پرداخت سفارش برای شما رزرو می‌شوند. در صورت عدم ثبت سفارش، سی و سه هیچگونه مسئولیتی در قبال تغییر قیمت یا موجودی این کالاها ندارد.</p></div>">
                                         <span class="mdi mdi-information-outline"></span>
                                     </span></div>
                                             </div>

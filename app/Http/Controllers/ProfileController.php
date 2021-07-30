@@ -1288,7 +1288,7 @@ class ProfileController extends Controller
             $url = route("incoming_download_link", ["dlid" => base64_encode($userID), "dlt" => base64_encode($order->download_token), "orid" => base64_encode($order->id)]);
             $content = $url;
             $view = 'download_email';
-            $subject = 'با تشکر از شما برای خرید از سیوسه';
+            $subject = 'با تشکر از شما برای خرید از سی و سه';
             $title = 'لینک دانلود فایل / CIOCE.IR';
             self::email($email, $view, $content, $title, $subject);
             Cache::put("download_link_" . Auth::id(), true, 600);

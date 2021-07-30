@@ -11,7 +11,6 @@
 @endsection
 
 @section("content")
-
 <!-- Start main-content -->
     <main class="main-content dt-sl mb-3">
         <div class="page-cover mb-2">
@@ -19,7 +18,7 @@
                 <h1>پیدا کردن صاحب سایت</h1>
                 <p>این بخش صرفاً در جهت افزایش کارایی و رشد ارتباطات وب سایت شما ایجاد گردیده است</p>
                 <div class="form-ui">
-                    <form>
+                    <form action="{{route('domain_search_action')}}" method="post">
                         <div class="form-row">
                             <input id="domain" name="domain" type="text" class="input-ui pr-2" placeholder="آدرس سایت خود را اینجا وارد کنید">
                             <button id="domain_search_btn" class="btn btn-info">جستجو</button>
@@ -88,41 +87,35 @@
 @endsection
 
 @section('extra_js')
-    <script>
-        $('#domain_search_btn').click(function(e){
-            e.preventDefault();
-           $.ajax({
-               url : "{{route('domain_search_action')}}",
-               type : "POST",
-               data : {"domain" : $('#domain').val()},
-               success : function (data){
-                   console.log(data);
-                   if (data.status == "0") {
-                       Swal.fire({
-                           position: 'top-end',
-                           toast: true,
-                           icon: 'error',
-                           title : "Support-Team",
-                           text: data.desc,
-                           footer : 'احتمالا آدرس وب سایت مورد نظر خود را به اشتباه وارد کرده اید',
-                           showConfirmButton: false,
-                           timer: 5000
-                       });
-                   }
-                   if (data.status == "1") {
-                       Swal.fire({
-                           position: 'top-end',
-                           toast: true,
-                           icon: 'success',
-                           title: 'CioCe',
-                           text: data.desc,
-                           footer:"سی و سه، همرا ه همیشگی تو",
-                           showConfirmButton: false,
-                           timer: 9000
-                       });
-                   }
-               }
-           });
-        });
-    </script>
+{{--    <script>--}}
+{{--        $('#domain_search_btn').click(function(e){--}}
+{{--            e.preventDefault();--}}
+{{--           $.ajax({--}}
+{{--               url : "{{route('domain_search_action')}}",--}}
+{{--               type : "POST",--}}
+{{--               data : {"domain" : $('#domain').val()},--}}
+{{--               success : function (data){--}}
+{{--                   console.log(data);--}}
+{{--                   if (data.status == "0") {--}}
+{{--                       Swal.fire({--}}
+{{--                           position: 'top-end',--}}
+{{--                           toast: true,--}}
+{{--                           icon: 'error',--}}
+{{--                           title : "Support-Team",--}}
+{{--                           text: data.desc,--}}
+{{--                           footer : 'احتمالا آدرس وب سایت مورد نظر خود را به اشتباه وارد کرده اید',--}}
+{{--                           showConfirmButton: false,--}}
+{{--                           timer: 5000--}}
+{{--                       });--}}
+{{--                   }--}}
+{{--                   if (data.status == "1") {--}}
+
+{{--                       // if (data.result !== null) {--}}
+{{--                       //--}}
+{{--                       // }--}}
+{{--                   }--}}
+{{--               }--}}
+{{--           });--}}
+{{--        });--}}
+{{--    </script>--}}
 @endsection

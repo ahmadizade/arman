@@ -5,26 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Download.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/download_email.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profile/download_links.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profile/shopping_complete.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/profile/shopping_not_complete.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cioce_newface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cioce_newface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/extra/domain/domain_result.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/verify_email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/verify_email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/order_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/order_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profile/shopping_peyment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/shopping_peyment.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/storage/" />
     <ignored path="$PROJECT_DIR$/vendor/asm89/stack-cors/" />
@@ -158,22 +146,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="197" column="6" lean-forward="true" selection-start-line="197" selection-start-column="6" selection-end-line="197" selection-end-column="6" />
+            <state relative-caret-position="4620">
+              <caret line="220" column="33" selection-start-line="220" selection-start-column="33" selection-end-line="220" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ExtraController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="133" column="21" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="21" />
+            <state relative-caret-position="749">
+              <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
               <folding>
-                <element signature="e#40#64#0#PHP" expanded="true" />
+                <element signature="e#40#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/extra/domain/domain_result.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+              <folding>
+                <element signature="e#831#857#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -183,15 +183,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>./assets</find>
-      <find>سفارش</find>
-      <find>jalali</find>
-      <find>checkout-alert-title</find>
-      <find>انتخاب شیوه پرداخت</find>
-      <find>دیجی‌کالا</find>
-      <find>پرداخت</find>
-      <find>پرداخت اعتباری دیج</find>
-      <find>before_buying</find>
       <find>پرداخت سفارش</find>
       <find>کد سفارش</find>
       <find>count</find>
@@ -213,23 +204,33 @@
       <find>'#make_link'</find>
       <find>download_count</find>
       <find>download</find>
+      <find>redirect</find>
+      <find>-&gt;id</find>
+      <find>domainSearch</find>
+      <find>domain</find>
+      <find>domain_search_action</find>
+      <find>سیوسه</find>
+      <find>domain_searched</find>
+      <find>domain_search_btn</find>
+      <find>remove-location</find>
     </findStrings>
     <replaceStrings>
-      <replace>سی و سه</replace>
       <replace>$apiMostVisited</replace>
       <replace>medium-banner-1.jpg</replace>
       <replace>مشاهده</replace>
       <replace>this</replace>
+      <replace>سی و سه</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\cioce_newface\app\Http</dir>
       <dir>C:\xampp\htdocs\cioce_newface\resources\views</dir>
       <dir>C:\xampp\htdocs\cioce_newface\resources\views\product</dir>
-      <dir>C:\xampp\htdocs\cioce_newface</dir>
       <dir>C:\xampp\htdocs\cioce_newface\resources</dir>
       <dir>C:\xampp\htdocs\cioce_newface\resources\views\profile</dir>
       <dir>C:\xampp\htdocs\cioce_newface\public</dir>
+      <dir>C:\xampp\htdocs\cioce_newface\app\Http\Controllers\Api</dir>
       <dir>C:\xampp\htdocs\cioce_newface\app\Http\Controllers</dir>
+      <dir>C:\xampp\htdocs\cioce_newface</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -252,9 +253,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/Accounting.php" />
-        <option value="$PROJECT_DIR$/resources/views/product/single_api.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/popular_products.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/orders.php" />
         <option value="$PROJECT_DIR$/app/Models/Orders.php" />
         <option value="$PROJECT_DIR$/app/Models/OrderProducts.php" />
@@ -284,8 +282,6 @@
         <option value="$PROJECT_DIR$/resources/views/product/choice.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/extra/domain/page-faq-question.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/DomainSearch.php" />
-        <option value="$PROJECT_DIR$/public/css/main.css" />
-        <option value="$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" />
         <option value="$USER_HOME$/Desktop/cioce new face/New folder (3)/didikala/didikala/shopping-complete-buy.html" />
         <option value="$USER_HOME$/Desktop/cioce new face/New folder (3)/didikala/didikala/shopping-no-complete-buy.html" />
@@ -301,8 +297,13 @@
         <option value="$PROJECT_DIR$/app/Models/Download.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/download_links.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ExtraController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ExtraController.php" />
+        <option value="$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php" />
+        <option value="$PROJECT_DIR$/public/css/main.css" />
+        <option value="$PROJECT_DIR$/resources/views/extra/domain/domain_result.blade.php" />
       </list>
     </option>
   </component>
@@ -461,6 +462,19 @@
             <path>
               <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
               <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -468,6 +482,21 @@
               <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="extra" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="extra" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
@@ -475,13 +504,6 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cioce_newface" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cioce_newface" type="b2602c69:ProjectViewProjectNode" />
@@ -510,18 +532,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/profile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/extra/domain" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\cioce_newface\resources\views\extra\domain" />
+      <recent name="C:\xampp\htdocs\cioce_newface\app\Http\Controllers\Api" />
       <recent name="C:\xampp\htdocs\cioce_newface\resources\views\profile" />
       <recent name="C:\xampp\htdocs\cioce_newface\app\Models" />
       <recent name="C:\xampp\htdocs\cioce_newface\resources\views\emails" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\profile" />
-      <recent name="C:\xampp\htdocs\cioce_new_face\app\Models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\cioce_newface\resources\views\extra\domain" />
@@ -636,14 +658,11 @@
       <workItem from="1627378226038" duration="6899000" />
       <workItem from="1627398701063" duration="5598000" />
       <workItem from="1627463886524" duration="13589000" />
-      <workItem from="1627491590506" duration="8230000" />
-    </task>
-    <task id="LOCAL-00001" summary="a">
-      <created>1621793467843</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1621793467843</updated>
+      <workItem from="1627491590506" duration="8405000" />
+      <workItem from="1627554508814" duration="591000" />
+      <workItem from="1627581932141" duration="5266000" />
+      <workItem from="1627639343653" duration="8132000" />
+      <workItem from="1627658168713" duration="5421000" />
     </task>
     <task id="LOCAL-00002" summary="single complete">
       <created>1621950016355</created>
@@ -981,17 +1000,24 @@
       <option name="project" value="LOCAL" />
       <updated>1627116675871</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Merge branch 'majidi' of https://github.com/ahmadizade/cioce_new_face into ahmadi&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;storage/logs/laravel.log">
+      <created>1627502101584</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1627502101585</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206702000" />
+    <option name="totallyTimeSpent" value="226287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18869936" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18710022" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1064,7 +1090,8 @@
     <MESSAGE value="last" />
     <MESSAGE value="cart" />
     <MESSAGE value="Merge branch 'work' of https://github.com/ahmadizade/cioce_new_face into ahmadi&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'work' of https://github.com/ahmadizade/cioce_new_face into ahmadi&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="Merge branch 'majidi' of https://github.com/ahmadizade/cioce_new_face into ahmadi&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;storage/logs/laravel.log" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'majidi' of https://github.com/ahmadizade/cioce_new_face into ahmadi&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;storage/logs/laravel.log" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1097,34 +1124,6 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/webservice.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="79" column="37" lean-forward="true" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/bookmark.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="82" column="86" selection-start-line="82" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/credit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/views/partials/header.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1226,16 +1225,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/product/choice.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-672">
-          <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#14324#0#Blade" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WeatherApiController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -1253,13 +1242,6 @@
           <folding>
             <element signature="e#30#84#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1348,13 +1330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/my_tickets.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="299" column="13" selection-start-line="299" selection-end-line="300" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/profile/shopping_complete.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1400,20 +1375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="6767" column="20" selection-start-line="6767" selection-start-column="4" selection-end-line="6767" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1470,13 +1431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state>
-          <caret column="267" lean-forward="true" selection-start-column="204" selection-end-column="267" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/profile/download_links.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1484,27 +1438,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1317" column="39" lean-forward="true" selection-start-line="1317" selection-start-column="39" selection-end-line="1317" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ExtraController.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="133" column="21" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="21" />
+        <state relative-caret-position="634">
+          <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
           <folding>
             <element signature="e#40#64#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="60" column="49" lean-forward="true" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state>
+          <caret column="70" lean-forward="true" selection-start-column="59" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/product/choice.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#14324#0#Blade" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="197" column="6" lean-forward="true" selection-start-line="197" selection-start-column="6" selection-end-line="197" selection-end-column="6" />
+        <state relative-caret-position="4620">
+          <caret line="220" column="33" selection-start-line="220" selection-start-column="33" selection-end-line="220" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/my_tickets.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="91" column="170" selection-start-line="91" selection-start-column="120" selection-end-line="91" selection-end-column="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ExtraController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="8544" column="10" lean-forward="true" selection-start-line="8544" selection-start-column="10" selection-end-line="8544" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/extra/domain/domain_result.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding>
+            <element signature="e#831#857#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
