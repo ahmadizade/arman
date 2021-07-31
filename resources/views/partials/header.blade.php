@@ -257,9 +257,9 @@
                     <li class="list-item">
                         <a class="nav-link" href="{{route('seo')}}">مشاوره سئو</a>
                     </li>
-{{--                    <li class="list-item">--}}
-{{--                        <a class="nav-link" href="{{route('home')}}">مشاوره SEO</a>--}}
-{{--                    </li>--}}
+                    <li class="list-item">
+                        <a class="nav-link" href="{{route('domain_search')}}">اطلاعات دامنه‌ها</a>
+                    </li>
                     <li class="list-item">
                         <a class="nav-link" href="{{route('contact')}}">تماس با ما</a>
                     </li>
