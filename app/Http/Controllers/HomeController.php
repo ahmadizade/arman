@@ -38,7 +38,7 @@ class HomeController extends Controller
         $category = DB::table('category')->get();
         if(isset($category)){
             foreach ($category as $item) {
-                $sitemap->add(route("category",["name" => $item->name]), Carbon::now(), '0.7','monthly');
+                $sitemap->add(route("category",["slug" => $item->slug]), Carbon::now(), '0.7','monthly');
             }
         }
 

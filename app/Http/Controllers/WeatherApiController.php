@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class WeatherApiController extends Controller
 {
-    public function rapidGetWeather($q){
+    public function rapidGetWeatherKalia(){
         $ctn = 1;
-
+        $q = "tehran";
         $curl = curl_init();
 
         curl_setopt_array($curl, [

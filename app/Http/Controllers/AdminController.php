@@ -1130,7 +1130,7 @@ class AdminController extends Controller
             'tag_id' => json_encode($request->tag),
             'discount' => $request->discount,
             'type' => $request->type,
-            'price' => str_replace(',', '' , $request->price),
+            'price' => $request->price,
             'quantity' => 20000,
             'mobile' => Auth::user()->mobile,
             'user_id' => Auth::id(),
@@ -1177,12 +1177,32 @@ class AdminController extends Controller
             'category' => 'required',
             'category_variety' => 'required',
             'tag' => 'nullable',
+
+            'price' => 'nullable|max:255',
+            'pro_price' => 'nullable|max:255',
+            'ultra_price' => 'nullable|max:255',
+            'mega_price' => 'nullable|max:255',
+
             'result_sample' => 'nullable|max:9000000',
             'parameters' => 'nullable|max:9000000',
             'php_language' => 'nullable|max:9000000',
             'js_language' => 'nullable|max:9000000',
             'nodejs_language' => 'nullable|max:9000000',
-            'price' => 'nullable|max:255',
+
+
+
+
+            'free_request' => 'nullable|max:255',
+            'pro_request_1_month' => 'nullable|max:255',
+            'ultra_request_1_month' => 'nullable|max:255',
+            'mega_request_1_month' => 'nullable|max:255',
+            'pro_request_3_month' => 'nullable|max:255',
+            'ultra_request_3_month' => 'nullable|max:255',
+            'mega_request_3_month' => 'nullable|max:255',
+
+
+
+
             'type' => 'nullable|max:255',
             'free_request' => 'nullable|max:255',
             'discount' => 'nullable|max:3',

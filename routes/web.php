@@ -222,6 +222,14 @@ Route::get('domain-result/{finder}', 'App\Http\Controllers\ExtraController@domai
 
 
 
-//Weather API From Yahoo
 Route::get('/mag', 'App\Http\Controllers\BlogController@mag')->name("mag");
 
+
+
+
+
+
+
+//API TRANSLATE TO MY SITE (START)
+Route::get('/get-weather-kalia', 'App\Http\Controllers\WeatherApiController@rapidGetWeatherKalia')->name("get_weather_kalia");
+//API TRANSLATE TO MY SITE (END)
