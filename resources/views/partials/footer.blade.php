@@ -1,170 +1,139 @@
-<!-- Start footer -->
-<footer class="main-footer dt-sl">
-    <div class="back-to-top">
-        <a href="{{route('home')}}"><span class="icon"><i class="mdi mdi-chevron-up"></i></span> <span>بازگشت به
-                        بالا</span></a>
-    </div>
-    <div class="container main-container">
-        <div class="footer-services">
-            <div class="row">
-                <div class="service-item col">
-                    <a href="{{route('home')}}" target="_blank">
-                        <img src="/img/svg/delivery.svg">
-                    </a>
-                    <p>تحویل اکسپرس</p>
-                </div>
-                <div class="service-item col">
-                    <a href="{{route('home')}}" target="_blank">
-                        <img src="/img/svg/contact-us.svg">
-                    </a>
-                    <p>پشتیبانی 24 ساعته</p>
-                </div>
-                <div class="service-item col">
-                    <a href="{{route('home')}}" target="_blank">
-                        <img src="/img/svg/payment-terms.svg">
-                    </a>
-                    <p>پرداخت درمحل</p>
-                </div>
-                <div class="service-item col">
-                    <a href="{{route('home')}}" target="_blank">
-                        <img src="/img/svg/return-policy.svg">
-                    </a>
-                    <p>۷ روز ضمانت بازگشت</p>
-                </div>
-                <div class="service-item col">
-                    <a href="{{route('home')}}" target="_blank">
-                        <img src="/img/svg/origin-guarantee.svg">
-                    </a>
-                    <p>ضمانت اصل بودن کالا</p>
+<!-- Start Facility Area -->
+<section class="facility-area bg-f7f8fa pt-70 pb-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-md-3 col-6">
+                <div class="single-facility-box">
+                    <div class="icon">
+                        <i class="flaticon-free-shipping"></i>
+                    </div>
+                    <h3>ارسال رایگان</h3>
+                    <p>حمل و نقل رایگان در سراسر جهان</p>
                 </div>
             </div>
-        </div>
-        <div class="footer-widgets">
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="widget-menu widget card">
-                        <header class="card-header">
-                            <h3 class="card-title">راهنمای خرید از سی و سه</h3>
-                        </header>
-                        <ul class="footer-menu">
-                            <li>
-                                <a href="{{route('home')}}">نحوه ثبت سفارش</a>
-                            </li>
-                            <li>
-                                <a href="{{route('home')}}">رویه ارسال سفارش</a>
-                            </li>
-                            <li>
-                                <a href="{{route('home')}}">شیوه‌های پرداخت</a>
-                            </li>
-                        </ul>
+
+            <div class="col-lg-3 col-sm-6 col-md-3 col-6">
+                <div class="single-facility-box">
+                    <div class="icon">
+                        <i class="flaticon-headset"></i>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="widget-menu widget card">
-                        <header class="card-header">
-                            <h3 class="card-title">خدمات مشتریان</h3>
-                        </header>
-                        <ul class="footer-menu">
-                            <li>
-                                <a href="{{route('home')}}">پاسخ به پرسش‌های متداول</a>
-                            </li>
-                            <li>
-                                <a href="{{route('home')}}">رویه‌های بازگرداندن کالا</a>
-                            </li>
-                            <li>
-                                <a href="{{route('home')}}">شرایط استفاده</a>
-                            </li>
-                            <li>
-                                <a href="{{route('home')}}">حریم خصوصی</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="widget-menu widget card">
-                        <header class="card-header">
-                            <h3 class="card-title">با سی و سه</h3>
-                        </header>
-                        <ul class="footer-menu">
-                            <li>
-                                <a href="{{route('home')}}">فروش در سی و سه</a>
-                            </li>
-                            <li>
-                                <a href="{{route('home')}}">همکاری با سازمان‌ها</a>
-                            </li>
-                            <li>
-                                <a href="{{route('home')}}">فرصت‌های شغلی</a>
-                            </li>
-                            <li>
-                                <a href="{{route('home')}}">تماس با سی و سه</a>
-                            </li>
-                            <li>
-                                <a href="{{route('home')}}">درباره سی و سه</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="newsletter">
-                        <p>از تخفیف‌ها و جدیدترین‌های فروشگاه باخبر شوید:</p>
-                        <form action="">
-                            <input type="email" class="form-control"
-                                   placeholder="آدرس ایمیل خود را وارد کنید...">
-                            <input type="submit" class="btn btn-primary" value="ارسال">
-                        </form>
-                    </div>
-                    <div class="socials">
-                        <p>ما را در شبکه های اجتماعی دنبال کنید.</p>
-                        <div class="footer-social">
-                            <ul class="text-center">
-                                <li><a href="{{route('home')}}"><i class="mdi mdi-instagram"></i></a></li>
-                                <li><a href="{{route('home')}}"><i class="mdi mdi-telegram"></i></a></li>
-                                <li><a href="{{route('home')}}"><i class="mdi mdi-facebook"></i></a></li>
-                                <li><a href="{{route('home')}}"><i class="mdi mdi-twitter"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <h3>پشتیبانی 24/7</h3>
+                    <p>24 ساعت شبانه روز با ما تماس بگیرید</p>
                 </div>
             </div>
-        </div>
-        <div class="info">
-            <div class="row">
-                <div class="col-12 text-right">
-                    <span>هفت روز هفته ، 24 ساعت شبانه‌روز پاسخگوی شما هستیم.</span>
+
+            <div class="col-lg-3 col-sm-6 col-md-3 col-6">
+                <div class="single-facility-box">
+                    <div class="icon">
+                        <i class="flaticon-secure-payment"></i>
+                    </div>
+                    <h3>پرداخت های امن</h3>
+                    <p>محافظت از پرداخت</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-3 col-6">
+                <div class="single-facility-box">
+                    <div class="icon">
+                        <i class="flaticon-return-box"></i>
+                    </div>
+                    <h3>بازگشت آسان</h3>
+                    <p>سیاست بازگشت ساده</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="description">
-        <div class="container main-container">
-            <div class="row">
-                <div class="site-description col-12 col-lg-7">
-                    <h1 class="site-title">فروشگاه اینترنتی سی و سه، بررسی، انتخاب و خرید آنلاین</h1>
-                        <p>
-                            سی و سه به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با
-                            پایبندی به سه اصل کلیدی، پرداخت در
-                            محل، 7 روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده تا همگام با فروشگاه‌های
-                             معتبر جهان، به یکی از بزرگ‌ترین فروشگاه های
-                            اینترنتی ایران تبدیل شود. به محض ورود به سی و سه با یک سایت پر از کالا رو به رو
-                            می‌شوید! هر آنچه که نیاز دارید و به
-                            ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
-                        </p>
+</section>
+<!-- End Facility Area -->
+
+<!-- Start Footer Area -->
+<footer class="footer-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="single-footer-widget">
+                    <a href="#" class="logo d-inline-block"><img src="/img/logo.png" alt="تصویر"></a>
+                    <ul class="footer-contact-info">
+                        <li><span>خط تلفن: </span> <a href="#">45564645</a></li>
+                        <li><span>تلفن: </span> <a href="tel:+1234567898">456-7898322</a></li>
+                        <li><span>ایمیل: </span> <a href="mailto:hello@drodo.com">hello@drodo.com</a></li>
+                        <li><span>آدرس: </span> <a href="#" target="_blank">ایران - تهران</a></li>
+                    </ul>
+                    <ul class="social">
+                        <li><a href="#" target="_blank"><i class="bx bxl-facebook-square"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="bx bxl-twitter"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="bx bxl-instagram-alt"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="bx bxl-linkedin-square"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="bx bxl-pinterest"></i></a></li>
+                    </ul>
                 </div>
-                <div class="col-12 col-lg-5">
-                    <a href="{{route('home')}}" target="_blank"><img src="/img/icon/moslas_100.png" alt="Cioce.Ir"></a>
-                    <a href="{{route('home')}}" target="_blank"><img src="/img/icon/dayere_100.png" alt=""></a>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="single-footer-widget">
+                    <h3>اطلاعات</h3>
+
+                    <ul class="link-list">
+                        <li><a href="about.html">درباره ما</a></li>
+                        <li><a href="contact.html">با ما تماس بگیرید</a></li>
+                        <li><a href="privacy-policy.html">سیاست حفظ حریم خصوصی</a></li>
+                        <li><a href="terms-of-service.html">شرایط و ضوابط</a></li>
+                        <li><a href="customer-service.html">اطلاعات تحویل</a></li>
+                        <li><a href="customer-service.html">سفارشات و بازده ها</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="single-footer-widget">
+                    <h3>مراقبت از مشتری</h3>
+
+                    <ul class="link-list">
+                        <li><a href="faq.html">راهنمای سوالات</a></li>
+                        <li><a href="profile-authentication.html">حساب من</a></li>
+                        <li><a href="cart.html">تاریخچه سفارش ها</a></li>
+                        <li><a href="cart.html">لیست علاقه مندیها</a></li>
+                        <li><a href="contact.html">خبرنامه</a></li>
+                        <li><a href="purchase-guide.html">سیاست خرید</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6">
+                <div class="single-footer-widget">
+                    <h3>خبرنامه</h3>
+                    <p>برای دریافت آخرین به روزرسانی ها و پیشنهادات ، برای لیست پستی ما ثبت نام کنید.</p>
+                    <form class="newsletter-form" data-toggle="validator">
+                        <input type="text" class="input-newsletter" placeholder="آدرس ایمیل خود را وارد کنید" name="EMAIL" required="" autocomplete="off">
+                        <button type="submit" class="default-btn">مشترک شوید</button>
+                        <div id="validator-newsletter" class="form-result"></div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="copyright">
-        <div class="container main-container">
-            <p>
-                استفاده از مطالب فروشگاه اینترنتی سی و سه فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع است.
-                کلیه حقوق این سایت متعلق
-                به شرکت نوآوران فن آوازه (فروشگاه آنلاین سی و سه) می‌باشد.
-            </p>
+
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <p>کپی رایت <i class="bx bx-copyright"></i>تمام حقوق مادی و معنوی وب سایت متعلق به شرکت بهداشتی آرمان می باشد.</p>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="payment-types">
+                        <ul class="d-flex align-items-center justify-content-end">
+                            <li>ما پرداخت را از طریق:</li>
+                            <li><a href="#" target="_blank"><img src="/img/payment-types/visa.png" alt="تصویر"></a></li>
+                            <li><a href="#" target="_blank"><img src="/img/payment-types/mastercard.png" alt="تصویر"></a></li>
+                            <li><a href="#" target="_blank"><img src="/img/payment-types/paypal.png" alt="تصویر"></a></li>
+                            <li><a href="#" target="_blank"><img src="/img/payment-types/descpver.png" alt="تصویر"></a></li>
+                            <li><a href="#" target="_blank"><img src="/img/payment-types/american-express.png" alt="تصویر"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
-<!-- End footer -->
+<!-- End Footer Area -->

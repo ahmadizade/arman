@@ -1,70 +1,60 @@
 @extends("layouts.master")
 @section("title")
-    <title>بلاگ | فروشگاه سی و سه</title>
+    <title>وبلاگ | فروشگاه آرمان</title>
+    <meta name="description" content="صفحه اصلی وبلاگ | فروشگاه آرمان">
+    <meta name="robots" content="all">
 @endsection
 
 @section("content")
-    <!-- Start main-content -->
-    <main class="main-content dt-sl mb-3">
-        <div class="container main-container">
 
-            <div class="row mt-5 pt-5">
-                <div class="col-lg-9 col-md-8 col-sm-12 col-12 mb-3">
-                    <div class="row">
-                        @if (isset($post))
-                            @foreach ($post as $item)
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="post-card">
-                                <div class="post-thumbnail">
-                                    <a href="{{route('single_mag' , $item->slug)}}">
-                                        <img src="/uploads/blog/thumbnail/{{$item->thumbnail}}" alt="{{$item->title}}">
-                                    </a>
-                                    <span class="post-tag">مقاله</span>
+    <!-- Start Page Title Area -->
+    <section class="page-title-area">
+        <div class="container">
+            <div class="page-title-content">
+                <h1>مجله آرمان</h1>
+                <ul>
+                    <li><a href="{{route('home')}}">خانه</a></li>
+                    <li>وبلاگ</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- End Page Title Area -->
+
+    <!-- Start Blog Area -->
+    <section class="blog-area ptb-70">
+        <div class="container">
+            <div class="row">
+                @if(isset($post))
+                    @foreach($post as $item)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-blog-post">
+                                <div class="post-image">
+                                    <a href="{{route('single_mag' , $item->slug)}}" class="d-block"><img src="/uploads/blog/thumbnail/{{$item->thumbnail ?? ""}}" alt="{{$item->title ?? "عنوان مجله"}}"></a>
                                 </div>
-                                <div class="post-title">
-                                    <a href="{{route('single_mag' , $item->slug)}}">
-                                        {{$item->title}}
-                                    </a>
-                                    <p class="text-muted text-right" style="font-size: 9px">
-                                        CioCe.ir
-                                    </p>
-                                    <p class="text-muted text-right" style="font-size: 9px">
-                                        {{$item->author}}
-                                    </p>
 
-                                    <span class="post-date">
-                                        {{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}
-                                    </span>
+                                <div class="post-content">
+                                    <h3><a href="{{route('single_mag' , $item->slug)}}">{{$item->title ?? "عنوان ثبت نشده است!"}}</a></h3>
+                                    <ul class="post-meta align-items-center d-flex">
+                                        <li>
+                                            <div class="flex align-items-center">
+{{--                                                <img src="/img/user1.jpg" alt="تصویر">--}}
+                                                <span>دسته بندی : </span>
+                                                <a {{route('single_mag' , $item->slug)}}>ناتان اوریتز</a>
+                                            </div>
+                                        </li>
+                                        <li>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d")}}</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                            @endforeach
-                                <div class="d-flex justify-content-end">{{ $post->links() }}</div>
-                        @endif
-                    </div>
-{{--                    <div class="row">--}}
-{{--                        <div class="col-12">--}}
-{{--                            <div class="pagination">--}}
-{{--                                <a href="#" class="prev"><i class="mdi mdi-chevron-double-right"></i></a>--}}
-{{--                                <a href="#">1</a>--}}
-{{--                                <a href="#" class="active-page">2</a>--}}
-{{--                                <a href="#">3</a>--}}
-{{--                                <a href="#">4</a>--}}
-{{--                                <a href="#">...</a>--}}
-{{--                                <a href="#">7</a>--}}
-{{--                                <a href="#" class="next"><i class="mdi mdi-chevron-double-left"></i></a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-12 col-12 mb-3 sidebar sticky-sidebar">
-                    @include('blog.sidebar')
-                </div>
+                    @endforeach
+                @endif
             </div>
-
         </div>
-    </main>
-    <!-- End main-content -->
+    </section>
+    <!-- End Blog Area -->
+
 @endsection
 
 @section("extra_js")

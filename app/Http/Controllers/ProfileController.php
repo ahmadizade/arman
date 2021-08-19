@@ -375,15 +375,8 @@ class ProfileController extends Controller
     {
         $product = Product::where('product_slug', $request->slug)->first();
         Product::where('product_slug', $request->slug)->increment('view',1);
-        if ($product->type == "table") {
-            $comments = Comment::where('product_id' , $product->id)->get();
             $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
-            return view('product.single_product', ["product" => $product,"comments" => $comments,'popularproduct' => $popularproduct]);
-        }elseif ($product->type == "api"){
-            $comments = Comment::where('product_id' , $product->id)->get();
-            $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
-            return view('product.single_api', ["product" => $product,"comments" => $comments,'popularproduct' => $popularproduct]);
-        }
+            return view('product.single_product', ["product" => $product,'popularproduct' => $popularproduct]);
     }
 
     public function subscribe($id){
@@ -1058,7 +1051,7 @@ class ProfileController extends Controller
                     ]);
                     $view = 'verify_email';
                     $subject = 'لینک تایید رایانامه شما';
-                    $title = 'پشتیبانی سایت فروشگاه سی و سه';
+                    $title = 'پشتیبانی سایت فروشگاه آرمان';
                     self::email($email, $view, $content, $title, $subject);
                     session()->flash("error", "لینک تایید به ایمیل شما ارسال شد");
                     Cache::put("email_code_" . $user->id, true, 600);
@@ -1288,7 +1281,7 @@ class ProfileController extends Controller
             $url = route("incoming_download_link", ["dlid" => base64_encode($userID), "dlt" => base64_encode($order->download_token), "orid" => base64_encode($order->id)]);
             $content = $url;
             $view = 'download_email';
-            $subject = 'با تشکر از شما برای خرید از سی و سه';
+            $subject = 'با تشکر از شما برای خرید از آرمان';
             $title = 'لینک دانلود فایل / CIOCE.IR';
             self::email($email, $view, $content, $title, $subject);
             Cache::put("download_link_" . Auth::id(), true, 600);

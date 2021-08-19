@@ -50,7 +50,7 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12">
                                 <div class="card">
-                                    <div class="card-header text-right">
+                                    <div class="card-header text-right font-weight-bold">
                                         مدیریت دسته بندی ها
                                     </div>
                                     <div class="card-body">
@@ -71,42 +71,42 @@
                                                 <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="name" class="form-label ">نام فارسی دسته بندی</label>
-                                                        <input type="text" name="name" class="form-control text-right" placeholder="مثلا : کالای دیجیتال">
+                                                        <input type="text" name="name" class="form-control text-right" placeholder="مثلا : ماسک">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="english_name" class="form-label ">نام اینگلیسی دسته بندی</label>
-                                                        <input type="text" name="english_name" class="form-control text-right" placeholder="مثلا : نام اینگلیسی">
+                                                        <input type="text" name="english_name" class="form-control text-right admin-rtl" placeholder="مثلا : Diagnostic kits">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="seo_title" class="form-label ">SEO Title</label>
-                                                        <input type="text" name="seo_title" class="form-control text-right" placeholder="مثلا : SEO Title">
+                                                        <input type="text" name="seo_title" class="form-control text-right" placeholder="عنوان سئو">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="seo_description" class="form-label ">SEO Discription</label>
-                                                        <input type="text" name="seo_description" class="form-control text-right" placeholder="مثلا : SEO Discription">
+                                                        <input type="text" name="seo_description" class="form-control text-right" placeholder="توضیحات سئو">
+                                                    </div>
+                                                </div>
+{{--                                                <div class="col-12">--}}
+{{--                                                    <div class="my-3">--}}
+{{--                                                        <label for="seo_canonical" class="form-label ">SECO Canonical</label>--}}
+{{--                                                        <input type="text" name="seo_canonical" class="form-control text-right">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="description" class="form-label ">توضیحات دسته بندی</label>
+                                                        <input type="text" name="description" class="form-control text-right textarea-editor">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="my-3">
-                                                        <label for="seo_canonical" class="form-label ">SECO Canonical</label>
-                                                        <input type="text" name="seo_canonical" class="form-control text-right" placeholder="مثلا : SECO Canonical">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="my-3">
-                                                        <label for="discription" class="form-label ">توضیحات دسته بندی</label>
-                                                        <input type="text" name="discription" class="form-control text-right textarea-editor">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="my-3">
-                                                        <label for="image" class="form-label ">عکس</label>
+                                                        <label for="image" class="form-label admin-rtl">آپلود عکس : width : 135 / height : 85</label>
                                                         <input type="file" name="image" class="form-control text-right">
                                                     </div>
                                                 </div>
@@ -116,43 +116,43 @@
                                             </div>
                                         </form>
                                         <hr>
-                                        <form action="{{route('add_category_variety')}}" method="POST">
-                                            <div class="row text-right">
-                                                <div class="col-12">
-                                                    <div class="my-3">
-                                                        <label for="category" class="form-label ">انتخاب دسته بندی</label>
-                                                        <select name="category" class="form-control">
-                                                            @if(isset($category))
-                                                                @foreach($category as $item)
-                                                                    <option value="{{$item->id}}" @if($item->id == old('category')) selected @endif>
-                                                                        {{$item->name}}
-                                                                    </option>
-                                                                @endforeach
-                                                            @endif
-                                                        </select>
-                                                    </div>
-                                                </div>
+{{--                                        <form action="{{route('add_category_variety')}}" method="POST">--}}
+{{--                                            <div class="row text-right">--}}
+{{--                                                <div class="col-12">--}}
+{{--                                                    <div class="my-3">--}}
+{{--                                                        <label for="category" class="form-label ">انتخاب دسته بندی</label>--}}
+{{--                                                        <select name="category" class="form-control">--}}
+{{--                                                            @if(isset($category))--}}
+{{--                                                                @foreach($category as $item)--}}
+{{--                                                                    <option value="{{$item->id}}" @if($item->id == old('category')) selected @endif>--}}
+{{--                                                                        {{$item->name}}--}}
+{{--                                                                    </option>--}}
+{{--                                                                @endforeach--}}
+{{--                                                            @endif--}}
+{{--                                                        </select>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
 
-                                                <div class="col-12">
-                                                    <div class="my-3">
-                                                        <label for="name" class="form-label ">زیردسته</label>
-                                                        <select name="variety[]" class="form-control select2" multiple>
+{{--                                                <div class="col-12">--}}
+{{--                                                    <div class="my-3">--}}
+{{--                                                        <label for="name" class="form-label ">زیردسته</label>--}}
+{{--                                                        <select name="variety[]" class="form-control select2" multiple>--}}
 
-                                                        </select>
-                                                    </div>
-                                                </div>
+{{--                                                        </select>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
 
-                                                <div class="col-12 buttons text-right">
-                                                    <button class="btn btn-success btn-sm" type="submit">افزودن زیردسته</button>
-                                                </div>
-                                            </div>
-                                        </form>
+{{--                                                <div class="col-12 buttons text-right">--}}
+{{--                                                    <button class="btn btn-success btn-sm" type="submit">افزودن زیردسته</button>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </form>--}}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-header text-right">
+                        <div class="card mt-5">
+                            <div class="card-header text-right font-weight-bold">
                                 آخرین محصولات افزوده شده
                             </div>
                             <div class="card-body">

@@ -2,9 +2,9 @@
 
 @section("title")
     @if(\Illuminate\Support\Str::length($product->seo_title) > 1)
-        <title>{{ $product->seo_title }} - سی و سه</title>
+        <title>{{ $product->seo_title }} - آرمان</title>
     @else
-        <title>{{ $product->product_name ?? '' }} - سی و سه</title>
+        <title>{{ $product->product_name ?? '' }} - آرمان</title>
     @endif
     @if(\Illuminate\Support\Str::length($product->seo_description) > 1)
         <meta name="description" content="{{ $product->seo_description }}">
@@ -16,9 +16,9 @@
         <link rel="canonical" href="{{ url()->full() }}">
     @endif
     @if(\Illuminate\Support\Str::length($product->seo_title) > 1)
-        <meta property="og:title" content="{{ $product->seo_title }} - سی و سه">
+        <meta property="og:title" content="{{ $product->seo_title }} - آرمان">
     @else
-        <meta property="og:title" content="{{ $product->product_name ?? '' }} - سی و سه">
+        <meta property="og:title" content="{{ $product->product_name ?? '' }} - آرمان">
     @endif
     <meta property="og:url" content="{{ url()->current() }}">
     @if(\Illuminate\Support\Str::length($product->seo_description) > 1)

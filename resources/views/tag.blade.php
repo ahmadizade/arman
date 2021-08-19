@@ -1,9 +1,9 @@
 @extends("layouts.master")
 @section("title")
     @if(\Illuminate\Support\Str::length($tag->seo_title) > 1)
-        <title>{{ $tag->seo_title }} - سی و سه</title>
+        <title>{{ $tag->seo_title }} - آرمان</title>
     @else
-        <title>{{ $tag->name ?? '' }} - سی و سه</title>
+        <title>{{ $tag->name ?? '' }} - آرمان</title>
     @endif
     @if(\Illuminate\Support\Str::length($tag->seo_description) > 1)
         <meta name="description" content="{{ $tag->seo_description }}">
@@ -12,12 +12,12 @@
     @if(\Illuminate\Support\Str::length($tag->seo_canonical) > 1)
         <link rel="canonical" href="{{ $tag->seo_canonical }}">
     @else
-        <link rel="canonical" href="{{ route("category" , ["slug" => $tag->slug]) }}">
+        <link rel="canonical" href="{{ route("single_category" , ["slug" => $tag->slug]) }}">
     @endif
     @if(\Illuminate\Support\Str::length($tag->seo_title) > 1)
-        <meta property="og:title" content="{{ $tag->seo_title }} - سی و سه">
+        <meta property="og:title" content="{{ $tag->seo_title }} - آرمان">
     @else
-        <meta property="og:title" content="{{ $tag->name ?? '' }} - سی و سه">
+        <meta property="og:title" content="{{ $tag->name ?? '' }} - آرمان">
     @endif
     <meta property="og:url" content="{{ url()->current() }}">
     @if(\Illuminate\Support\Str::length($tag->seo_description) > 1)

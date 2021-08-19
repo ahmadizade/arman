@@ -1,229 +1,373 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>صفحه اصلی | CioCe.ir</title>
+    <title>صفحه اصلی | Arman</title>
 @endsection
 
 @section("content")
-
-        <!-- Start main-content -->
-        <main class="main-content dt-sl mb-3">
-            <div class="container main-container">
-
-                <!-- Start Main-Slider -->
-                <div class="row mb-3">
-                    <aside class="sidebar col-xl-2 col-lg-3 col-12 order-2 order-lg-1 pl-0 hidden-md">
-                        <!-- Start banner -->
-                        <div class="sidebar-inner dt-sl">
-                            <div class="sidebar-banner">
-                                <a href="{{route('home')}}" target="_top">
-                                    <img src="/img/banner/sidebar-banner-1.png" width="100%" height="329"
-                                         alt="CioCe Web Service">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- End banner -->
-                    </aside>
-                    <div class="col-xl-10 col-lg-9 col-12 order-1 order-lg-2">
-                        <!-- Start main-slider -->
-                        <section id="main-slider" class="main-slider carousel slide carousel-fade card hidden-sm"
-                                 data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-                                <li data-target="#main-slider" data-slide-to="1"></li>
-                                <li data-target="#main-slider" data-slide-to="2"></li>
-                                <li data-target="#main-slider" data-slide-to="3"></li>
-                                <li data-target="#main-slider" data-slide-to="4"></li>
-                                <li data-target="#main-slider" data-slide-to="5"></li>
-                                <li data-target="#main-slider" data-slide-to="6"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/1.png)">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/2.png)">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/3.png)">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/4.png)">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/5.png)">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/6.png)">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}"
-                                       style="background-image: url(/img/main-slider/7.png)">
-                                    </a>
+    <!-- Start Home Slides Area -->
+    <section class="home-slides owl-carousel owl-theme">
+        <div class="single-banner-item">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-7 col-md-12">
+                                <div class="banner-image text-center">
+                                    <img src="/img/banner/banner-img1.png" class="main-image" alt="تصویر">
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="#main-slider" role="button" data-slide="prev">
-                                <i class="mdi mdi-chevron-right"></i>
-                            </a>
-                            <a class="carousel-control-next" href="#main-slider" data-slide="next">
-                                <i class="mdi mdi-chevron-left"></i>
-                            </a>
-                        </section>
-                        <section id="main-slider-res"
-                                 class="main-slider carousel slide carousel-fade card d-none show-sm" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#main-slider-res" data-slide-to="0" class="active"></li>
-                                <li data-target="#main-slider-res" data-slide-to="1"></li>
-                                <li data-target="#main-slider-res" data-slide-to="2"></li>
-                                <li data-target="#main-slider-res" data-slide-to="3"></li>
-                                <li data-target="#main-slider-res" data-slide-to="4"></li>
-                                <li data-target="#main-slider-res" data-slide-to="5"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/1.png" alt="MainSlider"
-                                             class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/2.png" alt="MainSlider"
-                                             class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/3.png" alt="MainSlider"
-                                             class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/4.png" alt="MainSlider"
-                                             class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/5.png" alt="MainSlider"
-                                             class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="main-slider-slide" href="{{route('home')}}">
-                                        <img src="/img/main-slider/slider-responsive/6.png" alt="MainSlider"
-                                             class="img-fluid">
-                                    </a>
+                            <div class="col-lg-5 col-md-12">
+                                <div class="banner-content">
+                                    <span class="sub-title">تازه رسیده ها</span>
+                                    <h1><span>دستکش</span> نیتریل تریتون گریپ<span></span></h1>
+                                    <p>دستکش از دست ما در برابر چیزهای مختلف محافظت می کند. استفاده از دستکش نیتریل راحت است.</p>
+                                    <div class="btn-box">
+                                        <div class="d-flex align-items-center float-left">
+                                            <span class="price">500000 تومان</span>
+                                            <a href="#" class="default-btn"><i class="flaticon-trolley"></i>افزودن به سبد خرید </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="#main-slider-res" role="button" data-slide="prev">
-                                <i class="mdi mdi-chevron-right"></i>
-                            </a>
-                            <a class="carousel-control-next" href="#main-slider-res" data-slide="next">
-                                <i class="mdi mdi-chevron-left"></i>
-                            </a>
-                        </section>
-                        <!-- End main-slider -->
-                    </div>
-                </div>
-                <!-- End Main-Slider -->
 
-                <!-- Start Product-Slider -->
-                @include('partials.popular_products')
-                <!-- End Product-Slider -->
-
-                <!-- Start Banner -->
-                <div class="row mt-3 mb-5">
-                    <div class="col-sm-6 col-12 mb-2">
-                        <div class="widget-banner">
-                            <a href="{{route('home')}}">
-                                <img src="/img/banner/medium-banner-1.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-12 mb-2">
-                        <div class="widget-banner">
-                            <a href="{{route('home')}}">
-                                <img src="/img/banner/medium-banner-2.png" alt="">
-                            </a>
                         </div>
                     </div>
                 </div>
-                <!-- End Banner -->
-
-                <!-- Start Banner -->
-                <div class="row mt-3 mb-5">
-                    <div class="col-md-3 col-sm-6 col-6 mb-2">
-                        <div class="widget-banner">
-                            <a href="{{route('home')}}">
-                                <img src="/img/banner/small-banner-5.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-6 mb-2">
-                        <div class="widget-banner">
-                            <a href="{{route('home')}}">
-                                <img src="/img/banner/small-banner-6.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-6 mb-2">
-                        <div class="widget-banner">
-                            <a href="{{route('home')}}">
-                                <img src="/img/banner/small-banner-7.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-6 mb-2">
-                        <div class="widget-banner">
-                            <a href="{{route('home')}}">
-                                <img src="/img/banner/small-banner-8.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Banner -->
-
-                <!-- Start Category-Section -->
-                @include('partials.category_icon')
-                <!-- End Category-Section -->
-
-                <!-- Start Product-Slider -->
-                @include('partials.most_visited')
-                <!-- End Product-Slider -->
-
-                <!-- Start Banner -->
-                <div class="row mt-3 mb-5">
-                    <div class="col-12">
-                        <div class="widget-banner">
-                            <a href="{{route('home')}}">
-                                <img src="/img/banner/large-banner.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Banner -->
-
-                <!-- Start Product-Slider -->
-                @include('partials.last_product')
-                <!-- End Product-Slider -->
-
             </div>
-        </main>
-        <!-- End main-content -->
+        </div>
+
+        <div class="single-banner-item">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-7 col-md-12">
+                                <div class="banner-image text-center">
+                                    <img src="/img/banner/banner-img2.png" class="main-image" alt="تصویر">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-12">
+                                <div class="banner-content">
+                                    <span class="sub-title">تازه رسیده ها</span>
+                                    <h1><span>دستکش</span> محافظ عینک ایمنی<span></span></h1>
+                                    <p>عینک و دستکش های محافظ ما برای ایمنی شخصی بسیار مهم هستند.</p>
+                                    <div class="btn-box">
+                                        <div class="d-flex align-items-center float-left">
+                                            <span class="price">79000 تومان</span>
+                                            <a href="#" class="default-btn"><i class="flaticon-trolley"></i>افزودن به سبد خرید </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="single-banner-item">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-7 col-md-12">
+                                <div class="banner-image text-center">
+                                    <img src="/img/banner/banner-img3.png" class="main-image" alt="تصویر">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-12">
+                                <div class="banner-content">
+                                    <span class="sub-title">تازه رسیده ها</span>
+                                    <h1><span>ماسک</span> جراحی محافظ<span></span></h1>
+                                    <p>ماسک های جراحی می توانند از خود در برابر میکروب های مختلف محافظت کنند. همه باید از این ماسک جراحی استفاده کنند.</p>
+                                    <div class="btn-box">
+                                        <div class="d-flex align-items-center float-left">
+                                            <span class="price">30000 تومان</span>
+                                            <a href="#" class="default-btn"><i class="flaticon-trolley"></i>افزودن به سبد خرید </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Home Slides Area -->
+
+    <!-- Start Banner Categories Area -->
+    <section class="banner-categories-area pt-70 pb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="single-banner-categories-box">
+                        <img src="/img/banner-categories/banner-categories-img1.jpg" alt="تصویر">
+
+                        <div class="content">
+                            <span class="sub-title">درجه حرارت</span>
+                            <h3><a href="#">دماسنج گوش</a></h3>
+                            <div class="btn-box">
+                                <div class="d-flex align-items-center">
+                                    <a href="products-left-sidebar.html" class="default-btn"><i class="flaticon-trolley"></i>خرید </a>
+                                    <span class="price">49000 تومان</span><span class="price"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="single-banner-categories-box">
+                        <img src="/img/banner-categories/banner-categories-img2.jpg" alt="تصویر">
+
+                        <div class="content">
+                            <span class="sub-title">شخصی</span>
+                            <h3><a href="#">مجموعه مورد علاقه</a></h3>
+                            <div class="btn-box">
+                                <div class="d-flex align-items-center">
+                                    <a href="products-left-sidebar.html" class="default-btn"><i class="flaticon-trolley"></i>خرید </a>
+                                    <span class="price">69000 تومان</span><span class="price"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Categories Area -->
+
+    <!-- Start Categories Area -->
+    @if(isset($category))
+        <section class="categories-area pb-40">
+        <div class="container">
+            <div class="section-title">
+                <h2>دسته بندی ها</h2>
+            </div>
+            <div class="row">
+                @foreach($category as $item)
+                <div class="col-lg-2 col-sm-4 col-md-4">
+                    <div class="single-categories-box">
+                        <img src="/uploads/category/{{$item->image}}" alt="{{$item->name ?? "نا معلوم"}}">
+                        <h3>{{$item->name ?? "نا معلوم"}}</h3>
+                        <a href="products-left-sidebar.html" class="link-btn"></a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
+    <!-- End Categories Area -->
+
+    <!-- Last Products Area -->
+    @if(isset($lastProduct) && isset($lastProduct[0]))
+        @include("partials.last_product")
+    @endif
+    <!-- Last Products Area -->
+
+    <!-- Start Products Promotions Area -->
+    <section class="products-promotions-area pb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-products-promotions-box">
+                        <img src="/img/promotions/promotions-img1.jpg" alt="تصویر">
+
+                        <div class="content">
+                            <span class="sub-title">معامله ویژه</span>
+                            <h3>سیب نمک مگا</h3>
+                            <span class="discount"><span>تا</span> 70٪ تخفیف </span>
+                            <a href="products-left-sidebar.html" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-products-promotions-box">
+                        <img src="/img/promotions/promotions-img2.jpg" alt="تصویر">
+
+                        <div class="content">
+                            <span class="sub-title">تازه رسیده ها</span>
+                            <h3>ضدعفونی‌کننده</h3>
+                            <span class="discount"><span>تا</span> 49000 تومان</span>
+                            <a href="products-left-sidebar.html" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                    <div class="single-products-promotions-box">
+                        <img src="/img/promotions/promotions-img3.jpg" alt="تصویر">
+
+                        <div class="content">
+                            <span class="sub-title">مجموعه داغ</span>
+                            <h3>دما سنج</h3>
+                            <span class="discount"><span>تا</span> 20٪ تخفیف </span>
+                            <a href="products-left-sidebar.html" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Products Promotions Area -->
+
+    <!-- Start Products Area -->
+    @if(isset($mostVisited) && isset($mostVisited[0]))
+    @include('partials.most_visited')
+    @endif
+    <!-- End Products Area -->
+
+    <!-- Start Hot Deal Area -->
+    <section class="hot-deal-area ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="hot-deal-content">
+                        <span class="sub-title">معامله ماه</span>
+                        <h2>تا <span>80٪</span> تخفیف تمام فروش ها نهایی هستند!</h2>
+                        <div id="timer" class="flex-wrap d-flex justify-content-center">
+                            <div id="days" class="align-items-center flex-column d-flex justify-content-center"></div>
+                            <div id="hours" class="align-items-center flex-column d-flex justify-content-center"></div>
+                            <div id="minutes" class="align-items-center flex-column d-flex justify-content-center"></div>
+                            <div id="seconds" class="align-items-center flex-column d-flex justify-content-center"></div>
+                        </div>
+                        <a href="products-left-sidebar.html" class="default-btn"><i class="flaticon-trolley"></i> اکنون خرید کنید</a>
+                        <div class="back-text">2020</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Hot Deal Area -->
+
+    <!-- Start Brands Area -->
+    <section class="brands-area pt-70 pb-40">
+        <div class="container">
+            <div class="section-title">
+                <h2>فروش مارک ها</h2>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-sm-4 col-md-2 col-6">
+                    <div class="single-brands-item">
+                        <a href="#" class="d-block"><img src="/img/brands/brands-img1.png" alt="تصویر"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-4 col-md-2 col-6">
+                    <div class="single-brands-item">
+                        <a href="#" class="d-block"><img src="/img/brands/brands-img2.png" alt="تصویر"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-4 col-md-2 col-6">
+                    <div class="single-brands-item">
+                        <a href="#" class="d-block"><img src="/img/brands/brands-img3.png" alt="تصویر"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-4 col-md-2 col-6">
+                    <div class="single-brands-item">
+                        <a href="#" class="d-block"><img src="/img/brands/brands-img4.png" alt="تصویر"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-4 col-md-2 col-6">
+                    <div class="single-brands-item">
+                        <a href="#" class="d-block"><img src="/img/brands/brands-img5.png" alt="تصویر"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-sm-4 col-md-2 col-6">
+                    <div class="single-brands-item">
+                        <a href="#" class="d-block"><img src="/img/brands/brands-img6.png" alt="تصویر"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Brands Area -->
+
+    <!-- Start Blog Area -->
+    <section class="blog-area pb-40">
+        <div class="container">
+            <div class="section-title">
+                <h2>وبلاگ ما</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-post">
+                        <div class="post-image">
+                            <a href="single-blog-1.html" class="d-block"><img src="/img/blog/blog-img1.jpg" alt="تصویر"></a>
+                        </div>
+
+                        <div class="post-content">
+                            <h3><a href="single-blog-1.html">یک محقق در حال انجام تحقیقات در مورد ویروس کرونا در آزمایشگاه است</a></h3>
+                            <ul class="post-meta align-items-center d-flex">
+                                <li>
+                                    <div class="flex align-items-center">
+                                        <img src="/img/user1.jpg" alt="تصویر">
+                                        <a href="#">ناتان اوریتز</a>
+                                    </div>
+                                </li>
+                                <li>1399-10-8</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-post">
+                        <div class="post-image">
+                            <a href="single-blog-1.html" class="d-block"><img src="/img/blog/blog-img2.jpg" alt="تصویر"></a>
+                        </div>
+
+                        <div class="post-content">
+                            <h3><a href="single-blog-1.html">شما باید 20 ثانیه دستان خود را بشویید تا خود را آزاد کنید</a></h3>
+                            <ul class="post-meta align-items-center d-flex">
+                                <li>
+                                    <div class="flex align-items-center">
+                                        <img src="/img/user2.jpg" alt="تصویر">
+                                        <a href="#">رندی آزبورن</a>
+                                    </div>
+                                </li>
+                                <li>1399-8-8</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                    <div class="single-blog-post">
+                        <div class="post-image">
+                            <a href="single-blog-1.html" class="d-block"><img src="/img/blog/blog-img3.jpg" alt="تصویر"></a>
+                        </div>
+
+                        <div class="post-content">
+                            <h3><a href="single-blog-1.html">برای رهایی از خود پوشیدن لباس مناسب بسیار مهم است</a></h3>
+                            <ul class="post-meta align-items-center d-flex">
+                                <li>
+                                    <div class="flex align-items-center">
+                                        <img src="/img/user3.jpg" alt="تصویر">
+                                        <a href="#">پاتریشیا مارکوس</a>
+                                    </div>
+                                </li>
+                                <li>1399-8-16</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Blog Area -->
 @endsection
 
 @section('extra_js')

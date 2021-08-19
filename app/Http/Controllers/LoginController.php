@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Sms;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class LoginController extends Controller
             if (Hash::check($code,$user->password) || $code == $user->password) {
                 Auth::loginUsingId($user->id, true);
                 Cache::forget("mobile_code_".$mobile);
-                return Response::json(["status" => "1", "desc" => "همراه عزیز خوش آمدید"]);
+                return Response::json(["status" => "1", "desc" => "به فروشگاه Cioshop خوش آمدید"]);
             }
             return Response::json(["status" => "0","desc" => "رمز عبور شما اشتباه می باشد"]);
         }
@@ -55,11 +56,11 @@ class LoginController extends Controller
     }
 
     public function registerAction(Request $request){
-        $request = $request->replace(self::faToEn($request->all()));
+        $request = $request->replace($this->faToEn($request->all()));
 
         $mobile = $request->mobile;
 
-        if(!Cache::has("mobile_code_".$mobile)) {
+//        if(!Cache::has("mobile_code_".$mobile)) {
             if ($request->customCheck3 == "on"){
                 $validate = Validator::make($request->all(), [
                     'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
@@ -75,28 +76,35 @@ class LoginController extends Controller
                     // Go To login Page
                     return Response::json(['status' => "0" , 'desc' => "شما قبلا ثبت نام کرده اید"]);
                 }else {
-                    $code = 00000;//rand(10000,99999);
+                    $code = random_int(1000, 9999);
+                    $dataSms = array(
+                        array(
+                            "Parameter" => "VerificationCode",
+                            "ParameterValue" => $code,
+                        ),
 
-//                        self::sms($mobile,"کد ورود شما به سایت ".
-//                            "\n".
-//                            "code: ".$code
-//                        );
+                        array(
+                            "Parameter" => "Company",
+                            "ParameterValue" => "Arman",
+                        ),
+                    );
+                    Sms::dispatch($mobile, $dataSms, '53056');
+                    Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(120)], 120);
 
-                    Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(60)], 60);
-
-                    return Response::json(['status' => 1, 'desc' => "رمز پنج رقمی به شماره موبایل شما وارد شد", 'mobile' => $mobile, 'code' => $code]);
+                    return Response::json(['status' => 1, 'desc' => "کد پنج رقمی به شماره موبایل شما ارسال شد", 'mobile' => $mobile, 'code' => $code]);
                 }
             }else{
-                return Response::json(['status' => 0 , 'desc' => "تایید شرایط و قوانین الزامی می باشد"]);
+                return Response::json(['status' => 0 , 'desc' => "تایید شرایط و قوانین، الزامی می باشد"]);
             }
-        }else{
-            $time = Cache::get("mobile_code_" . $mobile);
-            $time = Carbon::now()->diffInSeconds(Carbon::parse($time[1]));
-            return Response::json(["status" => "0","desc" => "لطفا ".$time." ثانیه دیگر تلاش کنید"]);
         }
-    }
+//        else{
+//            $time = Cache::get("mobile_code_" . $mobile);
+//            $time = Carbon::now()->diffInSeconds(Carbon::parse($time[1]));
+//            return Response::json(["status" => "0","desc" => "لطفا ".$time." ثانیه دیگر تلاش کنید"]);
+//        }
 
     public function oneTimeCode(Request $request){
+
         $request = $request->replace(self::faToEn($request->all()));
 
         $mobile = $request->mobile;
@@ -114,15 +122,20 @@ class LoginController extends Controller
 
                 if (isset($checkUser->id)) {
 
-                    $code = 00000;//rand(10000,99999);
+                    $code = random_int(1000, 9999);
+                    $dataSms = array(
+                        array(
+                            "Parameter" => "VerificationCode",
+                            "ParameterValue" => $code,
+                        ),
 
-//                        self::sms($mobile,"کد ورود شما به سایت ".
-//                            "\n".
-//                            "code: ".$code
-//                        );
-
-                    Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(60)], 60);
-
+                        array(
+                            "Parameter" => "Company",
+                            "ParameterValue" => "CioShop",
+                        ),
+                    );
+                    Sms::dispatch($mobile, $dataSms, '53056');
+                    Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(120)], 120);
                     return Response::json(['status' => 1, 'desc' => "رمز یکبار مصرف به شماره موبایل شما ارسال شد", 'mobile' => $mobile, 'code' => $code]);
                 }else {
                     return Response::json(['status' => 0, 'desc' => "ابتدا در سایت ثبت نام کنید"]);
@@ -133,6 +146,7 @@ class LoginController extends Controller
             return Response::json(["status" => "0","desc" => "لطفا ".$time." ثانیه دیگر تلاش کنید"]);
         }
     }
+
     public function verifiedCodeAction(Request $request){
         $request = $request->replace(self::faToEn($request->all()));
 
@@ -186,6 +200,7 @@ class LoginController extends Controller
             }
             return Response::json(["status" => "0","desc" => "کد وارد شده اشتباه می باشد"]);
         }
+        return Response::json(["status" => "0","desc" => "کد وارد شده اشتباه می باشد"]);
     }
 
     public function changePasswordAction(Request $request){

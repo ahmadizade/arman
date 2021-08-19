@@ -1,180 +1,181 @@
-<!DOCTYPE html>
-<html lang="fa">
+@extends("layouts.master")
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="theme-color" content="#f7858d">
-    <meta name="msapplication-navbutton-color" content="#f7858d">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#f7858d">
-    <title>ثبت نام | Cioce</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
-    <!-- Plugins -->
-    <link rel="stylesheet" href="/css/vendor/owl.carousel.min.css">
-    <link rel="stylesheet" href="/css/vendor/jquery.horizontalmenu.css">
-    <link rel="stylesheet" href="/css/vendor/nouislider.min.css">
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="/css/vendor/materialdesignicons.min.css">
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/colors/default.css" id="colorswitch">
-</head>
+@section("title")
+    <title>آرمان | تماس با ما</title>
+@endsection
 
-<body>
+@section("content")
+    <!-- Start Page Title Area -->
+    <section class="page-title-area">
+        <div class="container">
+            <div class="page-title-content">
+                <h1>با ما تماس بگیرید</h1>
+                <ul>
+                    <li><a href="{{route('home')}}">خانه</a></li>
+                    <li>با ما تماس بگیرید</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- End Page Title Area -->
 
-<div class="wrapper">
-    <!-- Start main-content -->
-    <main class="main-content dt-sl mt-4 mb-3">
-        <div class="container main-container">
-
+    <!-- Start Contact Area -->
+    <section class="contact-info-area pt-70 pb-40">
+        <div class="container">
             <div class="row">
-                <div class="col-xl-4 col-lg-5 col-md-7 col-12 mx-auto">
-                    <div class="logo-area text-center mb-3">
-                        <a href="{{route('home')}}"><img src="/img/logo.png" class="img-fluid" alt="logo"></a>
+                <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="single-contact-info-box">
+                        <div class="icon">
+                            <i class="flaticon-placeholder"></i>
+                        </div>
+                        <h3>نشانی</h3>
+                        <p><a href="javascript:void(0)">ایران - تهران</a></p>
+                        <p><a href="javascript:void(0)">خیابان فاطمی</a></p>
                     </div>
-                    {{--Import Phone Number Cart--}}
-                    <div id="inputMobile" class="auth-wrapper form-ui pt-4">
-                        <div class="section-title title-wide mb-1 no-after-title-wide">
-                            <h2 class="font-weight-bold">تماس با ما</h2>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="single-contact-info-box">
+                        <div class="icon">
+                            <i class="flaticon-phone-ringing"></i>
                         </div>
-                        <div class="message-light">
-                            فرم زیر را تکمیل کنید و در اسرع زمان همکاران پشتیبانی با شما تماس می گیرند.
+                        <h3>تلفن</h3>
+                        <p><a href="tel:55656644">خط تلفن: 55656644</a></p>
+                        <p><a href="tel:+1234567898">پشتیبانی فنی: 22407239-021</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="single-contact-info-box">
+                        <div class="icon">
+                            <i class="flaticon-email"></i>
                         </div>
-                        <form id="contact_us" action="#">
-                            <div class="form-row-title">
-                                <h3>شماره موبایل</h3>
-                            </div>
-                            <div class="form-row with-icon">
-                                <input id="mobile" name="mobile" type="text" class="input-ui pr-2"
-                                       placeholder="شماره موبایل خود را وارد نمایید">
-                                <i class="mdi mdi-account-circle-outline"></i>
-                            </div>
+                        <h3>پست الکترونیک</h3>
+                        <p><a href="mailto:hello@drodo.com">info@arman.com</a></p>
+                        <p><a href="#">اسکایپ: آرمان</a></p>
+                    </div>
+                </div>
 
-                             <div class="form-row-title">
-                                <h3>نام و نام خانوادگی</h3>
-                            </div>
-                            <div class="form-row with-icon">
-                                <input id="name" name="name" type="text" class="input-ui pr-2"
-                                       placeholder="مثلا : دنیا فلاحی">
-                                <i class="mdi mdi-account-circle-outline"></i>
-                            </div>
+                <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="single-contact-info-box">
+                        <div class="icon">
+                            <i class="flaticon-clock"></i>
+                        </div>
+                        <h3>ساعات کاری</h3>
+                        <p>شنبه - جمعه</p>
+                        <p>8:00 صبح - 16:00 ظهر</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                             <div class="form-row-title">
-                                <h3>متن پیام شما</h3>
-                            </div>
-                            <div class="form-row with-icon">
-                                <textarea id="desc" name="desc" rows="4" class="input-ui pr-2">متن پیام خود را اینجا بنویسید</textarea>
-                                <i class="mdi mdi-account-circle-outline"></i>
-                            </div>
+    <section class="contact-area pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="contact-form">
+                        <span class="sub-title">در تماس باشید</span>
+                        <h2>ما می خواهیم یک تجربه عالی را برای شما فراهم کنیم</h2>
+                        <form id="contact_us">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>نام و نام خانوادگی</label>
+                                        <input type="text" name="name" class="form-control" id="name" required="" data-error="لطفا نام خود را وارد کنید">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
 
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>آدرس ایمیل</label>
+                                        <input type="email" name="email" class="form-control" id="email" required="" data-error="لطفا ایمیل خود را وارد کن">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
 
-                            <div class="form-row mt-3">
-                                <button id="contact_btn" class="btn-primary-cm btn-with-icon mx-auto w-100">
-                                    <i class="mdi mdi-account-circle-outline"></i>
-                                    ارسال پیام
-                                </button>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>موبایل</label>
+                                        <input type="text" name="mobile" class="form-control" id="mobile" required="" data-error="لطفا شماره تلفن خود را وارد کنید">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>موضوع</label>
+                                        <input type="text" name="subject" class="form-control" id="subject">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label>پیام</label>
+                                        <textarea name="desc" id="desc" class="form-control" cols="30" rows="6" required="" data-error="لطفا پیام خود را وارد کنید"></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <button id="contact_btn" type="submit" class="default-btn pb-3">ارسال پیام</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden mt-3"></div>
+                                    <div class="clearfix"></div>
+                                </div>
                             </div>
                         </form>
-                        <div class="form-footer mt-3">
-                            <div>
-                                <span class="font-weight-bold">درباره ما بدون</span>
-                                <a href="{{route('about_Us')}}" class="mr-3 mt-2">درباره ما</a>
-                            </div>
-                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="contact-image text-center">
+                        <img src="/img/contact.png" alt="تصویر">
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-    <!-- End main-content -->
+    </section>
 
-    <!-- Start mini-footer -->
-    <footer class="mini-footer dt-sl">
-        <div class="container main-container">
-            <div class="row">
-                <div class="col-12">
-                    <ul class="mini-footer-menu">
-                        <li><a href="{{route('home')}}">درباره سی و سه</a></li>
-                        <li><a href="{{route('home')}}">فرصت های شغلی</a></li>
-                        <li><a href="{{route('home')}}">تماس با ما</a></li>
-                        <li><a href="{{route('home')}}">همکاری با سازمان ها</a></li>
-                    </ul>
-                </div>
-                <div class="col-12 mt-2 mb-3">
-                    <div class="footer-light-text">
-                        استفاده از مطالب فروشگاه اینترنتی سی و سه فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع
-                        است. کلیه حقوق این سایت متعلق به (فروشگاه آنلاین سی و سه) می‌باشد.
-                    </div>
-                </div>
-                <div class="col-12 text-center">
-                    <div class="copy-right-mini-footer">
-                        Copyright © 2019 Cioce
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End mini-footer -->
-</div>
+    <div id="maps">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46660.669043361966!2d-76.17429939609431!3d43.03529129888566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d9f3b8019f2991%3A0x58d5929e21a62e5!2sDinosaur%20Bar-B-Que!5e0!3m2!1sen!2sbd!4v1593527523138!5m2!1sen!2sbd"></iframe>
+    </div>
+    <!-- End Contact Area -->
+@endsection
 
-<!-- Core JS Files -->
-<script src="/js/vendor/jquery-3.4.1.min.js"></script>
-<script src="/js/vendor/popper.min.js"></script>
-<script src="/js/vendor/bootstrap.min.js"></script>
-<!-- Plugins -->
-<script src="/js/vendor/owl.carousel.min.js"></script>
-<script src="/js/vendor/sweetalert2.all.min.js"></script>
-{{--    <script src="./assets/js/vendor/isotope.pkgd.min.js"></script>--}}
-<script src="/js/vendor/jquery.horizontalmenu.js"></script>
-<script src="/js/vendor/nouislider.min.js"></script>
-<script src="/js/vendor/wNumb.js"></script>
-<script src="/js/vendor/ResizeSensor.min.js"></script>
-<script src="/js/vendor/theia-sticky-sidebar.min.js"></script>
-<link rel="stylesheet" href="/css/vendor/sweetalert2.all.css">
-<!-- Main JS File -->
-<script src="/js/main.js"></script>
-<script>
-    $(document).on('click','#contact_btn', function (e){
-        e.preventDefault();
-        $.ajax({
-            'url' : '{{route('contact_action')}}',
-            'type' : 'POST',
-            'data' : $('#contact_us').serialize(),
-            success : function (data){
-                console.log(data)
-                if(data.status == "0") {
-                    Swal.fire({
-                        position: 'top-end',
-                        toast: true,
-                        icon: 'error',
-                        text: data.desc,
-                        showConfirmButton: false,
-                        timer: 3000
-                    });
+@section("extra_js")
+    <script>
+        $(document).on('click','#contact_btn', function (e){
+            e.preventDefault();
+            $.ajax({
+                'url' : '{{route('contact_action')}}',
+                'type' : 'POST',
+                'data' : $('#contact_us').serialize(),
+                success : function (data){
+                    console.log(data)
+                    if(data.status == "0") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'error',
+                            text: data.desc,
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                    if(data.status == "1") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'success',
+                            text: data.desc,
+                            title: 'CioCe.ir',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
                 }
-                if(data.status == "1") {
-                    Swal.fire({
-                        position: 'top-end',
-                        toast: true,
-                        icon: 'success',
-                        text: data.desc,
-                        title: 'CioCe.ir',
-                        showConfirmButton: false,
-                        timer: 3000
-                    }).then(function (data) {
-                        $('#mobile').addClass('d-none');
-                        $('#code').addClass('d-none');
-                        {{--setTimeout(function(){--}}
-                        {{--    window.location.replace('{{route('home')}}');--}}
-                        {{--},1000);--}}
-                    });
-                }
-            }
+            });
         });
-    });
-</script>
-</body>
-
-</html>
+    </script>
+@endsection

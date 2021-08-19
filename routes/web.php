@@ -10,7 +10,8 @@ Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactActio
 Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("about_Us");
 Route::get('/seo', 'App\Http\Controllers\HomeController@seo')->name("seo");
 Route::get('/policy', 'App\Http\Controllers\HomeController@policy')->name("policy");
-Route::get('/category/{slug}', 'App\Http\Controllers\HomeController@Category')->name("category");
+Route::get('/category', 'App\Http\Controllers\HomeController@category')->name("category");
+Route::get('/single-category/{slug}', 'App\Http\Controllers\HomeController@singleCategory')->name("single_category");
 Route::get('/tag/{slug}', 'App\Http\Controllers\HomeController@tag')->name("tag");
 
 Route::get('/cache', function (){
@@ -206,6 +207,8 @@ Route::get('/mag', 'App\Http\Controllers\BlogController@mag')->name("mag");
 Route::get('/single-mag/{slug}', 'App\Http\Controllers\BlogController@singleMag')->name("single_mag");
 Route::get('/new-single-mag', 'App\Http\Controllers\BlogController@newSingleMag')->name("new_single_mag");
 Route::get('/show-single-mag', 'App\Http\Controllers\BlogController@showSingleMag')->name("show_single_mag");
+Route::get('/category-mag-page', 'App\Http\Controllers\BlogController@categoryMagPage')->name("category_mag_page");
+Route::post('/new-blog-category-action', 'App\Http\Controllers\BlogController@newBlogCategoryAction')->name("new_blog_category_action");
 Route::post('/new-single-mag-action', 'App\Http\Controllers\BlogController@newSingleMagAction')->name("new_single_mag_action");
 Route::post('/edit-single-mag-action', 'App\Http\Controllers\BlogController@editSingleMagAction')->name("edit_single_mag_action");
 Route::post('/new-single-mag-comment', 'App\Http\Controllers\BlogController@newSingleMagComment')->name("new_single_mag_comment");

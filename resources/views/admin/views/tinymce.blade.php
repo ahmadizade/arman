@@ -11,7 +11,7 @@
         element_format : 'html',
         entity_encoding : 'row',
         content_style:
-            "@import url('/css/home2.css'); body { font-family: iransans; }",
+            "@import url('/css/style.css'); body { font-family: iransans; }",
         plugins: [
             'advlist autolink lists link image charmap print preview anchor',
             'searchreplace visualblocks code fullscreen',

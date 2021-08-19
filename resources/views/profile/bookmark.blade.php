@@ -59,7 +59,7 @@
                                                                     <i data-id="{{$item->id}}" class="mdi mdi-trash-can-outline"></i>
                                                                 </button>
                                                                 <span class="label-card-horizontal-product" style="font-size:14px;">
-                                                                    <a class="text-danger" href="{{route('category',["slug" => $item->product->category->slug])}}">{{$item->product->category->name ?? "سی و سه"}}</a>
+                                                                    <a class="text-danger" href="{{route('single_category',["slug" => $item->product->category->slug])}}">{{$item->product->category->name ?? "آرمان"}}</a>
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -76,9 +76,9 @@
                                                         <p class="cart-empty-title">یعنی به هیچی علاقه نداشتی!</p>
                                                         <p>بابا مگه میشه، مگه داریم آخه! این همه محصول و ربات و وب سرویس!</p>
                                                         <div class="cart-empty-links mb-5">
-                                                            <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های رایگان</a>
-                                                            <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">پربازدیدترین ها</a>
-                                                            <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های پرفروش</a>
+                                                            <a href="{{route('single_category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های رایگان</a>
+                                                            <a href="{{route('single_category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">پربازدیدترین ها</a>
+                                                            <a href="{{route('single_category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های پرفروش</a>
                                                         </div>
                                                         <a href="{{route('home')}}" class="btn-primary-cm">بازگشت به صفحه اصلی</a>
                                                     </div>
@@ -132,7 +132,7 @@
                                                                     <i data-id="{{$item->id}}" class="mdi mdi-trash-can-outline"></i>
                                                                 </button>
                                                                 <span class="label-card-horizontal-product" style="font-size:14px;">
-                                                                    <a class="text-danger" href="{{route('category',["slug" => $item->product->category->slug])}}">{{$item->product->category->name ?? "سی و سه"}}</a>
+                                                                    <a class="text-danger" href="{{route('single_category',["slug" => $item->product->category->slug])}}">{{$item->product->category->name ?? "آرمان"}}</a>
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -149,9 +149,9 @@
                                                         <p class="cart-empty-title">یعنی هیچی پسند نکردی؟!</p>
                                                         <p>من دیگه حرفی ندارم!</p>
                                                         <div class="cart-empty-links mb-5">
-                                                            <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های رایگان</a>
-                                                            <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">پربازدیدترین ها</a>
-                                                            <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های پرفروش</a>
+                                                            <a href="{{route('single_category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های رایگان</a>
+                                                            <a href="{{route('single_category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">پربازدیدترین ها</a>
+                                                            <a href="{{route('single_category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های پرفروش</a>
                                                         </div>
                                                         <a href="{{route('home')}}" class="btn-primary-cm">بازگشت به صفحه اصلی</a>
                                                     </div>

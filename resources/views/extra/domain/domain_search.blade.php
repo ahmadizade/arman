@@ -1,10 +1,10 @@
 @extends("layouts.master")
 
 @section("title")
-        <title>سی و سه | صاحب این سایت کیه</title>
+        <title>آرمان | صاحب این سایت کیه</title>
         <meta name="description" content="پیدا کردن صاحب وبسایت،این وب سایت مال کیه؟ آدرس سایت بنویس و اطلاعات صاحبشو بگیر،ایمیلاشو پیدا کن">
         <meta name="robots" content="all">
-        <meta property="og:title" content="سی و سه | صاحب این سایت کیه؟">
+        <meta property="og:title" content="آرمان | صاحب این سایت کیه؟">
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:site_name" content="پیدا کردن صاحب وبسایت،این وب سایت مال کیه؟ آدرس سایت بنویس و اطلاعات صاحبشو بگیر،ایمیلاشو پیدا کن">
         <meta property="og:image" content="/img/home/logo.png">

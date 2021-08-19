@@ -79,6 +79,7 @@
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Blog Manager</h6>
+                <a class="collapse-item font-weight-bolder" href="{{route('category_mag_page')}}">دسته بندی مطالب</a>
                 <a class="collapse-item font-weight-bolder" href="{{route('new_single_mag')}}">نوشتن مطلب</a>
                 <a class="collapse-item font-weight-bolder" href="{{route('show_single_mag')}}">مطالب ثبت شده</a>
             </div>

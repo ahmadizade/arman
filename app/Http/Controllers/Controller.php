@@ -23,30 +23,6 @@ class Controller extends BaseController
     const admin_email = 'info@CioCe.ir';
     const sha1Key = '22338240992352910814917221751200141041845518824222260';
 
-    public static function sms($mobile, $content)
-    {
-
-        $content = urlencode($content);
-        $username = "989122655077";
-        $password = "B@zar1946";
-        $originator = "500043970097";
-        $url = "https://negar.armaghan.net/sms/url_send.html?originator=$originator&destination=$mobile&content=$content&password=$password&username=$username";
-        $ch = curl_init();
-        $curlConfig = array(
-            CURLOPT_URL => $url,
-            CURLOPT_ENCODING => "UTF-8",
-            CURLOPT_RETURNTRANSFER => false,
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_SSL_VERIFYHOST => false,
-            CURLOPT_CONNECTTIMEOUT => 120,
-            CURLOPT_TIMEOUT => 120,
-        );
-        curl_setopt_array($ch, $curlConfig);
-        curl_exec($ch);
-        curl_close($ch);
-
-    }
-
     public static function email($email,$view,$content,$title,$subject)
     {
         $result = [

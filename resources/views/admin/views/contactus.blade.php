@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("title")
-    <title>سامانه مدیریت کاربر | فروشگاه سی و سه</title>
+    <title>سامانه مدیریت کاربر | فروشگاه آرمان</title>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">

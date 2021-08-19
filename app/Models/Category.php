@@ -11,4 +11,10 @@ class Category extends Model
     protected $table = "category";
     protected $guarded = [];
     public $timestamps = false;
+
+    public function Products()
+    {
+        return $this->hasMany(Product::class, "category_id", "id");
+    }
 }
+

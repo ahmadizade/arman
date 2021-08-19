@@ -1,26 +1,53 @@
 @extends("layouts.master")
 
 @section("title")
-        <title>cioce.ir | درباره ما</title>
+        <title>آرمان | درباره ما</title>
 @endsection
 
 @section("content")
-    <main class="main-content dt-sl mb-3">
-        <div class="container main-container">
-            <div class="row">
-                <img src="/img/banner/shipping-ways.png" alt="about-us" class="w-100">
+    <!-- Start Page Title Area -->
+    <section class="page-title-area">
+        <div class="container">
+            <div class="page-title-content">
+                <h1>درباره ما</h1>
+                <ul>
+                    <li><a href="{{route('home')}}">خانه</a></li>
+                    <li><a href="{{route('contact')}}">تماس با ما</a></li>
+                </ul>
             </div>
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-6 text-right mt-3">
-                    <h1 style="font-size: 18px">درباره سی و سه</h1>
-                    <div class="text-right text-justify">
-                        <p>سی و سه چیست و چه مزیت هایی به کاربران خود ارائه می کند؟</p>
-                        <p>فروشگاه آنلاین سی و سه به کاربران خود این امکان را میدهد که هم بتوانند خریدار باشند و هم فروشنده، در فروشگاه ما محصولات پایگاه داده آماده، سایت های لاراولی آماده و فوق العاده با کیفیت و ربات هایی بسیار حرفه ای که توسط خود مهندسان سی و سه تهیه شده است به فروش میرسد.</p>
-                        <p>همچنین بسیاری از اساتید برنامه نویسی و نرم افزار از ابزار این سایت جهت اهداف آموزشی در کلاس های درسی خود استفاده می کنند.</p>
-                        <p>افتخار ما در فروشگاه آنلاین سی و سه خدمت رسانی 24 ساعته و هر روز هفته می باشد.</p>
+        </div>
+    </section>
+    <!-- End Page Title Area -->
+
+    <!-- Start About Area -->
+    <section class="about-area ptb-70">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="about-content">
+                        <span class="sub-title">ما به کمتر اما بهتر اعتقاد داریم</span>
+                        <h2>به دکتر اودو خوش آمدید! هدف از خدمات شما ایجاد آرمان ما است. بنابراین ما همیشه می خواهیم در کنار شما باشیم ....</h2>
+                        <p>شرکت ما 25 سال است که صادقانه کار می کند. برای ایجاد تأثیر مثبت در بازارهایی که ما فعالیت می کنیم ، برای توانمندسازی شرکا و جامعه. ما بر رشد و افزودن ارزش به مشتریان تمرکز داریم.</p>
+                        <div class="quotes-box">
+                            <span>پیامی از بنیانگذاران ما</span>
+                            <p>ما توانسته ایم بستری را ایجاد کنیم که مشتری ها هر وقت بخواهند می توانند دستشان را بگیرند. هدف ما همیشه خدمت شماست.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="about-image">
+                        <img src="/img/about/about-img1.jpg" alt="تصویر">
+
+                        <div class="shape">
+                            <img src="/img/about/about-shape1.png" alt="تصویر">
+                            <img src="/img/about/about-shape2.png" alt="تصویر">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
+    <!-- End About Area -->
+
 @endsection

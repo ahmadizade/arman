@@ -77,7 +77,7 @@
                                                             </h3>
                                                         </a>
                                                         <p class="checkout-dealer">
-                                                            فروشنده: فروشگاه آنلاین سی و سه (CioCe)
+                                                            فروشنده: فروشگاه آنلاین آرمان (CioCe)
                                                         </p>
                                                         <p class="checkout-guarantee">گارانتی 18 ماهه</p>
                                                         <div class="checkout-variant checkout-variant--color">

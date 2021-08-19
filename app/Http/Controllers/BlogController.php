@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\Comment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -35,8 +36,7 @@ class BlogController extends Controller
     }
 
     public function showSingleMag(){
-        $lastPost = Blog::orderByDesc('id')->paginate(15);
-        return view('admin.views.blog.show_content' , ["lastPost" => $lastPost]);
+        return view('admin.views.blog.show_content');
     }
 
     public function newSingleMagAction(Request $request){
@@ -84,7 +84,7 @@ class BlogController extends Controller
                'seo_description' => $request->seo_description,
                'seo_canonical' => $request->seo_canonical,
                'slug' => self::slug($request->title),
-               'author' => "تیم توسعه و تحقیق سی و سه",
+               'author' => "تیم توسعه و تحقیق آرمان",
                'content'=> $request->paragraph,
                'thumbnail'=> $thumbnail,
                'image'=> $image,
@@ -98,6 +98,43 @@ class BlogController extends Controller
             return back();
         }
     }
+
+    public function categoryMagPage(){
+        $lastCategory = BlogCategory::orderByDesc('id')->paginate(15);
+        return view('admin.views.blog.category_blog' , ["$lastCategory" => $lastCategory]);
+    }
+
+    public function newBlogCategoryAction(Request $request){
+        if (Auth::check()) {
+            $validator = Validator::make($request->all(), [
+                'name' => ['required', 'string', 'min:5', 'max:128'],
+                'seo_title' => ['required', 'max:128'],
+                'seo_description' => ['required', 'max:9999'],
+            ]);
+            if ($validator->fails()) {
+                Session::flash('error' , $validator->errors()->first());
+                return back();
+            }
+
+            Blog::insert([
+                'user_id' => Auth::id(),
+                'name' => $request->name,
+                'seo_title' => $request->seo_title,
+                'seo_description' => $request->seo_description,
+                'slug' => self::slug($request->name),
+                'created_at'=> Carbon::now(),
+                'updated_at'=> Carbon::now(),
+            ]);
+
+            Session::flash('status', "دسته بندی جدید با موفقیت ثبت شد");
+            return back();
+        }else{
+            Session::flash('error', "شما مجوز دسترسی به این بخش را ندارید");
+            return back();
+        }
+    }
+
+
 
     public function editSingleMagAction(Request $request){
         if (Auth::check() && Auth::user()->role == "admin") {
@@ -120,7 +157,7 @@ class BlogController extends Controller
                 'seo_description' => $request->seo_description,
                 'seo_canonical' => $request->seo_canonical,
                 'slug' => self::slug($request->title),
-                'author' => "تیم توسعه و تحقیق سی و سه",
+                'author' => "تیم توسعه و تحقیق آرمان",
                 'content'=> $request->paragraph,
                 'created_at'=> Carbon::now(),
             ]);

@@ -40,7 +40,7 @@
                                                 </a>
                                             </div>
                                             <div class="card-horizontal-comment">
-                                                <p>دسته بندی : <a href="{{route('category',["slug" => $item->webservice->category->slug])}}">{{$item->webservice->category->name}}</a></p>
+                                                <p>دسته بندی : <a href="{{route('single_category',["slug" => $item->webservice->category->slug])}}">{{$item->webservice->category->name}}</a></p>
                                                 <p>پکیج : {{$item->paid_type}}</p>
                                                 <p>تعداد درخواست : {{$item->count}} عدد</p>
                                             </div>
@@ -76,9 +76,9 @@
                                                 <p class="cart-empty-title">چرا وب سرویس نداری!</p>
                                                 <p>بابا این همه وب سرویس <a href="{{route('home')}}">اینجا</a> داریم، برو خودت ببین!</p>
                                                 <div class="cart-empty-links mb-5">
-                                                    <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های رایگان</a>
-                                                    <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">پربازدیدترین ها</a>
-                                                    <a href="{{route('category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های پرفروش</a>
+                                                    <a href="{{route('single_category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های رایگان</a>
+                                                    <a href="{{route('single_category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">پربازدیدترین ها</a>
+                                                    <a href="{{route('single_category',['slug' => "وب-سرویس"])}}" class="border-bottom-dt">وب سرویس های پرفروش</a>
                                                 </div>
                                                 <a href="{{route('home')}}" class="btn-primary-cm">بازگشت به صفحه اصلی</a>
                                             </div>

@@ -1,9 +1,9 @@
 @extends("layouts.master")
 @section("title")
     @if(\Illuminate\Support\Str::length($post->seo_title) > 1)
-        <title>{{ $post->seo_title }} - سی و سه</title>
+        <title>{{ $post->seo_title }} - آرمان</title>
     @else
-        <title>{{ $post->title ?? '' }} - سی و سه</title>
+        <title>{{ $post->title ?? '' }} - آرمان</title>
     @endif
     @if(\Illuminate\Support\Str::length($post->seo_description) > 1)
         <meta name="description" content="{{ $post->seo_description }}">
@@ -15,9 +15,9 @@
         <link rel="canonical" href="{{ route("single_mag" , ["slug" => $post->slug]) }}">
     @endif
     @if(\Illuminate\Support\Str::length($post->seo_title) > 1)
-        <meta property="og:title" content="{{ $post->seo_title }} - سی و سه">
+        <meta property="og:title" content="{{ $post->seo_title }} - آرمان">
     @else
-        <meta property="og:title" content="{{ $post->title ?? '' }} - سی و سه">
+        <meta property="og:title" content="{{ $post->title ?? '' }} - آرمان">
     @endif
     <meta property="og:url" content="{{ url()->current() }}">
     @if(\Illuminate\Support\Str::length($post->seo_description) > 1)
@@ -124,7 +124,7 @@
                                                 <div class="col-12 px-3">
                                                     <p class="d-block">با “ثبت نظر” موافقت خود را با <a href="#"
                                                                                                         class="border-bottom-dt" target="_blank">قوانین
-                                                            انتشار محتوا</a> در سی و سه اعلام می‌کنم.</p>
+                                                            انتشار محتوا</a> در آرمان اعلام می‌کنم.</p>
                                                     <button type="submit" class="btn btn btn-primary px-3">
                                                         ثبت نظر
                                                     </button>

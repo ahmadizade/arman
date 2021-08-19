@@ -28,17 +28,26 @@ class HomeController extends Controller
 
         $sitemap->setCache('laravel.sitemap', 10);
 
-        $sitemap->add(URL::to('home'), \Illuminate\Support\Carbon::now(), '1.0','daily');
+        $sitemap->add(URL::to('home'), \Illuminate\Support\Carbon::now(), '1.0','weekly');
         $sitemap->add(URL::to('about_Us'), Carbon::now(), '0.6','weekly');
+        $sitemap->add(URL::to('contact'), Carbon::now(), '0.6','weekly');
         $sitemap->add(URL::to('seo'), Carbon::now(), '0.6','weekly');
         $sitemap->add(URL::to('Category'), Carbon::now(), '0.6','weekly');
         $sitemap->add(URL::to('policy'), Carbon::now(), '0.6','weekly');
+        $sitemap->add(URL::to('tag'), Carbon::now(), '0.6','weekly');
 
 
         $category = DB::table('category')->get();
         if(isset($category)){
             foreach ($category as $item) {
-                $sitemap->add(route("category",["slug" => $item->slug]), Carbon::now(), '0.7','monthly');
+                $sitemap->add(route("single_category",["slug" => $item->slug]), Carbon::now(), '0.7','monthly');
+            }
+        }
+
+        $tag = DB::table('product_tag')->get();
+        if(isset($tag)){
+            foreach ($tag as $item) {
+                $sitemap->add(route("single_category",["slug" => $item->slug]), Carbon::now(), '0.7','monthly');
             }
         }
 
@@ -60,22 +69,22 @@ class HomeController extends Controller
 
     public function index()
     {
-        $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
-        $lastProduct = Product::where('type' , 'table')->orderBy('id' , 'asc')->limit(7)->get();
-        $mostVisited = Product::where('type' , 'table')->orderBy('view' , 'desc')->limit(10)->get();
-        $apiMostVisited = Product::where('type' , 'api')->orderBy('view' , 'desc')->limit(10)->get();
-        return view('home' , ['mostVisited' => $mostVisited ,'apiMostVisited' => $apiMostVisited ,'popularproduct' => $popularproduct , 'lastProduct' => $lastProduct]);
+        $lastProduct = Product::where('delete' , 0)->orderBy('id' , 'asc')->limit(8)->get();
+        $mostVisited = Product::where('delete' , 0)->orderBy('view' , 'desc')->limit(8)->get();
+        $apiMostVisited = Product::where('delete' , 0)->orderBy('view' , 'desc')->limit(10)->get();
+        return view('home' , ['mostVisited' => $mostVisited ,'apiMostVisited' => $apiMostVisited , 'lastProduct' => $lastProduct]);
     }
-
-    public function Category($slug){
+    public function category(){
+        $category = Category::where('delete', 0)->get();
+        return view('category', ['thecategory' => $category]);
+    }
+    public function singleCategory($slug){
         $Category = Category::where('slug' , $slug)->first();
         if(isset($Category->id)) {
-            $products = Product::where('category_id', $Category->id)->orderBy('id', 'desc')->get();
-            $mostViewproducts = Product::where('category_id', $Category->id)->orderBy('view', 'desc')->get();
-            $popularproduct = Product::where('category_id' , $Category->id)->orderBy('view', 'desc')->limit(10)->get();
-            $lastProduct = Product::where('category_id' , $Category->id)->orderBy('id', 'asc')->limit(7)->get();
-            $mostVisited = Product::where('category_id' , $Category->id)->orderBy('view', 'desc')->limit(10)->get();
-            return view('category', ['Category' => $Category, 'products' => $products, 'mostViewproducts' => $mostViewproducts, 'popularproduct' => $popularproduct, 'lastProduct' => $lastProduct, 'mostVisited' => $mostVisited]);
+            $products = Product::where('delete' , 0)->where('category_id', $Category->id)->orderBy('id', 'desc')->get();
+            $lastProduct = Product::where('delete' , 0)->where('category_id' , $Category->id)->orderBy('id', 'asc')->limit(7)->get();
+            $mostVisited = Product::where('delete' , 0)->where('category_id' , $Category->id)->orderBy('view', 'desc')->limit(10)->get();
+            return view('single_category', ['singleCategory' => $Category, 'products' => $products, 'lastProduct' => $lastProduct, 'mostVisited' => $mostVisited]);
         }
         return abort(404);
     }

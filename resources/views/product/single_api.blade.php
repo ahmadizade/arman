@@ -2,9 +2,9 @@
 
 @section("title")
     @if(\Illuminate\Support\Str::length($product->seo_title) > 1)
-        <title>{{ $product->seo_title }} - سی و سه</title>
+        <title>{{ $product->seo_title }} - آرمان</title>
     @else
-        <title>{{ $product->product_name ?? '' }} - سی و سه</title>
+        <title>{{ $product->product_name ?? '' }} - آرمان</title>
     @endif
     @if(\Illuminate\Support\Str::length($product->seo_description) > 1)
         <meta name="description" content="{{ $product->seo_description }}">
@@ -16,9 +16,9 @@
         <link rel="canonical" href="{{ url()->full() }}">
     @endif
     @if(\Illuminate\Support\Str::length($product->seo_title) > 1)
-        <meta property="og:title" content="{{ $product->seo_title }} - سی و سه">
+        <meta property="og:title" content="{{ $product->seo_title }} - آرمان">
     @else
-        <meta property="og:title" content="{{ $product->product_name ?? '' }} - سی و سه">
+        <meta property="og:title" content="{{ $product->product_name ?? '' }} - آرمان">
     @endif
     <meta property="og:url" content="{{ url()->current() }}">
     @if(\Illuminate\Support\Str::length($product->seo_description) > 1)
@@ -108,7 +108,7 @@
                                 <div class="dt-sl mb-0">
                                     <p class="font-13 mb-0">
                                         <span>دسته بندی : </span>
-                                        <span><a href="{{route('category',["slug" => $product->product_slug])}}">{{$product->category->name ?? "سی و سه"}}</a></span>
+                                        <span><a href="{{route('single_category',["slug" => $product->category->slug])}}">{{$product->category->name ?? "آرمان"}}</a></span>
                                     </p>
                                     <p>
                                         <span class="font-13 mb-0">برجسب : </span>
@@ -116,7 +116,7 @@
                                             @foreach (json_decode($product->tag_id) as $item)
                                                 @foreach ($product_tag as $tag)
                                                     @if ($item == $tag->id)
-                                                        <span><a class="mx-1 font-12" href="{{route('tag',["slug" => $product->product_slug])}}">{{$tag->name ?? "سی و سه"}}</a></span>
+                                                        <span><a class="mx-1 font-12" href="{{route('tag',["slug" => $product->product_slug])}}">{{$tag->name ?? "آرمان"}}</a></span>
                                                     @endif
                                                 @endforeach
                                             @endforeach

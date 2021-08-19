@@ -1,126 +1,57 @@
-<div class="row">
-    <div class="col-xl-10 col-lg-12">
-        <section class="slider-section dt-sl mb-5">
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="section-title text-sm-title title-wide no-after-title-wide">
-                        <h2>پرفروش ترین ها</h2>
-                        <a href="{{route('home')}}">مشاهده همه</a>
-                    </div>
-                </div>
-                @if(isset($popularproduct[0]))
-                    <!-- Start Product-Slider -->
-                    <div class="col-12 px-res-0">
-                        <div class="product-carousel carousel-md owl-carousel owl-theme">
-                            @foreach($popularproduct as $item)
-                                <div class="item" style="min-height: 300px">
-                                    <div class="product-card">
-                                        <div class="product-head">
-                                            <div class="rating-stars">
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                                <i class="mdi mdi-star active"></i>
-                                            </div>
-                                            <div class="discount">
-                                                @if($item->discount > 0)
-                                                    <span>{{$item->discount}}%</span>
-                                                @elseif($item->discount == 0)
-                                                    <span>بدون تخفیف</span>
-                                                @endif
-                                            </div>
+<!-- Start Products Area -->
+<section class="products-area pb-40">
+    <div class="container">
+        <div class="section-title">
+            <h2>پربازدیدترین ها</h2>
+        </div>
+
+        <div class="row">
+            @foreach($lastProduct as $item)
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="single-products-box">
+                        <div class="image">
+                            <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="d-block"><img src="/uploads/products/{{$item->thumbnail ?? "noimage_500.jpg"}}" alt="{{$item->product_name}}"></a>
+
+                            <div class="buttons-list">
+                                <ul>
+                                    <li>
+                                        <div class="cart-btn">
+                                            <a href="{{route('card', ['id' => $item->id])}}">
+                                                <i class="bx bxs-cart-add"></i>
+                                                <span class="tooltip-label">افزودن به سبد خرید</span>
+                                            </a>
                                         </div>
-                                        <a class="product-thumb" href="{{ route("single_product",["slug" => $item->product_slug]) }}">
-                                            <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="{{$item->product_name}}">
-                                        </a>
-                                        <div class="product-card-body">
-                                            <h5 class="product-title">
-                                                <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="text-truncate">{{$item->product_name}}</a>
-                                            </h5>
-                                            <a class="product-meta text-truncate mt-2" href="{{ route("single_product",["slug" => $item->product_slug]) }}">دسته بندی : {{$item->category->name}}</a>
-                                            <span class="product-price">
-                                                @if ($item->price > 0)
-                                                    قیمت : {{number_format($item->price)}} تومان
-                                                @elseif ($item->price == 0)
-                                                    <span class="text-danger">قیمت : رایگان</span>
-                                                @endif
-                                            </span>
-                                            <div class="mt-4">
-                                                <span class="product-meta d-inline"><i class="fa fa-eye"></i> {{$item->view}}</span>
-                                                <span class="bookmark_btn product-meta d-inline"><i data-id="{{$item->id}}" class="fa fa-bookmark pr-2"></i></span>
-                                                <span class="like_btn product-meta d-inline"><i data-id="{{$item->id}}" class="fa fa-thumbs-up pr-3"></i></span>
-                                            </div>
+                                    </li>
+                                    <li>
+                                        <div class="wishlist-btn">
+                                            <a href="#" class="bookmark_btn">
+                                                <i class="bx bx-heart"></i>
+                                                <span class="tooltip-label" data-id="{{$item->id}}">افزودن به لیست علاقه مندی ها</span>
+                                            </a>
                                         </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <!-- End Product-Slider -->
-                @endif
-            </div>
-        </section>
-    </div>
-
-
-
-
-    <div class="col-xl-2 col-lg-3 hidden-lg pr-0">
-        <div class="widget-suggestion dt-sn pt-3" style="min-height: 444px">
-            <div class="widget-suggestion-title">
-                <img src="/img/theme/suggestion-title.png" alt="">
-            </div>
-            <div id="progressBar">
-                <div class="slide-progress"></div>
-            </div>
-            @if(isset($popularproduct[0]))
-                <div id="suggestion-slider" class="owl-carousel owl-theme">
-                    @foreach($popularproduct as $item)
-                        <div class="item" style="min-height: 300px">
-                            <div class="product-card">
-                                <div class="product-head">
-                                    <div class="rating-stars">
-                                        <i class="mdi mdi-star active"></i>
-                                        <i class="mdi mdi-star active"></i>
-                                        <i class="mdi mdi-star active"></i>
-                                        <i class="mdi mdi-star active"></i>
-                                        <i class="mdi mdi-star active"></i>
-                                    </div>
-                                    <div class="discount">
-                                        @if($item->discount > 0)
-                                            <span>{{$item->discount}}%</span>
-                                        @elseif($item->discount == 0)
-                                            <span>بدون تخفیف</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <a class="product-thumb" href="{{ route("single_product",["slug" => $item->product_slug]) }}">
-                                    <img src="/uploads/thumbnail/{{$item->thumbnail}}" alt="{{$item->product_name}}">
-                                </a>
-                                <div class="product-card-body">
-                                    <h5 class="product-title">
-                                        <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="text-truncate">{{$item->product_name}}</a>
-                                    </h5>
-                                    <a class="product-meta text-truncate mt-2" href="#">{{$item->category->name}}</a>
-                                    <span class="product-price">
-                                        @if ($item->price > 0)
-                                            قیمت : {{number_format($item->price)}} تومان
-                                        @elseif ($item->price == 0)
-                                            <span class="text-danger">قیمت : رایگان</span>
-                                        @endif
-                                    </span>
-                                    <div class="mt-4">
-                                        <span class="product-meta d-inline"><i class="fa fa-eye"></i> {{$item->view}}</span>
-                                        <span class="bookmark_btn product-meta d-inline"><i class="fa fa-bookmark pr-2"></i></span>
-                                        <span class="product-meta d-inline"><i class="fa fa-thumbs-up pr-3"></i></span>
-                                    </div>
-                                </div>
+                                    </li>
+                                    <li>
+                                        <div class="quick-view-btn">
+                                            <a href="#" data-toggle="modal" data-target="#productsQuickView">
+                                                <i class="bx bx-search-alt"></i>
+                                                <span class="tooltip-label">مشاهده سریع</span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    @endforeach
+
+                        <div class="content">
+                            <h3><a href="single-products-1.html">{{$item->product_name}}</a></h3>
+                            <div class="price">
+                                <span class="new-price">{{number_format($item->price)}} تومان</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            @endif
+            @endforeach
         </div>
     </div>
-</div>
+</section>
+<!-- End Products Area -->

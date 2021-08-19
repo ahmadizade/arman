@@ -5,7 +5,7 @@
         @if(Str::length($result['branch_slug']) > 0)
              شعبه {{ $result['branch'] }}
         @endif
-        | فروشگاه سی و سه</title>
+        | فروشگاه آرمان</title>
 @endsection
 @section("extra_css")
     <style>
