@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\BlogTag;
 use App\Models\Store;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -41,6 +43,13 @@ class AppServiceProvider extends ServiceProvider
         });
 
         View::composer('*', function ($view) {
+            $tagSingle = Cache::remember('tagSingle' , Carbon::now()->addMinutes(1), function (){
+                return BlogTag::all()->keyBy("id");
+            });
+            $view->with('tagSingle', $tagSingle);
+        });
+
+        View::composer('*', function ($view) {
             $category = DB::table('category')->get();
             $view->with('category',$category);
         });
@@ -54,6 +63,5 @@ class AppServiceProvider extends ServiceProvider
             $category_variety = DB::table('category_variety')->get();
             $view->with('category_variety',$category_variety);
         });
-
     }
 }

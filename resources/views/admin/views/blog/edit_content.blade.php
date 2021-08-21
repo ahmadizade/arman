@@ -75,13 +75,13 @@
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="my-3">
-                                                            <label for="thumbnail" class="form-label ">Thumbnail (Width : 400 , Height : 229)</label>
+                                                            <label for="thumbnail" class="form-label ">Thumbnail (Width : 790 , Height : 600)</label>
                                                             <input type="file" class="form-control" name="thumbnail">
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="my-3">
-                                                            <label for="image" class="form-label ">Image (Width : 800 , Height : 560)</label>
+                                                            <label for="image" class="form-label ">Image (Width : 790 , Height : 600)</label>
                                                             <input type="file" class="form-control" name="image">
                                                         </div>
                                                     </div>
@@ -103,16 +103,12 @@
                         <div class="col-xl-12 col-lg-12 mt-4">
                             <div class="card">
                                 <div class="card-header text-right">
-                                    ساخت محتوای جدید
+                                    ویرایش پست
                                 </div>
                                 <div class="card-body">
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger mb-2">
-                                            <ul class="mb-0">
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
+                                    @if (session()->has('errors'))
+                                        <div class="alert alert-danger text-center admin-rtl">
+                                                {{session('errors')}}
                                         </div>
                                     @endif
                                     @if(Session::has("status"))
@@ -120,7 +116,47 @@
                                     @endif
                                     @if (isset($post))
                                         <form action="{{route('edit_single_mag_action')}}" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="id" readonly value="{{$post->id}}">
                                             <div class="row text-right">
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="blog_category" class="form-label">دسته بندی</label>
+                                                        <select style="width: 100%" name="blog_category" class="form-control select2">
+                                                            <option selected>انتخاب دسته</option>
+                                                            @foreach($blog_category as $item)
+                                                                <option value="{{ $item->id }}" @if($item->id == $post->category_id) selected @endif>{{ $item->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="blog_tag" class="form-label">برچسب</label>
+                                                        <select style="width: 100%" name="blog_tag[]" class="form-control select2" multiple>
+                                                            @if(isset($post->tag_id) && isset(json_decode($post->tag_id,JSON_NUMERIC_CHECK)[0]))
+                                                                @foreach(json_decode($post->tag_id,JSON_NUMERIC_CHECK ) as $tag)
+                                                                    @if(isset($tagSingle[$tag]->slug))
+                                                                        <option selected value="{{ $tag }}">{{ $tagSingle[$tag]->name ?? ""}}</option>
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
+                                                            @foreach($blog_tag as $item)
+                                                                <option value="{{ $item->id }}">{{ $item->name ?? "" }}</option>
+                                                            @endforeach
+                                                                {{--                                                            @if(isset($post->tag_id) && isset(json_decode($post->tag_id,JSON_NUMERIC_CHECK)[0]))--}}
+{{--                                                                @foreach(json_decode($post->tag_id,JSON_NUMERIC_CHECK ) as $tag)--}}
+{{--                                                                    @foreach($blog_tag as $item)--}}
+{{--                                                                        <option value="{{ $item->id }}"@if($item->id == $tag) selected @endif>{{ $item->name }}</option>--}}
+{{--                                                                    @endforeach--}}
+{{--                                                                @endforeach--}}
+{{--                                                            @else--}}
+{{--                                                                @foreach($blog_tag as $item)--}}
+{{--                                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>--}}
+{{--                                                                @endforeach--}}
+{{--                                                            @endif--}}
+                                                        </select>
+                                                    </div>
+                                                </div>
                                                 <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="title" class="form-label ">عنوان</label>
@@ -145,12 +181,12 @@
                                                         <input type="text" name="seo_description" class="form-control text-right" value="{{$post->seo_description}}">
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
-                                                    <div class="my-3">
-                                                        <label for="seo_canonical" class="form-label ">seo_canonical</label>
-                                                        <input type="text" name="seo_canonical" class="form-control text-right" value="{{$post->seo_canonical}}">
-                                                    </div>
-                                                </div>
+{{--                                                <div class="col-12">--}}
+{{--                                                    <div class="my-3">--}}
+{{--                                                        <label for="seo_canonical" class="form-label ">seo_canonical</label>--}}
+{{--                                                        <input type="text" name="seo_canonical" class="form-control text-right" value="{{$post->seo_canonical}}">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                                 <div class="col-12 buttons text-right">
                                                     <button class="btn btn-success btn-sm" type="submit">افزودن محتوا</button>
                                                 </div>
@@ -162,51 +198,6 @@
                         </div>
                         <!-- Edit Content -->
                     </div>
-                    <!-- Last Content -->
-                    <div class="card">
-                        <div class="card-header text-right">
-                            آخرین محصولات افزوده شده
-                        </div>
-                        <div class="card-body">
-                            @if (isset($lastPost))
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead class="table-light">
-                                        <tr>
-                                            <th>عکس</th>
-                                            <th>نام محصول</th>
-                                            <th>تاریخ</th>
-                                            <th>پاک شده</th>
-                                            <th>عملیات</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody class="border">
-                                        @foreach($lastPost as $item)
-                                            <tr>
-                                                <td><img class="img-fluid" src="/uploads/thumbnail/{{$item->thumbnail}}" style="max-width: 150px"></td>
-                                                <td>{{$item->title}}</td>
-                                                <td>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</td>
-                                                <td>
-                                                    @if ($item->delete == 1)
-                                                        بله
-                                                    @else
-                                                        خیر
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    <a href="{{route('delete_mag_action' , ['post_id' => $item->id])}}" class="btn btn-danger btn-sm">حذف</a>
-                                                    <a href="{{route('edit_mag_page' , ['post_id' => $item->id])}}" class="btn btn-success btn-sm">ویرایش</a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                    {{$lastPost->links()}}
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                    <!-- Last Content -->
                 </div>
             </div>
         </div>

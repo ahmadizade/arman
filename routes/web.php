@@ -209,12 +209,20 @@ Route::get('/new-single-mag', 'App\Http\Controllers\BlogController@newSingleMag'
 Route::get('/show-single-mag', 'App\Http\Controllers\BlogController@showSingleMag')->name("show_single_mag");
 Route::get('/category-mag-page', 'App\Http\Controllers\BlogController@categoryMagPage')->name("category_mag_page");
 Route::post('/new-blog-category-action', 'App\Http\Controllers\BlogController@newBlogCategoryAction')->name("new_blog_category_action");
+Route::get('/edit-category-mag-page/{id}', 'App\Http\Controllers\BlogController@editCategoryMagPage')->name("edit_category_mag_page");
+Route::post('/edit-category-mag-action', 'App\Http\Controllers\BlogController@editCategoryMagAction')->name("edit_category_mag_action");
+Route::get('/tag-mag-page', 'App\Http\Controllers\BlogController@tagMagPage')->name("tag_mag_page");
+Route::post('/new-blog-tag-action', 'App\Http\Controllers\BlogController@newBlogTagAction')->name("new_blog_tag_action");
 Route::post('/new-single-mag-action', 'App\Http\Controllers\BlogController@newSingleMagAction')->name("new_single_mag_action");
+Route::get('/edit-tag-mag-page/{id}', 'App\Http\Controllers\BlogController@editTagMagPage')->name("edit_tag_mag_page");
+Route::post('/edit-blog-tag-action', 'App\Http\Controllers\BlogController@editBlogTagAction')->name("edit_blog_tag_action");
 Route::post('/edit-single-mag-action', 'App\Http\Controllers\BlogController@editSingleMagAction')->name("edit_single_mag_action");
 Route::post('/new-single-mag-comment', 'App\Http\Controllers\BlogController@newSingleMagComment')->name("new_single_mag_comment");
 Route::get('/edit-mag-page/{post_id}', 'App\Http\Controllers\BlogController@editMagPage')->name("edit_mag_page");
 Route::post('/edit-image-mag-action', 'App\Http\Controllers\BlogController@editImageMagAction')->name("edit_image_mag_action");
 Route::get('/delete-mag-action/{post_id}', 'App\Http\Controllers\BlogController@deleteMagAction')->name("delete_mag_action");
+Route::get('/delete-tag-action/{id}', 'App\Http\Controllers\BlogController@deleteTagAction')->name("delete_tag_action");
+Route::get('/delete-category-action/{id}', 'App\Http\Controllers\BlogController@deleteCategoryAction')->name("delete_category_action");
 
 
 //EXTRA PAGES
@@ -222,11 +230,6 @@ Route::get('/delete-mag-action/{post_id}', 'App\Http\Controllers\BlogController@
 Route::get('domain-search', 'App\Http\Controllers\ExtraController@domainSearch')->name("domain_search");
 Route::post('domain-search-action', 'App\Http\Controllers\ExtraController@domainSearchAction')->name("domain_search_action");
 Route::get('domain-result/{finder}', 'App\Http\Controllers\ExtraController@domainResult')->name("domain_result");
-
-
-
-Route::get('/mag', 'App\Http\Controllers\BlogController@mag')->name("mag");
-
 
 
 

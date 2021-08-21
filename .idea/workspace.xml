@@ -7,7 +7,27 @@
     <bookmark url="file://$PROJECT_DIR$/app/Models/Category.php" line="17" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/blog/edit_category_blog.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/blog/edit_tag.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/blog/tag_blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Blog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/BlogCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BlogCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/blog/category_blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/blog/category_blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/blog/edit_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/blog/edit_content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/blog/new_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/blog/new_content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -528,13 +548,10 @@
       <workItem from="1629372438675" duration="2837000" />
       <workItem from="1629378745154" duration="8657000" />
       <workItem from="1629396465044" duration="695000" />
-    </task>
-    <task id="LOCAL-00007" summary="first work commit">
-      <created>1623499387668</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1623499387668</updated>
+      <workItem from="1629400710557" duration="688000" />
+      <workItem from="1629446341370" duration="4132000" />
+      <workItem from="1629469211964" duration="9785000" />
+      <workItem from="1629529684304" duration="4590000" />
     </task>
     <task id="LOCAL-00008" summary="category Config">
       <created>1623502734287</created>
@@ -872,7 +889,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629396561084</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="First One">
+      <created>1629400774719</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1629400774719</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -975,6 +999,16 @@
           <url>file://$PROJECT_DIR$/resources/views/home.blade.php</url>
           <line>220</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/admin/views/blog/edit_content.blade.php</url>
+          <line>108</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/admin/views/blog/edit_content.blade.php</url>
+          <line>115</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\BlogTag;
 use App\Models\Comment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -32,7 +33,9 @@ class BlogController extends Controller
 
     public function newSingleMag(){
         $lastPost = Blog::orderByDesc('id')->paginate(6);
-        return view('admin.views.blog.new_content' , ["lastPost" => $lastPost]);
+        $blog_category = BlogCategory::where('show' , 1)->get();
+        $blog_tag = BlogTag::where('show' , 1)->get();
+        return view('admin.views.blog.new_content' , ["lastPost" => $lastPost, "blog_category" => $blog_category, "blog_tag" => $blog_tag, ]);
     }
 
     public function showSingleMag(){
@@ -40,6 +43,7 @@ class BlogController extends Controller
     }
 
     public function newSingleMagAction(Request $request){
+        return $request;
         if (Auth::check()) {
             $validator = Validator::make($request->all(), [
                 'title' => ['required', 'string', 'min:5', 'max:128'],
@@ -100,23 +104,28 @@ class BlogController extends Controller
     }
 
     public function categoryMagPage(){
-        $lastCategory = BlogCategory::orderByDesc('id')->paginate(15);
-        return view('admin.views.blog.category_blog' , ["$lastCategory" => $lastCategory]);
+        $lastCategory = BlogCategory::orderByDesc('id')->where('show', 1)->paginate(15);
+        return view('admin.views.blog.category_blog' , ["lastCategory" => $lastCategory]);
     }
+
+    public function editTagMagPage($id){
+        $tag = BlogTag::where('id', $id)->first();
+        return view('admin.views.blog.edit_tag' , ["tag" => $tag]);
+    }
+
 
     public function newBlogCategoryAction(Request $request){
         if (Auth::check()) {
             $validator = Validator::make($request->all(), [
-                'name' => ['required', 'string', 'min:5', 'max:128'],
-                'seo_title' => ['required', 'max:128'],
+                'name' => ['required', 'string', 'min:2', 'max:512'],
+                'seo_title' => ['required', 'max:512'],
                 'seo_description' => ['required', 'max:9999'],
             ]);
             if ($validator->fails()) {
                 Session::flash('error' , $validator->errors()->first());
                 return back();
             }
-
-            Blog::insert([
+            BlogCategory::insert([
                 'user_id' => Auth::id(),
                 'name' => $request->name,
                 'seo_title' => $request->seo_title,
@@ -134,32 +143,164 @@ class BlogController extends Controller
         }
     }
 
+    public function editCategoryMagAction(Request $request){
+        if (Auth::check()) {
+            $validator = Validator::make($request->all(), [
+                'id' => ['required'],
+                'name' => ['required', 'string', 'min:2', 'max:512'],
+                'seo_title' => ['required', 'max:512'],
+                'seo_description' => ['required', 'max:9999'],
+            ]);
+            if ($validator->fails()) {
+                Session::flash('error' , $validator->errors()->first());
+                return back();
+            }
+            BlogCategory::where('id', $request->id)->update([
+                'user_id' => Auth::id(),
+                'name' => $request->name,
+                'seo_title' => $request->seo_title,
+                'seo_description' => $request->seo_description,
+                'slug' => self::slug($request->name),
+                'created_at'=> Carbon::now(),
+                'updated_at'=> Carbon::now(),
+            ]);
 
+            Session::flash('status', "ویرایش دسته با موفقیت انجام شد");
+            return back();
+        }else{
+            Session::flash('error', "شما مجوز دسترسی به این بخش را ندارید");
+            return back();
+        }
+    }
+
+    public function deleteCategoryAction($id){
+        BlogCategory::where('id', $id)->update([
+            'show' => 0,
+            'updated_at' => Carbon::now(),
+        ]);
+        Session::flash("success" , "حذف دسته با موفقیت انجام شد");
+        return back();
+    }
+
+    public function tagMagPage(){
+        $lastTag = BlogTag::orderByDesc('id')->where('show', 1)->paginate(15);
+        $blog_category = BlogCategory::where('show' , 1)->get();
+        $blog_tag = BlogTag::where('show' , 1)->get();
+        return view('admin.views.blog.tag_blog' , ["lastTag" => $lastTag, "blog_category" => $blog_category, "blog_tag" => $blog_tag, ]);
+    }
+
+    public function newBlogTagAction(Request $request){
+        if (Auth::check()) {
+            $validator = Validator::make($request->all(), [
+                'name' => ['required', 'string', 'min:2', 'max:512'],
+                'seo_title' => ['required', 'max:512'],
+                'seo_description' => ['required', 'max:9999'],
+            ]);
+            if ($validator->fails()) {
+                Session::flash('error' , $validator->errors()->first());
+                return back();
+            }
+            BlogTag::insert([
+                'user_id' => Auth::id(),
+                'name' => $request->name,
+                'seo_title' => $request->seo_title,
+                'seo_description' => $request->seo_description,
+                'slug' => self::slug($request->name),
+                'created_at'=> Carbon::now(),
+                'updated_at'=> Carbon::now(),
+            ]);
+
+            Session::flash('status', "برچسب جدید با موفقیت ثبت شد");
+            return back();
+        }else{
+            Session::flash('error', "شما مجوز دسترسی به این بخش را ندارید");
+            return back();
+        }
+    }
+
+    public function editCategoryMagPage($id){
+        $editCategory = BlogCategory::where('id', $id)->first();
+        return view('admin.views.blog.edit_category_blog' , ["editCategory" => $editCategory]);
+    }
+
+    public function deleteTagAction($id){
+        BlogTag::where('id', $id)->update([
+            'show' => 0,
+            'updated_at' => Carbon::now(),
+        ]);
+        Session::flash("success" , "حذف برچسب با موفقیت انجام شد");
+        return back();
+    }
+
+    public function editBlogTagAction(Request $request){
+        if (Auth::check()) {
+            $validator = Validator::make($request->all(), [
+                'id' => ['required'],
+                'name' => ['required', 'string', 'min:2', 'max:512'],
+                'seo_title' => ['required', 'max:512'],
+                'seo_description' => ['required', 'max:9999'],
+            ]);
+            if ($validator->fails()) {
+                Session::flash('error' , $validator->errors()->first());
+                return back();
+            }
+            BlogTag::where('id' , $request->id)->update([
+                'user_id' => Auth::id(),
+                'name' => $request->name,
+                'seo_title' => $request->seo_title,
+                'seo_description' => $request->seo_description,
+                'slug' => self::slug($request->name),
+                'created_at'=> Carbon::now(),
+                'updated_at'=> Carbon::now(),
+            ]);
+            Session::flash('status', "برچسب جدید با موفقیت ویرایش");
+            return back();
+        }else{
+            Session::flash('error', "شما مجوز دسترسی به این بخش را ندارید");
+            return back();
+        }
+    }
+
+    public function editMagPage($post_id){
+        $post = Blog::where('id', $post_id)->first();
+        $blog_category = BlogCategory::where('show' , 1)->get();
+        $blog_tag = BlogTag::where('show' , 1)->get();
+        return view('admin.views.blog.edit_content', ["post" => $post, "blog_category" => $blog_category, "blog_tag" => $blog_tag]);
+    }
 
     public function editSingleMagAction(Request $request){
         if (Auth::check() && Auth::user()->role == "admin") {
             $validator = Validator::make($request->all(), [
                 'title' => ['required', 'string', 'min:5', 'max:128'],
+                'blog_category' => ['required'],
+                'blog_tag' => ['required'],
                 'paragraph' => ['required', 'string', 'min:5', 'max:9999999'],
                 'seo_title' => ['required', 'max:65'],
                 'seo_description' => ['required', 'max:128'],
                 'seo_canonical' => ['nullable', 'max:512'],
             ]);
             if ($validator->fails()) {
-                Session::flash('error' , $validator->errors()->first());
+                Session::flash('errors', $validator->errors()->first());
                 return back();
             }
-
-            Blog::insert([
+            if (isset($request->blog_tag) && $request->blog_tag !== null){
+                $tag_id = json_encode($request->blog_tag,JSON_NUMERIC_CHECK );
+            }
+            else{
+                $tag_id = "";
+            }
+            Blog::where('id', $request->id)->update([
                 'user_id' => Auth::id(),
                 'title' => $request->title,
+                'category_id' => $request->blog_category,
+                'tag_id' => $tag_id,
                 'seo_title' => $request->seo_title,
                 'seo_description' => $request->seo_description,
                 'seo_canonical' => $request->seo_canonical,
                 'slug' => self::slug($request->title),
                 'author' => "تیم توسعه و تحقیق آرمان",
                 'content'=> $request->paragraph,
-                'created_at'=> Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
 
             Session::flash('status', "ویرایش مطلب با موفقیت انجام شد");
@@ -224,11 +365,5 @@ class BlogController extends Controller
         ]);
         Session::flash("success" , "حذف با موفقیت انجام شد");
         return back();
-    }
-
-    public function editMagPage($post_id){
-        $post = Blog::where('id', $post_id)->first();
-        $lastPost = Blog::orderByDesc('id')->paginate(6);
-        return view('admin.views.blog.edit_content', ["post" => $post, "lastPost" => $lastPost]);
     }
 }

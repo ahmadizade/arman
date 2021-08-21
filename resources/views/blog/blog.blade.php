@@ -40,7 +40,7 @@
                                             <div class="flex align-items-center">
 {{--                                                <img src="/img/user1.jpg" alt="تصویر">--}}
                                                 <span>دسته بندی : </span>
-                                                <a {{route('single_mag' , $item->slug)}}>ناتان اوریتز</a>
+                                                <span class="text-muted">{{$item->blogCategory->name ?? "ثبت نشده"}}</span>
                                             </div>
                                         </li>
                                         <li>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d")}}</li>

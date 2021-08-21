@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("shop")
-    <shop>سامانه ایجاد دسته بندی | فروشگاه آرمان</shop>
+    <shop>سامانه ثبت مطلب | فروشگاه سی وسه</shop>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -45,20 +45,29 @@
         .border-none:focus {
             outline: none;
         }
+
+        /*td*/
+        /*{*/
+        /*    height: 50px;*/
+        /*    width: 50px;*/
+        /*    text-align: center;*/
+        /*    vertical-align: middle;*/
+        /*}*/
     </style>
 @endsection
 @section("content")
     <div id="wrapper">
-    @include("admin.views.partials.sidebar")
+        @include("admin.views.partials.sidebar")
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-                <!-- Make New Category -->
-                <div class="container">
+                <!-- Make New Content -->
+                @if(isset($tag))
+                    <div class="container">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header text-right">
-                                    ساخت دسته بندی جدید
+                                    ویرایش برچسب
                                 </div>
                                 <div class="card-body">
                                     @if ($errors->any())
@@ -73,28 +82,29 @@
                                     @if(Session::has("status"))
                                         <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
                                     @endif
-                                    <form action="{{route('new_blog_category_action')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{route('edit_blog_tag_action')}}" method="POST" enctype="multipart/form-data">
                                         <div class="row text-right">
+                                            <input name="id" class="d-none" type="hidden" value="{{$tag->id}}">
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="name" class="form-label ">نام</label>
-                                                    <input type="text" name="name" class="form-control text-right" placeholder="مثلا : آموزش لاراول">
+                                                    <input type="text" name="name" value="{{$tag->name ?? ""}}" class="form-control text-right">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="seo_title" class="form-label ">seo_title</label>
-                                                    <input type="text" name="seo_title" class="form-control text-right">
+                                                    <input type="text" name="seo_title" value="{{$tag->seo_title ?? ""}}" class="form-control text-right">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="my-3">
                                                     <label for="seo_description" class="form-label ">seo_description</label>
-                                                    <input type="text" name="seo_description" class="form-control text-right">
+                                                    <input type="text" name="seo_description" value="{{$tag->seo_description ?? ""}}" class="form-control text-right">
                                                 </div>
                                             </div>
                                             <div class="col-12 buttons text-right">
-                                                <button class="btn btn-success btn-sm" type="submit">افزودن دسته</button>
+                                                <button class="btn btn-success btn-sm" type="submit">ویرایش برچسب</button>
                                             </div>
                                         </div>
                                     </form>
@@ -102,60 +112,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Last Category -->
-                    <div class="card mt-4">
-                        <div class="card-header text-right">
-                            آخرین دسته بندی های افزوده شده
-                        </div>
-                        <div class="card-body admin-rtl">
-                            @if (isset($lastCategory))
-                                <div class="table-responsive">
-                                    <table class="table table-hover text-center">
-                                        <thead class="table-light">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>نام دسته</th>
-                                            <th>تاریخ</th>
-                                            <th>پاک شده</th>
-                                            <th>عملیات</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody class="border">
-                                        @php
-                                            $i = 1;
-                                        @endphp
-                                        @foreach($lastCategory as $item)
-                                            <tr>
-                                                <td>{{$i++}}</td>
-                                                <td>{{$item->name}}</td>
-                                                <td>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</td>
-                                                <td>
-                                                    @if ($item->delete == 1)
-                                                        بله
-                                                    @else
-                                                        خیر
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    <a href="{{route('delete_category_action' , ['id'=> $item->id])}}" class="btn btn-danger btn-sm">حذف</a>
-                                                    <a href="{{route('edit_category_mag_page' , ['id' => $item->id])}}" class="btn btn-success btn-sm">ویرایش</a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                    {{$lastCategory->links()}}
-                                </div>
-                                @else
-                                <div class="text-center">
-                                    <p>همچنان دسته ای ثبت نشده است</p>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                    <!-- Last Category -->
                 </div>
-                <!-- Make New Category -->
+                @endif
             </div>
         </div>
     </div>

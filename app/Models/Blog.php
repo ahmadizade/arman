@@ -16,4 +16,9 @@ class Blog extends Model
     {
         return $this->belongsTo("App\Models\User", "user_id", "id");
     }
+
+    public function blogCategory()
+    {
+        return $this->belongsTo("App\Models\BlogCategory", "category_id", "id");
+    }
 }

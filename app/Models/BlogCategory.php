@@ -13,4 +13,8 @@ class BlogCategory extends Authenticatable
 
     protected $table = "blog_category";
     protected $guarded = [];
+
+    public function Post(){
+        return $this->hasMany('App/Models/Blog' , 'category_id' , 'id');
+    }
 }

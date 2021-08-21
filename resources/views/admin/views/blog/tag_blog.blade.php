@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("shop")
-    <shop>سامانه ثبت مطلب | فروشگاه سی وسه</shop>
+    <shop>سامانه ایجاد برچسب | فروشگاه آرمان</shop>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -58,7 +58,7 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header text-right">
-                                    ساخت محتوای جدید
+                                    ساخت برچسب جدید
                                 </div>
                                 <div class="card-body">
                                     @if ($errors->any())
@@ -73,43 +73,12 @@
                                     @if(Session::has("status"))
                                         <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
                                     @endif
-                                    <form action="{{route('new_single_mag_action')}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{route('new_blog_tag_action')}}" method="POST" enctype="multipart/form-data">
                                         <div class="row text-right">
                                             <div class="col-12">
                                                 <div class="my-3">
-                                                    <label for="blog_category" class="form-label">دسته بندی</label>
-                                                    <select style="width: 100%" name="blog_category" class="form-control select2">
-                                                        <option selected>انتخاب دسته</option>
-                                                    @if(isset($blog_category))
-                                                            @foreach($blog_category as $item)
-                                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="my-3">
-                                                    <label for="blog_tag" class="form-label">برچسب</label>
-                                                    <select style="width: 100%" name="blog_tag[]" class="form-control select2" multiple>
-                                                        @if(isset($blog_tag))
-                                                            @foreach($blog_tag as $item)
-                                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="my-3">
-                                                    <label for="title" class="form-label ">عنوان</label>
-                                                    <input type="text" name="title" class="form-control text-right" placeholder="مثلا : آموزش لاراول">
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="my-3">
-                                                    <label for="paragraph" class="form-label ">محتوا</label>
-                                                    <textarea class="form-control textarea-editor" name="paragraph" rows="10" aria-hidden="true" wfd-invisible="true"></textarea>
+                                                    <label for="name" class="form-label ">نام</label>
+                                                    <input type="text" name="name" class="form-control text-right" placeholder="مثلا : آموزش لاراول">
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -124,29 +93,8 @@
                                                     <input type="text" name="seo_description" class="form-control text-right">
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <div class="my-3">
-                                                    <label for="seo_canonical" class="form-label ">seo_canonical</label>
-                                                    <input type="text" name="seo_canonical" class="form-control text-right">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <div class="my-3">
-                                                        <label for="thumbnail" class="form-label ">Thumbnail (Width : 790 , Height : 600)</label>
-                                                        <input type="file" class="form-control" name="thumbnail">
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="my-3">
-
-                                                        <label for="image" class="form-label ">Image (Width : 790 , Height : 600)</label>
-                                                        <input type="file" class="form-control" name="image">
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="col-12 buttons text-right">
-                                                <button class="btn btn-success btn-sm" type="submit">افزودن محتوا</button>
+                                                <button class="btn btn-success btn-sm" type="submit">افزودن برچسب</button>
                                             </div>
                                         </div>
                                     </form>
@@ -155,19 +103,19 @@
                         </div>
                     </div>
                     <!-- Last Content -->
-                    <div class="card">
+                    <div class="card mt-4">
                         <div class="card-header text-right">
-                            آخرین محصولات افزوده شده
+                            آخرین برچسب های افزوده شده
                         </div>
-                        <div class="card-body">
-                            @if (isset($lastPost))
-                                <div class="table-responsive admin-rtl">
+                        <div class="card-body admin-rtl">
+                            @if (isset($lastTag))
+                                <div class="table-responsive">
                                     <table class="table table-hover text-center">
                                         <thead class="table-light">
                                         <tr>
                                             <th>#</th>
-                                            <th>عنوان مطلب</th>
-                                            <th>تاریخ</th>
+                                            <th>نام برچسب</th>
+                                            <th>تاریخ ثبت</th>
                                             <th>پاک شده</th>
                                             <th>عملیات</th>
                                         </tr>
@@ -176,10 +124,10 @@
                                         @php
                                           $i = 1;
                                         @endphp
-                                        @foreach($lastPost as $item)
+                                        @foreach($lastTag as $item)
                                             <tr>
                                                 <td>{{$i++}}</td>
-                                                <td>{{$item->title}}</td>
+                                                <td>{{$item->name}}</td>
                                                 <td>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</td>
                                                 <td>
                                                     @if ($item->delete == 1)
@@ -189,14 +137,18 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{route('delete_mag_action' , ['post_id'=> $item->id])}}" class="btn btn-danger btn-sm">حذف</a>
-                                                    <a href="{{route('edit_mag_page' , ['post_id' => $item->id])}}" class="btn btn-success btn-sm">ویرایش</a>
+                                                    <a href="{{route('delete_tag_action' , ['id'=> $item->id])}}" class="btn btn-danger btn-sm">حذف</a>
+                                                    <a href="{{route('edit_tag_mag_page' , ['id' => $item->id])}}" class="btn btn-success btn-sm">ویرایش</a>
                                                 </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
                                     </table>
-                                    {{$lastPost->links()}}
+                                    {{$lastTag->links()}}
+                                </div>
+                                @else
+                                <div class="text-center">
+                                    <p>همچنان دسته ای ثبت نشده است</p>
                                 </div>
                             @endif
                         </div>

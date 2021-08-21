@@ -28,158 +28,390 @@
 
 
 @section("content")
-    <!-- Start main-content -->
-    <main class="main-content dt-sl mb-3">
-        <div class="container main-container">
 
-            <!-- Start title - breadcrumb -->
-            <div class="title-breadcrumb-special dt-sl">
-                <div class="breadcrumb dt-sl">
-                    <nav>
-                        <a href="{{route('home')}}">خانه</a>
-                        <a href="{{route('mag')}}">خبرنامه</a>
-                        <a href="#">{{$post->title}}</a>
-                    </nav>
-                </div>
-                <div class="title-page dt-sl">
-                    <h1>{{$post->title}}</h1>
-                </div>
-                <div class="post-rating">
-                    <div class="star-rate" data-toggle="tooltip" data-placement="top" data-html="true" title=""
-                         data-original-title="<b>۴</b> از ۴ رای">
-                        <span class="active"></span>
-                        <span class="active"></span>
-                        <span class="active"></span>
-                        <span class="active"></span>
-                        <span class="active"></span>
-                    </div>
-                </div>
+    <!-- Start Page Title Area -->
+    <section class="page-title-area">
+        <div class="container">
+            <div class="page-title-content">
+                <h1>مجله آرمان</h1>
+                <ul>
+                    <li><a href="{{route('home')}}">خانه</a></li>
+                    <li>وبلاگ</li>
+                </ul>
             </div>
-            <!-- End title - breadcrumb -->
-
-            <div class="row">
-                <div class="col-lg-9 col-md-8 col-sm-12 col-12 mb-3">
-                    <div class="content-page">
-                        <div class="content-desc dt-sn dt-sl">
-                            <header class="entry-header dt-sl mb-3">
-                                <div class="post-meta date">
-                                    <i class="mdi mdi-calendar-month"></i>{{\Morilog\Jalali\Jalalian::forge($post->created_at)->format("Y/m/d") }}
-                                </div>
-                                <div class="post-meta author">
-                                    <i class="mdi mdi-account-circle-outline"></i>
-                                    ارسال شده توسط : <a href="#">{{$post->author}}</a>
-                                </div>
-{{--                                <div class="post-meta category">--}}
-{{--                                    <i class="mdi mdi-folder"></i>--}}
-{{--                                    <a href="#">دسته‌بندی نشده</a> ، <a href="#">کسب و کار آنلاین</a> ، <a--}}
-{{--                                        href="#">معرفی کتاب</a>--}}
-{{--                                </div>--}}
-                                <div class="post-meta category">
-                                    <i class="mdi mdi-eye"></i>
-                                    {{$post->view}} بازدید
-                                </div>
-                            </header>
-                            <div class="post-thumbnail dt-sl">
-                                <img src="/uploads/blog/image/{{$post->image}}" alt="{{$post->title}}">
-                            </div>
-                           <div class="mt-4">{!! $post->content !!}</div>
-                        </div>
-                    </div>
-                    <div class="comments-area dt-sl my-3">
-                        <div class="dt-sn">
-                            @if ($errors->any())
-                                <div class="alert alert-danger mb-2">
-                                    <ul class="mb-0">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            @if(Session::has("status"))
-                                <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
-                            @endif
-                            <p class="mt-4 mb-4">نظرات خود در مورد این مطلب را به اشتراک بگذارید</p>
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="form-ui blog-comment">
-                                        <form method="post" action="{{route('new_single_mag_comment')}}">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="form-row-title mb-2">عنوان نظر شما (اجباری)
-                                                    </div>
-                                                    <div class="form-row">
-                                                        <input class="input-ui pr-2" type="text" name="title"
-                                                               placeholder="عنوان نظر خود را بنویسید">
-                                                    </div>
-                                                </div>
-                                                <input name="post_id" type="hidden" readonly value="{{$post->id}}">
-                                                <div class="col-12 mt-3 mb-3">
-                                                    <div class="form-row-title mb-2">متن نظر شما (اجباری)</div>
-                                                    <div class="form-row">
-                                                            <textarea class="input-ui pr-2 pt-2" rows="5" name="desc"
-                                                                      placeholder="متن خود را بنویسید"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 px-3">
-                                                    <p class="d-block">با “ثبت نظر” موافقت خود را با <a href="#"
-                                                                                                        class="border-bottom-dt" target="_blank">قوانین
-                                                            انتشار محتوا</a> در آرمان اعلام می‌کنم.</p>
-                                                    <button type="submit" class="btn btn btn-primary px-3">
-                                                        ثبت نظر
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @if (isset($comment))
-                            <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 mt-5 dt-sl">
-                                <h2>نظرات کاربران</h2>
-                                <p class="count-comment">{{count($comment)}} نظر</p>
-                            </div>
-                            <ol class="comment-list">
-                                <!-- #comment-## -->
-                                @foreach ($comment as $item)
-                                <li>
-                                    <div class="comment-body mt-3">
-                                        <div class="row">
-                                            <div class="col-12 comment-content">
-                                                <div class="comment-author">
-                                                    توسط {{$item->name}} در تاریخ {{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}
-                                                </div>
-                                                <p class="mb-4">عنوان پیام : {{$item->title}}</p>
-                                                <p>{{$item->desc}}</p>
-
-{{--                                                <div class="footer">--}}
-{{--                                                    <div class="comments-likes">--}}
-{{--                                                        آیا این نظر برایتان مفید بود؟--}}
-{{--                                                        <button class="btn-like" data-counter="۱۱">بله--}}
-{{--                                                        </button>--}}
-{{--                                                        <button class="btn-like" data-counter="۶">خیر--}}
-{{--                                                        </button>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-                                <!-- #comment-## -->
-                            </ol>
-                        @endif
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-12 col-12 mb-3 sidebar sticky-sidebar">
-                    @include('blog.sidebar')
-                </div>
-            </div>
-
         </div>
-    </main>
-    <!-- End main-content -->
+    </section>
+    <!-- End Page Title Area -->
+
+    <!-- Start Blog Details Area -->
+    <section class="blog-details-area ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="blog-details-desc">
+                        <div class="article-image">
+                            <img src="/uploads/blog/thumbnail/{{$post->thumbnail ?? ""}}" alt="{{$post->title ?? "عنوان مجله"}}">
+                        </div>
+
+                        <div class="article-content">
+                            <div class="entry-meta">
+                                <ul>
+                                    <li>
+                                        <i class="bx bx-folder-open"></i>
+                                        <span>دسته </span>
+                                        <a href="javascript:void(0)">{{$post->blogCategory->name ?? "ثبت نشده"}}</a>
+                                    </li>
+                                    <li>
+                                        <i class="bx bx-group"></i>
+                                        <span>نویسنده</span>
+                                        {{$post->author ?? "ثبت نشده"}}
+                                    </li>
+                                    <li>
+                                        <i class="bx bx-calendar"></i>
+                                        <span>آخرین به روزرسانی در</span>
+                                        {{\Morilog\Jalali\Jalalian::forge($post->created_at)->format("Y/m/d")}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-4">
+                                <h1 style="font-size: 21px;">{!! $post->title ?? "عنوان مطلب یافت نشد!" !!}</h1>
+                            </div>
+
+                            <div class="mt-4">
+                                {!! $post->content ?? "متن مطلب یافت نشد!" !!}
+                            </div>
+                        <div class="article-footer">
+                            <div class="article-tags">
+                                <span><i class="bx bx-purchase-tag"></i></span>
+                                <a href="#">مد</a> ،
+                                <a href="#">بازی</a> ،
+                                <a href="#">سفر</a>
+                            </div>
+
+                            <div class="article-share">
+                                <ul class="social">
+                                    <li><span>دسته بندی : </span></li>
+                                    <li>{{$post->blogCategory->name ?? "ثبت نشده!"}}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="article-author">
+                            <div class="author-profile-header"></div>
+                            <div class="author-profile">
+                                <div class="author-profile-title">
+                                    <img src="/img/user1.jpg" class="shadow-sm" alt="تصویر">
+                                    <h4>کریس اورویگ</h4>
+                                    <span class="d-block">عکاس ، نویسنده ، نویسنده</span>
+                                    <p>کریس اورویگ یک عکاس ، نویسنده و نویسنده مشهور است که اشتیاق به هر کاری را انجام می دهد. هویج متن ساختگی تخفیفات بیشتری را افزایش می دهد اما زمان اکتیو را انجام می دهد.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="drodo-post-navigation">
+                            <div class="prev-link-wrapper">
+                                <div class="info-prev-link-wrapper">
+                                    <a href="#">
+                                            <span class="image-prev">
+                                                <img src="/img/blog/blog-img2.jpg" alt="image">
+                                                <span class="post-nav-title">قبلی</span>
+                                            </span>
+
+                                        <span class="prev-link-info-wrapper">
+                                                <span class="prev-title">استراتژی های بازاریابی دیجیتال برای تولید سرب</span>
+                                                <span class="meta-wrapper">
+                                                    <span class="date-post">2 آبان 1399</span>
+                                                </span>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="next-link-wrapper">
+                                <div class="info-next-link-wrapper">
+                                    <a href="#">
+                                            <span class="next-link-info-wrapper">
+                                                <span class="next-title">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                <span class="meta-wrapper">
+                                                    <span class="date-post">2 آبان 1399</span>
+                                                </span>
+                                            </span>
+
+                                        <span class="image-next">
+                                                <img src="/img/blog/blog-img3.jpg" alt="image">
+                                                <span class="post-nav-title">بعدی</span>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comments-area">
+                            <h3 class="comments-title">2 نظر:</h3>
+
+                            <ol class="comment-list">
+                                <li class="comment">
+                                    <article class="comment-body">
+                                        <footer class="comment-meta">
+                                            <div class="comment-author vcard">
+                                                <img src="/img/user1.jpg" class="avatar" alt="تصویر">
+                                                <b class="fn">جان جونز </b>
+                                                <span class="says">می گوید:</span>
+                                            </div>
+
+                                            <div class="comment-metadata">
+                                                <a href="#">
+                                                    <span>24 آبان 1399 در 10:59 صبح</span>
+                                                </a>
+                                            </div>
+                                        </footer>
+
+                                        <div class="comment-content">
+                                            <p>متن ساختگی از سال 1500 به بعد ، متن ساختگی استاندارد صنعت بوده است ، زمانی كه چاپگر ناشناخته نوع گالی را گرفت و آنرا مخلوط كرد تا نمونه نمونه ای بسازد.</p>
+                                        </div>
+
+                                        <div class="reply">
+                                            <a href="#" class="comment-reply-link">پاسخ</a>
+                                        </div>
+                                    </article>
+
+                                    <ol class="children">
+                                        <li class="comment">
+                                            <article class="comment-body">
+                                                <footer class="comment-meta">
+                                                    <div class="comment-author vcard">
+                                                        <img src="/img/user2.jpg" class="avatar" alt="تصویر">
+                                                        <b class="fn">استیون اسمیت </b>
+                                                        <span class="says">می گوید:</span>
+                                                    </div>
+
+                                                    <div class="comment-metadata">
+                                                        <a href="#">
+                                                            <span>24 آبان 1399 در 10:59 صبح</span>
+                                                        </a>
+                                                    </div>
+                                                </footer>
+
+                                                <div class="comment-content">
+                                                    <p>متن ساختگی از سال 1500 به بعد ، متن ساختگی استاندارد صنعت بوده است ، زمانی كه چاپگر ناشناخته نوع گالی را گرفت و آنرا مخلوط كرد تا نمونه نمونه ای بسازد.</p>
+                                                </div>
+
+                                                <div class="reply">
+                                                    <a href="#" class="comment-reply-link">پاسخ</a>
+                                                </div>
+                                            </article>
+
+                                            <ol class="children">
+                                                <li class="comment">
+                                                    <article class="comment-body">
+                                                        <footer class="comment-meta">
+                                                            <div class="comment-author vcard">
+                                                                <img src="/img/user3.jpg" class="avatar" alt="تصویر">
+                                                                <b class="fn">سارا تیلور </b>
+                                                                <span class="says">می گوید:</span>
+                                                            </div>
+
+                                                            <div class="comment-metadata">
+                                                                <a href="#">
+                                                                    <span>24 آبان 1399 در 10:59 صبح</span>
+                                                                </a>
+                                                            </div>
+                                                        </footer>
+
+                                                        <div class="comment-content">
+                                                            <p>متن ساختگی از سال 1500 به بعد ، متن ساختگی استاندارد صنعت بوده است ، زمانی كه چاپگر ناشناخته نوع گالی را گرفت و آنرا مخلوط كرد تا نمونه نمونه ای بسازد.</p>
+                                                        </div>
+
+                                                        <div class="reply">
+                                                            <a href="#" class="comment-reply-link">پاسخ</a>
+                                                        </div>
+                                                    </article>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </li>
+
+                                <li class="comment">
+                                    <article class="comment-body">
+                                        <footer class="comment-meta">
+                                            <div class="comment-author vcard">
+                                                <img src="/img/user4.jpg" class="avatar" alt="تصویر">
+                                                <b class="fn">جان دو </b>
+                                                <span class="says">می گوید:</span>
+                                            </div>
+
+                                            <div class="comment-metadata">
+                                                <a href="#">
+                                                    <span>24 آبان 1399 در 10:59 صبح</span>
+                                                </a>
+                                            </div>
+                                        </footer>
+
+                                        <div class="comment-content">
+                                            <p>متن ساختگی از سال 1500 به بعد ، متن ساختگی استاندارد صنعت بوده است ، زمانی كه چاپگر ناشناخته نوع گالی را گرفت و آنرا مخلوط كرد تا نمونه نمونه ای بسازد.</p>
+                                        </div>
+
+                                        <div class="reply">
+                                            <a href="#" class="comment-reply-link">پاسخ</a>
+                                        </div>
+                                    </article>
+
+                                    <ol class="children">
+                                        <li class="comment">
+                                            <article class="comment-body">
+                                                <footer class="comment-meta">
+                                                    <div class="comment-author vcard">
+                                                        <img src="/img/user1.jpg" class="avatar" alt="تصویر">
+                                                        <b class="fn">جیمز اندرسون </b>
+                                                        <span class="says">می گوید:</span>
+                                                    </div>
+
+                                                    <div class="comment-metadata">
+                                                        <a href="#">
+                                                            <span>24 آبان 1399 در 10:59 صبح</span>
+                                                        </a>
+                                                    </div>
+                                                </footer>
+
+                                                <div class="comment-content">
+                                                    <p>متن ساختگی از سال 1500 به بعد ، متن ساختگی استاندارد صنعت بوده است ، زمانی كه چاپگر ناشناخته نوع گالی را گرفت و آنرا مخلوط كرد تا نمونه نمونه ای بسازد.</p>
+                                                </div>
+
+                                                <div class="reply">
+                                                    <a href="#" class="comment-reply-link">پاسخ</a>
+                                                </div>
+                                            </article>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+
+                            <div class="comment-respond">
+                                <h3 class="comment-reply-title">پاسخ دهید</h3>
+
+                                <form class="comment-form">
+                                    <p class="comment-notes">
+                                        <span id="email-notes">آدرس ایمیل شما منتشر نخواهد شد. </span>
+                                        قسمتهای مورد نیاز علامت گذاری شده اند
+                                        <span class="required">*</span>
+                                    </p>
+                                    <p class="comment-form-author">
+                                        <label>نام <span class="required">*</span></label>
+                                        <input type="text" id="author" placeholder="اسم شما*" name="author" required="required">
+                                    </p>
+                                    <p class="comment-form-email">
+                                        <label>ایمیل <span class="required">*</span></label>
+                                        <input type="email" id="email" placeholder="ایمیل شما*" name="email" required="required">
+                                    </p>
+                                    <p class="comment-form-url">
+                                        <label>سایت اینترنتی</label>
+                                        <input type="url" id="url" placeholder="سایت اینترنتی" name="url">
+                                    </p>
+                                    <p class="comment-form-comment">
+                                        <label>اظهار نظر</label>
+                                        <textarea name="comment" id="comment" cols="45" placeholder="نظر شما..." rows="5" maxlength="65525" required="required"></textarea>
+                                    </p>
+                                    <p class="comment-form-cookies-consent">
+                                        <input type="checkbox" value="yes" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent">
+                                        <label for="wp-comment-cookies-consent">نام ، ایمیل و وب سایت من را برای دفعه بعدی که نظر می دهم در این مرورگر ذخیره کنید.</label>
+                                    </p>
+                                    <p class="form-submit">
+                                        <input type="submit" name="submit" id="submit" class="submit" value="ارسال نظر">
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <aside class="widget-area">
+                        <section class="widget widget_search">
+                            <h3 class="widget-title">جستجو کردن</h3>
+
+                            <form class="search-form">
+                                <label>
+                                    <span class="screen-reader-text">جستجو برای:</span>
+                                    <input type="search" class="search-field" placeholder="جستجو کردن...">
+                                </label>
+                                <button type="submit"><i class="bx bx-search-alt"></i></button>
+                            </form>
+                        </section>
+
+                        <section class="widget widget_drodo_posts_thumb">
+                            <h3 class="widget-title">پست های محبوب</h3>
+
+                            <article class="item">
+                                <a href="#" class="thumb">
+                                    <span class="fullimage cover bg1" role="img"></span>
+                                </a>
+                                <div class="info">
+                                    <span>17 آبان 1399</span>
+                                    <h4 class="title usmall"><a href="#">داده های تحصیلات عالی اطراف</a></h4>
+                                </div>
+
+                                <div class="clear"></div>
+                            </article>
+
+                            <article class="item">
+                                <a href="#" class="thumb">
+                                    <span class="fullimage cover bg2" role="img"></span>
+                                </a>
+                                <div class="info">
+                                    <span>17 آبان 1399</span>
+                                    <h4 class="title usmall"><a href="#">نرخ تبدیل بهینه سازی قیف فروش</a></h4>
+                                </div>
+
+                                <div class="clear"></div>
+                            </article>
+
+                            <article class="item">
+                                <a href="#" class="thumb">
+                                    <span class="fullimage cover bg3" role="img"></span>
+                                </a>
+                                <div class="info">
+                                    <span>17 آبان 1399</span>
+                                    <h4 class="title usmall"><a href="#">داده های تجاری در حال تغییر انرژی در جهان است</a></h4>
+                                </div>
+
+                                <div class="clear"></div>
+                            </article>
+                        </section>
+
+                        <section class="widget widget_categories">
+                            <h3 class="widget-title">دسته بندی ها</h3>
+
+                            <ul>
+                                <li><a href="#">طراحی <span class="post-count">(03)</span></a></li>
+                                <li><a href="#">سبک زندگی <span class="post-count">(05)</span></a></li>
+                                <li><a href="#">متن <span class="post-count">(10)</span></a></li>
+                                <li><a href="#">دستگاه <span class="post-count">(08)</span></a></li>
+                                <li><a href="#">نکات <span class="post-count">(01)</span></a></li>
+                            </ul>
+                        </section>
+
+                        <section class="widget widget_tag_cloud">
+                            <h3 class="widget-title">برچسب های محبوب</h3>
+
+                            <div class="tagcloud">
+                                <a href="#">تجارت <span class="tag-link-count">(3)</span></a>
+                                <a href="#"> طراحی <span class="tag-link-count">(3)</span></a>
+                                <a href="#">متن<span class="tag-link-count">(2)</span></a>
+                                <a href="#"> مد <span class="tag-link-count">(2)</span></a>
+                                <a href="#"> مسافرت <span class="tag-link-count">(1)</span></a>
+                                <a href="#"> هوشمند <span class="tag-link-count">(1)</span></a>
+                                <a href="#"> بازاریابی <span class="tag-link-count">(1)</span></a>
+                                <a href="#"> نکات <span class="tag-link-count">(2)</span></a>
+                            </div>
+                        </section>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Blog Details Area -->
+
 @endsection
 
 @section("extra_js")
