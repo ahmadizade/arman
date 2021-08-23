@@ -6,7 +6,7 @@
         </div>
 
         <div class="products-slides owl-carousel owl-theme">
-            @foreach($mostVisited as $item)
+            @foreach($popularproduct as $item)
                 <div class="single-products-box">
                     <div class="image">
                         <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="d-block"><img src="/uploads/products/{{$item->thumbnail ?? "noimage_500.jpg"}}" alt="{{$item->product_name}}"></a>
@@ -32,7 +32,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="quick-view-btn">
+                                    <div data-id="{{$item->id}}" class="quick-view-btn">
                                         <a href="#" data-toggle="modal" data-target="#productsQuickView">
                                             <i class="bx bx-search-alt"></i>
                                             <span class="tooltip-label">مشاهده سریع</span>

@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("title")
-    <title>CioCe.ir | مدیریت کاربران</title>
+    <title>armanmask.ir | مدیریت کاربران</title>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -101,7 +101,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content bg-gradient-light">
                             <div class="modal-header bg-gradient-info border-bottom-info">
-                                <h5 class="text-white" style="font-size: 15px">www.CioCe.ir</h5>
+                                <h5 class="text-white" style="font-size: 15px">www.armanmask.ir</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span>&times;</span>
                                 </button>
@@ -465,7 +465,7 @@
                 ajax: {
                     dataType: 'json',
                     type: 'GET',
-                    url: '/cioce/admin-users/get-user',
+                    url: '/armanmask/admin-users/get-user',
                 },
                 buttons: [
                     // 'copy', 'csv', 'excel', 'pdf', 'print'

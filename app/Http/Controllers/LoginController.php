@@ -45,10 +45,10 @@ class LoginController extends Controller
         }
         $user = User::where("mobile",$mobile)->where("status",1)->first();
         if(isset($user->id)) {
-            if (Hash::check($code,$user->password) || $code == $user->password) {
+            if (Hash::check($request->code, $user->password)) {
                 Auth::loginUsingId($user->id, true);
                 Cache::forget("mobile_code_".$mobile);
-                return Response::json(["status" => "1", "desc" => "به فروشگاه Cioshop خوش آمدید"]);
+                return Response::json(["status" => "1", "desc" => "به فروشگاه آرمان ماسک خوش آمدید"]);
             }
             return Response::json(["status" => "0","desc" => "رمز عبور شما اشتباه می باشد"]);
         }
@@ -131,7 +131,7 @@ class LoginController extends Controller
 
                         array(
                             "Parameter" => "Company",
-                            "ParameterValue" => "CioShop",
+                            "ParameterValue" => "ArmanMask",
                         ),
                     );
                     Sms::dispatch($mobile, $dataSms, '53056');
@@ -220,7 +220,7 @@ class LoginController extends Controller
             return back();
         }
         elseif($request->password === $request->confirm_password){
-            $remember_token = "cioce" . Str::random(1,1000000);
+            $remember_token = "armanmask" . Str::random(1,1000000);
             User::where("id", Auth::id())->update([
                 "password" => Hash::make($request->password),
                 "password_changed" => 1,

@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>CioCe.ir | سبد خرید</title>
+    <title>armanmask.ir | سبد خرید</title>
 @endsection
 
 @section('extra_css')

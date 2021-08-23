@@ -31,7 +31,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="quick-view-btn">
+                                        <div data-id="{{$item->id}}" class="quick-view-btn">
                                             <a href="#" data-toggle="modal" data-target="#productsQuickView">
                                                 <i class="bx bx-search-alt"></i>
                                                 <span class="tooltip-label">مشاهده سریع</span>

@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("title")
-    <title>CioCe.ir | اعتبارات</title>
+    <title>armanmask.ir | اعتبارات</title>
 @endsection
 @section("extra_css")
 @endsection

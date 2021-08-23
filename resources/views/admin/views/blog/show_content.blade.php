@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("shop")
-    <shop>سامانه ثبت مطلب | فروشگاه سی وسه</shop>
+    <shop>سامانه ثبت مطلب | فروشگاه آرمان ماسک</shop>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -55,12 +55,12 @@
                     <!-- Last Content -->
                     <div class="card">
                         <div class="card-header text-right">
-                            آخرین محصولات افزوده شده
+                            آخرین پست های افزوده شده
                         </div>
-                        <div class="card-body">
+                        <div class="card-body admin-rtl">
                             @if (isset($lastPost))
                                 <div class="table-responsive">
-                                    <table class="table table-hover">
+                                    <table class="table table-hover text-center">
                                         <thead class="table-light">
                                         <tr>
                                             <th>عکس</th>
@@ -73,7 +73,7 @@
                                         <tbody class="border">
                                         @foreach($lastPost as $item)
                                             <tr>
-                                                <td><img class="img-fluid" src="/uploads/thumbnail/{{$item->thumbnail}}" style="max-width: 150px"></td>
+                                                <td><img class="img-fluid" src="/uploads/blog/thumbnail/{{$item->thumbnail}}" style="max-width: 60px"></td>
                                                 <td>{{$item->title}}</td>
                                                 <td>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</td>
                                                 <td>

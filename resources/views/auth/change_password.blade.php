@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#f7858d">
     <meta name="msapplication-navbutton-color" content="#f7858d">
     <meta name="apple-mobile-web-app-status-bar-style" content="#f7858d">
-    <title>CioCe.ir | تغییر رمز عبور</title>
+    <title>armanmask.ir | تغییر رمز عبور</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
     <!-- Plugins -->
@@ -83,7 +83,7 @@
                             <div class="form-footer mt-3">
                                 <div>
                                     <span class="font-weight-bold">کاربر جدید هستید؟</span>
-                                    <a href="{{route('register')}}" class="mr-3 mt-2">ثبت نام در CioCe</a>
+                                    <a href="{{route('register')}}" class="mr-3 mt-2">ثبت نام در armanmask</a>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                     </div>
                     <div class="col-12 text-center">
                         <div class="copy-right-mini-footer">
-                            Copyright © 2019 CioCe
+                            Copyright © 2019 armanmask
                         </div>
                     </div>
                 </div>

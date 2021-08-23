@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">CioCe <sup>S.T</sup></div>
+        <div class="sidebar-brand-text mx-3">armanmask <sup>S.T</sup></div>
     </a>
 
     <!-- Divider -->
@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{route('cioce')}}">
+        <a class="nav-link" href="{{route('armanmask')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -32,7 +32,7 @@
         <a class="nav-link collapsed" href="{{route('home')}}" data-toggle="collapse" data-target="#collapseTwo"
            aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
-            <span class="font-weight-bolder">سامانه مدیریت کاربر</span>
+            <span class="font-weight-bolder">سامانه مدیریت وب سایت</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -87,22 +87,6 @@
         </div>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('home')}}" data-toggle="collapse" data-target="#collapseapi"
-           aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span class="font-weight-bolder">وب سرویس</span>
-        </a>
-        <div id="collapseapi" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Blog Manager</h6>
-                <a class="collapse-item font-weight-bolder" href="{{route('new_webservice')}}">وب سرویس جدید</a>
-                <a class="collapse-item font-weight-bolder" href="{{route('show_webservice')}}">سرویس های ثبت شده</a>
-            </div>
-        </div>
-    </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -116,34 +100,15 @@
         <a class="nav-link collapsed" href="{{route('home')}}" data-toggle="collapse" data-target="#collapsePages"
            aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
-            <span>مدیریت حساب</span>
+            <span>سفارشات</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Credit Management</h6>
-                <a class="collapse-item" href="{{route('credit')}}">اعتبارات</a>
-                <a class="collapse-item" href="{{route('home')}}">Register</a>
-                <a class="collapse-item" href="{{route('home')}}">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="{{route('home')}}">404 Page</a>
-                <a class="collapse-item" href="{{route('home')}}">Blank Page</a>
+                <a class="collapse-item" href="#">پرداخت شده ها</a>
+                <a class="collapse-item" href="#">ارسال شده</a>
             </div>
         </div>
-    </li>
-
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('home')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-    </li>
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('home')}}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
     </li>
 
     <!-- Divider -->

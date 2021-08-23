@@ -26,7 +26,7 @@ class PaymentController extends Controller
             "amount" => $amount * 10,
             "callback_url" => route("verify"),
             "description" => Str::random(6),
-            "metadata" => ["email" => Auth::user()->email ?? "info@cioce.ir", "mobile" => Auth::user()->mobile],
+            "metadata" => ["email" => Auth::user()->email ?? "info@armanmask.ir", "mobile" => Auth::user()->mobile],
         );
 
         $jsonData = json_encode($data);
@@ -192,7 +192,7 @@ class PaymentController extends Controller
             "amount" => $amount * 10,
             "callback_url" => route("verify_cart"),
             "description" => Str::random(6),
-            "metadata" => ["email" => Auth::user()->email ?? "info@cioce.ir", "mobile" => Auth::user()->mobile],
+            "metadata" => ["email" => Auth::user()->email ?? "info@armanmask.ir", "mobile" => Auth::user()->mobile],
         );
 
         $jsonData = json_encode($data);

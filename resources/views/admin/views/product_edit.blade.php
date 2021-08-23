@@ -61,11 +61,11 @@
 
                     @if(isset($product))
                         {{--Edit Image Product--}}
-                        <div class="container">
+                        <div class="container mt-4">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="card">
-                                        <div class="card-header">
+                                        <div class="card-header text-right">
                                         تغییر عکس محصول
                                     </div>
                                         <div class="card-body">
@@ -73,16 +73,16 @@
                                             <input name="user_id" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}" readonly="readonly">
                                             <input name="id" type="hidden" value="{{$product->id}}" readonly="readonly">
                                             <div class="row">
-                                                <div class="col-12 col-md-6 col-lg-6 text-center">
-                                                    <div class="mt-3">
-                                                        <label for="image" class="form-label text-success">عکس بزرگ</label>
-                                                        <input type="file" name="image">
-                                                    </div>
-                                                </div>
+{{--                                                <div class="col-12 col-md-6 col-lg-6 text-center">--}}
+{{--                                                    <div class="mt-3">--}}
+{{--                                                        <label for="image" class="form-label text-success">عکس بزرگ</label>--}}
+{{--                                                        <input type="file" name="image">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
 
                                                 <div class="col-12 col-md-6 col-lg-6 text-center">
                                                     <div class="mt-3">
-                                                        <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>
+                                                        <label for="thumbnail" class="form-label text-primary">عکس / width : 658 - height : 800</label>
                                                         <input type="file" name="thumbnail">
                                                     </div>
                                                 </div>
@@ -98,54 +98,20 @@
                                 </div>
                             </div>
                         </div>
-
-
                         {{--Edit Image Product--}}
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            تغییر فایل آپلود شده
-                                        </div>
-                                        <div class="card-body">
-                                            <form method="POST" action="{{route('admin_file_product_action')}}" enctype="multipart/form-data">
-                                                <input name="user_id" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}" readonly="readonly">
-                                                <input name="id" type="hidden" value="{{$product->id}}" readonly="readonly">
-                                                <div class="row">
-                                                    <div class="col-12 col-md-6 col-lg-6 text-center">
-                                                        <div class="mt-3">
-                                                            <label for="file" class="form-label text-success">فایل</label>
-                                                            <input type="file" name="file">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-12 mt-3 buttons text-right">
-                                                        <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">آپلود فایل</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     @endif
-                    <div class="container">
+                    <div class="container mt-4">
                         <div class="row">
                             <div class="col-xl-12 col-lg-12">
                                 <div class="card">
                                     <div class="card-header text-right">
                                         ویرایش محصول
                                     </div>
-                                    <div class="card-body">
-                                        @if ($errors->any())
+                                    <div class="card-body admin-rtl">
+                                        @if (Session::has("errors"))
                                             <div class="alert alert-danger mb-2">
-                                                <ul class="mb-0">
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
+                                                <ul class="mb-0 text-center">
+                                                    <li>{{ Session::get("errors") }}</li>
                                                 </ul>
                                             </div>
                                         @endif
@@ -153,11 +119,11 @@
                                             <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
                                         @endif
                                         @if(isset($product))
-                                            <form id="make_product" action="{{route('admin_edit_product_action')}}" method="POST" enctype="multipart/form-data">
+                                        <form id="make_product" action="{{route('admin_edit_product_action')}}" method="POST" enctype="multipart/form-data">
                                         <div class="row">
                                             <input type="hidden" name="id" class="d-none" value="{{$product->id}}">
                                             <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="my-3">
+                                                <div class="my-3 text-right">
                                                     <label for="category" class="form-label ">دسته بندی</label>
                                                     <select id="select_category" name="category" class="form-control">
                                                         @if(isset($category) && isset($product))
@@ -171,178 +137,74 @@
                                                 </div>
                                             </div>
 
+{{--                                            <div class="col-12 col-md-6 col-lg-6">--}}
+{{--                                                <div class="my-3 text-right">--}}
+{{--                                                    <label for="category_variety" class="form-label ">زیردسته ها</label>--}}
+{{--                                                    <select id="category_variety" name="category_variety" class="form-control">--}}
+{{--                                                        <option value="{{$product->category_variety}}" selected>{{$product->variety->name}}</option>--}}
+{{--                                                    </select>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                             <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="my-3">
-                                                    <label for="category_variety" class="form-label ">زیردسته ها</label>
-                                                    <select id="category_variety" name="category_variety" class="form-control">
-                                                        <option value="{{$product->category_variety}}" selected>{{$product->variety->name}}</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="my-3">
-                                                    <label for="tag" class="form-label ">برچسب ها</label>
-                                                    <select name="tag[]" class="form-control select2" multiple>
-                                                        @if(isset($product_tag))
-                                                            @foreach($product_tag as $item)
-                                                                @foreach(json_decode($product->tag_id,1) as $tag)
-                                                                    @if($item->id == $tag)
-                                                                        <option value="{{$item->id}}" @if($item->id == $tag) selected @endif>
-                                                                            {{$item->name}}
-                                                                        </option>
-                                                                    @else
-                                                                        <option value="{{$item->id}}">
-                                                                            {{$item->name}}
-                                                                        </option>
-                                                                    @endif
-                                                                @endforeach
+                                                <div class="my-3 text-right">
+                                                    <label for="tag[]" class="form-label">برچسب</label>
+                                                    <select style="width: 100%" name="tag[]" class="form-control select2" multiple>
+                                                        @if(isset($product->tag_id) && isset(json_decode($product->tag_id,JSON_NUMERIC_CHECK)[0]))
+                                                            @foreach(json_decode($product->tag_id,JSON_NUMERIC_CHECK ) as $tag)
+                                                                @if(isset($tagProduct[$tag]->slug))
+                                                                    <option selected value="{{ $tag }}">{{ $tagProduct[$tag]->name ?? ""}}</option>
+                                                                @endif
                                                             @endforeach
                                                         @endif
+                                                        @foreach($Product_tag as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->name ?? "" }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                             <input readonly type="hidden" name="type" value="table">
 
                                             <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="my-3">
+                                                <div class="my-3 text-right">
                                                     <label for="name" class="form-label ">نام محصول (فارسی)</label>
                                                     <input value="{{$product->product_name}}" type="text" name="name" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="my-3">
+                                                <div class="my-3 text-right">
                                                     <label for="englishName" class="form-label ">نام محصول (اینگلیسی)</label>
                                                     <input value="{{$product->english_name}}" type="text" name="englishName" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="my-3">
-                                                    <label for="discount" class="form-label "> (لطفا مقدار درصد قرار ندهید)   تخفیف</label>
+                                                <div class="my-3 text-right">
+                                                    <label for="discount" class="form-label ">تخفیف</label>
                                                     <input value="{{$product->discount}}" type="text" name="discount" class="form-control">
                                                 </div>
                                             </div>
 
-                                            <div class="col-12">
-                                                <div class="my-3">
+                                            <div class="col-12 col-md-6 col-lg-6">
+                                                <div class="my-3 text-right">
                                                     <label for="price" class="form-label ">قیمت</label>
                                                     <input value="{{$product->price}}" type="text" name="price" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="col-12">
-                                                <div class="my-3">
+                                                <div class="my-3 text-right">
                                                     <label for="description" class="form-label ">توضیحات</label>
                                                     <textarea class="form-control textarea-editor" name="description" id="description" rows="10" aria-hidden="true" wfd-invisible="true">{{$product->product_desc}}</textarea>
                                                 </div>
                                             </div>
-
-                                            <div class="col-12 col-md-3 col-lg-3">
-                                                <div class="my-3">
-                                                    <label for="framework" class="form-label ">FrameWork</label>
-                                                    <input value="{{$product->framework}}" type="text" name="framework" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-3 col-lg-3">
-                                                <div class="my-3">
-                                                    <label for="admin_pannel" class="form-label ">پنل مدیریت</label>
-                                                    <select name="admin_pannel" class="form-control">
-                                                        <option value="1" @if($product->admin_pannel == 1) selected @endif>دارد</option>
-                                                        <option value="0" @if($product->admin_pannel == 0) selected @endif>ندارد</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-3 col-lg-3">
-                                                <div class="my-3">
-                                                    <label for="framework_version" class="form-label ">Framework_Version</label>
-                                                    <input value="{{$product->framework_version}}" type="text" name="framework_version" class="form-control" placeholder="مثلا : 8.4">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-3 col-lg-3">
-                                                <div class="my-3">
-                                                    <label for="data_usage" class="form-label ">data_usage</label>
-                                                    <input value="{{$product->data_usage}}" type="text" name="data_usage" class="form-control" placeholder="مثلا : میزان حجم اشغالی">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="my-3">
-                                                    <label for="framework_details" class="form-label ">framework_details</label>
-                                                    <textarea class="form-control textarea-editor" name="framework_details" id="framework_details" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->framework_details}}</textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="my-3">
-                                                    <label for="special_features" class="form-label ">special_features</label>
-                                                    <textarea class="form-control textarea-editor" name="special_features" id="special_features" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->special_features}}</textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="my-3">
-                                                    <label for="short_description_of_backend" class="form-label ">short_description_of_backend</label>
-                                                    <textarea class="form-control textarea-editor" name="short_description_of_backend" id="short_description_of_backend" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->short_description_of_backend}}</textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="my-3">
-                                                    <label for="admin_pannel_features" class="form-label ">admin_pannel_features</label>
-                                                    <textarea class="form-control textarea-editor" name="admin_pannel_features" id="admin_pannel_features" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->admin_pannel_features}}</textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="my-3">
-                                                    <label for="framework_frontend" class="form-label ">framework_frontend</label>
-                                                    <input value="{{$product->framework_frontend}}" type="text" name="framework_frontend" class="form-control" placeholder="مثلا : فریم ورک یوآی">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="my-3">
-                                                    <label for="framework_frontend_version" class="form-label ">framework_frontend_version</label>
-                                                    <input value="{{$product->framework_frontend_version}}" type="text" name="framework_frontend_version" class="form-control" placeholder="مثلا : ورژه 4">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="my-3">
-                                                    <label for="framework_frontend_details" class="form-label ">framework_frontend_details</label>
-                                                    <textarea class="form-control textarea-editor" name="framework_frontend_details" id="framework_frontend_details" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->framework_frontend_details}}</textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="my-3">
-                                                    <label for="other_plugins" class="form-label ">other_plugins</label>
-                                                    <textarea class="form-control textarea-editor" name="other_plugins" id="other_plugins" rows="5" aria-hidden="true" wfd-invisible="true">{{$product->other_plugins}}</textarea>
-                                                </div>
-                                            </div>
-
-{{--                                            <div class="col-12 col-md-4 col-lg-4 text-center">--}}
-{{--                                                <div class="mt-3">--}}
-{{--                                                    <label for="image" class="form-label text-success">عکس بزرگ</label>--}}
-{{--                                                    <input value="{{$product->image}}" type="file" name="image">--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-
-{{--                                            <div class="col-12 col-md-4 col-lg-4 text-center">--}}
-{{--                                                <div class="mt-3">--}}
-{{--                                                    <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>--}}
-{{--                                                    <input value="{{$product->thumbnail}}" type="file" name="thumbnail">--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-
 
                                             <div class="text-center">
                                                 <p>تنظیمات Seo</p>
                                             </div>
                                             <div class="col-12 col-lg-12">
                                                 <div class="row">
-                                                    <div class="col-10 col-lg-10">
+                                                    <div class="col-12">
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-text"> عنوان سئو </div>
                                                             <input type="text" class="form-control" autocomplete="off" value="{{$product->seo_title}}" name="seo_title">
@@ -353,7 +215,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-10 col-lg-10">
+                                                    <div class="col-12">
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-text"> توضیحات سئو </div>
                                                             <input type="text" class="form-control" autocomplete="off" value="{{ $product->seo_description }}" name="seo_description">
@@ -364,16 +226,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-12 col-lg-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text">آدرس URL Canonical</span>
-                                                    <input type="text" class="form-control ltr" autocomplete="off" value="{{ $product->seo_canonical }}" name="seo_canonical">
-                                                </div>
-                                            </div>
+{{--                                            <div class="col-12 col-lg-12">--}}
+{{--                                                <div class="input-group mb-3">--}}
+{{--                                                    <span class="input-group-text">آدرس URL Canonical</span>--}}
+{{--                                                    <input type="text" class="form-control ltr" autocomplete="off" value="{{ $product->seo_canonical }}" name="seo_canonical">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
 
                                             <div class="col-12 mt-3 col-md-4 col-lg-4 buttons text-center">
                                                 <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">ثبت محصول</button>
-                                                <a href="" class="a-button btn btn-danger btn-sm">حذف محصول</a>
                                             </div>
                                         </div>
                                     </form>

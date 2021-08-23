@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\BlogTag;
+use App\Models\Product_tag;
 use App\Models\Store;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
@@ -48,6 +49,14 @@ class AppServiceProvider extends ServiceProvider
             });
             $view->with('tagSingle', $tagSingle);
         });
+
+        View::composer('*', function ($view) {
+            $tagProduct = Cache::remember('$tagProduct' , Carbon::now()->addMinutes(1), function (){
+                return Product_tag::all()->keyBy("id");
+            });
+            $view->with('tagProduct', $tagProduct);
+        });
+
 
         View::composer('*', function ($view) {
             $category = DB::table('category')->get();

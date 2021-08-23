@@ -90,7 +90,7 @@
                             toast: true,
                             icon: 'success',
                             text: data.desc,
-                            title: 'CioCe.ir',
+                            title: 'armanmask.ir',
                             showConfirmButton: false,
                             timer: 3000
                         });
@@ -124,7 +124,7 @@
                             toast: true,
                             icon: 'success',
                             text: data.desc,
-                            title: 'CioCe.ir',
+                            title: 'armanmask.ir',
                             showConfirmButton: false,
                             timer: 3000
                         }).then(function (data) {

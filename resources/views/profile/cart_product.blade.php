@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>CioCe.ir | سبد خرید</title>
+    <title>armanmask.ir | سبد خرید</title>
 @endsection
 
 @section("content")
@@ -77,7 +77,7 @@
                                                             </h3>
                                                         </a>
                                                         <p class="checkout-dealer">
-                                                            فروشنده: فروشگاه آنلاین آرمان (CioCe)
+                                                            فروشنده: فروشگاه آنلاین آرمان (armanmask)
                                                         </p>
                                                         <p class="checkout-guarantee">گارانتی 18 ماهه</p>
                                                         <div class="checkout-variant checkout-variant--color">
@@ -235,7 +235,7 @@
                                position: 'top-end',
                                toast: true,
                                icon: 'success',
-                               title: 'CioCe',
+                               title: 'armanmask',
                                text: data.desc,
                                footer:"در حال انتقال به صفحه تایید محصولات و پرداخت نهایی",
                                showConfirmButton: false,

@@ -20,7 +20,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     const MerchantId = 'K146';
-    const admin_email = 'info@CioCe.ir';
+    const admin_email = 'info@armanmask.ir';
     const sha1Key = '22338240992352910814917221751200141041845518824222260';
 
     public static function email($email,$view,$content,$title,$subject)
@@ -33,7 +33,7 @@ class Controller extends BaseController
         ];
 
         Mail::send('emails.'.$view, ["result" => $result], function ($message) use ($result,$subject,$title) {
-            $message->from('support@cioce.ir', $title);
+            $message->from('support@armanmask.ir', $title);
             $message->to($result['email'])->subject($subject);
         });
     }

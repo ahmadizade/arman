@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>وب سرویس های من | CioCe.ir</title>
+    <title>وب سرویس های من | armanmask.ir</title>
 @endsection
 
 @section("content")

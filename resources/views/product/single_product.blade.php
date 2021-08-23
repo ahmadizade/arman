@@ -108,7 +108,7 @@
                         </div>
 
                         <ul class="products-info">
-                            <li><span>دسته بندی: </span> <a href="{{route('single_category',["slug" => $product->category->slug])}}">{{$product->category->name}}</a></li>
+                            <li><span>دسته بندی: </span> <a href="{{route('single_category',["slug" => $product->category->slug])}}">{{$product->category->name ?? ""}}</a></li>
                             <li><span>موجودی: </span> موجود است</li>
                             <li><span>نام لاتین: </span> {{$product->english_name ?? "ثبت نشده"}}</li>
                         </ul>

@@ -1,6 +1,6 @@
 @extends("/admin/views/layouts.master")
 @section("title")
-    <title>CioCe.ir | فروشگاه آرمان</title>
+    <title>armanmask.ir | فروشگاه آرمان</title>
 @endsection
 @section("style")
     <style>
@@ -146,7 +146,7 @@
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content bg-gradient-light">
                                     <div class="modal-header bg-gradient-info border-bottom-info">
-                                        <h5 class="text-white" style="font-size: 15px">www.CioCe.ir</h5>
+                                        <h5 class="text-white" style="font-size: 15px">www.armanmask.ir</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span>&times;</span>
                                         </button>
@@ -348,90 +348,90 @@
 
                     <div class="row">
 
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+{{--                        <!-- Area Chart -->--}}
+{{--                        <div class="col-xl-8 col-lg-7">--}}
+{{--                            <div class="card shadow mb-4">--}}
+{{--                                <!-- Card Header - Dropdown -->--}}
+{{--                                <div--}}
+{{--                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">--}}
 
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="{{route('home')}}" role="button" id="dropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                             aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="{{route('home')}}">Action</a>
-                                            <a class="dropdown-item" href="{{route('home')}}">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="{{route('home')}}">Something else here</a>
-                                        </div>
-                                    </div>
-                                    <h6 class="m-0 font-weight-bold text-primary">نمودار عضویت کاربران در وب سایت
-                                        به
-                                        تفکیک ماههای سال</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                                    <div class="dropdown no-arrow">--}}
+{{--                                        <a class="dropdown-toggle" href="{{route('home')}}" role="button" id="dropdownMenuLink"--}}
+{{--                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"--}}
+{{--                                             aria-labelledby="dropdownMenuLink">--}}
+{{--                                            <div class="dropdown-header">Dropdown Header:</div>--}}
+{{--                                            <a class="dropdown-item" href="{{route('home')}}">Action</a>--}}
+{{--                                            <a class="dropdown-item" href="{{route('home')}}">Another action</a>--}}
+{{--                                            <div class="dropdown-divider"></div>--}}
+{{--                                            <a class="dropdown-item" href="{{route('home')}}">Something else here</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <h6 class="m-0 font-weight-bold text-primary">نمودار عضویت کاربران در وب سایت--}}
+{{--                                        به--}}
+{{--                                        تفکیک ماههای سال</h6>--}}
+{{--                                </div>--}}
+{{--                                <!-- Card Body -->--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="chart-area">--}}
+{{--                                        <canvas id="myAreaChart"></canvas>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="{{route('home')}}" role="button" id="dropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                             aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="{{route('home')}}">Action</a>
-                                            <a class="dropdown-item" href="{{route('home')}}">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="{{route('home')}}">Something else here</a>
-                                        </div>
-                                    </div>
-                                    <h6 class="m-0 font-weight-bold myfont text-primary">نمودار ثبت کالا</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <div class="chartjs-size-monitor">
-                                            <div class="chartjs-size-monitor-expand">
-                                                <div class=""></div>
-                                            </div>
-                                            <div class="chartjs-size-monitor-shrink">
-                                                <div class=""></div>
-                                            </div>
-                                        </div>
-                                        <canvas id="myPieChart" width="486" height="245" class="chartjs-render-monitor"
-                                                style="display: block; width: 486px; height: 245px;"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                                        <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                                        <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <!-- Pie Chart -->--}}
+{{--                        <div class="col-xl-4 col-lg-5">--}}
+{{--                            <div class="card shadow mb-4">--}}
+{{--                                <!-- Card Header - Dropdown -->--}}
+{{--                                <div--}}
+{{--                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">--}}
+{{--                                    <div class="dropdown no-arrow">--}}
+{{--                                        <a class="dropdown-toggle" href="{{route('home')}}" role="button" id="dropdownMenuLink"--}}
+{{--                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"--}}
+{{--                                             aria-labelledby="dropdownMenuLink">--}}
+{{--                                            <div class="dropdown-header">Dropdown Header:</div>--}}
+{{--                                            <a class="dropdown-item" href="{{route('home')}}">Action</a>--}}
+{{--                                            <a class="dropdown-item" href="{{route('home')}}">Another action</a>--}}
+{{--                                            <div class="dropdown-divider"></div>--}}
+{{--                                            <a class="dropdown-item" href="{{route('home')}}">Something else here</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <h6 class="m-0 font-weight-bold myfont text-primary">نمودار ثبت کالا</h6>--}}
+{{--                                </div>--}}
+{{--                                <!-- Card Body -->--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="chart-pie pt-4 pb-2">--}}
+{{--                                        <div class="chartjs-size-monitor">--}}
+{{--                                            <div class="chartjs-size-monitor-expand">--}}
+{{--                                                <div class=""></div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="chartjs-size-monitor-shrink">--}}
+{{--                                                <div class=""></div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <canvas id="myPieChart" width="486" height="245" class="chartjs-render-monitor"--}}
+{{--                                                style="display: block; width: 486px; height: 245px;"></canvas>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="mt-4 text-center small">--}}
+{{--                    <span class="mr-2">--}}
+{{--                      <i class="fas fa-circle text-primary"></i> Direct--}}
+{{--                    </span>--}}
+{{--                                        <span class="mr-2">--}}
+{{--                      <i class="fas fa-circle text-success"></i> Social--}}
+{{--                    </span>--}}
+{{--                                        <span class="mr-2">--}}
+{{--                      <i class="fas fa-circle text-info"></i> Referral--}}
+{{--                    </span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
 
                     <!-- Content Row -->
@@ -686,7 +686,7 @@
     <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; CioCe.ir 2020</span>
+                <span>Copyright &copy; armanmask.ir 2020</span>
             </div>
         </div>
     </footer>

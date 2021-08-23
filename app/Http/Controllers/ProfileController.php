@@ -1282,7 +1282,7 @@ class ProfileController extends Controller
             $content = $url;
             $view = 'download_email';
             $subject = 'با تشکر از شما برای خرید از آرمان';
-            $title = 'لینک دانلود فایل / CIOCE.IR';
+            $title = 'لینک دانلود فایل / armanmask.ir';
             self::email($email, $view, $content, $title, $subject);
             Cache::put("download_link_" . Auth::id(), true, 600);
             return Response::json(["status" => "1" , 'desc' => 'لینک دانلود به ایمیل شما ارسال شد']);

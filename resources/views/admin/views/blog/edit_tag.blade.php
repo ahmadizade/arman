@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("shop")
-    <shop>سامانه ثبت مطلب | فروشگاه سی وسه</shop>
+    <shop>سامانه ثبت مطلب | فروشگاه آرمان ماسک</shop>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">

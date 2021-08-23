@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>وب سرویس های من | CioCe.ir</title>
+    <title>وب سرویس های من | armanmask.ir</title>
 @endsection
 
 @section("content")
@@ -162,7 +162,7 @@
                             position: 'top-end',
                             toast: true,
                             icon: 'success',
-                            title: 'CioCe',
+                            title: 'armanmask',
                             text: data.desc,
                             footer:"برای مشاهده لینک دانلود به ایمیل خود مراجعه فرمایید",
                             showConfirmButton: false,

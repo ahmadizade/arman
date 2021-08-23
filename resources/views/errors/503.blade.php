@@ -12,7 +12,7 @@
         <div class="col-12 text-center mt-5">
             <h1>Maintenance! Mode</h1>
             <h5>This site will open at the end of 2021</h5>
-            <p class="font-14 mt-2"><b>CioCe</b> Support <b>Team</b></p>
+            <p class="font-14 mt-2"><b>armanmask</b> Support <b>Team</b></p>
         </div>
     </div>
 </div>

@@ -36,7 +36,7 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'cioce.ir'),
+            'host' => env('MAIL_HOST', 'armanmask.ir'),
             'port' => env('MAIL_PORT', 465),
             'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
             'username' => env('MAIL_USERNAME'),
@@ -84,8 +84,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'support@cioce.ir'),
-        'name' => env('MAIL_FROM_NAME', 'CioCe.ir'),
+        'address' => env('MAIL_FROM_ADDRESS', 'support@armanmask.ir'),
+        'name' => env('MAIL_FROM_NAME', 'armanmask.ir'),
     ],
 
     /*

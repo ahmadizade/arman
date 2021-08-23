@@ -57,56 +57,18 @@
             <div id="content">
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-
-                    @if(isset($sltag))
-                        {{--Edit Image Product--}}
-                        <div class="container">
+                        <div class="container mt-4">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                        تغییر عکس برچسب
-                                    </div>
-                                        <div class="card-body">
-                                            <img src="/uploads/tag/{{$sltag->image}}" style="width:100px;height:100px;">+
-                                        <form method="POST" action="{{route('image_edit_tag_action')}}" enctype="multipart/form-data">
-                                            <input name="user_id" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}" readonly="readonly">
-                                            <input name="id" type="hidden" value="{{$sltag->id}}" readonly="readonly">
-                                            <div class="row">
-                                                <div class="col-12 col-md-6 col-lg-6 text-center">
-                                                    <div class="mt-3">
-                                                        <label for="image" class="form-label text-success">Picture</label>
-                                                        <input type="file" name="image">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 mt-3 buttons text-right">
-                                                    <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">آپلود عکس</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12">
-                                    <div class="card">
+                                    <div class="card admin-rtl">
                                         <div class="card-header text-right">
                                             ویرایش برچسب
                                         </div>
                                         <div class="card-body">
-                                            @if ($errors->any())
+                                            @if (Session::has("errors"))
                                                 <div class="alert alert-danger mb-2">
-                                                    <ul class="mb-0">
-                                                        @foreach ($errors->all() as $error)
-                                                            <li>{{ $error }}</li>
-                                                        @endforeach
+                                                    <ul class="mb-0 text-center">
+                                                        <li>{{ Session::get("errors") }}</li>
                                                     </ul>
                                                 </div>
                                             @endif
@@ -118,42 +80,36 @@
                                                     <input type="hidden" name="id" readonly value="{{$sltag->id}}">
                                                     <input type="hidden" name="user_id" readonly value="{{\Illuminate\Support\Facades\Auth::id()}}">
                                                     <div class="row text-right">
-                                                            <div class="col-12">
+                                                            <div class="col-12 col-md-6 col-lg-6">
                                                                 <div class="my-3">
                                                                     <label for="name" class="form-label ">نام فارسی برچسب</label>
                                                                     <input type="text" name="name" class="form-control text-right" value="{{$sltag->name}}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12">
+                                                            <div class="col-12 col-md-6 col-lg-6">
                                                                 <div class="my-3">
                                                                     <label for="english_name" class="form-label ">نام اینگلیسی برچسب</label>
                                                                     <input type="text" name="english_name" class="form-control text-right" value="{{$sltag->english_name}}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12">
-                                                                <div class="my-3">
-                                                                    <label for="slug" class="form-label ">نام اینگلیسی برچسب</label>
-                                                                    <input type="text" name="slug" class="form-control text-right" value="{{$sltag->slug}}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
+                                                            <div class="col-12 col-md-6 col-lg-6">
                                                                 <div class="my-3">
                                                                     <label for="seo_title" class="form-label ">SEO Title</label>
                                                                     <input type="text" name="seo_title" class="form-control text-right" value="{{$sltag->seo_title}}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12">
+                                                            <div class="col-12 col-md-6 col-lg-6">
                                                                 <div class="my-3">
                                                                     <label for="seo_description" class="form-label ">SEO Discription</label>
                                                                     <input type="text" name="seo_description" class="form-control text-right" value="{{$sltag->seo_description}}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12">
-                                                                <div class="my-3">
-                                                                    <label for="seo_canonical" class="form-label ">SECO Canonical</label>
-                                                                    <input type="text" name="seo_canonical" class="form-control text-right" value="{{$sltag->seo_canonical}}">
-                                                                </div>
-                                                            </div>
+{{--                                                            <div class="col-12">--}}
+{{--                                                                <div class="my-3">--}}
+{{--                                                                    <label for="seo_canonical" class="form-label ">SECO Canonical</label>--}}
+{{--                                                                    <input type="text" name="seo_canonical" class="form-control text-right" value="{{$sltag->seo_canonical}}">--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
                                                             <div class="col-12">
                                                                 <div class="my-3">
                                                                     <label for="description" class="form-label ">توضیحات برچسب</label>

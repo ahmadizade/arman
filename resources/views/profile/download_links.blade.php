@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#f7858d">
     <meta name="msapplication-navbutton-color" content="#f7858d">
     <meta name="apple-mobile-web-app-status-bar-style" content="#f7858d">
-    <title>لینک دانلود | Cioce</title>
+    <title>لینک دانلود | armanmask</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
     <!-- Plugins -->
@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-12 text-center">
                         <div class="copy-right-mini-footer">
-                            Copyright © 2019 Cioce
+                            Copyright © 2019 armanmask
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                                 position: 'top-end',
                                 toast: true,
                                 icon: 'success',
-                                title: 'CioCe',
+                                title: 'armanmask',
                                 text: data.desc,
                                 footer:"با تشکر از همراهی شما",
                                 showConfirmButton: false,

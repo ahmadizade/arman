@@ -38,7 +38,6 @@
                                     <ul class="post-meta align-items-center d-flex">
                                         <li>
                                             <div class="flex align-items-center">
-{{--                                                <img src="/img/user1.jpg" alt="تصویر">--}}
                                                 <span>دسته بندی : </span>
                                                 <span class="text-muted">{{$item->blogCategory->name ?? "ثبت نشده"}}</span>
                                             </div>

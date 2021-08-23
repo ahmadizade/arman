@@ -1,14 +1,14 @@
 @extends("layouts.master")
 
 @section("title")
-        <title>cioce.ir | درباره ما</title>
+        <title>armanmask.ir | درباره ما</title>
 @endsection
 
 @section("content")
     <main class="main-content dt-sl mb-3">
         <div class="container main-container">
             <div class="row">
-                <img src="/img/extra/seo-cioce-1.png" alt="about-us" class="w-100">
+                <img src="/img/extra/seo-armanmask-1.png" alt="about-us" class="w-100">
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6 text-right mt-3">
@@ -32,7 +32,7 @@
                     <p class="text-justify">مهم بودن سئو و یا بهینه سازی سایت را اکثر مدیران می دانند. قطعا افرادی که به دنبال رشد و به درامد رسیدن سایت می باشند و هیچگاه بی هدف و بدون برنامه جلو نمی روند. در دنیای امروزی اهمیت سئو و بهینه سازی سایت بسیار فراتر رفته است و آنقدر این مبحث سنگین و گسترده می باشد که با دریافت مشاوره سئو تازه می توان به درستی تصمیم گرفت و برای سایت خود برنامه ریزی کرد.
 
                     </p>
-                    <img src="/img/extra/seo-cioce.png" alt="Cioce-SEO" class="img-fluid w-100 mb-4 mt-4">
+                    <img src="/img/extra/seo-armanmask.png" alt="armanmask-SEO" class="img-fluid w-100 mb-4 mt-4">
                     <h2>مزیت های مشاوره سئو چیست</h2>
                     <p class="text-justify">بدون شک سایتی نمی تواند ادعا کند که ما بدون هیچ برنامه ای و همچنین بدون مشاوره سئو توانسته ایم به موفقیت برسیم و به درامد خوبی رسیده باشیم. درست است گاهی برخی از مدیران سایت ها با جستجو در زمینه SEO توانایی زدن سایت و همچنین بالا آوردن کلمات سبک را دارند ولی تنها نکته ای که مهم است آینده آن وبسایت خواهد بود.
 
@@ -51,7 +51,7 @@
                     </p>
                 </div>
                 <div class="col-12 col-md-6 col-lg-6 text-right mt-3">
-                    <img src="/img/extra/image-seo.png" alt="Cioce-SEO-2" class="img-fluid w-100 mb-4">
+                    <img src="/img/extra/image-seo.png" alt="armanmask-SEO-2" class="img-fluid w-100 mb-4">
                     <h2>کمپین های تبلیغاتی
                     </h2>
                     <p class="text-justify">یکی از بهترین روش های افزایش بازدید سایت که میتواند خیلی سریعتر از سئو بازدید سایت شما را افزایش بدهد، راه اندازی کمپین های تبلیغاتی می باشد.

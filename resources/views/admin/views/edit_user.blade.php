@@ -4,7 +4,7 @@
     @endif
 {{--@extends("admin.layouts.master")--}}
 {{--@section("title")--}}
-{{--    <title>CioCe.ir | فروشگاه آرمان</title>--}}
+{{--    <title>armanmask.ir | فروشگاه آرمان</title>--}}
 {{--@endsection--}}
 {{--@section("extra_css")--}}
 {{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">--}}

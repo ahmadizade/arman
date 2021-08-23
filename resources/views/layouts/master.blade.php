@@ -38,82 +38,11 @@
         <!-- Start QuickView Modal Area -->
         <div class="modal fade productsQuickView" id="productsQuickView" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
+                <div id="modal-content" class="modal-content">
                     <button type="button" class="close" data-dismiss="modal" aria-label="نزدیک">
                         <span aria-hidden="true"><i class="bx bx-x"></i></span>
                     </button>
-
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="products-image">
-                                <img src="/img/products/products-img1.jpg" alt="تصویر">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="products-content">
-                                <h3><a href="#">ماسک صورت </a></h3>
-
-                                <div class="price">
-                                    <span class="old-price">45000 تومان</span>
-                                    <span class="new-price">35000 تومان</span>
-                                </div>
-
-                                <div class="products-review">
-                                    <div class="rating">
-                                        <i class="bx bxs-star"></i>
-                                        <i class="bx bxs-star"></i>
-                                        <i class="bx bxs-star"></i>
-                                        <i class="bx bxs-star"></i>
-                                        <i class="bx bxs-star"></i>
-                                    </div>
-                                    <a href="#" class="rating-count">3 بررسی</a>
-                                </div>
-
-                                <ul class="products-info">
-                                    <li><span>فروشنده: </span> <a href="#">لرو</a></li>
-                                    <li><span>موجودی: </span> <a href="#">موجود است (7 مورد)</a></li>
-                                    <li><span>نوع محصولات: </span> <a href="#">ماسک</a></li>
-                                </ul>
-
-                                <div class="products-color-switch">
-                                    <h4>رنگ:</h4>
-
-                                    <ul>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="سیاه" class="color-black"></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="سفید" class="color-white"></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="سبز" class="color-green"></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="سبز زرد" class="color-yellowgreen"></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="چاله" class="color-teal"></a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="products-size-wrapper">
-                                    <h4>اندازه:</h4>
-
-                                    <ul>
-                                        <li><a href="#">کوچک</a></li>
-                                        <li class="active"><a href="#">متوسط</a></li>
-                                        <li><a href="#">بزرگ</a></li>
-                                        <li><a href="#">خیلی بزرگ</a></li>
-
-                                    </ul>
-                                </div>
-
-                                <div class="products-add-to-cart">
-                                    <div class="input-counter">
-                                        <span class="minus-btn"><i class="bx bx-minus"></i></span>
-                                        <input type="text" min="1" value="1">
-                                        <span class="plus-btn"><i class="bx bx-plus"></i></span>
-                                    </div>
-
-                                    <button type="submit" class="default-btn"><i class="flaticon-trolley"></i> افزودن به سبد خرید</button>
-                                </div>
-
-                                <a href="#" class="view-full-info">یا مشاهده اطلاعات کامل</a>
-                            </div>
-                        </div>
-                    </div>
+                    {{--CONTENT WITH AJAX--}}
                 </div>
             </div>
         </div>
@@ -445,6 +374,33 @@
                                     timer: 3000
                                 });
                             }
+                        }
+                    });
+                });
+            });
+        </script>
+        <script>
+            $( document ).ready(function() {
+                $('body').on('click','.quick-view-btn',function (e){
+                    // alert($(this).attr("data-id"))
+                    e.preventDefault();
+                    $.ajax({
+                        url : '{{route('quick_view')}}',
+                        type : 'POST',
+                        data : {'product_id' : $(this).attr("data-id")},
+                        success : function (data){
+                            console.log(data);
+                            if(data.status == "0") {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    toast: true,
+                                    icon: 'error',
+                                    text: data.desc,
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+                            }
+                            $('#modal-content').html(data);
                         }
                     });
                 });

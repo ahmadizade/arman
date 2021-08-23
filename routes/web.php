@@ -14,6 +14,10 @@ Route::get('/category', 'App\Http\Controllers\HomeController@category')->name("c
 Route::get('/single-category/{slug}', 'App\Http\Controllers\HomeController@singleCategory')->name("single_category");
 Route::get('/tag/{slug}', 'App\Http\Controllers\HomeController@tag')->name("tag");
 
+Route::post('/quick-view', 'App\Http\Controllers\HomeController@quickView')->name("quick_view");
+
+
+
 Route::get('/cache', function (){
     \Illuminate\Support\Facades\Artisan::call('cache:clear');
     \Illuminate\Support\Facades\Artisan::call('config:clear');
@@ -31,8 +35,8 @@ Route::get('/verify-email', 'App\Http\Controllers\Controller@build_mail')->name(
 Route::get('/incoming-download-link', 'App\Http\Controllers\ProfileController@incomingDownloadLink')->name('incoming_download_link');
 
 // admin
-Route::middleware(['admin'])->prefix("cioce")->group(function () {
-    Route::get('/', 'App\Http\Controllers\AdminController@cioce')->name("cioce");
+Route::middleware(['admin'])->prefix("armanmask")->group(function () {
+    Route::get('/', 'App\Http\Controllers\AdminController@armanmask')->name("armanmask");
     //User Manager
     Route::post('/search-user', 'App\Http\Controllers\AdminController@search_user')->name("search_user")->middleware("ajax", "verify.domain");
     Route::post('/save-user', 'App\Http\Controllers\AdminController@save_user')->name("save_user")->middleware("ajax", "verify.domain");

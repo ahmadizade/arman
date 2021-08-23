@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>تنظیمات کاربری | CioCe.ir</title>
+    <title>تنظیمات کاربری | armanmask.ir</title>
 @endsection
 
 @section("content")
@@ -120,7 +120,7 @@
                                                                    id="customCheck4">
                                                             <label class="custom-control-label text-justify"
                                                                    for="customCheck4">
-                                                                اشتراک در خبرنامه CioCe
+                                                                اشتراک در خبرنامه armanmask
                                                             </label>
                                                         </div>
                                                     </div>

@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-<title>CioCe.ir | سبد خرید</title>
+<title>armanmask.ir | سبد خرید</title>
 @endsection
 
 @section('extra_css')
@@ -98,7 +98,7 @@
                                                                             </div>
                                                                             <ul class="checkout-time-table-subtitle-bar">
                                                                                 <li>
-                                                                                    شرکت در قرعه کشی بزرگ سیوپی
+                                                                                    شرکت در قرعه کشی بزرگ آرمان
                                                                                 </li>
                                                                             </ul>
                                                                         </div>
@@ -270,7 +270,7 @@
                                                     </span></span><span>وابسته به کالا</span>
                                                 </li>
                                                 <li class="checkout-club-container">
-                                    <span>سیوکلاب<span class="help-sn" data-toggle="tooltip" data-html="true"
+                                    <span>آرمان کلاب<span class="help-sn" data-toggle="tooltip" data-html="true"
                                                         data-placement="bottom"
                                                         title="<div class='help-container is-right'><div class='help-arrow'></div><p class='help-text'>با امتیازهای خود در باشگاه مشتریان آرمان (سیو کلاب) از بین جوایز متنوع انتخاب کنید.</p></div>">
                                             <span class="mdi mdi-information-outline"></span>

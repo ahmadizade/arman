@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>علاقمندی های من | CioCe.ir</title>
+    <title>علاقمندی های من | armanmask.ir</title>
 @endsection
 
 @section("content")
@@ -184,9 +184,9 @@
                                 position: 'top-end',
                                 toast: true,
                                 icon: 'error',
-                                title: "CioCe",
+                                title: "armanmask",
                                 text: data.desc,
-                                footer: "www.cioce.ir",
+                                footer: "www.armanmask.ir",
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -196,9 +196,9 @@
                                 position: 'top-end',
                                 toast: true,
                                 icon: 'success',
-                                title: "CioCe",
+                                title: "armanmask",
                                 text: data.desc,
-                                footer: "www.cioce.ir",
+                                footer: "www.armanmask.ir",
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -224,9 +224,9 @@
                                 position: 'top-end',
                                 toast: true,
                                 icon: 'error',
-                                title: "CioCe",
+                                title: "armanmask",
                                 text: data.desc,
-                                footer: "www.cioce.ir",
+                                footer: "www.armanmask.ir",
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -236,9 +236,9 @@
                                 position: 'top-end',
                                 toast: true,
                                 icon: 'success',
-                                title: "CioCe",
+                                title: "armanmask",
                                 text: data.desc,
-                                footer: "www.cioce.ir",
+                                footer: "www.armanmask.ir",
                                 showConfirmButton: false,
                                 timer: 3000
                             });

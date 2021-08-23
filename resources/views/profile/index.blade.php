@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-<title>پروفایل کاربری | CioCe.ir</title>
+<title>پروفایل کاربری | armanmask.ir</title>
 @endsection
 
 @section("content")

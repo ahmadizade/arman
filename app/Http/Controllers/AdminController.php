@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogTag;
 use App\Models\Category;
 use App\Models\Category_variety;
 use App\Models\Contact;
@@ -28,7 +29,7 @@ use Yajra\DataTables\Facades\DataTables;
 class AdminController extends Controller
 {
     //admin-page
-    public function cioce()
+    public function armanmask()
     {
         $lastmonth = DB::table('users')->where('created_at', ">=", Carbon::today()->subMonth())->count();
         $lastweek = DB::table('users')->where('created_at', ">=", Carbon::today()->subWeek())->count();
@@ -43,7 +44,7 @@ class AdminController extends Controller
     }
 
     //admin-page-login
-    public function cioce_login()
+    public function armanmask_login()
     {
         return view('admin.login');
     }
@@ -70,7 +71,7 @@ class AdminController extends Controller
     }
 
 
-    public function cioce_register()
+    public function armanmask_register()
     {
         return view('admin.register');
     }
@@ -382,8 +383,9 @@ class AdminController extends Controller
 
     public function Product()
     {
-        $last_product = Product::where('delete', 0)->where('type', "table")->orderByDesc('id')->paginate(3);
-        return view('admin.views.product', ['last_product' => $last_product]);
+        $last_product = Product::where('delete', 0)->orderByDesc('id')->paginate(10);
+        $Product_tag = Product_tag::where('delete', 0)->get();
+        return view('admin.views.product', ['last_product' => $last_product, 'Product_tag' => $Product_tag]);
     }
 
     public function Product_GetStore(Request $request)
@@ -427,11 +429,15 @@ class AdminController extends Controller
 
     public function addTag(Request $request){
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:2|max:255|unique:product_tag',
+            'name' => 'required',
+            'english_name' => 'nullable',
+            'seo_title' => 'required',
+            'seo_description' => 'required',
+            'description' => 'nullable',
         ]);
 
         if ($validator->fails()) {
-            session()->flash("error",$validator->errors()->first());
+            session()->flash("errors",$validator->errors()->first());
             return back();
         }
 
@@ -439,6 +445,10 @@ class AdminController extends Controller
             "name" => $request->name,
             "user_id" => Auth::id(),
             "slug" => self::slug($request->name),
+            "english_name" => $request->english_name,
+            "seo_title" => $request->seo_title,
+            "description" => $request->description,
+//            "seo_description" => $request->seo_description,
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now()
         ]);
@@ -501,43 +511,31 @@ class AdminController extends Controller
 
     public function addTagg(Request $request){
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:2|max:255',
-            'seo_title' => 'nullable|max:65',
-            'seo_description' => 'nullable',
-            'seo_canonical' => 'nullable',
-            'english_name' => 'required|min:2|max:255',
-            'discription' => 'nullable|min:2|max:9000000',
-            'image' => 'required|max:9048',
+            'name' => 'required',
+            'english_name' => 'nullable',
+            'seo_title' => 'required',
+            'seo_description' => 'required',
+            'description' => 'nullable',
         ]);
 
         if ($validator->fails()) {
-            session()->flash("error",$validator->errors()->first());
+            session()->flash("errors",$validator->errors()->first());
             return back();
-        }
-
-        $image = null;
-        if ($request->has('image')) {
-            $imagePath = "/uploads/tag/";
-            $file = $request->file('image');
-            $image = $file->getClientOriginalName();
-            if (file_exists(public_path($imagePath) . $image)) {
-                $image = Carbon::now()->timestamp . $image;
-            }
-            $file->move(public_path($imagePath), $image);
         }
 
         Product_tag::create([
             "name" => $request->name,
+            "user_id" => Auth::id(),
             "slug" => self::slug($request->name),
-            "seo_title" => $request->seo_title,
-            "seo_description" => $request->seo_description,
-            "seo_canonical" => $request->seo_canonical,
             "english_name" => $request->english_name,
-            "discription" => $request->discription,
-            "image" => $image,
+            "seo_title" => $request->seo_title,
+            "description" => $request->description,
+            "seo_description" => $request->seo_description,
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now()
         ]);
 
-        session()->flash("error","برچسب با موفقیت ثبت شد");
+        Session::flash('status',"افزودن برچسب با موفقیت انجام شد");
         return back();
     }
 
@@ -571,7 +569,7 @@ class AdminController extends Controller
             'englishName' => 'nullable|min:2|max:255',
             'category' => 'nullable',
             'category_variety' => 'nullable',
-            'tag' => 'nullable',
+            'tag' => 'required',
             'price' => 'required|max:255',
             'discount' => 'nullable|max:3',
             'thumbnail' => 'nullable|max:2048',
@@ -583,30 +581,30 @@ class AdminController extends Controller
         ]);
 
         if ($validator->fails()) {
-            session()->flash("error",$validator->errors()->first());
+            session()->flash("errors",$validator->errors()->first());
             return back();
         }
 
-        $image = null;
-        if ($request->has('image')) {
-            $imagePath = "/uploads/products/";
-            $file = $request->file('image');
-            $image = $file->getClientOriginalName();
-            if (file_exists(public_path($imagePath) . $image)) {
-                $image = Carbon::now()->timestamp . $image;
-            }
-            $file->move(public_path($imagePath), $image);
-        }
+//        $image = null;
+//        if ($request->has('image')) {
+//            $imagePath = "/uploads/products/";
+//            $file = $request->file('image');
+//            $image = $file->getClientOriginalName();
+//            if (file_exists(public_path($imagePath) . $image)) {
+//                $image = Carbon::now()->timestamp . $image;
+//            }
+//            $file->move(public_path($imagePath), $image);
+//        }
 
         $thumbnail = null;
         if ($request->has('thumbnail')) {
-            $imagePath = "/uploads/thumbnail/";
-            $image = $request->file('thumbnail');
-            $thumbnail = $image->getClientOriginalName();
-            if (file_exists(public_path($imagePath) . $thumbnail)) {
+            $image2Path = "/uploads/thumbnail/";
+            $image2 = $request->file('thumbnail');
+            $thumbnail = $image2->getClientOriginalName();
+            if (file_exists(public_path($image2Path) . $thumbnail)) {
                 $thumbnail = Carbon::now()->timestamp . $thumbnail;
             }
-            $image->move(public_path($imagePath), $thumbnail);
+            $image2->move(public_path($image2Path), $thumbnail);
         }
         Product::create([
            'product_name' => $request->name,
@@ -614,7 +612,7 @@ class AdminController extends Controller
            'product_slug' => self::slug($request->name),
            'category_id' => $request->category,
            'category_variety' => $request->category_variety,
-           'tag_id' => json_encode($request->tag),
+           'tag_id' => json_encode($request->tag, JSON_NUMERIC_CHECK),
            'discount' => $request->discount,
            'price' => str_replace(',', '' , $request->price),
            'quantity' => 20000,
@@ -622,7 +620,7 @@ class AdminController extends Controller
            'user_id' => Auth::id(),
            'product_desc' => $request->description,
             'thumbnail' => $thumbnail,
-            "image" => $image,
+//            "image" => $image,
             "created_at" => Carbon::now(),
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
@@ -633,7 +631,7 @@ class AdminController extends Controller
     }
 
     public function deleteProduct($id){
-        Product::where('id' , $id)->where('type', "table")->update([
+        Product::where('id' , $id)->update([
             'delete' => 1,
             'deleted_at' => Carbon::now(),
         ]);
@@ -642,12 +640,13 @@ class AdminController extends Controller
     }
 
     public function editProduct($id){
-        $product = Product::where('id' , $id)->where('type', "table")->first();
-        return view('admin.views.product_edit', ['product' => $product]);
+        $product = Product::where('id' , $id)->where('delete', 0)->first();
+        $Product_tag = Product_tag::where('delete', 0)->get();
+        return view('admin.views.product_edit', ['product' => $product, 'Product_tag' => $Product_tag]);
     }
 
     public function showProduct(){
-        $last_product = Product::orderByDesc('id')->where('type', "table")->paginate(15);
+        $last_product = Product::orderByDesc('id')->paginate(15);
         return view('admin.views.product_show', ['last_product' => $last_product]);
     }
 
@@ -717,12 +716,12 @@ class AdminController extends Controller
             'english_name' => 'required|min:2|max:255',
             'seo_title' => 'nullable',
             'seo_description' => 'nullable',
-            'seo_canonical' => 'nullable',
-            'discription' => 'nullable|max:999999',
+//            'seo_canonical' => 'nullable',
+            'description' => 'nullable|max:999999',
         ]);
 
         if ($validator->fails()) {
-            session::flash("error",$validator->errors()->first());
+            session::flash("errors",$validator->errors()->first());
             return back();
         }
 
@@ -733,8 +732,8 @@ class AdminController extends Controller
             'slug' => self::slug($request->name),
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
-            'discription' => $request->description,
-            'seo_canonical' => $request->seo_canonical,
+            'description' => $request->description,
+//            'seo_canonical' => $request->seo_canonical,
         ]);
         session()->flash("status","برچسب با موفقیت ویرایش گردید");
         return back();
@@ -746,30 +745,18 @@ class AdminController extends Controller
                 'name' => 'required|min:2|max:255',
                 'englishName' => 'required|min:2|max:255',
                 'category' => 'required',
-                'category_variety' => 'required',
-                'tag' => 'nullable',
+//                'category_variety' => 'required',
+                'tag' => 'required',
                 'price' => 'nullable|max:255',
                 'discount' => 'nullable|max:3',
                 'description' => 'nullable|min:3|max:9000000',
-                'framework' => 'required',
-                'framework_version' => 'nullable',
-                'framework_details' => 'nullable|min:3|max:9000000',
-                'special_features' => 'nullable|min:3|max:9000000',
-                'short_description_of_backend' => 'nullable|min:3|max:9000000',
-                'admin_pannel_features' => 'nullable|min:3|max:9000000',
-                'framework_frontend_details' => 'nullable|min:3|max:9000000',
-                'other_plugins' => 'nullable|min:3|max:9000000',
-                'data_usage' => 'nullable',
-                'admin_pannel' => 'nullable',
-                'framework_frontend' => 'nullable',
-                'framework_frontend_version' => 'nullable',
                 'seo_title' => 'nullable',
                 'seo_description' => 'nullable',
                 'seo_canonical' => 'nullable',
             ]);
 
         if ($validator->fails()) {
-            session::flash("error",$validator->errors()->first());
+            session::flash("errors",$validator->errors()->first());
             return back();
         }
 
@@ -778,8 +765,8 @@ class AdminController extends Controller
             'english_name' => $request->englishName,
             'product_slug' => self::slug($request->name),
             'category_id' => $request->category,
-            'category_variety' => $request->category_variety,
-            'tag_id' => json_encode($request->tag),
+//            'category_variety' => $request->category_variety,
+            'tag_id' => json_encode($request->tag, JSON_NUMERIC_CHECK),
             'discount' => $request->discount,
             'price' => str_replace(',', '' , $request->price),
             'quantity' => 20000,
@@ -815,7 +802,7 @@ class AdminController extends Controller
             'id' => 'required',
             'user_id' => 'required',
             'thumbnail' => 'nullable|max:2048',
-            'image' => 'nullable|max:2048',
+//            'image' => 'nullable|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -823,16 +810,16 @@ class AdminController extends Controller
             return back();
         }
 
-        $image = null;
-        if ($request->has('image')) {
-            $imagePath = "/uploads/products/";
-            $file = $request->file('image');
-            $image = $file->getClientOriginalName();
-            if (file_exists(public_path($imagePath) . $image)) {
-                $image = Carbon::now()->timestamp . $image;
-            }
-            $file->move(public_path($imagePath), $image);
-        }
+//        $image = null;
+//        if ($request->has('image')) {
+//            $imagePath = "/uploads/products/";
+//            $file = $request->file('image');
+//            $image = $file->getClientOriginalName();
+//            if (file_exists(public_path($imagePath) . $image)) {
+//                $image = Carbon::now()->timestamp . $image;
+//            }
+//            $file->move(public_path($imagePath), $image);
+//        }
 
         $thumbnail = null;
         if ($request->has('thumbnail')) {
@@ -848,10 +835,10 @@ class AdminController extends Controller
         Product::where('id' , $request->id)->update([
             'user_id' => Auth::id(),
             'thumbnail' => $thumbnail,
-            "image" => $image,
+//            "image" => $image,
             'updated_at' => Carbon::now(),
         ]);
-        session()->flash("status","تصاویر محصول با موفقیت ویرایش گردید");
+        session()->flash("status","عکس محصول با موفقیت ویرایش گردید");
         return back();
     }
 

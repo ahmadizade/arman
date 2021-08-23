@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("shop")
-    <shop>سامانه ثبت محصول | فروشگاه سی وسه</shop>
+    <shop>سامانه ثبت محصول | فروشگاه آرمان ماسک</shop>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -74,17 +74,15 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-12 col-lg-12">
-                                <div class="card">
+                                <div class="card admin-rtl">
                                     <div class="card-header text-right">
-                                        ثبت محصول
+                                        ثبت محصول جدید
                                     </div>
-                                    <div class="card-body">
-                                        @if ($errors->any())
+                                    <div class="card-body admin-rtl">
+                                        @if (Session::has("errors"))
                                             <div class="alert alert-danger mb-2">
-                                                <ul class="mb-0">
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
+                                                <ul class="mb-0 text-center">
+                                                    <li>{{ Session::get("errors") }}</li>
                                                 </ul>
                                             </div>
                                         @endif
@@ -94,12 +92,12 @@
                                         <form id="make_product" action="{{route('add_product')}}" method="POST" enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="my-3">
+                                                    <div class="my-3 text-right">
                                                         <label for="category" class="form-label ">دسته بندی</label>
                                                         <select id="select_category" name="category" class="form-control">
-                                                            @if(isset($category))
+                                                        @if(isset($category))
                                                                 @foreach($category as $item)
-                                                                    <option id="select_item" value="{{$item->id}}" @if($item->id == old('category')) selected @endif>
+                                                                    <option id="select_item" value="{{$item->id}}">
                                                                         {{$item->name}}
                                                                     </option>
                                                                 @endforeach
@@ -108,22 +106,21 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="my-3">
-                                                        <label for="category_variety" class="form-label ">زیردسته ها</label>
-                                                        <select id="category_variety" name="category_variety" class="form-control">
+{{--                                                <div class="col-12 col-md-6 col-lg-6">--}}
+{{--                                                    <div class="my-3 text-right">--}}
+{{--                                                        <label for="category_variety" class="form-label ">زیردسته ها</label>--}}
+{{--                                                        <select id="category_variety" name="category_variety" class="form-control">--}}
 
-                                                        </select>
-                                                    </div>
-                                                </div>
-
+{{--                                                        </select>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                                 <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="my-3">
+                                                    <div class="my-3 text-right">
                                                         <label for="tag" class="form-label ">برچسب ها</label>
                                                         <select name="tag[]" class="form-control select2" multiple>
-                                                            @if(isset($product_tag))
-                                                                @foreach($product_tag as $item)
-                                                                    <option value="{{$item->id}}" @if($item->id == old('tag')) selected @endif>
+                                                            @if(isset($Product_tag))
+                                                                @foreach($Product_tag as $item)
+                                                                    <option value="{{$item->id}}">
                                                                         {{$item->name}}
                                                                     </option>
                                                                 @endforeach
@@ -134,95 +131,84 @@
                                                 <input readonly type="hidden" name="type" value="table">
 
                                                 <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="my-3">
+                                                    <div class="my-3 text-right">
                                                         <label for="name" class="form-label ">نام محصول (فارسی)</label>
                                                         <input type="text" name="name" class="form-control" placeholder="مثلا : ساعت هوشمند سامسونگ">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="my-3">
+                                                    <div class="my-3 text-right">
                                                         <label for="englishName" class="form-label ">نام محصول (اینگلیسی)</label>
                                                         <input type="text" name="englishName" class="form-control" placeholder="مثلا : Smart Watch Samsung">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="my-3">
-                                                        <label for="discount" class="form-label "> (لطفا مقدار درصد قرار ندهید)   تخفیف</label>
+                                                    <div class="my-3 text-right">
+                                                        <label for="discount" class="form-label ">تخفیف</label>
                                                         <input type="text" name="discount" class="form-control" placeholder="مثلا : 20">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12">
-                                                    <div class="my-3">
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3 text-right">
                                                         <label for="price" class="form-label ">قیمت</label>
                                                         <input type="text" name="price" class="form-control" placeholder="مثلا : 2,245,000">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12">
-                                                    <div class="my-3">
+                                                    <div class="my-3 text-right">
                                                         <label for="description" class="form-label ">توضیحات</label>
                                                         <textarea class="form-control textarea-editor" name="description" id="description" rows="10" aria-hidden="true" wfd-invisible="true"></textarea>
                                                     </div>
                                                 </div>
 
-
-
-
-
-
-
                                                 <div class="col-12 col-lg-12">
                                                     <div class="row">
-                                                        <div class="col-10 col-lg-10">
+                                                        <div class="col-12">
                                                             <div class="input-group mb-3">
                                                                 <div class="input-group-text"> عنوان سئو </div>
                                                                 <input type="text" class="form-control" autocomplete="off" value="{{ old("seo_title") }}" name="seo_title">
                                                             </div>
                                                         </div>
-                                                        <div class="col-2 col-lg-2">
-                                                            <div class="font-12 fw-normal ms-1" id="title_count"></div>
-                                                        </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-10 col-lg-10">
+                                                        <div class="col-12">
                                                             <div class="input-group mb-3">
                                                                 <div class="input-group-text"> توضیحات سئو </div>
                                                                 <input type="text" class="form-control" autocomplete="off" value="{{ old("seo_description") }}" name="seo_description">
                                                             </div>
                                                         </div>
-                                                        <div class="col-2 col-lg-2">
-                                                            <div class="font-12 fw-normal ms-1" id="description_count"></div>
+                                                    </div>
+                                                </div>
+
+{{--                                                <div class="col-12 col-lg-12">--}}
+{{--                                                    <div class="input-group mb-3">--}}
+{{--                                                        <span class="input-group-text">آدرس URL Canonical</span>--}}
+{{--                                                        <input type="text" class="form-control ltr" autocomplete="off" value="{{ old("seo_canonical") }}" name="seo_canonical">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+                                                <div class="row my-3 text-right">
+{{--                                                    <div class="col-12">--}}
+{{--                                                        <div class="mt-3">--}}
+{{--                                                            <label for="image" class="form-label text-success">عکس کوچک (width : 658 - height : 800)</label>--}}
+{{--                                                            <input type="file" name="image">--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+
+                                                    <div class="col-12 ">
+                                                        <div class="mt-3">
+                                                            <label for="thumbnail" class="form-label text-primary">عکس / width : 658 - height : 800</label>
+                                                            <input type="file" name="thumbnail">
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-lg-12">
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text">آدرس URL Canonical</span>
-                                                        <input type="text" class="form-control ltr" autocomplete="off" value="{{ old("seo_canonical") }}" name="seo_canonical">
-                                                    </div>
-                                                </div>
 
-                                                <div class="col-12 col-md-3 col-lg-3 text-center">
-                                                    <div class="mt-3">
-                                                        <label for="image" class="form-label text-success">عکس بزرگ</label>
-                                                        <input type="file" name="image">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-12 col-md-3 col-lg-3 text-center">
-                                                    <div class="mt-3">
-                                                        <label for="thumbnail" class="form-label text-primary">عکس کوچک</label>
-                                                        <input type="file" name="thumbnail">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-12 mt-3 col-md-3 col-lg-3 buttons text-center">
+                                                <div class="col-12 mt-3 buttons text-right">
                                                     <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">ثبت محصول</button>
-                                                    <a href="" class="a-button btn btn-danger btn-sm">حذف محصول</a>
                                                 </div>
                                             </div>
                                         </form>
@@ -232,13 +218,13 @@
                                     <div class="card-header text-right">
                                         آخرین محصولات افزوده شده
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body admin-rtl">
                                         @if (isset($last_product))
                                             <div class="table-responsive">
-                                                <table class="table table-hover">
+                                                <table class="table table-hover text-center">
                                                     <thead class="table-light">
                                                     <tr>
-                                                        <th>عکس</th>
+                                                        <th>#</th>
                                                         <th>نام محصول</th>
                                                         <th>قیمت</th>
                                                         <th>تخفیف</th>
@@ -247,9 +233,12 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody class="border">
+                                                    @php
+                                                    $i = 1;
+                                                    @endphp
                                                     @foreach($last_product as $item)
                                                         <tr>
-                                                            <td><img class="img-fluid" src="/uploads/thumbnail/{{$item->thumbnail}}" style="max-width: 150px"></td>
+                                                            <td>{{$i++}}</td>
                                                             <td>{{$item->product_name}}</td>
                                                             <td>{{number_format($item->price)}}</td>
                                                             <td>{{$item->discount}}%</td>
@@ -272,7 +261,6 @@
                     </div>
                 </div>
                     {{--Add TAG--}}
-
                 </div>
         </div>
     </div>
@@ -310,24 +298,24 @@
     <script src="/admin/js/admin_jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
-    <script>
-        $( document ).ready(function() {
-            $('#select_category').on('change', function () {
-                $category_id = $(this).val();
-                $.ajax({
-                    url : "{{route('get_variety')}}",
-                    type : "POST",
-                    data : {'category_id' : $category_id},
-                    success : function (data) {
-                        $('#category_variety').empty();
-                        $.each(data , function (key , value) {
-                            $('#category_variety').append('<option value=' + value["id"] + '>' + value['name'] + "</option>");
-                        })
-                    }
-                });
-            });
-        });
-    </script>
+{{--    <script>--}}
+{{--        $( document ).ready(function() {--}}
+{{--            $('#select_category').on('change', function () {--}}
+{{--                $category_id = $(this).val();--}}
+{{--                $.ajax({--}}
+{{--                    url : "{{route('get_variety')}}",--}}
+{{--                    type : "POST",--}}
+{{--                    data : {'category_id' : $category_id},--}}
+{{--                    success : function (data) {--}}
+{{--                        $('#category_variety').empty();--}}
+{{--                        $.each(data , function (key , value) {--}}
+{{--                            $('#category_variety').append('<option value=' + value["id"] + '>' + value['name'] + "</option>");--}}
+{{--                        })--}}
+{{--                    }--}}
+{{--                });--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
 
 
     <script>

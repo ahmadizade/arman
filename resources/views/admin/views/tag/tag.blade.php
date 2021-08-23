@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("title")
-    <title>CioCe.ir | مدیریت کاربران</title>
+    <title>armanmask.ir | مدیریت کاربران</title>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -35,9 +35,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
     @include("admin.views.partials.sidebar")
-
     <!-- Content Wrapper -->
-
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
@@ -50,15 +48,13 @@
                             <div class="col-xl-12 col-lg-12">
                                 <div class="card">
                                     <div class="card-header text-right">
-                                        مدیریت برچسب ها
+                                        مدیریت برچسب محصولات
                                     </div>
-                                    <div class="card-body">
-                                        @if ($errors->any())
+                                    <div class="card-body admin-rtl">
+                                        @if (Session::has("errors"))
                                             <div class="alert alert-danger mb-2">
-                                                <ul class="mb-0">
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
+                                                <ul class="mb-0 text-center">
+                                                    <li>{{ Session::get("errors") }}</li>
                                                 </ul>
                                             </div>
                                         @endif
@@ -67,48 +63,48 @@
                                         @endif
                                         <form action="{{route('add_tag')}}" method="POST" enctype="multipart/form-data">
                                             <div class="row text-right">
-                                                <div class="col-12">
+                                                <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
                                                         <label for="name" class="form-label ">نام فارسی برچسب</label>
                                                         <input type="text" name="name" class="form-control text-right" placeholder="مثلا : کالای دیجیتال">
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
                                                         <label for="english_name" class="form-label ">نام اینگلیسی برچسب</label>
                                                         <input type="text" name="english_name" class="form-control text-right" placeholder="مثلا : نام اینگلیسی">
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
                                                         <label for="seo_title" class="form-label ">SEO Title</label>
                                                         <input type="text" name="seo_title" class="form-control text-right" placeholder="مثلا : SEO Title">
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3">
-                                                        <label for="seo_description" class="form-label ">SEO Discription</label>
+                                                        <label for="seo_description" class="form-label ">SEO Description</label>
                                                         <input type="text" name="seo_description" class="form-control text-right" placeholder="مثلا : SEO Discription">
                                                     </div>
                                                 </div>
+{{--                                                <div class="col-12">--}}
+{{--                                                    <div class="my-3">--}}
+{{--                                                        <label for="seo_canonical" class="form-label ">SECO Canonical</label>--}}
+{{--                                                        <input type="text" name="seo_canonical" class="form-control text-right" placeholder="مثلا : SECO Canonical">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                                 <div class="col-12">
                                                     <div class="my-3">
-                                                        <label for="seo_canonical" class="form-label ">SECO Canonical</label>
-                                                        <input type="text" name="seo_canonical" class="form-control text-right" placeholder="مثلا : SECO Canonical">
+                                                        <label for="description" class="form-label ">توضیحات برچسب</label>
+                                                        <input type="text" name="description" class="form-control text-right textarea-editor">
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
-                                                    <div class="my-3">
-                                                        <label for="discription" class="form-label ">توضیحات برچسب</label>
-                                                        <input type="text" name="discription" class="form-control text-right textarea-editor">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="my-3">
-                                                        <label for="image" class="form-label ">عکس</label>
-                                                        <input type="file" name="image" class="form-control text-right">
-                                                    </div>
-                                                </div>
+{{--                                                <div class="col-12">--}}
+{{--                                                    <div class="my-3">--}}
+{{--                                                        <label for="image" class="form-label ">عکس</label>--}}
+{{--                                                        <input type="file" name="image" class="form-control text-right">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                                 <div class="col-12 buttons text-right">
                                                     <button class="btn btn-success btn-sm" type="submit">افزودن برچسب</button>
                                                 </div>
@@ -120,15 +116,15 @@
                         </div>
                         <div class="card">
                             <div class="card-header text-right">
-                                آخرین محصولات افزوده شده
+                                آخرین برچسب های افزوده شده
                             </div>
-                            <div class="card-body">
+                            <div class="card-body admin-rtl">
                                 @if (isset($last_tag))
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover text-center">
                                             <thead class="table-light">
                                             <tr>
-                                                <th>عکس</th>
+                                                <th>#</th>
                                                 <th>نام محصول</th>
                                                 <th>نام لاتین</th>
                                                 <th>اسلاگ</th>
@@ -137,9 +133,12 @@
                                             </tr>
                                             </thead>
                                             <tbody class="border">
+                                            @php
+                                                $i = 1;
+                                            @endphp
                                             @foreach($last_tag as $item)
                                                 <tr>
-                                                    <td><img class="img-fluid" src="/uploads/category/{{$item->image}}" style="max-width: 150px"></td>
+                                                    <td>{{$i++}}</td>
                                                     <td>{{$item->name}}</td>
                                                     <td>{{$item->english_name}}</td>
                                                     <td>{{$item->slug}}</td>

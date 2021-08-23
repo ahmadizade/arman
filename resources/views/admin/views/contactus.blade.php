@@ -97,7 +97,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content bg-gradient-light">
                             <div class="modal-header bg-gradient-info border-bottom-info">
-                                <h5 class="text-white" style="font-size: 15px">www.CioCe.ir</h5>
+                                <h5 class="text-white" style="font-size: 15px">www.armanmask.ir</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span>&times;</span>
                                 </button>
@@ -395,7 +395,7 @@
             ajax: {
                 dataType: 'json',
                 type: 'GET',
-                url: '/cioce/contact-us/get-user',
+                url: '/armanmask/contact-us/get-user',
             },
             buttons: [
                 // 'copy', 'csv', 'excel', 'pdf', 'print'

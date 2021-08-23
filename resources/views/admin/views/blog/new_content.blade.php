@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("shop")
-    <shop>سامانه ثبت مطلب | فروشگاه سی وسه</shop>
+    <shop>سامانه ثبت مطلب | فروشگاه آرمان ماسک</shop>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -61,12 +61,10 @@
                                     ساخت محتوای جدید
                                 </div>
                                 <div class="card-body">
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger mb-2">
-                                            <ul class="mb-0">
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
+                                    @if (Session::has("errors"))
+                                        <div class="alert alert-danger mb-2 admin-rtl">
+                                            <ul class="mb-0 text-center">
+                                                <li>{{ Session::get("errors") }}</li>
                                             </ul>
                                         </div>
                                     @endif
@@ -80,7 +78,7 @@
                                                     <label for="blog_category" class="form-label">دسته بندی</label>
                                                     <select style="width: 100%" name="blog_category" class="form-control select2">
                                                         <option selected>انتخاب دسته</option>
-                                                    @if(isset($blog_category))
+                                                        @if(isset($blog_category))
                                                             @foreach($blog_category as $item)
                                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                             @endforeach
@@ -131,19 +129,19 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <div class="my-3">
                                                         <label for="thumbnail" class="form-label ">Thumbnail (Width : 790 , Height : 600)</label>
                                                         <input type="file" class="form-control" name="thumbnail">
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
-                                                    <div class="my-3">
+{{--                                                <div class="col-6">--}}
+{{--                                                    <div class="my-3">--}}
 
-                                                        <label for="image" class="form-label ">Image (Width : 790 , Height : 600)</label>
-                                                        <input type="file" class="form-control" name="image">
-                                                    </div>
-                                                </div>
+{{--                                                        <label for="image" class="form-label ">Image (Width : 790 , Height : 600)</label>--}}
+{{--                                                        <input type="file" class="form-control" name="image">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                             </div>
                                             <div class="col-12 buttons text-right">
                                                 <button class="btn btn-success btn-sm" type="submit">افزودن محتوا</button>

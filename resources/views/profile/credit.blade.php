@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-<title>کیف پول من | CioCe.ir</title>
+<title>کیف پول من | armanmask.ir</title>
 @endsection
 
 @section("content")

@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
-@section("shop")
-    <shop>سامانه ثبت محصول | فروشگاه سی وسه</shop>
+@section("title")
+    <title>سامانه مدیریت محصول | فروشگاه آرمان</title>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -78,10 +78,10 @@
                                     <div class="card-header text-right">
                                         محصولات افزوده شده
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body admin-rtl">
                                         @if (isset($last_product))
                                             <div class="table-responsive">
-                                                <table class="table table-hover">
+                                                <table class="table table-hover text-center">
                                                     <thead class="table-light">
                                                     <tr>
                                                         <th>عکس</th>
@@ -95,10 +95,14 @@
                                                     <tbody class="border">
                                                     @foreach($last_product as $item)
                                                         <tr>
-                                                            <td><img class="img-fluid" src="/uploads/thumbnail/{{$item->thumbnail ?? "بدون عکس"}}" style="max-width: 150px"></td>
+                                                            <td><img class="img-fluid" src="/uploads/thumbnail/{{$item->thumbnail ?? "بدون عکس"}}" style="max-width: 50px"></td>
                                                             <td>{{$item->product_name}}</td>
                                                             <td>{{number_format($item->price)}}</td>
+                                                            @if($item->discount > 0)
                                                             <td>{{$item->discount}}%</td>
+                                                            @else
+                                                                <td>بدون تخفیف</td>
+                                                            @endif
                                                             <td>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d") }}</td>
                                                             <td>
                                                                 <a href="{{route('delete_product' , $item->id)}}" class="btn btn-danger btn-sm">حذف</a>

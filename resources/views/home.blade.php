@@ -142,26 +142,7 @@
     <!-- End Banner Categories Area -->
 
     <!-- Start Categories Area -->
-    @if(isset($category))
-        <section class="categories-area pb-40">
-        <div class="container">
-            <div class="section-title">
-                <h2>دسته بندی ها</h2>
-            </div>
-            <div class="row">
-                @foreach($category as $item)
-                <div class="col-lg-2 col-sm-4 col-md-4">
-                    <div class="single-categories-box">
-                        <img src="/uploads/category/{{$item->image}}" alt="{{$item->name ?? "نا معلوم"}}">
-                        <h3>{{$item->name ?? "نا معلوم"}}</h3>
-                        <a href="products-left-sidebar.html" class="link-btn"></a>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    @endif
+        @include('partials.category_icon')
     <!-- End Categories Area -->
 
     <!-- Last Products Area -->
@@ -295,78 +276,9 @@
     <!-- End Brands Area -->
 
     <!-- Start Blog Area -->
-    <section class="blog-area pb-40">
-        <div class="container">
-            <div class="section-title">
-                <h2>وبلاگ ما</h2>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-post">
-                        <div class="post-image">
-                            <a href="single-blog-1.html" class="d-block"><img src="/img/blog/blog-img1.jpg" alt="تصویر"></a>
-                        </div>
-
-                        <div class="post-content">
-                            <h3><a href="single-blog-1.html">یک محقق در حال انجام تحقیقات در مورد ویروس کرونا در آزمایشگاه است</a></h3>
-                            <ul class="post-meta align-items-center d-flex">
-                                <li>
-                                    <div class="flex align-items-center">
-                                        <img src="/img/user1.jpg" alt="تصویر">
-                                        <a href="#">ناتان اوریتز</a>
-                                    </div>
-                                </li>
-                                <li>1399-10-8</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-post">
-                        <div class="post-image">
-                            <a href="single-blog-1.html" class="d-block"><img src="/img/blog/blog-img2.jpg" alt="تصویر"></a>
-                        </div>
-
-                        <div class="post-content">
-                            <h3><a href="single-blog-1.html">شما باید 20 ثانیه دستان خود را بشویید تا خود را آزاد کنید</a></h3>
-                            <ul class="post-meta align-items-center d-flex">
-                                <li>
-                                    <div class="flex align-items-center">
-                                        <img src="/img/user2.jpg" alt="تصویر">
-                                        <a href="#">رندی آزبورن</a>
-                                    </div>
-                                </li>
-                                <li>1399-8-8</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-                    <div class="single-blog-post">
-                        <div class="post-image">
-                            <a href="single-blog-1.html" class="d-block"><img src="/img/blog/blog-img3.jpg" alt="تصویر"></a>
-                        </div>
-
-                        <div class="post-content">
-                            <h3><a href="single-blog-1.html">برای رهایی از خود پوشیدن لباس مناسب بسیار مهم است</a></h3>
-                            <ul class="post-meta align-items-center d-flex">
-                                <li>
-                                    <div class="flex align-items-center">
-                                        <img src="/img/user3.jpg" alt="تصویر">
-                                        <a href="#">پاتریشیا مارکوس</a>
-                                    </div>
-                                </li>
-                                <li>1399-8-16</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @if(isset($blog_posts) && $blog_posts[0])
+    @include('partials.last_post_blog')
+    @endif
     <!-- End Blog Area -->
 @endsection
 

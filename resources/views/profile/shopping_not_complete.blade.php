@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>CioCe.ir | سبد خرید</title>
+    <title>armanmask.ir | سبد خرید</title>
 @endsection
 
 @section('extra_css')
@@ -114,7 +114,7 @@
                                                     <div class="content-box">
                                                         <div
                                                             class="checkout-time-table-title-bar text-muted checkout-time-table-title-bar-city">
-                                                            پرداخت اعتباری سیوپی (CioPay)
+                                                            پرداخت اعتباری آرمان (CioPay)
                                                         </div>
                                                     </div>
                                                 </label>

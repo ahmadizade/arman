@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>علاقمندی های من | CioCe.ir</title>
+    <title>علاقمندی های من | armanmask.ir</title>
 @endsection
 
 @section("content")
@@ -47,7 +47,7 @@
                                                     <ul class="card-horizontal-address-methods float-right">
                                                         <li class="card-horizontal-address-method">
                                                             <i class="mdi mdi-email-outline"></i>
-                                                            رایانامه : <span>Support@cioce.ir</span>
+                                                            رایانامه : <span>Support@armanmask.ir</span>
                                                         </li>
                                                         <li class="card-horizontal-address-method">
                                                             <i class="mdi mdi-cellphone-iphone"></i>
@@ -285,7 +285,7 @@
                                 position: 'top-end',
                                 toast: true,
                                 icon: 'success',
-                                title: 'CioCe',
+                                title: 'armanmask',
                                 text: data.desc,
                                 footer:"پس از مشاهده توسط کارشناسان ما،پاسخ در همین صفحه درج میگردد",
                                 showConfirmButton: false,
@@ -361,7 +361,7 @@
                                position: 'top-end',
                                toast: true,
                                icon: 'success',
-                               title: 'CioCe',
+                               title: 'armanmask',
                                text: data.desc,
                                footer:"جهت بازیابی به قسمت آرشیوها مراجعه فرمایید",
                                showConfirmButton: false,

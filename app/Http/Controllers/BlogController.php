@@ -39,36 +39,38 @@ class BlogController extends Controller
     }
 
     public function showSingleMag(){
-        return view('admin.views.blog.show_content');
+        $lastPost = Blog::where('delete', 0)->orderByDesc('id')->paginate(10);
+        return view('admin.views.blog.show_content', ['lastPost' => $lastPost]);
     }
 
     public function newSingleMagAction(Request $request){
-        return $request;
         if (Auth::check()) {
             $validator = Validator::make($request->all(), [
                 'title' => ['required', 'string', 'min:5', 'max:128'],
                 'paragraph' => ['required', 'string', 'min:5', 'max:9999999'],
                 'seo_title' => ['required', 'max:65'],
                 'seo_description' => ['required', 'max:128'],
+                'blog_category' => ['required'],
+                'blog_tag' => ['required'],
                 'seo_canonical' => ['nullable', 'max:512'],
                 'thumbnail' => 'required|max:4048',
-                'image' => 'required|max:4048',
+//                'image' => 'nullable|max:4048',
             ]);
             if ($validator->fails()) {
-                Session::flash('error' , $validator->errors()->first());
+                Session::flash('errors' , $validator->errors()->first());
                 return back();
             }
 
-            $image = null;
-            if ($request->has('image')) {
-                $imagePath = "/uploads/blog/image/";
-                $file = $request->file('image');
-                $image = $file->getClientOriginalName();
-                if (file_exists(public_path($imagePath) . $image)) {
-                    $image = Carbon::now()->timestamp . $image;
-                }
-                $file->move(public_path($imagePath), $image);
-            }
+//            $image = null;
+//            if ($request->has('image')) {
+//                $imagePath = "/uploads/blog/image/";
+//                $file = $request->file('image');
+//                $image = $file->getClientOriginalName();
+//                if (file_exists(public_path($imagePath) . $image)) {
+//                    $image = Carbon::now()->timestamp . $image;
+//                }
+//                $file->move(public_path($imagePath), $image);
+//            }
 
             $thumbnail = null;
             if ($request->has('thumbnail')) {
@@ -81,9 +83,12 @@ class BlogController extends Controller
                 $image->move(public_path($imagePath), $thumbnail);
             }
 
+            $tag_id = json_encode($request->blog_tag, JSON_NUMERIC_CHECK);
             Blog::insert([
                'user_id' => Auth::id(),
                'title' => $request->title,
+               'category_id' => $request->blog_category,
+               'tag_id' => $tag_id,
                'seo_title' => $request->seo_title,
                'seo_description' => $request->seo_description,
                'seo_canonical' => $request->seo_canonical,
@@ -91,7 +96,7 @@ class BlogController extends Controller
                'author' => "تیم توسعه و تحقیق آرمان",
                'content'=> $request->paragraph,
                'thumbnail'=> $thumbnail,
-               'image'=> $image,
+//               'image'=> $image,
                'created_at'=> Carbon::now(),
             ]);
 

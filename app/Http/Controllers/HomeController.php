@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Contact;
@@ -69,10 +70,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        $lastProduct = Product::where('delete' , 0)->orderBy('id' , 'asc')->limit(8)->get();
-        $mostVisited = Product::where('delete' , 0)->orderBy('view' , 'desc')->limit(8)->get();
+        $lastProduct = Product::where('delete' , 0)->orderBy('id' , 'desc')->limit(8)->get();
+        $blog_posts = Blog::where('delete' , 0)->orderBy('id' , 'desc')->limit(3)->get();
+        $popularproduct = Product::where('delete' , 0)->orderBy('view' , 'desc')->limit(8)->get();
         $apiMostVisited = Product::where('delete' , 0)->orderBy('view' , 'desc')->limit(10)->get();
-        return view('home' , ['mostVisited' => $mostVisited ,'apiMostVisited' => $apiMostVisited , 'lastProduct' => $lastProduct]);
+        return view('home' , ['popularproduct' => $popularproduct ,'blog_posts' => $blog_posts ,'apiMostVisited' => $apiMostVisited , 'lastProduct' => $lastProduct]);
     }
     public function category(){
         $category = Category::where('delete', 0)->get();
@@ -83,8 +85,8 @@ class HomeController extends Controller
         if(isset($Category->id)) {
             $products = Product::where('delete' , 0)->where('category_id', $Category->id)->orderBy('id', 'desc')->get();
             $lastProduct = Product::where('delete' , 0)->where('category_id' , $Category->id)->orderBy('id', 'asc')->limit(7)->get();
-            $mostVisited = Product::where('delete' , 0)->where('category_id' , $Category->id)->orderBy('view', 'desc')->limit(10)->get();
-            return view('single_category', ['singleCategory' => $Category, 'products' => $products, 'lastProduct' => $lastProduct, 'mostVisited' => $mostVisited]);
+            $popularproduct = Product::where('delete' , 0)->where('category_id' , $Category->id)->orderBy('view', 'desc')->limit(10)->get();
+            return view('single_category', ['singleCategory' => $Category, 'products' => $products, 'lastProduct' => $lastProduct, 'popularproduct' => $popularproduct]);
         }
         return abort(404);
     }
@@ -145,5 +147,10 @@ class HomeController extends Controller
         return response()->download($file_path);
     }
 
-
+    public function quickView(Request $request){
+        $product = Product::where('id', $request->product_id)->first();
+        if (isset($product->id)){
+            return view('partials.quick_view_product',['product' => $product]);
+        }
+    }
 }

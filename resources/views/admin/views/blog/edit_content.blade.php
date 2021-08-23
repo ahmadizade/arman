@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("shop")
-    <shop>سامانه ثبت مطلب | فروشگاه سی وسه</shop>
+    <shop>سامانه ثبت مطلب | فروشگاه آرمان ماسک</shop>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -73,18 +73,18 @@
                                             <form method="POST" ACTION="{{route('edit_image_mag_action')}}" enctype="multipart/form-data">
                                                 <input type="hidden" readonly name="post_id" value="{{$post->id}}">
                                                 <div class="row">
-                                                    <div class="col-6">
+                                                    <div class="col-12">
                                                         <div class="my-3">
                                                             <label for="thumbnail" class="form-label ">Thumbnail (Width : 790 , Height : 600)</label>
                                                             <input type="file" class="form-control" name="thumbnail">
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
-                                                        <div class="my-3">
-                                                            <label for="image" class="form-label ">Image (Width : 790 , Height : 600)</label>
-                                                            <input type="file" class="form-control" name="image">
-                                                        </div>
-                                                    </div>
+{{--                                                    <div class="col-6">--}}
+{{--                                                        <div class="my-3">--}}
+{{--                                                            <label for="image" class="form-label ">Image (Width : 790 , Height : 600)</label>--}}
+{{--                                                            <input type="file" class="form-control" name="image">--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
                                                 </div>
                                                 <div class="col-12 buttons text-right">
                                                     <button class="btn btn-success btn-sm" type="submit">تغییر عکس</button>
@@ -122,7 +122,6 @@
                                                     <div class="my-3">
                                                         <label for="blog_category" class="form-label">دسته بندی</label>
                                                         <select style="width: 100%" name="blog_category" class="form-control select2">
-                                                            <option selected>انتخاب دسته</option>
                                                             @foreach($blog_category as $item)
                                                                 <option value="{{ $item->id }}" @if($item->id == $post->category_id) selected @endif>{{ $item->name }}</option>
                                                             @endforeach
