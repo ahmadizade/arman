@@ -133,6 +133,7 @@ Route::prefix("profile")->group(function () {
     Route::get('/choice/{id}/{type}', 'App\Http\Controllers\ProfileController@choice')->name("choice");
     Route::post('/add-domain', 'App\Http\Controllers\ProfileController@addDomain')->name("add_domain");
     Route::get('/card/{id}', 'App\Http\Controllers\ProfileController@Card')->name("card");
+    Route::post('/quick-add-cart', 'App\Http\Controllers\ProfileController@quickAddCart')->name("quick_add_cart");
     Route::get('/cart-page', 'App\Http\Controllers\ProfileController@CartPage')->name("cart_page");
     Route::get('/show-session-cart', 'App\Http\Controllers\ProfileController@showSessionCart')->name("show_session_cart");
     Route::get('/show-shipping-cart', 'App\Http\Controllers\ProfileController@showShippingCart')->name("show_shipping_cart");

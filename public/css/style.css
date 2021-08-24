@@ -9170,3 +9170,8 @@ Modal CSS
     width: 68px;
     border: none;
 }
+
+.new-price{
+    width: 69px;
+    border: none !important;
+}

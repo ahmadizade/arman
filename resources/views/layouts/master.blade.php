@@ -330,6 +330,7 @@
         <script src="https://cdn.jsdelivr.net/gh/mahmoud-eskandari/NumToPersian/dist/num2persian-min.js"></script>
         <!-- Links of JS files -->
         <script src="/js/sweetalert2.all.min.js"></script>
+        <script src="/js/accounting.js"></script>
         <script src="/js/jquery.min.js"></script>
         <script src="/js/popper.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
@@ -407,6 +408,7 @@
                 });
             });
         </script>
+
         <script>
             $( document ).ready(function() {
                 $('body').on('click','.like_btn i',function (e){
@@ -445,25 +447,79 @@
         <script>
             $( document ).ready(function() {
                 $('body').on('click','.button-card',function (){
-
+                    $(".loader").addClass('active');
                     var $input = $(this).parent().find('.count-buy');
-                    var $price = $(this).parent().parent().parent().find('.new-price');
-                    alert($price.val());
+                    var $priceBox = $(this).parent().parent().parent().find('.new-price');
+                    $price = $priceBox.val().replace(/,/g, '');
+
                     if ($(this).hasClass('increment')) {
                         $price = $price / $input.val();
                         $input.val(parseInt($input.val()) + 1);
-                        console.log($input);
                         $price = parseFloat($price * $input.val());
+                        $priceBox.val(accounting.formatMoney($price));
                     }
                     else if ($input.val()>=2){
                         $price = $price / $input.val();
                         $input.val(parseInt($input.val()) - 1);
                         $price = parseFloat($price * $input.val());
+                        $priceBox.val(accounting.formatMoney($price));
+
                     }
+                    $(".loader").removeClass('active');
+                });
+
+                $('body').on('change','.count-buy',function (){
+                    $(".loader").addClass('active');
+                    var $input = $(this).parent().find('.count-buy');
+                    var $priceBox = $(this).parent().parent().parent().find('.new-price');
+                    var $single_price = $(this).parent().parent().parent().find('.single_price').val().replace(/,/g, '');
+
+                    $price = parseFloat($single_price * $input.val());
+                    $priceBox.val(accounting.formatMoney($price));
+                    $(".loader").removeClass('active');
+                });
+
+                $('body').on('click','.add_to_cart',function (){
+                    $quantity = $('.count-buy').val();
+                    $product_id = $('.product_id').val();
+                    $price = $(this).parent().parent().parent().find('.new-price').val().replace(/,/g, '');
+
+                    $.ajax({
+                       url : '{{route('quick_add_cart')}}',
+                       type : "POST",
+                       data : {'quantity' : $quantity, "price" : $price, "product_id" : $product_id},
+                        success : function (data){
+                           console.log(data)
+                            if(data.status == "0") {
+                                $( '#productsQuickView' ).modal( 'hide' );
+                                Swal.fire({
+                                    position: 'top-end',
+                                    toast: true,
+                                    icon: 'error',
+                                    text: data.desc,
+                                    showConfirmButton: false,
+                                    timer: 4000
+                                });
+                            }
+                            if(data.status == "1") {
+                                $( '#productsQuickView' ).modal( 'hide' );
+                                Swal.fire({
+                                    position: 'top-end',
+                                    toast: true,
+                                    icon: 'success',
+                                    text: data.desc,
+                                    showConfirmButton: false,
+                                    timer: 3000
+                                });
+                                window.setTimeout(function(){
+                                    location.reload()
+                                },3000)
+                            }
+                        }
+                    });
                 });
             });
         </script>
         @yield('extra_js')
-
 </body>
 </html>

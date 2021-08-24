@@ -8,46 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/loader.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/BlogCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BlogCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/BlogTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BlogTag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/blog-img1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/blog-img2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/blog-img3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/blog-img4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/blog-img5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/blog-img6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/categories/categories-img1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/categories/categories-img2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/categories/categories-img3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/categories/categories-img4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/categories/categories-img5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/categories/categories-img6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/logo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/products/products-img9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/user1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/user2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/user3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/user4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/accounting.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/accounting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/last_post_blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/last_post_blog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/quick_view_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/quick_view_product.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
@@ -414,15 +380,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/partials" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\arman\resources\views\blog" />
       <recent name="C:\xampp\htdocs\arman\resources\views\partials" />
+      <recent name="C:\xampp\htdocs\arman\resources\views\blog" />
       <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\blog" />
       <recent name="C:\xampp\htdocs\arman\app\Models" />
       <recent name="C:\xampp\htdocs\arman\app\Http\Controllers" />
@@ -590,14 +556,7 @@
       <workItem from="1629795023180" duration="4943000" />
       <workItem from="1629801693791" duration="1183000" />
       <workItem from="1629806072700" duration="499000" />
-      <workItem from="1629812499844" duration="207000" />
-    </task>
-    <task id="LOCAL-00010" summary="blog and seo page config">
-      <created>1623667524510</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1623667524510</updated>
+      <workItem from="1629812499844" duration="9816000" />
     </task>
     <task id="LOCAL-00011" summary="blog and seo page config">
       <created>1623667630598</created>
@@ -935,7 +894,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629729657434</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="second One">
+      <created>1629812729672</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1629812729673</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1032,7 +998,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
-          <line>1273</line>
+          <line>1297</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -1059,6 +1025,15 @@
           <url>file://$PROJECT_DIR$/routes/web.php</url>
           <line>67</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
+          <line>626</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\ProfileController" />
+            <option name="methodName" value="quickAddCart" />
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

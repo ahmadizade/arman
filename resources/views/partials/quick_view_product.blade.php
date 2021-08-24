@@ -1,5 +1,6 @@
 <!-- Strat QuickView Modal Area -->
 @if(isset($product))
+    @include('partials.loader')
 <div class="row align-items-center">
     <div class="col-lg-6 col-md-6">
         <div class="products-image">
@@ -36,7 +37,7 @@
                 <li><span>دسته بندی: </span> <a href="{{route('single_category',["slug" => $product->category->slug])}}">{{$product->category->name ?? ""}}</a></li>
             </ul>
 
-
+            <input type="hidden" readonly class="product_id" value="{{$product->id}}">
             <div class="price">
                 @if($product->discount > 0)
                     <span class="old-price">
@@ -46,9 +47,11 @@
                             <span class="text-danger" style="font-size: 20px">رایگان</span>
                         @endif
                                 </span>
-                    <input type="text" class="new-price" value="{{number_format($product->price - ($product->price * $product->discount) / 100)}}"><span>تومان</span>
+                    <input type="text" readonly class="new-price" value="{{number_format($product->price - ($product->price * $product->discount) / 100)}}"><span>تومان</span>
+                    <input type="hidden" readonly class="single_price" value="{{number_format($product->price - ($product->price * $product->discount) / 100)}}">
                 @else
-                    <input type="text" class="new-price" value="{{number_format($product->price)}}"><span>تومان</span>
+                    <input type="text" readonly class="new-price" value="{{number_format($product->price)}}"><span>تومان</span>
+                    <input type="hidden" readonly class="single_price" value="{{number_format($product->price)}}">
                 @endif
             </div>
 
@@ -60,7 +63,7 @@
                     <span class="plus-btn button-card increment"><i class="bx bx-plus"></i></span>
                 </div>
 
-                <button type="submit" class="default-btn"><i class="flaticon-trolley"></i> افزودن به سبد خرید</button>
+                <button type="submit" class="default-btn add_to_cart"><i class="flaticon-trolley"></i> افزودن به سبد خرید</button>
             </div>
             <a href="{{ route("single_product",["slug" => $product->product_slug]) }}" class="view-full-info">مشاهده اطلاعات کامل محصول</a>
         </div>
