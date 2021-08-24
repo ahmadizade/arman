@@ -55,7 +55,6 @@ class Sms implements ShouldQueue
 
         $SmsIR_UltraFastSend = new SmsIR_UltraFastSend($APIKey, $SecretKey, $APIURL);
         $UltraFastSend = $SmsIR_UltraFastSend->ultraFastSend($data);
-        Log::debug(($UltraFastSend));
         //var_dump($UltraFastSend);
 
     }
