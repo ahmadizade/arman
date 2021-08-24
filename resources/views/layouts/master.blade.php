@@ -2,6 +2,8 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex,follow"/>
+    <meta name="googlebot" content="noindex, nofollow">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -389,7 +391,6 @@
                         type : 'POST',
                         data : {'product_id' : $(this).attr("data-id")},
                         success : function (data){
-                            console.log(data);
                             if(data.status == "0") {
                                 Swal.fire({
                                     position: 'top-end',
@@ -437,6 +438,28 @@
                             }
                         }
                     });
+                });
+            });
+        </script>
+
+        <script>
+            $( document ).ready(function() {
+                $('body').on('click','.button-card',function (){
+
+                    var $input = $(this).parent().find('.count-buy');
+                    var $price = $(this).parent().parent().parent().find('.new-price');
+                    alert($price.val());
+                    if ($(this).hasClass('increment')) {
+                        $price = $price / $input.val();
+                        $input.val(parseInt($input.val()) + 1);
+                        console.log($input);
+                        $price = parseFloat($price * $input.val());
+                    }
+                    else if ($input.val()>=2){
+                        $price = $price / $input.val();
+                        $input.val(parseInt($input.val()) - 1);
+                        $price = parseFloat($price * $input.val());
+                    }
                 });
             });
         </script>

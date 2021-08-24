@@ -22,13 +22,21 @@ class BlogController extends Controller
         return view('blog.blog', ["post" => $post , 'lastPost' => $lastPost , 'bestPost' => $bestPost]);
     }
 
+    public function singleBlogCategory($slug){
+        $BlogCategory = BlogCategory::where('slug', $slug)->where('show' , 1)->first();
+        $post = Blog::where('category_id', $BlogCategory->id)->orderBy('id' , 'desc')->paginate(24);
+        $blog_posts  = Blog::orderByDesc('view')->limit(3)->get();
+        return view('blog.blog', ["post" => $post , 'blog_posts' => $blog_posts, 'BlogCategory' => $BlogCategory]);
+    }
+
     public function singleMag($slug){
-        $lastPost = Blog::orderByDesc('id')->limit(6)->get();
+        $blog_posts = Blog::orderByDesc('id')->limit(3)->get();
+        $blog_categories = BlogCategory::where('show' , 1)->get();
+        $blog_tags = BlogTag::where('show' , 1)->get();
         $post = Blog::where('slug' , $slug)->first();
         $bestPost = Blog::orderByDesc('view')->limit(4)->get();
         Blog::where('slug', $slug)->increment('view',1);
-        $comment = Comment::where('view' , "single-blog")->where('post_id', $post->id)->get();
-        return view('blog.single-blog', ['post' => $post, 'comment' => $comment , 'lastPost' => $lastPost, 'bestPost' => $bestPost]);
+        return view('blog.single-blog', ['post' => $post , 'blog_posts' => $blog_posts, 'bestPost' => $bestPost, 'blog_categories' => $blog_categories, 'blog_tags' => $blog_tags]);
     }
 
     public function newSingleMag(){

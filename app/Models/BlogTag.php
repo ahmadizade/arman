@@ -13,4 +13,5 @@ class BlogTag extends Authenticatable
 
     protected $table = "blog_tag";
     protected $guarded = [];
+
 }

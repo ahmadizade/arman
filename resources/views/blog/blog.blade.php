@@ -27,7 +27,7 @@
             <div class="row">
                 @if(isset($post))
                     @foreach($post as $item)
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-4 col-md-6 text-right">
                             <div class="single-blog-post">
                                 <div class="post-image">
                                     <a href="{{route('single_mag' , $item->slug)}}" class="d-block"><img src="/uploads/blog/thumbnail/{{$item->thumbnail ?? ""}}" alt="{{$item->title ?? "عنوان مجله"}}"></a>

@@ -9,7 +9,7 @@
                 <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
                 <div class="single-blog-post">
                     <div class="post-image">
-                        <a href="single-blog-1.html" class="d-block"><img src="/uploads/blog/thumbnail/{{$item->thumbnail ?? ""}}" alt="فروشگاه آرمان"></a>
+                        <a href="{{route('single_mag' , $item->slug)}}" class="d-block"><img src="/uploads/blog/thumbnail/{{$item->thumbnail ?? ""}}" alt="فروشگاه آرمان"></a>
                     </div>
 
                     <div class="post-content">

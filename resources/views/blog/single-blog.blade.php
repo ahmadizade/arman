@@ -81,11 +81,16 @@
                                 {!! $post->content ?? "متن مطلب یافت نشد!" !!}
                             </div>
                         <div class="article-footer">
+{{--                            <div class="article-tags">--}}
+{{--                                <span><i class="bx bx-purchase-tag"></i></span>--}}
+{{--                                <a href="#">مد</a> ،--}}
+{{--                                <a href="#">بازی</a> ،--}}
+{{--                                <a href="#">سفر</a>--}}
+{{--                            </div>     --}}
                             <div class="article-tags">
                                 <span><i class="bx bx-purchase-tag"></i></span>
-                                <a href="#">مد</a> ،
-                                <a href="#">بازی</a> ،
-                                <a href="#">سفر</a>
+                                <a href="#">انتشار :</a>
+                                <a href="#">{{\Morilog\Jalali\Jalalian::forge($post->created_at)->format("Y/m/d")}}</a>
                             </div>
 
                             <div class="article-share">
@@ -95,320 +100,71 @@
                                 </ul>
                             </div>
                         </div>
-
-                        <div class="article-author">
-                            <div class="author-profile-header"></div>
-                            <div class="author-profile">
-                                <div class="author-profile-title">
-                                    <img src="/img/user1.jpg" class="shadow-sm" alt="تصویر">
-                                    <h4>کریس اورویگ</h4>
-                                    <span class="d-block">عکاس ، نویسنده ، نویسنده</span>
-                                    <p>کریس اورویگ یک عکاس ، نویسنده و نویسنده مشهور است که اشتیاق به هر کاری را انجام می دهد. هویج متن ساختگی تخفیفات بیشتری را افزایش می دهد اما زمان اکتیو را انجام می دهد.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="drodo-post-navigation">
-                            <div class="prev-link-wrapper">
-                                <div class="info-prev-link-wrapper">
-                                    <a href="#">
-                                            <span class="image-prev">
-                                                <img src="/img/blog/blog-img2.jpg" alt="image">
-                                                <span class="post-nav-title">قبلی</span>
-                                            </span>
-
-                                        <span class="prev-link-info-wrapper">
-                                                <span class="prev-title">استراتژی های بازاریابی دیجیتال برای تولید سرب</span>
-                                                <span class="meta-wrapper">
-                                                    <span class="date-post">2 آبان 1399</span>
-                                                </span>
-                                            </span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="next-link-wrapper">
-                                <div class="info-next-link-wrapper">
-                                    <a href="#">
-                                            <span class="next-link-info-wrapper">
-                                                <span class="next-title">لورم ایپسوم متن ساختگی با تولید سادگی</span>
-                                                <span class="meta-wrapper">
-                                                    <span class="date-post">2 آبان 1399</span>
-                                                </span>
-                                            </span>
-
-                                        <span class="image-next">
-                                                <img src="/img/blog/blog-img3.jpg" alt="image">
-                                                <span class="post-nav-title">بعدی</span>
-                                            </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comments-area">
-                            <h3 class="comments-title">2 نظر:</h3>
-
-                            <ol class="comment-list">
-                                <li class="comment">
-                                    <article class="comment-body">
-                                        <footer class="comment-meta">
-                                            <div class="comment-author vcard">
-                                                <img src="/img/user1.jpg" class="avatar" alt="تصویر">
-                                                <b class="fn">جان جونز </b>
-                                                <span class="says">می گوید:</span>
-                                            </div>
-
-                                            <div class="comment-metadata">
-                                                <a href="#">
-                                                    <span>24 آبان 1399 در 10:59 صبح</span>
-                                                </a>
-                                            </div>
-                                        </footer>
-
-                                        <div class="comment-content">
-                                            <p>متن ساختگی از سال 1500 به بعد ، متن ساختگی استاندارد صنعت بوده است ، زمانی كه چاپگر ناشناخته نوع گالی را گرفت و آنرا مخلوط كرد تا نمونه نمونه ای بسازد.</p>
-                                        </div>
-
-                                        <div class="reply">
-                                            <a href="#" class="comment-reply-link">پاسخ</a>
-                                        </div>
-                                    </article>
-
-                                    <ol class="children">
-                                        <li class="comment">
-                                            <article class="comment-body">
-                                                <footer class="comment-meta">
-                                                    <div class="comment-author vcard">
-                                                        <img src="/img/user2.jpg" class="avatar" alt="تصویر">
-                                                        <b class="fn">استیون اسمیت </b>
-                                                        <span class="says">می گوید:</span>
-                                                    </div>
-
-                                                    <div class="comment-metadata">
-                                                        <a href="#">
-                                                            <span>24 آبان 1399 در 10:59 صبح</span>
-                                                        </a>
-                                                    </div>
-                                                </footer>
-
-                                                <div class="comment-content">
-                                                    <p>متن ساختگی از سال 1500 به بعد ، متن ساختگی استاندارد صنعت بوده است ، زمانی كه چاپگر ناشناخته نوع گالی را گرفت و آنرا مخلوط كرد تا نمونه نمونه ای بسازد.</p>
-                                                </div>
-
-                                                <div class="reply">
-                                                    <a href="#" class="comment-reply-link">پاسخ</a>
-                                                </div>
-                                            </article>
-
-                                            <ol class="children">
-                                                <li class="comment">
-                                                    <article class="comment-body">
-                                                        <footer class="comment-meta">
-                                                            <div class="comment-author vcard">
-                                                                <img src="/img/user3.jpg" class="avatar" alt="تصویر">
-                                                                <b class="fn">سارا تیلور </b>
-                                                                <span class="says">می گوید:</span>
-                                                            </div>
-
-                                                            <div class="comment-metadata">
-                                                                <a href="#">
-                                                                    <span>24 آبان 1399 در 10:59 صبح</span>
-                                                                </a>
-                                                            </div>
-                                                        </footer>
-
-                                                        <div class="comment-content">
-                                                            <p>متن ساختگی از سال 1500 به بعد ، متن ساختگی استاندارد صنعت بوده است ، زمانی كه چاپگر ناشناخته نوع گالی را گرفت و آنرا مخلوط كرد تا نمونه نمونه ای بسازد.</p>
-                                                        </div>
-
-                                                        <div class="reply">
-                                                            <a href="#" class="comment-reply-link">پاسخ</a>
-                                                        </div>
-                                                    </article>
-                                                </li>
-                                            </ol>
-                                        </li>
-                                    </ol>
-                                </li>
-
-                                <li class="comment">
-                                    <article class="comment-body">
-                                        <footer class="comment-meta">
-                                            <div class="comment-author vcard">
-                                                <img src="/img/user4.jpg" class="avatar" alt="تصویر">
-                                                <b class="fn">جان دو </b>
-                                                <span class="says">می گوید:</span>
-                                            </div>
-
-                                            <div class="comment-metadata">
-                                                <a href="#">
-                                                    <span>24 آبان 1399 در 10:59 صبح</span>
-                                                </a>
-                                            </div>
-                                        </footer>
-
-                                        <div class="comment-content">
-                                            <p>متن ساختگی از سال 1500 به بعد ، متن ساختگی استاندارد صنعت بوده است ، زمانی كه چاپگر ناشناخته نوع گالی را گرفت و آنرا مخلوط كرد تا نمونه نمونه ای بسازد.</p>
-                                        </div>
-
-                                        <div class="reply">
-                                            <a href="#" class="comment-reply-link">پاسخ</a>
-                                        </div>
-                                    </article>
-
-                                    <ol class="children">
-                                        <li class="comment">
-                                            <article class="comment-body">
-                                                <footer class="comment-meta">
-                                                    <div class="comment-author vcard">
-                                                        <img src="/img/user1.jpg" class="avatar" alt="تصویر">
-                                                        <b class="fn">جیمز اندرسون </b>
-                                                        <span class="says">می گوید:</span>
-                                                    </div>
-
-                                                    <div class="comment-metadata">
-                                                        <a href="#">
-                                                            <span>24 آبان 1399 در 10:59 صبح</span>
-                                                        </a>
-                                                    </div>
-                                                </footer>
-
-                                                <div class="comment-content">
-                                                    <p>متن ساختگی از سال 1500 به بعد ، متن ساختگی استاندارد صنعت بوده است ، زمانی كه چاپگر ناشناخته نوع گالی را گرفت و آنرا مخلوط كرد تا نمونه نمونه ای بسازد.</p>
-                                                </div>
-
-                                                <div class="reply">
-                                                    <a href="#" class="comment-reply-link">پاسخ</a>
-                                                </div>
-                                            </article>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ol>
-
-                            <div class="comment-respond">
-                                <h3 class="comment-reply-title">پاسخ دهید</h3>
-
-                                <form class="comment-form">
-                                    <p class="comment-notes">
-                                        <span id="email-notes">آدرس ایمیل شما منتشر نخواهد شد. </span>
-                                        قسمتهای مورد نیاز علامت گذاری شده اند
-                                        <span class="required">*</span>
-                                    </p>
-                                    <p class="comment-form-author">
-                                        <label>نام <span class="required">*</span></label>
-                                        <input type="text" id="author" placeholder="اسم شما*" name="author" required="required">
-                                    </p>
-                                    <p class="comment-form-email">
-                                        <label>ایمیل <span class="required">*</span></label>
-                                        <input type="email" id="email" placeholder="ایمیل شما*" name="email" required="required">
-                                    </p>
-                                    <p class="comment-form-url">
-                                        <label>سایت اینترنتی</label>
-                                        <input type="url" id="url" placeholder="سایت اینترنتی" name="url">
-                                    </p>
-                                    <p class="comment-form-comment">
-                                        <label>اظهار نظر</label>
-                                        <textarea name="comment" id="comment" cols="45" placeholder="نظر شما..." rows="5" maxlength="65525" required="required"></textarea>
-                                    </p>
-                                    <p class="comment-form-cookies-consent">
-                                        <input type="checkbox" value="yes" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent">
-                                        <label for="wp-comment-cookies-consent">نام ، ایمیل و وب سایت من را برای دفعه بعدی که نظر می دهم در این مرورگر ذخیره کنید.</label>
-                                    </p>
-                                    <p class="form-submit">
-                                        <input type="submit" name="submit" id="submit" class="submit" value="ارسال نظر">
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
-
+                </div>
                 <div class="col-lg-4 col-md-12">
                     <aside class="widget-area">
-                        <section class="widget widget_search">
-                            <h3 class="widget-title">جستجو کردن</h3>
+{{--                        <section class="widget widget_search">--}}
+{{--                            <h3 class="widget-title">جستجو کردن</h3>--}}
 
-                            <form class="search-form">
-                                <label>
-                                    <span class="screen-reader-text">جستجو برای:</span>
-                                    <input type="search" class="search-field" placeholder="جستجو کردن...">
-                                </label>
-                                <button type="submit"><i class="bx bx-search-alt"></i></button>
-                            </form>
-                        </section>
+{{--                            <form class="search-form">--}}
+{{--                                <label>--}}
+{{--                                    <span class="screen-reader-text">جستجو برای:</span>--}}
+{{--                                    <input type="search" class="search-field" placeholder="جستجو کردن...">--}}
+{{--                                </label>--}}
+{{--                                <button type="submit"><i class="bx bx-search-alt"></i></button>--}}
+{{--                            </form>--}}
+{{--                        </section>--}}
 
                         <section class="widget widget_drodo_posts_thumb">
                             <h3 class="widget-title">پست های محبوب</h3>
 
+                            @if(isset($bestPost))
+                                @foreach($bestPost as $item)
                             <article class="item">
-                                <a href="#" class="thumb">
-                                    <span class="fullimage cover bg1" role="img"></span>
+                                <a href="{{route('single_mag' , $item->slug)}}" class="thumb">
+                                    <span class="fullimage cover" role="img"><img src="/uploads/blog/thumbnail/{{$item->thumbnail ?? ""}}" alt="{{$item->title ?? "عنوان مجله"}}"></span>
                                 </a>
                                 <div class="info">
-                                    <span>17 آبان 1399</span>
-                                    <h4 class="title usmall"><a href="#">داده های تحصیلات عالی اطراف</a></h4>
+                                    <span>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d")}}</span>
+                                    <h4 class="title usmall"><a href="{{route('single_mag' , $item->slug)}}">{{$item->title ?? ""}}</a></h4>
                                 </div>
 
                                 <div class="clear"></div>
                             </article>
+                                @endforeach
+                            @endif
 
-                            <article class="item">
-                                <a href="#" class="thumb">
-                                    <span class="fullimage cover bg2" role="img"></span>
-                                </a>
-                                <div class="info">
-                                    <span>17 آبان 1399</span>
-                                    <h4 class="title usmall"><a href="#">نرخ تبدیل بهینه سازی قیف فروش</a></h4>
-                                </div>
-
-                                <div class="clear"></div>
-                            </article>
-
-                            <article class="item">
-                                <a href="#" class="thumb">
-                                    <span class="fullimage cover bg3" role="img"></span>
-                                </a>
-                                <div class="info">
-                                    <span>17 آبان 1399</span>
-                                    <h4 class="title usmall"><a href="#">داده های تجاری در حال تغییر انرژی در جهان است</a></h4>
-                                </div>
-
-                                <div class="clear"></div>
-                            </article>
                         </section>
 
                         <section class="widget widget_categories">
                             <h3 class="widget-title">دسته بندی ها</h3>
-
                             <ul>
-                                <li><a href="#">طراحی <span class="post-count">(03)</span></a></li>
-                                <li><a href="#">سبک زندگی <span class="post-count">(05)</span></a></li>
-                                <li><a href="#">متن <span class="post-count">(10)</span></a></li>
-                                <li><a href="#">دستگاه <span class="post-count">(08)</span></a></li>
-                                <li><a href="#">نکات <span class="post-count">(01)</span></a></li>
+                                @if(isset($blog_categories))
+                                    @foreach($blog_categories as $item)
+                                        <li><a href="{{route('single_blog_category',['slug' => $item->slug])}}">{{$item->name}} <span class="post-count">({{count($item->blogPost)}})</span></a></li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </section>
 
-                        <section class="widget widget_tag_cloud">
-                            <h3 class="widget-title">برچسب های محبوب</h3>
+{{--                        <section class="widget widget_tag_cloud">--}}
+{{--                            <h3 class="widget-title">برچسب های محبوب</h3>--}}
 
-                            <div class="tagcloud">
-                                <a href="#">تجارت <span class="tag-link-count">(3)</span></a>
-                                <a href="#"> طراحی <span class="tag-link-count">(3)</span></a>
-                                <a href="#">متن<span class="tag-link-count">(2)</span></a>
-                                <a href="#"> مد <span class="tag-link-count">(2)</span></a>
-                                <a href="#"> مسافرت <span class="tag-link-count">(1)</span></a>
-                                <a href="#"> هوشمند <span class="tag-link-count">(1)</span></a>
-                                <a href="#"> بازاریابی <span class="tag-link-count">(1)</span></a>
-                                <a href="#"> نکات <span class="tag-link-count">(2)</span></a>
-                            </div>
-                        </section>
+{{--                            <div class="tagcloud">--}}
+{{--                                @if(isset($blog_tags))--}}
+{{--                                    @foreach($blog_tags as $item)--}}
+{{--                                        <a href="#">{{$item->name}}</a>--}}
+{{--                                    @endforeach--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
+{{--                        </section>--}}
                     </aside>
                 </div>
             </div>
         </div>
+        @include('partials.last_post_blog')
     </section>
     <!-- End Blog Details Area -->
 

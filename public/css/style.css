@@ -9165,3 +9165,8 @@ Modal CSS
 #msgSubmit {
   padding-top: 1rem;
 }
+
+.count-buy {
+    width: 68px;
+    border: none;
+}

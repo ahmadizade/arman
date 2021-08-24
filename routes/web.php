@@ -209,6 +209,7 @@ Route::any("/verify-cart", "App\Http\Controllers\PaymentController@verifyCart")-
 //BLOG
 Route::get('/mag', 'App\Http\Controllers\BlogController@mag')->name("mag");
 Route::get('/single-mag/{slug}', 'App\Http\Controllers\BlogController@singleMag')->name("single_mag");
+Route::get('/single-blog-category/{slug}', 'App\Http\Controllers\BlogController@singleBlogCategory')->name("single_blog_category");
 Route::get('/new-single-mag', 'App\Http\Controllers\BlogController@newSingleMag')->name("new_single_mag");
 Route::get('/show-single-mag', 'App\Http\Controllers\BlogController@showSingleMag')->name("show_single_mag");
 Route::get('/category-mag-page', 'App\Http\Controllers\BlogController@categoryMagPage')->name("category_mag_page");
