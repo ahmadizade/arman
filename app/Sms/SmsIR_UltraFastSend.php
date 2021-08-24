@@ -3,6 +3,8 @@
 
 namespace App\Sms;
 
+use Illuminate\Support\Facades\Log;
+
 /**
  * UltraFastSend File Restful API PHP Sample Codes
  *
@@ -13,7 +15,6 @@ namespace App\Sms;
  * @author    Pejman Kheyri <pejmankheyri@gmail.com>
  * @copyright 2018 The Ide Pardazan (ipe.ir) PHP Group. All rights reserved.
  * @license   https://sms.ir/ ipe license
-
  * @version   IPE: 2.0
  * @link      https://sms.ir/ Documentation of sms.ir Restful API PHP Sample Codes.
  */
@@ -78,10 +79,12 @@ class SmsIR_UltraFastSend
     public function ultraFastSend($data)
     {
         $token = $this->_getToken($this->APIKey, $this->SecretKey);
+
         if ($token != false) {
             $postData = $data;
 
             $url = $this->APIURL.$this->getAPIUltraFastSendUrl();
+
             $UltraFastSend = $this->_execute($postData, $url, $token);
 
             $object = json_decode($UltraFastSend);

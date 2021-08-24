@@ -41,8 +41,8 @@ class Sms implements ShouldQueue
 
         date_default_timezone_set("Asia/Tehran");
         // your sms.ir panel configuration
-        $APIKey = "96d8367c3be894fbafde367f";
-        $SecretKey = "Abcd/1234Abcd!1234";
+        $APIKey = "c9ed20a030be0f27b25720a0";
+        $SecretKey = "asdASDBBqw";
 
         $APIURL = "https://ws.sms.ir/";
 
@@ -55,7 +55,8 @@ class Sms implements ShouldQueue
 
         $SmsIR_UltraFastSend = new SmsIR_UltraFastSend($APIKey, $SecretKey, $APIURL);
         $UltraFastSend = $SmsIR_UltraFastSend->ultraFastSend($data);
-//        var_dump($UltraFastSend);
+        Log::debug(($UltraFastSend));
+        //var_dump($UltraFastSend);
 
     }
 }
