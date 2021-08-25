@@ -654,10 +654,10 @@ class ProfileController extends Controller
             foreach (Session::get('product') as $item){
                 $total_prices += $total_prices + $item['price'];
             }
-            return view('profile.cart_product', ["total_prices" => $total_prices, "menu" => "index"]);
+            return view('profile.cart_product', ["total_prices" => $total_prices]);
         }else{
             Session::flash('error' , "سبد خرید شما خالی می باشد");
-            return view('profile.cart_product', ["menu" => "index"]);
+            return view('profile.cart_product');
         }
     }
 
