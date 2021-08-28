@@ -5,7 +5,7 @@
 
                 <section class="widget widget_drodo_posts_thumb">
                     <img class="widget-title" src="/img/logo.png" alt="لوگو">
-                    <div class="sidebar-sidebar-item">
+                    <div class="sidebar-item">
                         <div class="info">
                             <p class="title usmall @if($menu == "index") active @endif"><a href="{{ route("profile_index") }}"><i class="bx bx-group"></i> پروفایل</a></p>
                         </div>
@@ -15,7 +15,7 @@
 
                     <div class="sidebar-item">
                         <div class="info">
-                            <p class="title usmall"><a href="{{route('change_password')}}">تغییر رمز عبور</a></p>
+                            <p class="title usmall"><a href="{{route('change_password')}}"><i class="bx bx-key"></i> تغییر رمز عبور</a></p>
                         </div>
 
                         <div class="clear"></div>
@@ -24,7 +24,7 @@
 
                     <article class="sidebar-item">
                         <div class="info">
-                            <p class="title usmall"><a href="{{route('logout')}}">خروج از حساب</a></p>
+                            <p class="title usmall"><a href="{{route('logout')}}"><i class="bx bx-log-out"></i> خروج از حساب</a></p>
                         </div>
 
                         <div class="clear"></div>
@@ -33,7 +33,7 @@
 
                     <article class="sidebar-item">
                         <div class="info">
-                            <p class="title usmall @if($menu == "orders") active @endif"><a href="{{route('orders')}}"><i class="bx bx-calendar"></i> سفارشات من</a></p>
+                            <p class="title usmall @if($menu == "orders") active @endif"><a href="{{route('orders')}}"><i class="bx bx-atom"></i> سفارشات من</a></p>
                         </div>
 
                         <div class="clear"></div>
@@ -41,7 +41,7 @@
 
                      <article class="sidebar-item">
                         <div class="info">
-                            <p class="title usmall @if($menu == "credit") active @endif"><a href="{{route('profile_credit')}}"><i class="bx bx-folder-open"></i> کیف پول من</a></p>
+                            <p class="title usmall @if($menu == "credit") active @endif"><a href="{{route('profile_credit')}}"><i class="bx bx-money"></i> کیف پول من</a></p>
                         </div>
 
                         <div class="clear"></div>
@@ -50,17 +50,14 @@
 
                     <article class="sidebar-item">
                         <div class="info">
-                            <p class="title usmall @if($menu == "bookmark") active @endif"><a href="{{ route("profile_bookmark") }}">نشان شده ها</a></p>
+                            <p class="title usmall @if($menu == "bookmark") active @endif"><a href="{{ route("profile_bookmark") }}"><i class="bx bx-bookmarks"></i> نشان شده ها</a></p>
                         </div>
 
                         <div class="clear"></div>
                     </article>
 
-
-
-
-
                 </section>
+
 
 
 
@@ -77,20 +74,6 @@
                     </ul>
                 </section>
 
-                <section class="widget widget_tag_cloud">
-                    <h3 class="widget-title">برچسب های محبوب</h3>
-
-                    <div class="tagcloud">
-                        <a href="#">تجارت <span class="tag-link-count">(3)</span></a>
-                        <a href="#"> طراحی <span class="tag-link-count">(3)</span></a>
-                        <a href="#">متن<span class="tag-link-count">(2)</span></a>
-                        <a href="#"> مد <span class="tag-link-count">(2)</span></a>
-                        <a href="#"> مسافرت <span class="tag-link-count">(1)</span></a>
-                        <a href="#"> هوشمند <span class="tag-link-count">(1)</span></a>
-                        <a href="#"> بازاریابی <span class="tag-link-count">(1)</span></a>
-                        <a href="#"> نکات <span class="tag-link-count">(2)</span></a>
-                    </div>
-                </section>
             </aside>
         </div>
 @endif

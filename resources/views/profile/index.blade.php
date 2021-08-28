@@ -15,7 +15,7 @@
                                 <h1>پروفایل کاربری</h1>
                                 <ul>
                                     <li><a href="#">خانه</a></li>
-                                    <li>{{$user->name ?? ""}}</li>
+                                    <li>{{$user->name ?? ""}} {{$user->family ?? ""}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
 
                                 <div class="col-lg-9 col-md-12">
                                     <div class="blog-details-desc">
-                                        <div class="article-content">
+                                        <div class="article-content text-center">
                                             <div class="entry-meta">
                                                 <ul>
                                                     <li>
@@ -62,7 +62,7 @@
                                                 @include('partials.condition')
 
                                                 <div class="comment-respond">
-                                                    <p class="comment-reply-title">ویرایش اطلاعات کاربری</p>
+                                                    <p class="comment-reply-title mt-5">ویرایش اطلاعات کاربری</p>
 
                                                     <form id="profile_edit_form" class="comment-form">
                                                         <p class="comment-notes">
@@ -101,7 +101,7 @@
 
                                                         <p class="comment-form-comment">
                                                             <label>آدرس</label>
-                                                            <textarea name="comment" id="comment" cols="45" placeholder="آدرس..." rows="5" maxlength="65525" ></textarea>
+                                                            <textarea name="address" cols="45" placeholder="آدرس..." rows="5" maxlength="65525" >{{$user->profile->address ?? ""}}</textarea>
                                                         </p>
                                                         <p class="form-submit">
                                                             <input type="submit" name="submit" id="product_edit_btn" class="submit" value="ویرایش اطلاعات">

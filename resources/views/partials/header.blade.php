@@ -25,7 +25,7 @@
                                     @if(Auth::user()->name == "")
                                         {{ Auth::user()->mobile }}
                                     @elseif(Auth::user()->name !== "")
-                                        {{ Auth::user()->name }}
+                                        {{ Auth::user()->name ?? "" }} {{ Auth::user()->family ?? "" }}
                                     @endif
                                     <i class="bx bx-chevron-down"></i>
                                 </span>

@@ -1021,6 +1021,7 @@ class ProfileController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'nullable|email|max:255',
 //            'sex' => 'nullable|max:1',
+            'address' => 'nullable',
             'name' => 'nullable|max:255',
             'family' => 'nullable|max:255',
             'phone' => 'nullable',
@@ -1032,14 +1033,16 @@ class ProfileController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return Response::json(["status" => "0", "desc" => $validator->errors()->all()]);
+            return Response::json(["status" => "0", "desc" => $validator->errors()->first()]);
         }
+
         $user = Auth::user();
-//        if ($user->verified_email == 0 && !Cache::has("email_code_" . $user->id)) {
-//            User::where("mobile", $user->mobile)->update([
-//                "email" => $request->email,
-//            ]);
-//        }
+
+        if ($user->verified_email == 0 && !Cache::has("email_code_" . $user->id)) {
+            User::where("mobile", $user->mobile)->update([
+                "email" => $request->email,
+            ]);
+        }
 
         User::where("mobile", $user->mobile)->update([
             "name" => $request->name,
@@ -1052,10 +1055,11 @@ class ProfileController extends Controller
             "national_code" => $request->national_code,
 //            "sheba" => $request->sheba,
             "phone" => $request->phone,
+            "address" => $request->address,
 //            "gender" => $request->sex,
 //            "city_code" => $request->state,
         ]);
-return 2;
+
 //        if ($user->verified_email == 0 && isset($request->email) && strlen($request->email)) {
 //            if (Cache::has("email_code_" . $user->id, true,)) {
 //                session()->flash("error", "تا 10 دقیقه امکان تغییر ایمیل را ندارید");
@@ -1084,13 +1088,13 @@ return 2;
 //            }
 //        }
 
-//        if (isset($request->password) && strlen($request->password)) {
-//            User::where("mobile", $user->mobile)->update([
-//                "password" => Hash::make($request->password),
-//                "password_changed" => 1,
-//            ]);
-//            return Response::json(["status" => "1", "desc" => "پروفایل با موفقیت بروزرسانی شد"]);
-//        }
+        if (isset($request->password) && strlen($request->password)) {
+            User::where("mobile", $user->mobile)->update([
+                "password" => Hash::make($request->password),
+                "password_changed" => 1,
+            ]);
+            return Response::json(["status" => "1", "desc" => "پروفایل با موفقیت بروزرسانی شد"]);
+        }
 
         return Response::json(["status" => "1", "desc" => "پروفایل با موفقیت بروزرسانی شد"]);
     }
