@@ -82,11 +82,10 @@ class LoginController extends Controller
                             "Parameter" => "VerificationCode",
                             "ParameterValue" => $code,
                         ),
-
                         array(
                             "Parameter" => "Company",
-                            "ParameterValue" => "Arman",
-                        ),
+                            "ParameterValue" => "آرمان",
+                        )
                     );
                     Sms::dispatch($mobile, $dataSms, '53056');
                     Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(120)], 120);
