@@ -35,6 +35,7 @@
                                 @if(Auth::check() && Auth::user()->role == "admin")
                                     <a href="{{route('armanmask')}}" class="dropdown-item">پنل مدیریت </a>
                                 @endif
+                                <a href="{{ route("profile_index") }}" class="dropdown-item">پروفایل کاربری </a>
                                 <a href="{{ route("profile_credit") }}" class="dropdown-item">کیف پول من </a>
                                 <a href="{{route('logout')}}" class="dropdown-item text-danger">خروج</a>
                             </div>

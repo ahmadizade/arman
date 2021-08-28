@@ -58,7 +58,7 @@ Default CSS
 @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&amp;display=swap");
 @font-face {
   font-family: iransans;
-  src: url('../fonts/IRANSansWeb(FaNum).ttf');
+  src: url('/fonts/IRANSansWeb(FaNum).ttf');
 }
 :root {
   --fontFamily: iransans;
@@ -1885,11 +1885,11 @@ Main Banner Area CSS
 }
 
 .banner-area.bg-1 {
-  background-image: url(../img/main-banner1.jpg);
+  background-image: url(/img/main-banner1.jpg);
 }
 
 .banner-area.bg-2 {
-  background-image: url(../img/main-banner2.jpg);
+  background-image: url(/img/main-banner2.jpg);
 }
 
 .banner-area .banner-content {
@@ -4837,15 +4837,15 @@ Woocommerce Widget Area CSS
 }
 
 .woocommerce-widget-area .best-seller-widget .item .thumb .fullimage.bg1 {
-  background-image: url(../img/products/products-img3.jpg);
+  background-image: url(/img/products/products-img3.jpg);
 }
 
 .woocommerce-widget-area .best-seller-widget .item .thumb .fullimage.bg2 {
-  background-image: url(../img/products/products-img2.jpg);
+  background-image: url(/img/products/products-img2.jpg);
 }
 
 .woocommerce-widget-area .best-seller-widget .item .thumb .fullimage.bg3 {
-  background-image: url(../img/products/products-img5.jpg);
+  background-image: url(/img/products/products-img5.jpg);
 }
 
 .woocommerce-widget-area .best-seller-widget .item .thumb::before, .woocommerce-widget-area .best-seller-widget .item .thumb::after {
@@ -5137,7 +5137,7 @@ Products Promotions Area CSS
 }
 
 .promotion-banner {
-  background-image: url(../img/promotions-bg.jpg);
+  background-image: url(/img/promotions-bg.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -5459,7 +5459,7 @@ Why Choose Us Area CSS
 Hot Deal Area CSS
 =================================================*/
 .hot-deal-area {
-  background-image: url(../img/hot-deal-bg.jpg);
+  background-image: url(/img/hot-deal-bg.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -5914,7 +5914,7 @@ Blog Details Area CSS
   height: 115px;
   border-radius: 5px 5px 0 0;
   background-color: var(--mainColor);
-  background-image: url(../img/bg.jpg);
+  background-image: url(/img/bg.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -7055,15 +7055,15 @@ Widget Sidebar CSS
 }
 
 .widget-area .widget_drodo_posts_thumb .item .thumb .fullimage.bg1 {
-  background-image: url(../img/blog/blog-img1.jpg);
+  background-image: url(/img/blog/blog-img1.jpg);
 }
 
 .widget-area .widget_drodo_posts_thumb .item .thumb .fullimage.bg2 {
-  background-image: url(../img/blog/blog-img2.jpg);
+  background-image: url(/img/blog/blog-img2.jpg);
 }
 
 .widget-area .widget_drodo_posts_thumb .item .thumb .fullimage.bg3 {
-  background-image: url(../img/blog/blog-img3.jpg);
+  background-image: url(/img/blog/blog-img3.jpg);
 }
 
 .widget-area .widget_drodo_posts_thumb .item .thumb::before, .widget-area .widget_drodo_posts_thumb .item .thumb::after {
@@ -7577,7 +7577,7 @@ Coming Soon Area CSS
   position: relative;
   z-index: 1;
   background: #f6f7fb;
-  background-image: url(../img/coming-soon-bg.jpg);
+  background-image: url(/img/coming-soon-bg.jpg);
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -9174,4 +9174,23 @@ Modal CSS
 .new-price{
     width: 69px;
     border: none !important;
+}
+
+.sidebar-item {
+    display:block;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom:10px;
+    /*background-color: #d5d5d5;*/
+}
+
+.required {
+    color: red;
+}
+
+.active {
+    color: #00BFD6 !important;
+}
+.active:hover {
+    color: #029bad !important;
 }

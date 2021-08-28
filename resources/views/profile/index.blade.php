@@ -5,174 +5,145 @@
 @endsection
 
 @section("content")
-    <!-- Start main-content -->
-    <main class="main-content dt-sl mb-3">
-        <div class="container main-container">
-            <div class="row">
+    @if(isset($user) && \Illuminate\Support\Facades\Auth::check())
 
-                @include('profile.sidebar')
 
-                <!-- Start Content -->
-                <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-12">
-                            <div class="px-3">
-                                <div
-                                    class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2">
-                                    <h2>اطلاعات شخصی</h2>
-                                </div>
-                                <div class="profile-section dt-sl">
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="label-info">
-                                                <span>نام و نام خانوادگی:</span>
-                                            </div>
-                                            <div class="value-info">
-                                                <span>{{$user->name ?? "" . $user->family ?? ""}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="label-info">
-                                                <span>شماره کارت:</span>
-                                            </div>
-                                            <div class="value-info">
-                                                <span>{{$user->profile->bank_cart_number ?? "_"}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="label-info">
-                                                <span>شماره تلفن همراه:</span>
-                                            </div>
-                                            <div class="value-info">
-                                                <span>{{$user->mobile ?? ""}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="label-info">
-                                                <span>کد ملی:</span>
-                                            </div>
-                                            <div class="value-info">
-                                                <span>{{$user->profile->national_code ?? "_"}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="label-info">
-                                                <span>پست الکترونیک:</span>
-                                            </div>
-                                            <div class="value-info">
-                                                <span>{{$user->email ?? ""}}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="profile-section-link">
-                                        <a href="{{route('profile_edit')}}" class="border-bottom-dt">
-                                            <i class="mdi mdi-account-edit-outline"></i>
-                                            ویرایش اطلاعات شخصی
-                                        </a>
-                                    </div>
-                                </div>
+                    <!-- Start Page Title Area -->
+                    <section class="page-title-area">
+                        <div class="container">
+                            <div class="page-title-content">
+                                <h1>پروفایل کاربری</h1>
+                                <ul>
+                                    <li><a href="#">خانه</a></li>
+                                    <li>{{$user->name ?? ""}}</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-xl-6 col-lg-12">
-                            <div class="px-3">
-                                <div
-                                    class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2">
-                                    <h2>لیست آخرین علاقه‌مندی‌ها</h2>
-                                </div>
-                                <div class="profile-section dt-sl">
-                                    @if (isset($bookmark))
-                                        <ul class="list-favorites">
-                                            @foreach($bookmark as $item)
-                                                <li>
-                                                    <a href="{{ route("single_product",["slug" => $item->product->product_slug ?? "404"]) }}">
-                                                        <img src="/uploads/thumbnail/{{$item->product->thumbnail ?? "noimage_64.jpg"}}" alt="{{$item->product_name}}">
-                                                        <span>{{$item->product->product_name ?? "بدون نام"}}</span>
-                                                    </a>
-                                                    <button class="delete_bookmark">
-                                                        <i data-id="{{$item->id}}" class="mdi mdi-trash-can-outline"></i>
-                                                    </button>
+                    </section>
+                    <!-- End Page Title Area -->
+
+                    <!-- Start Blog Details Area -->
+                    <section class="blog-details-area ptb-70">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-lg-9 col-md-12">
+                                    <div class="blog-details-desc">
+                                        <div class="article-content">
+                                            <div class="entry-meta">
+                                                <ul>
+                                                    <li>
+                                                        <i class="bx bx-folder-open"></i>
+                                                        <span>کیف پول </span>
+                                                        <a href="{{ route("profile_bookmark") }}">{{number_format($user->credit) ?? ""}} تومان</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="bx bx-group"></i>
+                                                        <span>نشان شده ها</span>
+                                                        @if(isset($bookmark))
+                                                            {{count($bookmark) ?? "0 عدد"}}
+                                                        @else
+                                                            0 عدد
+                                                        @endif
+                                                    </li>
+                                                    <li>
+                                                        <i class="bx bx-calendar"></i>
+                                                        <span>سفارشات من</span>
+                                                        @if(isset($orders[0]))
+                                                            {{count($orders) ?? "0 عدد"}}
+                                                        @else
+                                                            0 عدد
+                                                        @endif
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="comments-area">
+                                                @include('partials.condition')
+
+                                                <div class="comment-respond">
+                                                    <p class="comment-reply-title">ویرایش اطلاعات کاربری</p>
+
+                                                    <form id="profile_edit_form" class="comment-form">
+                                                        <p class="comment-notes">
+                                                            <span id="email-notes">از طریق فرم زیر می توانید اطلاعات خود را تکمیل فرمایید. </span>
+
+                                                        </p>
+                                                        <p class="comment-form-author">
+                                                            <label>نام <span class="required">*</span></label>
+                                                            <input type="text" placeholder="نام " name="name" value="{{$user->name ?? ""}}">
+                                                        </p>
+                                                        <p class="comment-form-author">
+                                                            <label>نام خانوادگی <span class="required">*</span></label>
+                                                            <input type="text" placeholder="نام خانوادگی" name="family" value="{{$user->family ?? ""}}">
+                                                        </p>
+
+                                                        <p class="comment-form-author">
+                                                            <label>شماره همراه</label>
+                                                            <input type="text" disabled placeholder="شماره همراه" name="url" value="{{$user->mobile ?? ""}}">
+                                                        </p>
+
+                                                         <p class="comment-form-author">
+                                                            <label>شماره ثابت</label>
+                                                            <input type="text" placeholder="شماره ثابت" name="phone" value="{{$user->profile->phone ?? ""}}">
+                                                        </p>
+
+                                                        <p class="comment-form-author">
+                                                            <label>ایمیل <span class="required">*</span></label>
+                                                            <input type="email" placeholder="رایانامه" name="email" value="{{$user->email ?? ""}}">
+                                                        </p>
+
+                                                        <p class="comment-form-author">
+                                                            <label>کد ملی <span class="required">*</span></label>
+                                                            <input type="text" placeholder="کد ملی" name="national_code" value="{{$user->profile->national_code ?? ""}}">
+                                                        </p>
+
+
+                                                        <p class="comment-form-comment">
+                                                            <label>آدرس</label>
+                                                            <textarea name="comment" id="comment" cols="45" placeholder="آدرس..." rows="5" maxlength="65525" ></textarea>
+                                                        </p>
+                                                        <p class="form-submit">
+                                                            <input type="submit" name="submit" id="product_edit_btn" class="submit" value="ویرایش اطلاعات">
+                                                        </p>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <ul class="wp-block-gallery columns-3">
+                                                <li class="blocks-gallery-item">
+                                                    <figure>
+                                                        <img src="/img/blog/blog-img4.jpg" alt="تصویر">
+                                                    </figure>
                                                 </li>
-                                            @endforeach
-                                        </ul>
-                                        <div class="profile-section-link">
-                                            <a href="#" class="border-bottom-dt">
-                                                <i class="mdi mdi-square-edit-outline"></i>
-                                                مشاهده دسته بندی محصولات
-                                            </a>
-                                        </div>
-                                    @else
-                                    <ul class="list-favorites">
-                                        <li>
-                                            <p>محصولی موجود نیست</p>
-                                        </li>
-                                    </ul>
-                                    <div class="profile-section-link">
-                                        <a disabled href="#" class="border-bottom-dt text-muted">
-                                            <i class="mdi mdi-square-edit-outline"></i>
-                                            مشاهده و ویرایش لیست مورد علاقه
-                                        </a>
-                                    </div>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-12">
-                            <div
-                                class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
-                                <h2>آخرین سفارش‌ها</h2>
-                            </div>
-                            @if(isset($orders[0]))
-                                <div class="dt-sl">
-                                    <div class="table-responsive">
-                                        <table class="table table-order">
-                                            <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>شماره سفارش</th>
-                                                <th>شماره پیگیری</th>
-                                                <th>تاریخ ثبت سفارش</th>
-                                                <th>مبلغ کل</th>
-                                                <th>وضعیت پرداخت</th>
-                                                <th>وضعیت سفارش</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($orders as $key => $item)
-                                                <tr>
-                                                    <td>{{++$key}}</td>
-                                                    <td>{{$item->order_number}}</td>
-                                                    <td>{{$item->id}}</td>
-                                                    <td>{{\Morilog\Jalali\Jalalian::forge($item->created_at)->format("Y/m/d")}}</td>
-                                                    <td>{{number_format($item->last_price)}} تومان</td>
-                                                    <td>{{$item->status_payment}}</td>
-                                                    <td class=@if($item->status == 0) notpaid @elseif($item->status == 1) paid @endif>{{App\Models\Orders::status($item->status)}}</td>
-                                                </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    @else
-                                        <div class="dt-sl dt-sn">
-                                            <div class="order-return text-center pt-2 pb-2">
-                                                <p class="text-center">در حال حاضر سفارشی برای شما ثبت نشده!</p>
-                                                <a href="{{route('home')}}" class="border-bottom-dt">برای پیگیری مشکلات به واحد پشتیبانی تیکت بزنید</a>
-                                            </div>
-                                        </div>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                <!-- End Content -->
 
-            </div>
-        </div>
-        </div>
-    </main>
-    <!-- End main-content -->
+                                                <li class="blocks-gallery-item">
+                                                    <figure>
+                                                        <img src="/img/blog/blog-img5.jpg" alt="تصویر">
+                                                    </figure>
+                                                </li>
+
+                                                <li class="blocks-gallery-item">
+                                                    <figure>
+                                                        <img src="/img/blog/blog-img6.jpg" alt="تصویر">
+                                                    </figure>
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @include('profile.sidebar')
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Blog Details Area -->
+    @endif
 @endsection
+
 
 @section('extra_js')
     <script>
@@ -207,6 +178,40 @@
                         }
                     }
                 });
+            });
+
+            $('body').on('click','#product_edit_btn',function (e){
+                e.preventDefault();
+                $.ajax({
+                   url : "{{route('profile_edit_action')}}",
+                    type : "POST",
+                    data : $('#profile_edit_form').serialize(),
+                    success : function (data) {
+                       console.log(data);
+                        if(data.status == "0") {
+                            Swal.fire({
+                                position: 'top-end',
+                                toast: true,
+                                icon: 'error',
+                                text: data.desc,
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                        if(data.status == "1") {
+                            Swal.fire({
+                                position: 'top-end',
+                                toast: true,
+                                icon: 'success',
+                                text: data.desc,
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                            location.reload();
+                        }
+                    }
+                });
+
             });
         });
     </script>

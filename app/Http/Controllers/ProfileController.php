@@ -1017,28 +1017,29 @@ class ProfileController extends Controller
 
     public function ProfileEditAction(Request $request)
     {
-        $request = $request->replace(self::faToEn($request->all()));
-
-        $request->validate([
+//        $request = $request->replace(self::faToEn($request->all()));
+        $validator = Validator::make($request->all(), [
             'email' => 'nullable|email|max:255',
-            'sex' => 'nullable|max:1',
+//            'sex' => 'nullable|max:1',
             'name' => 'nullable|max:255',
             'family' => 'nullable|max:255',
             'phone' => 'nullable',
-            'state' => 'nullable|max:3',
-            'bank_cart_number' => 'nullable',
+//            'state' => 'nullable|max:3',
+//            'bank_cart_number' => 'nullable',
             'national_code' => 'nullable|numeric|digits:10',
-            'sheba' => 'nullable|digits:24',
+//            'sheba' => 'nullable|digits:24',
             "password" => 'nullable|min:6'
         ]);
 
-        $user = Auth::user();
-
-        if ($user->verified_email == 0 && !Cache::has("email_code_" . $user->id)) {
-            User::where("mobile", $user->mobile)->update([
-                "email" => $request->email,
-            ]);
+        if ($validator->fails()) {
+            return Response::json(["status" => "0", "desc" => $validator->errors()->all()]);
         }
+        $user = Auth::user();
+//        if ($user->verified_email == 0 && !Cache::has("email_code_" . $user->id)) {
+//            User::where("mobile", $user->mobile)->update([
+//                "email" => $request->email,
+//            ]);
+//        }
 
         User::where("mobile", $user->mobile)->update([
             "name" => $request->name,
@@ -1046,54 +1047,52 @@ class ProfileController extends Controller
             "updated_at" => Carbon::now()
         ]);
 
-        Profile::where("user_id", $user->id)->update([
-            "bank_cart_number" => $request->bank_cart_number,
+        Profile::where("user_id", Auth::id())->update([
+//            "bank_cart_number" => $request->bank_cart_number,
             "national_code" => $request->national_code,
-            "sheba" => $request->sheba,
+//            "sheba" => $request->sheba,
             "phone" => $request->phone,
-            "gender" => $request->sex,
-            "city_code" => $request->state,
+//            "gender" => $request->sex,
+//            "city_code" => $request->state,
         ]);
+return 2;
+//        if ($user->verified_email == 0 && isset($request->email) && strlen($request->email)) {
+//            if (Cache::has("email_code_" . $user->id, true,)) {
+//                session()->flash("error", "تا 10 دقیقه امکان تغییر ایمیل را ندارید");
+//                return back();
+//            } else {
+//                $exist = User::where('email', $request->email)->where('verified_email', 1)->exists();
+//                if ($exist == true) {
+//                    session()->flash("error", "ایمیل وارد شده تکراری می باشد");
+//                    return back();
+//                } else {
+//                    $code = Str::random(16);
+//                    $userID = Auth::id();
+//                    $email = $request->email;
+//                    $url = route("email_verify_action", ["awpf" => base64_encode($userID), "ccew" => base64_encode($email), "prmy" => base64_encode($code)]);
+//                    $content = $url;
+//                    User::where("id", $userID)->where("email", $email)->update([
+//                        "email_code" => $code,
+//                    ]);
+//                    $view = 'verify_email';
+//                    $subject = 'لینک تایید رایانامه شما';
+//                    $title = 'پشتیبانی سایت فروشگاه آرمان';
+//                    self::email($email, $view, $content, $title, $subject);
+//                    session()->flash("error", "لینک تایید به ایمیل شما ارسال شد");
+//                    Cache::put("email_code_" . $user->id, true, 600);
+//                }
+//            }
+//        }
 
-        if ($user->verified_email == 0 && isset($request->email) && strlen($request->email)) {
-            if (Cache::has("email_code_" . $user->id, true,)) {
-                session()->flash("error", "تا 10 دقیقه امکان تغییر ایمیل را ندارید");
-                return back();
-            } else {
-                $exist = User::where('email', $request->email)->where('verified_email', 1)->exists();
-                if ($exist == true) {
-                    session()->flash("error", "ایمیل وارد شده تکراری می باشد");
-                    return back();
-                } else {
-                    $code = Str::random(16);
-                    $userID = Auth::id();
-                    $email = $request->email;
-                    $url = route("email_verify_action", ["awpf" => base64_encode($userID), "ccew" => base64_encode($email), "prmy" => base64_encode($code)]);
-                    $content = $url;
-                    User::where("id", $userID)->where("email", $email)->update([
-                        "email_code" => $code,
-                    ]);
-                    $view = 'verify_email';
-                    $subject = 'لینک تایید رایانامه شما';
-                    $title = 'پشتیبانی سایت فروشگاه آرمان';
-                    self::email($email, $view, $content, $title, $subject);
-                    session()->flash("error", "لینک تایید به ایمیل شما ارسال شد");
-                    Cache::put("email_code_" . $user->id, true, 600);
-                }
-            }
-        }
+//        if (isset($request->password) && strlen($request->password)) {
+//            User::where("mobile", $user->mobile)->update([
+//                "password" => Hash::make($request->password),
+//                "password_changed" => 1,
+//            ]);
+//            return Response::json(["status" => "1", "desc" => "پروفایل با موفقیت بروزرسانی شد"]);
+//        }
 
-        if (isset($request->password) && strlen($request->password)) {
-            User::where("mobile", $user->mobile)->update([
-                "password" => Hash::make($request->password),
-                "password_changed" => 1,
-            ]);
-            session()->flash("status", "پروفایل و رمز عبور شما با موفقیت بروزرسانی شد");
-        }
-
-        session()->flash("status", "پروفایل با موفقیت بروزرسانی شد");
-        return back();
-
+        return Response::json(["status" => "1", "desc" => "پروفایل با موفقیت بروزرسانی شد"]);
     }
 
     public function EmailVerifyAction(Request $request)

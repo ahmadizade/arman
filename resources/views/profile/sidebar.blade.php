@@ -1,117 +1,97 @@
 <!-- Start Sidebar -->
-<div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 sticky-sidebar">
-<div class="profile-sidebar dt-sl">
 @if(isset($user) && \Illuminate\Support\Facades\Auth::check())
-    <div class="dt-sl dt-sn mb-3">
-    <div class="profile-sidebar-header dt-sl">
-    <div class="d-flex align-items-center">
-    <div class="profile-avatar">
-        <img src="/img/theme/avatar.png" alt="">
-    </div>
-    <div class="profile-header-content mr-3 mt-2">
-        <span class="d-block profile-username">{{$user->name ?? ""}} {{$user->family ?? ""}}</span>
-        <span class="d-block profile-phone">{{$user->mobile ?? "ثبت نشده"}}</span>
-    </div>
-    </div>
-    <div class="profile-point mt-3 mb-2 dt-sl">
-    <span class="label-profile-point">امتیاز شما:</span>
-    <span class="float-left value-profile-point">120</span>
-    </div>
-    <div class="profile-link mt-2 dt-sl">
-    <div class="row">
-        <div class="col-6 text-center">
-            <a href="{{route('change_password')}}">
-                <i class="mdi mdi-lock-reset"></i>
-                <span class="d-block">تغییر رمز</span>
-            </a>
+        <div class="col-lg-3 col-md-12">
+            <aside class="widget-area">
+
+                <section class="widget widget_drodo_posts_thumb">
+                    <img class="widget-title" src="/img/logo.png" alt="لوگو">
+                    <div class="sidebar-sidebar-item">
+                        <div class="info">
+                            <p class="title usmall @if($menu == "index") active @endif"><a href="{{ route("profile_index") }}"><i class="bx bx-group"></i> پروفایل</a></p>
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="sidebar-item">
+                        <div class="info">
+                            <p class="title usmall"><a href="{{route('change_password')}}">تغییر رمز عبور</a></p>
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+
+
+                    <article class="sidebar-item">
+                        <div class="info">
+                            <p class="title usmall"><a href="{{route('logout')}}">خروج از حساب</a></p>
+                        </div>
+
+                        <div class="clear"></div>
+                    </article>
+
+
+                    <article class="sidebar-item">
+                        <div class="info">
+                            <p class="title usmall @if($menu == "orders") active @endif"><a href="{{route('orders')}}"><i class="bx bx-calendar"></i> سفارشات من</a></p>
+                        </div>
+
+                        <div class="clear"></div>
+                    </article>
+
+                     <article class="sidebar-item">
+                        <div class="info">
+                            <p class="title usmall @if($menu == "credit") active @endif"><a href="{{route('profile_credit')}}"><i class="bx bx-folder-open"></i> کیف پول من</a></p>
+                        </div>
+
+                        <div class="clear"></div>
+                    </article>
+
+
+                    <article class="sidebar-item">
+                        <div class="info">
+                            <p class="title usmall @if($menu == "bookmark") active @endif"><a href="{{ route("profile_bookmark") }}">نشان شده ها</a></p>
+                        </div>
+
+                        <div class="clear"></div>
+                    </article>
+
+
+
+
+
+                </section>
+
+
+
+
+                <section class="widget widget_categories">
+                    <h3 class="widget-title">دسته بندی ها</h3>
+
+                    <ul>
+                        <li><a href="#">طراحی <span class="post-count">(03)</span></a></li>
+                        <li><a href="#">سبک زندگی <span class="post-count">(05)</span></a></li>
+                        <li><a href="#">متن <span class="post-count">(10)</span></a></li>
+                        <li><a href="#">دستگاه <span class="post-count">(08)</span></a></li>
+                        <li><a href="#">نکات <span class="post-count">(01)</span></a></li>
+                    </ul>
+                </section>
+
+                <section class="widget widget_tag_cloud">
+                    <h3 class="widget-title">برچسب های محبوب</h3>
+
+                    <div class="tagcloud">
+                        <a href="#">تجارت <span class="tag-link-count">(3)</span></a>
+                        <a href="#"> طراحی <span class="tag-link-count">(3)</span></a>
+                        <a href="#">متن<span class="tag-link-count">(2)</span></a>
+                        <a href="#"> مد <span class="tag-link-count">(2)</span></a>
+                        <a href="#"> مسافرت <span class="tag-link-count">(1)</span></a>
+                        <a href="#"> هوشمند <span class="tag-link-count">(1)</span></a>
+                        <a href="#"> بازاریابی <span class="tag-link-count">(1)</span></a>
+                        <a href="#"> نکات <span class="tag-link-count">(2)</span></a>
+                    </div>
+                </section>
+            </aside>
         </div>
-        <div class="col-6 text-center">
-            <a href="{{route('logout')}}">
-                <i class="mdi mdi-logout-variant"></i>
-                <span class="d-block">خروج از حساب</span>
-            </a>
-        </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="dt-sl dt-sn mb-3 text-center">
-    <a href="#">
-    <img src="/img/banner/sidebar-banner-3.png" class="img-fluid" alt="">
-    </a>
-    </div>
-    <div class="dt-sl dt-sn mb-3">
-    <div class="profile-menu-section dt-sl">
-    <div class="label-profile-menu mt-2 mb-2">
-    <span>حساب کاربری شما</span>
-    </div>
-    <div class="profile-menu">
-    <ul>
-        <li>
-            <a href="{{ route("profile_index") }}" class="@if($menu == "index") active @endif">
-                <i class="mdi mdi-account-circle-outline"></i>
-                پروفایل
-            </a>
-        </li>
-        <li>
-            <a href="{{ route("profile_edit") }}" class="@if($menu == "profile") active @endif">
-                <i class="mdi mdi-account-edit-outline"></i>
-                تنظیمات کاربری
-            </a>
-        </li>
-        <li>
-            <a href="{{route('my_webservice')}}" class="@if($menu == "webservice") active @endif">
-                <i class="mdi mdi-basket"></i>
-                وب سرویس ها
-            </a>
-        </li>
-        <li>
-            <a href="{{route('orders')}}" class="@if($menu == "orders") active @endif">
-                <i class="mdi mdi-basket"></i>
-                سفارشات من
-            </a>
-        </li>
-        <li>
-            <a href="{{route('profile_credit')}}" class="@if($menu == "credit") active @endif">
-                <i class="mdi mdi-backburger"></i>
-                کیف پول من
-            </a>
-        </li>
-        <li>
-            <a href="{{route('my_tickets')}}" class="@if($menu == "ticket") active @endif">
-                <i class="mdi mdi-sign-direction"></i>
-                تیکت ها
-            </a>
-        </li>
-        <li>
-            <a href="{{ route("profile_bookmark") }}" class="@if($menu == "bookmark") active @endif">
-                <i class="mdi mdi-heart-outline"></i>
-                نشان شده ها
-            </a>
-        </li>
-{{--        <li>--}}
-{{--            <a href="{{ route("profile_products") }}">--}}
-{{--                <i class="mdi mdi-glasses @if($menu == "products") active @endif"></i>--}}
-{{--                محصولات من--}}
-{{--            </a>--}}
-{{--        </li>--}}
-{{--        <li>--}}
-{{--            <a href="#">--}}
-{{--                <i class="mdi mdi-glasses"></i>--}}
-{{--                آدرس ها--}}
-{{--            </a>--}}
-{{--        </li>--}}
-{{--        <li>--}}
-{{--            <a href="{{ route("profile_add_product") }}">--}}
-{{--                <i class="mdi mdi-eye-outline @if($menu == "add_product") active @endif"></i>--}}
-{{--                افزودن محصول--}}
-{{--            </a>--}}
-{{--        </li>--}}
-    </ul>
-    </div>
-    </div>
-    </div>
 @endif
-</div>
-</div>
 <!-- End Sidebar -->
