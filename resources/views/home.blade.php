@@ -25,7 +25,7 @@
                                     <div class="btn-box">
                                         <div class="d-flex align-items-center float-left">
                                             <span class="price">500000 تومان</span>
-                                            <a href="#" class="default-btn"><i class="flaticon-trolley"></i>افزودن به سبد خرید </a>
+                                            <button data-id="1" class="default-btn add-cart"><i class="flaticon-trolley"></i>افزودن به سبد خرید </button>
                                         </div>
                                     </div>
                                 </div>
@@ -56,7 +56,7 @@
                                     <div class="btn-box">
                                         <div class="d-flex align-items-center float-left">
                                             <span class="price">79000 تومان</span>
-                                            <a href="#" class="default-btn"><i class="flaticon-trolley"></i>افزودن به سبد خرید </a>
+                                            <button data-id="2" class="default-btn add-cart"><i class="flaticon-trolley"></i>افزودن به سبد خرید </button>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                     <div class="btn-box">
                                         <div class="d-flex align-items-center float-left">
                                             <span class="price">30000 تومان</span>
-                                            <a href="#" class="default-btn"><i class="flaticon-trolley"></i>افزودن به سبد خرید </a>
+                                            <button data-id="3" class="default-btn add-cart"><i class="flaticon-trolley"></i>افزودن به سبد خرید </button>
                                         </div>
                                     </div>
                                 </div>

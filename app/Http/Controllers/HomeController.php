@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -70,6 +71,9 @@ class HomeController extends Controller
 
     public function index()
     {
+
+       // return dd(Session::get("cart"));
+
         $lastProduct = Product::where('delete' , 0)->orderBy('id' , 'desc')->limit(8)->get();
         $blog_posts = Blog::where('delete' , 0)->orderBy('id' , 'desc')->limit(3)->get();
         $popularproduct = Product::where('delete' , 0)->orderBy('view' , 'desc')->limit(8)->get();

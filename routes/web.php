@@ -238,8 +238,12 @@ Route::post('domain-search-action', 'App\Http\Controllers\ExtraController@domain
 Route::get('domain-result/{finder}', 'App\Http\Controllers\ExtraController@domainResult')->name("domain_result");
 
 
-
-
+Route::post('/shop/add-cart', 'App\Http\Controllers\CartController@addCart')->name('add_cart');
+Route::post('/shop/remove-cart', 'App\Http\Controllers\CartController@removeCart')->name('remove_cart');
+Route::post('/shop/edit-cart', 'App\Http\Controllers\CartController@editCart')->name('edit_cart');
+Route::post('/shop/show-cart', 'App\Http\Controllers\CartController@showCart')->name('show_cart');
+Route::get('/checkout', 'App\Http\Controllers\CartController@checkout')->name('checkout');
+Route::post('/checkout-order', 'App\Http\Controllers\CartController@checkoutOrder')->name('checkout_order');
 
 
 //API TRANSLATE TO MY SITE (START)

@@ -72,20 +72,19 @@
                                 @endphp
                                 @foreach(Illuminate\Support\Facades\Session::get('product') as $key => $item)
                                 @php
-                                    $price = $price + $item->price;
+                                    $price = $price + $item['price'];
                                 @endphp
                                     <div class="products-cart d-flex align-items-center">
                                     <div class="products-image">
-                                        <a href="{{route('cart_page')}}"><img src="/uploads/thumbnail/{{$item->thumbnail ?? "noimage_64.jpg"}}" alt="{{$item->product_name ?? "نا معلوم"}}"></a>
+                                        <img src="/uploads/products/{{$item['thumbnail'] ?? "noimage_64.jpg"}}" alt="{{$item['product_name'] ?? "نا معلوم"}}">
                                     </div>
-
                                     <div class="products-content">
-                                        <h3><a href="{{route('cart_page')}}">{{$item->product_name ?? "نا معلوم"}} </a></h3>
+                                        <h3>{{ $item['product_name'] }}</h3>
                                         <div class="products-price">
-                                            <span class="price">{{number_format($item->price ?? "رایگان")}} تومان</span>
+                                            <span class="price">{{number_format($item['price'])}} تومان</span>
                                         </div>
                                     </div>
-                                    <a href="{{route('cart_product_delete',['key' => $key])}}" class="remove-btn"><i class="bx bx-trash"></i></a>
+                                    <a href="#" data-id="{{ $item['id'] }}" class="remove-cart remove-btn"><i class="bx bx-trash"></i></a>
                                 </div>
                                 @endforeach
                             @else
@@ -96,20 +95,19 @@
                                             <span class="price">ابتدا محصول مورد نظر خود را انتخاب کنید</span>
                                         </div>
                                     </div>
-                                    <a href="#" class="remove-btn"><i class="bx bx-trash"></i></a>
                                 </div>
                             @endif
                         </div>
+                        @if(!empty(Illuminate\Support\Facades\Session::has('product') && count(Illuminate\Support\Facades\Session::get('product')) > 0))
+                     {{--       <div class="products-cart-subtotal">
+                                <span>جمع </span>
 
-                        <div class="products-cart-subtotal">
-                            <span>جمع </span>
-
-                            <span class="subtotal">{{number_format($price ?? 0)}} تومان</span>
-                        </div>
-
-                        <div class="products-cart-btn">
-                            <a href="{{route('cart_page')}}" class="default-btn">ادامه به پرداخت</a>
-                        </div>
+                                <span class="subtotal">{{number_format($price ?? 0)}} تومان</span>
+                            </div>--}}
+                            <div class="products-cart-btn">
+                                <a href="{{route('checkout')}}" class="default-btn">ادامه به پرداخت</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -349,6 +347,46 @@
         <script src="/js/main.js"></script>
 
         <script>
+
+            $(".add-cart").on("click",function(e){
+                $(this).append(' <span class="fa fa-spinner fa-spin"></span>');
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route("add_cart") }}",
+                    data: {"id": $(this).attr("data-id")},
+                    success: function (result) {
+                        console.log(result);
+                        if(result.error == false){
+                            window.location.reload();
+                        }else{
+                            alert(result.desc);
+                            setTimeout(function(){
+                                $("#add-cart button").html("<i class='flaticon-trolley'></i>افزودن به سبد خرید ");
+                            },100)
+                        }
+                    },
+                });
+                e.preventDefault();
+            });
+
+
+            $("body").on("click",".remove-cart",function(e){
+                $(this).append(' <span class="fa fa-spinner fa-spin"></span> ');
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route("remove_cart") }}",
+                    data: {"id": $(this).attr("data-id")},
+                    success: function (result) {
+                        if(result.error = false){
+                            alert("این محصول وجود ندارد");
+                        }else{
+                            window.location.reload();
+                        }
+                    },
+                });
+                e.preventDefault();
+            });
+
             $( document ).ready(function() {
                 $('body').on('click','.bookmark_btn',function (e){
                     e.preventDefault();
