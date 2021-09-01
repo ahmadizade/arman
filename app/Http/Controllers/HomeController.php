@@ -122,8 +122,9 @@ class HomeController extends Controller
         if (Auth::check()){
             $user_id = Auth::id();
         }else{
-            $user_id = "";
+            $user_id = 0;
         }
+
         Contact::create([
             "user_id" => $user_id,
             "name" => $request->name,

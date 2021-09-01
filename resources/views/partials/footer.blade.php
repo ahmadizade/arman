@@ -7,8 +7,8 @@
                     <div class="icon">
                         <i class="flaticon-free-shipping"></i>
                     </div>
-                    <h3>ارسال رایگان</h3>
-                    <p>حمل و نقل رایگان در سراسر جهان</p>
+                    <h3>تحویل فوری</h3>
+                    <p>ارسال محصول در کوتاهترین زمان</p>
                 </div>
             </div>
 
@@ -37,8 +37,8 @@
                     <div class="icon">
                         <i class="flaticon-return-box"></i>
                     </div>
-                    <h3>بازگشت آسان</h3>
-                    <p>سیاست بازگشت ساده</p>
+                    <h3>تضمین بالاترین کیفیت</h3>
+                    <p>استاندارد اروپایی و سیب سلامت</p>
                 </div>
             </div>
         </div>
@@ -54,17 +54,17 @@
                 <div class="single-footer-widget">
                     <a href="#" class="logo d-inline-block"><img src="/img/logo.png" alt="تصویر"></a>
                     <ul class="footer-contact-info">
-                        <li><span>خط تلفن: </span> <a href="#">45564645</a></li>
-                        <li><span>تلفن: </span> <a href="tel:+1234567898">456-7898322</a></li>
-                        <li><span>ایمیل: </span> <a href="mailto:hello@drodo.com">hello@drodo.com</a></li>
-                        <li><span>آدرس: </span> <a href="#" target="_blank">ایران - تهران</a></li>
+{{--                        <li><span>خط تلفن: </span> <a href="#">021-۸۸۵۵۷۳۳۵</a></li>--}}
+                        <li><span>تلفن: </span> <a href="tel:+1234567898">021-۸۸۵۵۷۳۳۵</a></li>
+                        <li><span>ایمیل: </span> <a href="mailto:hello@drodo.com">sales@armanmask.ir</a></li>
+                        <li><span>آدرس: </span> <a href="#" target="_blank">تهران، خیابان بخارست، کوچه پنجم، پلاک ۱۵ طبقه ۳ واحد ۱۶</a></li>
                     </ul>
                     <ul class="social">
-                        <li><a href="#" target="_blank"><i class="bx bxl-facebook-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="bx bxl-twitter"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="bx bxl-instagram-alt"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="bx bxl-linkedin-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="bx bxl-pinterest"></i></a></li>
+{{--                        <li><a href="#" target="_blank"><i class="bx bxl-facebook-square"></i></a></li>--}}
+{{--                        <li><a href="#" target="_blank"><i class="bx bxl-twitter"></i></a></li>--}}
+                        <li><a href="https://www.instagram.com/arman.mask.co/" target="_blank"><i class="bx bxl-instagram-alt"></i></a></li>
+{{--                        <li><a href="#" target="_blank"><i class="bx bxl-linkedin-square"></i></a></li>--}}
+{{--                        <li><a href="#" target="_blank"><i class="bx bxl-pinterest"></i></a></li>--}}
                     </ul>
                 </div>
             </div>
@@ -74,10 +74,10 @@
                     <h3>اطلاعات</h3>
 
                     <ul class="link-list">
-                        <li><a href="about.html">درباره ما</a></li>
-                        <li><a href="contact.html">با ما تماس بگیرید</a></li>
-                        <li><a href="privacy-policy.html">سیاست حفظ حریم خصوصی</a></li>
-                        <li><a href="terms-of-service.html">شرایط و ضوابط</a></li>
+                        <li><a href="{{route('about_Us')}}">درباره ما</a></li>
+                        <li><a href="{{route('contact')}}">با ما تماس بگیرید</a></li>
+                        <li><a href="{{route('policy')}}">سیاست حفظ حریم خصوصی</a></li>
+                        <li><a href="{{route('policy')}}">شرایط و ضوابط</a></li>
                         <li><a href="customer-service.html">اطلاعات تحویل</a></li>
                         <li><a href="customer-service.html">سفارشات و بازده ها</a></li>
                     </ul>
@@ -90,10 +90,10 @@
 
                     <ul class="link-list">
                         <li><a href="faq.html">راهنمای سوالات</a></li>
-                        <li><a href="profile-authentication.html">حساب من</a></li>
-                        <li><a href="cart.html">تاریخچه سفارش ها</a></li>
-                        <li><a href="cart.html">لیست علاقه مندیها</a></li>
-                        <li><a href="contact.html">خبرنامه</a></li>
+                        <li><a href="{{route('profile_credit')}}">حساب من</a></li>
+                        <li><a href="{{route('profile_index')}}">تاریخچه سفارش ها</a></li>
+                        <li><a href="{{route('profile_bookmark')}}">لیست علاقه مندیها</a></li>
+                        <li><a href="{{route('mag')}}">خبرنامه</a></li>
                         <li><a href="purchase-guide.html">سیاست خرید</a></li>
                     </ul>
                 </div>
@@ -116,22 +116,22 @@
     <div class="footer-bottom-area">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6">
-                    <p>کپی رایت <i class="bx bx-copyright"></i>تمام حقوق مادی و معنوی وب سایت متعلق به شرکت بهداشتی آرمان می باشد.</p>
+                <div class="col-lg-12 col-md-12 text-center">
+                    <p>کپی رایت <i class="bx bx-copyright"></i>تمام حقوق مادی و معنوی وب سایت متعلق به شرکت تجهیزات پزشکی آرمان ماسک می باشد.</p>
                 </div>
 
-                <div class="col-lg-6 col-md-6">
-                    <div class="payment-types">
-                        <ul class="d-flex align-items-center justify-content-end">
-                            <li>ما پرداخت را از طریق:</li>
-                            <li><a href="#" target="_blank"><img src="/img/payment-types/visa.png" alt="تصویر"></a></li>
-                            <li><a href="#" target="_blank"><img src="/img/payment-types/mastercard.png" alt="تصویر"></a></li>
-                            <li><a href="#" target="_blank"><img src="/img/payment-types/paypal.png" alt="تصویر"></a></li>
-                            <li><a href="#" target="_blank"><img src="/img/payment-types/descpver.png" alt="تصویر"></a></li>
-                            <li><a href="#" target="_blank"><img src="/img/payment-types/american-express.png" alt="تصویر"></a></li>
-                        </ul>
-                    </div>
-                </div>
+{{--                <div class="col-lg-6 col-md-6">--}}
+{{--                    <div class="payment-types">--}}
+{{--                        <ul class="d-flex align-items-center justify-content-end">--}}
+{{--                            <li>ما پرداخت را از طریق:</li>--}}
+{{--                            <li><a href="#" target="_blank"><img src="/img/payment-types/visa.png" alt="تصویر"></a></li>--}}
+{{--                            <li><a href="#" target="_blank"><img src="/img/payment-types/mastercard.png" alt="تصویر"></a></li>--}}
+{{--                            <li><a href="#" target="_blank"><img src="/img/payment-types/paypal.png" alt="تصویر"></a></li>--}}
+{{--                            <li><a href="#" target="_blank"><img src="/img/payment-types/descpver.png" alt="تصویر"></a></li>--}}
+{{--                            <li><a href="#" target="_blank"><img src="/img/payment-types/american-express.png" alt="تصویر"></a></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>

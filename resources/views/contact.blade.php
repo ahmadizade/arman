@@ -29,8 +29,8 @@
                             <i class="flaticon-placeholder"></i>
                         </div>
                         <h3>نشانی</h3>
-                        <p><a href="javascript:void(0)">ایران - تهران</a></p>
-                        <p><a href="javascript:void(0)">خیابان فاطمی</a></p>
+                        <p><a href="javascript:void(0)">ایران - تهران خیابان بخارست</a></p>
+                        <p><a href="javascript:void(0)">کوچه پنجم، پلاک ۱۵ طبقه ۳ واحد ۱۶</a></p>
                     </div>
                 </div>
 
@@ -40,8 +40,8 @@
                             <i class="flaticon-phone-ringing"></i>
                         </div>
                         <h3>تلفن</h3>
-                        <p><a href="tel:55656644">خط تلفن: 55656644</a></p>
-                        <p><a href="tel:+1234567898">پشتیبانی فنی: 22407239-021</a></p>
+                        <p><a href="tel:021۸۸۵۵۷۳۳۵" class="my_rtl">خط تلفن: ۸۸۵۵۷۳۳۵</a></p>
+                        <p><a href="tel:021۸۸۵۵۷۳۳۵">دورنما : ۸۸۵۵۷۳۳۵</a></p>
                     </div>
                 </div>
 
@@ -51,8 +51,8 @@
                             <i class="flaticon-email"></i>
                         </div>
                         <h3>پست الکترونیک</h3>
-                        <p><a href="mailto:hello@drodo.com">info@arman.com</a></p>
-                        <p><a href="#">اسکایپ: آرمان</a></p>
+                        <p><a href="mailto:sales@armanmask.ir">info@armanmask.ir</a></p>
+                        <p><a href="https://www.instagram.com/arman.mask.co/">اینساگرام: آرمان</a></p>
                     </div>
                 </div>
 
@@ -63,7 +63,7 @@
                         </div>
                         <h3>ساعات کاری</h3>
                         <p>شنبه - جمعه</p>
-                        <p>8:00 صبح - 16:00 ظهر</p>
+                        <p>8:00 صبح - 17:00 ظهر</p>
                     </div>
                 </div>
             </div>
@@ -138,8 +138,7 @@
     </section>
 
     <div id="maps">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46660.669043361966!2d-76.17429939609431!3d43.03529129888566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d9f3b8019f2991%3A0x58d5929e21a62e5!2sDinosaur%20Bar-B-Que!5e0!3m2!1sen!2sbd!4v1593527523138!5m2!1sen!2sbd"></iframe>
-    </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.829188274869!2d51.413208915260064!3d35.730419180182906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQzJzQ5LjUiTiA1McKwMjQnNTUuNCJF!5e0!3m2!1sen!2s!4v1630506297194!5m2!1sen!2s"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>    </div>
     <!-- End Contact Area -->
 @endsection
 
