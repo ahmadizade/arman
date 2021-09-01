@@ -9194,3 +9194,15 @@ Modal CSS
 .active:hover {
     color: #029bad !important;
 }
+
+.no-outline {
+    border-top-style: hidden !important;
+    border-right-style: hidden !important;
+    border-left-style: hidden !important;
+    border-bottom-style: hidden !important;
+    background-color: transparent !important;
+}
+
+.no-outline:focus {
+    outline: none !important;
+}

@@ -4,11 +4,11 @@
         <div class="section-title">
             <h2>دسته بندی ها</h2>
         </div>
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             @foreach($category as $item)
-                <div class="col-lg-2 col-sm-4 col-md-4">
+                <div class="col-lg-4 col-sm-4 col-md-4">
                     <div class="single-categories-box">
-                        <img src="/uploads/category/{{$item->image}}" alt="{{$item->name ?? "نا معلوم"}}">
+                        <img src="/uploads/category/{{$item->image}}" alt="{{$item->name ?? "نا معلوم"}}" style="max-width:200px;max-height: 200px;">
                         <h3>{{$item->name ?? "نا معلوم"}}</h3>
                         <a href="{{route('single_category',["slug" => $item->slug])}}" class="link-btn"></a>
                     </div>

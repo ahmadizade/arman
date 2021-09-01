@@ -352,6 +352,7 @@
             $( document ).ready(function() {
                 $('body').on('click','.bookmark_btn',function (e){
                     e.preventDefault();
+                    e.stopPropagation();
                     $.ajax({
                         url : '{{route('bookmark')}}',
                         type : 'POST',

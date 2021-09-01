@@ -150,6 +150,8 @@ return [
         'last_name'             => 'نام خانوادگی',
         'password'              => 'رمز عبور',
         'password_confirmation' => 'تکرار رمز عبور',
+        'confirm_password'     => 'تکرار رمز عبور',
+        'old_password'             => 'رمز فعلی',
         'city'                  => 'شهر',
         'country'               => 'کشور',
         'address'               => 'نشانی',

@@ -14,7 +14,7 @@
                             <div class="page-title-content">
                                 <h1>پروفایل کاربری</h1>
                                 <ul>
-                                    <li><a href="#">خانه</a></li>
+                                    <li><a href="{{route('home')}}">خانه</a></li>
                                     <li>{{$user->name ?? ""}} {{$user->family ?? ""}}</li>
                                 </ul>
                             </div>

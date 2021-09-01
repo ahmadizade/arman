@@ -29,7 +29,7 @@ class LoginController extends Controller
     }
 
     public function changePassword(){
-        return view('auth.change_password');
+        return view('auth.change_password', ["user" => Auth::user() , 'menu' => "password"]);
     }
 
     public function loginAction(Request $request){
@@ -209,13 +209,13 @@ class LoginController extends Controller
             'confirm_password' => 'required_with:password|same:password|min:6|max:64',
         ]);
         if ($validate->fails()) {
-            Session::flash("error" , $validate->getMessageBag()->first());
+            Session::flash("errors" , $validate->errors()->first());
             return back();
         }
 
         $check = User::where("id", Auth::id())->first();
         if ($check->password_changed == 1 && !Hash::check($request->old_password, $check->password)) {
-            Session::flash("error" , "رمز عبور فعلی اشتباه است");
+            Session::flash("errors" , "رمز عبور فعلی اشتباه است");
             return back();
         }
         elseif($request->password === $request->confirm_password){

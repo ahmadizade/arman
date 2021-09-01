@@ -4,8 +4,8 @@
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-7">
                 <ul class="top-header-contact-info">
-                    <li><i class="bx bx-phone-call"></i> <a href="tel:+1234567898">021-7898322</a></li>
-                    <li><i class="bx bx-map"></i> <a href="#" target="_blank">تهران - فاطمی</a></li>
+                    <li><i class="bx bx-phone-call"></i> <a href="tel:+1234567898">021-۸۸۵۵۷۳۳۵</a></li>
+                    <li><i class="bx bx-map"></i> <a href="#" target="_blank">تهران، خیابان بخارست، کوچه پنجم، پلاک ۱۵</a></li>
                 </ul>
             </div>
 

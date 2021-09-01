@@ -646,7 +646,7 @@ class AdminController extends Controller
     }
 
     public function showProduct(){
-        $last_product = Product::orderByDesc('id')->paginate(15);
+        $last_product = Product::orderByDesc('id')->where('delete', 0)->paginate(15);
         return view('admin.views.product_show', ['last_product' => $last_product]);
     }
 

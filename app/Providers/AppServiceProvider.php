@@ -59,12 +59,12 @@ class AppServiceProvider extends ServiceProvider
 
 
         View::composer('*', function ($view) {
-            $category = DB::table('category')->get();
+            $category = DB::table('category')->where('delete', 0)->get();
             $view->with('category',$category);
         });
 
         View::composer('*', function ($view) {
-            $product_tag = DB::table('product_tag')->get();
+            $product_tag = DB::table('product_tag')->where('delete', 0)->get();
             $view->with('product_tag',$product_tag);
         });
 

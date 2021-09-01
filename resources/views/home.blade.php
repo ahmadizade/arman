@@ -210,8 +210,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="hot-deal-content">
-                        <span class="sub-title">معامله ماه</span>
-                        <h2>تا <span>80٪</span> تخفیف تمام فروش ها نهایی هستند!</h2>
+                        <span class="sub-title">پیشنهاد ویژه</span>
+                        <h2>تا <span>50٪</span> تخفیف ماسک برای سفارش‌های تعداد بالا!</h2>
                         <div id="timer" class="flex-wrap d-flex justify-content-center">
                             <div id="days" class="align-items-center flex-column d-flex justify-content-center"></div>
                             <div id="hours" class="align-items-center flex-column d-flex justify-content-center"></div>
@@ -231,7 +231,7 @@
     <section class="brands-area pt-70 pb-40">
         <div class="container">
             <div class="section-title">
-                <h2>فروش مارک ها</h2>
+                <h2>برخی از مشتریان ما</h2>
             </div>
 
             <div class="row align-items-center">

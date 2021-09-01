@@ -25,9 +25,9 @@
                             </li>
                             <li>
                                 <div class="wishlist-btn">
-                                    <a href="#" class="bookmark_btn">
+                                    <a href="#" data-id="{{$item->id}}" class="bookmark_btn">
                                         <i class="bx bx-heart"></i>
-                                        <span class="tooltip-label" data-id="{{$item->id}}">افزودن به لیست علاقه مندی ها</span>
+                                        <span class="tooltip-label">افزودن به لیست علاقه مندی ها</span>
                                     </a>
                                 </div>
                             </li>

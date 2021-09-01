@@ -15,7 +15,7 @@
 
                     <div class="sidebar-item">
                         <div class="info">
-                            <p class="title usmall"><a href="{{route('change_password')}}"><i class="bx bx-key"></i> تغییر رمز عبور</a></p>
+                            <p class="title usmall @if($menu == "password") active @endif"><a href="{{route('change_password')}}"><i class="bx bx-key"></i> تغییر رمز عبور</a></p>
                         </div>
 
                         <div class="clear"></div>
