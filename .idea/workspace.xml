@@ -22,17 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/brands/brands-img4.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/brands/brands-img4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/brands/brands-img5.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/brands/brands-img5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/brands/brands-img6.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/brands/brands-img6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
-    </list>
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -436,14 +426,7 @@
       <workItem from="1630230430464" duration="4410000" />
       <workItem from="1630339469776" duration="3267000" />
       <workItem from="1630480499403" duration="4276000" />
-      <workItem from="1630496414388" duration="5185000" />
-    </task>
-    <task id="LOCAL-00009" summary="category Config">
-      <created>1623565314470</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1623565314470</updated>
+      <workItem from="1630496414388" duration="5227000" />
     </task>
     <task id="LOCAL-00010" summary="blog and seo page config">
       <created>1623667524510</created>
@@ -781,7 +764,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630488153010</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="last">
+      <created>1630506908717</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1630506908717</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
