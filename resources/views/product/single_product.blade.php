@@ -146,9 +146,9 @@
                                 </label>
                             </div>
 
-                            <div class="item">
-                                <a href="#" class="default-btn">خرید کنید</a>
-                            </div>
+{{--                            <div class="item">--}}
+{{--                                <a href="#" class="default-btn">خرید کنید</a>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>

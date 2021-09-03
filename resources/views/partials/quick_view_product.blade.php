@@ -16,7 +16,7 @@
 
             <ul class="products-info">
                 <li><span style="font-size: 24px;" class="bx bx-phone text-success"></span> <a href="{{route('home')}}">تماس با واحد فروش : </a></li>
-                <li><a style="font-size: 18px;" class="my_rtl" href="tel:+1234567898">021-22407230 , 021-22407229</a></li>
+                <li><a style="font-size: 18px;" class="my_rtl" href="tel:+1234567898">021-88557335</a></li>
             </ul>
 
 

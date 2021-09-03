@@ -11,7 +11,7 @@
             width: 100%;
             height: 100%;
             z-index: 1000;
-            background-color: rgba(33, 55, 80, 0.9);
+            background-color: rgba(0, 0, 0, 0.82);
             transition: all 0.4s;
         }
         .loader.active{
@@ -35,7 +35,7 @@
         }
 
         .credit a {
-            color: #F0220B;
+            color: #e10bf0;
             font: 800 75% "Open Sans", sans-serif;
             text-transform: uppercase;
             text-decoration: none;
@@ -44,9 +44,10 @@
         /*<![CDATA[*/
 
         #plug,
-        #socket { fill:#F0220B }
+        #socket { fill: #dbe3ea
+        }
 
-        #loop-normal { fill: none; stroke: #F0220B; stroke-width: 12 }
+        #loop-normal { fill: none; stroke: #0acaec; stroke-width: 12 }
         #loop-offset { display: none }
 
         /*]]>*/

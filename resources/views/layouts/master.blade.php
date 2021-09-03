@@ -105,7 +105,7 @@
                                 <span class="subtotal">{{number_format($price ?? 0)}} تومان</span>
                             </div>--}}
                             <div class="products-cart-btn">
-                                <a href="{{route('checkout')}}" class="default-btn">ادامه به پرداخت</a>
+                                <a href="{{route('cart_page')}}" class="default-btn">ادامه به پرداخت</a>
                             </div>
                         @endif
                     </div>
@@ -445,6 +445,14 @@
                         }
                     });
                 });
+            });
+        </script>
+
+        <script>
+            $( document ).ready(function() {
+                $('.loader').click(function (){
+                    $('.loader').removeClass('active');
+                })
             });
         </script>
 

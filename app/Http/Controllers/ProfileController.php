@@ -627,11 +627,10 @@ class ProfileController extends Controller
     public function quickAddCart(Request $request){
         $product = Product::where('id', $request->product_id)->first();
         if (Session::has('product') && count(Session::get('product')) > 0){
-            foreach (Session::get('product') as $item){
+            foreach (Session::get('product') as $item) {
                 if ($item->id == $product->id) {
                     return Response::json(["status" => "0" , 'desc' => "این محصول را قبلا انتخاب کرده اید!"]);
                 }else{
-                    $product = Session::get('product.' . $request->key);
                     $product->total_price = $request->price;
                     $product->order_quantity = $request->quantity;
                     Session::push('product' , $product);
@@ -639,10 +638,10 @@ class ProfileController extends Controller
                 }
             }
         }else{
-            $product = Session::get('product.' . $request->key);
+
             $product->total_price = $request->price;
             $product->order_quantity = $request->quantity;
-            Session::put('product' , $product);
+            Session::put('product', [$product]);
             return Response::json(["status" => "1" , 'desc' => "کالای شما با موفقیت به سبد خرید افزوده شد"]);
         }
         Session::flash('status' , "متاسفانه مشکلی پیش آمده است!");
@@ -660,6 +659,22 @@ class ProfileController extends Controller
             return view('profile.cart_product');
         }
     }
+
+    public function cartCalculator(Request $request){
+        $product = Product::where('id' , $request->product_id)->first();
+        if (Session::has('product') && count(Session::get('product')) > 0){
+                foreach (Session::get('product') as $item){
+                    if ($product->id == $item['id']){
+                        $item['total_price'] = $request->quantity * $product->price;
+                        $item['order_quantity'] = $request->quantity;
+                        return Response::json(["status" => "1" , 'desc' => "تغییرات اعمال شد"]);
+                    }
+                }
+        }else{
+            return Response::json(['status'=>'0', 'desc' => "متاسفانه مشکلی پیش آمده است!"]);
+        }
+    }
+
 
     public function CartProductDelete(Request $request){
         if (Session::has('product') && count(Session::get('product')) > 0){

@@ -181,6 +181,8 @@ Route::prefix("profile")->group(function () {
     Route::post('/delete-ticket', 'App\Http\Controllers\ProfileController@deleteTicket')->name("delete_ticket");
     Route::post('/link-builder', 'App\Http\Controllers\ProfileController@linkBuilder')->name("link_builder");
     Route::get('/download-link-page', 'App\Http\Controllers\ProfileController@downloadLinkPage')->name("download_link_page");
+    //Cart Routes
+    Route::post('/cart-calculator', 'App\Http\Controllers\ProfileController@cartCalculator')->name("cart_calculator");
 });
 
 
@@ -249,3 +251,5 @@ Route::post('/checkout-order', 'App\Http\Controllers\CartController@checkoutOrde
 //API TRANSLATE TO MY SITE (START)
 Route::get('/get-weather-kalia', 'App\Http\Controllers\WeatherApiController@rapidGetWeatherKalia')->name("get_weather_kalia");
 //API TRANSLATE TO MY SITE (END)
+
+

@@ -25,14 +25,15 @@
             @if(Illuminate\Support\Facades\Session::has('product') && !empty(Illuminate\Support\Facades\Session::get('product')))
             <form>
                 <div class="cart-table table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-center">
                         <thead>
                         <tr>
                             <th scope="col">تولید - محصول</th>
                             <th scope="col">نام</th>
                             <th scope="col">قیمت واحد</th>
                             <th scope="col">تعداد</th>
-                            <th scope="col">جمع</th>
+                            <th scope="col">تخفیف</th>
+                            <th scope="col">مبلغ قابل پرداخت</th>
                         </tr>
                         </thead>
 
@@ -51,24 +52,29 @@
 
                             <td class="product-price">
                                 <span class="unit-amount">
-                                    @if($item->discount > 0)
-                                        {{number_format($item->price - (($item->price * $item->discount) / 100)) ?? ""}}تومان
-                                    @else
                                         {{number_format($item->price) ?? ""}}تومان
-                                    @endif
                                 </span>
                             </td>
 
                             <td class="product-quantity">
                                 <div class="input-counter">
-                                    <span class="minus-btn button-card decremnet"><i class="bx bx-minus"></i></span>
-                                    <input class="count-buy" type="text" min="1" value="1">
-                                    <span class="plus-btn button-card increment"><i class="bx bx-plus"></i></span>
+                                    <span class="minus-btn button-card-page decremnet"><i class="bx bx-minus"></i></span>
+                                    <input class="counter" type="text" min="1" value="{{$item['order_quantity'] ?? 1}}">
+                                    <span class="plus-btn button-card-page increment"><i class="bx bx-plus"></i></span>
                                 </div>
                             </td>
 
                             <td class="product-subtotal">
-                                <span class="subtotal-amount">139000 تومان</span>
+
+
+                                    @if($item->discount > 0)
+                                    <input class="subtotal-amount new-price total_price" value="{{number_format($item['total_price'] - (($item['total_price'] * $item->discount) / 100)) ?? ""}}"> تومان
+                                    @else
+                                        <input class="subtotal-amount new-price total_price" value="{{number_format($item['total_price']) ?? 0}}"> تومان
+                                    @endif
+                                <input type="hidden" readonly class="single_price cart-price" value="{{$item['price']}}">
+                                <input type="hidden" readonly class="product_id" value="{{$item['id']}}">
+                                <input type="hidden" readonly class="discount" value="{{$item['discount'] ?? 0}}">
 
                                 <a href="{{route('cart_product_delete', $key)}}" class="remove"><i class="bx bx-trash"></i></a>
                             </td>
@@ -78,30 +84,15 @@
                     </table>
                 </div>
 
-                <div class="cart-buttons">
-                    <div class="row align-items-center">
-                        <div class="col-lg-7 col-sm-7 col-md-7">
-                            <div class="shopping-coupon-code">
-                                <input type="text" class="form-control" placeholder="کد تخفیف" name="coupon-code" id="coupon-code">
-                                <button type="submit">درخواست تخفیف</button>
-                            </div>
-                        </div>
 
-                        <div class="col-lg-5 col-sm-5 col-md-5 text-right">
-                            <a href="#" class="default-btn"><i class="flaticon-view"></i> به روز رسانی سبد خرید</a>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="cart-totals">
                     <h3>مجموع سبد خرید</h3>
-
                     <ul>
-                        <li>جمع <span>79000 تومان</span></li>
-                        <li>حمل و نقل <span>30000 تومان</span></li>
-                        <li>در کل <span>830000 تومان</span></li>
+                        <li>تعداد محصولات <span>{{count(\Illuminate\Support\Facades\Session::get('product') ?? 0)}} عدد</span></li>
+                        <li>جمع کل <span>30000 تومان</span></li>
+                        <li>مبلغ قابل پرداخت <span>830000 تومان</span></li>
                     </ul>
-
                     <a id="shopping_peyment" href="checkout.html" class="default-btn"><i class="flaticon-trolley"></i> ادامه به پرداخت</a>
                 </div>
             </form>
@@ -109,8 +100,99 @@
         </div>
     </section>
     <!-- End Cart Area -->
+
+    @include('partials.loader')
 @endsection
 @section('extra_js')
+    <script>
+        $( document ).ready(function() {
+            $('body').on('click','.button-card-page',function (){
+
+                $(".loader").addClass('active');
+                var $input = $(this).parent().find('.counter');
+                var $priceBox = $(this).parent().parent().parent().find('.cart-price');
+                var $total_price = $(this).parent().parent().parent().find('.total_price');
+                var $single_price = $(this).parent().parent().parent().find('.single_price').val().replace(/,/g, '');
+                var $product_id = $(this).parent().parent().parent().find('.product_id').val();
+                var $discount = $(this).parent().parent().parent().find('.discount').val();
+                $price = $priceBox.val().replace(/,/g, '');
+
+                if ($(this).hasClass('increment')) {
+                    // $price = $price / $input.val();
+                    $input.val(parseInt($input.val()) + 1);
+                    if ($discount > 0){
+                        $price = parseFloat($price * $input.val());
+                        $helper = parseFloat($price * $discount);
+                        $price = $price -  parseFloat($helper / 100);
+                    }else{
+                        $price = parseFloat($price * $input.val());
+                    }
+                    $total_price.val(accounting.formatMoney($price));
+                    $ .ajax({
+                        url : "{{route('cart_calculator')}}",
+                        type : "POST",
+                        data : {'quantity' : $input.val(), 'product_id' : $product_id},
+                        success : function (data) {
+                            $(".loader").removeClass('active');
+                        }
+                    });
+                }
+                else if ($input.val()>=2){
+                    // $price = $price / $input.val();
+                    $input.val(parseInt($input.val()) - 1);
+                    if ($discount > 0){
+                        $price = parseFloat($price * $input.val());
+                        $helper = parseFloat($price * $discount);
+                        $price = $price -  parseFloat($helper / 100);
+                    }else{
+                        $price = parseFloat($price * $input.val());
+                    }                    $total_price.val(accounting.formatMoney($price));
+                    $ .ajax({
+                        url : "{{route('cart_calculator')}}",
+                        type : "POST",
+                        data : {'quantity' : $input.val(), 'product_id' : $product_id},
+                        success : function (data) {
+                            $(".loader").removeClass('active');
+                        }
+                    });
+
+                }else {
+                    $(".loader").removeClass('active');
+                }
+            });
+
+            $('body').on('change','.counter',function (){
+                $(".loader").addClass('active');
+                var $input = $(this).parent().find('.counter');
+                var $priceBox = $(this).parent().parent().parent().find('.cart-price');
+                var $single_price = $(this).parent().parent().parent().find('.single_price').val().replace(/,/g, '');
+                var $total_price = $(this).parent().parent().parent().find('.total_price');
+                var $product_id = $(this).parent().parent().parent().find('.product_id').val();
+                var $discount = $(this).parent().parent().parent().find('.discount').val();
+
+                if ($discount > 0){
+                    $price = parseFloat($single_price * $input.val());
+                    $helper = parseFloat($price * $discount);
+                    $price = $price -  parseFloat($helper / 100);
+                }else{
+                    $price = parseFloat($single_price * $input.val());
+                }
 
 
+                $total_price.val(accounting.formatMoney($price));
+
+                $ .ajax({
+                    url : "{{route('cart_calculator')}}",
+                    type : "POST",
+                    data : {'quantity' : $input.val(), 'product_id' : $product_id},
+                    success : function (data) {
+                        $(".loader").removeClass('active');
+                    }
+                });
+
+
+            });
+
+        });
+    </script>
 @endsection

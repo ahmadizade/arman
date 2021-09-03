@@ -51,7 +51,7 @@
                     <img class="img-fluid" src="/uploads/category/{{$singleCategory->image}}">
                     <p class="font-weight-bold my-4">{{$singleCategory->name ?? "ثبت نشده"}} / {{$singleCategory->english_name ?? ""}}</p>
                 </div>
-                {{$singleCategory->description}}
+                {!! $singleCategory->description ?? "" !!}
             </div>
         </div>
     </section>
