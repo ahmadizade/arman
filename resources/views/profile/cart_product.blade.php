@@ -28,9 +28,9 @@
                     <table class="table table-bordered text-center">
                         <thead>
                         <tr>
-                            <th scope="col">تولید - محصول</th>
-                            <th scope="col">نام</th>
-                            <th scope="col">قیمت واحد</th>
+                            <th scope="col">عکس محصول</th>
+                            <th scope="col">نام محصول</th>
+                            <th scope="col">قیمت هر واحد</th>
                             <th scope="col">تعداد</th>
                             <th scope="col">تخفیف</th>
                             <th scope="col">مبلغ قابل پرداخت</th>
@@ -52,7 +52,7 @@
 
                             <td class="product-price">
                                 <span class="unit-amount">
-                                        {{number_format($item->price) ?? ""}}تومان
+                                        {{number_format($item->price) ?? ""}} تومان
                                 </span>
                             </td>
 
@@ -62,6 +62,14 @@
                                     <input class="counter" type="text" min="1" value="{{$item['order_quantity'] ?? 1}}">
                                     <span class="plus-btn button-card-page increment"><i class="bx bx-plus"></i></span>
                                 </div>
+                            </td>
+
+                            <td class="product-quantity">
+                                    @if($item->discount > 0)
+                                    <span class="text-danger">{{$item->discount ?? "بدون تخفیف"}} %</span>
+                                    @else
+                                    <span>بدون تخفیف</span>
+                                    @endif
                             </td>
 
                             <td class="product-subtotal">
@@ -90,10 +98,11 @@
                     <h3>مجموع سبد خرید</h3>
                     <ul>
                         <li>تعداد محصولات <span>{{count(\Illuminate\Support\Facades\Session::get('product') ?? 0)}} عدد</span></li>
-                        <li>جمع کل <span>30000 تومان</span></li>
-                        <li>مبلغ قابل پرداخت <span>830000 تومان</span></li>
+                        <li>جمع کل <span>{{number_format($total_price) ?? ""}} تومان</span></li>
+                        <li>ارزش افزوده <span>{{number_format($taxation) ?? ""}} تومان</span></li>
+                        <li>مبلغ قابل پرداخت <span>{{number_format($price_with_taxation)}} تومان</span></li>
                     </ul>
-                    <a id="shopping_peyment" href="checkout.html" class="default-btn"><i class="flaticon-trolley"></i> ادامه به پرداخت</a>
+                    <a id="shopping_peyment" href="checkout.html" class="default-btn"><i class="flaticon-trolley"></i> تایید سفارش</a>
                 </div>
             </form>
             @endif
@@ -106,8 +115,8 @@
 @section('extra_js')
     <script>
         $( document ).ready(function() {
-            $('body').on('click','.button-card-page',function (){
-
+            $('body').on('click','.button-card-page',function (e){
+                e.preventDefault();
                 $(".loader").addClass('active');
                 var $input = $(this).parent().find('.counter');
                 var $priceBox = $(this).parent().parent().parent().find('.cart-price');
@@ -118,7 +127,6 @@
                 $price = $priceBox.val().replace(/,/g, '');
 
                 if ($(this).hasClass('increment')) {
-                    // $price = $price / $input.val();
                     $input.val(parseInt($input.val()) + 1);
                     if ($discount > 0){
                         $price = parseFloat($price * $input.val());
@@ -133,12 +141,12 @@
                         type : "POST",
                         data : {'quantity' : $input.val(), 'product_id' : $product_id},
                         success : function (data) {
-                            $(".loader").removeClass('active');
+                            // $(".loader").removeClass('active');
+                            location.reload();
                         }
                     });
                 }
                 else if ($input.val()>=2){
-                    // $price = $price / $input.val();
                     $input.val(parseInt($input.val()) - 1);
                     if ($discount > 0){
                         $price = parseFloat($price * $input.val());
@@ -152,7 +160,8 @@
                         type : "POST",
                         data : {'quantity' : $input.val(), 'product_id' : $product_id},
                         success : function (data) {
-                            $(".loader").removeClass('active');
+                            // $(".loader").removeClass('active');
+                            location.reload();
                         }
                     });
 
@@ -161,7 +170,8 @@
                 }
             });
 
-            $('body').on('change','.counter',function (){
+            $('body').on('change','.counter',function (e){
+                e.preventDefault();
                 $(".loader").addClass('active');
                 var $input = $(this).parent().find('.counter');
                 var $priceBox = $(this).parent().parent().parent().find('.cart-price');
@@ -186,7 +196,8 @@
                     type : "POST",
                     data : {'quantity' : $input.val(), 'product_id' : $product_id},
                     success : function (data) {
-                        $(".loader").removeClass('active');
+                        // $(".loader").removeClass('active');
+                        location.reload();
                     }
                 });
 

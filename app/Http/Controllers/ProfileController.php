@@ -649,11 +649,26 @@ class ProfileController extends Controller
     }
     public function CartPage(){
         if (Session::has('product') && count(Session::get('product')) > 0){
-            $total_prices = 0;
+            $total_price = 0;
+            $price_with_taxation = 0;
+
             foreach (Session::get('product') as $item){
-                $total_prices += $total_prices + $item['price'];
+
+                $quantity = $item['order_quantity'] ?? 1 ;
+                if ($item['discount'] > 0){
+                    $total_price += ( $item['price'] - ( ($item['price'] * $item['discount']) / 100 ) ) * $quantity;
+                }else{
+                    $total_price += $item['price'] * $quantity;
+                }
+
             }
-            return view('profile.cart_product', ["total_prices" => $total_prices]);
+
+            $taxation = ( ( $total_price * 9 ) / 100 );
+
+            $price_with_taxation = ( $total_price + $taxation );
+
+
+            return view('profile.cart_product', ["total_price" => $total_price, "taxation" => $taxation, "price_with_taxation" => $price_with_taxation]);
         }else{
             Session::flash('error' , "سبد خرید شما خالی می باشد");
             return view('profile.cart_product');
