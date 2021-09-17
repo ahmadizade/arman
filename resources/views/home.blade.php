@@ -1,7 +1,16 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>صفحه اصلی | Arman</title>
+    @if(\Illuminate\Support\Str::length($setting->home_page_title) > 1)
+        <title>{{ $setting->home_page_title }}</title>
+    @else
+        <title>فروشگاه آنلاین آرمان ماسک</title>
+    @endif
+    @if(\Illuminate\Support\Str::length($setting->home_page_description) > 1)
+        <meta name="description" content="{{ $setting->home_page_description }}">
+    @else
+        <meta name="description" content="فروشگاه آنلاین آرمان ماسک">
+    @endif
 @endsection
 
 @section("content")
@@ -19,12 +28,42 @@
                             </div>
                             <div class="col-lg-5 col-md-12">
                                 <div class="banner-content">
-                                    <span class="sub-title">تازه رسیده ها</span>
-                                    <h1><span>دستکش</span> نیتریل تریتون گریپ<span></span></h1>
-                                    <p>دستکش از دست ما در برابر چیزهای مختلف محافظت می کند. استفاده از دستکش نیتریل راحت است.</p>
+                                    <h1>آرمان ماسک</h1>
+                                    <p> با بیش از 12 سال سابقه در عرصه تولید ماسک و لوازم پزشکی و جراجی</p>
+                                    <p> آدرس : تهران، خیابان بخارست، کوچه پنجم، پلاک ۱۵ طبقه ۳ واحد ۱۶</p>
                                     <div class="btn-box">
                                         <div class="d-flex align-items-center float-left">
-                                            <span class="price">500000 تومان</span>
+                                            <span class="price">فروشگاه آنلاین</span>
+                                            <a href="{{route('contact')}}" class="default-btn add-cart"><i class="bx bxs-phone"></i>تماس با ما </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="single-banner-item">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-7 col-md-12">
+                                <div class="banner-image text-center">
+                                    <img src="/img/banner/banner-img1.png" class="main-image" alt="تصویر">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-12">
+                                <div class="banner-content">
+                                    {{--                                    <span class="sub-title">تازه رسیده ها</span>--}}
+                                    <h1><span>ماسک</span> سه لایه جراحی<span></span></h1>
+                                    <p>ماسک سه لایه پزشکی با دو لایه اسپان باند و یک لایه ملت بلون در بسته بندی 100 تایی</p>
+                                    <div class="btn-box">
+                                        <div class="d-flex align-items-center float-left">
+                                            <span class="price">140,000 تومان</span>
                                             <button data-id="1" class="default-btn add-cart"><i class="flaticon-trolley"></i>افزودن به سبد خرید </button>
                                         </div>
                                     </div>
@@ -50,43 +89,13 @@
                             </div>
                             <div class="col-lg-5 col-md-12">
                                 <div class="banner-content">
-                                    <span class="sub-title">تازه رسیده ها</span>
-                                    <h1><span>دستکش</span> محافظ عینک ایمنی<span></span></h1>
-                                    <p>عینک و دستکش های محافظ ما برای ایمنی شخصی بسیار مهم هستند.</p>
+                                    {{--                                    <span class="sub-title">تازه رسیده ها</span>--}}
+                                    <h1><span>کلاه کش دار</span> یک بار مصرف<span></span></h1>
+                                    <p>کلاه کش دار یک بار مصرف ویژه پزشک و بیمار است و بیشتر در اتاق عمل استفاده می شود</p>
                                     <div class="btn-box">
                                         <div class="d-flex align-items-center float-left">
-                                            <span class="price">79000 تومان</span>
+                                            <span class="price">46,000 تومان</span>
                                             <button data-id="2" class="default-btn add-cart"><i class="flaticon-trolley"></i>افزودن به سبد خرید </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="single-banner-item">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <div class="row align-items-center">
-
-                            <div class="col-lg-7 col-md-12">
-                                <div class="banner-image text-center">
-                                    <img src="/img/banner/banner-img3.png" class="main-image" alt="تصویر">
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-12">
-                                <div class="banner-content">
-                                    <span class="sub-title">تازه رسیده ها</span>
-                                    <h1><span>ماسک</span> جراحی محافظ<span></span></h1>
-                                    <p>ماسک های جراحی می توانند از خود در برابر میکروب های مختلف محافظت کنند. همه باید از این ماسک جراحی استفاده کنند.</p>
-                                    <div class="btn-box">
-                                        <div class="d-flex align-items-center float-left">
-                                            <span class="price">30000 تومان</span>
-                                            <button data-id="3" class="default-btn add-cart"><i class="flaticon-trolley"></i>افزودن به سبد خرید </button>
                                         </div>
                                     </div>
                                 </div>
@@ -211,7 +220,7 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="hot-deal-content">
                         <span class="sub-title">پیشنهاد ویژه</span>
-                        <h2>تا <span>50٪</span> تخفیف ماسک برای سفارش‌های تعداد بالا!</h2>
+                        <h3>تا <span>50٪</span> تخفیف ماسک برای سفارش‌های تعداد بالا!</h3>
                         <div id="timer" class="flex-wrap d-flex justify-content-center">
                             <div id="days" class="align-items-center flex-column d-flex justify-content-center"></div>
                             <div id="hours" class="align-items-center flex-column d-flex justify-content-center"></div>
@@ -231,7 +240,7 @@
     <section class="brands-area pt-70 pb-40">
         <div class="container">
             <div class="section-title">
-                <h2>برخی از مشتریان ما</h2>
+                <h2>برخی از مشتریان آرمان ماسک</h2>
             </div>
 
             <div class="row align-items-center">

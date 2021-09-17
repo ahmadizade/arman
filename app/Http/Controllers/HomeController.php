@@ -71,9 +71,6 @@ class HomeController extends Controller
 
     public function index()
     {
-
-       // return dd(Session::get("cart"));
-
         $lastProduct = Product::where('delete' , 0)->orderBy('id' , 'desc')->limit(8)->get();
         $blog_posts = Blog::where('delete' , 0)->orderBy('id' , 'desc')->limit(3)->get();
         $popularproduct = Product::where('delete' , 0)->orderBy('view' , 'desc')->limit(8)->get();

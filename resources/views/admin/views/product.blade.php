@@ -200,7 +200,7 @@
 
                                                     <div class="col-12 ">
                                                         <div class="mt-3">
-                                                            <label for="thumbnail" class="form-label text-primary">عکس / width : 658 - height : 800</label>
+                                                            <label for="thumbnail" class="form-label text-primary">(800 در 685) width : 685 / height : 800</label>
                                                             <input type="file" name="thumbnail">
                                                         </div>
                                                     </div>

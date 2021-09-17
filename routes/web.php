@@ -43,6 +43,9 @@ Route::middleware(['admin'])->prefix("armanmask")->group(function () {
     Route::post('/sms-user', 'App\Http\Controllers\AdminController@SmsUser')->name("Sms_User")->middleware("ajax", "verify.domain");
     Route::post('/email-user', 'App\Http\Controllers\AdminController@EmailUser')->name("Email_User")->middleware("ajax", "verify.domain");
     Route::get('/admin-users', 'App\Http\Controllers\AdminController@AdminUsers')->name("Admin_Users");
+    Route::get('/seo-pages', 'App\Http\Controllers\AdminController@seoPages')->name("seo_pages");
+    Route::post('/homepage-seo', 'App\Http\Controllers\AdminController@homePageSeo')->name("home_page_seo");
+    Route::post('/extra-page-seo', 'App\Http\Controllers\AdminController@extraPageSeo')->name("extra_page_seo");
     Route::get('/admin-users/get-user', 'App\Http\Controllers\AdminController@GetUser')->name("get_user");
     Route::post('/admin-users/delete-user', 'App\Http\Controllers\AdminController@DeleteUserAction')->name("delete_user_action")->middleware("ajax", "verify.domain");
     Route::post('/admin-users/edit-user', 'App\Http\Controllers\AdminController@EditUserAction')->name("edit_user_action")->middleware("ajax", "verify.domain");
@@ -88,6 +91,8 @@ Route::middleware(['admin'])->prefix("armanmask")->group(function () {
     Route::get('/product/show-product', 'App\Http\Controllers\AdminController@showProduct')->name("show_product");
     Route::post('/product/admin-edit-product-action', 'App\Http\Controllers\AdminController@adminEditproductAction')->name("admin_edit_product_action");
     Route::post('/product/image-edit-product-action', 'App\Http\Controllers\AdminController@imageEditproductAction')->name("image_edit_product_action");
+    Route::post('/product/slider-edit-product-action', 'App\Http\Controllers\AdminController@sliderEditproductAction')->name("slider_edit_product_action");
+    Route::post('/product/delete-slider', 'App\Http\Controllers\AdminController@deleteSlider')->name("delete_slider");
     Route::post('/product/image-edit-category-action', 'App\Http\Controllers\AdminController@imageEditcategoryAction')->name("image_edit_category_action");
     Route::post('/product/image-edit-tag-action', 'App\Http\Controllers\AdminController@imageEdittagAction')->name("image_edit_tag_action");
     Route::post('/product/admin-file-product-action', 'App\Http\Controllers\AdminController@adminFileproductAction')->name("admin_file_product_action");
@@ -113,7 +118,10 @@ Route::get('/code-generator', 'App\Http\Controllers\CodeController@Code_Generato
 // auth
 Route::get('/register', 'App\Http\Controllers\LoginController@register')->name("register");
 Route::post('/register-action', 'App\Http\Controllers\LoginController@registerAction')->name("register_action");
+Route::post('/shipping-register-action', 'App\Http\Controllers\LoginController@shippingRegisterAction')->name("shipping_register_action");
 Route::post('/verified-code-action', 'App\Http\Controllers\LoginController@verifiedCodeAction')->name("verified_code_action");
+Route::post('/shipping-verified-code-action', 'App\Http\Controllers\LoginController@shippingVerifiedCodeAction')->name("shipping_verified_code_action");
+Route::post('/shipping-signup', 'App\Http\Controllers\LoginController@shippingSignUp')->name("shipping_signup");
 Route::get('/login', 'App\Http\Controllers\LoginController@login')->name("login");
 Route::post('/login-action', 'App\Http\Controllers\LoginController@loginAction')->name("login_action");
 Route::post('/one-time-code', 'App\Http\Controllers\LoginController@oneTimeCode')->name("one_time_code");
@@ -130,17 +138,18 @@ Route::prefix("profile")->group(function () {
     Route::get('/single-api/{slug}', 'App\Http\Controllers\ProfileController@SingleApi')->name("single_api");
     Route::get('/subscribe/{id}', 'App\Http\Controllers\ProfileController@subscribe')->name("subscribe");
     Route::get('/select-package', 'App\Http\Controllers\ProfileController@selectPackage')->name("select_package");
-    Route::get('/choice/{id}/{type}', 'App\Http\Controllers\ProfileController@choice')->name("choice");
     Route::post('/add-domain', 'App\Http\Controllers\ProfileController@addDomain')->name("add_domain");
     Route::get('/card/{id}', 'App\Http\Controllers\ProfileController@Card')->name("card");
     Route::post('/quick-add-cart', 'App\Http\Controllers\ProfileController@quickAddCart')->name("quick_add_cart");
     Route::get('/cart-page', 'App\Http\Controllers\ProfileController@CartPage')->name("cart_page");
+    Route::get('/shipping-page', 'App\Http\Controllers\ProfileController@shippingPage')->name("shipping_page");
+    Route::post('/shipping-action', 'App\Http\Controllers\ProfileController@shippingAction')->name("shipping_action");
     Route::get('/show-session-cart', 'App\Http\Controllers\ProfileController@showSessionCart')->name("show_session_cart");
-    Route::get('/show-shipping-cart', 'App\Http\Controllers\ProfileController@showShippingCart')->name("show_shipping_cart");
     Route::get('/forget-session-cart', 'App\Http\Controllers\ProfileController@forgetSessionCart')->name("forget_session_cart");
+    Route::get('/show-shipping-cart', 'App\Http\Controllers\ProfileController@showShippingCart')->name("show_shipping_cart");
     Route::get('/forget-shipping-cart', 'App\Http\Controllers\ProfileController@forgetShippingCart')->name("forget_shipping_cart");
     Route::get('/cart-product-delete/{key}', 'App\Http\Controllers\ProfileController@CartProductDelete')->name("cart_product_delete");
-    Route::get('/before-buying', 'App\Http\Controllers\ProfileController@BeforeBuying')->name("before_buying");
+    Route::post('/before-buying', 'App\Http\Controllers\ProfileController@BeforeBuying')->name("before_buying");
     Route::get('/shopping-peyment', 'App\Http\Controllers\ProfileController@shoppingPeyment')->name("shopping_peyment");
     Route::get('/shopping-complete/{ref}', 'App\Http\Controllers\ProfileController@shoppingComplete')->name("shopping_complete");
     Route::get('/shopping-peyment-page', 'App\Http\Controllers\ProfileController@shoppingPeymentpage')->name("shopping_peyment_page");

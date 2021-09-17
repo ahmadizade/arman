@@ -2,7 +2,7 @@
     <section class="categories-area pb-40">
     <div class="container">
         <div class="section-title">
-            <h2>دسته بندی ها</h2>
+            <h3>دسته بندی ها</h3>
         </div>
         <div class="row d-flex justify-content-center">
             @foreach($category as $item)

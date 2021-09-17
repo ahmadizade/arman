@@ -44,6 +44,21 @@ class AppServiceProvider extends ServiceProvider
         });
 
         View::composer('*', function ($view) {
+            $allProduct = DB::table('products')->orderBy('created_at', 'desc')->where('delete', '=' ,0)->get();
+            $view->with('allProduct',$allProduct);
+        });
+
+        View::composer('*', function ($view) {
+            $popularity = DB::table('products')->orderBy('view')->where('delete', '=' ,0)->get();
+            $view->with('popularity',$popularity);
+        });
+
+        View::composer('*', function ($view) {
+            $setting = DB::table('setting')->first();
+            $view->with('setting',$setting);
+        });
+
+        View::composer('*', function ($view) {
             $tagSingle = Cache::remember('tagSingle' , Carbon::now()->addMinutes(1), function (){
                 return BlogTag::all()->keyBy("id");
             });
@@ -66,11 +81,6 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             $product_tag = DB::table('product_tag')->where('delete', 0)->get();
             $view->with('product_tag',$product_tag);
-        });
-
-        View::composer('*', function ($view) {
-            $category_variety = DB::table('category_variety')->get();
-            $view->with('category_variety',$category_variety);
         });
     }
 }

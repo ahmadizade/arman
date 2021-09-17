@@ -2,14 +2,14 @@
 <section class="products-area pb-40">
     <div class="container">
         <div class="section-title">
-            <h2>جدیدترین محصولات</h2>
+            <h2>جدیدترین محصولات آرمان ماسک</h2>
         </div>
 
         <div class="products-slides owl-carousel owl-theme">
             @foreach($lastProduct as $item)
             <div class="single-products-box">
                 <div class="image">
-                    <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="d-block"><img src="/uploads/products/{{$item->thumbnail ?? "noimage_500.jpg"}}" alt="{{$item->product_name}}"></a>
+                    <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="d-block"><img src="/uploads/thumbnail/{{$item->thumbnail ?? "noimage_500.jpg"}}" alt="{{$item->product_name}}"></a>
 
 {{--                    <div class="new">جدید</div>--}}
 

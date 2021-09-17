@@ -675,6 +675,18 @@ class ProfileController extends Controller
         }
     }
 
+
+    public function shippingPage(){
+        return view('profile.shipping');
+    }
+
+    public function shippingAction(Request $request){
+
+        return $request;
+
+    }
+
+
     public function cartCalculator(Request $request){
         $product = Product::where('id' , $request->product_id)->first();
         if (Session::has('product') && count(Session::get('product')) > 0){
@@ -715,50 +727,21 @@ class ProfileController extends Controller
         return Session::forget('product');
     }
     public function forgetShippingCart(){
-        return Session::forget('product');
+        return Session::forget('shipping');
     }
     public function BeforeBuying(Request $request){
+        if (Session::has('product') && count(Session::get('product')) > 0){
+            Session::forget('shipping');
+                $shipping = Array(
+                    'total_price' => $request->total_price,
+                    'taxation' => $request->taxation,
+                    'price_with_taxation' => $request->price_with_taxation,
+                );
+                Session::put('shipping' , $shipping);
+                return Response::json(['status'=>'1']);
 
-        if (Auth::check() && Auth::id() > 0){
-            $id = json_encode($request->id);
-            if (Session::has('shipping') && count(Session::get('shipping')) > 0) {
-            $discount= Session::get('shipping')['discount'];
-            $order_price = Session::get('shipping')['order_price'];
-            $last_price = Session::get('shipping')['last_price'];
-            $order_id = Orders::create([
-                "user_id" => Auth::id(),
-                "product_id" => $id,
-                "last_price" => $order_price,
-                "price_with_taxation" => $last_price,
-                "last_discount" => $discount,
-                "status" => 0,
-                "created_at" => Carbon::now(),
-                "order_number" => 'CEO' . "-" . rand(10000000,99999999),
-            ])->id;
-
-
-            foreach ($request->id as $item){
-                $product = Product::where('id', $item)->first();
-                OrderProducts::create([
-                    "user_id" => Auth::id(),
-                    "order_id" => $order_id,
-                    "product_id" => $item,
-                    "product_name" => $product->product_name,
-                    "product_quantity" => 1,
-                    "product_price" => $product->price,
-                    "discount" => $product->discount,
-                    "type" => $product->type,
-                    "created_at" => Carbon::now(),
-                ]);
-            }
-
-            return PaymentController::paymentCart($order_id,$last_price);
-
-            }else{
-                return Response::json(['status'=>'0', 'desc' => "سبد خرید خود را مجدد تایید فرمایید"]);
-            }
         }else{
-            return Response::json(['status'=>'0', 'desc' => "ابتدا وارد سایت شوید یا ثبت نام کنید"]);
+            return Response::json(['status'=>'0', 'desc' => "سبد خرید خود را مجدد تایید فرمایید!"]);
         }
     }
 
@@ -1499,7 +1482,7 @@ class ProfileController extends Controller
 
     public function CartTransfer()
     {
-        return view("profile.cart_transfer", ["menu" => "cart_transfer"]);
+        return view("profile.shipping");
     }
 
     public function CartTransferAction(Request $request)

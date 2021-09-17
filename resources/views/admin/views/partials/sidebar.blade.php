@@ -44,6 +44,22 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('home')}}" data-toggle="collapse" data-target="#collapseSeo"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span class="font-weight-bolder">Seo</span>
+        </a>
+        <div id="collapseSeo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">User Management:</h6>
+                <a class="collapse-item font-weight-bolder" href="{{route('seo_pages')}}">مدیریت صفحات</a>
+{{--                <a class="collapse-item font-weight-bolder" href="{{route('Contact_Us')}}">تماس با ما</a>--}}
+{{--                <a class="collapse-item font-weight-bolder" href="">مدیریت فروشگاه ها</a>--}}
+            </div>
+        </div>
+    </li>
+
     <!-- Heading -->
     <div class="sidebar-heading">
         Product Manager

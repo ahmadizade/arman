@@ -45,6 +45,26 @@
         .border-none:focus {
             outline: none;
         }
+
+        .edit-slider {
+            position:relative;
+            margin-right: 50px;
+            padding:0;
+        }
+
+        .edit-slider img{
+            width:120px;
+            height: 100px;
+        }
+
+        .edit-slider span{
+            position: absolute;
+            left: 0px;
+            bottom: 0;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
     </style>
 @endsection
 @section("content")
@@ -57,6 +77,7 @@
             <div id="content">
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    @include('admin.views.partials.condition')
 
 
                     @if(isset($product))
@@ -66,39 +87,85 @@
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="card">
                                         <div class="card-header text-right">
-                                        تغییر عکس محصول
-                                    </div>
+                                            عکس شاخص
+                                        </div>
                                         <div class="card-body">
-                                        <form method="POST" action="{{route('image_edit_product_action')}}" enctype="multipart/form-data">
-                                            <input name="user_id" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}" readonly="readonly">
-                                            <input name="id" type="hidden" value="{{$product->id}}" readonly="readonly">
-                                            <div class="row">
-{{--                                                <div class="col-12 col-md-6 col-lg-6 text-center">--}}
-{{--                                                    <div class="mt-3">--}}
-{{--                                                        <label for="image" class="form-label text-success">عکس بزرگ</label>--}}
-{{--                                                        <input type="file" name="image">--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-
-                                                <div class="col-12 col-md-6 col-lg-6 text-center">
-                                                    <div class="mt-3">
-                                                        <label for="thumbnail" class="form-label text-primary">عکس / width : 658 - height : 800</label>
+                                            <form method="POST" action="{{route('image_edit_product_action')}}" enctype="multipart/form-data">
+                                                <input name="user_id" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}" readonly="readonly">
+                                                <input name="id" type="hidden" value="{{$product->id}}" readonly="readonly">
+                                                <div class="row">
+                                                    <div class="col-12 text-left">
+                                                        <div class="text-center">
+                                                            <P class="admin-rtl">سایز عکس شاخص : 685 در 800</P>
+                                                            <P class="admin-rtl">Width : 685 / Height : 800</P>
+                                                        </div>
                                                         <input type="file" name="thumbnail">
                                                     </div>
+                                                    <div class="col-12 text-left">
+                                                        <img src="/uploads/thumbnail/{{$product->thumbnail ?? "noimage.png"}}" class="img-fluid" style="width:150px;">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 mt-3 buttons text-right">
-                                                    <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">آپلود عکس</button>
+                                                <div class="row">
+                                                    <div class="col-12 mt-3 buttons text-right">
+                                                        <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">آپلود عکس ها</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </form>
-                                    </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         {{--Edit Image Product--}}
+
+
+
+                        {{--Edit Image Product--}}
+                        <div class="container mt-4">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="card">
+                                        <div class="card-header text-right">
+                                            عکس های اسلایدر
+                                        </div>
+                                        <div class="card-body">
+                                            <form method="post" action="{{route('slider_edit_product_action')}}" enctype="multipart/form-data">
+                                                <input name="user_id" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}" readonly="readonly">
+                                                <input name="id" type="hidden" value="{{$product->id}}" readonly="readonly">
+                                                <div class="row">
+                                                    <div class="col-12 text-left">
+                                                        <div class="text-center">
+                                                            <P class="admin-rtl">سایز عکس های اسلایدر : 685 در 800</P>
+                                                            <P class="admin-rtl">Width : 685 / Height : 800</P>
+                                                        </div>
+                                                        <input multiple="multiple" type="file" name="slider[]">
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="row text-left">
+                                                            @if(isset($product->slider) && isset($product->slider[0]))
+                                                                @foreach(json_decode($product->slider) as $key => $image)
+                                                                    <div class="col-2 edit-slider mt-3">
+                                                                        <img src="/uploads/slider/{{$image ?? "noimage_200.jpg"}}">
+                                                                        <span data-id="{{$key}}" class="font-weight-bold badge-danger p-2 rounded text-white delete-slide fa fa-trash"></span>
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 mt-3 buttons text-right">
+                                                        <button id="make_product_btn" class="btn btn-success btn-sm" type="submit">آپلود عکس ها</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--Edit Image Product--}}
+
                     @endif
                     <div class="container mt-4">
                         <div class="row">
@@ -108,16 +175,6 @@
                                         ویرایش محصول
                                     </div>
                                     <div class="card-body admin-rtl">
-                                        @if (Session::has("errors"))
-                                            <div class="alert alert-danger mb-2">
-                                                <ul class="mb-0 text-center">
-                                                    <li>{{ Session::get("errors") }}</li>
-                                                </ul>
-                                            </div>
-                                        @endif
-                                        @if(Session::has("status"))
-                                            <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
-                                        @endif
                                         @if(isset($product))
                                         <form id="make_product" action="{{route('admin_edit_product_action')}}" method="POST" enctype="multipart/form-data">
                                         <div class="row">
@@ -137,14 +194,6 @@
                                                 </div>
                                             </div>
 
-{{--                                            <div class="col-12 col-md-6 col-lg-6">--}}
-{{--                                                <div class="my-3 text-right">--}}
-{{--                                                    <label for="category_variety" class="form-label ">زیردسته ها</label>--}}
-{{--                                                    <select id="category_variety" name="category_variety" class="form-control">--}}
-{{--                                                        <option value="{{$product->category_variety}}" selected>{{$product->variety->name}}</option>--}}
-{{--                                                    </select>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
                                             <div class="col-12 col-md-6 col-lg-6">
                                                 <div class="my-3 text-right">
                                                     <label for="tag[]" class="form-label">برچسب</label>
@@ -249,33 +298,27 @@
                 </div>
         </div>
     </div>
-    {{--Save MODAL--}}
+    {{--Alert MODAL--}}
     <div class="modal fade" id="save" tabindex="-1" role="dialog" aria-labelledby="del"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="text-danger modal-shop myfont" id="del">تغییر وضعیت نمایش</h5>
+                    <h5 class="text-danger modal-shop myfont" id="del">ARMANMASK.CO</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body text-right">
-                    آیا از انجام این عملیات اطمینان دارید؟
+                    <p id="desc"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
-                    <button type="button" id="save-product" class="btn btn-success" data-dismiss="modal">
-                        ذخیره
-                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-    {{--Save MODAL--}}
-
-
-
+    {{--Alert MODAL--}}
 
 @endsection
 @section("extra_js")
@@ -285,20 +328,35 @@
 
     <script>
         $( document ).ready(function() {
-            $('#select_category').on('change', function () {
-                $category_id = $(this).val();
+
+            $('.delete-slide').on('click', function (e) {
+                e.preventDefault();
+                $key = $(this).attr('data-id');
+                console.log($key);
                 $.ajax({
-                    url : "{{route('get_variety')}}",
+                    url : "{{route('delete_slider')}}",
                     type : "POST",
-                    data : {'category_id' : $category_id},
+                    data : {'key' : $key, 'id' : {{$product->id}} },
                     success : function (data) {
-                        $('#category_variety').empty();
-                        $.each(data , function (key , value) {
-                            $('#category_variety').append('<option value=' + value["id"] + '>' + value['name'] + "</option>");
-                        })
+                        if(data.status == "0") {
+                            $( '#save' ).modal( 'show' );
+                            $( '#desc' ).text(data.desc)
+                        }
+                        if(data.status == "1") {
+                            $( '#save' ).modal( 'show' );
+                            $( '#desc' ).text(data.desc)
+                            window.setTimeout(function(){
+                                location.reload()
+                            },1000)
+                        }
                     }
                 });
             });
+
+
+
+
+
         });
     </script>
 

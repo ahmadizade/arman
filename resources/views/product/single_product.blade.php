@@ -50,10 +50,10 @@
     <section class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h1>جزئیات محصولات</h1>
+                <h1>{{$product->category->name}}</h1>
                 <ul>
                     <li><a href="{{route('home')}}">خانه</a></li>
-                    <li>{{$product->category->name}}</li>
+                    <li><a href="{{route('contact')}}">تماس با ما</a></li>
                 </ul>
             </div>
         </div>
@@ -69,7 +69,32 @@
             <div class="row">
                 <div class="col-lg-5 col-md-12">
                     <div class="products-details-image">
-                        <img src="/uploads/products/{{$product->thumbnail}}" alt="تصویر">
+                        <img class="img-fluid w-75" src="/uploads/thumbnail/{{$product->thumbnail}}" alt="تصویر">
+                        <ul class="products-details-image-slides owl-theme owl-carousel" data-slider-id="1">
+                            <li><img src="/img/products/products-img1.jpg" alt="تصویر"></li>
+                            <li><img src="/img/products/products-img2.jpg" alt="تصویر"></li>
+                            <li><img src="/img/products/products-img3.jpg" alt="تصویر"></li>
+                            <li><img src="/img/products/products-img4.jpg" alt="تصویر"></li>
+                        </ul>
+
+                        <!-- Carousel Thumbs -->
+                        <div class="owl-thumbs products-details-image-slides-owl-thumbs" data-slider-id="1">
+                            <div class="owl-thumb-item">
+                                <img src="/img/products/products-img1.jpg" alt="تصویر">
+                            </div>
+
+                            <div class="owl-thumb-item">
+                                <img src="/img/products/products-img2.jpg" alt="تصویر">
+                            </div>
+
+                            <div class="owl-thumb-item">
+                                <img src="/img/products/products-img3.jpg" alt="تصویر">
+                            </div>
+
+                            <div class="owl-thumb-item">
+                                <img src="/img/products/products-img4.jpg" alt="تصویر">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -110,7 +135,6 @@
                         <ul class="products-info">
                             <li><span>دسته بندی: </span> <a href="{{route('single_category',["slug" => $product->category->slug])}}">{{$product->category->name ?? ""}}</a></li>
                             <li><span>موجودی: </span> موجود است</li>
-                            <li><span>نام لاتین: </span> {{$product->english_name ?? "ثبت نشده"}}</li>
                         </ul>
 
                         <div class="products-info-btn mt-2">
@@ -118,38 +142,21 @@
                         </div>
 
                         <div class="products-add-to-cart">
-                            <div class="input-counter">
-                                <span class="minus-btn"><i class="bx bx-minus"></i></span>
-                                <input type="text" value="1" min="1">
-                                <span class="plus-btn"><i class="bx bx-plus"></i></span>
-                            </div>
+{{--                            <div class="input-counter">--}}
+{{--                                <span class="minus-btn"><i class="bx bx-minus"></i></span>--}}
+{{--                                <input type="text" value="1" min="1">--}}
+{{--                                <span class="plus-btn"><i class="bx bx-plus"></i></span>--}}
+{{--                            </div>--}}
 
                             <button type="submit" class="default-btn"><i class="flaticon-trolley"></i> افزودن به سبد خرید</button>
                         </div>
 
-                        <div class="wishlist-btn">
-                            <a href="#" class="bookmark_btn">
-                                <i class="bx bx-heart" data-id="{{$product->id}}"></i> افزودن به لیست علاقه مندی ها
-                            </a>
-                        </div>
+{{--                        <div class="wishlist-btn">--}}
+{{--                            <a href="#" class="bookmark_btn">--}}
+{{--                                <i class="bx bx-heart" data-id="{{$product->id}}"></i> افزودن به لیست علاقه مندی ها--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
 
-                        <div class="buy-checkbox-btn">
-                            <div class="item">
-                                <input class="inp-cbx" id="cbx" type="checkbox">
-                                <label class="cbx" for="cbx">
-                                        <span>
-                                            <svg width="12px" height="10px" viewBox="0 0 12 10">
-                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                            </svg>
-                                        </span>
-                                    <span>من با شرایط و ضوابط موافقم</span>
-                                </label>
-                            </div>
-
-{{--                            <div class="item">--}}
-{{--                                <a href="#" class="default-btn">خرید کنید</a>--}}
-{{--                            </div>--}}
-                        </div>
                     </div>
                 </div>
 
@@ -162,7 +169,7 @@
 
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="description" role="tabpanel">
-                               {{$product->product_desc ?? "توضیحاتی ثبت نشده!"}}
+                                {!! $product->product_desc ?? "توضیحاتی ثبت نشده!" !!}
                             </div>
 
                             <div class="tab-pane fade" id="shipping" role="tabpanel">

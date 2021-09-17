@@ -76,9 +76,17 @@
 
 
                                     @if($item->discount > 0)
-                                    <input class="subtotal-amount new-price total_price" value="{{number_format($item['total_price'] - (($item['total_price'] * $item->discount) / 100)) ?? ""}}"> تومان
+                                        @if(isset($item->total_price) && \Illuminate\Support\Str::length($item->total_price) > 0)
+                                            <input class="subtotal-amount new-price total_price" value="{{number_format($item['total_price'] - (($item['total_price'] * $item->discount) / 100)) ?? ""}}"> تومان
+                                        @else
+                                            <input class="subtotal-amount new-price total_price" value="{{number_format($item['price'] - (($item['price'] * $item->discount) / 100)) ?? ""}}"> تومان
+                                        @endif
                                     @else
-                                        <input class="subtotal-amount new-price total_price" value="{{number_format($item['total_price']) ?? 0}}"> تومان
+                                        @if(isset($item->total_price) && \Illuminate\Support\Str::length($item->total_price) > 0)
+                                            <input class="subtotal-amount new-price total_price" value="{{number_format($item['total_price']) ?? 0}}"> تومان
+                                        @else
+                                            <input class="subtotal-amount new-price total_price" value="{{number_format($item['price']) ?? 0}}"> تومان
+                                        @endif
                                     @endif
                                 <input type="hidden" readonly class="single_price cart-price" value="{{$item['price']}}">
                                 <input type="hidden" readonly class="product_id" value="{{$item['id']}}">
@@ -102,7 +110,7 @@
                         <li>ارزش افزوده <span>{{number_format($taxation) ?? ""}} تومان</span></li>
                         <li>مبلغ قابل پرداخت <span>{{number_format($price_with_taxation)}} تومان</span></li>
                     </ul>
-                    <a id="shopping_peyment" href="checkout.html" class="default-btn"><i class="flaticon-trolley"></i> تایید سفارش</a>
+                    <a href="javascript:void(0)" id="shopping_peyment" class="default-btn"><i class="flaticon-trolley"></i> تایید سفارش</a>
                 </div>
             </form>
             @endif
@@ -204,6 +212,39 @@
 
             });
 
+            $('body').on('click','#shopping_peyment',function (e){
+                e.preventDefault();
+
+                var $total_price = {{$total_price ?? ""}};
+                var $taxation = {{$taxation ?? "" }};
+                var $price_with_taxation = {{$price_with_taxation ?? ""}};
+
+                $ .ajax({
+
+                    url : "{{route('before_buying')}}",
+                    type : "POST",
+                    data : {'total_price' : $total_price, 'taxation' : $taxation, 'price_with_taxation' : $price_with_taxation},
+                    success : function (data) {
+                        console.log(data);
+                        if(data.status == "0") {
+                            Swal.fire({
+                                position: 'top-end',
+                                toast: true,
+                                icon: 'error',
+                                text: data.desc,
+                                showConfirmButton: false,
+                                timer: 4000
+                            });
+                        };
+                        if(data.status == "1") {
+                            window.location.replace('/profile/shipping-page');
+                        };
+                    }
+
+                });
+
+
+            });
         });
     </script>
 @endsection

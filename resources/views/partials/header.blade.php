@@ -68,7 +68,7 @@
     <div class="drodo-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{{route('home')}}">
                     <img src="/img/logo.png" alt="لوگو">
                 </a>
 
@@ -81,85 +81,64 @@
                                 <li class="nav-item">
                                     <div class="container">
                                         <div class="row">
+
+                                            @if(isset($allProduct))
                                             <div class="col">
-                                                <h6 class="submenu-title">سبک های خرید</h6>
-
+                                                <h6 class="submenu-title">محصولات</h6>
                                                 <ul class="megamenu-submenu">
-                                                    <li><a href="products-left-sidebar.html">نوار کناری سمت چپ</a></li>
-
-                                                    <li><a href="products-left-sidebar-with-categories.html">نوار کناری سمت چپ با دسته ها</a></li>
-
-                                                    <li><a href="products-right-sidebar.html">نوار کناری سمت راست</a></li>
-
-                                                    <li><a href="products-right-sidebar-with-categories.html">نوار کناری سمت راست با دسته ها</a></li>
-
-                                                    <li><a href="products-without-sidebar.html">بدون نوار کناری</a></li>
-
-                                                    <li><a href="products-left-sidebar-fullwidth.html">با عرض نوار کناری سمت چپ</a></li>
-
-                                                    <li><a href="products-right-sidebar-fullwidth.html">با نوار کناری سمت راست پهنای باند</a></li>
+                                                    @foreach($allProduct as $item)
+                                                        <li><a href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->product_name ?? ""}}</a></li>
+                                                    @endforeach
                                                 </ul>
                                             </div>
+                                            @endif
+
+                                            @if(isset($popularity))
+                                                <div class="col">
+                                                    <h6 class="submenu-title">پربازدید‌ترین‌ها</h6>
+                                                    <ul class="megamenu-submenu">
+                                                        @foreach($popularity as $item)
+                                                            <li><a href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->product_name ?? ""}}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+
+                                            @if(isset($category))
+                                                <div class="col">
+                                                    <h6 class="submenu-title">دسته بندی ها</h6>
+                                                    <ul class="megamenu-submenu">
+                                                        @foreach($category as $item)
+                                                            <li><a href="{{route('single_category',["slug" => $item->slug])}}">{{$item->name ?? ""}}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
 
                                             <div class="col">
-                                                <h6 class="submenu-title">سبک های خرید 2</h6>
+                                                    <ul class="megamenu-submenu">
+                                                        <li>
+                                                            <div class="aside-trending-products">
+                                                                    <img src="/img/navbar/navbar-img1.png" alt="تصویر">
+                                                                <div class="category">
+                                                                    <h4>ماسک پزشکی</h4>
+                                                                </div>
 
-                                                <ul class="megamenu-submenu">
-                                                    <li><a href="products-left-sidebar.html">نوار کناری سمت چپ</a></li>
+                                                            </div>
 
-                                                    <li><a href="products-left-sidebar-with-categories.html">نوار کناری سمت چپ با دسته ها</a></li>
+                                                            <div class="aside-trending-products">
+                                                                    <img src="/img/navbar/navbar-img2.png" alt="تصویر">
 
-                                                    <li><a href="products-right-sidebar.html">نوار کناری سمت راست</a></li>
+                                                                <div class="category">
+                                                                    <h4>ماسک سه لایه</h4>
+                                                                </div>
 
-                                                    <li><a href="products-right-sidebar-with-categories.html">نوار کناری سمت راست با دسته ها</a></li>
 
-                                                    <li><a href="products-without-sidebar.html">بدون نوار کناری</a></li>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
 
-                                                    <li><a href="products-left-sidebar-fullwidth.html">با عرض نوار کناری سمت چپ</a></li>
-
-                                                    <li><a href="products-right-sidebar-fullwidth.html">با نوار کناری سمت راست پهنای باند</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col">
-                                                <h6 class="submenu-title">سبک های خرید 3</h6>
-
-                                                <ul class="megamenu-submenu">
-                                                    <li><a href="products-left-sidebar.html">نوار کناری سمت چپ</a></li>
-
-                                                    <li><a href="products-left-sidebar-with-categories.html">نوار کناری سمت چپ با دسته ها</a></li>
-
-                                                    <li><a href="products-right-sidebar.html">نوار کناری سمت راست</a></li>
-
-                                                    <li><a href="products-right-sidebar-with-categories.html">نوار کناری سمت راست با دسته ها</a></li>
-
-                                                    <li><a href="products-without-sidebar.html">بدون نوار کناری</a></li>
-
-                                                    <li><a href="products-left-sidebar-fullwidth.html">با عرض نوار کناری سمت چپ</a></li>
-
-                                                    <li><a href="products-right-sidebar-fullwidth.html">با نوار کناری سمت راست پهنای باند</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col">
-                                                <h6 class="submenu-title">صفحات محصول</h6>
-
-                                                <ul class="megamenu-submenu">
-                                                    <li><a href="single-products-1.html">سبک پیش فرض</a></li>
-
-                                                    <li><a href="single-products-2.html">محصول تنها</a></li>
-
-                                                    <li><a href="single-products-3.html">سبک شبکه</a></li>
-
-                                                    <li><a href="single-products-4.html">جزئیات مهم</a></li>
-
-                                                    <li><a href="single-products-5.html">تصویر کشویی</a></li>
-
-                                                    <li><a href="cart.html">سبد خرید</a></li>
-
-                                                    <li><a href="checkout.html">پرداخت</a></li>
-                                                </ul>
-                                            </div>
                                         </div>
                                     </div>
                                 </li>

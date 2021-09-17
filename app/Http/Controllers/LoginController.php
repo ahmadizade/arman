@@ -231,6 +231,121 @@ class LoginController extends Controller
         }
     }
 
+    public function shippingRegisterAction(Request $request){
+        $request = $request->replace($this->faToEn($request->all()));
+
+        $mobile = $request->mobile;
+
+//        if(!Cache::has("mobile_code_".$mobile)) {
+            $validate = Validator::make($request->all(), [
+                'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
+            ]);
+
+            if ($validate->fails()) {
+                return Response::json(["status" => "0", "desc" => "شماره موبایل وارد شده اشتباه می باشد"]);
+            }
+
+            $checkUser = User::where("mobile", $mobile)->first();
+
+            if (isset($checkUser->id)) {
+                // Go To login Page
+                return Response::json(['status' => "0" , 'desc' => "شما قبلا ثبت نام کرده اید و امکان ثبت مجدد وجود ندارد!"]);
+            }else {
+                $code = random_int(1000, 9999);
+                $dataSms = array(
+                    array(
+                        "Parameter" => "VerificationCode",
+                        "ParameterValue" => $code,
+                    ),
+                    array(
+                        "Parameter" => "Company",
+                        "ParameterValue" => "آرمان",
+                    )
+                );
+                Sms::dispatch($mobile, $dataSms, '53056');
+                Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(120)], 120);
+
+                return Response::json(['status' => 1, 'desc' => "کد پنج رقمی به شماره موبایل شما ارسال شد", 'mobile' => $mobile, 'code' => $code]);
+            }
+
+    }
+
+    public function shippingVerifiedCodeAction(Request $request){
+
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $mobile = self::faToEn($request->mobile);
+        $code = self::faToEn($request->code);
+
+        $validate = Validator::make($request->all(), [
+            'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
+            'code' => 'required',
+        ]);
+
+        if ($validate->fails()) {
+            return Response::json(["status" => "0","desc" => "کد وارد شده اشتباه می باشد"]);
+        }
+
+        if(Cache::has("mobile_code_".$mobile)){
+            if(Cache::get("mobile_code_".$mobile)[0] == $code){
+                if(User::where("mobile",$mobile)->exists()){
+                    // login
+                    $user = User::where("mobile",$mobile)->first();
+                    Auth::loginUsingId($user->id, true);
+                    Cache::forget("mobile_code_".$mobile);
+                    return Response::json(["status" => "0"]);
+                }else{
+                    return Response::json(["status" => "1", 'desc' => "کد وارد شده صحیح می باشد"]);
+                }
+            }
+            return Response::json(["status" => "0","desc" => "کد وارد شده اشتباه می باشد"]);
+        }
+        return Response::json(["status" => "0","desc" => "کد وارد شده اشتباه می باشد"]);
+    }
+
+    public function shippingSignUp(Request $request){
+        $request = $request->replace(self::faToEn($request->all()));
+
+        $mobile = self::faToEn($request->mobile);
+        $name = self::faToEn($request->name);
+        $family = self::faToEn($request->family);
+        $address = self::faToEn($request->address);
+
+        $validate = Validator::make($request->all(), [
+            'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
+            'name' => 'required|min:3|max:40',
+            'family' => 'required|min:4|max:70',
+            'address' => 'required|min:9|max:512',
+        ]);
+
+        if ($validate->fails()) {
+            return Response::json(["status" => "0","desc" => "کد وارد شده اشتباه می باشد"]);
+        }
+
+        $user = User::insertGetId([
+            "role" => "user",
+            "name" => $name,
+            "family" => $family,
+            "mobile" => $mobile,
+            "email" => "",
+            "status" => 1,
+            "password" => "",
+            "remember_token" => "",
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
+        ]);
+        Profile::create([
+            "user_id" => $user,
+            "address" => $address,
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
+        ]);
+        Auth::loginUsingId($user, true);
+        Cache::forget("mobile_code_".$mobile);
+        return Response::json(["status" => "1" , 'desc' => "در حال انتقال به درگاه بانک"]);
+    }
+
+
     public function Logout(){
 
         if(Auth::check()){

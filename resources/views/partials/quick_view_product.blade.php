@@ -1,6 +1,5 @@
 <!-- Strat QuickView Modal Area -->
 @if(isset($product))
-    @include('partials.loader')
 <div class="row align-items-center">
     <div class="col-lg-6 col-md-6">
         <div class="products-image">

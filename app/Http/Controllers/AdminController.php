@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\Product;
 use App\Models\Product_tag;
 use App\Models\Report;
+use App\Models\Setting;
 use App\Models\Store;
 use App\Models\User;
 use Carbon\Carbon;
@@ -68,6 +69,49 @@ class AdminController extends Controller
     public function AdminUsers()
     {
         return view('admin.views.users');
+    }
+
+    public function seoPages()
+    {
+        return view('admin.views.seo.seo_pages');
+    }
+
+    public function homePageSeo(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'home_page_title' => ['nullable', 'max:512',],
+            'home_page_description' => ['nullable', 'max:512',],
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->first()]);
+        }
+        Setting::where('id', 1)->update([
+            'home_page_title' => $request->home_page_title,
+            'home_page_description' => $request->home_page_description,
+        ]);
+        Session::flash('status', 'تغییرات با موفقیت انجام شد');
+        return back();
+    }
+
+    public function extraPageSeo(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'aboutus_page_title' => ['nullable', 'max:1024',],
+            'aboutus_page_description' => ['nullable', 'max:1024',],
+            'contactus_page_title' => ['nullable', 'max:1024',],
+            'contactus_page_description' => ['nullable', 'max:1024',],
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->first()]);
+        }
+        Setting::where('id', 1)->update([
+            'aboutus_page_title' => $request->aboutus_page_title,
+            'aboutus_page_description' => $request->aboutus_page_description,
+            'contactus_page_title' => $request->contactus_page_title,
+            'contactus_page_description' => $request->contactus_page_description,
+        ]);
+        Session::flash('status', 'تغییرات با موفقیت انجام شد');
+        return back();
     }
 
 
@@ -573,7 +617,6 @@ class AdminController extends Controller
             'price' => 'required|max:255',
             'discount' => 'nullable|max:3',
             'thumbnail' => 'nullable|max:2048',
-            'image' => 'nullable|max:2048',
             'description' => 'nullable|min:3|max:9000000',
             'seo_title' => 'nullable',
             'seo_description' => 'nullable',
@@ -585,17 +628,6 @@ class AdminController extends Controller
             return back();
         }
 
-//        $image = null;
-//        if ($request->has('image')) {
-//            $imagePath = "/uploads/products/";
-//            $file = $request->file('image');
-//            $image = $file->getClientOriginalName();
-//            if (file_exists(public_path($imagePath) . $image)) {
-//                $image = Carbon::now()->timestamp . $image;
-//            }
-//            $file->move(public_path($imagePath), $image);
-//        }
-
         $thumbnail = null;
         if ($request->has('thumbnail')) {
             $image2Path = "/uploads/thumbnail/";
@@ -606,6 +638,7 @@ class AdminController extends Controller
             }
             $image2->move(public_path($image2Path), $thumbnail);
         }
+
         Product::create([
            'product_name' => $request->name,
            'english_name' => $request->englishName,
@@ -620,7 +653,7 @@ class AdminController extends Controller
            'user_id' => Auth::id(),
            'product_desc' => $request->description,
             'thumbnail' => $thumbnail,
-//            "image" => $image,
+            "status" => 1,
             "created_at" => Carbon::now(),
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
@@ -842,6 +875,84 @@ class AdminController extends Controller
         return back();
     }
 
+    public function sliderEditproductAction(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'user_id' => 'required',
+            'slider' => 'required',
+            'slider.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:6048'
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("error",$validator->errors()->first());
+            return back();
+        }
+
+        if($request->hasfile('slider')){
+            $product= Product::where('id' , $request->id)->first();
+            foreach($request->file('slider') as $image)
+            {
+                $slide = null;
+                $imagePath = "/uploads/slider/";
+                $picture = $image;
+                $slide = $picture->getClientOriginalName();
+                $names[] = $slide;
+                if (file_exists(public_path($imagePath) . $slide)) {
+                    $slide = Carbon::now()->timestamp . $slide;
+                }
+                $picture->move(public_path($imagePath), $slide);
+            }
+
+
+            //With old Product slider
+            if (isset($product->slider) && isset($product->slider[0])){
+                $oldSlid = json_decode($product->slider);
+                foreach($names as $item){
+                    $oldSlid[] =  $item;
+                }
+                $oldSlid = array_values($oldSlid);
+                Product::where('id' , $request->id)->update([
+                    'slider' => $oldSlid,
+                    'updated_at' => Carbon::now(),
+                ]);
+                session()->flash("status","عکس محصول با موفقیت ویرایش گردید");
+                return back();
+            }
+
+            //Without old Product slider
+            Product::where('id' , $request->id)->update([
+                'slider' => $names,
+                'updated_at' => Carbon::now(),
+            ]);
+            session()->flash("status","عکس محصول با موفقیت ویرایش گردید");
+            return back();
+        }else{
+            session()->flash("status","فایلی برای ویرایش وجود ندارد!");
+            return back();
+        }
+    }
+
+
+    public function deleteSlider(Request $request){
+
+        $product = Product::where('id', $request->id)->first();
+        $slider = json_decode($product->slider);
+
+        foreach ($slider as $key => $value){
+            if ($key == $request->key){
+
+                unset ($slider[$key]);
+                $slider = array_values($slider);
+                Product::where('id', $request->id)->update([
+                    'slider' => $slider,
+                    'updated_at' => Carbon::now(),
+                ]);
+                return Response::json(["status" => "1", "desc" => " ویرایش با موفقیت انجام شد "]);
+            }
+        }
+        return Response::json(["status" => "0", "desc" => " ویرایش دچار مشکل شده است! "]);
+    }
     public function imageEditcategoryAction(Request $request){
         $validator = Validator::make($request->all(), [
             'id' => 'required',
