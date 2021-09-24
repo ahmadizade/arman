@@ -1,6 +1,6 @@
 @if (Session::has("errors"))
     <div class="alert alert-danger mb-2 my_rtl text-center">
-        <ul class="mb-0">
+        <ul class="mb-0" style="list-style: none">
             <li>{{ Session::get("errors") }}</li>
         </ul>
     </div>

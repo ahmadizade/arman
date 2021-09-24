@@ -75,6 +75,12 @@
                                                         <input value="{{$setting->home_page_description ?? ""}}" type="text" name="home_page_description" class="form-control text-right" placeholder="مثلا : فروشگاه آرمان ماسک ... ">
                                                     </div>
                                                 </div>
+                                                <div class="col-12">
+                                                    <div class="my-3">
+                                                        <label for="main_text" class="form-label ">متن صفحه اول</label>
+                                                        <textarea class="form-control textarea-editor" name="main_text" rows="10" aria-hidden="true" wfd-invisible="true">{{$setting->main_text ?? ""}}</textarea>
+                                                    </div>
+                                                </div>
                                                 <div class="col-12 buttons text-right">
                                                     <button class="btn btn-success btn-sm" type="submit">انجام تغییرات</button>
                                                 </div>

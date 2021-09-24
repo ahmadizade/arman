@@ -28,37 +28,7 @@
                             </div>
                             <div class="col-lg-5 col-md-12">
                                 <div class="banner-content">
-                                    <h1>آرمان ماسک</h1>
-                                    <p> با بیش از 12 سال سابقه در عرصه تولید ماسک و لوازم پزشکی و جراجی</p>
-                                    <p> آدرس : تهران، خیابان بخارست، کوچه پنجم، پلاک ۱۵ طبقه ۳ واحد ۱۶</p>
-                                    <div class="btn-box">
-                                        <div class="d-flex align-items-center float-left">
-                                            <span class="price">فروشگاه آنلاین</span>
-                                            <a href="{{route('contact')}}" class="default-btn add-cart"><i class="bx bxs-phone"></i>تماس با ما </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="single-banner-item">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-lg-7 col-md-12">
-                                <div class="banner-image text-center">
-                                    <img src="/img/banner/banner-img1.png" class="main-image" alt="تصویر">
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-12">
-                                <div class="banner-content">
-                                    {{--                                    <span class="sub-title">تازه رسیده ها</span>--}}
+                                                                        <span class="sub-title">تازه رسیده ها</span>
                                     <h1><span>ماسک</span> سه لایه جراحی<span></span></h1>
                                     <p>ماسک سه لایه پزشکی با دو لایه اسپان باند و یک لایه ملت بلون در بسته بندی 100 تایی</p>
                                     <div class="btn-box">
@@ -89,7 +59,7 @@
                             </div>
                             <div class="col-lg-5 col-md-12">
                                 <div class="banner-content">
-                                    {{--                                    <span class="sub-title">تازه رسیده ها</span>--}}
+                                                                        <span class="sub-title">تازه رسیده ها</span>
                                     <h1><span>کلاه کش دار</span> یک بار مصرف<span></span></h1>
                                     <p>کلاه کش دار یک بار مصرف ویژه پزشک و بیمار است و بیشتر در اتاق عمل استفاده می شود</p>
                                     <div class="btn-box">
@@ -235,6 +205,25 @@
         </div>
     </section>
     <!-- End Hot Deal Area -->
+
+    <!-- MAIN TEXT -->
+    @if(isset($setting) && isset($setting->main_text))
+        <section class="brands-area pt-70 pb-40">
+        <div class="container">
+            <div class="section-title">
+                <h1>آرمان ماسک</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <p>{!! $setting->main_text !!}</p>
+                </div>
+            </div>
+            </div>
+    </section>
+    @endif
+    <!-- MAIN TEXT -->
+
+
 
     <!-- Start Brands Area -->
     <section class="brands-area pt-70 pb-40">

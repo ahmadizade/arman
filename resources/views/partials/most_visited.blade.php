@@ -9,7 +9,7 @@
             @foreach($popularproduct as $item)
                 <div class="single-products-box">
                     <div class="image">
-                        <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="d-block"><img src="/uploads/products/{{$item->thumbnail ?? "noimage_500.jpg"}}" alt="{{$item->product_name}}"></a>
+                        <a href="{{ route("single_product",["slug" => $item->product_slug]) }}" class="d-block"><img src="/uploads/thumbnail/{{$item->thumbnail ?? "noimage_500.jpg"}}" alt="{{$item->product_name}}"></a>
 
                         {{--                    <div class="new">جدید</div>--}}
 
@@ -17,7 +17,7 @@
                             <ul>
                                 <li>
                                     <div class="cart-btn">
-                                        <a href="{{route('card', ['id' => $item->id])}}">
+                                        <a href="{{route('cart', ['id' => $item->id])}}">
                                             <i class="bx bxs-cart-add"></i>
                                             <span class="tooltip-label">افزودن به سبد خرید</span>
                                         </a>

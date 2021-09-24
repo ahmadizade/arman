@@ -17,7 +17,7 @@
                         <ul>
                             <li>
                                 <div class="cart-btn">
-                                    <a href="{{route('card', ['id' => $item->id])}}">
+                                    <a href="{{route('cart', ['id' => $item->id])}}">
                                         <i class="bx bxs-cart-add"></i>
                                         <span class="tooltip-label">افزودن به سبد خرید</span>
                                     </a>

@@ -132,15 +132,8 @@
 
                                                 <div class="col-12 col-md-6 col-lg-6">
                                                     <div class="my-3 text-right">
-                                                        <label for="name" class="form-label ">نام محصول (فارسی)</label>
+                                                        <label for="name" class="form-label ">نام محصول</label>
                                                         <input type="text" name="name" class="form-control" placeholder="مثلا : ساعت هوشمند سامسونگ">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="my-3 text-right">
-                                                        <label for="englishName" class="form-label ">نام محصول (اینگلیسی)</label>
-                                                        <input type="text" name="englishName" class="form-control" placeholder="مثلا : Smart Watch Samsung">
                                                     </div>
                                                 </div>
 
@@ -184,27 +177,24 @@
                                                     </div>
                                                 </div>
 
-{{--                                                <div class="col-12 col-lg-12">--}}
-{{--                                                    <div class="input-group mb-3">--}}
-{{--                                                        <span class="input-group-text">آدرس URL Canonical</span>--}}
-{{--                                                        <input type="text" class="form-control ltr" autocomplete="off" value="{{ old("seo_canonical") }}" name="seo_canonical">--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-                                                <div class="row my-3 text-right">
-{{--                                                    <div class="col-12">--}}
-{{--                                                        <div class="mt-3">--}}
-{{--                                                            <label for="image" class="form-label text-success">عکس کوچک (width : 658 - height : 800)</label>--}}
-{{--                                                            <input type="file" name="image">--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-
-                                                    <div class="col-12 ">
+                                                <div class="row my-3">
+                                                    <div class="col-6 text-center">
                                                         <div class="mt-3">
-                                                            <label for="thumbnail" class="form-label text-primary">(800 در 685) width : 685 / height : 800</label>
+                                                            <P class="admin-rtl">عکس شاخص</P>
+                                                            <label for="thumbnail" class="form-label text-primary">width : 685 / height : 800</label>
                                                             <input type="file" name="thumbnail">
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-6 text-center">
+                                                        <div class="mt-3">
+                                                            <P class="admin-rtl">سایز عکس های اسلایدر : 685 در 800</P>
+                                                            <P class="admin-rtl">Width : 685 / Height : 800</P>
+                                                        </div>
+                                                        <input multiple="multiple" type="file" name="slider[]">
+                                                    </div>
                                                 </div>
+
 
 
                                                 <div class="col-12 mt-3 buttons text-right">

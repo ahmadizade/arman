@@ -601,13 +601,13 @@ class ProfileController extends Controller
         return back();
     }
 
-    public function Card(Request $request)
+    public function Cart(Request $request)
     {
         $product = Product::where('id', $request->id)->first();
         if (Session::has('product') && count(Session::get('product')) > 0){
             foreach (Session::get('product') as $item){
-                if ($item->id == $product->id) {
-                    Session::flash('error' , "این محصول را قبلا انتخاب کرده اید!");
+                if ($item['id'] == $product->id) {
+                    Session::flash('errors' , "این محصول را قبلا انتخاب کرده اید!");
                     return back();
                 }else {
                     Session::push('product', $product);
@@ -1148,13 +1148,20 @@ class ProfileController extends Controller
 
     }
 
-    public function Bookmark()
+    public function Bookmark(Request $request)
     {
-
-        $bookmark = Bookmark::where("user_id", Auth::id())->get();
-        $like = Like::where("user_id", Auth::id())->get();
-        return view("profile.bookmark", ["bookmark" => $bookmark, "like" => $like, "user" => Auth::user(), "menu" => "bookmark"]);
-
+        if (isset($request->product_id)){
+            $bookmark = Bookmark::where('user_id', Auth::id())->where('product_id' , $request->product_id)->exists();
+            if ($bookmark == 1){
+                return Response::json(["status" => "0" , "desc" => 'این محصول را قبلا در لسیت علاقه مندی ها اضافه کرده اید!']);
+            }
+            Bookmark::create([
+                'product_id' => $request->product_id,
+                'user_id' => Auth::id(),
+                'created_at' => Carbon::now(),
+            ]);
+            return Response::json(["status" => "1" , "desc" => 'محصول با موفقیت در لیست علاقه مندی ها ثبت شد']);
+        }
     }
 
     public function myWebService()

@@ -59,15 +59,7 @@ Route::middleware(['admin'])->prefix("armanmask")->group(function () {
     Route::get('/contact-us/get-user', 'App\Http\Controllers\AdminController@ContactUs_GetUser')->name("Contact_Us_GetUser");
     Route::post('/contact-us/sms-user', 'App\Http\Controllers\AdminController@ContactUs_SmsUser')->name("Contact_Us_Sms_User")->middleware("ajax", "verify.domain");
     Route::post('/contact-us/email-user', 'App\Http\Controllers\AdminController@ContactUs_EmailUser')->name("Contact_Us_Email_User")->middleware("ajax", "verify.domain");
-    //Store
-    Route::get('/store', 'App\Http\Controllers\AdminController@Store')->name("Store");
-    Route::get('/store/get-store', 'App\Http\Controllers\AdminController@Store_GetUser')->name("Store_GetUser");
-    Route::post('/store/view-store', 'App\Http\Controllers\AdminController@Store_ViewStore')->name("Store_view_store")->middleware("ajax", "verify.domain");
-    Route::post('/store/save-store-data', 'App\Http\Controllers\AdminController@SaveStoreData')->name("Save_store_Data_Action")->middleware("ajax", "verify.domain");
-    Route::post('/store/delete-store-action', 'App\Http\Controllers\AdminController@DeleteStoreAction')->name("delete_store_action")->middleware("ajax", "verify.domain");
-    Route::get('/store/get-report', 'App\Http\Controllers\AdminController@Store_GetReport')->name("Store_GetReport")->middleware("ajax", "verify.domain");
-    Route::post('/store/view-report', 'App\Http\Controllers\AdminController@Store_ViewReport')->name("Store_view_report")->middleware("ajax", "verify.domain");
-    Route::post('/store/save-report-data', 'App\Http\Controllers\AdminController@SaveReportData')->name("Save_report_Data_Action")->middleware("ajax", "verify.domain");
+
     Route::get('/product', 'App\Http\Controllers\AdminController@Product')->name("Product");
     Route::get('/product/get-store', 'App\Http\Controllers\AdminController@Product_GetStore')->name("Product_Get_store");
     Route::get('/product/product-suggestion-action', 'App\Http\Controllers\AdminController@product_SuggestionAction')->name("product_suggestion_action");
@@ -97,16 +89,6 @@ Route::middleware(['admin'])->prefix("armanmask")->group(function () {
     Route::post('/product/image-edit-tag-action', 'App\Http\Controllers\AdminController@imageEdittagAction')->name("image_edit_tag_action");
     Route::post('/product/admin-file-product-action', 'App\Http\Controllers\AdminController@adminFileproductAction')->name("admin_file_product_action");
     Route::post('upload/tiny/image','App\Http\Controllers\UploadController@uploadImageDescription')->name('tiny.upload');
-    //Web Service
-    Route::get('/api/new-webservice', 'App\Http\Controllers\AdminController@newWebservice')->name("new_webservice");
-    Route::post('/api/new-webservice-action', 'App\Http\Controllers\AdminController@newWebserviceAction')->name("new_webservice_action");
-    Route::get('/api/delete-api/{id}', 'App\Http\Controllers\AdminController@deleteApi')->name("delete_api");
-    Route::get('/api/edit-api/{id}', 'App\Http\Controllers\AdminController@editApi')->name("edit_api");
-    Route::post('/api/admin-edit-api-action', 'App\Http\Controllers\AdminController@adminEditapiAction')->name("admin_edit_api_action");
-    Route::post('/api/image-edit-api-action', 'App\Http\Controllers\AdminController@imageEditapiAction')->name("image_edit_api_action");
-    Route::post('/api/admin-file-api-action', 'App\Http\Controllers\AdminController@adminFileapiAction')->name("admin_file_api_action");
-    Route::get('/api/show-webservice', 'App\Http\Controllers\AdminController@showWebservice')->name("show_webservice");
-
 });
 // admin
 
@@ -135,11 +117,7 @@ Route::prefix("profile")->group(function () {
     Route::get('/', 'App\Http\Controllers\ProfileController@Index')->name("profile_index");
     Route::get('/products', 'App\Http\Controllers\ProfileController@Products')->name("profile_products");
     Route::get('/single-product/{slug}', 'App\Http\Controllers\ProfileController@SingleProduct')->name("single_product");
-    Route::get('/single-api/{slug}', 'App\Http\Controllers\ProfileController@SingleApi')->name("single_api");
-    Route::get('/subscribe/{id}', 'App\Http\Controllers\ProfileController@subscribe')->name("subscribe");
-    Route::get('/select-package', 'App\Http\Controllers\ProfileController@selectPackage')->name("select_package");
-    Route::post('/add-domain', 'App\Http\Controllers\ProfileController@addDomain')->name("add_domain");
-    Route::get('/card/{id}', 'App\Http\Controllers\ProfileController@Card')->name("card");
+    Route::get('/cart/{id}', 'App\Http\Controllers\ProfileController@Cart')->name("cart");
     Route::post('/quick-add-cart', 'App\Http\Controllers\ProfileController@quickAddCart')->name("quick_add_cart");
     Route::get('/cart-page', 'App\Http\Controllers\ProfileController@CartPage')->name("cart_page");
     Route::get('/shipping-page', 'App\Http\Controllers\ProfileController@shippingPage')->name("shipping_page");
@@ -160,26 +138,14 @@ Route::prefix("profile")->group(function () {
     Route::post('/delete-product-action', 'App\Http\Controllers\ProfileController@DeleteProductAction')->name("delete_product_action");
     Route::get('/edit', 'App\Http\Controllers\ProfileController@ProfileEdit')->name("profile_edit");
     Route::post('/edit-action', 'App\Http\Controllers\ProfileController@ProfileEditAction')->name("profile_edit_action");
-    Route::get('/gold', 'App\Http\Controllers\ProfileController@ProfileGold')->name("profile_gold");
-    Route::post('/gold-online-action', 'App\Http\Controllers\ProfileController@ProfileGoldOnlineAction')->name("profile_gold_online_action");
     Route::get('/cart-transfer', 'App\Http\Controllers\ProfileController@CartTransfer')->name("profile_cart_transfer");
     Route::post('/cart-transfer-action', 'App\Http\Controllers\ProfileController@CartTransferAction')->name("profile_cart_transfer_action");
-    Route::get('/store', 'App\Http\Controllers\ProfileController@Store')->name("profile_store");
-    Route::get('/store-bio', 'App\Http\Controllers\ProfileController@StoreBio')->name("profile_bio");
-    Route::post('/store-bio-action', 'App\Http\Controllers\ProfileController@StoreBioAction')->name("profile_bio_action");
-    Route::post('/store-action', 'App\Http\Controllers\ProfileController@StoreAction')->name("store_action");
-    Route::post('/store-edit-action', 'App\Http\Controllers\ProfileController@StoreEditAction')->name("store_edit_action");
-    Route::post('/store-desc-action', 'App\Http\Controllers\ProfileController@StoreDescAction')->name("store_desc_action");
-    Route::post('/store-category-action', 'App\Http\Controllers\ProfileController@StoreCategoryAction')->name("store_category_action");
     Route::get('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("profile_bookmark");
-    Route::get('/my-webservice', 'App\Http\Controllers\ProfileController@myWebService')->name("my_webservice");
-    Route::post('/delete-my-webservice', 'App\Http\Controllers\ProfileController@deleteMyWebService')->name("delete_my_webservice");
+    Route::post('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("bookmark");
+    Route::post('/like', 'App\Http\Controllers\ProfileController@like')->name("like");
     Route::post('/bookmark-delete', 'App\Http\Controllers\ProfileController@BookmarkDelete')->name("profile_bookmark_delete")->middleware("ajax", "verify.domain");
     Route::post('/like-delete', 'App\Http\Controllers\ProfileController@likeDelete')->name("profile_like_delete")->middleware("ajax", "verify.domain");
     Route::get('/email-verify-action', 'App\Http\Controllers\ProfileController@EmailVerifyAction')->name('email_verify_action');
-    Route::get('/qrcode', 'App\Http\Controllers\ProfileController@Qrcode')->name("profile_qrcode");
-    Route::post('/qrcode-action', 'App\Http\Controllers\ProfileController@QrcodeAction')->name("profile_qrcode_action");
-    Route::post('/qrcode-action-mobile', 'App\Http\Controllers\ProfileController@QrcodeActionMobile')->name("profile_qrcode_action_mobile");
     Route::get('/credit', 'App\Http\Controllers\ProfileController@ProfileCredit')->name("profile_credit");
     Route::post('/credit-action', 'App\Http\Controllers\ProfileController@CreditAction')->name("profile_credit_action");
     Route::get('/orders', 'App\Http\Controllers\ProfileController@orders')->name("orders");
@@ -188,29 +154,9 @@ Route::prefix("profile")->group(function () {
     Route::post('/new-ticket', 'App\Http\Controllers\ProfileController@newTicket')->name("new_ticket");
     Route::post('/get-answer', 'App\Http\Controllers\ProfileController@getAnswer')->name("get_answer");
     Route::post('/delete-ticket', 'App\Http\Controllers\ProfileController@deleteTicket')->name("delete_ticket");
-    Route::post('/link-builder', 'App\Http\Controllers\ProfileController@linkBuilder')->name("link_builder");
-    Route::get('/download-link-page', 'App\Http\Controllers\ProfileController@downloadLinkPage')->name("download_link_page");
     //Cart Routes
     Route::post('/cart-calculator', 'App\Http\Controllers\ProfileController@cartCalculator')->name("cart_calculator");
 });
-
-
-// shop
-Route::prefix("shop")->group(function () {
-    Route::post('/comment-action', 'App\Http\Controllers\ShopController@CommentAction')->name("comment_action");
-    Route::post('/shop-like', 'App\Http\Controllers\ShopController@Like')->name("like")->middleware("ajax", "verify.domain");
-    Route::post('/shop-bookmark', 'App\Http\Controllers\ShopController@Bookmark')->name("bookmark")->middleware("ajax", "verify.domain");
-    Route::post('/shop-report', 'App\Http\Controllers\ShopController@Report')->name("report")->middleware("ajax", "verify.domain");
-    Route::get('/search', 'App\Http\Controllers\ShopController@Search')->name("search");
-    Route::get('/{shop}/{branch?}', 'App\Http\Controllers\ShopController@singleShop')->name("single_shop");
-    Route::get('/product/{id}', 'App\Http\Controllers\ShopController@ProductSingle')->name("shop_product_single");
-});
-
-
-//Download File
-Route::get('/download/{filename}', 'App\Http\Controllers\HomeController@download')->name("download");
-Route::post('/purchase-download', 'App\Http\Controllers\ProfileController@purchaseDownload')->name("purchase_download");
-
 
 //bank
 Route::get("/payment", "App\Http\Controllers\PaymentController@payment")->middleware(["auth"])->name("payment");
@@ -244,10 +190,6 @@ Route::get('/delete-category-action/{id}', 'App\Http\Controllers\BlogController@
 
 //EXTRA PAGES
 
-Route::get('domain-search', 'App\Http\Controllers\ExtraController@domainSearch')->name("domain_search");
-Route::post('domain-search-action', 'App\Http\Controllers\ExtraController@domainSearchAction')->name("domain_search_action");
-Route::get('domain-result/{finder}', 'App\Http\Controllers\ExtraController@domainResult')->name("domain_result");
-
 
 Route::post('/shop/add-cart', 'App\Http\Controllers\CartController@addCart')->name('add_cart');
 Route::post('/shop/remove-cart', 'App\Http\Controllers\CartController@removeCart')->name('remove_cart');
@@ -255,10 +197,4 @@ Route::post('/shop/edit-cart', 'App\Http\Controllers\CartController@editCart')->
 Route::post('/shop/show-cart', 'App\Http\Controllers\CartController@showCart')->name('show_cart');
 Route::get('/checkout', 'App\Http\Controllers\CartController@checkout')->name('checkout');
 Route::post('/checkout-order', 'App\Http\Controllers\CartController@checkoutOrder')->name('checkout_order');
-
-
-//API TRANSLATE TO MY SITE (START)
-Route::get('/get-weather-kalia', 'App\Http\Controllers\WeatherApiController@rapidGetWeatherKalia')->name("get_weather_kalia");
-//API TRANSLATE TO MY SITE (END)
-
 

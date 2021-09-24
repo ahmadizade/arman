@@ -2,9 +2,9 @@
 
 @section("title")
     @if(\Illuminate\Support\Str::length($product->seo_title) > 1)
-        <title>{{ $product->seo_title }} - آرمان</title>
+        <title>{{ $product->seo_title }} - آرمان ماسک</title>
     @else
-        <title>{{ $product->product_name ?? '' }} - آرمان</title>
+        <title>{{ $product->product_name ?? '' }} - آرمان ماسک</title>
     @endif
     @if(\Illuminate\Support\Str::length($product->seo_description) > 1)
         <meta name="description" content="{{ $product->seo_description }}">
@@ -16,41 +16,27 @@
         <link rel="canonical" href="{{ url()->full() }}">
     @endif
     @if(\Illuminate\Support\Str::length($product->seo_title) > 1)
-        <meta property="og:title" content="{{ $product->seo_title }} - آرمان">
+        <meta property="og:title" content="{{ $product->seo_title }} - آرمان ماسک">
     @else
-        <meta property="og:title" content="{{ $product->product_name ?? '' }} - آرمان">
+        <meta property="og:title" content="{{ $product->product_name ?? '' }} - آرمان ماسک">
     @endif
     <meta property="og:url" content="{{ url()->current() }}">
     @if(\Illuminate\Support\Str::length($product->seo_description) > 1)
         <meta property="og:site_name" content="{{ $product->seo_description }}">
     @endif
-    <meta property="og:image" content="{{ request()->getSchemeAndHttpHost() . '/img/uploads/product/' . $product->thumbnail ?? '/img/home/logo.png'}}">
+    <meta property="og:image" content="{{ request()->getSchemeAndHttpHost() . '/images/uploads/thumbnail/' . $product->thumbnail ?? '/images/logo.png'}}">
 
 @endsection
 
 @section("content")
     @if(isset($product))
     <!-- Start main-content -->
-    @if ($errors->any())
-        <div class="alert alert-danger mb-2">
-            <ul class="mb-0">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    @if(Session::has("status"))
-        <div class="alert alert-success text-center mb-2">{{ Session::get("status") }}</div>
-    @endif
-
-
-
+@include('partials.condition')
     <!-- Start Page Title Area -->
     <section class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h1>{{$product->category->name}}</h1>
+                <h2>{{$product->category->name}}</h2>
                 <ul>
                     <li><a href="{{route('home')}}">خانه</a></li>
                     <li><a href="{{route('contact')}}">تماس با ما</a></li>
@@ -69,38 +55,27 @@
             <div class="row">
                 <div class="col-lg-5 col-md-12">
                     <div class="products-details-image">
-                        <img class="img-fluid w-75" src="/uploads/thumbnail/{{$product->thumbnail}}" alt="تصویر">
-                        <ul class="products-details-image-slides owl-theme owl-carousel" data-slider-id="1">
-                            <li><img src="/img/products/products-img1.jpg" alt="تصویر"></li>
-                            <li><img src="/img/products/products-img2.jpg" alt="تصویر"></li>
-                            <li><img src="/img/products/products-img3.jpg" alt="تصویر"></li>
-                            <li><img src="/img/products/products-img4.jpg" alt="تصویر"></li>
-                        </ul>
-
-                        <!-- Carousel Thumbs -->
-                        <div class="owl-thumbs products-details-image-slides-owl-thumbs" data-slider-id="1">
-                            <div class="owl-thumb-item">
-                                <img src="/img/products/products-img1.jpg" alt="تصویر">
-                            </div>
-
-                            <div class="owl-thumb-item">
-                                <img src="/img/products/products-img2.jpg" alt="تصویر">
-                            </div>
-
-                            <div class="owl-thumb-item">
-                                <img src="/img/products/products-img3.jpg" alt="تصویر">
-                            </div>
-
-                            <div class="owl-thumb-item">
-                                <img src="/img/products/products-img4.jpg" alt="تصویر">
-                            </div>
+                        <div class="single-products-details-image">
+                            <a data-fancybox="gallery" href="/img/products/products-img1.jpg" class="d-block">
+                                <img src="/uploads/thumbnail/{{$product->thumbnail}}" alt="{{$product->product_name ?? ""}}">
+                            </a>
                         </div>
+                        @if(isset($product->slider) && $product->slider[0])
+                            @foreach(json_decode($product->slider) as $image)
+                                <div class="single-products-details-image">
+                                    <a data-fancybox="gallery" href="/img/products/products-img1.jpg" class="d-block">
+                                        <img src="/uploads/slider/{{$image}}">
+                                    </a>
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
 
                 <div class="col-lg-7 col-md-12">
-                    <div class="products-details-desc">
-                        <h3>{{$product->product_name}}</h3>
+                    <div class="products-details-desc products-details-desc-sticky">
+                        <h1 style="font-size: 30px;">{{$product->product_name}}</h1>
+
                         <div class="price">
                             @if($product->discount > 0)
                                 <span class="old-price">
@@ -130,6 +105,7 @@
                                 <i class="bx bxs-star"></i>
                                 <i class="bx bxs-star"></i>
                             </div>
+                            <a href="#" class="rating-count">3 بررسی</a>
                         </div>
 
                         <ul class="products-info">
@@ -137,60 +113,170 @@
                             <li><span>موجودی: </span> موجود است</li>
                         </ul>
 
-                        <div class="products-info-btn mt-2">
-                            <a href="customer-service.html"><i class="bx bxs-truck"></i> تماس با واحد فروش</a>
+
+
+                        <div class="products-info-btn mt-3">
+                            <a href="javascript:void(0)"><i class="bx bxs-truck"></i> حمل نقل</a>
+                            <a href="tel:02188557335"><i class="bx bx-envelope"></i> در مورد این محصولات سوال کنید</a>
                         </div>
 
-                        <div class="products-add-to-cart">
-{{--                            <div class="input-counter">--}}
-{{--                                <span class="minus-btn"><i class="bx bx-minus"></i></span>--}}
-{{--                                <input type="text" value="1" min="1">--}}
-{{--                                <span class="plus-btn"><i class="bx bx-plus"></i></span>--}}
-{{--                            </div>--}}
 
-                            <button type="submit" class="default-btn"><i class="flaticon-trolley"></i> افزودن به سبد خرید</button>
+
+                        <div class="wishlist-btn bookmark_btn" data-id="{{$product->id}}">
+                            <a href="javascript:void(0)"><i class="bx bx-heart"></i> افزودن به لیست علاقه مندی ها</a>
                         </div>
 
-{{--                        <div class="wishlist-btn">--}}
-{{--                            <a href="#" class="bookmark_btn">--}}
-{{--                                <i class="bx bx-heart" data-id="{{$product->id}}"></i> افزودن به لیست علاقه مندی ها--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-
-                    </div>
-                </div>
-
-                <div class="col-lg-12 col-md-12">
-                    <div class="products-details-tabs">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item"><a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description">توضیحات</a></li>
-                            <li class="nav-item"><a class="nav-link" id="shipping-tab" data-toggle="tab" href="#shipping" role="tab" aria-controls="shipping">حمل نقل</a></li>
-                        </ul>
-
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="description" role="tabpanel">
-                                {!! $product->product_desc ?? "توضیحاتی ثبت نشده!" !!}
+                        <div class="buy-checkbox-btn">
+                            <div class="item">
+                                <a href="{{route('cart', ['id' => $product->id])}}" class="default-btn">افزودن به سبد خرید</a>
                             </div>
+                        </div>
 
-                            <div class="tab-pane fade" id="shipping" role="tabpanel">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                        <tr>
-                                            <td>حمل نقل</td>
-                                            <td>ارسال در کوتاه ترین زمان</td>
-                                        </tr>
+                        <div class="products-details-accordion">
+                            <ul class="accordion">
+                                <li class="accordion-item">
+                                    <a class="accordion-title active" href="javascript:void(0)">
+                                        <i class="bx bx-chevron-down"></i>
+                                        توضیحات
+                                    </a>
 
-                                        <tr>
-                                            <td>تحویل</td>
-                                            <td>
-                                                تمام تلاس ما کسب رضایت شماست.<br>لذا تمام تلاش خود را برای ارسال در همان روز خواهیم کرد.
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                                    <div class="accordion-content show">
+                                        {!! $product->product_desc ?? "توضیحاتی ثبت نشده!" !!}
+                                    </div>
+                                </li>
+
+                                <li class="accordion-item">
+                                    <a class="accordion-title" href="javascript:void(0)">
+                                        <i class="bx bx-chevron-down"></i>
+                                        نظرات کاربران
+                                    </a>
+
+                                    <div class="accordion-content">
+                                        <div class="products-review-comments">
+                                            <h3>تعداد نظرات : 4 عدد</h3>
+
+                                            <div class="user-review">
+                                                <img src="/img/extra/user.png" alt="تصویر">
+
+                                                <div class="review-rating">
+                                                    <div class="review-stars">
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                    </div>
+
+                                                    <span class="d-inline-block">جیمز اندرسون</span>
+                                                </div>
+
+                                                <span class="d-block sub-comment">عالی</span>
+                                                <p>تم بسیار خوب ساخته شده ، نمی تواند با آن خوشحال باشد. نمی توانید منتظر به روزرسانی های بعدی باشید تا ببینید چه چیز دیگری اضافه می کنند.</p>
+                                            </div>
+
+                                            <div class="user-review">
+                                                <img src="/img/extra/user.png" alt="تصویر">
+
+                                                <div class="review-rating">
+                                                    <div class="review-stars">
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                    </div>
+
+                                                    <span class="d-inline-block">سارا تیلور</span>
+                                                </div>
+                                                <span class="d-block sub-comment">کیفیت فیلم!</span>
+                                                <p>اجرای آن بسیار آسان بود و آنها به سرعت به سوالات اضافی من پاسخ می دهند!</p>
+                                            </div>
+
+                                            <div class="user-review">
+                                                <img src="/img/extra/user.png" alt="تصویر">
+
+                                                <div class="review-rating">
+                                                    <div class="review-stars">
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                    </div>
+                                                    <span class="d-inline-block">دیوید وارنر</span>
+                                                </div>
+                                                <span class="d-block sub-comment">برنامه نویسی کامل!</span>
+                                                <p>طراحی خیره کننده ، خدمه بسیار اختصاصی که از ایده های جدید پیشنهادی مشتریان استقبال می کنند ، پشتیبانی خوب.</p>
+                                            </div>
+
+                                            <div class="user-review">
+                                                <img src="/img/extra/user.png" alt="تصویر">
+
+                                                <div class="review-rating">
+                                                    <div class="review-stars">
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star checked"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                    </div>
+                                                    <span class="d-inline-block">کینگ کونگ</span>
+                                                </div>
+                                                <span class="d-block sub-comment">ویدیوی عالی!</span>
+                                                <p>طراحی خیره کننده ، خدمه بسیار اختصاصی که از ایده های جدید پیشنهادی مشتریان استقبال می کنند ، پشتیبانی خوب.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="review-form-wrapper">
+                                            <h3>فرم نظرات</h3>
+                                            <p class="comment-notes">شما می توانید نظر خود در مورد این محصول را اینجا بنویسید</p>
+
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="rating">
+                                                            <input type="radio" id="star5" name="rating" value="5"><label for="star5"></label>
+                                                            <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
+                                                            <input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
+                                                            <input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
+                                                            <input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="نام *">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="email" class="form-control" placeholder="پست الکترونیک *">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="form-group">
+                                                            <textarea placeholder="بررسی شما" class="form-control" cols="30" rows="6"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <p class="comment-form-cookies-consent">
+                                                            <input type="checkbox" id="test1">
+                                                            <label for="test1">نام ، ایمیل و وب سایت من را برای دفعه بعدی که نظر می دهم در این مرورگر ذخیره کنید.</label>
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <button type="submit" class="default-btn">ارسال</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

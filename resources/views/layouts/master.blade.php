@@ -76,7 +76,7 @@
                                 @endphp
                                     <div class="products-cart d-flex align-items-center">
                                     <div class="products-image">
-                                        <img src="/uploads/products/{{$item['thumbnail'] ?? "noimage_64.jpg"}}" alt="{{$item['product_name'] ?? "نا معلوم"}}">
+                                        <img src="/uploads/thumbnail/{{$item['thumbnail'] ?? "noimage_64.jpg"}}" alt="{{$item['product_name'] ?? "نا معلوم"}}">
                                     </div>
                                     <div class="products-content">
                                         <h3>{{ $item['product_name'] }}</h3>
@@ -401,7 +401,9 @@
                                     position: 'top-end',
                                     toast: true,
                                     icon: 'error',
+                                    title: 'Bookmark Error!',
                                     text: data.desc,
+                                    footer: 'ARMANMASK.ir',
                                     showConfirmButton: false,
                                     timer: 3000
                                 });
@@ -411,7 +413,9 @@
                                     position: 'top-end',
                                     toast: true,
                                     icon: 'success',
+                                    title: 'Successful',
                                     text: data.desc,
+                                    footer: 'ARMANMASK.ir',
                                     showConfirmButton: false,
                                     timer: 3000
                                 });
@@ -424,7 +428,6 @@
         <script>
             $( document ).ready(function() {
                 $('body').on('click','.quick-view-btn',function (e){
-                    // alert($(this).attr("data-id"))
                     e.preventDefault();
                     $.ajax({
                         url : '{{route('quick_view')}}',
