@@ -34,7 +34,7 @@
                                     <div class="btn-box">
                                         <div class="d-flex align-items-center float-left">
                                             <span class="price">140,000 تومان</span>
-                                            <button data-id="1" class="default-btn add-cart"><i class="flaticon-trolley"></i>افزودن به سبد خرید </button>
+                                            <button data-id="2" class="btn btn-primary add-cart">افزودن به سبد خرید<i class="flaticon-trolley pr-2"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                                     <div class="btn-box">
                                         <div class="d-flex align-items-center float-left">
                                             <span class="price">46,000 تومان</span>
-                                            <button data-id="2" class="default-btn add-cart"><i class="flaticon-trolley"></i>افزودن به سبد خرید </button>
+                                            <button data-id="2" class="btn btn-primary add-cart">افزودن به سبد خرید<i class="flaticon-trolley pr-2"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                             <h3><a href="#">دماسنج گوش</a></h3>
                             <div class="btn-box">
                                 <div class="d-flex align-items-center">
-                                    <a href="products-left-sidebar.html" class="default-btn"><i class="flaticon-trolley"></i>خرید </a>
+                                    <a href="#" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
                                     <span class="price">49000 تومان</span><span class="price"></span>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                             <h3><a href="#">مجموعه مورد علاقه</a></h3>
                             <div class="btn-box">
                                 <div class="d-flex align-items-center">
-                                    <a href="products-left-sidebar.html" class="default-btn"><i class="flaticon-trolley"></i>خرید </a>
+                                    <a href="#" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
                                     <span class="price">69000 تومان</span><span class="price"></span>
                                 </div>
                             </div>
@@ -197,13 +197,13 @@
                             <div id="minutes" class="align-items-center flex-column d-flex justify-content-center"></div>
                             <div id="seconds" class="align-items-center flex-column d-flex justify-content-center"></div>
                         </div>
-                        <a href="products-left-sidebar.html" class="default-btn"><i class="flaticon-trolley"></i> اکنون خرید کنید</a>
+                        <a href="products-left-sidebar.html" class="btn btn-primary"><i class="flaticon-trolley"></i> اکنون خرید کنید</a>
                         <div class="back-text">2020</div>
                     </div>
                     <div id="festival_end" class="hot-deal-content d-none">
                         <span class="sub-title">پایان جشمواره</span>
                         <h5 class="mt-3">با فروشگاه آرمان تماس بگیرید و از شروع جشنواره بعدی با خبر شوید</h5>
-                        <a href="{{route('contact')}}" class="default-btn mt-3"><i class="flaticon-phone-ringing"></i> تماس با ما</a>
+                        <a href="{{route('contact')}}" class="btn btn-primary mt-3"><i class="flaticon-phone-ringing"></i> تماس با ما</a>
                         <div class="back-text">2021</div>
                     </div>
                 </div>

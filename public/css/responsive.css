@@ -245,6 +245,7 @@
             justify-content: center;
   }
   .single-banner-categories-box .content .btn-box .default-btn {
+      text-align: center;
     font-size: 13px;
     margin-left: 7px;
     padding-top: 10px;
