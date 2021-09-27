@@ -1,6 +1,6 @@
 @extends("admin.views.layouts.master")
 @section("title")
-    <title>armanmask.ir | مدیریت کاربران</title>
+    <title>armanmask.ir | تنظیمات سایت</title>
 @endsection
 @section("extra_css")
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -150,23 +150,86 @@
                     {{--about / contact Page Seo--}}
 
 
+                    {{--Make Time--}}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="card mt-5">
+                                    <div class="card-header text-right">
+                                        تنظیم زمان جشنواره
+                                    </div>
+                                    <div class="card-body admin-rtl">
+                                        <form action="{{route('festival')}}" method="POST" enctype="multipart/form-data">
+                                                {{--AboutUs--}}
+                                            <div class="row text-right">
+                                                <div class="col-6 col-md-4 col-lg-4">
+                                                    <div class="my-3">
+                                                        <label for="end_festival" class="form-label">ماه</label>
+                                                        <select name="end_festival[]" class="form-control" required>
+                                                            @foreach(\App\Models\Setting::Month() as $key => $month)
+                                                                <option value="{{$key}}">{{$key}}</option>
+                                                            @endforeach
+{{--                                                            <option value="January" selected>فروردین</option>--}}
+{{--                                                            <option value="February">اردیبهشت</option>--}}
+{{--                                                            <option value="March">خرداد</option>--}}
+{{--                                                            <option value="April">تیر</option>--}}
+{{--                                                            <option value="May">مرداد</option>--}}
+{{--                                                            <option value="June">شهریور</option>--}}
+{{--                                                            <option value="July">مهر</option>--}}
+{{--                                                            <option value="August">آبان</option>--}}
+{{--                                                            <option value="September">آذر</option>--}}
+{{--                                                            <option value="October">دی</option>--}}
+{{--                                                            <option value="November">بهمن</option>--}}
+{{--                                                            <option value="December">اسفند</option>--}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-md-4 col-lg-4">
+                                                    <div class="my-3">
+                                                        <label for="end_festival" class="form-label ">روز</label>
+                                                        <select name="end_festival[]" class="form-control" required>
+                                                            @for($i = 1 ; $i <= 31 ; $i++)
+                                                                <option value="{{$i}}">{{$i}}</option>
+                                                            @endfor
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-md-4 col-lg-4">
+                                                    <div class="my-3">
+                                                        <label for="end_festival" class="form-label">ساعت (1 الی 24)</label>
+                                                        <input name="end_festival[]" class="form-control" type="number" min="1" max="24" placeholder="1 - 24" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 buttons text-right mt-3">
+                                                    <button class="btn btn-success btn-sm" type="submit">انجام تغییرات</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{--Make Time--}}
 
+
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
-@section("extra_js")
-    @include('admin.views.tinymce')
-    <script src="/admin/js/admin_jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-    <script>
-        $(".select2").select2({
-            tags:true,
-        })
-    </script>
-    <script>
-        tinyMCE.triggerSave(true, true);
-        var dataForm = new FormData($("#make_product")[0]);
-    </script>
-@endsection
+    @endsection
+    @section("extra_js")
+        @include('admin.views.tinymce')
+        <script src="/admin/js/admin_jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+        <script>
+            $(".select2").select2({
+                tags:true,
+            })
+        </script>
+        <script>
+            tinyMCE.triggerSave(true, true);
+            var dataForm = new FormData($("#make_product")[0]);
+        </script>
+    @endsection

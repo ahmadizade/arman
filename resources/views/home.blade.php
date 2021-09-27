@@ -188,9 +188,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
-                    <div class="hot-deal-content">
+                    <div id="festival_continue" class="hot-deal-content">
                         <span class="sub-title">پیشنهاد ویژه</span>
-                        <h3>تا <span>50٪</span> تخفیف ماسک برای سفارش‌های تعداد بالا!</h3>
+                        <h3>تا <span>5٪</span> تخفیف ماسک برای سفارش‌های تعداد بالا!</h3>
                         <div id="timer" class="flex-wrap d-flex justify-content-center">
                             <div id="days" class="align-items-center flex-column d-flex justify-content-center"></div>
                             <div id="hours" class="align-items-center flex-column d-flex justify-content-center"></div>
@@ -199,6 +199,12 @@
                         </div>
                         <a href="products-left-sidebar.html" class="default-btn"><i class="flaticon-trolley"></i> اکنون خرید کنید</a>
                         <div class="back-text">2020</div>
+                    </div>
+                    <div id="festival_end" class="hot-deal-content d-none">
+                        <span class="sub-title">پایان جشمواره</span>
+                        <h5 class="mt-3">با فروشگاه آرمان تماس بگیرید و از شروع جشنواره بعدی با خبر شوید</h5>
+                        <a href="{{route('contact')}}" class="default-btn mt-3"><i class="flaticon-phone-ringing"></i> تماس با ما</a>
+                        <div class="back-text">2021</div>
                     </div>
                 </div>
             </div>
@@ -279,7 +285,36 @@
     @endif
     <!-- End Blog Area -->
 @endsection
-
 @section('extra_js')
-
+<script>
+    // Count Time
+    function makeTimer() {
+        // var endTime = new Date("September 26, 2021 8:00:00 PDT");
+        var endTime = new Date("{{json_decode($setting->end_festival)[0]}} {{json_decode($setting->end_festival)[1]}}, 2021 {{json_decode($setting->end_festival)[2]}}:00:00");
+        var endTime = (Date.parse(endTime)) / 1000;
+        var now = new Date();
+        var now = (Date.parse(now) / 1000);
+        var timeLeft = endTime - now;
+        var days = Math.floor(timeLeft / 86400);
+        if (days < 0){
+            $('#festival_continue').addClass('d-none');
+            $('#festival_end').removeClass('d-none');
+        }
+        var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+        var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+        var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+        if (hours < "10") { hours = "0" + hours; }
+        if (minutes < "10") { minutes = "0" + minutes; }
+        if (seconds < "10") { seconds = "0" + seconds; }
+        if (hours == 0 && minutes == 0 && minutes < 10){
+            $('#festival_continue').addClass('d-none');
+            $('#festival_end').removeClass('d-none');
+        }
+        $("#days").html(days + "<span>روز</span>");
+        $("#hours").html(hours + "<span>ساعت</span>");
+        $("#minutes").html(minutes + "<span>دقیقه</span>");
+        $("#seconds").html(seconds + "<span>ثانیه</span>");
+    }
+    setInterval(function() { makeTimer(); }, 0);
+</script>
 @endsection

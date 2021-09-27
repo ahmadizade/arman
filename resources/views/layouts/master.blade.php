@@ -115,79 +115,79 @@
         <!-- End Shopping Cart Modal -->
 
         <!-- Start Shopping Cart Modal -->
-        <div class="modal right fade shoppingWishlistModal" id="shoppingWishlistModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="نزدیک">
-                        <span aria-hidden="true"><i class="bx bx-x"></i></span>
-                    </button>
+{{--        <div class="modal right fade shoppingWishlistModal" id="shoppingWishlistModal" tabindex="-1" role="dialog">--}}
+{{--            <div class="modal-dialog" role="document">--}}
+{{--                <div class="modal-content">--}}
+{{--                    <button type="button" class="close" data-dismiss="modal" aria-label="نزدیک">--}}
+{{--                        <span aria-hidden="true"><i class="bx bx-x"></i></span>--}}
+{{--                    </button>--}}
 
-                    <div class="modal-body">
-                        <h3>لیست خواسته های من (3)</h3>
+{{--                    <div class="modal-body">--}}
+{{--                        <h3>لیست خواسته های من (3)</h3>--}}
 
-                        <div class="products-cart-content">
-                            <div class="products-cart d-flex align-items-center">
-                                <div class="products-image">
-                                    <a href="#"><img src="/img/products/products-img1.jpg" alt="تصویر"></a>
-                                </div>
+{{--                        <div class="products-cart-content">--}}
+{{--                            <div class="products-cart d-flex align-items-center">--}}
+{{--                                <div class="products-image">--}}
+{{--                                    <a href="#"><img src="/img/products/products-img1.jpg" alt="تصویر"></a>--}}
+{{--                                </div>--}}
 
-                                <div class="products-content">
-                                    <h3><a href="#">ماسک صورت </a></h3>
-                                    <div class="products-price">
-                                        <span>1 </span>
-                                        <span>X </span>
-                                        <span class="price">39000 تومان</span>
-                                    </div>
-                                </div>
-                                <a href="#" class="remove-btn"><i class="bx bx-trash"></i></a>
-                            </div>
+{{--                                <div class="products-content">--}}
+{{--                                    <h3><a href="#">ماسک صورت </a></h3>--}}
+{{--                                    <div class="products-price">--}}
+{{--                                        <span>1 </span>--}}
+{{--                                        <span>X </span>--}}
+{{--                                        <span class="price">39000 تومان</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <a href="#" class="remove-btn"><i class="bx bx-trash"></i></a>--}}
+{{--                            </div>--}}
 
-                            <div class="products-cart d-flex align-items-center">
-                                <div class="products-image">
-                                    <a href="#"><img src="/img/products/products-img2.jpg" alt="تصویر"></a>
-                                </div>
+{{--                            <div class="products-cart d-flex align-items-center">--}}
+{{--                                <div class="products-image">--}}
+{{--                                    <a href="#"><img src="/img/products/products-img2.jpg" alt="تصویر"></a>--}}
+{{--                                </div>--}}
 
-                                <div class="products-content">
-                                    <h3><a href="#">دستکش محافظ</a></h3>
-                                    <div class="products-price">
-                                        <span>1 </span>
-                                        <span>X </span>
-                                        <span class="price">99000 تومان</span>
-                                    </div>
-                                </div>
-                                <a href="#" class="remove-btn"><i class="bx bx-trash"></i></a>
-                            </div>
+{{--                                <div class="products-content">--}}
+{{--                                    <h3><a href="#">دستکش محافظ</a></h3>--}}
+{{--                                    <div class="products-price">--}}
+{{--                                        <span>1 </span>--}}
+{{--                                        <span>X </span>--}}
+{{--                                        <span class="price">99000 تومان</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <a href="#" class="remove-btn"><i class="bx bx-trash"></i></a>--}}
+{{--                            </div>--}}
 
-                            <div class="products-cart d-flex align-items-center">
-                                <div class="products-image">
-                                    <a href="#"><img src="/img/products/products-img3.jpg" alt="تصویر"></a>
-                                </div>
+{{--                            <div class="products-cart d-flex align-items-center">--}}
+{{--                                <div class="products-image">--}}
+{{--                                    <a href="#"><img src="/img/products/products-img3.jpg" alt="تصویر"></a>--}}
+{{--                                </div>--}}
 
-                                <div class="products-content">
-                                    <h3><a href="#">اسلحه دماسنج مادون قرمز</a></h3>
-                                    <div class="products-price">
-                                        <span>1 </span>
-                                        <span>X </span>
-                                        <span class="price">99000 تومان</span>
-                                    </div>
-                                </div>
-                                <a href="#" class="remove-btn"><i class="bx bx-trash"></i></a>
-                            </div>
-                        </div>
+{{--                                <div class="products-content">--}}
+{{--                                    <h3><a href="#">اسلحه دماسنج مادون قرمز</a></h3>--}}
+{{--                                    <div class="products-price">--}}
+{{--                                        <span>1 </span>--}}
+{{--                                        <span>X </span>--}}
+{{--                                        <span class="price">99000 تومان</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <a href="#" class="remove-btn"><i class="bx bx-trash"></i></a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div class="products-cart-subtotal">
-                            <span>جمع </span>
+{{--                        <div class="products-cart-subtotal">--}}
+{{--                            <span>جمع </span>--}}
 
-                            <span class="subtotal">228000 تومان</span>
-                        </div>
+{{--                            <span class="subtotal">228000 تومان</span>--}}
+{{--                        </div>--}}
 
-                        <div class="products-cart-btn">
-                            <a href="#" class="default-btn">مشاهده سبد خرید</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--                        <div class="products-cart-btn">--}}
+{{--                            <a href="#" class="default-btn">مشاهده سبد خرید</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <!-- End Shopping Cart Modal -->
 
         <!-- Start Products Filter Modal Area -->
@@ -355,7 +355,6 @@
                     url: "{{ route("add_cart") }}",
                     data: {"id": $(this).attr("data-id")},
                     success: function (result) {
-                        console.log(result);
                         if(result.error == false){
                             window.location.reload();
                         }else{

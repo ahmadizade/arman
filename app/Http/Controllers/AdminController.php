@@ -859,4 +859,22 @@ class AdminController extends Controller
         return back();
     }
 
+    public function Festival(Request $request){
+        $validator = Validator::make($request->all(), [
+            'end_festival' => 'required',
+        ]);
+        if ($validator->fails()){
+            Session::flash('errors', $validator->error()->first());
+            return back();
+        }
+        if ($request->end_festival['2'] < 1 || $request->end_festival['2'] > 24){
+            Session::flash('errors', "ساعت به درستی انتخاب نشده است");
+            return back();
+        }
+        Setting::where('id', 1)->update([
+            'end_festival' => $request->end_festival,
+        ]);
+        Session::flash('status', "تغییرات با موفقیت انجام شد");
+        return back();
+    }
 }

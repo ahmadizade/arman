@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\DomainSearch;
 use App\Models\Product;
 use App\Models\Product_tag;
+use App\Models\Rating;
 use App\Models\Store;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -153,6 +154,39 @@ class HomeController extends Controller
         $product = Product::where('id', $request->product_id)->first();
         if (isset($product->id)){
             return view('partials.quick_view_product',['product' => $product]);
+        }
+    }
+
+    public function Rate(Request $request){
+
+        if (Auth::check()){
+        if (isset($request->rate) && isset($request->product_id) && $request->rate > 0){
+            $rate = Rating::where('user_id', Auth::id())->where('product_id', $request->product_id)->first();
+            if (isset($rate->id) && $rate->id > 0){
+                return Response::json(["status" => 0, "desc" => "شما قبلا به این محصول رای داده اید!"]);
+            }else{
+                $product = Product::where('id', $request->product_id)->first();
+                if (isset($product->id)){
+                    $rate_count = $product->rate_count + 1;
+                    $rate_score = $product->rate_score + $request->rate;
+                    Product::where('id', $request->product_id)->update([
+                        'rate_count' => $rate_count,
+                        'rate_score' => $rate_score,
+                    ]);
+                    Rating::create([
+                        'user_id' => Auth::id(),
+                        'product_id' => $request->product_id,
+                        'rate' => $request->rate,
+                        'created_at' => Carbon::now(),
+                    ]);
+                    return Response::json(["status" => 1, "desc" => "امتیاز شما با موفقیت ثبت گردید"]);
+                }
+            }
+        }else{
+            return Response::json(["status" => 0, "desc" => "در حال حاضر امکان رای دادن وجود ندارد!"]);
+        }
+        }else{
+            return Response::json(["status" => 0, "desc" => "شما هنوز ثبت نام نکرده اید!"]);
         }
     }
 }

@@ -374,9 +374,10 @@ class ProfileController extends Controller
     public function SingleProduct(Request $request)
     {
         $product = Product::where('product_slug', $request->slug)->first();
+        $comments = Comment::where('product_id', $product->id)->where('comment_for', 'single_product')->get();
         Product::where('product_slug', $request->slug)->increment('view',1);
             $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
-            return view('product.single_product', ["product" => $product,'popularproduct' => $popularproduct]);
+            return view('product.single_product', ["product" => $product, "comments" => $comments, 'popularproduct' => $popularproduct]);
     }
 
     public function subscribe($id){
@@ -1485,6 +1486,42 @@ class ProfileController extends Controller
             'deleted_at' =>Carbon::now(),
         ]);
         return Response::json(['status' => 1, 'desc' => "حذف پیام با موفقیت انجام شد"]);
+    }
+
+    public function newComment(Request $request){
+        if (Auth::check() && Auth::id() > 0) {
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|min:5|max:255',
+                'product_id' => 'required',
+                'mobile' => 'required|digits:11|regex:/(09)[0-9]{9}/',
+                'description' => 'required|min:10',
+            ]);
+            if ($validator->fails()) {
+                Session::flash("errors" , $validator->errors()->first());
+                return back();
+            }
+            $comment = Comment::where('user_id', Auth::id())->where('product_id', $request->product_id)->exists();
+            if ($comment == 1){
+                Session::flash("errors" , "شما قبلا نظر خود را ثبت کرده اید!");
+                return back();
+            }
+            Comment::create([
+                'comment_for' => "single_product",
+                'product_id' => $request->product_id,
+                'user_id' => Auth::id(),
+                'name' => $request->name,
+                'mobile' => $request->mobile,
+                'desc' => $request->description,
+                'status' => 0,
+                'created_at' => Carbon::now(),
+            ]);
+            Session::flash("status" , "پیام شما با موفقیت ثبت شد");
+            return back();
+        }else{
+            Session::flash("errors" , "ابتدا وارد سایت شوید");
+            return back();
+        }
+
     }
 
     public function CartTransfer()

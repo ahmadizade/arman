@@ -56,14 +56,14 @@
                 <div class="col-lg-5 col-md-12">
                     <div class="products-details-image">
                         <div class="single-products-details-image">
-                            <a data-fancybox="gallery" href="/img/products/products-img1.jpg" class="d-block">
+                            <a data-fancybox="gallery" href="/uploads/thumbnail/{{$product->thumbnail}}" class="d-block">
                                 <img src="/uploads/thumbnail/{{$product->thumbnail}}" alt="{{$product->product_name ?? ""}}">
                             </a>
                         </div>
                         @if(isset($product->slider) && $product->slider[0])
                             @foreach(json_decode($product->slider) as $image)
                                 <div class="single-products-details-image">
-                                    <a data-fancybox="gallery" href="/img/products/products-img1.jpg" class="d-block">
+                                    <a data-fancybox="gallery" href="/uploads/slider/{{$image}}" class="d-block">
                                         <img src="/uploads/slider/{{$image}}">
                                     </a>
                                 </div>
@@ -85,9 +85,9 @@
                                         <span class="text-danger" style="font-size: 20px">رایگان</span>
                                     @endif
                                 </span>
-                                <span class="new-price">{{$product->price - ($product->price * $product->discount) / 100}} تومان</span>
+                                <span class="new-price text-danger mx-2 font-18">{{number_format($product->price - ($product->price * $product->discount) / 100)}} تومان</span>
                             @else
-                                <span class="new-price">
+                                <span class="new-price text-danger mx-2 font-18">
                                     @if ($product->price > 0)
                                         {{number_format($product->price)}} تومان
                                     @elseif ($product->price == 0)
@@ -98,14 +98,18 @@
                         </div>
 
                         <div class="products-review">
-                            <div class="rating">
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
+                            @php
+                                $rating = 0;
+                                if (isset($product->rate_score) && isset($product->rate_count) && $product->rate_score > 0 && $product->rate_count > 0){
+                                    $rating = round($product->rate_score / $product->rate_count);
+                                }
+                            @endphp
+                            <div class="rate-score">
+                                @for($i=5 ; $i>=1 ; $i--)
+                                    <input id="star{{$i}}" type="radio" name="rating" value="{{$i}}"><label data-rate="{{$i}}" class="star @if($i <= $rating) rate @endif" for="star{{$i}}"></label>
+                                @endfor
+                                    <a href="javascript:void(0)" class="rating-count">{{$product->rate_count ?? 0}} رای</a>
                             </div>
-                            <a href="#" class="rating-count">3 بررسی</a>
                         </div>
 
                         <ul class="products-info">
@@ -153,119 +157,45 @@
 
                                     <div class="accordion-content">
                                         <div class="products-review-comments">
-                                            <h3>تعداد نظرات : 4 عدد</h3>
+                                            <h3>تعداد نظرات : {{$product->rate_count ?? 0}} عدد</h3>
+                                            @if(isset($comments) && isset($comments[0]))
+                                                @foreach($comments as $comment)
+                                                    <div class="user-review">
+                                                        <img src="/img/extra/user.png" alt="user">
 
-                                            <div class="user-review">
-                                                <img src="/img/extra/user.png" alt="تصویر">
+                                                        <div class="review-rating">
+                                                            <span class="d-inline-block">{{$comment->name ?? "ناشناس"}}</span>
+                                                        </div>
 
-                                                <div class="review-rating">
-                                                    <div class="review-stars">
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
+                                                        <p>{{$comment->desc ?? "متن پیام ثبت نشده!"}}</p>
                                                     </div>
-
-                                                    <span class="d-inline-block">جیمز اندرسون</span>
-                                                </div>
-
-                                                <span class="d-block sub-comment">عالی</span>
-                                                <p>تم بسیار خوب ساخته شده ، نمی تواند با آن خوشحال باشد. نمی توانید منتظر به روزرسانی های بعدی باشید تا ببینید چه چیز دیگری اضافه می کنند.</p>
-                                            </div>
-
-                                            <div class="user-review">
-                                                <img src="/img/extra/user.png" alt="تصویر">
-
-                                                <div class="review-rating">
-                                                    <div class="review-stars">
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star"></i>
-                                                        <i class="bx bxs-star"></i>
-                                                    </div>
-
-                                                    <span class="d-inline-block">سارا تیلور</span>
-                                                </div>
-                                                <span class="d-block sub-comment">کیفیت فیلم!</span>
-                                                <p>اجرای آن بسیار آسان بود و آنها به سرعت به سوالات اضافی من پاسخ می دهند!</p>
-                                            </div>
-
-                                            <div class="user-review">
-                                                <img src="/img/extra/user.png" alt="تصویر">
-
-                                                <div class="review-rating">
-                                                    <div class="review-stars">
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                    </div>
-                                                    <span class="d-inline-block">دیوید وارنر</span>
-                                                </div>
-                                                <span class="d-block sub-comment">برنامه نویسی کامل!</span>
-                                                <p>طراحی خیره کننده ، خدمه بسیار اختصاصی که از ایده های جدید پیشنهادی مشتریان استقبال می کنند ، پشتیبانی خوب.</p>
-                                            </div>
-
-                                            <div class="user-review">
-                                                <img src="/img/extra/user.png" alt="تصویر">
-
-                                                <div class="review-rating">
-                                                    <div class="review-stars">
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star checked"></i>
-                                                        <i class="bx bxs-star"></i>
-                                                    </div>
-                                                    <span class="d-inline-block">کینگ کونگ</span>
-                                                </div>
-                                                <span class="d-block sub-comment">ویدیوی عالی!</span>
-                                                <p>طراحی خیره کننده ، خدمه بسیار اختصاصی که از ایده های جدید پیشنهادی مشتریان استقبال می کنند ، پشتیبانی خوب.</p>
-                                            </div>
+                                                @endforeach
+                                            @endif
                                         </div>
 
                                         <div class="review-form-wrapper">
-                                            <h3>فرم نظرات</h3>
-                                            <p class="comment-notes">شما می توانید نظر خود در مورد این محصول را اینجا بنویسید</p>
+                                            <h3>فرم ثبت نظرات</h3>
+                                            <p class="comment-notes">شما می توانید نظرات خود در مورد این محصول را اینجا بنویسید</p>
 
-                                            <form>
+                                            <form method="POST" action="{{route('new_comment')}}">
                                                 <div class="row">
-                                                    <div class="col-lg-12 col-md-12">
-                                                        <div class="rating">
-                                                            <input type="radio" id="star5" name="rating" value="5"><label for="star5"></label>
-                                                            <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
-                                                            <input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
-                                                            <input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
-                                                            <input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
+                                                    <input readonly name="product_id" type="hidden" class="form-control" value="{{$product->id}}">
+                                                    <div class="col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <input name="name" type="text" class="form-control" placeholder="نام *">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="نام *">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="form-group">
-                                                            <input type="email" class="form-control" placeholder="پست الکترونیک *">
+                                                            <input name="mobile" type="text" class="form-control" placeholder="شماره تماس *">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-12 col-md-12">
                                                         <div class="form-group">
-                                                            <textarea placeholder="بررسی شما" class="form-control" cols="30" rows="6"></textarea>
+                                                            <textarea name="description" placeholder="نظر شما" class="form-control" cols="30" rows="6"></textarea>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="col-lg-12 col-md-12">
-                                                        <p class="comment-form-cookies-consent">
-                                                            <input type="checkbox" id="test1">
-                                                            <label for="test1">نام ، ایمیل و وب سایت من را برای دفعه بعدی که نظر می دهم در این مرورگر ذخیره کنید.</label>
-                                                        </p>
                                                     </div>
 
                                                     <div class="col-lg-12 col-md-12">
@@ -298,5 +228,43 @@
 @endsection
 
 @section('extra_js')
-
+<script>
+    $(document).ready(function(){
+        $("body").on("click",".star",function(e){
+            $.ajax({
+                type: "POST",
+                url: "{{ route("rate") }}",
+                data: {"rate": $(this).attr('data-rate'), "product_id" : {{$product->id}} },
+                success: function (data) {
+                    if(data.status == "0") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'error',
+                            title: 'Rating Error!',
+                            text: data.desc,
+                            footer: 'ARMANMASK.ir',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                    if(data.status == "1") {
+                        Swal.fire({
+                            position: 'top-end',
+                            toast: true,
+                            icon: 'success',
+                            title: 'Successful',
+                            text: data.desc,
+                            footer: 'ARMANMASK.ir',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                        location.reload();
+                    }
+                },
+            });
+            e.preventDefault();
+        });
+    });
+</script>
 @endsection

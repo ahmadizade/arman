@@ -1,22 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//Server Cinfugure
 Route::get("/sitemap", "App\Http\Controllers\HomeController@sitemap")->name("sitemap");
-
-// home
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
-Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
-Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
-Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("about_Us");
-Route::get('/seo', 'App\Http\Controllers\HomeController@seo')->name("seo");
-Route::get('/policy', 'App\Http\Controllers\HomeController@policy')->name("policy");
-Route::get('/category', 'App\Http\Controllers\HomeController@category')->name("category");
-Route::get('/single-category/{slug}', 'App\Http\Controllers\HomeController@singleCategory')->name("single_category");
-Route::get('/tag/{slug}', 'App\Http\Controllers\HomeController@tag')->name("tag");
-
-Route::post('/quick-view', 'App\Http\Controllers\HomeController@quickView')->name("quick_view");
-
-
 
 Route::get('/cache', function (){
     \Illuminate\Support\Facades\Artisan::call('cache:clear');
@@ -28,13 +14,26 @@ Route::get('/cache', function (){
 Route::get('/vendor', function (){
     \Illuminate\Support\Facades\Artisan::call('vendor:publish');
 });
+//Server Cinfugure
 
+
+//Home
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
+Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
+Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
+Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("about_Us");
+Route::get('/seo', 'App\Http\Controllers\HomeController@seo')->name("seo");
+Route::get('/policy', 'App\Http\Controllers\HomeController@policy')->name("policy");
+Route::get('/category', 'App\Http\Controllers\HomeController@category')->name("category");
+Route::get('/single-category/{slug}', 'App\Http\Controllers\HomeController@singleCategory')->name("single_category");
+Route::get('/tag/{slug}', 'App\Http\Controllers\HomeController@tag')->name("tag");
+//Home
 
 //MAIL
 Route::get('/verify-email', 'App\Http\Controllers\Controller@build_mail')->name('build_mail');
 Route::get('/incoming-download-link', 'App\Http\Controllers\ProfileController@incomingDownloadLink')->name('incoming_download_link');
 
-// admin
+//ADMIN
 Route::middleware(['admin'])->prefix("armanmask")->group(function () {
     Route::get('/', 'App\Http\Controllers\AdminController@armanmask')->name("armanmask");
     //User Manager
@@ -59,7 +58,7 @@ Route::middleware(['admin'])->prefix("armanmask")->group(function () {
     Route::get('/contact-us/get-user', 'App\Http\Controllers\AdminController@ContactUs_GetUser')->name("Contact_Us_GetUser");
     Route::post('/contact-us/sms-user', 'App\Http\Controllers\AdminController@ContactUs_SmsUser')->name("Contact_Us_Sms_User")->middleware("ajax", "verify.domain");
     Route::post('/contact-us/email-user', 'App\Http\Controllers\AdminController@ContactUs_EmailUser')->name("Contact_Us_Email_User")->middleware("ajax", "verify.domain");
-
+    //Product
     Route::get('/product', 'App\Http\Controllers\AdminController@Product')->name("Product");
     Route::get('/product/get-store', 'App\Http\Controllers\AdminController@Product_GetStore')->name("Product_Get_store");
     Route::get('/product/product-suggestion-action', 'App\Http\Controllers\AdminController@product_SuggestionAction')->name("product_suggestion_action");
@@ -88,16 +87,12 @@ Route::middleware(['admin'])->prefix("armanmask")->group(function () {
     Route::post('/product/image-edit-category-action', 'App\Http\Controllers\AdminController@imageEditcategoryAction')->name("image_edit_category_action");
     Route::post('/product/image-edit-tag-action', 'App\Http\Controllers\AdminController@imageEdittagAction')->name("image_edit_tag_action");
     Route::post('/product/admin-file-product-action', 'App\Http\Controllers\AdminController@adminFileproductAction')->name("admin_file_product_action");
+    Route::post('/product/festival', 'App\Http\Controllers\AdminController@Festival')->name("festival");
     Route::post('upload/tiny/image','App\Http\Controllers\UploadController@uploadImageDescription')->name('tiny.upload');
 });
-// admin
 
 
-//QR.Code Generator
-Route::get('/code-generator', 'App\Http\Controllers\CodeController@Code_Generator')->name("code_generator")->middleware("auth");
-
-
-// auth
+//AUTHENTICATION
 Route::get('/register', 'App\Http\Controllers\LoginController@register')->name("register");
 Route::post('/register-action', 'App\Http\Controllers\LoginController@registerAction')->name("register_action");
 Route::post('/shipping-register-action', 'App\Http\Controllers\LoginController@shippingRegisterAction')->name("shipping_register_action");
@@ -112,13 +107,50 @@ Route::get('/change-password', 'App\Http\Controllers\LoginController@changePassw
 Route::post('/change-password-action', 'App\Http\Controllers\LoginController@changePasswordAction')->name("change_password_action")->middleware("auth");
 
 
-// profile
+//PROFILE
 Route::prefix("profile")->group(function () {
     Route::get('/', 'App\Http\Controllers\ProfileController@Index')->name("profile_index");
+    Route::get('/edit', 'App\Http\Controllers\ProfileController@ProfileEdit')->name("profile_edit");
+    Route::post('/edit-action', 'App\Http\Controllers\ProfileController@ProfileEditAction')->name("profile_edit_action");
+    Route::get('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("profile_bookmark");
+    Route::post('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("bookmark");
+    Route::post('/like', 'App\Http\Controllers\ProfileController@like')->name("like");
+    Route::post('/bookmark-delete', 'App\Http\Controllers\ProfileController@BookmarkDelete')->name("profile_bookmark_delete")->middleware("ajax", "verify.domain");
+    Route::post('/like-delete', 'App\Http\Controllers\ProfileController@likeDelete')->name("profile_like_delete")->middleware("ajax", "verify.domain");
+    Route::get('/email-verify-action', 'App\Http\Controllers\ProfileController@EmailVerifyAction')->name('email_verify_action');
+    Route::get('/credit', 'App\Http\Controllers\ProfileController@ProfileCredit')->name("profile_credit");
+    Route::post('/credit-action', 'App\Http\Controllers\ProfileController@CreditAction')->name("profile_credit_action");
+    Route::get('/orders', 'App\Http\Controllers\ProfileController@orders')->name("orders");
+    Route::get('/order-details/{order_id}', 'App\Http\Controllers\ProfileController@orderDetails')->name("order_details");
+    Route::post('/quick-view', 'App\Http\Controllers\HomeController@quickView')->name("quick_view");
+});
+
+//PRODUCTS
+Route::prefix("product")->group(function () {
     Route::get('/products', 'App\Http\Controllers\ProfileController@Products')->name("profile_products");
     Route::get('/single-product/{slug}', 'App\Http\Controllers\ProfileController@SingleProduct')->name("single_product");
+    Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product");
+    Route::post('/add-product-action', 'App\Http\Controllers\ProfileController@AddProductAction')->name("add_product_action");
+    Route::get('/edit-product/{id}', 'App\Http\Controllers\ProfileController@EditProductSingle')->name("profile_edit_product");
+    Route::post('/edit-product-action', 'App\Http\Controllers\ProfileController@EditProductSingleAction')->name("edit_product_action");
+    Route::post('/delete-product-action', 'App\Http\Controllers\ProfileController@DeleteProductAction')->name("delete_product_action");
+    //Ticket
+    Route::get('/my-tickets', 'App\Http\Controllers\ProfileController@myTickets')->name("my_tickets");
+    Route::post('/new-ticket', 'App\Http\Controllers\ProfileController@newTicket')->name("new_ticket");
+    Route::post('/get-answer', 'App\Http\Controllers\ProfileController@getAnswer')->name("get_answer");
+    Route::post('/delete-ticket', 'App\Http\Controllers\ProfileController@deleteTicket')->name("delete_ticket");
+    //Comment
+    Route::post('/new-comment', 'App\Http\Controllers\ProfileController@newComment')->name("new_comment");
+    //Rate
+    Route::post('/rate', 'App\Http\Controllers\HomeController@Rate')->name("rate");
+});
+
+//CART
+Route::prefix("cart")->group(function () {
     Route::get('/cart/{id}', 'App\Http\Controllers\ProfileController@Cart')->name("cart");
     Route::post('/quick-add-cart', 'App\Http\Controllers\ProfileController@quickAddCart')->name("quick_add_cart");
+    Route::post('/add-cart', 'App\Http\Controllers\CartController@addCart')->name('add_cart');
+    Route::post('/remove-cart', 'App\Http\Controllers\CartController@removeCart')->name('remove_cart');
     Route::get('/cart-page', 'App\Http\Controllers\ProfileController@CartPage')->name("cart_page");
     Route::get('/shipping-page', 'App\Http\Controllers\ProfileController@shippingPage')->name("shipping_page");
     Route::post('/shipping-action', 'App\Http\Controllers\ProfileController@shippingAction')->name("shipping_action");
@@ -131,30 +163,8 @@ Route::prefix("profile")->group(function () {
     Route::get('/shopping-peyment', 'App\Http\Controllers\ProfileController@shoppingPeyment')->name("shopping_peyment");
     Route::get('/shopping-complete/{ref}', 'App\Http\Controllers\ProfileController@shoppingComplete')->name("shopping_complete");
     Route::get('/shopping-peyment-page', 'App\Http\Controllers\ProfileController@shoppingPeymentpage')->name("shopping_peyment_page");
-    Route::get('/add-product', 'App\Http\Controllers\ProfileController@AddProduct')->name("profile_add_product");
-    Route::post('/add-product-action', 'App\Http\Controllers\ProfileController@AddProductAction')->name("add_product_action");
-    Route::get('/edit-product/{id}', 'App\Http\Controllers\ProfileController@EditProductSingle')->name("profile_edit_product");
-    Route::post('/edit-product-action', 'App\Http\Controllers\ProfileController@EditProductSingleAction')->name("edit_product_action");
-    Route::post('/delete-product-action', 'App\Http\Controllers\ProfileController@DeleteProductAction')->name("delete_product_action");
-    Route::get('/edit', 'App\Http\Controllers\ProfileController@ProfileEdit')->name("profile_edit");
-    Route::post('/edit-action', 'App\Http\Controllers\ProfileController@ProfileEditAction')->name("profile_edit_action");
     Route::get('/cart-transfer', 'App\Http\Controllers\ProfileController@CartTransfer')->name("profile_cart_transfer");
     Route::post('/cart-transfer-action', 'App\Http\Controllers\ProfileController@CartTransferAction')->name("profile_cart_transfer_action");
-    Route::get('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("profile_bookmark");
-    Route::post('/bookmark', 'App\Http\Controllers\ProfileController@Bookmark')->name("bookmark");
-    Route::post('/like', 'App\Http\Controllers\ProfileController@like')->name("like");
-    Route::post('/bookmark-delete', 'App\Http\Controllers\ProfileController@BookmarkDelete')->name("profile_bookmark_delete")->middleware("ajax", "verify.domain");
-    Route::post('/like-delete', 'App\Http\Controllers\ProfileController@likeDelete')->name("profile_like_delete")->middleware("ajax", "verify.domain");
-    Route::get('/email-verify-action', 'App\Http\Controllers\ProfileController@EmailVerifyAction')->name('email_verify_action');
-    Route::get('/credit', 'App\Http\Controllers\ProfileController@ProfileCredit')->name("profile_credit");
-    Route::post('/credit-action', 'App\Http\Controllers\ProfileController@CreditAction')->name("profile_credit_action");
-    Route::get('/orders', 'App\Http\Controllers\ProfileController@orders')->name("orders");
-    Route::get('/order-details/{order_id}', 'App\Http\Controllers\ProfileController@orderDetails')->name("order_details");
-    Route::get('/my-tickets', 'App\Http\Controllers\ProfileController@myTickets')->name("my_tickets");
-    Route::post('/new-ticket', 'App\Http\Controllers\ProfileController@newTicket')->name("new_ticket");
-    Route::post('/get-answer', 'App\Http\Controllers\ProfileController@getAnswer')->name("get_answer");
-    Route::post('/delete-ticket', 'App\Http\Controllers\ProfileController@deleteTicket')->name("delete_ticket");
-    //Cart Routes
     Route::post('/cart-calculator', 'App\Http\Controllers\ProfileController@cartCalculator')->name("cart_calculator");
 });
 
@@ -188,13 +198,9 @@ Route::get('/delete-tag-action/{id}', 'App\Http\Controllers\BlogController@delet
 Route::get('/delete-category-action/{id}', 'App\Http\Controllers\BlogController@deleteCategoryAction')->name("delete_category_action");
 
 
-//EXTRA PAGES
 
 
-Route::post('/shop/add-cart', 'App\Http\Controllers\CartController@addCart')->name('add_cart');
-Route::post('/shop/remove-cart', 'App\Http\Controllers\CartController@removeCart')->name('remove_cart');
-Route::post('/shop/edit-cart', 'App\Http\Controllers\CartController@editCart')->name('edit_cart');
-Route::post('/shop/show-cart', 'App\Http\Controllers\CartController@showCart')->name('show_cart');
-Route::get('/checkout', 'App\Http\Controllers\CartController@checkout')->name('checkout');
-Route::post('/checkout-order', 'App\Http\Controllers\CartController@checkoutOrder')->name('checkout_order');
-
+//Route::post('/shop/edit-cart', 'App\Http\Controllers\CartController@editCart')->name('edit_cart');
+//Route::post('/shop/show-cart', 'App\Http\Controllers\CartController@showCart')->name('show_cart');
+//Route::get('/checkout', 'App\Http\Controllers\CartController@checkout')->name('checkout');
+//Route::post('/checkout-order', 'App\Http\Controllers\CartController@checkoutOrder')->name('checkout_order');

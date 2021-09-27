@@ -22,73 +22,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="last">
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Models/Rating.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AbjadController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/BmiController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/MelliCodeController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WeatherApiController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category_variety.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/DomainSearch.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Download.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MelliCode.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Store.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner-categories/banner-categories-img1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/banner-categories/banner-categories-img1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner-categories/banner-categories-img2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/banner-categories/banner-categories-img2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/promotions/promotions-img1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/promotions/promotions-img1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/promotions/promotions-img2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/promotions/promotions-img2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/promotions/promotions-img3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/promotions/promotions-img3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/1622726480cpvah789_sepand.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/1624097557variable.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/1624097892variable.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/1624103132variable.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/address.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/comment.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/cpvah789_sepand.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/product.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/province.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/users.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/file/variable.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/.browserslistrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/blank.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/cards.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/charts.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/forgot-password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gulpfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/tables.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/utilities-animation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/utilities-border.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/utilities-color.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/utilities-other.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Setting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/views/seo/seo_pages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/seo/seo_pages.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/extra/domain/domain_result.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/extra/domain/domain_search.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/brands_slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/brands_slider.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/condition.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/condition.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/last_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/last_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/most_visited.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/most_visited.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/popular_products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/popular_products.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/product/single_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/single_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/product/subscribe.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/download_links.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/webservice.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shop/checkout.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shop/order_form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shop/table_checkout_ajax.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
@@ -264,7 +210,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../clean" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -459,14 +405,10 @@
       <workItem from="1632068795392" duration="469000" />
       <workItem from="1632462765641" duration="1746000" />
       <workItem from="1632477214949" duration="1924000" />
-      <workItem from="1632495196599" duration="9899000" />
-    </task>
-    <task id="LOCAL-00012" summary="blog and seo page config">
-      <created>1623678381480</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1623678381480</updated>
+      <workItem from="1632495196599" duration="10387000" />
+      <workItem from="1632587697836" duration="6489000" />
+      <workItem from="1632674734636" duration="14889000" />
+      <workItem from="1632732886813" duration="5818000" />
     </task>
     <task id="LOCAL-00013" summary="blog and seo page config">
       <created>1623764040016</created>
@@ -804,7 +746,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632464159978</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="last">
+      <created>1632505687679</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1632505687680</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -858,17 +807,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
-          <line>472</line>
+          <line>473</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
-          <line>470</line>
+          <line>471</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
-          <line>1297</line>
+          <line>1298</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -878,7 +827,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/master.blade.php</url>
-          <line>497</line>
+          <line>496</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -915,6 +864,11 @@
           <url>file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php</url>
           <line>797</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/product/single_product.blade.php</url>
+          <line>162</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php</url>

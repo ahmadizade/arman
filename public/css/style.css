@@ -3532,7 +3532,7 @@ Products Details Area CSS
 .products-details-desc .products-details-accordion .accordion .accordion-content .products-review-comments .user-review img {
   position: absolute;
   right: 0;
-  top: 20px;
+  top: 0px;
   width: 90px;
   height: 90px;
   border-radius: 5px;
@@ -9262,3 +9262,81 @@ Modal CSS
     background-color: #03c5ff;
     transition-timing-function: ease-out;
 }
+
+/*.rate:not(:checked) > input {*/
+/*    position:absolute;*/
+/*    visibility: hidden;*/
+/*}*/
+/*.rate:not(:checked) > label {*/
+/*    float:right;*/
+/*    width:1em;*/
+/*    overflow:hidden;*/
+/*    white-space:nowrap;*/
+/*    cursor:pointer;*/
+/*    font-size:30px;*/
+/*    color:#ccc;*/
+/*}*/
+
+/*.rate:not(:checked) > label:before {*/
+/*    content: '★ ';*/
+/*}*/
+/*.rate > input:checked ~ label {*/
+/*    color: #ffc700;*/
+/*}*/
+/*.rate:not(:checked) > label:hover,*/
+/*.rate:not(:checked) > label:hover ~ label {*/
+/*    color: #deb217;*/
+/*}*/
+/*.rate > input:checked + label:hover,*/
+/*.rate > input:checked + label:hover ~ label,*/
+/*.rate > input:checked ~ label:hover,*/
+/*.rate > input:checked ~ label:hover ~ label,*/
+/*.rate > label:hover ~ input:checked ~ label {*/
+/*    color: #c59b08;*/
+/*}*/
+
+
+
+.rate-score {
+    text-align: right;
+    overflow: hidden;
+    max-width: 115px;
+    margin-top: -5px;
+    margin-bottom: 20px;
+}
+
+.rate-score label {
+    float: left;
+    position: relative;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+}
+
+.rate-score label:not(:first-of-type) {
+    padding-left: 5px;
+}
+
+.rate-score label:before {
+    content: "\2605";
+    -webkit-transition: var(--transition);
+    transition: var(--transition);
+    font-size: 27px;
+    color: #CCCCCC;
+    line-height: 1;
+}
+
+.rate-score input {
+    display: none;
+}
+
+.rate-score:not(:checked) > label:hover:before, .rate-score:not(:checked) > label:hover ~ label:before {
+    color: #f6b500;
+}
+
+.rate-score .rate:before {
+    color: #f6b500!important;
+}
+
+
+
