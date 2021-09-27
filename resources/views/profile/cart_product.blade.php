@@ -237,7 +237,7 @@
                             });
                         };
                         if(data.status == "1") {
-                            window.location.replace('/profile/shipping-page');
+                            window.location.replace('/cart/shipping-page');
                         };
                     }
 

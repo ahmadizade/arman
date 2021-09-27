@@ -290,7 +290,7 @@
     // Count Time
     function makeTimer() {
         // var endTime = new Date("September 26, 2021 8:00:00 PDT");
-        var endTime = new Date("{{json_decode($setting->end_festival)[0]}} {{json_decode($setting->end_festival)[1]}}, 2021 {{json_decode($setting->end_festival)[2]}}:00:00");
+        var endTime = new Date("{{json_decode($setting->end_festival)[0] ?? ""}} {{json_decode($setting->end_festival)[1] ?? 0}}, 2021 {{json_decode($setting->end_festival)[2] ?? 0}}:00:00");
         var endTime = (Date.parse(endTime)) / 1000;
         var now = new Date();
         var now = (Date.parse(now) / 1000);

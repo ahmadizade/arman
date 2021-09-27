@@ -62,7 +62,7 @@
                     <span class="plus-btn button-card increment"><i class="bx bx-plus"></i></span>
                 </div>
 
-                <button type="submit" class="default-btn add_to_cart"><i class="flaticon-trolley"></i> افزودن به سبد خرید</button>
+                <button type="submit" class="btn btn-primary add_to_cart"><i class="flaticon-trolley"></i> افزودن به سبد خرید</button>
             </div>
             <a href="{{ route("single_product",["slug" => $product->product_slug]) }}" class="view-full-info">مشاهده اطلاعات کامل محصول</a>
         </div>

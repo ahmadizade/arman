@@ -105,7 +105,7 @@
                                 <span class="subtotal">{{number_format($price ?? 0)}} تومان</span>
                             </div>--}}
                             <div class="products-cart-btn">
-                                <a href="{{route('cart_page')}}" class="default-btn">ادامه به پرداخت</a>
+                                <a href="{{route('cart_page')}}" class="default-btn">سبد خرید</a>
                             </div>
                         @endif
                     </div>
