@@ -23,8 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/style_v1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/editor/icon-for-hotel-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/promotions/promotions-img3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/promotions/promotions-img3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/last_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/last_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/most_visited.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/most_visited.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/popular_products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/popular_products.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,6 +186,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -405,14 +417,8 @@
       <workItem from="1633026749476" duration="1579000" />
       <workItem from="1633070682719" duration="604000" />
       <workItem from="1633103809840" duration="649000" />
-      <workItem from="1633795230793" duration="973000" />
-    </task>
-    <task id="LOCAL-00016" summary="blog and seo page config">
-      <created>1623914729044</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1623914729044</updated>
+      <workItem from="1633795230793" duration="3160000" />
+      <workItem from="1633884334090" duration="3373000" />
     </task>
     <task id="LOCAL-00017" summary="blog and seo page config">
       <created>1623923276040</created>
@@ -750,7 +756,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632763014424</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="UI repair">
+      <created>1633796275576</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1633796275576</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

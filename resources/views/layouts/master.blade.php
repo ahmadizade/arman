@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/css/fancybox.min.css">
     <link rel="stylesheet" href="/css/rangeSlider.min.css">
     <link rel="stylesheet" href="/css/magnific-popup.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style_v1.css">
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="/css/sweetalert2.all.css">
 
