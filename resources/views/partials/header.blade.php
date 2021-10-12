@@ -115,29 +115,29 @@
                                                 </div>
                                             @endif
 
-                                            <div class="col">
-                                                    <ul class="megamenu-submenu">
-                                                        <li>
-                                                            <div class="aside-trending-products">
-                                                                    <img src="/img/navbar/navbar-img1.png" alt="تصویر">
-                                                                <div class="category">
-                                                                    <h4>ماسک پزشکی</h4>
-                                                                </div>
+{{--                                            <div class="col">--}}
+{{--                                                    <ul class="megamenu-submenu">--}}
+{{--                                                        <li>--}}
+{{--                                                            <div class="aside-trending-products">--}}
+{{--                                                                    <img src="/img/navbar/navbar-img1.png" alt="تصویر">--}}
+{{--                                                                <div class="category">--}}
+{{--                                                                    <h4>ماسک پزشکی</h4>--}}
+{{--                                                                </div>--}}
 
-                                                            </div>
+{{--                                                            </div>--}}
 
-                                                            <div class="aside-trending-products">
-                                                                    <img src="/img/navbar/navbar-img2.png" alt="تصویر">
+{{--                                                            <div class="aside-trending-products">--}}
+{{--                                                                    <img src="/img/navbar/navbar-img2.png" alt="تصویر">--}}
 
-                                                                <div class="category">
-                                                                    <h4>ماسک سه لایه</h4>
-                                                                </div>
+{{--                                                                <div class="category">--}}
+{{--                                                                    <h4>ماسک سه لایه</h4>--}}
+{{--                                                                </div>--}}
 
 
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+{{--                                                            </div>--}}
+{{--                                                        </li>--}}
+{{--                                                    </ul>--}}
+{{--                                                </div>--}}
 
                                         </div>
                                     </div>

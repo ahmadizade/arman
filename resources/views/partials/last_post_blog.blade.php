@@ -13,7 +13,7 @@
                     </div>
 
                     <div class="post-content">
-                        <h3><a href="{{route('single_mag' , $item->slug)}}">{{$item->slug ?? ""}}</a></h3>
+                        <h3><a href="{{route('single_mag' , $item->slug)}}">{{$item->title ?? ""}}</a></h3>
                         <ul class="post-meta align-items-center d-flex">
                             <li>
                                 <div class="flex align-items-center">
