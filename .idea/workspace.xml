@@ -23,12 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-query-settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/namad/AVA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/namad/Untitled-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/namad/sib.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/last_post_blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/last_post_blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/css/fonts/icomoon/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/fonts/icomoon/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style_v1.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style_v1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +206,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sepand" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -413,14 +416,11 @@
       <workItem from="1633795230793" duration="3160000" />
       <workItem from="1633884334090" duration="3373000" />
       <workItem from="1633888906006" duration="98000" />
-      <workItem from="1634052719938" duration="2051000" />
-    </task>
-    <task id="LOCAL-00018" summary="blog and seo page config">
-      <created>1623923664405</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1623923664405</updated>
+      <workItem from="1634052719938" duration="2296000" />
+      <workItem from="1634403170130" duration="594000" />
+      <workItem from="1634489015512" duration="714000" />
+      <workItem from="1634492222341" duration="7000" />
+      <workItem from="1635178201362" duration="4728000" />
     </task>
     <task id="LOCAL-00019" summary="blog and seo page config">
       <created>1623930541280</created>
@@ -758,7 +758,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633888934577</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="000720">
+      <created>1634055433136</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1634055433136</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -808,7 +815,8 @@
     <MESSAGE value="Rating" />
     <MESSAGE value="UI repair" />
     <MESSAGE value="000717" />
-    <option name="LAST_COMMIT_MESSAGE" value="000717" />
+    <MESSAGE value="000720" />
+    <option name="LAST_COMMIT_MESSAGE" value="000720" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
