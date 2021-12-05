@@ -22,13 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="last">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/quick_view_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/quick_view_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +52,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -181,12 +182,6 @@
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
-  </component>
   <component name="ProjectId" id="1t1GVxhS5OTztkWSDYzhOAsOTkX" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -229,7 +224,6 @@
       <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -402,6 +396,27 @@
       <workItem from="1632674734636" duration="14889000" />
       <workItem from="1632732886813" duration="6041000" />
       <workItem from="1632756985301" duration="5359000" />
+      <workItem from="1632917202177" duration="498000" />
+      <workItem from="1633162563258" duration="143000" />
+      <workItem from="1633163770927" duration="7000" />
+      <workItem from="1633167193786" duration="1296000" />
+      <workItem from="1633170681715" duration="66000" />
+      <workItem from="1633256241261" duration="630000" />
+      <workItem from="1633348844225" duration="737000" />
+      <workItem from="1633855497599" duration="240000" />
+      <workItem from="1633855739703" duration="1315000" />
+      <workItem from="1633858859587" duration="2539000" />
+      <workItem from="1634190109542" duration="78000" />
+      <workItem from="1634202311739" duration="101000" />
+      <workItem from="1634449580430" duration="73000" />
+      <workItem from="1634449686047" duration="1358000" />
+      <workItem from="1634464794486" duration="684000" />
+      <workItem from="1634476443777" duration="660000" />
+      <workItem from="1634479017607" duration="762000" />
+      <workItem from="1635336870633" duration="381000" />
+      <workItem from="1635402628764" duration="2976000" />
+      <workItem from="1635593842893" duration="14000" />
+      <workItem from="1636614864791" duration="5000" />
     </task>
     <task id="LOCAL-00015" summary="blog and seo page config">
       <created>1623914714739</created>
@@ -750,7 +765,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -797,6 +812,28 @@
     <MESSAGE value="UI repair" />
     <option name="LAST_COMMIT_MESSAGE" value="UI repair" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="283" key="FileChooserDialogImpl" timestamp="1635409500692">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="283" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1635409500692" />
+    <state x="2660" y="294" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1632917214653" />
+    <state x="2587" y="275" width="585" height="530" key="find.popup" timestamp="1634479174075">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="667" y="265" width="585" height="530" key="find.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1633858995282" />
+    <state x="2587" y="275" width="585" height="530" key="find.popup/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1634479174075" />
+    <state x="683" y="315" key="git4idea.merge.GitPullDialog" timestamp="1635402856475">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="683" y="315" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1635402856475" />
+    <state x="2603" y="327" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1632827314542" />
+    <state x="623" y="226" width="672" height="653" key="search.everywhere.popup" timestamp="1635409491724">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="226" width="672" height="653" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1635409491724" />
+    <state x="2543" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1635336877575" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -819,11 +856,6 @@
           <url>file://$PROJECT_DIR$/resources/views/home.blade.php</url>
           <line>199</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/layouts/master.blade.php</url>
-          <line>496</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/profile/cart_product.blade.php</url>
@@ -873,6 +905,15 @@
             <option name="methodName" value="deleteSlider" />
           </properties>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php</url>
+          <line>159</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\HomeController" />
+            <option name="methodName" value="Rate" />
+          </properties>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
