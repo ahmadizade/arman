@@ -1,7 +1,8 @@
 @extends("layouts.master")
 
 @section("title")
-    <title>آرمان | تماس با ما</title>
+    <title>{{$setting->contactus_page_title ?? "فروشگاه آرمان ماسک"}}</title>
+    <meta name="description" content="{{ $setting->contactus_page_description ?? ''}}">
 @endsection
 
 @section("content")

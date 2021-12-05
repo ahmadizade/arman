@@ -101,17 +101,46 @@
 
             <div class="col-lg-3 col-sm-6 col-md-6">
                 <div class="single-footer-widget">
-                    <h3>خبرنامه</h3>
-                    <p>برای دریافت آخرین به روزرسانی ها و پیشنهادات ، برای لیست پستی ما ثبت نام کنید.</p>
-                    <form class="newsletter-form" data-toggle="validator">
-                        <input type="text" class="input-newsletter" placeholder="آدرس ایمیل خود را وارد کنید" name="EMAIL" required="" autocomplete="off">
-                        <button type="submit" class="default-btn">مشترک شوید</button>
-                        <div id="validator-newsletter" class="form-result"></div>
-                    </form>
+                    <h3>با اطمینان خرید کنید</h3>
+{{--                    <p>برای دریافت آخرین به روزرسانی ها و پیشنهادات ، برای لیست پستی ما ثبت نام کنید.</p>--}}
+{{--                    <form class="newsletter-form" data-toggle="validator">--}}
+{{--                        <input type="text" class="input-newsletter" placeholder="آدرس ایمیل خود را وارد کنید" name="EMAIL" required="" autocomplete="off">--}}
+{{--                        <button type="submit" class="default-btn">مشترک شوید</button>--}}
+{{--                        <div id="validator-newsletter" class="form-result"></div>--}}
+{{--                    </form>--}}
+                    <div class="row">
+                        <div class="enamad">
+                            <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=232519&amp;Code=JeqtqvEaH0EvWEyKvQfo"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=232519&amp;Code=JeqtqvEaH0EvWEyKvQfo" alt="" style="cursor:pointer" id="JeqtqvEaH0EvWEyKvQfo"></a>
+                        </div>
+                        <div class="enamad">
+                            <img src="/img/namad/sib.png">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="enamad">
+                            <img src="/img/namad/AVA.png">
+                        </div>
+                        <div class="enamad">
+                            <img src="/img/namad/Untitled-2.png">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <div class="footer-bottom-area">
         <div class="container">

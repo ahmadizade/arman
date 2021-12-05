@@ -328,24 +328,24 @@ class BlogController extends Controller
         if (Auth::check()) {
             $validator = Validator::make($request->all(), [
                 'post_id' => 'required','max:128',
-                'thumbnail' => 'required|max:3048',
-                'image' => 'required|max:3048',
+                'thumbnail' => 'required',
+                'image' => 'nullable',
             ]);
             if ($validator->fails()) {
-                Session::flash('error' , $validator->errors()->first());
+                Session::flash('errors' , $validator->errors()->first());
                 return back();
             }
 
-            $image = null;
-            if ($request->has('image')) {
-                $imagePath = "/uploads/blog/image/";
-                $file = $request->file('image');
-                $image = $file->getClientOriginalName();
-                if (file_exists(public_path($imagePath) . $image)) {
-                    $thumbnail = Carbon::now()->timestamp . $image;
-                }
-                $file->move(public_path($imagePath), $image);
-            }
+//            $image = null;
+//            if ($request->has('image')) {
+//                $imagePath = "/uploads/blog/image/";
+//                $file = $request->file('image');
+//                $image = $file->getClientOriginalName();
+//                if (file_exists(public_path($imagePath) . $image)) {
+//                    $thumbnail = Carbon::now()->timestamp . $image;
+//                }
+//                $file->move(public_path($imagePath), $image);
+//            }
 
             $thumbnail = null;
             if ($request->has('thumbnail')) {

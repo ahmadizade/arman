@@ -29,7 +29,7 @@
                             <div class="col-lg-5 col-md-12">
                                 <div class="banner-content">
                                                                         <span class="sub-title">تازه رسیده ها</span>
-                                    <h1><span>ماسک</span> سه لایه جراحی<span></span></h1>
+                                    <h2><span>ماسک</span> سه لایه جراحی<span></span></h2>
                                     <p>ماسک سه لایه پزشکی با دو لایه اسپان باند و یک لایه ملت بلون در بسته بندی 100 تایی</p>
                                     <div class="btn-box">
                                         <div class="d-flex align-items-center float-left">
@@ -60,7 +60,7 @@
                             <div class="col-lg-5 col-md-12">
                                 <div class="banner-content">
                                                                         <span class="sub-title">تازه رسیده ها</span>
-                                    <h1><span>کلاه کش دار</span> یک بار مصرف<span></span></h1>
+                                    <h2><span>کلاه کش دار</span> یک بار مصرف<span></span></h2>
                                     <p>کلاه کش دار یک بار مصرف ویژه پزشک و بیمار است و بیشتر در اتاق عمل استفاده می شود</p>
                                     <div class="btn-box">
                                         <div class="d-flex align-items-center float-left">
@@ -87,12 +87,12 @@
                         <img src="/img/banner-categories/banner-categories-img1.jpg" alt="تصویر">
 
                         <div class="content">
-                            <span class="sub-title">درجه حرارت</span>
-                            <h3><a href="#">دماسنج گوش</a></h3>
+                            <span class="sub-title">کلاه پزشکی</span>
+                            <h3><a href="{{ route("single_product",["slug" => "کلاه-پزشکی"]) }}">کلاه کشدار آبی</a></h3>
                             <div class="btn-box">
                                 <div class="d-flex align-items-center">
-                                    <a href="#" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
-                                    <span class="price">49000 تومان</span><span class="price"></span>
+                                    <a href="{{ route("single_product",["slug" => "کلاه-پزشکی"]) }}" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
+                                    <span class="price">30,000 تومان</span><span class="price"></span>
                                 </div>
                             </div>
                         </div>
@@ -104,12 +104,12 @@
                         <img src="/img/banner-categories/banner-categories-img2.jpg" alt="تصویر">
 
                         <div class="content">
-                            <span class="sub-title">شخصی</span>
-                            <h3><a href="#">مجموعه مورد علاقه</a></h3>
+                            <span class="sub-title">کلاه پزشکی</span>
+                            <h3><a href="{{ route("single_product",["slug" => "کلاه-جراحی-بنددار"]) }}">کلاه جراحی بنددار</a></h3>
                             <div class="btn-box">
                                 <div class="d-flex align-items-center">
-                                    <a href="#" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
-                                    <span class="price">69000 تومان</span><span class="price"></span>
+                                    <a href="{{ route("single_product",["slug" => "کلاه-جراحی-بنددار"]) }}" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
+                                    <span class="price">100,000 تومان</span><span class="price"></span>
                                 </div>
                             </div>
                         </div>
@@ -139,10 +139,10 @@
                         <img src="/img/promotions/promotions-img1.jpg" alt="تصویر">
 
                         <div class="content">
-                            <span class="sub-title">معامله ویژه</span>
-                            <h3>سیب نمک مگا</h3>
-                            <span class="discount"><span>تا</span> 70٪ تخفیف </span>
-                            <a href="products-left-sidebar.html" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+                            <span class="sub-title">به زودی</span>
+                            <h3>ماسک سه بعدی</h3>
+                            <span class="discount"><span></span> </span>
+                            <a href="{{ route("single_product",["slug" => "ماسک-سه-بعدی"]) }}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
                         </div>
                     </div>
                 </div>
@@ -152,10 +152,10 @@
                         <img src="/img/promotions/promotions-img2.jpg" alt="تصویر">
 
                         <div class="content">
-                            <span class="sub-title">تازه رسیده ها</span>
-                            <h3>ضدعفونی‌کننده</h3>
-                            <span class="discount"><span>تا</span> 49000 تومان</span>
-                            <a href="products-left-sidebar.html" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+                            <span class="sub-title">پرفروشترین</span>
+                            <h3>ماسک سه لایه کشدار</h3>
+                            <span class="discount"><span>از</span> 140,000 تومان</span>
+                            <a href="{{ route("single_product",["slug" => "ماسک-سه-لایه-کشدار"]) }}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
                         </div>
                     </div>
                 </div>
@@ -165,10 +165,10 @@
                         <img src="/img/promotions/promotions-img3.jpg" alt="تصویر">
 
                         <div class="content">
-                            <span class="sub-title">مجموعه داغ</span>
-                            <h3>دما سنج</h3>
-                            <span class="discount"><span>تا</span> 20٪ تخفیف </span>
-                            <a href="products-left-sidebar.html" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+                            <span class="sub-title">تخصصی</span>
+                            <h3>ماسم سه لایه بنددار</h3>
+                            <span class="discount"><span></span>  </span>
+                            <a href="{{ route("single_product",["slug" => "ماسک-سه-لایه-بنددار"]) }}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
                         </div>
                     </div>
                 </div>
@@ -217,7 +217,7 @@
         <section class="brands-area pt-70 pb-40">
         <div class="container">
             <div class="section-title">
-                <h1>آرمان ماسک</h1>
+                <h1>خرید آنلاین آرمان ماسک</h1>
             </div>
             <div class="row align-items-center">
                 <div class="col-12">

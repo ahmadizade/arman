@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="content">
-                    <h3><a href="single-products-1.html">{{$item->product_name}}</a></h3>
+                    <h3><a href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->product_name}}</a></h3>
                     <div class="price">
                         <span class="new-price">{{number_format($item->price)}} تومان</span>
                     </div>
