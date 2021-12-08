@@ -89,6 +89,10 @@ Route::middleware(['admin'])->prefix("armanmask")->group(function () {
     Route::post('/product/admin-file-product-action', 'App\Http\Controllers\AdminController@adminFileproductAction')->name("admin_file_product_action");
     Route::post('/product/festival', 'App\Http\Controllers\AdminController@Festival')->name("festival");
     Route::post('upload/tiny/image','App\Http\Controllers\UploadController@uploadImageDescription')->name('tiny.upload');
+    //DYNAMIC
+    Route::get('/dynamic/dynamic-home-page', 'App\Http\Controllers\AdminController@dynamicHomePage')->name("dynamic_home_page");
+    Route::post('/dynamic/slider-product', 'App\Http\Controllers\AdminController@dynamicSliderProduct')->name("slider_product");
+    Route::post('/dynamic/slider-product-edit', 'App\Http\Controllers\AdminController@dynamicSliderProductEdit')->name("slider_product_edit");
 });
 
 

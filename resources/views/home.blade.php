@@ -15,57 +15,28 @@
 
 @section("content")
     <!-- Start Home Slides Area -->
-    <section class="home-slides owl-carousel owl-theme">
-        <div class="single-banner-item">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-lg-7 col-md-12">
-                                <div class="banner-image text-center">
-                                    <img src="/img/banner/banner-img1.png" class="main-image" alt="تصویر">
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-12">
-                                <div class="banner-content">
-                                                                        <span class="sub-title">تازه رسیده ها</span>
-                                    <h2><span>ماسک</span> سه لایه جراحی<span></span></h2>
-                                    <p>ماسک سه لایه پزشکی با دو لایه اسپان باند و یک لایه ملت بلون در بسته بندی 100 تایی</p>
-                                    <div class="btn-box">
-                                        <div class="d-flex align-items-center float-left">
-                                            <span class="price">140,000 تومان</span>
-                                            <button data-id="2" class="btn btn-primary add-cart">افزودن به سبد خرید<i class="flaticon-trolley pr-2"></i></button>
-                                        </div>
+    @if (isset($setting) && isset($setting->home_page_slider[0]))
+        <section class="home-slides owl-carousel owl-theme">
+            <div class="single-banner-item">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-7 col-md-12">
+                                    <div class="banner-image text-center">
+                                        <img src="/img/banner/banner-img1.png" class="main-image" alt="تصویر">
                                     </div>
                                 </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="single-banner-item">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container">
-                        <div class="row align-items-center">
-
-                            <div class="col-lg-7 col-md-12">
-                                <div class="banner-image text-center">
-                                    <img src="/img/banner/banner-img2.png" class="main-image" alt="تصویر">
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-12">
-                                <div class="banner-content">
-                                                                        <span class="sub-title">تازه رسیده ها</span>
-                                    <h2><span>کلاه کش دار</span> یک بار مصرف<span></span></h2>
-                                    <p>کلاه کش دار یک بار مصرف ویژه پزشک و بیمار است و بیشتر در اتاق عمل استفاده می شود</p>
-                                    <div class="btn-box">
-                                        <div class="d-flex align-items-center float-left">
-                                            <span class="price">46,000 تومان</span>
-                                            <button data-id="2" class="btn btn-primary add-cart">افزودن به سبد خرید<i class="flaticon-trolley pr-2"></i></button>
+                                <div class="col-lg-5 col-md-12">
+                                    <div class="banner-content">
+                                        <span class="sub-title">{{json_decode($setting->home_page_slider)[0]->slide_head ?? "تازه رسیده ها"}}</span>
+                                        <h2><span></span> {{json_decode($setting->home_page_slider)[0]->slide_title ?? ""}}<span></span></h2>
+                                        <p>{{json_decode($setting->home_page_slider)[0]->slide_text ?? ""}}</p>
+                                        <div class="btn-box">
+                                            <div class="d-flex align-items-center float-left">
+                                                <span class="price">{{json_decode($setting->home_page_slider)[0]->slide_price ?? ""}} تومان</span>
+                                                <a href="{{json_decode($setting->home_page_slider)[0]->slide_link ?? ""}}" data-id="2" class="btn btn-primary add-cart">مشاهده محصول<i class="flaticon-trolley pr-2"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -74,8 +45,37 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div class="single-banner-item">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-7 col-md-12">
+                                    <div class="banner-image text-center">
+                                        <img src="/img/banner/banner-img2.png" class="main-image" alt="تصویر">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-md-12">
+                                    <div class="banner-content">
+                                        <span class="sub-title">{{json_decode($setting->home_page_slider)[1]->slide_head ?? "تازه رسیده ها"}}</span>
+                                        <h2><span></span> {{json_decode($setting->home_page_slider)[1]->slide_title ?? ""}}<span></span></h2>
+                                        <p>{{json_decode($setting->home_page_slider)[1]->slide_text ?? ""}}</p>
+                                        <div class="btn-box">
+                                            <div class="d-flex align-items-center float-left">
+                                                <span class="price">{{json_decode($setting->home_page_slider)[1]->slide_price ?? ""}} تومان</span>
+                                                <a href="{{json_decode($setting->home_page_slider)[1]->slide_link ?? ""}}" data-id="2" class="btn btn-primary add-cart">مشاهده محصول<i class="flaticon-trolley pr-2"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
     <!-- End Home Slides Area -->
 
     <!-- Start Banner Categories Area -->

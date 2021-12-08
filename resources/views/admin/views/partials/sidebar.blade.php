@@ -39,7 +39,7 @@
                 <h6 class="collapse-header">User Management:</h6>
                 <a class="collapse-item font-weight-bolder" href="{{route('Admin_Users')}}">مدیریت کاربران</a>
                 <a class="collapse-item font-weight-bolder" href="{{route('Contact_Us')}}">تماس با ما</a>
-                <a class="collapse-item font-weight-bolder" href="">مدیریت فروشگاه ها</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('dynamic_home_page')}}">صفحه نخست</a>
             </div>
         </div>
     </li>

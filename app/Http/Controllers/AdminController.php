@@ -877,4 +877,102 @@ class AdminController extends Controller
         Session::flash('status', "تغییرات با موفقیت انجام شد");
         return back();
     }
+
+    public function dynamicHomePage()
+    {
+        $result = Setting::where('id', 1)->first();
+        return view('admin.views.dynamic.home_page',['result' => $result]);
+    }
+
+    public function dynamicSliderProduct(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'slide_head' => 'required',
+            'slide_title' => 'required',
+            'slide_text' => 'required|max:2048',
+            'slide_price' => 'required',
+            'slide_link' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("errors", $validator->errors()->first());
+            return back();
+        }
+        $slide = null;
+        $setting = Setting::where('id', 1)->first();
+        if(isset($setting->home_page_slider) && isset($setting->home_page_slider[0])){
+            if(count(json_decode($setting->home_page_slider)) < 2){
+                $slide = json_decode($setting->home_page_slider);
+                foreach ($slide as $key => $value){
+                    $slide[]= [
+                        'slide_head' => $request->slide_head,
+                        'slide_title' => $request->slide_title,
+                        'slide_text' => $request->slide_text,
+                        'slide_price' => $request->slide_price,
+                        'slide_link' => $request->slide_link,
+                    ];
+                    Setting::where('id', 1)->update([
+                        'home_page_slider' => json_encode($slide),
+                    ]);
+                    session::flash("success", "ذخیره با موفقیت انجام شد");
+                    return back();
+                }
+            }else{
+                session::flash("errors", "امکان ثبت بیش از 2 عدد وجود ندارد");
+                return back();
+            }
+        }else{
+            $slide[] = [
+                'slide_head' => $request->slide_head,
+                'slide_title' => $request->slide_title,
+                'slide_text' => $request->slide_text,
+                'slide_price' => $request->slide_price,
+                'slide_link' => $request->slide_link,
+            ];
+            Setting::where('id', 1)->update([
+                'home_page_slider' => json_encode($slide),
+            ]);
+            session::flash("success", "ذخیره با موفقیت انجام شد");
+            return back();
+        }
+    }
+    public function dynamicSliderProductEdit(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'index' => 'required',
+            'slide_head' => 'required',
+            'slide_title' => 'required',
+            'slide_text' => 'required|max:2048',
+            'slide_price' => 'required',
+            'slide_link' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("errors", $validator->errors()->first());
+            return back();
+        }
+        $slide = null;
+        $setting = Setting::where('id', 1)->first();
+        if(isset($setting->home_page_slider) && isset($setting->home_page_slider[0])){
+
+            $slide = json_decode($setting->home_page_slider);
+            foreach ($slide as $key => $value){
+                $slide[$request->index]= [
+                    'slide_head' => $request->slide_head,
+                    'slide_title' => $request->slide_title,
+                    'slide_text' => $request->slide_text,
+                    'slide_price' => $request->slide_price,
+                    'slide_link' => $request->slide_link,
+                ];
+                Setting::where('id', 1)->update([
+                    'home_page_slider' => json_encode($slide),
+                ]);
+                session::flash("success", "ذخیره با موفقیت انجام شد");
+                return back();
+            }
+        }
+    }
+
+
+
 }
