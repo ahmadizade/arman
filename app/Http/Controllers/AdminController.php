@@ -914,11 +914,11 @@ class AdminController extends Controller
                     Setting::where('id', 1)->update([
                         'home_page_slider' => json_encode($slide),
                     ]);
-                    session::flash("success", "ذخیره با موفقیت انجام شد");
+                    session::flash("status", "ذخیره با موفقیت انجام شد");
                     return back();
                 }
             }else{
-                session::flash("errors", "امکان ثبت بیش از 2 عدد وجود ندارد");
+                session::flash("status", "امکان ثبت بیش از 2 عدد وجود ندارد");
                 return back();
             }
         }else{
@@ -967,12 +967,90 @@ class AdminController extends Controller
                 Setting::where('id', 1)->update([
                     'home_page_slider' => json_encode($slide),
                 ]);
-                session::flash("success", "ذخیره با موفقیت انجام شد");
+                session::flash("status", "ذخیره با موفقیت انجام شد");
                 return back();
             }
         }
     }
 
+    public function dynamicBoxProduct(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'box_head' => 'required',
+            'box_title' => 'required',
+            'box_price' => 'nullable',
+            'box_link' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("errors", $validator->errors()->first());
+            return back();
+        }
+        $slide = null;
+        $setting = Setting::where('id', 1)->first();
+        if(isset($setting->home_page_boxes) && isset($setting->home_page_boxes[0])){
+            $slide = json_decode($setting->home_page_boxes);
+            foreach ($slide as $key => $value){
+                $slide[]= [
+                    'box_head' => $request->box_head,
+                    'box_title' => $request->box_title,
+                    'box_price' => $request->box_price,
+                    'box_link' => $request->box_link,
+                ];
+                Setting::where('id', 1)->update([
+                    'home_page_boxes' => json_encode($slide),
+                ]);
+                session::flash("status", "ذخیره با موفقیت انجام شد");
+                return back();
+            }
+        }else{
+            $slide[] = [
+                'box_head' => $request->box_head,
+                'box_title' => $request->box_title,
+                'box_price' => $request->box_price,
+                'box_link' => $request->box_link,
+            ];
+            Setting::where('id', 1)->update([
+                'home_page_boxes' => json_encode($slide),
+            ]);
+            session::flash("status", "ذخیره با موفقیت انجام شد");
+            return back();
+        }
+    }
+    public function dynamicBoxProductEdit(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'index' => 'required',
+            'box_head' => 'required',
+            'box_title' => 'required',
+            'box_price' => 'nullable',
+            'box_link' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            session::flash("errors", $validator->errors()->first());
+            return back();
+        }
+        $slide = null;
+        $setting = Setting::where('id', 1)->first();
+        if(isset($setting->home_page_boxes) && isset($setting->home_page_boxes[0])){
+
+            $slide = json_decode($setting->home_page_boxes);
+            foreach ($slide as $key => $value){
+                $slide[$request->index]= [
+                    'box_head' => $request->box_head,
+                    'box_title' => $request->box_title,
+                    'box_price' => $request->box_price,
+                    'box_link' => $request->box_link,
+                ];
+                Setting::where('id', 1)->update([
+                    'home_page_boxes' => json_encode($slide),
+                ]);
+                session::flash("status", "ذخیره با موفقیت انجام شد");
+                return back();
+            }
+        }
+    }
 
 
 }

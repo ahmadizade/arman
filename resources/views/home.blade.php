@@ -79,7 +79,8 @@
     <!-- End Home Slides Area -->
 
     <!-- Start Banner Categories Area -->
-    <section class="banner-categories-area pt-70 pb-40">
+    @if (isset($setting) && isset($setting->home_page_boxes[0]))
+        <section class="banner-categories-area pt-70 pb-40">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
@@ -87,12 +88,12 @@
                         <img src="/img/banner-categories/banner-categories-img1.jpg" alt="تصویر">
 
                         <div class="content">
-                            <span class="sub-title">کلاه پزشکی</span>
-                            <h3><a href="{{ route("single_product",["slug" => "کلاه-پزشکی"]) }}">کلاه کشدار آبی</a></h3>
+                            <span class="sub-title">{{json_decode($setting->home_page_boxes)[1]->box_head ?? "محصول جدید"}}</span>
+                            <h3><a href="{{json_decode($setting->home_page_boxes)[1]->box_link ?? "#"}}">{{json_decode($setting->home_page_boxes)[1]->box_title ?? "محصول جدید"}}</a></h3>
                             <div class="btn-box">
                                 <div class="d-flex align-items-center">
-                                    <a href="{{ route("single_product",["slug" => "کلاه-پزشکی"]) }}" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
-                                    <span class="price">30,000 تومان</span><span class="price"></span>
+                                    <a href="{{json_decode($setting->home_page_boxes)[1]->box_link ?? "#"}}" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
+                                    <span class="price">{{json_decode($setting->home_page_boxes)[1]->box_price ?? ""}} تومان</span><span class="price"></span>
                                 </div>
                             </div>
                         </div>
@@ -104,12 +105,12 @@
                         <img src="/img/banner-categories/banner-categories-img2.jpg" alt="تصویر">
 
                         <div class="content">
-                            <span class="sub-title">کلاه پزشکی</span>
-                            <h3><a href="{{ route("single_product",["slug" => "کلاه-جراحی-بنددار"]) }}">کلاه جراحی بنددار</a></h3>
+                            <span class="sub-title">{{json_decode($setting->home_page_boxes)[0]->box_head ?? "محصول جدید"}}</span>
+                            <h3><a href="{{json_decode($setting->home_page_boxes)[0]->box_link ?? "#"}}">{{json_decode($setting->home_page_boxes)[0]->box_title ?? "محصول جدید"}}</a></h3>
                             <div class="btn-box">
                                 <div class="d-flex align-items-center">
-                                    <a href="{{ route("single_product",["slug" => "کلاه-جراحی-بنددار"]) }}" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
-                                    <span class="price">100,000 تومان</span><span class="price"></span>
+                                    <a href="{{json_decode($setting->home_page_boxes)[0]->box_link ?? "#"}}" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
+                                    <span class="price">{{json_decode($setting->home_page_boxes)[0]->box_price ?? ""}} تومان</span><span class="price"></span>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +119,7 @@
             </div>
         </div>
     </section>
+    @endif
     <!-- End Banner Categories Area -->
 
     <!-- Start Categories Area -->
@@ -139,10 +141,10 @@
                         <img src="/img/promotions/promotions-img1.jpg" alt="تصویر">
 
                         <div class="content">
-                            <span class="sub-title">به زودی</span>
-                            <h3>ماسک سه بعدی</h3>
-                            <span class="discount"><span></span> </span>
-                            <a href="{{ route("single_product",["slug" => "ماسک-سه-بعدی"]) }}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+                            <span class="sub-title">{{json_decode($setting->home_page_boxes)[4]->box_head ?? "محصول جدید"}}</span>
+                            <h3>{{json_decode($setting->home_page_boxes)[4]->box_title ?? "محصول جدید"}}</h3>
+                            <span class="discount"><span>از</span> {{json_decode($setting->home_page_boxes)[4]->box_price ?? ""}} تومان</span>
+                            <a href="{{json_decode($setting->home_page_boxes)[4]->box_link ?? "#"}}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
                         </div>
                     </div>
                 </div>
@@ -152,10 +154,10 @@
                         <img src="/img/promotions/promotions-img2.jpg" alt="تصویر">
 
                         <div class="content">
-                            <span class="sub-title">پرفروشترین</span>
-                            <h3>ماسک سه لایه کشدار</h3>
-                            <span class="discount"><span>از</span> 140,000 تومان</span>
-                            <a href="{{ route("single_product",["slug" => "ماسک-سه-لایه-کشدار"]) }}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+                            <span class="sub-title">{{json_decode($setting->home_page_boxes)[3]->box_head ?? "محصول جدید"}}</span>
+                            <h3>{{json_decode($setting->home_page_boxes)[3]->box_title ?? "محصول جدید"}}</h3>
+                            <span class="discount"><span>از</span> {{json_decode($setting->home_page_boxes)[3]->box_price ?? ""}} تومان</span>
+                            <a href="{{json_decode($setting->home_page_boxes)[3]->box_link ?? "#"}}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
                         </div>
                     </div>
                 </div>
@@ -165,10 +167,10 @@
                         <img src="/img/promotions/promotions-img3.jpg" alt="تصویر">
 
                         <div class="content">
-                            <span class="sub-title">تخصصی</span>
-                            <h3>ماسم سه لایه بنددار</h3>
-                            <span class="discount"><span></span>  </span>
-                            <a href="{{ route("single_product",["slug" => "ماسک-سه-لایه-بنددار"]) }}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+                            <span class="sub-title">{{json_decode($setting->home_page_boxes)[2]->box_head ?? "محصول جدید"}}</span>
+                            <h3>{{json_decode($setting->home_page_boxes)[2]->box_title ?? "محصول جدید"}}</h3>
+                            <span class="discount"><span>از</span> {{json_decode($setting->home_page_boxes)[2]->box_price ?? ""}} تومان</span>
+                            <a href="{{json_decode($setting->home_page_boxes)[2]->box_link ?? "#"}}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
                         </div>
                     </div>
                 </div>
