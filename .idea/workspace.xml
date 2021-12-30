@@ -25,9 +25,13 @@
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/dynamic/home_page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/dynamic/home_page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/seo/seo_pages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/seo/seo_pages.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/policy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/policy.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/bookmark.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/bookmark.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -418,14 +422,9 @@
       <workItem from="1634489015512" duration="714000" />
       <workItem from="1634492222341" duration="7000" />
       <workItem from="1635178201362" duration="4728000" />
-      <workItem from="1638970364961" duration="4537000" />
-    </task>
-    <task id="LOCAL-00020" summary="blog and seo page config">
-      <created>1624268646799</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1624268646799</updated>
+      <workItem from="1638970364961" duration="4868000" />
+      <workItem from="1640262244512" duration="1099000" />
+      <workItem from="1640894511509" duration="4097000" />
     </task>
     <task id="LOCAL-00021" summary="last">
       <created>1624272910410</created>
@@ -763,7 +762,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638971712148</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="000917">
+      <created>1638975229704</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1638975229704</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -815,7 +821,8 @@
     <MESSAGE value="000717" />
     <MESSAGE value="000720" />
     <MESSAGE value="000803" />
-    <option name="LAST_COMMIT_MESSAGE" value="000803" />
+    <MESSAGE value="000917" />
+    <option name="LAST_COMMIT_MESSAGE" value="000917" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -877,7 +884,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php</url>
-          <line>797</line>
+          <line>801</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -892,7 +899,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php</url>
-          <line>778</line>
+          <line>782</line>
           <properties>
             <option name="className" value="\App\Http\Controllers\AdminController" />
             <option name="methodName" value="deleteSlider" />

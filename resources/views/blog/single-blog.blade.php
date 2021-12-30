@@ -33,7 +33,7 @@
     <section class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <h1>مجله آرمان</h1>
+                <p style="font-size: 30px;">مجله آرمان</p>
                 <ul>
                     <li><a href="{{route('home')}}">خانه</a></li>
                     <li>وبلاگ</li>

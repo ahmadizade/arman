@@ -2,6 +2,9 @@
 
 @section("title")
     <title>تنظیمات کاربری | armanmask.ir</title>
+    <meta name=”robots” content=”noindex,nofollow”>
+
+
 @endsection
 
 @section("content")

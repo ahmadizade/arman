@@ -2,6 +2,8 @@
 
 @section("title")
     <title>علاقمندی های من | armanmask.ir</title>
+    <meta name=”robots” content=”noindex,nofollow”>
+
 @endsection
 
 @section("content")
