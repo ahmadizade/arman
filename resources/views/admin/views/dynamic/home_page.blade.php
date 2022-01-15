@@ -130,6 +130,77 @@
                                     </div>
                                 </div>
                             </div>
+{{--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+                            <hr>
+                            <div class="row justify-content-center mt-5">
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header text-right">
+                                            Manage Boxes
+                                        </div>
+                                        <div class="card-body text-right">
+                                            <form method="post" action="{{route('box_product')}}">
+                                                <div class="form-group">
+                                                    <label for="box_head">Box Head</label>
+                                                    <input type="text" name="box_head" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="box_title">Box Title</label>
+                                                    <input type="text" name="box_title" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="box_price">Box Price</label>
+                                                    <input type="text" name="box_price" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="box_link">Box Link</label>
+                                                    <input type="text" name="box_link" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-success">ذخیره</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4 justify-content-between">
+                                @if (isset($result) && isset($result->home_page_boxes) && isset($result->home_page_boxes[0]))
+                                    @foreach(json_decode($result->home_page_boxes) as $key => $item)
+                                        <div class="col-12 col-md-2 col-lg-2">
+                                            <div class="card">
+                                                <div class="card-header text-right">
+                                                    BOX-{{$key+1}}
+                                                </div>
+                                                <div class="card-body">
+                                                    <form method="post" action="{{route('box_product_edit')}}">
+                                                        <input type="hidden" value="{{$key}}" name="index">
+                                                        <div class="form-group">
+                                                            <label for="box_head">Slide Head</label>
+                                                            <input type="text" name="box_head" class="form-control" value="{{$item->box_head ?? ""}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="box_title">Slide Title</label>
+                                                            <input type="text" name="box_title" class="form-control" value="{{$item->box_title ?? ""}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="box_price">Slide Price</label>
+                                                            <input type="text" name="box_price" class="form-control" value="{{$item->box_price ?? ""}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="box_link">Slide Link</label>
+                                                            <input type="text" name="box_link" class="form-control" value="{{$item->box_link ?? ""}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-primary">ویرایش</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>

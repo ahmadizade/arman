@@ -22,42 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="last">
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/1635454280cover.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/1637090182cover.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/16373395421.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/Untitled-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/cover-min.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/cover.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/thumbnail.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/thumbnail1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/blog/thumbnail/ماسم.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/1622726480cpvah789_sepand.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/1624097557variable.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/1624097892variable.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/1624103132variable.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/address.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/comment.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/cpvah789_sepand.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/product.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/province.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/users.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/file/variable.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/thumbnail/14__1638392822_5.238.253.73.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/thumbnail/14__1638392909_5.238.253.73.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/dynamic/home_page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cioce_newface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cioce_newface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/dynamic/home_page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/dynamic/home_page.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
@@ -85,9 +54,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -166,6 +132,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
@@ -215,6 +182,12 @@
       <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
     </include_path>
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
   <component name="ProjectId" id="1t1GVxhS5OTztkWSDYzhOAsOTkX" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -230,7 +203,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cusupport" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -242,6 +215,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\partials" />
+      <recent name="C:\xampp\htdocs\arman\app\Models" />
+      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\seo" />
+      <recent name="C:\xampp\htdocs\arman2\public" />
+      <recent name="C:\xampp\htdocs\arman2\resources\views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\arman\public" />
       <recent name="C:\xampp\htdocs\cioce_newface\resources\views\extra\domain" />
@@ -249,14 +229,8 @@
       <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers\Api" />
       <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\dynamic" />
-      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\partials" />
-      <recent name="C:\xampp\htdocs\arman\app\Models" />
-      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\seo" />
-      <recent name="C:\xampp\htdocs\arman2\public" />
-    </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -444,18 +418,7 @@
       <workItem from="1634489015512" duration="714000" />
       <workItem from="1634492222341" duration="7000" />
       <workItem from="1635178201362" duration="4728000" />
-      <workItem from="1639911434301" duration="2216000" />
-      <workItem from="1639980366453" duration="717000" />
-      <workItem from="1640007039071" duration="189000" />
-      <workItem from="1640073082489" duration="609000" />
-      <workItem from="1640165406430" duration="7000" />
-    </task>
-    <task id="LOCAL-00019" summary="blog and seo page config">
-      <created>1623930541280</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1623930541280</updated>
+      <workItem from="1638970364961" duration="4537000" />
     </task>
     <task id="LOCAL-00020" summary="blog and seo page config">
       <created>1624268646799</created>
@@ -793,11 +756,18 @@
       <option name="project" value="LOCAL" />
       <updated>1634055433136</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="000803">
+      <created>1638971712147</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1638971712148</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -844,26 +814,8 @@
     <MESSAGE value="UI repair" />
     <MESSAGE value="000717" />
     <MESSAGE value="000720" />
-    <option name="LAST_COMMIT_MESSAGE" value="000720" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1640165412161">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1640165412161" />
-    <state x="2587" y="265" width="585" height="551" key="find.popup" timestamp="1639917930330">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="667" y="255" width="585" height="530" key="find.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1638699960729" />
-    <state x="2587" y="265" width="585" height="551" key="find.popup/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1639917930330" />
-    <state x="683" y="307" key="git4idea.merge.GitPullDialog" timestamp="1638688822283">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="683" y="307" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1638688822283" />
-    <state x="616" y="162" width="672" height="676" key="search.everywhere.popup" timestamp="1638708014146">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="162" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1638708014146" />
+    <MESSAGE value="000803" />
+    <option name="LAST_COMMIT_MESSAGE" value="000803" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -885,7 +837,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/home.blade.php</url>
-          <line>199</line>
+          <line>201</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -932,6 +884,11 @@
           <url>file://$PROJECT_DIR$/resources/views/product/single_product.blade.php</url>
           <line>162</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/home.blade.php</url>
+          <line>32</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php</url>
