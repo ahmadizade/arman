@@ -146,7 +146,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 col-md-12 text-center">
-                    <p>کپی رایت <i class="bx bx-copyright"></i>تمام حقوق مادی و معنوی، متعلق به وب سایت آرمان ماسک می باشد.</p>
+                    <p>استفاده از مطالب این وبسایت با ذکر منبع بلا مانع می‌باشد</p>
                 </div>
 
 {{--                <div class="col-lg-6 col-md-6">--}}

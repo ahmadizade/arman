@@ -2,6 +2,7 @@
 
 @section("title")
     <title>فروشگاه آرمان | حریم خصوصی</title>
+    <meta name=”robots” content=”noindex,nofollow”>
 @endsection
 
 @section("content")

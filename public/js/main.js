@@ -228,7 +228,6 @@
 			"<i class='flaticon-left-chevron'></i>"
 		],
 	});
-
 	$('.products-details-image-slider').owlCarousel({
 		loop: true,
 		nav: true,

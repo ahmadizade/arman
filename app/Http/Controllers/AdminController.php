@@ -81,6 +81,8 @@ class AdminController extends Controller
             'aboutus_page_description' => ['nullable', 'max:1024',],
             'contactus_page_title' => ['nullable', 'max:1024',],
             'contactus_page_description' => ['nullable', 'max:1024',],
+            'mag_title' => ['nullable', 'max:1024',],
+            'mag_description' => ['nullable', 'max:1024',],
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()->first()]);
@@ -90,6 +92,8 @@ class AdminController extends Controller
             'aboutus_page_description' => $request->aboutus_page_description,
             'contactus_page_title' => $request->contactus_page_title,
             'contactus_page_description' => $request->contactus_page_description,
+            'mag_title' => $request->mag_title,
+            'mag_description' => $request->mag_description,
         ]);
         Session::flash('status', 'تغییرات با موفقیت انجام شد');
         return back();

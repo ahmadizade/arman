@@ -136,8 +136,23 @@
                                                 </div>
                                                 {{--ContactUs--}}
 
+                                                {{--MAG--}}
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="mag_title" class="form-label ">MAG Title</label>
+                                                        <input value="{{$setting->mag_title ?? ""}}" type="text" name="mag_title" class="form-control text-right" placeholder="مثلا : فروشگاه آنلاین ...">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="my-3">
+                                                        <label for="mag_description" class="form-label ">MAG Description</label>
+                                                        <input value="{{$setting->mag_description ?? ""}}" type="text" name="mag_description" class="form-control text-right" placeholder="مثلا : فروشگاه آرمان ماسک ... ">
+                                                    </div>
+                                                </div>
+                                                {{--MAG--}}
 
-                                                <div class="col-12 buttons text-right mt-3">
+
+                                                    <div class="col-12 buttons text-right mt-3">
                                                     <button class="btn btn-success btn-sm" type="submit">انجام تغییرات</button>
                                                 </div>
                                             </div>
@@ -148,7 +163,6 @@
                         </div>
                     </div>
                     {{--about / contact Page Seo--}}
-
 
                     {{--Make Time--}}
                     <div class="container">

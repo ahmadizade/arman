@@ -2,6 +2,7 @@
 
 @section("title")
     <title>فرم ثبت نام | Arman</title>
+    <meta name=”robots” content=”noindex,nofollow”>
 @endsection
 
 @section("content")
