@@ -25,6 +25,7 @@
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001024">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -411,14 +412,9 @@
       <workItem from="1634492222341" duration="7000" />
       <workItem from="1635178201362" duration="4728000" />
       <workItem from="1638970364961" duration="4537000" />
-      <workItem from="1642240131961" duration="327000" />
-    </task>
-    <task id="LOCAL-00021" summary="last">
-      <created>1624272910410</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1624272910410</updated>
+      <workItem from="1642240131961" duration="430000" />
+      <workItem from="1642321588495" duration="177000" />
+      <workItem from="1642325345263" duration="466000" />
     </task>
     <task id="LOCAL-00022" summary="subscribe">
       <created>1624390161571</created>
@@ -756,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642240361608</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="001024">
+      <created>1642240466360</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1642240466361</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -812,14 +815,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="001024" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1642240129356">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1642240561393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642240129356" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1642240365776">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642240561393" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1642240477767">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642240365776" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642240477767" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -846,7 +849,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/master.blade.php</url>
-          <line>492</line>
+          <line>500</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

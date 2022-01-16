@@ -21,7 +21,15 @@
 
 
     <link rel="icon" type="image/png" href="/img/favicon.png">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHB0DGTLFR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'G-CHB0DGTLFR');
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3RHYEWL1XJ"></script>
     @yield("extra_css")
 </head>
