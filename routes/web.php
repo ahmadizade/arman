@@ -22,7 +22,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home");
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact");
 Route::post('/contact-action', 'App\Http\Controllers\HomeController@contactAction')->name("contact_action");
 Route::get('/about-us', 'App\Http\Controllers\HomeController@AboutUs')->name("about_Us");
-Route::get('/seo', 'App\Http\Controllers\HomeController@seo')->name("seo");
+//Route::get('/seo', 'App\Http\Controllers\HomeController@seo')->name("seo");
 Route::get('/policy', 'App\Http\Controllers\HomeController@policy')->name("policy");
 Route::get('/category', 'App\Http\Controllers\HomeController@category')->name("category");
 Route::get('/single-category/{slug}', 'App\Http\Controllers\HomeController@singleCategory')->name("single_category");

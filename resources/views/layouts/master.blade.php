@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="robots" content="noindex,follow"/>
-    <meta name="googlebot" content="noindex, nofollow">
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 @yield("title")
@@ -25,7 +21,15 @@
 
 
     <link rel="icon" type="image/png" href="/img/favicon.png">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHB0DGTLFR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'G-CHB0DGTLFR');
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3RHYEWL1XJ"></script>
     @yield("extra_css")
 </head>
