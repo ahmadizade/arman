@@ -199,7 +199,7 @@
                             <div id="minutes" class="align-items-center flex-column d-flex justify-content-center"></div>
                             <div id="seconds" class="align-items-center flex-column d-flex justify-content-center"></div>
                         </div>
-                        <a href="products-left-sidebar.html" class="btn btn-primary"><i class="flaticon-trolley"></i> اکنون خرید کنید</a>
+                        <a href="https://armanmask.ir/single-category/%D8%A2%D8%B1%D9%85%D8%A7%D9%86-%D9%85%D8%A7%D8%B3%DA%A9" class="btn btn-primary"><i class="flaticon-trolley"></i> اکنون خرید کنید</a>
                         <div class="back-text">2020</div>
                     </div>
                     <div id="festival_end" class="hot-deal-content d-none">
