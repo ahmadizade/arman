@@ -24,8 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001024">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,6 +222,7 @@
       <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -415,6 +414,8 @@
       <workItem from="1642240131961" duration="430000" />
       <workItem from="1642321588495" duration="177000" />
       <workItem from="1642325345263" duration="466000" />
+      <workItem from="1642450310515" duration="75000" />
+      <workItem from="1642529520348" duration="599000" />
     </task>
     <task id="LOCAL-00022" summary="subscribe">
       <created>1624390161571</created>
@@ -763,7 +764,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -814,16 +815,6 @@
     <MESSAGE value="001024" />
     <option name="LAST_COMMIT_MESSAGE" value="001024" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1642240561393">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642240561393" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1642240477767">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642240477767" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -849,7 +840,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/master.blade.php</url>
-          <line>500</line>
+          <line>504</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
