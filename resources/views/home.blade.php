@@ -206,7 +206,7 @@
                         <span class="sub-title">پایان جشمواره</span>
                         <h5 class="mt-3">با فروشگاه آرمان تماس بگیرید و از شروع جشنواره بعدی با خبر شوید</h5>
                         <a href="{{route('contact')}}" class="btn btn-primary mt-3"><i class="flaticon-phone-ringing"></i> تماس با ما</a>
-                        <div class="back-text">2021</div>
+                        <div class="back-text">2022</div>
                     </div>
                 </div>
             </div>
@@ -291,8 +291,8 @@
 <script>
     // Count Time
     function makeTimer() {
-        // var endTime = new Date("September 26, 2021 8:00:00 PDT");
-        var endTime = new Date("{{json_decode($setting->end_festival)[0] ?? ""}} {{json_decode($setting->end_festival)[1] ?? 0}}, 2021 {{json_decode($setting->end_festival)[2] ?? 0}}:00:00");
+        // var endTime = new Date("September 26, 2022 8:00:00 PDT");
+        var endTime = new Date("{{json_decode($setting->end_festival)[0] ?? ""}} {{json_decode($setting->end_festival)[1] ?? 0}}, 2022 {{json_decode($setting->end_festival)[2] ?? 0}}:00:00");
         var endTime = (Date.parse(endTime)) / 1000;
         var now = new Date();
         var now = (Date.parse(now) / 1000);

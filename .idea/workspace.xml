@@ -22,8 +22,248 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001024">
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/resources/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/lang/fa/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/sass/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/sass/app.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/about.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/blank.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/cards.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/charts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/forgot-password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/tables.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/utilities-animation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/utilities-border.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/utilities-color.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/utilities-other.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/blog/category_blog.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/blog/edit_category_blog.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/blog/edit_content.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/blog/edit_tag.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/blog/new_content.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/blog/show_content.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/blog/tag_blog.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/category/category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/category/edit_category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/contactus.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/credit/credit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/dynamic/home_page.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/edit_user.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/layouts/master.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/partials/condition.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/partials/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/partials/sidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/product_edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/product_show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/seo/seo_pages.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/store.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/tag/edit_tag.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/tag/tag.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/tinymce.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/users.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/webservice/new_service.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/webservice/web_service_edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/webservice/web_service_show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/auth/change_password.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/auth/email_verify.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/auth/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/auth/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/blog/blog.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/blog/sidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/blog/single-blog.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/contact.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/emails/download_email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/emails/from_admin.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/emails/verify_email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/errors/401.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/errors/403.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/errors/404.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/errors/419.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/errors/429.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/errors/500.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/errors/503.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/errors/illustrated-layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/errors/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/errors/minimal.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/extra/domain/domain_result.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/extra/domain/domain_search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/home.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/brands_slider.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/category_icon.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/condition.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/last_post_blog.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/last_product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/loader.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/most_visited.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/popular_products.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/partials/quick_view_product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/policy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/product/choice.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/product/single_product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/product/subscribe.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/answer_modal.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/before_buying.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/bookmark.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/cart_product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/credit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/my_tickets.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/order_details.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/orders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/shipping.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/shopping_complete.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/shopping_not_complete.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/shopping_peyment.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/profile/sidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/shop/checkout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/shop/order_form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/shop/table_checkout_ajax.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/sidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/single_category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/tag.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/laravel-log-viewer/log.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/html/button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/html/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/html/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/html/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/html/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/html/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/html/subcopy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/html/table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/html/themes/default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/text/button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/text/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/text/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/text/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/text/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/text/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/text/subcopy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/mail/text/table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/notifications/email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/pagination/bootstrap-4.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/pagination/default.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/pagination/semantic-ui.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/pagination/simple-bootstrap-4.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/pagination/simple-default.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/pagination/simple-tailwind.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/pagination/tailwind.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/sitemap/google-news.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/sitemap/html.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/sitemap/ror-rdf.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/sitemap/ror-rss.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/sitemap/sitemapindex.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/sitemap/txt.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/sitemap/xml-mobile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/sitemap/xml.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/resources/views/vendor/sweetalert/alert.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/routes/channels.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/routes/console.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AbjadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AbjadController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/BmiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/BmiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/MelliCodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/MelliCodeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CodeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExtraController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExtraController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UploadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UploadController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WeatherApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WeatherApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/PreventRequestsDuringMaintenance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/PreventRequestsDuringMaintenance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrustHosts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustHosts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyDomain.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyDomain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/UploadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/UploadController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/Sms.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/Sms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/SmsGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/SmsGroup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Accounting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Accounting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Blog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/BlogCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BlogCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/BlogTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BlogTag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Bookmark.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bookmark.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CartTransfer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CartTransfer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category_variety.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category_variety.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/DomainSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DomainSearch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Download.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Download.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Like.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Like.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/MelliCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MelliCode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/OrderProducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OrderProducts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product_tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product_tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Rating.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Rating.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Report.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Report.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Setting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Statement.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Statement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Store.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Store.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ticket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Sms/SmsIR_SendMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Sms/SmsIR_SendMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Sms/SmsIR_UltraFastSend.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Sms/SmsIR_UltraFastSend.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style_v1.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style_v1.2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/single-blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,13 +656,8 @@
       <workItem from="1642325345263" duration="466000" />
       <workItem from="1642450310515" duration="75000" />
       <workItem from="1642529520348" duration="599000" />
-    </task>
-    <task id="LOCAL-00022" summary="subscribe">
-      <created>1624390161571</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1624390161572</updated>
+      <workItem from="1642616517534" duration="2388000" />
+      <workItem from="1642619020922" duration="1040000" />
     </task>
     <task id="LOCAL-00023" summary="subscribe">
       <created>1624479205587</created>
@@ -760,7 +995,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642240466361</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="001024">
+      <created>1642616577723</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1642616577723</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

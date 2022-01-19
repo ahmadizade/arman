@@ -77,7 +77,7 @@
                                 <h1 style="font-size: 21px;">{!! $post->title ?? "عنوان مطلب یافت نشد!" !!}</h1>
                             </div>
 
-                            <div class="mt-4">
+                            <div class="my-tiny-discription mt-4">
                                 {!! $post->content ?? "متن مطلب یافت نشد!" !!}
                             </div>
                         <div class="article-footer">
