@@ -9353,3 +9353,233 @@ Modal CSS
     border-radius: 5px;
 }
 
+.my-h1{
+    font-size: 23px!important;
+    font-weight: bolder!important;
+    line-height: 35px;
+}
+
+.my-tiny-discription {
+    font-size: 20px!important;
+    font-weight: bolder!important;
+}
+
+.my-tiny-discription h2 {
+    font-size: 25px;
+    font-weight: bolder!important;
+    line-height: 37px;
+    color: #0b0b0b;
+    margin: 18px 0 10px 0;
+}
+
+.my-tiny-discription h3 {
+    font-size: 23px;
+    font-weight: bolder!important;
+    color: #0b0b0b;
+    margin: 30px 0 15px 0;
+}
+
+.my-tiny-discription h4 {
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: bolder!important;
+    color: #0b0b0b;
+}
+
+.my-tiny-discription p {
+    font-size: 15px;
+    text-align: justify!important;
+    line-height: 42px!important;
+}
+
+.my-tiny-discription pre {
+    width: 100%;
+    display: block;
+    -ms-grid-columns: min-content;
+    font-family: "Samim,iransans"!important;
+    font-size: 15px;
+    color: #00adff!important;
+    /*word-break: break-all;*/
+    /*word-wrap: break-word;*/
+    background-color: rgb(49 141 255 / 32%);
+    border: 1px solid #fdfdfd;
+    border-radius: 15px;
+    /*-webkit-transition: border-radius 0.5s ease,  font-size 0.5s ease, background-color 0.5s ease;*/
+    /*-moz-transition: border-radius 0.5s ease,  font-size 0.5s ease, background-color 0.5s ease;*/
+    /*-o-transition: border-radius 0.5s ease,  font-size 0.5s ease, background-color 0.5s ease;*/
+    /*-ms-transition: border-radius 0.5s ease,  font-size 0.5s ease, background-color 0.5s ease;*/
+    /*transition: border-radius 0.5s ease,  font-size 0.5s ease, background-color 0.5s ease;*/
+}
+
+/*.my-tiny-discription pre:hover {*/
+/*    font-size: 16px;*/
+/*    color: #ffffff!important;*/
+/*    background-color: #3d4c5e94;*/
+/*    border-radius: 25px;*/
+/*}*/
+
+.my-tiny-discription pre:before {
+    /*font-family: 'FontAwesome';*/
+    font-size: 18px;
+    margin-left: 6px!important;
+    content: '\2022';
+}
+
+.my-tiny-discription pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    font-size: 14px;
+    display: inline;
+    margin: 0!important;
+    position: relative;
+    padding: 0px !important;
+    line-height: 1.42857143;
+    background-color: rgba(255, 255, 255, 0); !important
+}
+
+.my-tiny-discription pre strong {
+    font-family: "Samim,iransans"!important;
+    display: inline;
+    margin: 0!important;
+    font-size:15px;
+    color: #00c3ff !important;
+    text-align: justify;
+    text-justify: inter-word;
+    white-space: pre-line;
+}
+
+.my-tiny-discription pre a{
+    /*display: inline;*/
+    margin: 0!important;
+    font-size:16px;
+    text-align: justify;
+    text-justify: inter-word;
+    white-space: pre-line;
+}
+
+.my-tiny-discription a {
+    color: #2481c3 !important;
+    word-break: break-all;
+}
+
+.my-tiny-discription ul {
+    /*font-family: "Samim,iransans"!important;*/
+    list-style-type: none;
+    padding: 0;
+}
+
+.my-tiny-discription ol {
+    /*font-family: "Samim,iransans"!important;*/
+    list-style-type: none;
+    padding: 0;
+}
+
+.my-tiny-discription ul li {
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+    padding: 19px 0 8px 0;
+    color: #000;
+    border-radius: 5px;
+    font-size: 15px;
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+    display: block;
+}
+
+.my-tiny-discription ol li {
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+    padding: 19px 0 8px 0;
+    color: #000;
+    border-radius: 5px;
+    font-size: 15px;
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+    display: block;
+}
+
+.my-tiny-discription ol li:last-child {
+    border-bottom: none!important;
+    margin-bottom: 20px;
+}
+
+.my-tiny-discription ul li:last-child {
+    border-bottom: none!important;
+    margin-bottom: 20px;
+}
+
+.my-tiny-discription ul li:hover {
+    color: #fff!important;
+    /*font-size: 16px;*/
+    background: #0089ff9e;
+}
+
+.my-tiny-discription ul li:before {
+    display: inline-block;
+    /*font-family: 'FontAwesome';*/
+    color: #26ff00;
+    margin-left: 6px!important;
+    content: '\2022';
+    left: -1em;
+    top: 0.65em;
+}
+
+.my-tiny-discription ol li:hover {
+    color: #fff!important;
+    /*font-size: 16px;*/
+    background: #0089ff9e;
+}
+
+.my-tiny-discription ol li:before {
+    display: inline-block;
+    /*font-family: 'FontAwesome';*/
+    color: #26ff00;
+    margin-left: 6px!important;
+    content: '\2022';
+    left: -1em;
+    top: 0.65em;
+}
+
+.my-tiny-discription table {
+    width: 100% !important;
+    border-collapse: collapse;
+    max-height: 400px !important;
+}
+
+.my-tiny-discription table tbody{
+    width:200px;
+}
+
+.my-tiny-discription tr:nth-of-type(odd) {
+    background: #eee;
+}
+.my-tiny-discription th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+.my-tiny-discription td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.my-tiny-discription td {
+    width : 200px!important;
+}
+
+.my-tiny-discription td p {
+    line-height:30px!important;
+    text-align: center!important;
+    font-size : 11px!important;
+}

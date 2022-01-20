@@ -1,0 +1,190 @@
+@extends("layouts.master")
+
+@section("title")
+    @if(\Illuminate\Support\Str::length($product->seo_title) > 1)
+        <title>{{ $product->seo_title }} - آرمان</title>
+    @else
+        <title>{{ $product->product_name ?? '' }} - آرمان</title>
+    @endif
+    @if(\Illuminate\Support\Str::length($product->seo_description) > 1)
+        <meta name="description" content="{{ $product->seo_description }}">
+    @endif
+    <meta name="robots" content="all">
+    @if(\Illuminate\Support\Str::length($product->seo_canonical) > 1)
+        <link rel="canonical" href="{{ $product->seo_canonical }}">
+    @else
+        <link rel="canonical" href="{{ url()->full() }}">
+    @endif
+    @if(\Illuminate\Support\Str::length($product->seo_title) > 1)
+        <meta property="og:title" content="{{ $product->seo_title }} - آرمان">
+    @else
+        <meta property="og:title" content="{{ $product->product_name ?? '' }} - آرمان">
+    @endif
+    <meta property="og:url" content="{{ url()->current() }}">
+    @if(\Illuminate\Support\Str::length($product->seo_description) > 1)
+        <meta property="og:site_name" content="{{ $product->seo_description }}">
+    @endif
+    <meta property="og:image" content="{{ request()->getSchemeAndHttpHost() . '/img/uploads/product/' . $product->thumbnail ?? '/img/home/logo.png'}}">
+
+
+
+
+@endsection
+
+@section("content")
+    <!-- Start main-content -->
+    <main class="main-content dt-sl mb-3">
+        <div class="container main-container">
+            <!-- Start Profile-order-step-Slider -->
+            <div class="col-12">
+                <div class="profile-order-steps carousel-lg owl-carousel owl-theme mt-5">
+                    <div class="item profile-order-steps-item is-active">
+                        <img src="/img/svg/d5d5e1d2.svg">
+                        <span>انتخاب محصول</span>
+                    </div>
+                    <div class="item profile-order-steps-item is-active">
+                        <img src="/img/svg/3db3cdeb.svg">
+                        <span>افرودن به سبد خرید</span>
+                    </div>
+                    <div class="item profile-order-steps-item is-active">
+                        <img src="/img/svg/dbab74ce.svg">
+                        <span>بررسی اطلاعات</span>
+                    </div>
+                    <div class="item profile-order-steps-item is-active">
+                        <img src="/img/svg/50450a73.svg">
+                        <span>ثبت سفارش</span>
+                    </div>
+                    <div class="item profile-order-steps-item">
+                        <img src="/img/svg/0eab59b0.svg">
+                        <span>کنترل پشتیبان</span>
+                    </div>
+                    <div class="item profile-order-steps-item">
+                        <img src="/img/svg/332b9ff1.svg">
+                        <span>تحویل آنلاین</span>
+                    </div>
+                </div>
+            </div>
+            <!-- End Profile-order-step-Slider -->
+
+
+            <!-- Start Price Lists -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mt-4 mb-4">
+                        <div
+                            class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
+                            <h2>{{$product->product_name}}</h2>
+                        </div>
+                        <div class="dt-sl">
+                            <div class="table-responsive">
+                                <table class="table table-order">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>پکیج ها</th>
+                                        <th>درخواست رایگان</th>
+                                        <th>درخواست پولی 1 ماهه</th>
+                                        <th>درخواست پولی 3 ماهه</th>
+{{--                                        <th>مبلغ کل</th>--}}
+                                        <th>عملیات پرداخت</th>
+                                        <th>مرحله بعد</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>CIO-Basic</td>
+                                        <td>{{$product->free_request}} عدد در ماه</td>
+                                        <td><img class="img-fluid" src="/img/icon/multiplit.png"></td>
+                                        <td><img class="img-fluid" src="/img/icon/multiplit.png"></td>
+{{--                                        <td>رایگان</td>--}}
+                                        <td><img class="img-fluid" src="/img/icon/multiplit.png"></td>
+                                        <td class="details-link">
+                                            <a href="{{route('select_package', ['id' => $product->id, 'package' => "basic"])}}">
+                                                <i class="mdi mdi-chevron-left"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Pro</td>
+                                        <td>{{$product->free_request}} عدد در ماه</td>
+                                        <td>
+                                            <p class="m-0 p-0 font-weight-bold">{{number_format($product->pro_price)}} تومان</p>
+                                            <p class="m-0 p-0 text-muted">{{$product->pro_request_1_month}} عدد</p>
+
+                                        </td>
+                                        <td>
+                                            <p class="m-0 p-0 font-weight-bold">{{number_format($product->pro_price * 3)}} تومان</p>
+                                            <p class="m-0 p-0 text-muted">{{$product->pro_request_3_month}} عدد</p>
+
+                                        </td>
+{{--                                        <td>۱۸,۰۴۹,۰۰۰ تومان</td>--}}
+                                        <td><img class="img-fluid" src="/img/icon/tick-green.png"></td>
+                                        <td class="details-link">
+                                            <a href="{{route('select_package', ['id' => $product->id, 'package' => "pro"])}}">
+                                                <i class="mdi mdi-chevron-left"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Ultra</td>
+                                        <td>{{$product->free_request}} عدد در ماه</td>
+                                        <td>
+                                            <p class="m-0 p-0 font-weight-bold">{{number_format($product->ultra_price)}} تومان</p>
+                                            <p class="m-0 p-0 text-muted">{{$product->ultra_request_1_month}} عدد</p>
+
+                                        </td>
+                                        <td>
+                                            <p class="m-0 p-0 font-weight-bold">{{number_format($product->ultra_price * 3)}} تومان</p>
+                                            <p class="m-0 p-0 text-muted">{{$product->ultra_request_3_month}} عدد</p>
+
+                                        </td>
+                                        {{--                                        <td>۱۸,۰۴۹,۰۰۰ تومان</td>--}}
+                                        <td><img class="img-fluid" src="/img/icon/tick-green.png"></td>
+                                        <td class="details-link">
+                                            <a href="{{route('select_package', ['id' => $product->id, 'package' => "ultra"])}}">
+                                                <i class="mdi mdi-chevron-left"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Mega</td>
+                                        <td>{{$product->free_request}} عدد در ماه</td>
+                                        <td>
+                                            <p class="m-0 p-0 font-weight-bold">{{number_format($product->mega_price)}} تومان</p>
+                                            <p class="m-0 p-0 text-muted">{{$product->mega_request_1_month}} عدد</p>
+
+                                        </td>
+                                        <td>
+                                            <p class="m-0 p-0 font-weight-bold">{{number_format($product->mega_price * 3)}} تومان</p>
+                                            <p class="m-0 p-0 text-muted">{{$product->mega_request_3_month}} عدد</p>
+
+                                        </td>
+                                        {{--                                        <td>۱۸,۰۴۹,۰۰۰ تومان</td>--}}
+                                        <td><img class="img-fluid" src="/img/icon/tick-green.png"></td>
+                                        <td class="details-link">
+                                            <a href="{{route('select_package', ['id' => $product->id, 'package' => "mega"])}}">
+                                                <i class="mdi mdi-chevron-left"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Price Lists -->
+        </div>
+    </main>
+    <!-- End main-content -->
+
+@endsection
+
+@section('extra_js')
+
+@endsection
