@@ -310,7 +310,7 @@ class BlogController extends Controller
                 'seo_title' => $request->seo_title,
                 'seo_description' => $request->seo_description,
                 'seo_canonical' => $request->seo_canonical,
-                'slug' => self::slug($request->title),
+//                'slug' => self::slug($request->title),
                 'author' => "تیم توسعه و تحقیق آرمان",
                 'content'=> $request->paragraph,
                 'updated_at' => Carbon::now(),
@@ -335,17 +335,6 @@ class BlogController extends Controller
                 Session::flash('errors' , $validator->errors()->first());
                 return back();
             }
-
-//            $image = null;
-//            if ($request->has('image')) {
-//                $imagePath = "/uploads/blog/image/";
-//                $file = $request->file('image');
-//                $image = $file->getClientOriginalName();
-//                if (file_exists(public_path($imagePath) . $image)) {
-//                    $thumbnail = Carbon::now()->timestamp . $image;
-//                }
-//                $file->move(public_path($imagePath), $image);
-//            }
 
             $thumbnail = null;
             if ($request->has('thumbnail')) {

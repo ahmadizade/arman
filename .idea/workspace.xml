@@ -24,8 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001024">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +196,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sepand" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -414,14 +413,8 @@
       <workItem from="1638970364961" duration="4537000" />
       <workItem from="1642240131961" duration="430000" />
       <workItem from="1642321588495" duration="177000" />
-      <workItem from="1642325345263" duration="466000" />
-    </task>
-    <task id="LOCAL-00022" summary="subscribe">
-      <created>1624390161571</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1624390161572</updated>
+      <workItem from="1642325345263" duration="499000" />
+      <workItem from="1642425881237" duration="1849000" />
     </task>
     <task id="LOCAL-00023" summary="subscribe">
       <created>1624479205587</created>
@@ -759,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642240466361</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="001024">
+      <created>1642325819082</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1642325819082</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -815,14 +815,19 @@
     <option name="LAST_COMMIT_MESSAGE" value="001024" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1642240561393">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1642486513368">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642240561393" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1642240477767">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642486513368" />
+    <state x="2472" y="262" key="Vcs.Push.Dialog.v2" timestamp="1642325837802">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642240477767" />
+    <state x="2472" y="262" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@1920.0.1920.1080" timestamp="1642325837802" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1642425990995">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642425990995" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
