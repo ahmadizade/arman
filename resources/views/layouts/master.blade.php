@@ -321,11 +321,11 @@
         </div>
         <!-- End Products Filter Modal Area -->
 
-        <a target="_blank" onclick="ht_ctc_click(this);" href="#" class="btn-whatsapp"
-           data-return_type="chat"
-           data-number="989193109312"
-           data-pre_filled="از کارشناسان ما سوال خود را بپرسید"
-        ></a>
+{{--        <a target="_blank" onclick="ht_ctc_click(this);" href="#" class="btn-whatsapp"--}}
+{{--           data-return_type="chat"--}}
+{{--           data-number="989193109312"--}}
+{{--           data-pre_filled="از کارشناسان ما سوال خود را بپرسید"--}}
+{{--        ></a>--}}
 
 
 

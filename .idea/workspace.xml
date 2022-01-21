@@ -23,17 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/admin/css/sweetalert2.all.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/js/sweetalert2.all.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/dynamic/about_contact_us.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -428,13 +419,6 @@
       <workItem from="1642616517534" duration="2388000" />
       <workItem from="1642619020922" duration="1178000" />
     </task>
-    <task id="LOCAL-00024" summary="subscribe">
-      <created>1624649347194</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1624649347194</updated>
-    </task>
     <task id="LOCAL-00025" summary="subscribe">
       <created>1624698111203</created>
       <option name="number" value="00025" />
@@ -771,7 +755,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642620146888</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="001101">
+      <created>1642796897129</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1642796897129</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -824,7 +815,8 @@
     <MESSAGE value="000720" />
     <MESSAGE value="000803" />
     <MESSAGE value="001024" />
-    <option name="LAST_COMMIT_MESSAGE" value="001024" />
+    <MESSAGE value="001101" />
+    <option name="LAST_COMMIT_MESSAGE" value="001101" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
