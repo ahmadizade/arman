@@ -1056,5 +1056,49 @@ class AdminController extends Controller
         }
     }
 
+    public function dynamicAboutContactUs()
+    {
+        $result = Setting::where('id', 1)->first();
+        return view('admin.views.dynamic.about_contact_us',['result' => $result]);
+    }
 
+    public function dynamicAboutUsAction(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'about_us_title' => 'required',
+            'about_us_desc' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return Response::json(["status" => "0", "desc" => $validator->errors()->first()]);
+        }
+
+        Setting::where('id', 1)->update([
+            'about_us_title' => $request->about_us_title,
+            'about_us_desc' => $request->about_us_desc,
+        ]);
+        return Response::json(["status" => "1", "desc" => "ذخیره با موفقیت انجام شد."]);
+    }
+
+    public function dynamicContactUs(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'contact_us_address' => 'required',
+            'contact_us_phone' => 'required',
+            'contact_us_email' => 'required',
+            'contact_us_time' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return Response::json(["status" => "0", "desc" => $validator->errors()->first()]);
+        }
+
+        Setting::where('id', 1)->update([
+            'contact_us_address' => $request->contact_us_address,
+            'contact_us_phone' => $request->contact_us_phone,
+            'contact_us_email' => $request->contact_us_email,
+            'contact_us_time' => $request->contact_us_time,
+        ]);
+        return Response::json(["status" => "1", "desc" => "ذخیره با موفقیت انجام شد."]);
+    }
 }

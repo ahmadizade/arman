@@ -40,6 +40,7 @@
                 <a class="collapse-item font-weight-bolder" href="{{route('Admin_Users')}}">مدیریت کاربران</a>
                 <a class="collapse-item font-weight-bolder" href="{{route('Contact_Us')}}">تماس با ما</a>
                 <a class="collapse-item font-weight-bolder" href="{{route('dynamic_home_page')}}">صفحه نخست</a>
+                <a class="collapse-item font-weight-bolder" href="{{route('dynamic_about_contact_us')}}">محتوای درباره / تماس با ما</a>
             </div>
         </div>
     </li>
