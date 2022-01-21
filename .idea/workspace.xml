@@ -22,7 +22,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/img/whatsapp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/whatsapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style_v1.2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style_v1.2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +202,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -205,13 +214,6 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\partials" />
-      <recent name="C:\xampp\htdocs\arman\app\Models" />
-      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\seo" />
-      <recent name="C:\xampp\htdocs\arman2\public" />
-      <recent name="C:\xampp\htdocs\arman2\resources\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\arman\public" />
       <recent name="C:\xampp\htdocs\cioce_newface\resources\views\extra\domain" />
@@ -219,8 +221,14 @@
       <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers\Api" />
       <recent name="C:\xampp\htdocs\cioce_new_face\app\Http\Controllers" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\arman\public\js" />
+      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\partials" />
+      <recent name="C:\xampp\htdocs\arman\app\Models" />
+      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\seo" />
+      <recent name="C:\xampp\htdocs\arman2\public" />
+    </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -415,7 +423,14 @@
       <workItem from="1642450310515" duration="75000" />
       <workItem from="1642529520348" duration="599000" />
       <workItem from="1642616517534" duration="2388000" />
-      <workItem from="1642619020922" duration="1278000" />
+      <workItem from="1642619020922" duration="1178000" />
+    </task>
+    <task id="LOCAL-00024" summary="subscribe">
+      <created>1624649347194</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1624649347194</updated>
     </task>
     <task id="LOCAL-00025" summary="subscribe">
       <created>1624698111203</created>
@@ -753,14 +768,7 @@
       <option name="project" value="LOCAL" />
       <updated>1642620146888</updated>
     </task>
-    <task id="LOCAL-00073" summary="001029">
-      <created>1642620284076</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1642620284076</updated>
-    </task>
-    <option name="localTasksCounter" value="74" />
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -813,8 +821,17 @@
     <MESSAGE value="000720" />
     <MESSAGE value="000803" />
     <MESSAGE value="001024" />
-    <MESSAGE value="001029" />
-    <option name="LAST_COMMIT_MESSAGE" value="001029" />
+    <option name="LAST_COMMIT_MESSAGE" value="001024" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1642671468169">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642671468169" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1642671804921">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642671804921" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -841,7 +858,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/master.blade.php</url>
-          <line>504</line>
+          <line>514</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

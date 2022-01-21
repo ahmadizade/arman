@@ -289,6 +289,11 @@
 @endsection
 @section('extra_js')
 <script>
+
+    
+
+
+
     // Count Time
     function makeTimer() {
         // var endTime = new Date("September 26, 2022 8:00:00 PDT");
