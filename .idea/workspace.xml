@@ -22,15 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/whatsapp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/whatsapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001030">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style_v1.2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style_v1.2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -424,13 +418,7 @@
       <workItem from="1642529520348" duration="599000" />
       <workItem from="1642616517534" duration="2388000" />
       <workItem from="1642619020922" duration="1178000" />
-    </task>
-    <task id="LOCAL-00024" summary="subscribe">
-      <created>1624649347194</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1624649347194</updated>
+      <workItem from="1642672821715" duration="1821000" />
     </task>
     <task id="LOCAL-00025" summary="subscribe">
       <created>1624698111203</created>
@@ -768,11 +756,18 @@
       <option name="project" value="LOCAL" />
       <updated>1642620146888</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="001030">
+      <created>1642672577542</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1642672577542</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -821,13 +816,18 @@
     <MESSAGE value="000720" />
     <MESSAGE value="000803" />
     <MESSAGE value="001024" />
-    <option name="LAST_COMMIT_MESSAGE" value="001024" />
+    <MESSAGE value="001030" />
+    <option name="LAST_COMMIT_MESSAGE" value="001030" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1642671468169">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1642672688369">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642671468169" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642672688369" />
+    <state x="683" y="307" key="git4idea.merge.GitPullDialog" timestamp="1642672610961">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="683" y="307" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1642672610961" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1642671804921">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
