@@ -95,7 +95,9 @@ Route::middleware(['admin'])->prefix("armanmask")->group(function () {
     Route::post('/dynamic/slider-product-edit', 'App\Http\Controllers\AdminController@dynamicSliderProductEdit')->name("slider_product_edit");
     Route::post('/dynamic/box-product', 'App\Http\Controllers\AdminController@dynamicBoxProduct')->name("box_product");
     Route::post('/dynamic/box-product-edit', 'App\Http\Controllers\AdminController@dynamicBoxProductEdit')->name("box_product_edit");
-
+    Route::get('/dynamic/about-contact-us', 'App\Http\Controllers\AdminController@dynamicAboutContactUs')->name("dynamic_about_contact_us");
+    Route::post('/dynamic/about-contact-us-action', 'App\Http\Controllers\AdminController@dynamicAboutUsAction')->name("about_contact_us_action");
+    Route::post('/dynamic/about-contact-us', 'App\Http\Controllers\AdminController@dynamicContactUs')->name("about_contact_us");
 });
 
 

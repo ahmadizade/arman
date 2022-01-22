@@ -30,8 +30,8 @@
                             <i class="flaticon-placeholder"></i>
                         </div>
                         <h3>نشانی</h3>
-                        <p><a href="javascript:void(0)">ایران - تهران خیابان بخارست</a></p>
-                        <p><a href="javascript:void(0)">کوچه پنجم، پلاک ۱۵ طبقه ۳ واحد ۱۶</a></p>
+                        <p><a href="javascript:void(0)">{{$setting->contact_us_address ?? ""}}</a></p>
+{{--                        <p><a href="javascript:void(0)">کوچه پنجم، پلاک ۱۵ طبقه ۳ واحد ۱۶</a></p>--}}
                     </div>
                 </div>
 
@@ -41,8 +41,8 @@
                             <i class="flaticon-phone-ringing"></i>
                         </div>
                         <h3>تلفن</h3>
-                        <p><a href="tel:021۸۸۵۵۷۳۳۵" class="my_rtl">خط تلفن: ۸۸۵۵۷۳۳۵</a></p>
-                        <p><a href="tel:021۸۸۵۵۷۳۳۵">دورنما : ۸۸۵۵۷۳۳۵</a></p>
+                        <p><a href="tel:021۸۸۵۵5457" class="my_rtl">{{$setting->contact_us_phone ?? ""}}</a></p>
+                        <p><a href="tel:021۸۸۵۵5457">دورنما : ۸۸۵۵۷۳۳۵</a></p>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
                             <i class="flaticon-email"></i>
                         </div>
                         <h3>پست الکترونیک</h3>
-                        <p><a href="mailto:sales@armanmask.ir">info@armanmask.ir</a></p>
+                        <p><a href="mailto:sales@armanmask.ir">{{$setting->contact_us_email ?? ""}}</a></p>
                         <p><a href="https://www.instagram.com/arman.mask.co/">اینساگرام: آرمان</a></p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         </div>
                         <h3>ساعات کاری</h3>
                         <p>شنبه - جمعه</p>
-                        <p>8:00 صبح - 17:00 ظهر</p>
+                        <p>{{$setting->contact_us_time ?? ""}}</p>
                     </div>
                 </div>
             </div>
