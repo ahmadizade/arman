@@ -220,7 +220,6 @@
                 var $price_with_taxation = {{$price_with_taxation ?? ""}};
 
                 $ .ajax({
-
                     url : "{{route('before_buying')}}",
                     type : "POST",
                     data : {'total_price' : $total_price, 'taxation' : $taxation, 'price_with_taxation' : $price_with_taxation},
