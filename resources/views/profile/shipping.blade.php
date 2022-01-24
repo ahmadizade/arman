@@ -117,6 +117,30 @@
                         data : $('#shipping_form').serialize(),
                         success : function (data) {
                             console.log(data);
+                            if(data.status == "0") {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    toast: true,
+                                    icon: 'error',
+                                    title: 'فروشگاه آرمان ماسک',
+                                    text: data.desc,
+                                    showConfirmButton: false,
+                                    timer: 6000
+                                });
+                            };
+
+                            if(data.status == "1") {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    toast: true,
+                                    icon: 'success',
+                                    title: 'فروشگاه آرمان ماسک',
+                                    text: data.desc,
+                                    footer: 'همکاران ما در کوتاه ترین زمان با شما تماس خواهند گرفت',
+                                    showConfirmButton: false,
+                                    timer: 4000
+                                });
+                            };
                         }
                     });
 

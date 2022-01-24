@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\Sms;
 use App\Models\Accounting;
 use App\Models\Bookmark;
 use App\Models\CartTransfer;
@@ -375,53 +376,56 @@ class ProfileController extends Controller
     {
         $product = Product::where('product_slug', $request->slug)->first();
         $comments = Comment::where('product_id', $product->id)->where('comment_for', 'single_product')->get();
-        Product::where('product_slug', $request->slug)->increment('view',1);
-            $popularproduct = Product::orderBy('view' , 'desc')->limit(10)->get();
-            return view('product.single_product', ["product" => $product, "comments" => $comments, 'popularproduct' => $popularproduct]);
+        Product::where('product_slug', $request->slug)->increment('view', 1);
+        $popularproduct = Product::orderBy('view', 'desc')->limit(10)->get();
+        return view('product.single_product', ["product" => $product, "comments" => $comments, 'popularproduct' => $popularproduct]);
     }
 
-    public function subscribe($id){
-        $product = Product::where('id' ,$id)->where('type', "api")->first();
-        $apiMostVisited = Product::where('type' , 'api')->orderBy('view' , 'desc')->limit(10)->get();
-        return view('product.subscribe',['product' => $product, 'apiMostVisited' => $apiMostVisited]);
+    public function subscribe($id)
+    {
+        $product = Product::where('id', $id)->where('type', "api")->first();
+        $apiMostVisited = Product::where('type', 'api')->orderBy('view', 'desc')->limit(10)->get();
+        return view('product.subscribe', ['product' => $product, 'apiMostVisited' => $apiMostVisited]);
     }
 
-    public function selectPackage(Request $request){
+    public function selectPackage(Request $request)
+    {
         $product = Product::where('type', "api")->where('id', $request->id)->first();
-        if ($request->package == "basic"){
+        if ($request->package == "basic") {
             $price = $product->price;
             $request_quantity_1_month = $product->free_request;
             $request_quantity_3_month = 0;
             $three_month_price = 0;
 
-        }elseif ($request->package == "pro"){
+        } elseif ($request->package == "pro") {
             $price = $product->pro_price;
             $request_quantity_1_month = $product->pro_request_1_month;
             $request_quantity_3_month = $product->pro_request_3_month;
             $three_month_price = $product->pro_price * 3;
 
-        }elseif ($request->package == "ultra"){
+        } elseif ($request->package == "ultra") {
             $price = $product->ultra_price;
             $request_quantity_1_month = $product->ultra_request_1_month;
             $request_quantity_3_month = $product->ultra_request_3_month;
             $three_month_price = $product->ultra_price * 3;
 
-        }elseif ($request->package == "mega"){
+        } elseif ($request->package == "mega") {
             $price = $product->mega_price;
             $request_quantity_1_month = $product->mega_request_1_month;
             $request_quantity_3_month = $product->mega_request_3_month;
             $three_month_price = $product->mega_price * 3;
         }
-        return view('product.choice', ['product' => $product, 'package' => $request->package, 'price' => $price, 'request_quantity_1_month' => $request_quantity_1_month, 'request_quantity_3_month' => $request_quantity_3_month, 'three_month_price' => $three_month_price, ]);
+        return view('product.choice', ['product' => $product, 'package' => $request->package, 'price' => $price, 'request_quantity_1_month' => $request_quantity_1_month, 'request_quantity_3_month' => $request_quantity_3_month, 'three_month_price' => $three_month_price,]);
     }
 
-    public function choice(Request $request,$id,$type){
+    public function choice(Request $request, $id, $type)
+    {
 
-        $checkProduct = Product::where("id",$id)->first();
+        $checkProduct = Product::where("id", $id)->first();
 
-        if(isset($id) && isset($type) && isset($request->month) && isset($checkProduct->id)){
+        if (isset($id) && isset($type) && isset($request->month) && isset($checkProduct->id)) {
 
-            if($type == "basic" || $type == "pro" || $type == "ultra" || $type == "mega") {
+            if ($type == "basic" || $type == "pro" || $type == "ultra" || $type == "mega") {
 
                 $checkAcc = Accounting::where("api_id", $id)->where("user_id", Auth::id())->first();
 
@@ -434,14 +438,14 @@ class ProfileController extends Controller
 
                     } else {
 
-                      $order_id = Orders::create([
+                        $order_id = Orders::create([
                             "user_id" => Auth::id(),
                             "product_id" => $id,
                             "last_price" => 0,
                             "last_discount" => 0,
                             "status" => 2,
                             "created_at" => Carbon::now(),
-                            "order_number" => 'CIO' . "-" . rand(10000000,99999999),
+                            "order_number" => 'CIO' . "-" . rand(10000000, 99999999),
                         ])->id;
 
                         OrderProducts::create([
@@ -479,13 +483,13 @@ class ProfileController extends Controller
 
                 if ($request->month == "1" || $request->month == "3") {
 
-                    if($type == "pro"){
+                    if ($type == "pro") {
                         $amount = $checkProduct->pro_price;
                     }
-                    if($type == "ultra"){
+                    if ($type == "ultra") {
                         $amount = $checkProduct->ultra_price;
                     }
-                    if($type == "mega"){
+                    if ($type == "mega") {
                         $amount = $checkProduct->mega_price;
                     }
                     if ($request->month == "3") {
@@ -493,12 +497,12 @@ class ProfileController extends Controller
                     }
                     //Discount
                     if ($checkProduct->discount > 0) {
-                        $amountWithDiscount = $amount - (($amount * $checkProduct->discount) / 100 );
-                    }else {
+                        $amountWithDiscount = $amount - (($amount * $checkProduct->discount) / 100);
+                    } else {
                         $amountWithDiscount = $amount;
                     }
                     //Taxation
-                    $amountWithTaxation = $amountWithDiscount + (($amountWithDiscount * 9) / 100 );
+                    $amountWithTaxation = $amountWithDiscount + (($amountWithDiscount * 9) / 100);
 
                     if (isset($checkAcc)) {
 
@@ -510,7 +514,7 @@ class ProfileController extends Controller
                             "last_discount" => $checkProduct->discount,
                             "status" => 0,
                             "created_at" => Carbon::now(),
-                            "order_number" => 'CIO' . "-" . rand(10000000,99999999),
+                            "order_number" => 'CIO' . "-" . rand(10000000, 99999999),
                         ])->id;
 
                         OrderProducts::create([
@@ -531,7 +535,7 @@ class ProfileController extends Controller
                         ]);
                         $id = $checkAcc->id;
 
-                    }else{
+                    } else {
 
                         $order_id = Orders::create([
                             "user_id" => Auth::id(),
@@ -541,7 +545,7 @@ class ProfileController extends Controller
                             "last_discount" => $checkProduct->discount,
                             "status" => 0,
                             "created_at" => Carbon::now(),
-                            "order_number" => 'CIO' . "-" . rand(10000000,99999999),
+                            "order_number" => 'CIO' . "-" . rand(10000000, 99999999),
                         ])->id;
 
                         OrderProducts::create([
@@ -572,7 +576,7 @@ class ProfileController extends Controller
 
                     }
 
-                    return PaymentController::payment($id,$amountWithTaxation);
+                    return PaymentController::payment($id, $amountWithTaxation);
 
                 }
 
@@ -584,108 +588,166 @@ class ProfileController extends Controller
     }
 
 
-    public function addDomain(Request $request){
-        $validator = Validator::make($request->all() ,[
+    public function addDomain(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
             'user_id' => "required",
             'domain' => ['required', 'string'],
         ]);
-        if ($validator->fails()){
+        if ($validator->fails()) {
             Session::flash('error', $validator->errors()->first());
             return back();
         }
 
-        User::where('id' , $request->user_id)->update([
+        User::where('id', $request->user_id)->update([
             'domain' => $request->domain,
             'updated_at' => Carbon::now(),
         ]);
-        Session::flash('status', "دامنه با موفقیت ثبت شد" );
+        Session::flash('status', "دامنه با موفقیت ثبت شد");
         return back();
     }
 
     public function Cart(Request $request)
     {
         $product = Product::where('id', $request->id)->first();
-        if (Session::has('product') && count(Session::get('product')) > 0){
-            foreach (Session::get('product') as $item){
+        if (Session::has('product') && count(Session::get('product')) > 0) {
+            foreach (Session::get('product') as $item) {
                 if ($item['id'] == $product->id) {
-                    Session::flash('errors' , "این محصول را قبلا انتخاب کرده اید!");
+                    Session::flash('errors', "این محصول را قبلا انتخاب کرده اید!");
                     return back();
-                }else {
+                } else {
                     Session::push('product', $product);
-                    Session::flash('status' , "کالای شما با موفقیت به سبد خرید افزوده شد");
+                    Session::flash('status', "کالای شما با موفقیت به سبد خرید افزوده شد");
                     return back();
                 }
             }
-        }else{
+        } else {
             Session::put('product', [$product]);
-            Session::flash('status' , "کالای شما با موفقیت به سبد خرید افزوده شد");
+            Session::flash('status', "کالای شما با موفقیت به سبد خرید افزوده شد");
             return back();
         }
-        Session::flash('status' , "متاسفانه مشکلی پیش آمده است!");
+        Session::flash('status', "متاسفانه مشکلی پیش آمده است!");
         return back();
     }
 
-    public function quickAddCart(Request $request){
+    public function quickAddCart(Request $request)
+    {
         $product = Product::where('id', $request->product_id)->first();
-        if (Session::has('product') && count(Session::get('product')) > 0){
+        if (Session::has('product') && count(Session::get('product')) > 0) {
             foreach (Session::get('product') as $item) {
                 if ($item->id == $product->id) {
-                    return Response::json(["status" => "0" , 'desc' => "این محصول را قبلا انتخاب کرده اید!"]);
-                }else{
+                    return Response::json(["status" => "0", 'desc' => "این محصول را قبلا انتخاب کرده اید!"]);
+                } else {
                     $product->total_price = $request->price;
                     $product->order_quantity = $request->quantity;
-                    Session::push('product' , $product);
-                    return Response::json(["status" => "1" , 'desc' => "کالای شما با موفقیت به سبد خرید افزوده شد"]);
+                    Session::push('product', $product);
+                    return Response::json(["status" => "1", 'desc' => "کالای شما با موفقیت به سبد خرید افزوده شد"]);
                 }
             }
-        }else{
+        } else {
 
             $product->total_price = $request->price;
             $product->order_quantity = $request->quantity;
             Session::put('product', [$product]);
-            return Response::json(["status" => "1" , 'desc' => "کالای شما با موفقیت به سبد خرید افزوده شد"]);
+            return Response::json(["status" => "1", 'desc' => "کالای شما با موفقیت به سبد خرید افزوده شد"]);
         }
-        Session::flash('status' , "متاسفانه مشکلی پیش آمده است!");
+        Session::flash('status', "متاسفانه مشکلی پیش آمده است!");
         return back();
     }
-    public function CartPage(){
-        if (Session::has('product') && count(Session::get('product')) > 0){
+
+    public function CartPage()
+    {
+        if (Session::has('product') && count(Session::get('product')) > 0) {
             $total_price = 0;
             $price_with_taxation = 0;
 
-            foreach (Session::get('product') as $item){
+            foreach (Session::get('product') as $item) {
 
-                $quantity = $item['order_quantity'] ?? 1 ;
-                if ($item['discount'] > 0){
-                    $total_price += ( $item['price'] - ( ($item['price'] * $item['discount']) / 100 ) ) * $quantity;
-                }else{
+                $quantity = $item['order_quantity'] ?? 1;
+                if ($item['discount'] > 0) {
+                    $total_price += ($item['price'] - (($item['price'] * $item['discount']) / 100)) * $quantity;
+                } else {
                     $total_price += $item['price'] * $quantity;
                 }
 
             }
 
-            $taxation = ( ( $total_price * 9 ) / 100 );
+            $taxation = (($total_price * 9) / 100);
 
-            $price_with_taxation = ( $total_price + $taxation );
+            $price_with_taxation = ($total_price + $taxation);
 
 
             return view('profile.cart_product', ["total_price" => $total_price, "taxation" => $taxation, "price_with_taxation" => $price_with_taxation]);
-        }else{
-            Session::flash('error' , "سبد خرید شما خالی می باشد");
+        } else {
+            Session::flash('error', "سبد خرید شما خالی می باشد");
             return view('profile.cart_product');
         }
     }
 
 
-    public function shippingPage(){
+    public function shippingPage()
+    {
         return view('profile.shipping');
     }
 
-    public function shippingAction(Request $request){
+    public function shippingAction(Request $request)
+    {
+        if (Session::has('product') && count(Session::get('product')) > 0 && Session::has('shipping') && count(Session::get('shipping')) > 0) {
+            $total_price = Session::get('shipping')['total_price'];
+            $taxation = Session::get('shipping')['taxation'];
+            $price_with_taxation = Session::get('shipping')['price_with_taxation'];
+            $order_number = 'A.M-' . mt_rand(1, 90000) .'-'. Auth::id();
+            $id = Orders::create([
+                'user_id' => Auth::id(),
+                'last_price' => $total_price,
+                'last_discount' => $taxation,
+                'price_with_taxation' => $price_with_taxation,
+                'status' => 1,
+                'status_payment' => 1,
+                'order_number' => $order_number,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ])->id;
 
-        return $request;
+            foreach(Session::get('product') as $item)
+            {
+                OrderProducts::create([
+                    'user_id' => Auth::id(),
+                    'order_id' => $id,
+                    'product_id' => $item->id,
+                    'product_name' => $item->product_name,
+                    'product_price' => $item->price,
+                    'discount' => $item->discount,
+                    'product_quantity' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+            }
+            //SMS
+            $mobile = '09193109312';
+            $code = $order_number;
+            $dataSms = array(
+                array(
+                    "Parameter" => "OrderNumber",
+                    "ParameterValue" => $code,
+                ),
 
+                array(
+                    "Parameter" => "User",
+                    "ParameterValue" => Auth::user()->name . "-" . Auth::id(),
+                ),
+            );
+            Sms::dispatch($mobile, $dataSms, '61304');
+
+
+            return Response::json(['status' => '1', 'desc' =>'ثبت محصول با موفقیت انجام شد.']);
+
+        } else {
+            return Response::json(['status' => '0', 'desc' => "سبد خرید خود را مجدد تایید فرمایید!"]);
+        }
     }
+
+
 
 
     public function cartCalculator(Request $request){
