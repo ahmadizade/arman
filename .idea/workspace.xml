@@ -22,13 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/cart_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/shipping.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/shipping.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
-    </list>
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -422,14 +416,7 @@
       <workItem from="1642529520348" duration="599000" />
       <workItem from="1642616517534" duration="2388000" />
       <workItem from="1642619020922" duration="1178000" />
-      <workItem from="1642964327076" duration="3157000" />
-    </task>
-    <task id="LOCAL-00026" summary="mywebservice">
-      <created>1624741071386</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1624741071386</updated>
+      <workItem from="1642964327076" duration="3209000" />
     </task>
     <task id="LOCAL-00027" summary="mywebservice">
       <created>1625060475097</created>
@@ -767,7 +754,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642797076475</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="001103">
+      <created>1642967530115</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1642967530116</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -821,7 +815,8 @@
     <MESSAGE value="000803" />
     <MESSAGE value="001024" />
     <MESSAGE value="001101" />
-    <option name="LAST_COMMIT_MESSAGE" value="001101" />
+    <MESSAGE value="001103" />
+    <option name="LAST_COMMIT_MESSAGE" value="001103" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
