@@ -22,9 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001104">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style_v1.2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style_v1.2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/resources/views/admin/views/edit_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/resources/views/admin/views/edit_user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +199,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sepand" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/views/orders" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -209,11 +212,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\orders" />
       <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\dynamic" />
       <recent name="C:\xampp\htdocs\arman\public\js" />
       <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\partials" />
       <recent name="C:\xampp\htdocs\arman\app\Models" />
-      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\seo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\arman\public\admin\js" />
@@ -419,13 +422,8 @@
       <workItem from="1642616517534" duration="2388000" />
       <workItem from="1642619020922" duration="1178000" />
       <workItem from="1642964327076" duration="3157000" />
-    </task>
-    <task id="LOCAL-00026" summary="mywebservice">
-      <created>1624741071386</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1624741071386</updated>
+      <workItem from="1643095459684" duration="136000" />
+      <workItem from="1643095664102" duration="1941000" />
     </task>
     <task id="LOCAL-00027" summary="mywebservice">
       <created>1625060475097</created>
@@ -763,7 +761,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642797076475</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="001104">
+      <created>1643012010715</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1643012010715</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -818,9 +823,18 @@
     <MESSAGE value="001024" />
     <MESSAGE value="001101" />
     <MESSAGE value="001030" />
-    <option name="LAST_COMMIT_MESSAGE" value="001030" />
+    <MESSAGE value="001104" />
+    <option name="LAST_COMMIT_MESSAGE" value="001104" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1643012045190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643012045190" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1643012036387">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643012036387" />
     <state x="683" y="307" key="git4idea.merge.GitPullDialog" timestamp="1643011991113">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
