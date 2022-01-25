@@ -22,7 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001106" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001106">
+      <change afterPath="$PROJECT_DIR$/public/admin/js/moment.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/js/persian.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/show_order_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +203,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cusupport" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/views/partials" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -206,10 +216,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\partials" />
       <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\orders" />
       <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\dynamic" />
       <recent name="C:\xampp\htdocs\arman\public\js" />
-      <recent name="C:\xampp\htdocs\arman\resources\views\admin\views\partials" />
       <recent name="C:\xampp\htdocs\arman\app\Models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -220,6 +230,7 @@
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\profile" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -418,6 +429,7 @@
       <workItem from="1642964327076" duration="3157000" />
       <workItem from="1643095459684" duration="136000" />
       <workItem from="1643095664102" duration="2148000" />
+      <workItem from="1643142155840" duration="3830000" />
     </task>
     <task id="LOCAL-00028" summary="last">
       <created>1625304625559</created>
@@ -766,7 +778,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -820,24 +832,6 @@
     <MESSAGE value="001104" />
     <MESSAGE value="001106" />
     <option name="LAST_COMMIT_MESSAGE" value="001106" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1643097948898">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643097948898" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1643097841829">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643097841829" />
-    <state x="683" y="307" key="git4idea.merge.GitPullDialog" timestamp="1643011991113">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="683" y="307" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643011991113" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1643011394208">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643011394208" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -899,7 +893,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php</url>
-          <line>801</line>
+          <line>803</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -912,9 +906,24 @@
           <line>32</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/routes/web.php</url>
+          <line>168</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php</url>
+          <line>242</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php</url>
+          <line>74</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php</url>
-          <line>782</line>
+          <line>784</line>
           <properties>
             <option name="className" value="\App\Http\Controllers\AdminController" />
             <option name="methodName" value="deleteSlider" />

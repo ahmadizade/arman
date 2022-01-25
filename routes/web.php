@@ -98,6 +98,10 @@ Route::middleware(['admin'])->prefix("armanmask")->group(function () {
     Route::get('/dynamic/about-contact-us', 'App\Http\Controllers\AdminController@dynamicAboutContactUs')->name("dynamic_about_contact_us");
     Route::post('/dynamic/about-contact-us-action', 'App\Http\Controllers\AdminController@dynamicAboutUsAction')->name("about_contact_us_action");
     Route::post('/dynamic/about-contact-us', 'App\Http\Controllers\AdminController@dynamicContactUs')->name("about_contact_us");
+    //Orders Management
+    Route::get('/orders/orders-management', 'App\Http\Controllers\AdminController@OrderManagment')->name("orders_management");
+    Route::get('/orders/datatable-get-orders', 'App\Http\Controllers\AdminController@dataTablesGetOrders')->name("datatable_get_orders");
+    Route::post('/orders/show-order-details', 'App\Http\Controllers\AdminController@showOrderDetails')->name("show_order_details");
 });
 
 

@@ -121,9 +121,9 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Credit Management</h6>
-                <a class="collapse-item" href="#">پرداخت شده ها</a>
-                <a class="collapse-item" href="#">ارسال شده</a>
+                <h6 class="collapse-header">Order Management</h6>
+                <a class="collapse-item" href="{{route('orders_management')}}">مشاهده سفارشات</a>
+{{--                <a class="collapse-item" href="#">ارسال شده</a>--}}
             </div>
         </div>
     </li>
