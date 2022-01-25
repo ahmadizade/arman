@@ -22,16 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001106">
-      <change afterPath="$PROJECT_DIR$/public/admin/js/moment.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/js/persian.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/show_order_details.blade.php" afterDir="false" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style_v1.2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style_v1.2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/whatsapp.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/whatsapp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,14 +424,7 @@
       <workItem from="1642964327076" duration="3157000" />
       <workItem from="1643095459684" duration="136000" />
       <workItem from="1643095664102" duration="2148000" />
-      <workItem from="1643142155840" duration="3830000" />
-    </task>
-    <task id="LOCAL-00028" summary="last">
-      <created>1625304625559</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1625304625559</updated>
+      <workItem from="1643142155840" duration="5252000" />
     </task>
     <task id="LOCAL-00029" summary="last">
       <created>1625312476711</created>
@@ -774,7 +762,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643097830228</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="001106">
+      <created>1643146078803</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1643146078803</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -858,7 +853,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/master.blade.php</url>
-          <line>524</line>
+          <line>520</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
