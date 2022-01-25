@@ -1,4 +1,3 @@
-                <p>jshgdoiufhdrtgoiurehgiuheriughiudrhgu</p>
 @if(isset($id))
     <p>{{$id}}</p>
     @endif

@@ -321,6 +321,12 @@
         </div>
         <!-- End Products Filter Modal Area -->
 
+                <a target="_blank" onclick="ht_ctc_click(this);" href="#" class="btn-whatsapp"
+                   data-return_type="chat"
+                   data-number="989193109312"
+                   data-pre_filled="از کارشناسان ما سوال خود را بپرسید"
+                ></a>
+
         <div class="go-top"><i class="bx bx-up-arrow-alt"></i></div>
 
 
@@ -334,6 +340,7 @@
         <script src="/js/sweetalert2.all.min.js"></script>
         <script src="/js/accounting.js"></script>
         <script src="/js/jquery.min.js"></script>
+        <script src="/js/whatsapp.js"></script>
         <script src="/js/popper.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
         <script src="/js/magnific-popup.min.js"></script>
