@@ -23,15 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/extra/Shopping-Bag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/extra/download.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/views/partials/show_order_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/views/partials/show_order_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/shipping.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/shipping.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -430,14 +422,7 @@
       <workItem from="1643095459684" duration="136000" />
       <workItem from="1643095664102" duration="2148000" />
       <workItem from="1643142155840" duration="5891000" />
-      <workItem from="1643227172942" duration="5465000" />
-    </task>
-    <task id="LOCAL-00031" summary="last">
-      <created>1625402523564</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1625402523564</updated>
+      <workItem from="1643227172942" duration="5669000" />
     </task>
     <task id="LOCAL-00032" summary="last">
       <created>1625406575156</created>
@@ -775,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643227195669</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="001108">
+      <created>1643232704909</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1643232704909</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -833,7 +825,8 @@
     <MESSAGE value="001104" />
     <MESSAGE value="001106" />
     <MESSAGE value="001107" />
-    <option name="LAST_COMMIT_MESSAGE" value="001107" />
+    <MESSAGE value="001108" />
+    <option name="LAST_COMMIT_MESSAGE" value="001108" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
