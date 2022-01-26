@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001106" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001106">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -418,13 +420,8 @@
       <workItem from="1642964327076" duration="3157000" />
       <workItem from="1643095459684" duration="136000" />
       <workItem from="1643095664102" duration="2148000" />
-    </task>
-    <task id="LOCAL-00028" summary="last">
-      <created>1625304625559</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1625304625559</updated>
+      <workItem from="1643117447035" duration="162000" />
+      <workItem from="1643175896626" duration="1099000" />
     </task>
     <task id="LOCAL-00029" summary="last">
       <created>1625312476711</created>
@@ -762,7 +759,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643097830228</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="001106">
+      <created>1643117523278</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1643117523278</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -822,14 +826,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="001106" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1643097948898">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1643177636627">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643097948898" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1643097841829">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643177636627" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1643117530139">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643097841829" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643117530139" />
     <state x="683" y="307" key="git4idea.merge.GitPullDialog" timestamp="1643011991113">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
