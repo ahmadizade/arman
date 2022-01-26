@@ -697,12 +697,14 @@ class ProfileController extends Controller
             $taxation = Session::get('shipping')['taxation'];
             $price_with_taxation = Session::get('shipping')['price_with_taxation'];
             $order_number = 'A.M-' . mt_rand(1, 90000) .'-'. Auth::id();
+            $product_count = count(Session::get('product'));
             $id = Orders::create([
                 'user_id' => Auth::id(),
                 'last_price' => $total_price,
                 'last_discount' => $taxation,
                 'price_with_taxation' => $price_with_taxation,
                 'status' => 1,
+                'product_count' => $product_count,
                 'status_payment' => 1,
                 'order_number' => $order_number,
                 'created_at' => Carbon::now(),
@@ -717,8 +719,9 @@ class ProfileController extends Controller
                     'product_id' => $item->id,
                     'product_name' => $item->product_name,
                     'product_price' => $item->price,
+                    'total_price' => $item->total_price,
                     'discount' => $item->discount,
-                    'product_quantity' => 1,
+                    'product_quantity' => $item->order_quantity ,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
                 ]);
@@ -734,7 +737,11 @@ class ProfileController extends Controller
 
                 array(
                     "Parameter" => "User",
-                    "ParameterValue" => Auth::user()->name . "-" . Auth::id(),
+                    "ParameterValue" => Auth::user()->name . " " . Auth::user()->family,
+                ),
+                array(
+                    "Parameter" => "mobile",
+                    "ParameterValue" => Auth::user()->mobile,
                 ),
             );
             Sms::dispatch($mobile, $dataSms, '61304');
