@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\BlogTag;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\OrderProducts;
+use App\Models\Orders;
 use App\Models\Product;
 use App\Models\Product_tag;
 use App\Models\Report;
@@ -1100,5 +1102,24 @@ class AdminController extends Controller
             'contact_us_time' => $request->contact_us_time,
         ]);
         return Response::json(["status" => "1", "desc" => "ذخیره با موفقیت انجام شد."]);
+    }
+
+    public function OrderManagment(){
+        $orders = Orders::where('delete' , 0)->orderByDesc('id')->get();
+        return view('admin.views.orders.orders',['orders' => $orders]);
+    }
+
+    public function dataTablesGetOrders(){
+        $result = Orders::where('delete', 0)
+            ->leftJoin('users', 'users.id', '=', 'orders.user_id')
+            ->orderByDesc('orders.created_at')
+            ->select('orders.*', 'users.name as name', 'users.family as family', 'users.mobile as mobile')
+            ->get();
+        return datatables()->of($result)->toJson();
+    }
+
+    public function showOrderDetails(Request $request){
+        $details = OrderProducts::where('order_id', $request->id)->get();
+        return view('admin.views.partials.show_order_details',['details' => $details]);
     }
 }
