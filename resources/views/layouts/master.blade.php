@@ -322,10 +322,10 @@
         <!-- End Products Filter Modal Area -->
         <a onclick="ht_ctc_click(this);" href="#" class="btn-whatsapp"
            data-return_type="chat"
-           data-number="989193109312"
+           data-number="989128757868"
            data-pre_filled="از کارشناسان فروش بپرسید"
         ></a>
-        
+
         <div class="go-top"><i class="bx bx-up-arrow-alt"></i></div>
 
 
@@ -570,9 +570,7 @@
                                     showConfirmButton: false,
                                     timer: 3000
                                 });
-                                window.setTimeout(function(){
-                                    location.reload()
-                                },3000)
+                                location.reload()
                             }
                         }
                     });

@@ -61,6 +61,7 @@
                                     <th scope="col">نام و نام خانوادگی</th>
                                     <th scope="col">شماره سفارش</th>
                                     <th scope="col">شماره تماس</th>
+                                    <th scope="col">محصولات</th>
                                     <th scope="col">مبلغ کل</th>
                                     <th scope="col">تاریخ ثبت</th>
                                     <th scope="col">مشاهده کالا</th>
@@ -355,6 +356,7 @@
                     },
                     {data: 'order_number', name: 'order_number'},
                     {data: 'mobile', name: 'mobile'},
+                    {data: 'product_count', name: '$product_count'},
                     {
                         data: 'last_price',name:'last_price', render: function (data, type, row) {
                             return '<span class="price">' + row.last_price + '</span>';

@@ -37,8 +37,15 @@
                                 <input type="text" name="address" value="{{\Illuminate\Support\Facades\Auth::user()->profile->address ?? ""}}" class="form-control">
                             </div>
 
-                            <button id="shipping_form_btn" type="submit" class="default-btn">انتقال به بانک</button>
+                            <button id="shipping_form_btn" type="submit" class="default-btn">ثبت نهایی</button>
                         </form>
+                        <div id="shipping_result" class="text-center d-none">
+                            <img class="img-fluid" src="/img/extra/download.png">
+                            <h5>ثبت سفارش شما با موفقیت انجام شد</h5>
+                            <p class="text-muted">همکاران واحد فروش در کوتاه‌ترین زمان ممکن با شما تماس خواهند گرفت</p>
+                            <img class="img-fluid" src="/img/extra/Shopping-Bag.png">
+                            <p class="text-muted mt-3"><span>واحد فروش : </span> 88555457-021 </p>
+                        </div>
                     </div>
                @endauth
                 @guest()
@@ -110,13 +117,12 @@
 
             $('body').on('click','#shipping_form_btn',function (e){
                 e.preventDefault();
-
+                $(".loader").addClass('active');
                     $ .ajax({
                         url : "{{route('shipping_action')}}",
                         type : "POST",
                         data : $('#shipping_form').serialize(),
                         success : function (data) {
-                            console.log(data);
                             if(data.status == "0") {
                                 Swal.fire({
                                     position: 'top-end',
@@ -127,6 +133,7 @@
                                     showConfirmButton: false,
                                     timer: 6000
                                 });
+                                $(".loader").removeClass('active');
                             };
 
                             if(data.status == "1") {
@@ -140,6 +147,9 @@
                                     showConfirmButton: false,
                                     timer: 4000
                                 });
+                                $(".loader").removeClass('active');
+                                $("#shipping_form").addClass('d-none');
+                                $("#shipping_result").removeClass('d-none');
                             };
                         }
                     });

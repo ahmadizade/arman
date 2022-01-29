@@ -5,6 +5,7 @@
             <th scope="col">شناسه</th>
             <th scope="col">نام محصول</th>
             <th scope="col">قیمت</th>
+            <th scope="col">تعداد</th>
             <th scope="col">تخفیف</th>
             <th scope="col">ثبت سفارش</th>
         </tr>
@@ -15,6 +16,7 @@
                     <td>{{$item->id}}</td>
                     <td>{{$item->product_name}}</td>
                     <td>{{number_format($item->product_price)}} تومان</td>
+                    <td>{{$item->product_quantity}} عدد</td>
                     <td>
                         @if ($item->product_discount == 0)
                             <span class="text-danger">ندارد</span>

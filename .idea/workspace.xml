@@ -22,9 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="001106">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+    <list default="true" id="55848e8f-5316-4ebf-b1f2-2a2c58a3b299" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +195,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cusupport" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -223,6 +222,7 @@
       <recent name="C:\xampp\htdocs\cioce_new_face\resources\views\profile" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -421,28 +421,8 @@
       <workItem from="1642964327076" duration="3157000" />
       <workItem from="1643095459684" duration="136000" />
       <workItem from="1643095664102" duration="2148000" />
-      <workItem from="1643142155840" duration="5252000" />
-    </task>
-    <task id="LOCAL-00029" summary="last">
-      <created>1625312476711</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1625312476711</updated>
-    </task>
-    <task id="LOCAL-00030" summary="last">
-      <created>1625316669246</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1625316669246</updated>
-    </task>
-    <task id="LOCAL-00031" summary="last">
-      <created>1625402523564</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1625402523564</updated>
+      <workItem from="1643142155840" duration="5891000" />
+      <workItem from="1643227172942" duration="5669000" />
     </task>
     <task id="LOCAL-00032" summary="last">
       <created>1625406575156</created>
@@ -766,7 +746,28 @@
       <option name="project" value="LOCAL" />
       <updated>1643146078803</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="001107">
+      <created>1643147460987</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1643147460987</updated>
+    </task>
+    <task id="LOCAL-00079" summary="001107">
+      <created>1643227195669</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1643227195669</updated>
+    </task>
+    <task id="LOCAL-00080" summary="001108">
+      <created>1643232704909</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1643232704909</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -823,13 +824,9 @@
     <MESSAGE value="001030" />
     <MESSAGE value="001104" />
     <MESSAGE value="001106" />
-    <option name="LAST_COMMIT_MESSAGE" value="001106" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1643180908246">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1643180908246" />
+    <MESSAGE value="001107" />
+    <MESSAGE value="001108" />
+    <option name="LAST_COMMIT_MESSAGE" value="001108" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -846,7 +843,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
-          <line>1422</line>
+          <line>1429</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -856,7 +853,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/master.blade.php</url>
-          <line>516</line>
+          <line>520</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -891,7 +888,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php</url>
-          <line>805</line>
+          <line>803</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -906,27 +903,36 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/routes/web.php</url>
-          <line>172</line>
+          <line>168</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php</url>
-          <line>141</line>
+          <line>243</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/admin/views/orders/orders.blade.php</url>
-          <line>70</line>
+          <line>75</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php</url>
-          <line>786</line>
+          <line>784</line>
           <properties>
             <option name="className" value="\App\Http\Controllers\AdminController" />
             <option name="methodName" value="deleteSlider" />
           </properties>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php</url>
+          <line>692</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\ProfileController" />
+            <option name="methodName" value="shippingAction" />
+          </properties>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
