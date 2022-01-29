@@ -323,7 +323,7 @@
         <a onclick="ht_ctc_click(this);" href="#" class="btn-whatsapp"
            data-return_type="chat"
            data-number="989193109312"
-           data-pre_filled="از کارشناسان ما سوال خود را بپرسید"
+           data-pre_filled="از کارشناسان فروش بپرسید"
         ></a>
         
         <div class="go-top"><i class="bx bx-up-arrow-alt"></i></div>
