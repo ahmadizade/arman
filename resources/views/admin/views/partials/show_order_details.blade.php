@@ -16,7 +16,13 @@
                     <td>{{$item->id}}</td>
                     <td>{{$item->product_name}}</td>
                     <td>{{number_format($item->product_price)}} تومان</td>
-                    <td>{{$item->product_quantity}} عدد</td>
+                    <td>
+                        @if (isset($item->product_quantity) && $item->product_quantity > 0)
+                            {{$item->product_quantity}} عدد
+                        @else
+                            1 عدد
+                        @endif
+                    </td>
                     <td>
                         @if ($item->product_discount == 0)
                             <span class="text-danger">ندارد</span>
