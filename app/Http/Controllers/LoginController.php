@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\Sms;
+use App\Models\OrderProducts;
+use App\Models\Orders;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -319,7 +321,7 @@ class LoginController extends Controller
         ]);
 
         if ($validate->fails()) {
-            return Response::json(["status" => "0","desc" => "کد وارد شده اشتباه می باشد"]);
+            return Response::json(["status" => "0","desc" => "اطلاعات وارد شده صحیح نیستند!"]);
         }
 
         $user = User::insertGetId([
@@ -341,8 +343,71 @@ class LoginController extends Controller
             "updated_at" => Carbon::now(),
         ]);
         Auth::loginUsingId($user, true);
+
+        if (Session::has('product') && count(Session::get('product')) > 0 && Session::has('shipping') && count(Session::get('shipping')) > 0) {
+            $total_price = Session::get('shipping')['total_price'];
+            $taxation = Session::get('shipping')['taxation'];
+            $price_with_taxation = Session::get('shipping')['price_with_taxation'];
+            $order_number = 'A.M-' . mt_rand(1, 90000) .'-'. Auth::id();
+            $product_count = count(Session::get('product'));
+            $id = Orders::create([
+                'user_id' => Auth::id(),
+                'last_price' => $total_price,
+                'last_discount' => $taxation,
+                'price_with_taxation' => $price_with_taxation,
+                'status' => 1,
+                'product_count' => $product_count,
+                'status_payment' => 1,
+                'order_number' => $order_number,
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ])->id;
+
+            foreach(Session::get('product') as $item)
+            {
+                OrderProducts::create([
+                    'user_id' => Auth::id(),
+                    'order_id' => $id,
+                    'product_id' => $item->id,
+                    'product_name' => $item->product_name,
+                    'product_price' => $item->price,
+                    'total_price' => $item->total_price,
+                    'discount' => $item->discount,
+                    'product_quantity' => $item->order_quantity ,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+            }
+            //SMS
+            $mobile = '09128757868';
+            $code = $order_number;
+            $dataSms = array(
+                array(
+                    "Parameter" => "OrderNumber",
+                    "ParameterValue" => $code,
+                ),
+
+                array(
+                    "Parameter" => "User",
+                    "ParameterValue" => Auth::user()->name . " " . Auth::user()->family,
+                ),
+                array(
+                    "Parameter" => "mobile",
+                    "ParameterValue" => Auth::user()->mobile,
+                ),
+            );
+            Sms::dispatch($mobile, $dataSms, '61304');
+
+
+            return Response::json(['status' => '1', 'desc' =>'سفارش شما با موفقیت ثبت شد.']);
+
+        } else {
+            return Response::json(['status' => '0', 'desc' => "سبد خرید خود را مجدد تایید فرمایید!"]);
+        }
+
+
         Cache::forget("mobile_code_".$mobile);
-        return Response::json(["status" => "1" , 'desc' => "در حال انتقال به درگاه بانک"]);
+        return Response::json(["status" => "1" , 'desc' => "سفارش شما با موفقیت ثبت شد."]);
     }
 
 

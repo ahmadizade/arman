@@ -49,8 +49,8 @@
                     </div>
                @endauth
                 @guest()
-                    <div class="track-order-content mb-5">
-                        <div class="row">
+                    <div  class="track-order-content mb-5">
+                        <div id="tracker" class="row">
                             <div class="col-4 position-relative">
                                 <span id="mobile_img" class="steps step-active">
                                     <img src="/img/extra/mobile.png" class="img-fluid" title="mobile">
@@ -99,8 +99,17 @@
                                     <label>آدرس<span class="text-danger px-2">*</span></label>
                                     <input type="text" id="address" name="address" placeholder="محصول شما به این آدرس ارسال خواهد شد" class="form-control">
                                  </div>
-                                <button id="user_information_btn" type="submit" class="default-btn mt-3">ورود به درگاه بانک</button>
-                            </form>
+                                <button id="user_information_btn" type="submit" class="default-btn mt-3">ثبت نهایی سفارش</button>
+
+                                 <div id="shipping_result" class="text-center d-none">
+                                     <img class="img-fluid" src="/img/extra/download.png">
+                                     <h5>ثبت سفارش شما با موفقیت انجام شد</h5>
+                                     <p class="text-muted">همکاران واحد فروش در کوتاه‌ترین زمان ممکن با شما تماس خواهند گرفت</p>
+                                     <img class="img-fluid" src="/img/extra/Shopping-Bag.png">
+                                     <p class="text-muted mt-3"><span>واحد فروش : </span> 88555457-021 </p>
+                                 </div>
+
+                             </form>
                         </div>
                     </div>
                @endguest
@@ -333,11 +342,14 @@
                                 showConfirmButton: false,
                                 timer: 4000
                             });
+                            $(".loader").removeClass('active');
+                            $("#user_information_form").addClass('d-none');
+                            $("#tracker").addClass('d-none');
+                            $("#shipping_result").removeClass('d-none');
                         };
-
                     }
                 });
-                $("#user_information_btn").html("<span class='fas fa-spinner fa-pulse'></span>در حال انتقال ");
+                $("#user_information_btn").html("<span class='fas fa-spinner fa-pulse'></span>ثبت موفق ");
 
             });
 
