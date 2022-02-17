@@ -746,7 +746,8 @@ class ProfileController extends Controller
             );
             Sms::dispatch($mobile, $dataSms, '61304');
 
-
+            Session::forget('product');
+            Session::forget('shipping');
             return Response::json(['status' => '1', 'desc' =>'ثبت محصول با موفقیت انجام شد.']);
 
         } else {

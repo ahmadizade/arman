@@ -92,7 +92,7 @@ class LoginController extends Controller
                     Sms::dispatch($mobile, $dataSms, '53056');
                     Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(120)], 120);
 
-                    return Response::json(['status' => 1, 'desc' => "کد پنج رقمی به شماره موبایل شما ارسال شد", 'mobile' => $mobile, 'code' => $code]);
+                    return Response::json(['status' => 1, 'desc' => "کد چهار رقمی به شماره موبایل شما ارسال شد", 'mobile' => $mobile, 'code' => $code]);
                 }
             }else{
                 return Response::json(['status' => 0 , 'desc' => "تایید شرایط و قوانین، الزامی می باشد"]);
@@ -267,7 +267,7 @@ class LoginController extends Controller
                 Sms::dispatch($mobile, $dataSms, '53056');
                 Cache::put("mobile_code_" . $mobile, [$code, Carbon::now()->addSeconds(120)], 120);
 
-                return Response::json(['status' => 1, 'desc' => "کد پنج رقمی به شماره موبایل شما ارسال شد", 'mobile' => $mobile, 'code' => $code]);
+                return Response::json(['status' => 1, 'desc' => "کد چهار رقمی به شماره موبایل شما ارسال شد", 'mobile' => $mobile, 'code' => $code]);
             }
 
     }
@@ -398,7 +398,8 @@ class LoginController extends Controller
             );
             Sms::dispatch($mobile, $dataSms, '61304');
 
-
+            Session::forget('product');
+            Session::forget('shipping');
             return Response::json(['status' => '1', 'desc' =>'سفارش شما با موفقیت ثبت شد.']);
 
         } else {

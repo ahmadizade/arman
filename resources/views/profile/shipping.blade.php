@@ -100,16 +100,14 @@
                                     <input type="text" id="address" name="address" placeholder="محصول شما به این آدرس ارسال خواهد شد" class="form-control">
                                  </div>
                                 <button id="user_information_btn" type="submit" class="default-btn mt-3">ثبت نهایی سفارش</button>
-
-                                 <div id="shipping_result" class="text-center d-none">
-                                     <img class="img-fluid" src="/img/extra/download.png">
-                                     <h5>ثبت سفارش شما با موفقیت انجام شد</h5>
-                                     <p class="text-muted">همکاران واحد فروش در کوتاه‌ترین زمان ممکن با شما تماس خواهند گرفت</p>
-                                     <img class="img-fluid" src="/img/extra/Shopping-Bag.png">
-                                     <p class="text-muted mt-3"><span>واحد فروش : </span> 88555457-021 </p>
-                                 </div>
-
                              </form>
+                            <div id="shipping_result" class="text-center d-none">
+                                <img class="img-fluid" src="/img/extra/download.png">
+                                <h5>ثبت سفارش شما با موفقیت انجام شد</h5>
+                                <p class="text-muted">همکاران واحد فروش در کوتاه‌ترین زمان ممکن با شما تماس خواهند گرفت</p>
+                                <img class="img-fluid" src="/img/extra/Shopping-Bag.png">
+                                <p class="text-muted mt-3"><span>واحد فروش : </span> 88555457-021 </p>
+                            </div>
                         </div>
                     </div>
                @endguest
