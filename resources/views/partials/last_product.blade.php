@@ -43,11 +43,11 @@
                     </div>
                 </div>
 
-                <div class="content">
+                <div class="content text-center">
                     <h3><a href="{{ route("single_product",["slug" => $item->product_slug]) }}">{{$item->product_name}}</a></h3>
-                    <div class="price">
-                        <span class="new-price">{{number_format($item->price)}} تومان</span>
-                    </div>
+{{--                    <div class="price">--}}
+{{--                        <span class="new-price">{{number_format($item->price)}} تومان</span>--}}
+{{--                    </div>--}}
                 </div>
             </div>
             @endforeach

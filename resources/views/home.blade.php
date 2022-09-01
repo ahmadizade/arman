@@ -34,7 +34,7 @@
                                         <p>{{json_decode($setting->home_page_slider)[0]->slide_text ?? ""}}</p>
                                         <div class="btn-box">
                                             <div class="d-flex align-items-center float-left">
-                                                <span class="price">{{json_decode($setting->home_page_slider)[0]->slide_price ?? ""}} تومان</span>
+{{--                                                <span class="price">{{json_decode($setting->home_page_slider)[0]->slide_price ?? ""}} تومان</span>--}}
                                                 <a href="{{json_decode($setting->home_page_slider)[0]->slide_link ?? ""}}" data-id="2" class="btn btn-primary add-cart">مشاهده محصول<i class="flaticon-trolley pr-2"></i></a>
                                             </div>
                                         </div>
@@ -63,7 +63,7 @@
                                         <p>{{json_decode($setting->home_page_slider)[1]->slide_text ?? ""}}</p>
                                         <div class="btn-box">
                                             <div class="d-flex align-items-center float-left">
-                                                <span class="price">{{json_decode($setting->home_page_slider)[1]->slide_price ?? ""}} تومان</span>
+{{--                                                <span class="price">{{json_decode($setting->home_page_slider)[1]->slide_price ?? ""}} تومان</span>--}}
                                                 <a href="{{json_decode($setting->home_page_slider)[1]->slide_link ?? ""}}" data-id="2" class="btn btn-primary add-cart">مشاهده محصول<i class="flaticon-trolley pr-2"></i></a>
                                             </div>
                                         </div>
@@ -93,7 +93,7 @@
                             <div class="btn-box">
                                 <div class="d-flex align-items-center">
                                     <a href="{{json_decode($setting->home_page_boxes)[1]->box_link ?? "#"}}" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
-                                    <span class="price">{{json_decode($setting->home_page_boxes)[1]->box_price ?? ""}} تومان</span><span class="price"></span>
+{{--                                    <span class="price">{{json_decode($setting->home_page_boxes)[1]->box_price ?? ""}} تومان</span><span class="price"></span>--}}
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                             <div class="btn-box">
                                 <div class="d-flex align-items-center">
                                     <a href="{{json_decode($setting->home_page_boxes)[0]->box_link ?? "#"}}" class="btn btn-primary"><span class="flaticon-trolley"></span>مشاهده کالا </a>
-                                    <span class="price">{{json_decode($setting->home_page_boxes)[0]->box_price ?? ""}} تومان</span><span class="price"></span>
+{{--                                    <span class="price">{{json_decode($setting->home_page_boxes)[0]->box_price ?? ""}} تومان</span><span class="price"></span>--}}
                                 </div>
                             </div>
                         </div>
@@ -143,8 +143,8 @@
                         <div class="content">
                             <span class="sub-title">{{json_decode($setting->home_page_boxes)[4]->box_head ?? "محصول جدید"}}</span>
                             <h3>{{json_decode($setting->home_page_boxes)[4]->box_title ?? "محصول جدید"}}</h3>
-                            <span class="discount"><span>از</span> {{json_decode($setting->home_page_boxes)[4]->box_price ?? ""}} تومان</span>
-                            <a href="{{json_decode($setting->home_page_boxes)[4]->box_link ?? "#"}}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+{{--                            <span class="discount"><span>از</span> {{json_decode($setting->home_page_boxes)[4]->box_price ?? ""}} تومان</span>--}}
+                            <a href="{{json_decode($setting->home_page_boxes)[4]->box_link ?? "#"}}" class="link-btn d-block">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
                         </div>
                     </div>
                 </div>
@@ -156,8 +156,8 @@
                         <div class="content">
                             <span class="sub-title">{{json_decode($setting->home_page_boxes)[3]->box_head ?? "محصول جدید"}}</span>
                             <h3>{{json_decode($setting->home_page_boxes)[3]->box_title ?? "محصول جدید"}}</h3>
-                            <span class="discount"><span>از</span> {{json_decode($setting->home_page_boxes)[3]->box_price ?? ""}} تومان</span>
-                            <a href="{{json_decode($setting->home_page_boxes)[3]->box_link ?? "#"}}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+{{--                            <span class="discount"><span>از</span> {{json_decode($setting->home_page_boxes)[3]->box_price ?? ""}} تومان</span>--}}
+                            <a href="{{json_decode($setting->home_page_boxes)[3]->box_link ?? "#"}}" class="link-btn d-block">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
                         </div>
                     </div>
                 </div>
@@ -169,8 +169,8 @@
                         <div class="content">
                             <span class="sub-title">{{json_decode($setting->home_page_boxes)[2]->box_head ?? "محصول جدید"}}</span>
                             <h3>{{json_decode($setting->home_page_boxes)[2]->box_title ?? "محصول جدید"}}</h3>
-                            <span class="discount"><span>از</span> {{json_decode($setting->home_page_boxes)[2]->box_price ?? ""}} تومان</span>
-                            <a href="{{json_decode($setting->home_page_boxes)[2]->box_link ?? "#"}}" class="link-btn">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
+{{--                            <span class="discount"><span>از</span> {{json_decode($setting->home_page_boxes)[2]->box_price ?? ""}} تومان</span>--}}
+                            <a href="{{json_decode($setting->home_page_boxes)[2]->box_link ?? "#"}}" class="link-btn d-block">اکنون خرید کنید<i class="flaticon-left-chevron"></i></a>
                         </div>
                     </div>
                 </div>

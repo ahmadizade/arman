@@ -56,8 +56,9 @@
                     <ul class="footer-contact-info">
 {{--                        <li><span>خط تلفن: </span> <a href="#">021-۸۸۵۵۷۳۳۵</a></li>--}}
                         <li><span>تلفن: </span> <a href="tel:02188555457">88555457 - 021</a></li>
+                        <li><span>تلفن: </span> <a href="tel:02188555457">8757868 - 0912</a></li>
                         <li><span>ایمیل: </span> <a href="mailto:hello@drodo.com">sales@armanmask.ir</a></li>
-                        <li><span>آدرس: </span> <a href="#" target="_blank">تهران، خیابان بخارست، کوچه پنجم، پلاک ۱۵ طبقه ۳ واحد ۱۶</a></li>
+{{--                        <li><span>آدرس: </span> <a href="#" target="_blank">تهران، خیابان بخارست، کوچه پنجم، پلاک ۱۵ طبقه ۳ واحد ۱۶</a></li>--}}
                     </ul>
                     <ul class="social">
 {{--                        <li><a href="#" target="_blank"><i class="bx bxl-facebook-square"></i></a></li>--}}

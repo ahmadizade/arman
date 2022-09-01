@@ -3,9 +3,15 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-7">
-                <ul class="top-header-contact-info">
-                    <li><i class="bx bx-phone-call"></i> <a href="tel:+1234567898">021-۸۸۵۵5457</a></li>
-                    <li><i class="bx bx-map"></i> <a href="#" target="_blank">تهران، خیابان بخارست، کوچه پنجم، پلاک ۱۵</a></li>
+                <ul class="top-header-contact-info text-sm-center">
+                    <li><i class="bx bx-phone-call"></i> <a href="tel:+982188555457">021-۸۸۵۵5457</a></li>
+                    <li><i class="bx bx-phone-call"></i> <a href="tel:+989128757868">0912-8757868</a></li>
+{{--                    <li><i class="bx bx-map"></i> <a href="#" target="_blank">تهران، خیابان بخارست، کوچه پنجم، پلاک ۱۵</a></li>--}}
+                    <li><i class="bx bx-recycle text-danger"></i>
+                        <a href="javascript:void(0)">
+                            <span class="text-danger">توجه:</span> فروش حضوری نداریم.<span></span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
@@ -14,7 +20,6 @@
                     @if(!Auth::check())
 
                     <li><a href="{{route('login')}}">ورود / ثبت نام</a></li>
-
 
                     @else
 

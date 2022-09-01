@@ -17,7 +17,8 @@
       <scope value="GLOBAL" />
       <destination value="FILE" />
       <format value="EXCEL" />
-      <charset value="windows-1252" />
+      <charset value="windows-1256" />
+      <charset value="windows-1256" />
     </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -49,6 +50,9 @@
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
+  </component>
+  <component name="DBNavigator.Project.ParserDiagnosticsManager">
+    <diagnostics-history />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
     <recently-used-interfaces />
@@ -174,6 +178,7 @@
       <qualified-text-editor text-length-threshold="300">
         <content-types>
           <content-type name="Text" enabled="true" />
+          <content-type name="Properties" enabled="true" />
           <content-type name="XML" enabled="true" />
           <content-type name="DTD" enabled="true" />
           <content-type name="HTML" enabled="true" />
@@ -185,7 +190,9 @@
           <content-type name="JSON" enabled="true" />
           <content-type name="JSON5" enabled="true" />
           <content-type name="PHP" enabled="true" />
+          <content-type name="ASP" enabled="true" />
           <content-type name="YAML" enabled="true" />
+          <content-type name="Bash" enabled="true" />
         </content-types>
       </qualified-text-editor>
       <record-navigation>

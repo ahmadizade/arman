@@ -76,26 +76,26 @@
                     <div class="products-details-desc products-details-desc-sticky">
                         <h1 style="font-size: 30px;">{{$product->product_name}}</h1>
 
-                        <div class="price">
-                            @if($product->discount > 0)
-                                <span class="old-price">
-                                    @if ($product->price > 0)
-                                        {{number_format($product->price)}} تومان
-                                    @elseif ($product->price == 0)
-                                        <span class="text-danger" style="font-size: 20px">رایگان</span>
-                                    @endif
-                                </span>
-                                <span class="new-price text-danger mx-2 font-18">{{number_format($product->price - ($product->price * $product->discount) / 100)}} تومان</span>
-                            @else
-                                <span class="new-price text-danger mx-2 font-18">
-                                    @if ($product->price > 0)
-                                        {{number_format($product->price)}} تومان
-                                    @elseif ($product->price == 0)
-                                        <span class="text-danger" style="font-size: 20px">رایگان</span>
-                                    @endif
-                                </span>
-                            @endif
-                        </div>
+{{--                        <div class="price">--}}
+{{--                            @if($product->discount > 0)--}}
+{{--                                <span class="old-price">--}}
+{{--                                    @if ($product->price > 0)--}}
+{{--                                        {{number_format($product->price)}} تومان--}}
+{{--                                    @elseif ($product->price == 0)--}}
+{{--                                        <span class="text-danger" style="font-size: 20px">رایگان</span>--}}
+{{--                                    @endif--}}
+{{--                                </span>--}}
+{{--                                <span class="new-price text-danger mx-2 font-18">{{number_format($product->price - ($product->price * $product->discount) / 100)}} تومان</span>--}}
+{{--                            @else--}}
+{{--                                <span class="new-price text-danger mx-2 font-18">--}}
+{{--                                    @if ($product->price > 0)--}}
+{{--                                        {{number_format($product->price)}} تومان--}}
+{{--                                    @elseif ($product->price == 0)--}}
+{{--                                        <span class="text-danger" style="font-size: 20px">رایگان</span>--}}
+{{--                                    @endif--}}
+{{--                                </span>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
 
                         <div class="products-review">
                             @php
